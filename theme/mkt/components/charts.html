@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no, maximum-scale=1.0, user-scalable=0">
+    <meta name="keyword" content="">
+    <meta name="description" content="">
+    <title>Bootstrap Marketing &amp; Promotion</title>
+    <link rel="shortcut icon" href="../../../assets/common/img/favicon/ux.ico">
+    <link rel="apple-touch-icon" href="../../../assets/common/img/favicon/ux.png">
+    <link rel="stylesheet" type="text/css" href="../../../assets/mkt/css/uxs.css">
+    <link rel="stylesheet" type="text/css" href="../../../assets/mkt/css/demo.css">
+  </head>
+  <body>
+    <!-- wrapper -->
+    <div class="wrapper wrapper-fixed" id="go-to-top">
+      <!-- docs-header -->
+      <div class="docs-header">
+        <!-- lnb-toggler -->
+        <button class="navbar-toggler docs-sidebar-toggler" type="button" aria-controls="theme-lnb" aria-expanded="false" aria-label="Toggle LNB">
+          <span class="navbar-toggler-icon" aria-hidden="true"></span>
+          <span class="sr-only">주 메뉴 바로가기</span>
+        </button>
+        <!-- /lnb-toggler -->
+        <!--
+          navbar-brand
+          React - text-react,
+          Vue   - text-vue
+        -->
+        <span class="navbar-brand text-bootstrap">Bootstrap</span>
+        <span class="navbar-brand">Marketing &amp; Promotion</span>
+      </div>
+      <!-- /docs-header -->
+      <div class="docs-body">
+        <div class="docs-sidebar" data-include="../_includes/ct-sidebar.html" data-name="charts"></div>
+        <!-- docs-contents -->
+        <main class="docs-contents contents-mt">
+          <div class="d-flex flex-row align-items-start mb-7 mb-md-10">
+            <!-- toc -->
+            <div class="toc">
+              <nav class="nav flex-column js-toc-triggers">
+                <a class="nav-link" href="#charts-line">Line chart</a>
+                <a class="nav-link" href="#charts-bar">Bar chart</a>
+                <a class="nav-link" href="#charts-pie">Pie chart</a>
+                <a class="nav-link" href="#charts-doughnut">Doughnut chart</a>
+                <a class="nav-link" href="#charts-bubble">Bubble chart</a>
+                <a class="nav-link" href="#charts-area">Area chart</a>
+                <a class="nav-link" href="#charts-stacked">Stacked Area chart</a>
+                <a class="nav-link" href="#charts-multi">Multi chart (Column &amp; line) chart</a>
+                <a class="nav-link" href="#charts-histogram">Histogram chart</a>
+                <a class="nav-link" href="#charts-stacked-bar">Stacked Bar chart</a>
+                <a class="nav-link" href="#charts-group-bar">Group bar chart</a>
+                <a class="nav-link" href="#charts-polar">Polar chart</a>
+                <a class="nav-link" href="#charts-radar">Radar chart</a>
+                <a class="nav-link" href="#charts-scatterplot">Scatterplot chart</a>
+              </nav>
+            </div>
+            <!-- /toc -->
+
+            <!-- toc-content -->
+            <div class="toc-content">
+              <div>Components</div>
+              <div class="component-title font-weight-bold mb-7">Chart</div>
+
+              <div class="card mb-5" id="charts-line">
+                <div class="card-header">
+                  Line chart
+                </div>
+                <div class="card-body py-5 px-4">
+                  <!--Component-->
+                  <div class="chart">
+                    <div>
+                      <canvas id="chart-1"></canvas>
+                    </div>
+                  </div>
+                  <!--/Component-->
+                </div>
+              </div>
+
+              <div class="card mb-5" id="charts-bar">
+                <div class="card-header">
+                  Bar chart
+                </div>
+                <div class="card-body py-5 px-4">
+                  <!--Component-->
+                  <div class="chart">
+                    <div>
+                      <canvas id="chart-2"></canvas>
+                    </div>
+                  </div>
+                  <!--/Component-->
+                </div>
+              </div>
+
+              <div class="card mb-5" id="charts-pie">
+                <div class="card-header">
+                  Pie chart
+                </div>
+                <div class="card-body py-5 px-4">
+                  <!--Component-->
+                  <div class="chart">
+                    <div>
+                      <canvas id="chart-3"></canvas>
+                    </div>
+                  </div>
+                  <!--/Component-->
+                </div>
+              </div>
+
+              <div class="card mb-5" id="charts-doughnut">
+                <div class="card-header">
+                  Doughnut chart
+                </div>
+                <div class="card-body py-5 px-4">
+                  <!--Component-->
+                  <div class="chart">
+                    <div>
+                      <canvas id="chart-4"></canvas>
+                    </div>
+                  </div>
+                  <!--/Component-->
+                </div>
+              </div>
+
+              <div class="card mb-5" id="charts-bubble">
+                <div class="card-header">
+                  Bubble chart
+                </div>
+                <div class="card-body py-5 px-4">
+                  <!--Component-->
+                  <div class="chart">
+                    <div>
+                      <canvas id="chart-5"></canvas>
+                    </div>
+                  </div>
+                  <!--/Component-->
+                </div>
+              </div>
+
+              <div class="card mb-5" id="charts-area">
+                <div class="card-header">
+                  Area chart
+                </div>
+                <div class="card-body py-5 px-4">
+                  <!--Component-->
+                  <div class="chart">
+                    <div>
+                      <canvas id="chart-6"></canvas>
+                    </div>
+                  </div>
+                  <!--/Component-->
+                </div>
+              </div>
+
+              <div class="card mb-5" id="charts-stacked">
+                <div class="card-header">
+                  Stacked Area chart
+                </div>
+                <div class="card-body py-5 px-4">
+                  <!--Component-->
+                  <div class="chart">
+                    <div>
+                      <canvas id="chart-7"></canvas>
+                    </div>
+                  </div>
+                  <!--/Component-->
+                </div>
+              </div>
+
+              <div class="card mb-5" id="charts-multi">
+                <div class="card-header">
+                  Multi chart (Column & line) chart
+                </div>
+                <div class="card-body py-5 px-4">
+                  <!--Component-->
+                  <div class="chart">
+                    <div>
+                      <canvas id="chart-8"></canvas>
+                    </div>
+                  </div>
+                  <!--/Component-->
+                </div>
+              </div>
+
+              <div class="card mb-5" id="charts-histogram">
+                <div class="card-header">
+                  Histogram chart
+                </div>
+                <div class="card-body py-5 px-4">
+                  <!--Component-->
+                  <div class="chart">
+                    <div>
+                      <canvas id="chart-9"></canvas>
+                    </div>
+                  </div>
+                  <!--/Component-->
+                </div>
+              </div>
+
+              <div class="card mb-5" id="charts-stacked-bar">
+                <div class="card-header">
+                  Stacked Bar chart
+                </div>
+                <div class="card-body py-5 px-4">
+                  <!--Component-->
+                  <div class="chart">
+                    <div>
+                      <canvas id="chart-10"></canvas>
+                    </div>
+                  </div>
+                  <!--/Component-->
+                </div>
+              </div>
+
+              <div class="card mb-5" id="charts-group-bar">
+                <div class="card-header">
+                  Group bar chart
+                </div>
+                <div class="card-body py-5 px-4">
+                  <!--Component-->
+                  <div class="chart">
+                    <div>
+                      <canvas id="chart-11"></canvas>
+                    </div>
+                  </div>
+                  <!--/Component-->
+                </div>
+              </div>
+
+              <div class="card mb-5" id="charts-polar">
+                <div class="card-header">
+                  Polar chart
+                </div>
+                <div class="card-body py-5 px-4">
+                  <!--Component-->
+                  <div class="chart">
+                    <div>
+                      <canvas id="chart-12"></canvas>
+                    </div>
+                  </div>
+                  <!--/Component-->
+                </div>
+              </div>
+
+              <div class="card mb-5" id="charts-radar">
+                <div class="card-header">
+                  Radar chart
+                </div>
+                <div class="card-body py-5 px-4">
+                  <!--Component-->
+                  <div class="chart">
+                    <div>
+                      <canvas id="chart-13"></canvas>
+                    </div>
+                  </div>
+                  <!--/Component-->
+                </div>
+              </div>
+
+              <div class="card mb-5" id="charts-scatterplot">
+                <div class="card-header">
+                  Scatterplot chart
+                </div>
+                <div class="card-body py-5 px-4">
+                  <!--Component-->
+                  <div class="chart">
+                    <div>
+                      <canvas id="chart-14"></canvas>
+                    </div>
+                  </div>
+                  <!--/Component-->
+                </div>
+              </div>
+            </div>
+            <!-- /toc-content -->
+          </div>
+        </main>
+        <!-- /docs-contents -->
+      </div>
+
+      <!-- theme-go-to-top -->
+      <div class="theme-go-to-top">
+        <a class="ux-top-link" href="#go-to-top">
+          <span class="glyphicons-top" aria-hidden="true"></span>
+          <span class="sr-only">Go to Top</span>
+        </a>
+      </div>
+      <!-- /theme-go-to-top -->
+    </div>
+    <!-- /wrapper -->
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/hammerjs@2.0.8"></script>
+
+    <!-- UI Script -->
+    <script src="../../../assets/common/js/vendor/perfect_scrollbar_1.4.0/perfect_scrollbar.min.js"></script>
+    <script src="../../../assets/common/js/vendor/chart_2.8.0/Chart.min.js"></script>
+    <script src="../../../assets/common/js/ui.js"></script>
+    <script src="../../../assets/common/js/demo.js"></script>
+
+    <script>
+      $(function () {
+        var colorSet = UXSChart.getLightColorSet();
+
+        // ----------------------------- line chart -----------------------------
+
+        var timeFormat = 'MM/DD/YYYY';
+
+        function newDateString(days) {
+          return moment().add(days, 'd').format(timeFormat);
+        }
+
+        var currTime = 0;
+
+        var lineChartData = {
+          datasets: [
+            {
+              label: "Device 01",
+              data: [{
+                x: newDateString(0),
+                y: 6
+              }, {
+                x: newDateString(5),
+                y: 12
+              }, {
+                x: newDateString(10),
+                y: 10
+              }, {
+                x: newDateString(15),
+                y: 18
+              }, {
+                x: newDateString(20),
+                y: 16
+              }, {
+                x: newDateString(25),
+                y: 8
+              }, {
+                x: newDateString(30),
+                y: 14
+              }, {
+                x: newDateString(35),
+                y: 7
+              }],
+              fill: false,
+              borderColor: colorSet.chartColorSet1[8],
+              borderWidth: 2
+            },
+            {
+              label: "Device 02",
+              data: [{
+                x: newDateString(0),
+                y: 4
+              }, {
+                x: newDateString(5),
+                y: 18
+              }, {
+                x: newDateString(10),
+                y: 6
+              }, {
+                x: newDateString(15),
+                y: 3
+              }, {
+                x: newDateString(20),
+                y: 14
+              }, {
+                x: newDateString(25),
+                y: 0
+              }, {
+                x: newDateString(30),
+                y: 14
+              }, {
+                x: newDateString(35),
+                y: 16
+              }],
+              fill: false,
+              borderColor: colorSet.chartColorCategory3_2[1],
+              borderDash: [2, 2],
+            },
+          ]
+        };
+
+        var lineChartOptions = UXSChart.getLineChartOptions();
+        lineChartOptions.scales.xAxes[0].type = 'time';
+
+        var lineChart = new Chart("chart-1", {
+          type: "line",
+          data: lineChartData,
+          options: lineChartOptions
+        });
+        lineChart.generateLegend();
+
+        window.resetZoom = function () {
+          window.lineChart.resetZoom();
+        };
+
+        // ----------------------------- bar chart -----------------------------
+
+        var barChartData = {
+          labels: ["Sun", "Tue", "Mon", "Wed"],
+          datasets: [{
+            data: [10, 16, 15, 8],
+            backgroundColor: [
+              colorSet.chartColorSet1[9],
+              colorSet.chartColorSet1[9],
+              colorSet.chartColorSet1[9],
+              colorSet.chartColorSet1[9],
+            ],
+            borderWidth: 0
+          }]
+        };
+
+        var barChartOptions = UXSChart.getBarChartOptions();
+
+        var barChart = new Chart("chart-2", {
+          type: "bar",
+          data: barChartData,
+          options: barChartOptions
+        });
+
+        // ----------------------------- pie chart -----------------------------
+
+        var pieData = {
+          datasets: [
+            {
+              data: [20, 40, 25, 10, 15, 13],
+              backgroundColor: [
+                colorSet.chartColorCategory5_2[0],
+                colorSet.chartColorCategory5_2[1],
+                colorSet.chartColorCategory5_2[2],
+                colorSet.chartColorCategory5_2[3],
+                colorSet.chartColorCategory5_2[4],
+                '#e5e5ea',
+              ],
+            },
+          ],
+
+          labels: [
+            'Device 01',
+            'Device 02',
+            'Device 03',
+            'Device 04',
+            'Device 05',
+            'etc',
+          ],
+        };
+
+        var pieChartOptions = UXSChart.getPieChartOptions();
+
+        var pieChart = new Chart('chart-3', {
+          type: 'pie',
+          data: pieData,
+          options: pieChartOptions,
+
+        });
+        pieChart.generateLegend();
+
+        // ----------------------------- doughnut chart -----------------------------
+
+        var doughnutData = {
+          datasets: [
+            {
+              data: [10, 20, 40, 25, 10, 13],
+              backgroundColor: [
+                colorSet.chartColorSet3[0],
+                colorSet.chartColorSet3[1],
+                colorSet.chartColorSet3[2],
+                colorSet.chartColorSet3[4],
+                colorSet.chartColorSet3[5],
+                '#efeff4',
+              ],
+            },
+          ],
+
+          labels: [
+            'Device 01',
+            'Device 02',
+            'Device 03',
+            'Device 04',
+            'Device 05',
+            'etc',
+          ],
+        };
+
+        var doughnutChartOptions = UXSChart.getDoughnutChartOptions();
+
+        doughnutChartOptions.elements.center.title = '총 데이터';
+        doughnutChartOptions.elements.center.text = '31.78(GB)';
+
+        var doughnutChart = new Chart('chart-4', {
+          type: 'doughnut',
+          data: doughnutData,
+          plugins: UXSChart.getDoughnutChartPlugins(),
+          options: doughnutChartOptions,
+        });
+        doughnutChart.generateLegend();
+
+
+        // ----------------------------- bubble chart -----------------------------
+
+        var bubbleChartData = {
+          datasets: [{
+            label: "Device 01",
+            backgroundColor: UXSChart.hexToRgb(colorSet.chartColorSet1[7], '0.5'),
+            borderColor: colorSet.chartColorSet1[7],
+            data: [
+              { x: -70, y: -90, r: 10 },
+              { x: -60, y: -35, r: 10 },
+              { x: -40, y: -40, r: 5 },
+              { x: -25, y: -50, r: 5 },
+              { x: -10, y: -75, r: 5 },
+            ]
+          }, {
+            label: "Device 02",
+            backgroundColor: UXSChart.hexToRgb(colorSet.chartColorSet1[8], '0.5'),
+            borderColor: colorSet.chartColorSet1[8],
+            data: [
+              { x: 75, y: -50, r: 5 },
+              { x: 45, y: -75, r: 3 },
+              { x: 20, y: -40, r: 10 },
+            ]
+          }, {
+            label: "Device 03",
+            backgroundColor: UXSChart.hexToRgb(colorSet.chartColorSet1[0], '0.5'),
+            borderColor: colorSet.chartColorSet1[0],
+            data: [
+              { x: -75, y: 50, r: 2 },
+              { x: -60, y: 40, r: 5 },
+              { x: -10, y: 75, r: 5 },
+            ]
+          }, {
+            label: "Device 04",
+            backgroundColor: UXSChart.hexToRgb(colorSet.chartColorSet1[11], '0.5'),
+            borderColor: colorSet.chartColorSet1[11],
+            data: [
+              { x: 90, y: 10, r: 10 },
+              { x: 70, y: 50, r: 3 },
+              { x: 40, y: 50, r: 6 },
+            ]
+          }]
+        };
+
+        var bubbleChartOptions = UXSChart.getBubbleChartOptions();
+
+        var bubbleChart = new Chart('chart-5', {
+          type: 'bubble',
+          data: bubbleChartData,
+          options: bubbleChartOptions
+        });
+        bubbleChart.generateLegend();
+
+        // ----------------------------- area chart -----------------------------
+
+        var areaChartData = {
+          labels: [0, 1, 2, 3, 4, 5, 6, 7, 8],
+          datasets: [{
+            backgroundColor: UXSChart.hexToRgb(colorSet.chartColorCategory3_5[2], '0.3'),
+            borderColor: colorSet.chartColorCategory3_5[2],
+            borderWidth: 2,
+            data: [4, 18, 7, 3, 13, 9, 15, 16, 10],
+            // data: [1, 3, 2, 1, 4, 3, 4, 3, 0],
+            label: 'Device 01',
+          }, {
+            backgroundColor: UXSChart.hexToRgb(colorSet.chartColorCategory3_5[0], '0.3'),
+            borderColor: colorSet.chartColorCategory3_5[0],
+            borderWidth: 2,
+            data: [6, 12, 10, 18, 15, 8, 16, 8, 8],
+            // data: [2, 1, 5, 10, 0, 1, 2, 3, 2],
+            label: 'Device 02',
+          }]
+        };
+
+        lineChartOptions = UXSChart.getLineChartOptions();
+
+        var areaChart = new Chart('chart-6', {
+          type: 'line',
+          data: areaChartData,
+          options: lineChartOptions
+        });
+        areaChart.generateLegend();
+
+        // ----------------------------- stacked area chart -----------------------------
+
+        var stackedAreaChartData = {
+          labels: [0, 1, 2, 3, 4, 5, 6, 7, 8],
+          datasets: [{
+            backgroundColor: UXSChart.hexToRgb(colorSet.chartColorCategory3_2[0], '0.2'),
+            borderColor: colorSet.chartColorCategory3_2[0],
+            borderWidth: 2,
+            data: [3, 6, 3, 2, 8, 5, 8, 2, 4],
+            label: 'Device 01',
+          }, {
+            backgroundColor: UXSChart.hexToRgb(colorSet.chartColorCategory3_2[1], '0.2'),
+            borderColor: colorSet.chartColorCategory3_2[1],
+            borderWidth: 2,
+            data: [1, 3, 2, 1, 4, 3, 4, 3, 0],
+            label: 'Device 03',
+          }, {
+            backgroundColor: UXSChart.hexToRgb(colorSet.chartColorCategory3_2[2], '0.2'),
+            borderColor: colorSet.chartColorCategory3_2[2],
+            borderWidth: 2,
+            data: [2, 1, 5, 10, 0, 1, 2, 3, 2],
+            label: 'Device 03',
+          }]
+        };
+
+        lineChartOptions = UXSChart.getLineChartOptions();
+        lineChartOptions.scales.yAxes[0].stacked = true;
+
+        var stackedAreaChart = new Chart('chart-7', {
+          type: 'line',
+          data: stackedAreaChartData,
+          options: lineChartOptions
+        });
+        stackedAreaChart.generateLegend();
+
+        // ----------------------------- multi chart -----------------------------
+
+
+        var multiChartData = {
+          labels: ['Sun', 'Tue', 'Mon', 'Wed'],
+          datasets: [{
+            type: 'line',
+            label: 'Device 03',
+            borderColor: colorSet.chartColorSet1[1],
+            borderWidth: 2,
+            fill: false,
+            data: [3, 15, 8, 14],
+          }, {
+            type: 'bar',
+            label: 'Device 01',
+            backgroundColor: colorSet.chartColorSeq7[1],
+            data: [10, 16, 15, 8],
+          }, {
+            type: 'bar',
+            label: 'Device 02',
+            backgroundColor: colorSet.chartColorSeq7[3],
+            data: [7, 14, 13, 16]
+          }],
+        };
+
+        var multiChartOptions = UXSChart.getBarChartOptions();
+
+        multiChartOptions.scales.xAxes[0].barPercentage = 0.9;
+        multiChartOptions.scales.xAxes[0].categoryPercentage = 0.25;
+
+        var multiChart = new Chart("chart-8", {
+          type: "bar",
+          data: multiChartData,
+          options: multiChartOptions
+        });
+        multiChart.generateLegend();
+
+        // ----------------------------- histogram chart -----------------------------
+
+        var histogramChartData = {
+          labels: ["Sun", "Tue", "Mon", "Wed", "Sun", "Tue", "Mon", "Wed"],
+          datasets: [{
+            data: [10, 16, 15, 8, 4, 2, 3, 5],
+            backgroundColor: [
+              colorSet.chartColorCategory3_1[1],
+              colorSet.chartColorCategory3_1[1],
+              colorSet.chartColorCategory3_1[1],
+              colorSet.chartColorCategory3_1[1],
+              colorSet.chartColorCategory3_1[1],
+              colorSet.chartColorCategory3_1[1],
+              colorSet.chartColorCategory3_1[1],
+              colorSet.chartColorCategory3_1[1],
+            ]
+          }]
+        };
+
+
+        var histogramChartOptions = UXSChart.getHistogramOptions();
+
+        var histogramChart = new Chart("chart-9", {
+          type: "bar",
+          data: histogramChartData,
+          options: histogramChartOptions
+        });
+
+        // ----------------------------- stacked bar chart -----------------------------
+
+        var stackedBarChartData = {
+          labels: ['Sun', 'Tue', 'Mon', 'Wed'],
+          datasets: [{
+            label: 'Device 01',
+            backgroundColor: colorSet.chartColorSeq4[0],
+            data: [10, 2, 8, 7]
+          }, {
+            label: 'Device 02',
+            backgroundColor: colorSet.chartColorSeq4[2],
+            data: [7, 13, 4, 10]
+          }]
+        };
+
+        var stackedBarChartOptions = UXSChart.getStackedBarChartOptions();
+
+        var stackedBarChart = new Chart("chart-10", {
+          type: 'bar',
+          options: stackedBarChartOptions,
+          data: stackedBarChartData,
+        });
+        stackedBarChart.generateLegend();
+
+        // ----------------------------- group bar chart -----------------------------
+
+        var groupBarChartData = {
+          labels: ['Sun', 'Tue', 'Mon', 'Wed'],
+          datasets: [{
+            label: 'Device 01',
+            backgroundColor: colorSet.chartColorCategory5_1[0],
+            data: [4, 9, 10, 6]
+          }, {
+            label: 'Device 02',
+            backgroundColor: colorSet.chartColorCategory5_1[3],
+            data: [6, 8, 11, 8]
+          }]
+        };
+
+        var groupBarOptions = UXSChart.getGroupBarChartOptions();
+        // groupBarOptions.scales.yAxes[0].gridLines.zeroLineColor = '#d1d1d6';
+        groupBarOptions.scales.yAxes[0].gridLines.zeroLineColor = '#eee';
+
+        var groupBarChart = new Chart("chart-11", {
+          type: "bar",
+          data: groupBarChartData,
+          options: groupBarOptions
+        });
+
+        groupBarChart.generateLegend();
+
+        // ----------------------------- polar chart -----------------------------
+
+        var polarChartData = {
+          datasets: [{
+            data: [55, 40, 25, 53, 30],
+            backgroundColor: [
+              UXSChart.hexToRgb(colorSet.chartColorSeq11[0], '0.6'),
+              UXSChart.hexToRgb(colorSet.chartColorSeq10[0], '0.6'),
+              UXSChart.hexToRgb(colorSet.chartColorSeq9[0], '0.6'),
+              UXSChart.hexToRgb(colorSet.chartColorSeq8[0], '0.6'),
+              UXSChart.hexToRgb(colorSet.chartColorSeq7[0], '0.6'),
+            ],
+            borderWidth: 1,
+          }],
+          labels: [
+            'Device 01',
+            'Device 02',
+            'Device 03',
+            'Device 04',
+            'Device 05'
+          ]
+        };
+
+        var polarChartOptions = UXSChart.getPolarChartOptions();
+
+        var polarChart = new Chart("chart-12", {
+          type: "polarArea",
+          data: polarChartData,
+          options: polarChartOptions
+        });
+        polarChart.generateLegend();
+
+        // ----------------------------- radar chart -----------------------------
+
+        var radarChartData = {
+          labels: ['Device 01', 'Device 02', 'Device 03', 'Device 04', 'Device 05', 'Device 06', 'Device 07'],
+          datasets: [{
+            label: 'Device 01',
+            backgroundColor: UXSChart.hexToRgb(colorSet.chartColorSet1[8], '0.4'),
+            borderColor: colorSet.chartColorSet1[8],
+            borderWidth: 1,
+            pointRadius: 2,
+            pointBorderColor: '#fff',
+            pointBackgroundColor: colorSet.chartColorSet1[8],
+            data: [80, 60, 40, 60, 40, 100, 80]
+          }, {
+            label: 'Device 02',
+            backgroundColor: UXSChart.hexToRgb(colorSet.chartColorSeq12[2], '0.4'),
+            borderColor: colorSet.chartColorSeq12[2],
+            borderWidth: 1,
+            pointRadius: 2,
+            pointBorderColor: '#fff',
+            pointBackgroundColor: colorSet.chartColorSet1[5],
+            data: [60, 100, 60, 20, 80, 40, 60]
+          }]
+        };
+
+        var radarChartOptions = UXSChart.getRadarChartOptions();
+
+        var radarChart = new Chart("chart-13", {
+          type: "radar",
+          data: radarChartData,
+          options: radarChartOptions
+        });
+        radarChart.generateLegend();
+
+        // ----------------------------- scatterplot chart -----------------------------
+
+        var scatterChartData = {
+          datasets: [{
+            backgroundColor: colorSet.chartColorSeq2[2],
+            borderColor: colorSet.chartColorSeq2[2],
+            pointRadius: 5,
+            pointHoverRadius: 5,
+            data: [
+              { x: -80, y: -50 },
+              { x: -40, y: -10 },
+              { x: -40, y: 10 },
+              { x: 10, y: 30 },
+              { x: 30, y: -10 },
+              { x: 80, y: 70 }
+            ],
+          }]
+        };
+
+        var scatterChartOptions = UXSChart.getScatterChartOptions();
+
+        var scatterChart = new Chart("chart-14", {
+          type: "scatter",
+          data: scatterChartData,
+          options: scatterChartOptions
+        });
+
+        UXSChart.setLegendClickHandler();
+
+      });
+    </script>
+  </body>
+</html>

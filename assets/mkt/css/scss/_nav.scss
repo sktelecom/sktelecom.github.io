@@ -1,0 +1,129 @@
+//
+// Override Nav, Tabs
+//
+.nav-link {
+  padding: $nav-link-padding-y $nav-link-padding-x 0.4375rem;
+  font-size: 0.875rem;
+  color: $nav-link-color;
+
+  &.active {
+    color: $nav-link-active-color;
+  }
+  &.disabled {
+    color: $nav-link-disabled-color !important;
+  }
+}
+
+.nav-tabs {
+  .nav-link {
+    color: $nav-tabs-link-color;
+
+    &.active {
+      color: $nav-tabs-link-active-color;
+      background-color: $nav-tabs-link-active-bg-color;
+    }
+  }
+}
+
+.card-header-tabs {
+  &.nav-tabs {
+    margin: 0;
+    border-bottom: $nav-tabs-border-width solid $nav-tabs-border-color;
+
+    .card-header & {
+      border-bottom: 0;
+    }
+  }
+}
+
+.nav-underlines {
+  .nav-item {
+    margin-right: 2.5rem;
+  }
+  .nav-link {
+    position: relative;
+    padding: 0;
+    font-size: 1.25rem;
+    color: $nav-underlines-link-color;
+
+    &.active {
+      color: $nav-underlines-link-active-color;
+      font-weight: bold;
+
+      &:after {
+        display: block;
+        width: 100%;
+        height: 0.1875rem;
+        margin-top: 0.5rem;
+        border-radius: 0.125rem;
+        box-shadow: inset 0px 0.1875rem $nav-underlines-shadow-color;
+        content: "";
+      }
+    }
+    &:hover {
+      color: $nav-underlines-link-hover-color;
+    }
+  }
+  &:last-child {
+    margin: 0;
+  }
+  &.nav-underlines-sm {
+    .nav-link {
+      font-size: 0.875rem;
+
+      &:after {
+        margin-top: 0.625rem;
+      }
+    }
+  }
+  @include media-breakpoint-down(xs) {
+    .nav-link {
+      font-size: 1.125rem;
+
+      &:after {
+        margin-top: 0.625rem;
+      }
+    }
+  }
+  @include media-breakpoint-down(sm) {
+    .nav-item {
+      margin-right: 1.25rem;
+    }
+  }
+}
+
+.nav-outlines {
+  padding-left: 0.125rem;
+  
+  .nav-link {
+    padding: $nav-outlines-link-padding-y $nav-link-padding-x;
+    font-size: 1rem;
+    color: $nav-outlines-color;
+
+    &.active {
+      border-radius: 1.313rem;
+      box-shadow: 0 0 0 0.125rem $nav-outlines-border-color;
+      background-color: $nav-outlines-bg-color;
+    }
+    &:hover {
+      color: $nav-outlines-link-hover-color;
+    }
+  }
+}
+
+.nav-pills {
+  .nav-link {
+    padding: $nav-outlines-link-padding-y $nav-link-padding-x;
+    font-size: 1rem;
+    color: $nav-outlines-color;
+
+    &:hover {
+      color: $nav-outlines-link-hover-color;
+    }
+  }
+  .nav-link.active,
+  .show > .nav-link {
+    color: $nav-pills-link-active-color;
+    background-color: $nav-pills-link-active-bg;
+  }
+}

@@ -1,0 +1,89 @@
+//
+// Override tables
+//
+.table {
+  thead th,
+  tbody th,
+  tbody td {
+    padding: $table-cell-padding;
+    height: 3.188rem;
+    vertical-align: middle;
+  }
+  thead th {
+    border-bottom: $table-border-width solid $table-border-color;
+  }
+
+  .btn,
+  .badge {
+  	position: relative;
+  	vertical-align: baseline;
+  }
+  .badge {
+		top: -1px;
+  }
+  .d-flex {
+		top: 0;
+
+		.badge {
+			top: 0;
+	  }
+	}
+}
+.table-sm {
+  thead th,
+  tbody th,
+  tbody td {
+    padding: $table-cell-padding-sm;
+    height: 2.125rem;
+
+		.btn,
+    .custom-select {
+	  	vertical-align: top;
+	  }
+  }
+}
+.table-xsm {
+  thead th,
+  tbody th,
+  tbody td {
+		padding: $table-cell-padding-xsm;
+		height: auto;
+  }
+}
+
+// Table backgrounds
+@each $color, $value in $theme-colors {
+	.table-#{$color} {
+
+    @if $color == light {
+      > th, > td {
+        border-color: $table-light-bg;
+        background-color: $table-light-bg;
+      }
+    } @else {
+      > th, > td {
+        color: $white;
+        border-color: $value;
+        background-color: $value;
+      }
+    }
+
+    // @if $color == light {
+
+    // } @else if $color == dark {
+
+    // } @else {
+    //   > th, > td {
+    //     color: $white;
+    //     border-color: $value;
+    //     background-color: $value;
+    //   }
+    // }
+	}
+}
+
+// .table-responsive {
+// 	.custom-search-wrapper {
+// 		text-align: left;
+// 	}
+// }

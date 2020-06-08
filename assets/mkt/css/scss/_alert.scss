@@ -1,0 +1,101 @@
+//
+// Override alert
+//
+.alert-heading {
+  font-size: 1rem;
+  font-weight: normal;
+}
+
+.alert-icon {
+  padding-left: $alert-icon-padding;
+
+  &::before {
+    @extend .icomoon;
+
+    position: relative;
+    top: 0.125rem;
+    margin-right: 0.4375rem;
+    font-size: 1.25rem;
+    vertical-align: top;
+  }
+}
+
+.alert {
+
+  hr {
+    border-color: $alert-hr-border-color;
+  }
+
+  .alert-link {
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  // Dismissible alerts
+  &.alert-dismissible {
+    .close {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 3rem;
+      height: 3rem;
+      font-size: 1.125rem;
+      text-shadow: none;
+    }
+  }
+}
+
+@each $color, $value in $theme-colors {
+  .alert-#{$color} {
+    @if $color == light {
+      color: $alert-light-color;
+
+      .alert-link,
+      .close {
+        color: $alert-light-color;
+      }
+    } @else {
+      color: $alert-color;
+
+      .alert-link,
+      .close {
+        color: $alert-color;
+      }
+    }
+
+    @if $color == success {
+      &.alert-icon {
+        &:before {
+          content: "\e917";
+        }
+      }
+    } @else if $color == danger {
+      &.alert-icon {
+        &::before {
+          content: "\e918";
+        }
+      }
+    } @else if $color == warning {
+      &.alert-icon {
+        &::before {
+          content: "\ea1a";
+        }
+      }
+    } @else if $color == info {
+      &.alert-icon {
+        &::before {
+          content: "\e91a";
+        }
+      }
+    }
+
+    .close {
+      &:not(:disabled):not(.disabled):hover,
+      &:not(:disabled):not(.disabled):focus {
+        opacity: 1;
+        background-color: darken($value, 5%);
+      }
+    }
+  }
+}

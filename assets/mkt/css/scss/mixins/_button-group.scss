@@ -1,0 +1,28 @@
+@mixin button-group-split-variant($color, $border: $color) {
+  @extend %box-shadow-light-1;
+
+  color: $color;
+  border-width: 1px;
+  border-style: solid;
+  border-color: $color;
+  border-radius: $btn-border-radius;
+
+  .btn {
+    &:not(:disabled):not(.disabled).focus,
+    &:not(:disabled):not(.disabled):focus {
+      box-shadow: 0 0 0 $btn-focus-width rgba($color, .5);
+    }
+
+    &:not(:disabled):not(.disabled):active,
+    &:not(:disabled):not(.disabled).active,
+    .show > &.dropdown-toggle {
+      &:focus {
+        @if $enable-shadows and $btn-active-box-shadow != none {
+          box-shadow: $btn-active-box-shadow, 0 0 0 $btn-focus-width rgba($color, .5);
+        } @else {
+          box-shadow: 0 0 0 $btn-focus-width rgba($color, .5);
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,20 @@
+//
+// Override jumbotron
+//
+// jumbotron
+.jumbotron {
+  @include border-radius(0);
+
+  .jumbotron-title {
+    margin-bottom: 1rem;
+    font-size: $display1-size;
+  }
+  .lead {
+    margin-bottom: 2rem;
+    font-size: 1rem;
+
+    &:last-child {
+      margin: 0;
+    }
+  }
+}
