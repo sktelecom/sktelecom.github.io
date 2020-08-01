@@ -1,4 +1,9 @@
-MIT License
+SPDX-FileCopyrightText: © 2020 SK TELECOM CO., LTD. <https://sktelecom.github.io/>
+SPDX-License-Identifier: Apache-2.0
+
+===
+This project is developed based on the Helium Jekyll theme.
+: https://github.com/heliumjk/heliumjk.github.io/
 
 Copyright (c) 2017 [Antonio Trento](https://antoniotrento.github.io)
 
@@ -19,3 +24,4 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+===
