@@ -1,0 +1,250 @@
+//
+// Override BTN
+//
+.btn {
+  position: relative;
+  font-size: 0.875rem;
+  font-weight: bold;
+
+  &.btn-lg,
+  &.btn-group-lg > .btn {
+    font-size: 1rem;
+  }
+  &.btn-sm,
+  &.btn-group-sm > .btn {
+    font-size: 0.75rem;
+  }
+
+  [class^="glyphicons"] {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.188rem;
+  }
+  &.icon-only {
+    width: 39px;
+    height: 39px;
+
+    [class^="glyphicons"] {
+      left: 50%;
+      transform: translateX(-50%) translateY(-50%);
+    }
+  }
+  &.icon-flow {
+    padding-right: $btn-padding-x + 1.5;
+    text-align: left;
+
+    [class^="glyphicons"] {
+      right: $btn-padding-x - 0.1875;
+    }
+  }
+  &.icon-reverse {
+    padding-left: $btn-padding-x + 1.5;
+    text-align: right;
+
+    [class^="glyphicons"] {
+      left: $btn-padding-x - 0.1875;
+    }
+  }
+  &.btn-lg {
+    [class^="glyphicons"] {
+      font-size: 1.563rem;
+    }
+    &.icon-flow {
+      padding-right: $btn-padding-x-lg + 1.75;
+
+      [class^="glyphicons"] {
+        right: $btn-padding-x-lg - 0.25;
+      }
+    }
+    &.icon-reverse {
+      padding-left: $btn-padding-x-lg + 1.75;
+
+      [class^="glyphicons"] {
+        left: $btn-padding-x-lg - 0.25;
+      }
+    }
+    &.icon-only {
+      width: 48px;
+      height: 48px;
+    }
+  }
+  &.btn-sm {
+    [class^="glyphicons"] {
+      font-size: 0.875rem;
+    }
+    &.icon-flow {
+      padding-right: $btn-padding-x-sm + 1;
+
+      [class^="glyphicons-"] {
+        right: $btn-padding-x-sm - 0.125;
+      }
+    }
+    &.icon-reverse {
+      padding-left: $btn-padding-x-sm + 1;
+
+      [class^="glyphicons-"] {
+        left: $btn-padding-x-sm - 0.125;
+      }
+    }
+    &.icon-only {
+      width: 24px;
+      height: 24px;
+    }
+  }
+}
+
+@each $color, $value in $theme-colors {
+  .btn-#{$color} {
+    @include button-variant(
+      $value,
+      $value,
+      $hover-background:  darken($value, 10%),
+      $hover-border:      darken($value, 10%),
+      $active-background: darken($value, 20%),
+      $active-border:     darken($value, 20%)
+    );
+    @if $color == light {
+      color: $btn-light-color;
+
+      @include hover {
+        color: $btn-light-color;
+      }
+
+      &:not(:disabled):not(.disabled):active,
+      &:not(:disabled):not(.disabled).active,
+      .show > &.dropdown-toggle {
+        color: $btn-light-color;
+      }
+    } @else {
+      color: $btn-color;
+
+      @include hover {
+        color: $btn-color;
+      }
+
+      &:not(:disabled):not(.disabled):active,
+      &:not(:disabled):not(.disabled).active,
+      .show > &.dropdown-toggle {
+        color: $btn-color;
+      }
+    }
+    &.disabled,
+    &:disabled {
+      color: $btn-disabled-color;
+      border-color: $btn-disabled-bg-color;
+      background-color: $btn-disabled-bg-color;
+    }
+  }
+}
+
+@each $color, $value in $theme-colors {
+  .btn-outline-#{$color} {
+    @extend %box-shadow-light-1;
+
+    &:not(:disabled):not(.disabled) {
+      background-color: $btn-bg-color;
+
+      @include hover {
+        background-color: $btn-outline-bg-hover-color;
+      }
+    }
+    &:not(:disabled):not(.disabled):active,
+    &:not(:disabled):not(.disabled).active,
+    .show > &.dropdown-toggle {
+      background-color: $btn-outline-bg-active-color;
+    }
+    @if $color == light or $color == dark {
+      &:not(:disabled):not(.disabled) {
+        color: $btn-outline-dark-color;
+
+        @include hover {
+          color: $btn-outline-dark-color;
+        }
+      }
+      &:not(:disabled):not(.disabled):active,
+      &:not(:disabled):not(.disabled).active,
+      .show > &.dropdown-toggle {
+        color: $btn-outline-dark-color;
+      }
+    } @else {
+      &:not(:disabled):not(.disabled) {
+        @include hover {
+          color: $value;
+          border-color: $value;
+        }
+      }
+      &:not(:disabled):not(.disabled):active,
+      &:not(:disabled):not(.disabled).active,
+      .show > &.dropdown-toggle {
+        color: $value;
+      }
+    }
+    @if $color == light {
+      border-color: $btn-outline-border-light-color;
+
+      &:focus,
+      &.focus {
+        box-shadow: 0 0 0 $btn-focus-width rgba($btn-outline-border-light-color, .5);
+      }
+
+      &:not(:disabled):not(.disabled) {
+        @include hover {
+          border-color: $btn-outline-border-light-color;
+        }
+      }
+      &:not(:disabled):not(.disabled):active,
+      &:not(:disabled):not(.disabled).active,
+      .show > &.dropdown-toggle {
+        &:focus {
+          @if $enable-shadows and $btn-active-box-shadow != none {
+            box-shadow: $btn-active-box-shadow, 0 0 0 $btn-focus-width rgba($btn-outline-border-light-color, .5);
+          } @else {
+            box-shadow: 0 0 0 $btn-focus-width rgba($btn-outline-border-light-color, .5);
+          }
+        }
+      }
+    } @else if $color == dark {
+      border-color: $btn-outline-border-dark-color;
+
+      &:not(:disabled):not(.disabled) {
+        @include hover {
+          border-color: $btn-outline-border-dark-color;
+        }
+      }
+    }
+    &.disabled,
+    &:disabled {
+      color: $btn-disabled-color;
+      border-color: $btn-disabled-color;
+    }
+  }
+}
+
+@each $color, $value in $theme-colors {
+  .btn-ghost-#{$color} {
+    @include button-ghost-variant($value);
+
+    &:not(:disabled):not(.disabled) {
+      background-color: $btn-bg-color;
+    }
+    @if $color == light {
+      color: $btn-ghost-light-color;
+
+      &:not(:disabled):not(.disabled) {
+        @include hover {
+          color: $btn-ghost-light-color;
+        }
+      }
+    } @else if $color == dark {
+      color: $btn-ghost-dark-color;
+
+      &:not(:disabled):not(.disabled) {
+        @include hover {
+          color: $btn-ghost-dark-color;
+        }
+      }
+    }
+  }
+}
+

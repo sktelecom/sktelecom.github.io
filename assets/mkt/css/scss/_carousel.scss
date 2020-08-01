@@ -1,0 +1,218 @@
+//
+// Override Carousel
+//
+
+// carousel
+.carousel {
+  background-color: $carousel-bg-color;
+}
+
+.carousel-indicators {
+  li {
+    opacity: 1;
+    border-radius: 100%;
+    box-shadow: inset 0 0 0 1px white;
+    background-color: transparent;
+  }
+
+  .active {
+    background-color: white;
+  }
+}
+
+// carousel-caption
+.carousel-caption {
+  font-size: 0.875rem;
+  color: $carousel-caption-color;
+
+  .carousel-heading {
+    font-size: 1.25rem;
+    color: $carousel-heading-color;
+  }
+  & > :last-child {
+    margin-bottom: 1.688rem;
+  }
+}
+
+// Swiper Common Styles
+.swiper-pagination-fraction,
+.swiper-pagination-custom,
+.swiper-container-horizontal > .swiper-pagination-bullets {
+  bottom: 0 !important;
+}
+
+.swiper-container {
+  .swiper-pagination-bullet {
+    width: 0.5rem;
+    height: 0.5rem;
+    opacity: 1;
+    border-radius: 0.375rem;
+    border: 1px solid $swiper-pagination-bullet-border-color;
+    background-color: $swiper-pagination-bullet-bg-color;
+
+    &.swiper-pagination-bullet-active {
+      background-color: $swiper-pagination-bullet-bg-active-color;
+      border: none;
+    }
+  }
+  .swiper-button-prev,
+  .swiper-button-next {
+    width: $carousel-control-icon-width;
+    height: $carousel-control-icon-height;
+    top: 50%;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-size: 90%;
+    transform: translateY(-50%);
+    cursor: pointer;
+
+    &:after {
+      display: none;
+    }
+  }
+  .swiper-button-prev {
+    left: 1.5rem;
+    background-image: $swiper-control-prev-icon-bg;
+    background-position: 0.125rem 0;
+  }
+  .swiper-button-next {
+    right: 1.5rem;
+    background-image: $swiper-control-next-icon-bg;
+    background-position: -0.125rem 0;
+  }
+  &.swiper-slides {
+    .swiper-slide {
+      padding: 0 5.125rem 2rem;
+    }
+    .swiper-button-prev,
+    .swiper-button-next {
+      opacity: 0.6;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+  &.swiper-centered-slides {
+    .swiper-slide {
+      padding: 0 0 3.5rem;
+    }
+    .swiper-button-prev,
+    .swiper-button-next {
+      width: $carousel-control-icon-width-lg;
+      height: $carousel-control-icon-height-lg;
+      top: 6.563rem;
+      transform: translateY(0);
+      background-size: 72%;
+    }
+    .swiper-button-prev {
+      left: 2.5rem;
+      background-image: $swiper-control-prev-icon-bg;
+      background-position: 0.5rem 0.3125rem;
+    }
+    .swiper-button-next {
+      right: 2.5rem;
+      background-image: $swiper-control-next-icon-bg;
+      background-position: 0.125rem 0.3125rem;
+    }
+  }
+  @include media-breakpoint-down(xs) {
+    &.swiper-slides {
+      .swiper-slide {
+        padding: 0 2rem 2rem;
+      }
+      .swiper-button-prev,
+      .swiper-button-next {
+        display: none;
+      }
+    }
+  }
+  @include media-breakpoint-down(sm) {
+    &.swiper-centered-slides {
+      .swiper-button-prev,
+      .swiper-button-next {
+        display: none;
+      }
+    }
+  }
+  
+}
+
+// swiper-reviews
+.swiper-reviews {
+  .swiper-slide {
+    min-height: 11.88rem;
+  }
+  .user-photo {
+    overflow: hidden;
+    width: 3.125rem;
+    height: 3.125rem;
+    margin: 0 auto 1.25rem;
+    border-radius: 100%;
+    background-color: $swiper-user-photo-bg-color;
+
+    img {
+      width: 3.125rem;
+      height: 3.125rem;
+    }
+  }
+  .user-name {
+    margin: 0 auto 1rem;
+    font-size: 0.9375rem;
+    color: $swiper-user-name-color;
+    text-align: center;
+  }
+  .user-review {
+    margin: 0 auto;
+    color: $swiper-user-review-color;
+    text-align: center;
+  }
+}
+
+// swiper-service
+.swiper-service {
+  .swiper-slide {
+    display: flex;
+    justify-content: center;
+
+    .swiper-service-inner {
+      max-width: 32.5rem;
+      padding: 0 1.25rem;
+    }
+    .swiper-service-img {
+      overflow: hidden;
+      margin-bottom: 1rem;
+      border-radius: 0.5rem;
+      background-color: $swiper-service-img-bg-color;
+
+      img {
+        width: 100%;
+        max-height: 16.88rem;
+      }
+    }
+    .swiper-service-name {
+      width: 100%;
+      margin-bottom: 0.25rem;
+      font-size: 1.125rem;
+      font-weight: bold;
+      color: $swiper-service-name-color;
+      text-align: left;
+    }
+    .swiper-service-desc {
+      width: 100%;
+      font-size: 0.875rem;
+      color: $swiper-service-desc-color;
+      text-align: left;
+    }
+  }
+  @include media-breakpoint-up(md) {
+    .swiper-slide {
+      max-width: 30rem;
+      margin: 0 5%;
+
+      .swiper-service-inner {
+        padding: 0;
+      }
+    }
+  }
+}

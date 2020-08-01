@@ -1,0 +1,24 @@
+//
+// Override close
+//
+.close {
+  font-size: 1.25rem;
+  color: $close-color;
+  opacity: 1;
+
+  &:before {
+    @extend .icomoon;
+
+    content: "\e90a";
+  }
+  &:not(:disabled):not(.disabled) {
+    @include hover-focus {
+      color: $close-hover-color;
+      opacity: 1;
+      outline: none;
+    }
+  }
+  > span {
+    display: none;
+  }
+}

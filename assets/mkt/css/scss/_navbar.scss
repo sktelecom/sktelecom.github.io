@@ -1,0 +1,82 @@
+//
+// Override navbar
+//
+// Navbar
+// .navbar {
+//   &.navbar-dark {
+//     .navbar-toggler-icon {
+//       &.active {
+//         background-image: $navbar-dark-toggler-icon-active-bg;
+//       }
+//     }
+//   }
+//   &.bg-light {
+//     background-color: $navbar-bg-light !important;
+//   }
+//   &.navbar-light {
+//     .navbar-toggler-icon {
+//       &.active {
+//         background-image: $navbar-light-toggler-icon-active-bg;
+//       }
+//     }
+//   }
+//   .navbar-items {
+//     .navbar-toggler {
+//       border: 0;
+//       padding: 0;
+
+//       & + .navbar-brand {
+//         margin-right: 0;
+//       }
+//     }
+//   }
+//   .show > .nav-link,
+//   .active > .nav-link,
+//   .nav-link.show,
+//   .nav-link.active {
+//     font-weight: bold;
+//   }
+// }
+
+.navbar {
+  border-bottom: 1px solid $navbar-border-color;
+  background-color: $navbar-bg-color;
+}
+
+.navbar-brand {
+  img {
+    vertical-align: middle;
+  }
+}
+
+.navbar-light {
+  .navbar-nav {
+    .show > .nav-link,
+    .active > .nav-link,
+    .nav-link.show,
+    .nav-link.active {
+      font-weight: bold;
+      color: $navbar-light-active-color;
+    }
+  }
+  .navbar-text {
+    color: $navbar-text-color;
+  }
+}
+.navbar-dark {
+  .navbar-nav {
+    .show > .nav-link,
+    .active > .nav-link,
+    .nav-link.show,
+    .nav-link.active {
+      font-weight: bold;
+      color: $navbar-dark-active-color;
+    }
+
+    .nav-link {
+      &.disabled {
+        color: $navbar-dark-disabled-color !important;
+      }
+    }
+  }
+}

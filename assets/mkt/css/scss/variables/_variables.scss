@@ -1,0 +1,245 @@
+//
+// Override variables
+//
+// Grid breakpoints
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+) !default;
+
+@include _assert-ascending($grid-breakpoints, "$grid-breakpoints");
+@include _assert-starts-at-zero($grid-breakpoints, "$grid-breakpoints");
+
+// Grid containers
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1368px
+) !default;
+
+@include _assert-ascending($container-max-widths, "$container-max-widths");
+
+// Grid columns
+$grid-gutter-width:  24px !default;
+
+// Spacing
+$spacer: 1rem !default;
+$spacers: () !default;
+$spacers: map-merge(
+  (
+    0:  0,
+    1:  ($spacer * .25),
+    2:  ($spacer * .5),
+    3:  $spacer,
+    4:  ($spacer * 1.25),
+    5:  ($spacer * 1.5),
+    6:  ($spacer * 2),
+    7:  ($spacer * 2.5),
+    8:  ($spacer * 3),
+    9:  ($spacer * 3.5),
+    10: ($spacer * 4),
+    11: ($spacer * 5)
+  ),
+  $spacers
+);
+
+//
+// Components
+//
+// Fonts
+$h1-font-size:                              1.75rem !default;
+$h2-font-size:                              1.25rem !default;
+$h3-font-size:                              1.125rem !default;
+$h4-font-size:                              1rem !default;
+$h5-font-size:                              0.875rem !default;
+$h6-font-size:                              0.75rem !default;
+$display1-size:                             3rem !default;
+$display2-size:                             2.5rem !default;
+$display3-size:                             1.75rem !default;
+$display4-size:                             1.5rem !default;
+$content1-size:                             1.25rem !default;
+$content2-size:                             1.125rem !default;
+$content3-size:                             1rem !default;
+$content4-size:                             0.875rem !default;
+$content5-size:                             0.75rem !default;
+$content6-size:                             0.625rem !default;
+$text-weight-300:                           300 !default;
+$text-weight-400:                           400 !default;
+$text-weight-700:                           700 !default;
+
+$blockquote-small-font-size:                0.875rem !default;
+
+$headings-line-height:                      1.5 !default;
+
+// Transition
+$theme-transition-all-out:                  all .3s ease-out !default;
+$theme-transition-all-in:                   all .3s ease-in !default;
+$transition-show:                           0.2s ease-out;
+$transition-hide:                           0.2s ease-in;
+$transition-slow-show:                      0.3s ease-out;
+$transition-slow-hide:                      0.3s ease-in;
+
+// Alert
+$alert-padding-x:                           1rem !default;
+$alert-icon-padding:                        1rem !default;
+
+// Pagination
+
+// BTN
+$btn-padding-x:                             0.9375rem !default;
+$btn-padding-y:                             0.5rem !default;
+$btn-padding-x-lg:                          1.438rem !default;
+$btn-padding-y-lg:                          0.6875rem !default;
+$btn-padding-x-sm:                          0.625rem !default;
+$btn-padding-y-sm:                          0.125rem !default;
+$btn-border-radius-lg:                      0.25rem !default;
+$btn-border-radius-sm:                      0.25rem !default;
+
+// Badges
+$badge-font-size:                           0.75rem !default;
+$badge-font-weight:                         400 !default;
+$badge-border-radius:                       0.125rem !default;
+$badge-padding-x:                           0.5rem !default;
+$badge-padding-y:                           0.125rem !default;
+$badge-outline-padding-x:                   0.4375rem !default;
+$badge-outline-padding-y:                   0.0625rem !default;
+$badge-pill-padding-x:                      $badge-padding-x !default;
+
+// Breadcrumb
+$breadcrumb-padding-x:                      1.25rem !default;
+
+// Dropdown
+$dropdown-item-padding-y:                   0.4375rem !default;
+$dropdown-font-size:                        0.875rem !default;
+$dropdown-header-font-size:                 0.75rem !default;
+
+// Navs
+$nav-link-padding-x:                        1.5rem !default;
+$nav-outlines-link-padding-y:               0.5625rem !default;
+
+// Navbar
+$navbar-nav-link-padding-x:                 1.25rem !default;
+
+// carousel
+$carousel-indicator-width:                  0.5rem !default;
+$carousel-indicator-height:                 0.5rem !default;
+$carousel-indicator-spacer:                 0.25rem !default;
+$carousel-control-width:                    5.5rem !default;
+$carousel-control-opacity:                  0.6 !default;
+$carousel-control-hover-opacity:            1 !default;
+$carousel-control-icon-width:               2.25rem !default;
+$carousel-control-icon-height:              2.25rem !default;
+$carousel-control-prev-icon-bg:             str-replace(url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='#{$carousel-control-color}' viewBox='0 0 28 28'%3e%3cpath d='M18.834 23.24l-1.357 1.358L8.878 16l8.599-8.598 1.357 1.357L11.594 16z'/%3e%3c/svg%3e"), "#", "%23") !default;
+$carousel-control-next-icon-bg:             str-replace(url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='#{$carousel-control-color}' viewBox='0 0 28 28'%3e%3cpath d='M13.166 23.24l1.357 1.358L23.122 16l-8.599-8.598-1.357 1.357L20.406 16z'/%3e%3c/svg%3e"), "#", "%23") !default;
+$swiper-control-prev-icon-bg:               str-replace(url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='#{$swiper-control-color}' viewBox='0 0 28 28'%3e%3cpath d='M18.834 23.24l-1.357 1.358L8.878 16l8.599-8.598 1.357 1.357L11.594 16z'/%3e%3c/svg%3e"), "#", "%23") !default;
+$swiper-control-next-icon-bg:               str-replace(url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='#{$swiper-control-color}' viewBox='0 0 28 28'%3e%3cpath d='M13.166 23.24l1.357 1.358L23.122 16l-8.599-8.598-1.357 1.357L20.406 16z'/%3e%3c/svg%3e"), "#", "%23") !default;
+$carousel-control-icon-width-lg:            3.75rem !default;
+$carousel-control-icon-height-lg:           3.75rem !default;
+
+// Card
+$card-title-size:                           1.125rem !default;
+$card-subtitle-size:                        0.875rem !default;
+$card-border-radius:                        0.5rem !default;
+$card-small-size:                           0.875rem !default;
+$accordion-card-border-width:               0.125rem !default;
+$accordion-card-icon:                       str-replace(url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='#{$custom-select-indicator-color}' d='M5.475 7.229l-.849.848L10 13.451l5.374-5.374-.849-.848L10 11.754z'/%3e%3c/svg%3e"), "#", "%23") !default;
+
+// Wizard
+$wizard-bg-position-top:                    0.8125rem !default;
+$wizard-items-font-size:                    0.75rem !default;
+$wizard-stage-width:                        1.75rem !default;
+$wizard-stage-height:                       $wizard-stage-width !default;
+$wizard-stage-mb:                           0.3125rem !default;
+$wizard-stage-radius:                       50% !default;
+$wizard-stage-font-size:                    .875rem !default;
+$wizard-stage-line-height:                  1.563rem !default;
+$wizard-stage-icon-size:                    1rem !default;
+$wizard-stage-bg-height:                    0.0625rem !default;
+
+// Popover
+$popover-header-padding-x:                  1rem !default;
+$popover-body-padding-x:                    1rem !default;
+$popover-body-padding-y:                    1rem !default;
+$popover-border-radius:                     0.25rem !default;
+
+// Table
+$table-cell-padding:                        .375rem .8125rem !default;
+$table-cell-padding-sm:                     .125rem .25rem !default;
+$table-cell-padding-xsm:                    .1875rem .125rem .125rem !default;
+$table-caption-margin:                      .25rem 0 0 !default;
+
+// Toasts
+$toast-padding-x:                           1.25rem !default;
+$toast-padding-y:                           1rem !default;
+$toast-body-padding-x:                      1.25rem !default;
+$toast-icon-body-padding-x:                 3rem !default;
+$toast-font-size:                           1rem !default;
+
+// List Group
+$list-group-border-radius:                  0.5rem !default;
+$list-group-item-padding-y:                 0.875rem !default;
+
+// Modal
+$modal-header-padding:                      1.188rem 1.25rem 1.125rem 1.25rem !default;
+$modal-inner-padding:                       1.25rem !default;
+
+// Form
+$input-font-size:                           0.875rem !default;
+$input-font-size-sm:                        0.75rem !default;
+$input-padding-x:                           1rem !default;
+$input-padding-y:                           0.5rem !default;
+$input-padding-x-sm:                        0.6875rem !default;
+$input-padding-y-sm:                        0 !default;
+$input-padding-x-lg:                        1.25rem !default;
+$input-padding-y-lg:                        0.6875rem !default;
+$input-height-inner-half:                   19px !default;
+$input-height-sm:                           24px !default;
+
+$custom-checkbox-icon-width:                1rem !default;
+$custom-checkbox-icon-height:               $custom-checkbox-icon-width !default;
+$custom-checkbox-icon-line-height:          $custom-checkbox-icon-width !default;
+$custom-checkbox-indicator-border-radius:   0.1875rem !default;
+
+$custom-radio-icon-width:                   1rem !default;
+$custom-radio-icon-height:                  $custom-radio-icon-width !default;
+$custom-radio-icon-line-height:             $custom-radio-icon-width !default;
+
+$custom-select-bg-size:                     20px 20px !default;
+$custom-select-indicator:                   str-replace(url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='#{$custom-select-indicator-color}' d='M5.475 7.229l-.849.848L10 13.451l5.374-5.374-.849-.848L10 11.754z'/%3e%3c/svg%3e"), "#", "%23") !default;
+$custom-select-indicator-padding:           1.5rem !default;
+$custom-select-feedback-icon-position:      center right (1rem + $custom-select-indicator-padding) !default;
+
+$custom-range-thumb-width:                  0.625rem !default;
+$custom-range-thumb-height:                 $custom-range-thumb-width !default;
+$custom-range-thumb-border-radius:          0.625rem !default;
+$custom-range-track-height:                 0.125rem !default;
+
+$custom-switch-before-radius:               0.75rem !default;
+$custom-switch-before-width:                2.5rem !default;
+$custom-switch-before-height:               1.5rem !default;
+$custom-switch-after-radius:                50% !default;
+$custom-switch-after-width:                 1.375rem !default;
+$custom-switch-after-height:                $custom-switch-after-width  !default;
+$custom-switch-after-width-left:            1.5rem !default;
+
+$custom-checkbox-indicator-icon-checked:    str-replace(url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 9 7'%3e%3cpath fill='#{$custom-control-indicator-checked-color}' d='M3.214 7L0 3.693l1.022-1.046L3.214 4.9 7.978 0 9 1.053z'/%3e%3c/svg%3e"), "#", "%23") !default;
+$custom-radio-indicator-icon-checked:       str-replace(url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3ccircle cx='4' cy='4' r='4' fill='#{$white}'/%3e%3c/svg%3e"), "#", "%23") !default;
+$custom-radio-indicator-validated-icon-checked: str-replace(url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3ccircle cx='4' cy='4' r='4' fill='#{$primary}'/%3e%3c/svg%3e"), "#", "%23") !default;
+$custom-radio-indicator-icon-disabled:      str-replace(url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3ccircle cx='4' cy='4' r='4' fill='#{$gray-500}'/%3e%3c/svg%3e"), "#", "%23") !default;
+
+$custom-search-clear-width:                  1.125rem !default;
+$custom-search-clear-height:                 $custom-search-clear-width !default;
+$custom-search-clear-radius:                 50% !default;
+$custom-search-clear-bg-position:            50% !default;
+$custom-search-clear-bg-size:                0.875rem 0.875rem !default;
+$custom-search-padding-x:                    2.5rem !default;
+$custom-search-padding-x-sm:                 1.813rem !default;
+$custom-search-padding-x-lg:                 3.5rem !default;
+
+// Form validation
+$form-feedback-icon-valid:                  str-replace(url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='#{$form-feedback-icon-valid-color}' d='M10.0000153,1.5c-4.6943974,0-8.5,3.805603-8.5,8.5s3.805603,8.5,8.5,8.5c4.694458,0,8.5-3.805603,8.5-8.5 S14.6944733,1.5,10.0000153,1.5z M8.8823395,13.6410522L5.3291774,10.086853l0.9204102-0.9182739l2.6327519,2.633728 l5.0185547-5.0185547l0.918396,0.918396L8.8823395,13.6410522z'/%3e%3c/svg%3e"), "#", "%23") !default;
+$form-feedback-icon-invalid:                str-replace(url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='#{$form-feedback-icon-invalid-color}' d='M10.0000095,1.5c-4.6943965,0-8.5,3.805542-8.5,8.5c0,4.694397,3.805603,8.5,8.5,8.5s8.5-3.805603,8.5-8.5 C18.5000095,5.305542,14.6944065,1.5,10.0000095,1.5z M9.2587986,5.8630371h1.4824219v5.7739258H9.2587986V5.8630371z M10.0000095,14.3000412c-0.4832153,0-0.875-0.3917847-0.875-0.875c0-0.4832764,0.3917847-0.875,0.875-0.875 c0.4832764,0,0.875,0.3917236,0.875,0.875C10.8750095,13.9082565,10.4832859,14.3000412,10.0000095,14.3000412z'/%3e%3c/svg%3e"), "#", "%23") !default;

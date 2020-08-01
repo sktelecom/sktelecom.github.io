@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no, maximum-scale=1.0, user-scalable=0">
+  <meta name="keyword" content="">
+  <meta name="description" content="">
+  <title>Bootstrap Marketing &amp; Promotion</title>
+  <link rel="shortcut icon" href="../../../assets/common/img/favicon/ux.ico">
+  <link rel="apple-touch-icon" href="../../../assets/common/img/favicon/ux.png">
+  <link rel="stylesheet" type="text/css" href="../../../assets/mkt/css/uxs.css">
+  <link rel="stylesheet" type="text/css" href="../../../assets/mkt/css/demo.css">
+</head>
+
+<body>
+  <!-- wrapper -->
+  <div class="wrapper wrapper-fixed" id="go-to-top">
+    <!-- docs-header -->
+    <div class="docs-header">
+      <!-- lnb-toggler -->
+      <button class="navbar-toggler docs-sidebar-toggler" type="button" aria-controls="theme-lnb"
+        aria-expanded="false" aria-label="Toggle LNB">
+        <span class="navbar-toggler-icon" aria-hidden="true"></span>
+        <span class="sr-only">주 메뉴 바로가기</span>
+      </button>
+      <!-- /lnb-toggler -->
+      <!--
+        navbar-brand
+        React - text-react,
+        Vue   - text-vue
+      -->
+      <span class="navbar-brand text-bootstrap" href="#">Bootstrap</span>
+      <span class="navbar-brand" href="#">Marketing &amp; Promotion</span>
+    </div>
+    <!-- /docs-header -->
+    <!-- theme-body -->
+    <div class="docs-body demo-body">
+      <!-- sidebar -->
+      <div class="docs-sidebar" data-include="../_includes/ct-sidebar.html" data-name="p_list"></div>
+      <!-- /sidebar -->
+
+      <!-- theme-contents -->
+      <main class="docs-contents contents-mt">
+        <div class="d-flex flex-row align-items-start mb-7 mb-md-10">
+          <!-- toc -->
+          <div class="toc">
+            <nav class="nav flex-column js-toc-triggers">
+              <a class="nav-link" href="#p-list-switches">Switches</a>
+              <a class="nav-link" href="#p-list-radio">Radio button</a>
+              <a class="nav-link" href="#p-list-select">Select menu</a>
+              <a class="nav-link" href="#p-list-comments">Comments</a>
+              <a class="nav-link" href="#p-list-summary-info">Content list (Summary info)</a>
+              <a class="nav-link" href="#p-list-progress">Content list (Progress)</a>
+              <a class="nav-link" href="#p-list-wizard">Wizard</a>
+            </nav>
+          </div>
+          <!-- /toc -->
+          <div class="toc-content">
+            <div>UX Patterns</div>
+            <div class="component-title font-weight-bold mb-7">Lists</div>
+
+            <div class="card mb-5" id="p-list-switches">
+              <div class="card-header">
+                Switches
+              </div>
+              <div class="card-body py-5 px-4">
+                <!--Component-->
+                <div class="d-flex justify-content-between border-bottom border-light py-3">
+                  <div class="text-grays-8 pr-2">누군가가 나에게 메세지를 보냈을 때</div>
+                  <div class="custom-control custom-switch icon-only d-inline-flex">
+                    <input type="checkbox" class="custom-control-input" checked="" id="customSwitchIcon1">
+                    <label class="custom-control-label" for="customSwitchIcon1"><span class="sr-only">Toggle this switch
+                        element</span></label>
+                  </div>
+                </div>
+                <div class="d-flex justify-content-between border-bottom border-light py-3">
+                  <div class="text-grays-8 pr-2">새로운 프로젝트에 초대받을 때</div>
+                  <div class="custom-control custom-switch icon-only d-inline-flex">
+                    <input type="checkbox" class="custom-control-input" id="customSwitchIcon2">
+                    <label class="custom-control-label" for="customSwitchIcon2"><span class="sr-only">Toggle this switch
+                        element</span></label>
+                  </div>
+                </div>
+                <div class="d-flex justify-content-between border-bottom border-light py-3">
+                  <div class="text-grays-8 pr-2">내 프로젝트의 초대를 수락할 때</div>
+                  <div class="custom-control custom-switch icon-only d-inline-flex">
+                    <input type="checkbox" class="custom-control-input" id="customSwitchIcon3">
+                    <label class="custom-control-label" for="customSwitchIcon3"><span class="sr-only">Toggle this switch
+                        element</span></label>
+                  </div>
+                </div>
+                <!--/Component-->
+              </div>
+            </div>
+
+            <div class="card mb-5" id="p-list-radio">
+              <div class="card-header">
+                Radio button
+              </div>
+              <div class="card-body py-5 px-4">
+                <!--Component-->
+                <div
+                  class="d-flex flex-column flex-md-row justify-content-md-between align-items-md-center border-bottom border-light py-3">
+                  <div class="text-grays-8 mb-3 mb-md-0">친구 요청</div>
+                  <div class="d-flex flex-column flex-md-row">
+                    <div class="custom-control custom-radio custom-control-inline mb-2 mb-md-0">
+                      <input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input" checked="">
+                      <label class="custom-control-label text-secondary" for="customRadioInline1">요청 거부</label>
+                    </div>
+                    <div class="custom-control custom-radio custom-control-inline mb-2 mb-md-0">
+                      <input type="radio" id="customRadioInline2" name="customRadioInline1" class="custom-control-input">
+                      <label class="custom-control-label text-secondary" for="customRadioInline2">친구만</label>
+                    </div>
+                    <div class="custom-control custom-radio custom-control-inline mb-2 mb-md-0">
+                      <input type="radio" id="customRadioInline3" name="customRadioInline1" class="custom-control-input">
+                      <label class="custom-control-label text-secondary" for="customRadioInline3">모든 사람</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="d-flex flex-column flex-md-row justify-content-md-between align-items-md-center py-3">
+                  <div class="text-grays-8 mb-3 mb-md-0">프로젝트 소개</div>
+                  <div class="d-flex flex-column flex-md-row">
+                    <div class="custom-control custom-radio custom-control-inline mb-2 mb-md-0">
+                      <input type="radio" id="customRadioInline2-1" name="customRadioInline2" class="custom-control-input" checked="">
+                      <label class="custom-control-label text-secondary" for="customRadioInline2-1">요청 거부</label>
+                    </div>
+                    <div class="custom-control custom-radio custom-control-inline mb-2 mb-md-0">
+                      <input type="radio" id="customRadioInline2-2" name="customRadioInline2" class="custom-control-input">
+                      <label class="custom-control-label text-secondary" for="customRadioInline2-2">친구만</label>
+                    </div>
+                    <div class="custom-control custom-radio custom-control-inline mb-2 mb-md-0">
+                      <input type="radio" id="customRadioInline2-3" name="customRadioInline2" class="custom-control-input">
+                      <label class="custom-control-label text-secondary" for="customRadioInline2-3">모든 사람</label>
+                    </div>
+                  </div>
+                </div>
+                <!--/Component-->
+              </div>
+            </div>
+
+            <div class="card mb-5" id="p-list-select">
+              <div class="card-header">
+                Select menu
+              </div>
+              <div class="card-body py-5 px-4">
+                <!--Component-->
+                <div class="d-flex flex-column flex-md-row justify-content-md-between align-items-md-center border-bottom border-light py-3 py-md-2">
+                  <div class="text-grays-8 mb-2 mb-md-0">언어 설정</div>
+                  <select class="custom-select" style="max-width: 300px;">
+                    <option value="1">한국어</option>
+                    <option value="2">English</option>
+                  </select>
+                </div>
+                <div class="d-flex flex-column flex-md-row justify-content-md-between align-items-md-center py-3 py-md-2">
+                  <div class="text-grays-8 mb-2 mb-md-0">국가 설정</div>
+                  <select class="custom-select" style="max-width: 300px;">
+                    <option selected>대한민국</option>
+                    <option value="1">United States of America</option>
+                  </select>
+                </div>
+                <!--/Component-->
+              </div>
+            </div>
+
+            <div class="card mb-5" id="p-list-comments">
+              <div class="card-header">
+                Comments
+              </div>
+              <div class="card-body py-5 px-4">
+                <!--Component-->
+                <div class="d-flex flex-column">
+                  <div class="mb-5 pb-3 border-bottom bd-grays-2">
+                    <div class="h5 text-muted">
+                      댓글<span class="d-inline-block ml-2 text-primary">3</span>
+                    </div>
+                  </div>
+                  <div class="media mb-5 pb-5 border-bottom bd-grays-2">
+                    <div class="mr-3">
+                      <img class="rounded-circle" src="../../../assets/dark/img/temp/@temp_profile.png" alt=""
+                        style="width:48px; height: 48px;">
+                    </div>
+                    <div class="media-body">
+                      <div class="mt-0 mb-2">
+                        <div class="font-weight-bold">관리자</div>
+                        <span class="content-3 text-muted">2019.07.23</span>
+                      </div>
+                      <p class="text-grays-8">
+                        그리고 화면이 992px보다 좁아지면, 새로운 dropdown 버튼이 추가되도록.. (정확하게 말하면 화면이 992px보다 클땐 보이지 않지만, 992보다 좁아지면 보여지는 또다른 요소) 합니다.
+                        각각 요소에 화면 넓이에 따라, 적당한 위치에 잡히도록 css 스타일을 부여합니다.
+                      </p>
+                      <div class="mb-4">
+                        <button type="button" class="btn btn-outline-light btn-recomment">답글</button>
+                        <div class="d-none recomment-box">
+                          <div class="form-group mb-3 border rounded-lg">
+                              <div id="recommentEditor1" contenteditable="true" class="form-control recomment-editor" style="height:200px;overflow:auto;" placeholder="댓글 내용 입력"></div>
+                          </div>
+                          <div class="text-right">
+                            <button type="button" class="btn btn-outline-light btn-recomment-cancel">취소</button>
+                            <button type="button" class="btn btn-primary ml-2 btn-recomment-send">확인</button>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="ml-n10 pl-10">
+                        <div class="media mt-3">
+                          <div class="mr-3">
+                            <img class="rounded-circle" src="../../../assets/dark/img/temp/@temp_profile.png" alt=""
+                              style="width:48px; height: 48px;">
+                          </div>
+                          <div class="media-body">
+                            <div class="mt-0 mb-2">
+                              <div class="font-weight-bold">관리자</div>
+                              <span class="content-3 text-muted">2019.07.23</span>
+                            </div>
+                            <p class="text-grays-8">
+                              아래코드처럼 하면 어때요?
+                            </p>
+                            <div class="bg-black" style="min-height: 72px;"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="media mb-9 pb-5 border-bottom bd-grays-2">
+                    <div class="mr-3">
+                      <img class="rounded-circle" src="../../../assets/dark/img/temp/@temp_profile.png" alt=""
+                        style="width:48px; height: 48px;">
+                    </div>
+                    <div class="media-body">
+                      <div class="mt-0 mb-2">
+                        <div class="font-weight-bold">관리자</div>
+                        <span class="content-3 text-muted">2019.07.23</span>
+                      </div>
+                      <p class="text-grays-8">
+                        크롬 개발자도구의 검사 기능으로 해당 요소들이 어떤 css 속성을 먹고 있는지 체크해보면 더 이해하기 쉬울 겁니다. 우선, 이야기 한 것을 만족하기 위해서, 한 가지 방법만 있는 것은 아닙니다. 전
+                        그중에 선호하는 방법으로 이야기 할까 해요. 자세한 내용은, HTML FORM에 대해서 검색을 해 보시는 것을 추천 해 드릴게요.
+                      </p>
+                      <div class="mb-4">
+                        <button type="button" class="btn btn-outline-light btn-recomment">답글</button>
+                        <div class="d-none recomment-box">
+                          <div class="form-group mb-3 border rounded-lg">
+                              <div id="recommentEditor2" contenteditable="true" class="form-control recomment-editor" style="height:200px;overflow:auto;" placeholder="댓글 내용 입력"></div>
+                          </div>
+                          <div class="text-right">
+                            <button type="button" class="btn btn-outline-light btn-recomment-cancel">취소</button>
+                            <button type="button" class="btn btn-primary btn-recomment-send">확인</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group mt-n5">
+                    <div class="border rounded-lg">
+                        <div id="editor" contenteditable="true" class="form-control" style="height:200px;overflow:auto;" placeholder="댓글 내용 입력"></div>
+                    </div>
+                  </div>
+                  <div class="text-right">
+                    <button type="button" class="btn btn-primary" onclick="sendRecomment();">확인</button>
+                  </div>
+                </div>
+                <!--/Component-->
+              </div>
+            </div>
+
+            <div class="card mb-5" id="p-list-summary-info">
+              <div class="card-header">
+                Content list (Summary info)
+              </div>
+              <div class="card-body py-5 px-4">
+                <!--Component-->
+                <div class="row">
+                  <div class="col-xl-4 col-md-4 col-sm-12">
+                    <div class="card mb-4">
+                      <div class="card-body d-flex flex-column justify-content-center align-items-center" style="min-height:161px;">
+                        <div>
+                          <div class="align-items-start">
+                            <span>Title</span>
+                          </div>
+                          <div class="mt-n2 align-items-center">
+                            <span class="glyphicons-shopping text-grays-6 mr-2" style="font-size:2rem;"></span>
+                            <strong style="font-size:2.5rem">24</strong>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-xl-4 col-md-4 col-sm-12">
+                    <div class="card mb-4">
+                      <div class="card-body d-flex flex-column justify-content-center align-items-center" style="min-height:161px;">
+                        <div>
+                          <div class="align-items-start">
+                            <span>Title</span>
+                          </div>
+                          <div class="mt-n2 align-items-center">
+                            <span class="glyphicons-chart_pie text-grays-6 mr-2" style="font-size:2rem;"></span>
+                            <strong style="font-size:2.5rem">99</strong>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-xl-4 col-md-4 col-sm-12">
+                    <div class="card mb-4">
+                      <div class="card-body d-flex flex-column justify-content-center align-items-center" style="min-height:161px;">
+                        <div>
+                          <div class="align-items-start">
+                            <span>Title</span>
+                          </div>
+                          <div class="mt-n2 align-items-center">
+                            <span class="glyphicons-work text-grays-6 mr-2" style="font-size:2rem;"></span>
+                            <strong style="font-size:2.5rem">206</strong>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-xl-4">
+                    <div class="card mb-4">
+                      <div class="card-body d-flex align-items-start flex-column" style="min-height:252px;">
+                        <div class="card-title w-100 mb-6">
+                          <span class="mb-2">다음 진행 예정인 마케팅</span>
+                          <span class="badge badge-pill badge-info float-right" stlye="margin-top: 2px;">07 OCT, 2018</span>
+                        </div>
+                        <div class="h2">블로그 포스트 - 트렌드 분석, 신제품 추천</div>
+                        <p class="text-muted" style="font-size: 0.875rem">요즘 유행 중인 아이템 트렌드 안내, <br>자사 아이템과의 콜라보 이벤트, 곧 출시될 신제품 안내</p>
+                        <div class="mt-auto">
+                          <a href="#" class="text-link">전체보기</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!--/Component-->
+              </div>
+            </div>
+
+            <div class="card mb-5" id="p-list-progress">
+              <div class="card-header">
+                Content list (Progress)
+              </div>
+              <div class="card-body py-5 px-4">
+                <!--Component-->
+                <div class="col-xl-5 col-lg-7 col-md-10 col-sm-6">
+                  <div class="card mb-4">
+                    <div class="card-body" style="min-height:252px;">
+                      <h4 class="card-title mb-5">현재 진행 중인 마케팅</h4>
+                      <div class="h2">Facebook AD - 신제품 프로모션</div>
+                      <p class="text-muted" style="font-size: 0.875rem">주말 기념 신제품 할인 이벤트 안내,<br>친구에게 이벤트 관련 포스팅 내용 공유 시 이모티콘 선물 이벤트 추가
+                      </p>
+                      <div class="mt-5">
+                        <div class="d-flex w-100 align-items-center justify-content-between mb-2" style="font-size: 0.875rem">
+                          <div class="text-gray-8">진행 중</div>
+                          <div>18%</div>
+                        </div>
+                        <div class="progress" style="height: 12px;">
+                          <div class="progress-bar" role="progressbar" style="width: 18%; background-color: #ff6f51;;"
+                            aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!--/Component-->
+              </div>
+            </div>
+
+            <div class="card mb-5" id="p-list-wizard">
+              <div class="card-header">
+                Wizard
+              </div>
+              <div class="card-body py-5 px-4">
+                <!--Component-->
+                <div class="wizard mb-7">
+                  <ol>
+                    <li class="items current">
+                      <span class="stage">1</span>
+                      약관동의
+                    </li>
+                    <li class="items">
+                      <span class="stage">2</span>
+                      정보입력
+                    </li>
+                    <li class="items">
+                      <span class="stage">3</span>
+                      가입완료
+                    </li>
+                  </ol>
+                </div>
+                <div class="uxs-tab">Content1</div>
+                <div class="uxs-tab">Content2</div>
+                <div class="uxs-tab">Content3</div>
+                <button class="btn btn-lg btn-primary btn-block rounded-lg uxs-big-prev-btn" type="button"
+                  onclick="nextPrevTab(1)">다음</button>
+                <div class="row">
+                  <div class="col-6 pr-2">
+                    <button type="button" class="btn btn-lg btn-light btn-block uxs-prev-btn" onclick="nextPrevTab(-1)">이전</button>
+                  </div>
+                  <div class="col-6 pl-2">
+                    <button class="btn btn-lg btn-primary btn-block uxs-next-btn" type="button" onclick="nextPrevTab(1)">다음</button>
+                  </div>
+                </div>
+                <!--/Component-->
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </main>
+      <!-- /theme-contents -->
+    </div>
+    <!-- /theme-body -->
+
+    <!-- theme-go-to-top -->
+    <div class="theme-go-to-top">
+      <a class="ux-top-link" href="#go-to-top">
+        <span class="glyphicons-top" aria-hidden="true"></span>
+        <span class="sr-only">Go to Top</span>
+      </a>
+    </div>
+    <!-- /theme-go-to-top -->
+  </div>
+  <!-- /wrapper -->
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/hammerjs@2.0.8"></script>
+  <script src="https://cdn.ckeditor.com/4.12.1/standard-all/ckeditor.js"></script>
+  <script src="../../../assets/common/js/vendor/highlight_9.15.10/highlight.pack.js"></script>
+
+  <!-- UI Script -->
+  <script src="../../../assets/common/js/vendor/perfect_scrollbar_1.4.0/perfect_scrollbar.min.js"></script>
+  <script src="../../../assets/common/js/ui.js"></script>
+  <script src="../../../assets/common/js/demo.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+  <script>
+    var editor; // 하단의 에디터
+    var editors; // 답글을 클릭하였을 경우 나오는 에디터
+
+      $(function () {
+
+        var btnRecomments = document.getElementsByClassName("btn-recomment");
+
+        var i = 0;
+
+        for (i = 0; i < btnRecomments.length; i++) {
+
+          btnRecomments[i].index = i;
+          btnRecomments[i].addEventListener('click', function (event) {
+            showRecommentBox(this.index);
+          });
+        }
+
+        // 하단의 에디터 초기화
+        editor = Editor.setEditor('editor', 'light/vendor/ckeditor/ckeditor.css', 'upload.php');
+
+        var recommentEditors = document.getElementsByClassName("recomment-editor");
+
+        var editors = [];
+
+        // 답글을 클릭하였을 경우 나오는 에디터 초기화
+        for (i = 0; i < recommentEditors.length; i++) {
+          editors.push(Editor.setEditor(recommentEditors[i].id, 'light/vendor/ckeditor/ckeditor.css', 'upload.php'));
+        }
+
+        var recommentSends = document.getElementsByClassName("btn-recomment-send");
+        var recommentCancels = document.getElementsByClassName("btn-recomment-cancel");
+
+        for (i = 0; i < recommentSends.length; i++) {
+
+          // 확인 버튼
+          recommentSends[i].index = i;
+          recommentSends[i].addEventListener('click', function (event) {
+            console.log(editors[this.index].getData());
+          });
+
+          // 취소 버튼
+          recommentCancels[i].index = i;
+          recommentCancels[i].addEventListener('click', function (event) {
+
+            hideRecommentBox(this.index);
+
+          });
+        }
+      });
+
+			/*
+			* 에디터를 보여주느 함수
+			* index : index
+			*/
+      function showRecommentBox(index) {
+
+        var btnRecomments = document.getElementsByClassName("btn-recomment");
+        var recommentBoxes = document.getElementsByClassName("recomment-box");
+
+        // 초기화
+        for (var i = 0; i < recommentBoxes.length; i++) {
+
+          hideRecommentBox(i);
+        }
+
+        btnRecomments[index].classList.add("d-none");
+        btnRecomments[index].classList.remove("d-block");
+
+        recommentBoxes[index].classList.add("d-block");
+        recommentBoxes[index].classList.remove("d-none");
+      }
+
+			/*
+			* 에디터를 숨기는 함수
+			* index : index
+			*/
+      function hideRecommentBox(index) {
+
+        var btnRecomments = document.getElementsByClassName("btn-recomment");
+        var recommentBoxes = document.getElementsByClassName("recomment-box");
+
+        btnRecomments[index].classList.add("d-block");
+        btnRecomments[index].classList.remove("d-none");
+
+        recommentBoxes[index].classList.add("d-none");
+        recommentBoxes[index].classList.remove("d-block");
+      }
+
+      function sendRecomment() {
+        console.log(editor.getData());
+      }
+
+      // --- Wizard
+
+        var funcArray = [
+        function () {
+          // 첫번째 탭에서 넘어갈 때 호출되는 함수
+          var checkedList = document.getElementsByClassName("uxs-check-all-item");
+          var checked = 0;
+          for (var i = 0; i < checkedList.length; i++) {
+            if (checkedList[i].checked) {
+              checked++;
+            }
+          }
+          if (checked == 2) {
+            return true;
+          }
+
+          return true;
+        },
+        function () {
+          // 두번째 탭에서 넘어갈 때 호출되는 함수
+          return true;
+        }
+      ];
+
+      TabWizard.init(funcArray);
+
+      function nextPrevTab(n) {
+        TabWizard.nextPrevTab(n);
+      }
+
+
+  </script>
+</body>
+
+</html>

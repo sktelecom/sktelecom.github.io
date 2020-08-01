@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no, maximum-scale=1.0, user-scalable=0">
+    <meta name="keyword" content="">
+    <meta name="description" content="">
+    <title>Bootstrap Marketing &amp; Promotion</title>
+    <link rel="shortcut icon" href="../../../assets/common/img/favicon/ux.ico">
+    <link rel="apple-touch-icon" href="../../../assets/common/img/favicon/ux.png">
+    <link rel="stylesheet" type="text/css" href="../../../assets/mkt/css/uxs.css">
+    <link rel="stylesheet" type="text/css" href="../../../assets/mkt/css/demo.css">
+  </head>
+  <body>
+    <!-- wrapper -->
+    <div class="wrapper wrapper-fixed" id="go-to-top">
+      <!-- docs-header -->
+      <div class="docs-header">
+        <!-- lnb-toggler -->
+        <button class="navbar-toggler docs-sidebar-toggler" type="button" aria-controls="theme-lnb" aria-expanded="false" aria-label="Toggle LNB">
+          <span class="navbar-toggler-icon" aria-hidden="true"></span>
+          <span class="sr-only">주 메뉴 바로가기</span>
+        </button>
+        <!-- /lnb-toggler -->
+        <!--
+          navbar-brand
+          React - text-react,
+          Vue   - text-vue
+        -->
+        <span class="navbar-brand text-bootstrap">Bootstrap</span>
+        <span class="navbar-brand">Marketing &amp; Promotion</span>
+      </div>
+      <!-- /docs-header -->
+      <div class="docs-body">
+        <div class="docs-sidebar" data-include="../_includes/ct-sidebar.html" data-name="modal"></div>
+        <!-- docs-contents -->
+        <main class="docs-contents contents-mt">
+          <div class="d-flex flex-row align-items-start mb-7 mb-md-10">
+            <!-- toc -->
+            <div class="toc">
+              <nav class="nav flex-column js-toc-triggers">
+                <a class="nav-link" href="#modal-examples">Examples</a>
+                <a class="nav-link" href="#modal-live">Live demo</a>
+                <a class="nav-link" href="#modal-varying">Varying modal content</a>
+                <a class="nav-link" href="#modal-sizes">Optional sizes</a>
+              </nav>
+            </div>
+            <!-- /toc -->
+
+            <!-- toc-content -->
+            <div class="toc-content">
+              <div>Components</div>
+              <div class="component-title font-weight-bold mb-7">Modal</div>
+
+              <div class="card mb-5" id="modal-examples">
+                <div class="card-header">
+                  Examples
+                </div>
+                <div class="card-body p-0">
+                  <!--Component-->
+                  <div class="modal" tabindex="-1" role="dialog" style="display: inline-block; position: relative; width: 100%; max-width: 400px; padding: 20px; z-index: 1000;">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title">제목</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <p>UX Studio는 빠르고 편리하게 높은 UX 품질의 웹 화면 구현을 지원하는 서비스입니다.</p>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-light" data-dismiss="modal">닫기</button>
+                          <button type="button" class="btn btn-primary">버튼</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!--/Component-->
+                </div>
+              </div>
+
+              <div class="card mb-5" id="modal-live">
+                <div class="card-header">
+                  Live demo
+                </div>
+                <div class="card-body py-5 px-4">
+                  <!--Component-->
+                  <!-- Button trigger modal -->
+                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                    버튼
+                  </button>
+                  <!--/Component-->
+                  <div class="sub-title">Scrolling long content</div>
+                  <!--Component-->
+                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
+                    버튼
+                  </button>
+
+                  <!-- Button trigger modal -->
+                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable">
+                    버튼
+                  </button>
+                  <!--/Component-->
+                  <div class="sub-title">Vertically centered</div>
+                  <!--Component-->
+                  <!-- Button trigger modal -->
+                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                    버튼
+                  </button>
+                  <!--/Component-->
+                  <div class="sub-title">Tooltips and popovers</div>
+                  <!--Component-->
+                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalPopovers">
+                    버튼
+                  </button>
+                  <!--/Component-->
+                  <div class="sub-title">Using the grid</div>
+                  <!--Component-->
+                  <!-- Button trigger modal -->
+                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#gridSystemModal">
+                    버튼
+                  </button>
+                  <!--/Component-->
+                </div>
+              </div>
+
+              <div class="card mb-5" id="modal-varying">
+                <div class="card-header">
+                  Varying modal content
+                </div>
+                <div class="card-body py-5 px-4">
+                  <!--Component-->
+                  <button type="button" class="btn btn-primary mb-5" data-toggle="modal" data-target="#exampleVaryingModal" data-whatever="@mdo">Open modal for @mdo</button>
+                  <button type="button" class="btn btn-primary mb-5" data-toggle="modal" data-target="#exampleVaryingModal" data-whatever="@fat">Open modal for @fat</button>
+                  <button type="button" class="btn btn-primary mb-5" data-toggle="modal" data-target="#exampleVaryingModal" data-whatever="@getbootstrap">Open modal for @getbootstrap</button>
+                  <!--/Component-->
+                </div>
+              </div>
+
+              <div class="card mb-5" id="modal-sizes">
+                <div class="card-header">
+                  Optional sizes
+                </div>
+                <div class="card-body py-5 px-4">
+                  <!--Component-->
+                  <table class="table table-bordered table-striped">
+                    <thead>
+                      <tr>
+                        <th>Size</th>
+                        <th>Class</th>
+                        <th>Modal max-width</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Small</td>
+                        <td><code>.modal-sm</code></td>
+                        <td><code>300px</code></td>
+                      </tr>
+                      <tr>
+                        <td>Default</td>
+                        <td class="text-muted">None</td>
+                        <td><code>500px</code></td>
+                      </tr>
+                      <tr>
+                        <td>Large</td>
+                        <td><code>.modal-lg</code></td>
+                        <td><code>800px</code></td>
+                      </tr>
+                      <tr>
+                        <td>Extra large</td>
+                        <td><code>.modal-xl</code></td>
+                        <td><code>1140px</code></td>
+                      </tr>
+                    </tbody>
+                  </table>
+
+                  <!-- Extra large modal -->
+                  <button type="button" class="btn btn-primary mb-5" data-toggle="modal" data-target=".bd-example-modal-xl">Extra large modal</button>
+
+                  <!-- Large modal -->
+                  <button type="button" class="btn btn-primary mb-5" data-toggle="modal" data-target=".bd-example-modal-lg">Large modal</button>
+
+                  <!-- Small modal -->
+                  <button type="button" class="btn btn-primary mb-5" data-toggle="modal" data-target=".bd-example-modal-sm">Small modal</button>
+                  <!--/Component-->
+                </div>
+              </div>
+            </div>
+            <!-- /toc-content -->
+          </div>
+        </main>
+        <!-- /docs-contents -->
+      </div>
+
+      <!-- theme-go-to-top -->
+      <div class="theme-go-to-top">
+        <a class="ux-top-link" href="#go-to-top">
+          <span class="glyphicons-top" aria-hidden="true"></span>
+          <span class="sr-only">Go to Top</span>
+        </a>
+      </div>
+      <!-- /theme-go-to-top -->
+    </div>
+    <!-- /wrapper -->
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">제목</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            UX Studio는 빠르고 편리하게 높은 UX 품질의 웹 화면 구현을 지원하는 서비스입니다.
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-light" data-dismiss="modal">닫기</button>
+            <button type="button" class="btn btn-primary">버튼</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">제목</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>UX Studio는 빠르고 편리하게 높은 UX 품질의 웹 화면 구현을 지원하는 서비스입니다.<br>이를 위해, 가이드, 문서, 테마&패키지, UX 점검 및 커뮤니티 기능을 제공합니다.</p>
+            <p>UX Studio는 빠르고 편리하게 높은 UX 품질의 웹 화면 구현을 지원하는 서비스입니다.<br>이를 위해, 가이드, 문서, 테마&패키지, UX 점검 및 커뮤니티 기능을 제공합니다.</p>
+            <p>UX Studio는 빠르고 편리하게 높은 UX 품질의 웹 화면 구현을 지원하는 서비스입니다.<br>이를 위해, 가이드, 문서, 테마&패키지, UX 점검 및 커뮤니티 기능을 제공합니다.</p>
+            <p>UX Studio는 빠르고 편리하게 높은 UX 품질의 웹 화면 구현을 지원하는 서비스입니다.<br>이를 위해, 가이드, 문서, 테마&패키지, UX 점검 및 커뮤니티 기능을 제공합니다.</p>
+            <p>UX Studio는 빠르고 편리하게 높은 UX 품질의 웹 화면 구현을 지원하는 서비스입니다.<br>이를 위해, 가이드, 문서, 테마&패키지, UX 점검 및 커뮤니티 기능을 제공합니다.</p>
+            <p>UX Studio는 빠르고 편리하게 높은 UX 품질의 웹 화면 구현을 지원하는 서비스입니다.<br>이를 위해, 가이드, 문서, 테마&패키지, UX 점검 및 커뮤니티 기능을 제공합니다.</p>
+            <p>UX Studio는 빠르고 편리하게 높은 UX 품질의 웹 화면 구현을 지원하는 서비스입니다.<br>이를 위해, 가이드, 문서, 테마&패키지, UX 점검 및 커뮤니티 기능을 제공합니다.</p>
+            <p>UX Studio는 빠르고 편리하게 높은 UX 품질의 웹 화면 구현을 지원하는 서비스입니다.<br>이를 위해, 가이드, 문서, 테마&패키지, UX 점검 및 커뮤니티 기능을 제공합니다.</p>
+            <p>UX Studio는 빠르고 편리하게 높은 UX 품질의 웹 화면 구현을 지원하는 서비스입니다.<br>이를 위해, 가이드, 문서, 테마&패키지, UX 점검 및 커뮤니티 기능을 제공합니다.</p>
+            <p>UX Studio는 빠르고 편리하게 높은 UX 품질의 웹 화면 구현을 지원하는 서비스입니다.<br>이를 위해, 가이드, 문서, 테마&패키지, UX 점검 및 커뮤니티 기능을 제공합니다.</p>
+            <p>UX Studio는 빠르고 편리하게 높은 UX 품질의 웹 화면 구현을 지원하는 서비스입니다.<br>이를 위해, 가이드, 문서, 테마&패키지, UX 점검 및 커뮤니티 기능을 제공합니다.</p>
+            <p>UX Studio는 빠르고 편리하게 높은 UX 품질의 웹 화면 구현을 지원하는 서비스입니다.<br>이를 위해, 가이드, 문서, 테마&패키지, UX 점검 및 커뮤니티 기능을 제공합니다.</p>
+            <p>UX Studio는 빠르고 편리하게 높은 UX 품질의 웹 화면 구현을 지원하는 서비스입니다.<br>이를 위해, 가이드, 문서, 테마&패키지, UX 점검 및 커뮤니티 기능을 제공합니다.</p>
+            <p>UX Studio는 빠르고 편리하게 높은 UX 품질의 웹 화면 구현을 지원하는 서비스입니다.<br>이를 위해, 가이드, 문서, 테마&패키지, UX 점검 및 커뮤니티 기능을 제공합니다.</p>
+            <p>UX Studio는 빠르고 편리하게 높은 UX 품질의 웹 화면 구현을 지원하는 서비스입니다.<br>이를 위해, 가이드, 문서, 테마&패키지, UX 점검 및 커뮤니티 기능을 제공합니다.</p>
+            <p>UX Studio는 빠르고 편리하게 높은 UX 품질의 웹 화면 구현을 지원하는 서비스입니다.<br>이를 위해, 가이드, 문서, 테마&패키지, UX 점검 및 커뮤니티 기능을 제공합니다.</p>
+            <p>UX Studio는 빠르고 편리하게 높은 UX 품질의 웹 화면 구현을 지원하는 서비스입니다.<br>이를 위해, 가이드, 문서, 테마&패키지, UX 점검 및 커뮤니티 기능을 제공합니다.</p>
+            <p>UX Studio는 빠르고 편리하게 높은 UX 품질의 웹 화면 구현을 지원하는 서비스입니다.<br>이를 위해, 가이드, 문서, 테마&패키지, UX 점검 및 커뮤니티 기능을 제공합니다.</p>
+            <p>UX Studio는 빠르고 편리하게 높은 UX 품질의 웹 화면 구현을 지원하는 서비스입니다.<br>이를 위해, 가이드, 문서, 테마&패키지, UX 점검 및 커뮤니티 기능을 제공합니다.</p>
+            <p>UX Studio는 빠르고 편리하게 높은 UX 품질의 웹 화면 구현을 지원하는 서비스입니다.<br>이를 위해, 가이드, 문서, 테마&패키지, UX 점검 및 커뮤니티 기능을 제공합니다.</p>
+            <p>UX Studio는 빠르고 편리하게 높은 UX 품질의 웹 화면 구현을 지원하는 서비스입니다.<br>이를 위해, 가이드, 문서, 테마&패키지, UX 점검 및 커뮤니티 기능을 제공합니다.</p>
+            <p>UX Studio는 빠르고 편리하게 높은 UX 품질의 웹 화면 구현을 지원하는 서비스입니다.<br>이를 위해, 가이드, 문서, 테마&패키지, UX 점검 및 커뮤니티 기능을 제공합니다.</p>
+            <p>UX Studio는 빠르고 편리하게 높은 UX 품질의 웹 화면 구현을 지원하는 서비스입니다.<br>이를 위해, 가이드, 문서, 테마&패키지, UX 점검 및 커뮤니티 기능을 제공합니다.</p>
+            <p>UX Studio는 빠르고 편리하게 높은 UX 품질의 웹 화면 구현을 지원하는 서비스입니다.<br>이를 위해, 가이드, 문서, 테마&패키지, UX 점검 및 커뮤니티 기능을 제공합니다.</p>
+            <p>UX Studio는 빠르고 편리하게 높은 UX 품질의 웹 화면 구현을 지원하는 서비스입니다.<br>이를 위해, 가이드, 문서, 테마&패키지, UX 점검 및 커뮤니티 기능을 제공합니다.</p>
+            <p>UX Studio는 빠르고 편리하게 높은 UX 품질의 웹 화면 구현을 지원하는 서비스입니다.<br>이를 위해, 가이드, 문서, 테마&패키지, UX 점검 및 커뮤니티 기능을 제공합니다.</p>
+            <p>UX Studio는 빠르고 편리하게 높은 UX 품질의 웹 화면 구현을 지원하는 서비스입니다.<br>이를 위해, 가이드, 문서, 테마&패키지, UX 점검 및 커뮤니티 기능을 제공합니다.</p>
+            <p>UX Studio는 빠르고 편리하게 높은 UX 품질의 웹 화면 구현을 지원하는 서비스입니다.<br>이를 위해, 가이드, 문서, 테마&패키지, UX 점검 및 커뮤니티 기능을 제공합니다.</p>
+            <p>UX Studio는 빠르고 편리하게 높은 UX 품질의 웹 화면 구현을 지원하는 서비스입니다.<br>이를 위해, 가이드, 문서, 테마&패키지, UX 점검 및 커뮤니티 기능을 제공합니다.</p>
+            <p>UX Studio는 빠르고 편리하게 높은 UX 품질의 웹 화면 구현을 지원하는 서비스입니다.<br>이를 위해, 가이드, 문서, 테마&패키지, UX 점검 및 커뮤니티 기능을 제공합니다.</p>
+            <p>UX Studio는 빠르고 편리하게 높은 UX 품질의 웹 화면 구현을 지원하는 서비스입니다.<br>이를 위해, 가이드, 문서, 테마&패키지, UX 점검 및 커뮤니티 기능을 제공합니다.</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-light" data-dismiss="modal">닫기</button>
+            <button type="button" class="btn btn-primary">버튼</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalScrollableTitle">제목</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>UX Studio는 빠르고 편리하게 높은 UX 품질의 웹 화면 구현을 지원하는 서비스입니다.<br>이를 위해, 가이드, 문서, 테마&패키지, UX 점검 및 커뮤니티 기능을 제공합니다.</p>
+            <p>UX Studio는 빠르고 편리하게 높은 UX 품질의 웹 화면 구현을 지원하는 서비스입니다.<br>이를 위해, 가이드, 문서, 테마&패키지, UX 점검 및 커뮤니티 기능을 제공합니다.</p>
+            <p>UX Studio는 빠르고 편리하게 높은 UX 품질의 웹 화면 구현을 지원하는 서비스입니다.<br>이를 위해, 가이드, 문서, 테마&패키지, UX 점검 및 커뮤니티 기능을 제공합니다.</p>
+            <p>UX Studio는 빠르고 편리하게 높은 UX 품질의 웹 화면 구현을 지원하는 서비스입니다.<br>이를 위해, 가이드, 문서, 테마&패키지, UX 점검 및 커뮤니티 기능을 제공합니다.</p>
+            <p>UX Studio는 빠르고 편리하게 높은 UX 품질의 웹 화면 구현을 지원하는 서비스입니다.<br>이를 위해, 가이드, 문서, 테마&패키지, UX 점검 및 커뮤니티 기능을 제공합니다.</p>
+            <p>UX Studio는 빠르고 편리하게 높은 UX 품질의 웹 화면 구현을 지원하는 서비스입니다.<br>이를 위해, 가이드, 문서, 테마&패키지, UX 점검 및 커뮤니티 기능을 제공합니다.</p>
+            <p>UX Studio는 빠르고 편리하게 높은 UX 품질의 웹 화면 구현을 지원하는 서비스입니다.<br>이를 위해, 가이드, 문서, 테마&패키지, UX 점검 및 커뮤니티 기능을 제공합니다.</p>
+            <p>UX Studio는 빠르고 편리하게 높은 UX 품질의 웹 화면 구현을 지원하는 서비스입니다.<br>이를 위해, 가이드, 문서, 테마&패키지, UX 점검 및 커뮤니티 기능을 제공합니다.</p>
+            <p>UX Studio는 빠르고 편리하게 높은 UX 품질의 웹 화면 구현을 지원하는 서비스입니다.<br>이를 위해, 가이드, 문서, 테마&패키지, UX 점검 및 커뮤니티 기능을 제공합니다.</p>
+            <p>UX Studio는 빠르고 편리하게 높은 UX 품질의 웹 화면 구현을 지원하는 서비스입니다.<br>이를 위해, 가이드, 문서, 테마&패키지, UX 점검 및 커뮤니티 기능을 제공합니다.</p>
+            <p>UX Studio는 빠르고 편리하게 높은 UX 품질의 웹 화면 구현을 지원하는 서비스입니다.<br>이를 위해, 가이드, 문서, 테마&패키지, UX 점검 및 커뮤니티 기능을 제공합니다.</p>
+            <p>UX Studio는 빠르고 편리하게 높은 UX 품질의 웹 화면 구현을 지원하는 서비스입니다.<br>이를 위해, 가이드, 문서, 테마&패키지, UX 점검 및 커뮤니티 기능을 제공합니다.</p>
+            <p>UX Studio는 빠르고 편리하게 높은 UX 품질의 웹 화면 구현을 지원하는 서비스입니다.<br>이를 위해, 가이드, 문서, 테마&패키지, UX 점검 및 커뮤니티 기능을 제공합니다.</p>
+            <p>UX Studio는 빠르고 편리하게 높은 UX 품질의 웹 화면 구현을 지원하는 서비스입니다.<br>이를 위해, 가이드, 문서, 테마&패키지, UX 점검 및 커뮤니티 기능을 제공합니다.</p>
+            <p>UX Studio는 빠르고 편리하게 높은 UX 품질의 웹 화면 구현을 지원하는 서비스입니다.<br>이를 위해, 가이드, 문서, 테마&패키지, UX 점검 및 커뮤니티 기능을 제공합니다.</p>
+            <p>UX Studio는 빠르고 편리하게 높은 UX 품질의 웹 화면 구현을 지원하는 서비스입니다.<br>이를 위해, 가이드, 문서, 테마&패키지, UX 점검 및 커뮤니티 기능을 제공합니다.</p>
+            <p>UX Studio는 빠르고 편리하게 높은 UX 품질의 웹 화면 구현을 지원하는 서비스입니다.<br>이를 위해, 가이드, 문서, 테마&패키지, UX 점검 및 커뮤니티 기능을 제공합니다.</p>
+            <p>UX Studio는 빠르고 편리하게 높은 UX 품질의 웹 화면 구현을 지원하는 서비스입니다.<br>이를 위해, 가이드, 문서, 테마&패키지, UX 점검 및 커뮤니티 기능을 제공합니다.</p>
+            <p>UX Studio는 빠르고 편리하게 높은 UX 품질의 웹 화면 구현을 지원하는 서비스입니다.<br>이를 위해, 가이드, 문서, 테마&패키지, UX 점검 및 커뮤니티 기능을 제공합니다.</p>
+            <p>UX Studio는 빠르고 편리하게 높은 UX 품질의 웹 화면 구현을 지원하는 서비스입니다.<br>이를 위해, 가이드, 문서, 테마&패키지, UX 점검 및 커뮤니티 기능을 제공합니다.</p>
+            <p>UX Studio는 빠르고 편리하게 높은 UX 품질의 웹 화면 구현을 지원하는 서비스입니다.<br>이를 위해, 가이드, 문서, 테마&패키지, UX 점검 및 커뮤니티 기능을 제공합니다.</p>
+            <p>UX Studio는 빠르고 편리하게 높은 UX 품질의 웹 화면 구현을 지원하는 서비스입니다.<br>이를 위해, 가이드, 문서, 테마&패키지, UX 점검 및 커뮤니티 기능을 제공합니다.</p>
+            <p>UX Studio는 빠르고 편리하게 높은 UX 품질의 웹 화면 구현을 지원하는 서비스입니다.<br>이를 위해, 가이드, 문서, 테마&패키지, UX 점검 및 커뮤니티 기능을 제공합니다.</p>
+            <p>UX Studio는 빠르고 편리하게 높은 UX 품질의 웹 화면 구현을 지원하는 서비스입니다.<br>이를 위해, 가이드, 문서, 테마&패키지, UX 점검 및 커뮤니티 기능을 제공합니다.</p>
+            <p>UX Studio는 빠르고 편리하게 높은 UX 품질의 웹 화면 구현을 지원하는 서비스입니다.<br>이를 위해, 가이드, 문서, 테마&패키지, UX 점검 및 커뮤니티 기능을 제공합니다.</p>
+            <p>UX Studio는 빠르고 편리하게 높은 UX 품질의 웹 화면 구현을 지원하는 서비스입니다.<br>이를 위해, 가이드, 문서, 테마&패키지, UX 점검 및 커뮤니티 기능을 제공합니다.</p>
+            <p>UX Studio는 빠르고 편리하게 높은 UX 품질의 웹 화면 구현을 지원하는 서비스입니다.<br>이를 위해, 가이드, 문서, 테마&패키지, UX 점검 및 커뮤니티 기능을 제공합니다.</p>
+            <p>UX Studio는 빠르고 편리하게 높은 UX 품질의 웹 화면 구현을 지원하는 서비스입니다.<br>이를 위해, 가이드, 문서, 테마&패키지, UX 점검 및 커뮤니티 기능을 제공합니다.</p>
+            <p>UX Studio는 빠르고 편리하게 높은 UX 품질의 웹 화면 구현을 지원하는 서비스입니다.<br>이를 위해, 가이드, 문서, 테마&패키지, UX 점검 및 커뮤니티 기능을 제공합니다.</p>
+            <p>UX Studio는 빠르고 편리하게 높은 UX 품질의 웹 화면 구현을 지원하는 서비스입니다.<br>이를 위해, 가이드, 문서, 테마&패키지, UX 점검 및 커뮤니티 기능을 제공합니다.</p>
+            <p>UX Studio는 빠르고 편리하게 높은 UX 품질의 웹 화면 구현을 지원하는 서비스입니다.<br>이를 위해, 가이드, 문서, 테마&패키지, UX 점검 및 커뮤니티 기능을 제공합니다.</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalCenterTitle">제목</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>UX Studio는 빠르고 편리하게 높은 UX 품질의 웹 화면 구현을 지원하는 서비스입니다.<br>이를 위해, 가이드, 문서, 테마&패키지, UX 점검 및 커뮤니티 기능을 제공합니다.</p>
+            <p>UX Studio는 빠르고 편리하게 높은 UX 품질의 웹 화면 구현을 지원하는 서비스입니다.<br>이를 위해, 가이드, 문서, 테마&패키지, UX 점검 및 커뮤니티 기능을 제공합니다.</p>
+            <p>UX Studio는 빠르고 편리하게 높은 UX 품질의 웹 화면 구현을 지원하는 서비스입니다.<br>이를 위해, 가이드, 문서, 테마&패키지, UX 점검 및 커뮤니티 기능을 제공합니다.</p>
+            <p>UX Studio는 빠르고 편리하게 높은 UX 품질의 웹 화면 구현을 지원하는 서비스입니다.<br>이를 위해, 가이드, 문서, 테마&패키지, UX 점검 및 커뮤니티 기능을 제공합니다.</p>
+            <p>UX Studio는 빠르고 편리하게 높은 UX 품질의 웹 화면 구현을 지원하는 서비스입니다.<br>이를 위해, 가이드, 문서, 테마&패키지, UX 점검 및 커뮤니티 기능을 제공합니다.</p>
+            <p>UX Studio는 빠르고 편리하게 높은 UX 품질의 웹 화면 구현을 지원하는 서비스입니다.<br>이를 위해, 가이드, 문서, 테마&패키지, UX 점검 및 커뮤니티 기능을 제공합니다.</p>
+            <p>UX Studio는 빠르고 편리하게 높은 UX 품질의 웹 화면 구현을 지원하는 서비스입니다.<br>이를 위해, 가이드, 문서, 테마&패키지, UX 점검 및 커뮤니티 기능을 제공합니다.</p>
+            <p>UX Studio는 빠르고 편리하게 높은 UX 품질의 웹 화면 구현을 지원하는 서비스입니다.<br>이를 위해, 가이드, 문서, 테마&패키지, UX 점검 및 커뮤니티 기능을 제공합니다.</p>
+            <p>UX Studio는 빠르고 편리하게 높은 UX 품질의 웹 화면 구현을 지원하는 서비스입니다.<br>이를 위해, 가이드, 문서, 테마&패키지, UX 점검 및 커뮤니티 기능을 제공합니다.</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-light" data-dismiss="modal">닫기</button>
+            <button type="button" class="btn btn-primary">버튼</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="exampleModalPopovers" tabindex="-1" role="dialog" aria-labelledby="exampleModalPopoversLabel"aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalPopoversLabel">제목</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <h5>Popover in a modal</h5>
+            <p>This <a href="#" role="button" class="btn btn-secondary popover-test" title="" data-content="Popover body content is set in this attribute." data-container="#exampleModalPopovers" data-original-title="Popover title">button</a> triggers a popover on click.</p>
+            <hr>
+            <h5>Tooltips in a modal</h5>
+            <p><a href="#" class="tooltip-test" title="" data-container="#exampleModalPopovers" data-original-title="Tooltip">This link</a> and <a href="#" class="tooltip-test" title="" data-container="#exampleModalPopovers" data-original-title="Tooltip">that link</a> have tooltips on hover.</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="gridSystemModal" tabindex="-1" role="dialog" aria-labelledby="gridModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="gridModalLabel">Grids in modals</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          </div>
+          <div class="modal-body">
+            <div class="container-fluid bd-example-row">
+              <div class="row">
+                <div class="col-md-4">.col-md-4</div>
+                <div class="col-md-4 ml-auto">.col-md-4 .ml-auto</div>
+              </div>
+              <div class="row">
+                <div class="col-md-3 ml-auto">.col-md-3 .ml-auto</div>
+                <div class="col-md-2 ml-auto">.col-md-2 .ml-auto</div>
+              </div>
+              <div class="row">
+                <div class="col-md-6 ml-auto">.col-md-6 .ml-auto</div>
+              </div>
+              <div class="row">
+                <div class="col-sm-9">
+                  Level 1: .col-sm-9
+                  <div class="row">
+                    <div class="col-8 col-sm-6">
+                      Level 2: .col-8 .col-sm-6
+                    </div>
+                    <div class="col-4 col-sm-6">
+                      Level 2: .col-4 .col-sm-6
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="exampleVaryingModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">New message to @mdo</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-group">
+                <label for="recipient-name" class="col-form-label">Recipient:</label>
+                <input type="text" class="form-control" id="recipient-name">
+              </div>
+              <div class="form-group">
+                <label for="message-text" class="col-form-label">Message:</label>
+                <textarea class="form-control" id="message-text" style="margin-top: 0px; margin-bottom: 0px; height: 306px;"></textarea>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Send message</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+
+          <div class="modal-header">
+            <h5 class="modal-title h4" id="myExtraLargeModalLabel">Extra large modal</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            ...
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+          <div class="modal-header">
+            <h5 class="modal-title h4" id="myLargeModalLabel">Large modal</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            ...
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title h4" id="mySmallModalLabel">Small modal</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            ...
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/hammerjs@2.0.8"></script>
+
+    <!-- UI Script -->
+    <script src="../../../assets/common/js/vendor/perfect_scrollbar_1.4.0/perfect_scrollbar.min.js"></script>
+    <script src="../../../assets/common/js/ui.js"></script>
+    <script src="../../../assets/common/js/demo.js"></script>
+
+    <script>
+      $(function () {
+
+        $('[href$="#"]').each(function() {
+          var emptyLinks = $(this);
+
+          emptyLinks.on('click', function(event) {
+            event.preventDefault();
+          });
+        });
+
+        $('.popover-test').popover();
+
+        });
+        $('#exampleVaryingModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget) // Button that triggered the modal
+        var recipient = button.data('whatever') // Extract info from data-* attributes
+        // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+        // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+        var modal = $(this)
+        modal.find('.modal-title').text('New message to ' + recipient)
+        modal.find('.modal-body input').val(recipient)
+      });
+    </script>
+  </body>
+</html>
