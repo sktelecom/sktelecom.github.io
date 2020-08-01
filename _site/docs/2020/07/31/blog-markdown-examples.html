@@ -1,0 +1,821 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Blog Markdown Examples</title>
+    <meta name="description" content="Example blog in markdown and html classes">
+    <meta name="author" content="SKT Open Source Program Manager">    
+    <meta name="keywords" content="html, css, markdown, jekyll, docs, jekyllthemes, theme">
+    <link rel="canonical" href="https://sktelecom.github.io"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+
+    <!--Google Font link-->
+        <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,300i,400,400i,500,500i,700,700i" rel="stylesheet">
+ <!--Helium css-->
+        <link rel="stylesheet" href="/assets/css/animate.css">
+        <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/assets/css/font-awesome.min.css">
+        <link rel="stylesheet" href="/assets/css/jasny-bootstrap.min.css">
+        <link rel="stylesheet" href="/assets/css/main.css">
+        <link rel="stylesheet" href="/assets/css/owl.carousel.css">
+        <link rel="stylesheet" href="/assets/css/owl.theme.css">
+        <link rel="stylesheet" href="/assets/css/responsive.css">
+        <link rel="stylesheet" href="/assets/css/scrolling-nav.css">	  
+
+	<!-- CSS loaded by the children page -->
+        
+
+    <meta property="og:title" content="Blog Markdown Examples">
+    <meta property="og:description" content="Example blog in markdown and html classes">
+    <meta property="og:image" content="/assets/img/big/markdown-samples.jpg">
+    <meta property="og:url" content="">
+    <meta name="twitter:card" content="summary_large_image">
+
+	<!--[if IE]>
+		<script type="text/javascript">
+			 var console = { log: function() {} };
+		</script>
+	<![endif]-->
+    <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
+    <link href="/rss.xml" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
+    <!-- Google ADS mobile block-->
+    
+    <script type="text/javascript" async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script type="text/javascript">
+     (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-9204963049240271",
+        enable_page_level_ads: true
+        });
+    </script>
+    
+  </head>
+  <body>
+  <div class="wrapper">	  	 
+      <!--Home page style--> 
+                  <!--<div class="top-menu">
+              <p>
+                <span class="left">
+                  <a href="#"><i class="fa fa-map-marker"></i>New South Wales, Sydney</a>
+                  <a href="#"><i class="fa fa-mobile-phone"></i>+9 34476 3244</a>
+                  <a href="#"><i class="fa fa-envelope"></i>email@example.com</a>
+              	</span>
+                <span class="right hidden-sm-down">                          
+                  <a href="https://www.facebook.com/sktelecom/"><i class="fa fa-facebook"></i></a>
+                  <a href="https://twitter.com/sktelecom"><i class="fa fa-twitter"></i></a>
+                  
+                  <a href="https://www.instagram.com/sktelecom/"><i class="fa fa-instagram"></i></a>                            
+              	</span>
+              </p>
+            </div>-->
+
+            <!-- navbar-default -->
+            <nav class="navbar navbar-toggleable-sm navbar-light bg-black">
+              <div class="container">
+                <a class="navbar-brand" href="/index.html"><img src="/assets/images/skt_ci.png" alt=""></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar2" aria-expanded="false" aria-label="Toggle navigation">
+	                <i class="fa fa-bars"></i>
+                </button>
+                
+                <!--<div class="collapse navbar-collapse justify-content-end" id="navbar1">
+                  <ul class="navbar-nav">
+                    
+                    
+                    
+
+
+  
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li class="nav-item"><a class="nav-link" href="/blog">SKT Open Source Software</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+  
+
+
+
+                  </ul>
+                </div>-->
+
+                <div class="collapse navbar-collapse justify-content-end" id="navbar2">
+                  <ul class="navbar-nav">
+                    <li class="nav-item">
+                      <a class="nav-link" href="/index.html">Open Source</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link js-scroll-trigger" href="/index.html#portfolio">Project</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="/blog.html">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="https://opensource-skt.gitbook.io/" target="_blank">Guide</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="/contact.html">Contact</a>
+                    </li>
+                    <!--
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown link</a>
+                      <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                      </div>
+                    </li>-->
+                  </ul>
+                </div>
+              </div>
+            </nav>
+<!--
+            <nav class="navbar navbar-toggleable-sm navbar-light bg-default">
+              <div class="container">
+                <a class="navbar-brand" href=""><img src="/assets/images/skt_ci_2.png" alt=""></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar1" aria-expanded="false" aria-label="Toggle navigation">
+                  <i class="fa fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbar1">
+                  <ul class="navbar-nav">
+                    
+                    
+                    
+
+
+  
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li class="nav-item"><a class="nav-link" href="/blog">SKT Open Source Software</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+  
+
+
+
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown link</a>
+                      <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </nav>-->
+
+      
+
+<!-- Post header -->
+      <div class="header-style-2">
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-12 col-sm-6">
+              <div class="hero-content-v2" style="margin-top:10px!important;">
+                <h3><strong>Blog Markdown Examples</strong></h3>
+                <p>
+                          Example blog in markdown and html classes
+                </p>
+                <a href="#post" class="page-scroll btn btn-lg btn-default-filled">Read Post</a>
+                <div class="mb-60"></div>                      
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-6">
+              <figure>
+                <img src="/assets/images/markdown-samples.jpg" alt="">
+              </figure>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+<!-- Post content+sidebar -->
+
+<div class="mb-60"></div>
+
+  <!-- Blog content + sidebar -->
+  <section id="post" class="blog">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 col-md-12">
+           
+<p>Markdown samples usefull when you start write your blog 🎉 🎆.</p>
+
+<!--more-->
+
+<h1 id="examples">Examples</h1>
+
+<h4 class="sub-title" id="in-markdown-cannot-guarantee-it-work-well">in markdown cannot guarantee it work well</h4>
+
+<p class="bg-danger">Test paragraph with <strong>bg-danger</strong> custom class.</p>
+
+<p class="bg-success">Test paragraph with <strong>bg-success</strong> custom class.</p>
+
+<p class="bg-info">Test paragraph with <strong>bg-info</strong> custom class.</p>
+
+<p class="bg-warning">Test paragraph with <strong>bg-warning</strong> custom class.</p>
+
+<hr class="sub-title" />
+<h4 id="in-markdown">in markdown</h4>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{:.bg-danger}
+Test paragraph with **bg-danger** custom class.
+
+{:.bg-success}
+Test paragraph with **bg-success** custom class.
+
+{:.bg-info}
+Test paragraph with **bg-info** custom class.
+
+{:.bg-warning}
+Test paragraph with **bg-warning** custom class.
+
+</code></pre></div></div>
+<hr />
+
+<p><strong>Test Bold</strong></p>
+
+<p><em>Test coursive</em></p>
+
+<p>A divider: <code class="language-plaintext highlighter-rouge">----</code></p>
+
+<hr />
+
+<p>This is **not** in bold.</p>
+
+<ul>
+  <li>This</li>
+  <li>is</li>
+  <li>a list</li>
+</ul>
+
+<blockquote>
+  <p>This is quoted</p>
+</blockquote>
+
+<ol>
+  <li>with</li>
+  <li>numbers</li>
+</ol>
+
+<p><a href="https://sktelecom.github.io">This is a link</a></p>
+
+<hr />
+
+<p><strong>Default</strong>. Text paragraph basic color</p>
+
+<p class="text-primary"><strong>.text-primary</strong>: Text paragraph using Primary color</p>
+
+<p class="text-success"><strong>.text-success</strong>: Text paragraph using Success color</p>
+
+<p class="text-info"><strong>.text-info</strong>: Text paragraph using Info Color</p>
+
+<p class="text-warning"><strong>.text-warning</strong>: Text paragraph using Warning color</p>
+
+<p class="text-danger"><strong>.text-danger</strong>: Text paragraph using Danger color</p>
+
+<hr />
+
+<h1 id="heading-h1">Heading h1</h1>
+<h2 id="heading-h2">Heading h2</h2>
+<h3 id="heading-h3">Heading h3</h3>
+<h4 id="heading-h4">Heading h4</h4>
+<h5 id="heading-h5">Heading h5</h5>
+<h6 id="heading-h6">Heading h6</h6>
+
+<h4 class="sub-title" id="subtitle-h-class-using-sub-title">Subtitle h class using <code class="language-plaintext highlighter-rouge">{:.sub-title}</code></h4>
+
+<hr />
+<h1 id="video">Video</h1>
+
+<h4 class="sub-title" id="not-in-markdown">Not in markdown</h4>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Po16lsLfpMk" frameborder="0" allowfullscreen=""></iframe>
+
+<hr class="sub-title" />
+<h4 id="in-html">in HTML</h4>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/Po16lsLfpMk" 
+frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;
+</code></pre></div></div>
+<hr />
+<h2 id="paragraphs">Paragraphs</h2>
+
+<p class="lead text-sm"><strong>A large paragraph</strong> using <code class="language-plaintext highlighter-rouge">{:.lead}</code>: But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system
+<strong>Regular Paragraph</strong>: But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system</p>
+<p class="text-xs"><strong>Small Paragraph</strong> using <code class="language-plaintext highlighter-rouge">{:.text-sm}</code>: But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system</p>
+<p><strong>Extra Small Paragraph</strong> using <code class="language-plaintext highlighter-rouge">{:.text-xs}</code>: But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system</p>
+
+<hr />
+
+<h1 id="alerts">Alerts</h1>
+
+<h4 class="sub-title" id="in-markdown-cannot-guarantee-it-work-well-1">in markdown cannot guarantee it work well</h4>
+
+<p>If are you looking to html version explore <a href="/labels-alerts">Labels Alerts</a> and <a href="/components">Components</a></p>
+
+<p class="massage-box alert-success"><strong>Test Message alert success</strong> 
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt a in, ullam.</p>
+
+<p class="massage-box alert-info"><strong>Test Message alert info</strong> 
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt a in, ullam.</p>
+
+<p class="massage-box alert-danger"><strong>Test Message alert danger</strong> 
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt a in, ullam.</p>
+
+<p class="massage-box alert-warning"><strong>Test Message alert warning</strong> 
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt a in, ullam.</p>
+
+<hr />
+
+<h4 class="sub-title" id="in-markdown-1">in markdown</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{:.massage-box .alert-success}
+**Test Message alert success** 
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt a in, ullam.
+
+{:.massage-box .alert-info}
+**Test Message alert info** 
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt a in, ullam.
+
+{:.massage-box .alert-danger}
+**Test Message alert danger** 
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt a in, ullam.
+
+{:.massage-box .alert-warning}
+**Test Message alert warning** 
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt a in, ullam.
+</code></pre></div></div>
+<hr />
+
+<h1 id="labels">Labels</h1>
+
+<h4 class="sub-title" id="in-markdown-cannot-guarantee-it-work-well-2">in markdown cannot guarantee it work well</h4>
+
+<p class="label label-default-filled">Default</p>
+
+<p class="label label-success-filled">Success</p>
+
+<p class="label label-info-filled">Info</p>
+
+<p class="label label-warning-filled">Warning</p>
+
+<p class="label label-danger-filled">Danger</p>
+
+<hr />
+
+<h4 class="sub-title" id="in-markdown-2">in markdown</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{:.label .label-default-filled}
+Default
+
+{:.label .label-success-filled}
+Success
+
+{:.label .label-info-filled}
+Info
+
+{:.label .label-warning-filled}
+Warning
+
+{:.label .label-danger-filled} 
+Danger
+</code></pre></div></div>
+<hr />
+
+<h1 id="class-nesting-samples">Class nesting samples</h1>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>*   list item
+
+*   list item {.classA}
+    {.classB}
+{.classC}
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">{.some-class .proposed-syntax}</code>
+A paragraph of text.</p>
+
+<p>vs</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;p class="some-class" markdown="1"&gt;
+  A paragraph of text.
+&lt;/p&gt;
+</code></pre></div></div>
+<h2 id="tables">Tables</h2>
+
+<p>When you compare the code for tables, the ability to add a class via markdown attributes makes a world of difference:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Some</th>
+      <th>Basic</th>
+      <th>Table</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>a</td>
+      <td>b</td>
+      <td>c</td>
+    </tr>
+    <tr>
+      <td>d</td>
+      <td>e</td>
+      <td>f</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 class="sub-title" id="in-markdown-3">in markdown</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{.table .table-striped}
+Some | Basic | Table 
+-----|-------|------
+a    | b     | c
+d    | e     | f
+</code></pre></div></div>
+
+<hr />
+<h1 id="dynamic-ads-block">Dynamic ADS Block</h1>
+
+<h4 class="sub-title" id="it-autoresize-in-base-of-the-container-dimensions-avaible-if-you-edit-_confiyaml-file">It autoresize in base of the container dimensions, avaible if you edit _confi.yaml file</h4>
+
+<div>
+ <!-- ************************** ADS BLOCK ***************************** -->
+				
+                  <script async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                  
+                  <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9204963049240271" data-ad-slot="2973388149" data-ad-format="auto"></ins>
+                  <script>
+                  (adsbygoogle = window.adsbygoogle || []).push({});
+                  </script>
+        	
+</div>
+
+<hr />
+
+<h4 class="sub-title" id="in-html-and-liquid">in HTML and liquid</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;div&gt;
+</code></pre></div></div>
+<p>{% include ads-block.html %}</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;div&gt;
+</code></pre></div></div>
+<hr />
+
+<h1 class="sub-title" id="copy-sample">Copy Sample</h1>
+
+<h1 id="a-study-in-scarlet">A Study In Scarlet</h1>
+
+<h2 id="part-i">PART I.</h2>
+
+<p>(Being a reprint from the reminiscences of John H. Watson, M.D., late of the Army 
+Medical Department.)</p>
+
+<ol>
+  <li>
+    <h3 id="mr-sherlock-holmes">Mr. Sherlock Holmes</h3>
+
+    <p>In the year 1878 I took my degree of Doctor of Medicine of the 
+University of London, and proceeded to Netley to go through 
+the course prescribed for surgeons in the army. Having completed 
+my studies there, I was duly attached to the Fifth Northumberland 
+Fusiliers as Assistant Surgeon. The regiment was stationed in 
+India at the time, and before I could join it, the second […]</p>
+
+    <p>The campaign brought honours and promotion to many, but for me 
+it had nothing but misfortune and disaster. I was removed from my 
+brigade and attached to the Berkshires, with whom I served at 
+the fatal battle of Maiwand. There I was struck on the […]            {.randomClass}</p>
+  </li>
+  <li>
+    <h3 id="more-content">More content</h3>
+
+    <p>Worn with pain, and weak from the prolonged hardships which 
+I had undergone, I was removed, with a great train of wounded 
+sufferers, to the base hospital at Peshawar. Here I rallied, and had 
+already improved so far as to be able to walk about the […]
+p.s. I tend to agree on the adding classes/IDs to every possible element to be overkill.</p>
+  </li>
+</ol>
+
+<hr />
+
+<h4 class="sub-title" id="in-markdown-4">in markdown</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># A Study In Scarlet
+
+## PART I.
+
+(Being a reprint from the reminiscences of John H. Watson, M.D., late of the Army 
+Medical Department.)
+
+1.  ### Mr. Sherlock Holmes
+
+    In the year 1878 I took my degree of Doctor of Medicine of the 
+    University of London, and proceeded to Netley to go through 
+    the course prescribed for surgeons in the army. Having completed 
+    my studies there, I was duly attached to the Fifth Northumberland 
+    Fusiliers as Assistant Surgeon. The regiment was stationed in 
+    India at the time, and before I could join it, the second [...]
+
+    The campaign brought honours and promotion to many, but for me 
+    it had nothing but misfortune and disaster. I was removed from my 
+    brigade and attached to the Berkshires, with whom I served at 
+    the fatal battle of Maiwand. There I was struck on the [...]            {.randomClass}
+
+2.  ### More content
+
+    Worn with pain, and weak from the prolonged hardships which 
+    I had undergone, I was removed, with a great train of wounded 
+    sufferers, to the base hospital at Peshawar. Here I rallied, and had 
+    already improved so far as to be able to walk about the [...]
+p.s. I tend to agree on the adding classes/IDs to every possible element to be overkill.
+
+</code></pre></div></div>
+
+<hr />
+<h3 id="other-features">Other features</h3>
+<hr />
+
+<h1 id="lists-uneder-construction">Lists (Uneder construction)</h1>
+
+<ol>
+  <li>Red one</li>
+  <li>Green two</li>
+  <li>Blue three</li>
+</ol>
+
+<ul>
+  <li>
+    <p>A list item.</p>
+
+    <p>With multiple paragraphs.</p>
+  </li>
+  <li>
+    <p>Another item in the list.</p>
+  </li>
+</ul>
+
+<h1 id="links">LINKS</h1>
+
+<p>Markdown supports two styles for creating links: inline and reference. With both styles, you use square brackets to delimit the text you want to turn into a link.</p>
+
+<p>Inline-style links use parentheses immediately after the link text. For example:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>This is an [example link](http://example.com/).
+Output:
+
+&lt;p&gt;This is an &lt;a href="http://example.com/"&gt;
+example link&lt;/a&gt;.&lt;/p&gt;
+</code></pre></div></div>
+<p>Optionally, you may include a title attribute in the parentheses:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>This is an [example link](http://example.com/ "With a Title").
+</code></pre></div></div>
+<p>Output:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;p&gt;This is an &lt;a href="http://example.com/" title="With a Title"&gt;
+example link&lt;/a&gt;.&lt;/p&gt;
+</code></pre></div></div>
+
+<p>Reference-style links allow you to refer to your links by names, which you define elsewhere in your document:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>I get 10 times more traffic from [Google][1] than from
+[Yahoo][2] or [MSN][3].
+
+[1]: http://google.com/        "Google"
+[2]: http://search.yahoo.com/  "Yahoo Search"
+[3]: http://search.msn.com/    "MSN Search"
+</code></pre></div></div>
+<p>Output:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;p&gt;I get 10 times more traffic from &lt;a href="http://google.com/"
+title="Google"&gt;Google&lt;/a&gt; than from &lt;a href="http://search.yahoo.com/"
+title="Yahoo Search"&gt;Yahoo&lt;/a&gt; or &lt;a href="http://search.msn.com/"
+title="MSN Search"&gt;MSN&lt;/a&gt;.&lt;/p&gt;
+</code></pre></div></div>
+
+<p>The title attribute is optional. Link names may contain letters, numbers and spaces, but are not case sensitive:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>I start my morning with a cup of coffee and
+[The New York Times][NY Times].
+
+[ny times]: http://www.nytimes.com
+</code></pre></div></div>
+
+<p>Output:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;p&gt;I start my morning with a cup of coffee and
+&lt;a href="http://www.nytimes.com/"&gt;The New York Times&lt;/a&gt;.&lt;/p&gt;
+</code></pre></div></div>
+
+<h1 id="images">IMAGES</h1>
+
+<p>Image syntax is very much like link syntax.</p>
+
+<p>Inline (titles are optional):</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>![alt text](/path/to/img.jpg "Title")
+</code></pre></div></div>
+
+<p>Reference-style:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>![alt text][id]
+
+[id]: /path/to/img.jpg "Title"
+</code></pre></div></div>
+
+<p>Both of the above examples produce the same output:</p>
+
+<p><code class="language-plaintext highlighter-rouge">&lt;img src="/path/to/img.jpg" alt="alt text" title="Title" /&gt;</code></p>
+
+<h1 id="code">CODE</h1>
+
+<p>In a regular paragraph, you can create code span by wrapping text in backtick quotes. Any ampersands (&amp;) and angle brackets (&lt; or &gt;) will automatically be translated into HTML entities. This makes it easy to use Markdown to write about HTML example code:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>I strongly recommend against using any `&lt;blink&gt;` tags.
+
+
+I wish SmartyPants used named entities like `&amp;mdash;`
+instead of decimal-encoded entites like `&amp;#8212;`.
+</code></pre></div></div>
+
+<p>Output:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;p&gt;I strongly recommend against using any
+&lt;code&gt;&amp;lt;blink&amp;gt;&lt;/code&gt; tags.&lt;/p&gt;
+
+&lt;p&gt;I wish SmartyPants used named entities like
+&lt;code&gt;&amp;amp;mdash;&lt;/code&gt; instead of decimal-encoded
+entites like &lt;code&gt;&amp;amp;#8212;&lt;/code&gt;.&lt;/p&gt;
+To specify an entire block of pre-formatted code, indent every line of the block by 4 spaces or 1 tab. Just like with code spans, &amp;, &lt;, and &gt; characters will be escaped automatically.
+</code></pre></div></div>
+<h1 id="markdown">Markdown:</h1>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>If you want your page to validate under XHTML 1.0 Strict,
+you've got to put paragraph tags in your blockquotes:
+
+    &lt;blockquote&gt;
+        &lt;p&gt;For example.&lt;/p&gt;
+    &lt;/blockquote&gt;
+</code></pre></div></div>
+<p>Output:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;p&gt;If you want your page to validate under XHTML 1.0 Strict,
+you've got to put paragraph tags in your blockquotes:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;blockquote&amp;gt;
+    &amp;lt;p&amp;gt;For example.&amp;lt;/p&amp;gt;
+&amp;lt;/blockquote&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+</code></pre></div></div>
+
+          <div class="mb-60"></div> 
+          
+
+
+  <div id="disqus_thread"></div>
+<script>
+
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_developer = 1;
+
+var disqus_config = function () {
+this.page.url = /docs/2020/07/31/blog-markdown-examples;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = /docs/2020/07/31/blog-markdown-examples; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = '//jeky-new-age.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+                    
+        </div>        
+      </div>
+     </div>
+   </section>
+
+
+
+	  <br />
+            <!-- Footer -->
+      <footer class="default-footer text-center">
+        <div class="container">
+          <img class="mb-40 footer-logo" src="/assets/images/skt_ci.png" alt="">
+          <span class="copy-right dis-blk">COPYRIGHT SK TELECOM CO., LTD.</span>
+          <span class="social">
+                  <a href="https://www.facebook.com/sktelecom/"><i class="fa fa-2x fa-facebook"></i></a>
+                  <a href="https://twitter.com/sktelecom"><i class="fa fa-2x fa-twitter"></i></a>
+                  
+                  <a href="https://www.instagram.com/sktelecom/"><i class="fa fa-2x fa-instagram"></i></a>  
+                  <a href="https://www.youtube.com/sktelecom/"><i class="fa fa-2x fa-youtube"></i></a>
+                  <a href="https://www.github.com/sktelecom/"><i class="fa fa-2x fa-github"></i></a>
+          </span>
+        </div>
+      </footer>
+
+  </div>
+  
+  
+
+
+
+
+        <!-- JS includes -->
+
+        <script src="/assets/js/jquery.min.js"></script>
+        <script src="/assets/js/jquery.nav.js"></script>
+	<script src="/assets/js/owl.carousel.min.js"></script>
+        <script src="/assets/js/form-validator.min.js"></script>	  
+        <script src="/assets/js/contact-form-script.js"></script>
+        <script src="/assets/js/jasny-bootstrap.min.js"></script>
+        <script src="/assets/js/jquery.mixitup.js"></script>	  
+        <script src="/assets/js/jquery.countTo.js"></script>
+        <script src="/assets/js/jquery.easing.min.js"></script>
+        <script src="/assets/js/main.js"></script>	
+        <script src="/assets/js/scrolling-nav.js"></script>
+        <script src="/assets/js/tether.min.js"></script>
+        <script src="/assets/js/bootstrap.min.js"></script>
+
+	<!-- ********************* Grads SCRIPTING ******************************-->
+	<!--Custom script loaded by children page-->
+	
+
+
+	  
+  </body>
+</html>
+
