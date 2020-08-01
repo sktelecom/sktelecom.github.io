@@ -1,0 +1,13 @@
+
+https://sktelecom.github.io/404.html
+https://sktelecom.github.io/about/
+https://sktelecom.github.io/archive
+https://sktelecom.github.io/blog
+https://sktelecom.github.io/contact
+https://sktelecom.github.io/
+https://sktelecom.github.io/rss.xml
+https://sktelecom.github.io/sitemap.txt
+https://sktelecom.github.io/feed.xml
+
+https://sktelecom.github.io/lessons/2020/07/31/testing-locally-sktelecom-site
+https://sktelecom.github.io/docs/2020/07/31/blog-markdown-examples

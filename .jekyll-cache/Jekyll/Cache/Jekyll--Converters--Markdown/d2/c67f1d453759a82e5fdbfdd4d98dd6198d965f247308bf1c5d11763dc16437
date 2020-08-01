@@ -1,0 +1,142 @@
+I"
+<p>In this tutorial I will teach you <em>how to test your Jekyll Bootstrap3</em> site locally.
+<!--more--></p>
+
+<p>Jekyll is a parsing engine bundled as a ruby gem used to build static websites from
+dynamic components such as templates, partials, liquid code, markdown, etc. Jekyll is known as “a simple, blog aware, static site generator”.</p>
+
+<p>To test your site locally, you’ll need</p>
+
+<ol>
+  <li><a href="https://www.ruby-lang.org/en/">ruby</a></li>
+  <li><a href="https://http://jekyllrb.com/">Jekyll</a></li>
+  <li><a href="https://github.com/github/pages-gem">github-pages</a> gem</li>
+</ol>
+
+<h3 id="installing-ruby">Installing ruby</h3>
+
+<p>There are
+<a href="https://www.ruby-lang.org/en/installation/">lots of different ways to install ruby</a>.</p>
+
+<p>In Mac OS X, older versions of ruby will already be installed.  But I
+use the <a href="http://rvm.io/">Ruby Version Manager (RVM)</a> to have a more
+recent version.  You could also use <a href="http://brew.sh/">Homebrew</a>.</p>
+
+<p>In Windows, use <a href="http://rubyinstaller.org/">RubyInstaller</a>. (In most
+of this tutorial, I’ve assumed you’re using a Mac or some flavor of
+Unix. It’s possible that none of this was usable for Windows
+folks. Sorry!)</p>
+
+<h3 id="installing-the-github-pages-gem">Installing the github-pages gem</h3>
+
+<p>Run the following command:</p>
+<pre><code class="language-HTML">    gem install github-pages
+
+</code></pre>
+<p>This will install the <code class="language-plaintext highlighter-rouge">github-pages</code> gem and all dependencies
+(including <a href="http://jekyllrb.com/">jekyll</a>).</p>
+
+<p>Later, to update the gem, type:</p>
+<pre><code class="language-HTML">    gem update github-pages
+
+</code></pre>
+<h3 id="testing-your-site-locally">Testing your site locally</h3>
+
+<p>To construct and test your site locally, go into the directory and
+type</p>
+<pre><code class="language-HTML">    jekyll build
+
+</code></pre>
+<p>This will create (or modify) a <code class="language-plaintext highlighter-rouge">_site/</code> directory, containing
+everything from <code class="language-plaintext highlighter-rouge">assets/</code>, and then the <code class="language-plaintext highlighter-rouge">index.md</code> and all
+<code class="language-plaintext highlighter-rouge">pages/*.md</code> files, converted to html. (So there’ll be
+<code class="language-plaintext highlighter-rouge">_site/index.html</code> and the various <code class="language-plaintext highlighter-rouge">_site/pages/*.html</code>.)</p>
+
+<p>Type the following in order to “serve” the site.
+This will first run <code class="language-plaintext highlighter-rouge">build</code>, and so it does <em>not</em> need to be
+preceded by <code class="language-plaintext highlighter-rouge">jekyll build</code>.</p>
+<pre><code class="language-HTML">    jekyll serve
+
+</code></pre>
+<p>To make jekyll automatically re-build your changes you can also add the <code class="language-plaintext highlighter-rouge">--watch</code> option:</p>
+<pre><code class="language-HTML">    jekyll serve --watch
+    
+</code></pre>
+<p>Now open your browser and go to <a href="http://localhost:4000">http://localhost:4000</a>.</p>
+
+<p>Read the complete tutorial on <a href="http://jekyllrb.com/docs/usage/">http://jekyllrb.com/docs/usage/</a>.</p>
+
+<h2 id="testing-images">Testing images</h2>
+
+<p><img src="/assets/img/big/lost_in_404_space.jpg" alt="Lost in space" class="image-fluid" /></p>
+
+<hr />
+<h4 id="code">#Code</h4>
+<pre><code class="language-HTML">	
+	![Lost in space](/assets/img/big/lost_in_404_space.jpg){: .image-fluid }
+
+</code></pre>
+
+<h3 id="img-with-description-on-hover">IMG With description on hover</h3>
+
+<p><img src="/assets/img/big/universe1.jpg" alt="Lost in space with description" title="Description of lost in space image" class="image-fluid" /></p>
+
+<hr />
+<h4 id="code-1">#Code</h4>
+<pre><code class="language-HTML">	
+	![Lost in space with description](/assets/img/big/universe1.jpg "Description of lost in space image"){: .image-fluid }
+
+</code></pre>
+
+<h3 id="with-floating-in-markdown">With floating in markdown</h3>
+
+<table>
+  <tbody>
+    <tr>
+      <td>In markdown you can quikly use tables to align your images in right way, remember to style as you like the CSS of your table to have a amazing results. Use to size your pics in right way for best results.</td>
+      <td><img src="/assets/img/big/universe2.jpg" alt="Lost in space with description" title="Description of lost in space image" class="image-fluid" /></td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+<h4 id="code-2">#Code</h4>
+<pre><code class="language-HTML">
+	| In markdown you can quikly use tables to align your images in right way, remember to style as you like the CSS of your table to have a amazing results. Use to size your pics in right way for best results. | ![Lost in space with description](/assets/img/big/universe2.jpg "Description of lost in space image"){: .image-fluid } |
+
+
+</code></pre>
+
+<table>
+  <tbody>
+    <tr>
+      <td><img src="/assets/img/big/universe3.jpg" alt="Lost in space with description" title="Description of lost in space image" class="image-fluid" /></td>
+      <td>I am text to the right I am text to the right I am text to the right I am text to the right</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+<h4 id="code-3">#Code</h4>
+<pre><code class="language-HTML">
+	| ![Lost in space with description](/assets/img/big/universe3.jpg "Description of lost in space image"){: .image-fluid } | I am text to the right I am text to the right I am text to the right I am text to the right |
+
+</code></pre>
+
+<h3 id="video-embed-sample">Video embed sample</h3>
+<div class="video-container">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ikbYpAHkurs?ecver=1" frameborder="0" allowfullscreen=""></iframe>
+</div>
+
+<hr />
+<h4 id="code-4">#Code</h4>
+<pre><code class="language-HTML">	&lt;div class="video-container"&gt;
+	&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/ikbYpAHkurs?ecver=1" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;
+	&lt;/div&gt;
+
+</code></pre>
+
+<h2 id="license">License</h2>
+
+<p><a href="http://opensource.org/licenses/MIT">MIT</a></p>
+:ET

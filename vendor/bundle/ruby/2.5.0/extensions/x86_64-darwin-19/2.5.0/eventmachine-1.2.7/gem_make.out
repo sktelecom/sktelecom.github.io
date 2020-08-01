@@ -1,0 +1,16 @@
+current directory: /Users/1112821/projects/jekyll-theme/sktelecom-mini/vendor/bundle/ruby/2.5.0/gems/eventmachine-1.2.7/ext/fastfilereader
+/Users/1112821/.rbenv/versions/2.5.1/bin/ruby -r ./siteconf20200801-80188-u1f7so.rb extconf.rb
+creating Makefile
+
+current directory: /Users/1112821/projects/jekyll-theme/sktelecom-mini/vendor/bundle/ruby/2.5.0/gems/eventmachine-1.2.7/ext/fastfilereader
+make "DESTDIR=" clean
+
+current directory: /Users/1112821/projects/jekyll-theme/sktelecom-mini/vendor/bundle/ruby/2.5.0/gems/eventmachine-1.2.7/ext/fastfilereader
+make "DESTDIR="
+compiling mapper.cpp
+compiling rubymain.cpp
+linking shared-object fastfilereaderext.bundle
+
+current directory: /Users/1112821/projects/jekyll-theme/sktelecom-mini/vendor/bundle/ruby/2.5.0/gems/eventmachine-1.2.7/ext/fastfilereader
+make "DESTDIR=" install
+/usr/local/bin/ginstall -c -m 0755 fastfilereaderext.bundle ./.gem.20200801-80188-neu9qp
