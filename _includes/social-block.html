@@ -1,0 +1,27 @@
+              <ul class="social-links">
+                {% if site.author.facebook %}
+                <li>
+                  <a data-toggle="tooltip" title="Facebook" href="https://www.facebook.com/{{ site.author.facebook }}/" title="Facebook" class="fa fa-facebook"></a>
+                </li>
+                {% endif %}
+                {% if site.author.twitter %}
+                <li>
+                  <a data-toggle="tooltip" title="Twitter" href="https://twitter.com/{{ site.author.twitter }}" title="Twitter" class="fa fa-twitter"></a>
+                </li>
+                {% endif %}
+                {% if site.author.instagram %} 
+                <li>
+                  <a data-toggle="tooltip" title="Instagram" href="https://instagram.com/{{ site.author.instagram }}" title="Twitter" class="fa fa-instagram"></a>
+                </li>
+                {% endif %}
+                {% if site.author.github %}
+                <li>
+                  <a data-toggle="tooltip" title="GitHub" href="https://github.com/{{ site.author.github }}/" title="GitHub" class="fa fa-github"></a>
+                </li>
+                {% endif %}
+                {% if site.author.youtube %}
+                <li>
+                  <a data-toggle="tooltip" title="YouTube" href="https://youtube.com/{{ site.author.youtube }}/" title="YouTube" class="fa fa-youtube"></a>
+                </li>
+                {% endif %}
+              </ul>
