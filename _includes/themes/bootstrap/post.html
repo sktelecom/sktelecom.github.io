@@ -1,0 +1,42 @@
+<!-- Post header -->
+      <div class="header-style-2">
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-12 col-sm-6">
+              <div class="hero-content-v2" style="margin-top:10px!important;">
+                <h3><strong>{{ page.title }}</strong></h3>
+                {% if page.tagline %}<p>
+                          {{ page.tagline }}
+                </p>{% endif %}
+                <a href="#post" class="page-scroll btn btn-lg btn-default-filled">Read Post</a>
+                <div class="mb-60"></div>                      
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-6">
+              {% if page.img %}<figure>
+                <img src="{{ BASE_PATH }}/assets/images/{{ page.img }}" alt="">
+              </figure>{% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+<!-- Post content+sidebar -->
+
+<div class="mb-60"></div>
+
+  <!-- Blog content + sidebar -->
+  <section id="post" class="blog">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 col-md-12">
+           {{ content }}
+          <div class="mb-60"></div> 
+          {% include JB/comments %}                    
+        </div>        
+      </div>
+     </div>
+   </section>
+
