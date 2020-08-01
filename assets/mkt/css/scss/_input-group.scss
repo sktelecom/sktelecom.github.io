@@ -1,0 +1,11 @@
+// stylelint-disable selector-no-qualifying-type
+
+//
+// Override input group
+//
+.input-group-lg > .input-group-prepend > .input-group-text,
+.input-group-lg > .input-group-append > .input-group-text,
+.input-group-lg > .input-group-prepend > .btn,
+.input-group-lg > .input-group-append > .btn {
+  font-size: 1rem;
+}

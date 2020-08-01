@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no, maximum-scale=1.0, user-scalable=0">
+    <meta name="keyword" content="">
+    <meta name="description" content="">
+    <title>Bootstrap Marketing &amp; Promotion</title>
+    <link rel="shortcut icon" href="../../../assets/common/img/favicon/ux.ico">
+    <link rel="apple-touch-icon" href="../../../assets/common/img/favicon/ux.png">
+    <link rel="stylesheet" type="text/css" href="../../../assets/mkt/css/uxs.css">
+    <link rel="stylesheet" type="text/css" href="../../../assets/mkt/css/demo.css">
+  </head>
+  <body>
+    <!-- wrapper -->
+    <div class="wrapper wrapper-fixed" id="go-to-top">
+      <!-- docs-header -->
+      <div class="docs-header">
+        <!-- lnb-toggler -->
+        <button class="navbar-toggler docs-sidebar-toggler" type="button" aria-controls="theme-lnb" aria-expanded="false" aria-label="Toggle LNB">
+          <span class="navbar-toggler-icon" aria-hidden="true"></span>
+          <span class="sr-only">주 메뉴 바로가기</span>
+        </button>
+        <!-- /lnb-toggler -->
+        <!--
+          navbar-brand
+          React - text-react,
+          Vue   - text-vue
+        -->
+        <span class="navbar-brand text-bootstrap">Bootstrap</span>
+        <span class="navbar-brand">Marketing &amp; Promotion</span>
+      </div>
+      <!-- /docs-header -->
+      <div class="docs-body">
+        <div class="docs-sidebar" data-include="../_includes/ct-sidebar.html" data-name="input_group"></div>
+        <!-- docs-contents -->
+        <main class="docs-contents contents-mt">
+          <div class="d-flex flex-row align-items-start mb-7 mb-md-10">
+            <!-- toc -->
+            <div class="toc">
+              <nav class="nav flex-column js-toc-triggers">
+                <a class="nav-link" href="#input-group-example">Basic example</a>
+                <a class="nav-link" href="#input-group-wrapping">Wrapping</a>
+                <a class="nav-link" href="#input-group-sizing">Sizing</a>
+                <a class="nav-link" href="#input-group-checkboxes">Checkboxes and radios</a>
+                <a class="nav-link" href="#input-group-multiple">Multiple inputs</a>
+                <a class="nav-link" href="#input-group-multiple-addons">Multiple addons</a>
+                <a class="nav-link" href="#input-group-button-addons">Button addons</a>
+                <a class="nav-link" href="#input-group-button-dropdowns">Buttons with dropdowns</a>
+                <a class="nav-link" href="#input-group-segmented">Segmented buttons</a>
+                <a class="nav-link" href="#input-group-custom">Custom forms</a>
+              </nav>
+            </div>
+            <!-- /toc -->
+
+            <!-- toc-content -->
+            <div class="toc-content">
+              <div>Components</div>
+              <div class="component-title font-weight-bold mb-7">Input group</div>
+
+              <div class="card mb-5" id="input-group-example">
+                <div class="card-header">
+                  Basic example
+                </div>
+                <div class="card-body py-5 px-4">
+                  <!--Component-->
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="basic-addon1">@</span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                  </div>
+
+                  <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username"
+                      aria-describedby="basic-addon2">
+                    <div class="input-group-append">
+                      <span class="input-group-text" id="basic-addon2">@example.com</span>
+                    </div>
+                  </div>
+
+                  <label for="basic-url">Your vanity URL</label>
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="basic-addon3">https://example.com/users/</span>
+                    </div>
+                    <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+                  </div>
+
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">$</span>
+                    </div>
+                    <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+                    <div class="input-group-append">
+                      <span class="input-group-text">.00</span>
+                    </div>
+                  </div>
+
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">With textarea</span>
+                    </div>
+                    <textarea class="form-control" aria-label="With textarea"></textarea>
+                  </div>
+                  <!--/Component-->
+                </div>
+              </div>
+
+              <div class="card mb-5" id="input-group-wrapping">
+                <div class="card-header">
+                  Wrapping
+                </div>
+                <div class="card-body py-5 px-4">
+                  <!--Component-->
+                  <div class="input-group flex-nowrap">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="addon-wrapping">@</span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Username" aria-label="Username"
+                      aria-describedby="addon-wrapping">
+                  </div>
+                  <!--/Component-->
+                </div>
+              </div>
+
+              <div class="card mb-5" id="input-group-sizing">
+                <div class="card-header">
+                  Sizing
+                </div>
+                <div class="card-body py-5 px-4">
+                  <!--Component-->
+                  <div class="input-group input-group-sm mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="inputGroup-sizing-sm">Small</span>
+                    </div>
+                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                  </div>
+
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="inputGroup-sizing-default">Default</span>
+                    </div>
+                    <input type="text" class="form-control" aria-label="Sizing example input"
+                      aria-describedby="inputGroup-sizing-default">
+                  </div>
+
+                  <div class="input-group input-group-lg">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="inputGroup-sizing-lg">Large</span>
+                    </div>
+                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+                  </div>
+                  <!--/Component-->
+                </div>
+              </div>
+
+              <div class="card mb-5" id="input-group-checkboxes">
+                <div class="card-header">
+                  Checkboxes and radios
+                </div>
+                <div class="card-body py-5 px-4">
+                  <!--Component-->
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">
+                        <input type="checkbox" aria-label="Checkbox for following text input">
+                      </div>
+                    </div>
+                    <input type="text" class="form-control" aria-label="Text input with checkbox">
+                  </div>
+
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">
+                        <input type="radio" aria-label="Radio button for following text input">
+                      </div>
+                    </div>
+                    <input type="text" class="form-control" aria-label="Text input with radio button">
+                  </div>
+
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">
+                        <div class="custom-control custom-checkbox icon-only">
+                          <input type="checkbox" class="custom-control-input" id="customOnlyCheck1" checked>
+                          <label class="custom-control-label" for="customOnlyCheck1"><span class="sr-only">Check this custom checkbox</span></label>
+                        </div>
+                      </div>
+                    </div>
+                    <input type="text" class="form-control" aria-label="Text input with checkbox">
+                  </div>
+
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">
+                        <div class="custom-control custom-radio icon-only">
+                          <input type="radio" name="customRadioOnly" id="customRadioOnly1" class="custom-control-input">
+                          <label class="custom-control-label" for="customRadioOnly1"><span class="sr-only">Toggle this custom radio</span></label>
+                        </div>
+                      </div>
+                    </div>
+                    <input type="text" class="form-control" aria-label="Text input with checkbox">
+                  </div>
+                  <!--/Component-->
+                </div>
+              </div>
+
+              <div class="card mb-5" id="input-group-multiple">
+                <div class="card-header">
+                  Multiple inputs
+                </div>
+                <div class="card-body py-5 px-4">
+                  <!--Component-->
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">First and last name</span>
+                    </div>
+                    <input type="text" aria-label="First name" class="form-control">
+                    <input type="text" aria-label="Last name" class="form-control">
+                  </div>
+                  <!--/Component-->
+                </div>
+              </div>
+
+              <div class="card mb-5" id="input-group-multiple-addons">
+                <div class="card-header">
+                  Multiple addons
+                </div>
+                <div class="card-body py-5 px-4">
+                  <!--Component-->
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">$</span>
+                      <span class="input-group-text">0.00</span>
+                    </div>
+                    <input type="text" class="form-control" aria-label="Dollar amount (with dot and two decimal places)">
+                  </div>
+
+                  <div class="input-group">
+                    <input type="text" class="form-control" aria-label="Dollar amount (with dot and two decimal places)">
+                    <div class="input-group-append">
+                      <span class="input-group-text">$</span>
+                      <span class="input-group-text">0.00</span>
+                    </div>
+                  </div>
+                  <!--/Component-->
+                </div>
+              </div>
+
+              <div class="card mb-5" id="input-group-button-addons">
+                <div class="card-header">
+                  Button addons
+                </div>
+                <div class="card-body py-5 px-4">
+                  <!--Component-->
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <button class="btn btn-outline-secondary" type="button" id="button-addon1">Button</button>
+                    </div>
+                    <input type="text" class="form-control" placeholder="" aria-label="Example text with button addon"
+                      aria-describedby="button-addon1">
+                  </div>
+
+                  <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username"
+                      aria-describedby="button-addon2">
+                    <div class="input-group-append">
+                      <button class="btn btn-outline-secondary" type="button" id="button-addon2">Button</button>
+                    </div>
+                  </div>
+
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend" id="button-addon3">
+                      <button class="btn btn-outline-secondary" type="button">Button</button>
+                      <button class="btn btn-outline-secondary" type="button">Button</button>
+                    </div>
+                    <input type="text" class="form-control" placeholder="" aria-label="Example text with two button addons"
+                      aria-describedby="button-addon3">
+                  </div>
+
+                  <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Recipient's username"
+                      aria-label="Recipient's username with two button addons" aria-describedby="button-addon4">
+                    <div class="input-group-append" id="button-addon4">
+                      <button class="btn btn-outline-secondary" type="button">Button</button>
+                      <button class="btn btn-outline-secondary" type="button">Button</button>
+                    </div>
+                  </div>
+                  <!--/Component-->
+                </div>
+              </div>
+
+              <div class="card mb-5" id="input-group-button-dropdowns">
+                <div class="card-header">
+                  Buttons with dropdowns
+                </div>
+                <div class="card-body py-5 px-4">
+                  <!--Component-->
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">Dropdown</button>
+                      <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                        <div role="separator" class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Separated link</a>
+                      </div>
+                    </div>
+                    <input type="text" class="form-control" aria-label="Text input with dropdown button">
+                  </div>
+
+                  <div class="input-group">
+                    <input type="text" class="form-control" aria-label="Text input with dropdown button">
+                    <div class="input-group-append">
+                      <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">Dropdown</button>
+                      <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                        <div role="separator" class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Separated link</a>
+                      </div>
+                    </div>
+                  </div>
+                  <!--/Component-->
+                </div>
+              </div>
+
+              <div class="card mb-5" id="input-group-segmented">
+                <div class="card-header">
+                  Segmented buttons
+                </div>
+                <div class="card-body py-5 px-4">
+                  <!--Component-->
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <button type="button" class="btn btn-outline-secondary">Action</button>
+                      <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        <span class="sr-only">Toggle Dropdown</span>
+                      </button>
+                      <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                        <div role="separator" class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Separated link</a>
+                      </div>
+                    </div>
+                    <input type="text" class="form-control" aria-label="Text input with segmented dropdown button">
+                  </div>
+
+                  <div class="input-group">
+                    <input type="text" class="form-control" aria-label="Text input with segmented dropdown button">
+                    <div class="input-group-append">
+                      <button type="button" class="btn btn-outline-secondary">Action</button>
+                      <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        <span class="sr-only">Toggle Dropdown</span>
+                      </button>
+                      <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                        <div role="separator" class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Separated link</a>
+                      </div>
+                    </div>
+                  </div>
+                  <!--/Component-->
+                </div>
+              </div>
+
+              <div class="card mb-5" id="input-group-custom">
+                <div class="card-header">
+                  Custom forms
+                </div>
+                <div class="card-body py-5 px-4">
+                  <div class="sub-title-first">Custom select</div>
+                  <!--Component-->
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <label class="input-group-text" for="inputGroupSelect01">Options</label>
+                    </div>
+                    <select class="custom-select" id="inputGroupSelect01">
+                      <option selected>Choose...</option>
+                      <option value="1">One</option>
+                      <option value="2">Two</option>
+                      <option value="3">Three</option>
+                    </select>
+                  </div>
+
+                  <div class="input-group mb-3">
+                    <select class="custom-select" id="inputGroupSelect02">
+                      <option selected>Choose...</option>
+                      <option value="1">One</option>
+                      <option value="2">Two</option>
+                      <option value="3">Three</option>
+                    </select>
+                    <div class="input-group-append">
+                      <label class="input-group-text" for="inputGroupSelect02">Options</label>
+                    </div>
+                  </div>
+
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <button class="btn btn-outline-secondary" type="button">Button</button>
+                    </div>
+                    <select class="custom-select" id="inputGroupSelect03" aria-label="Example select with button addon">
+                      <option selected>Choose...</option>
+                      <option value="1">One</option>
+                      <option value="2">Two</option>
+                      <option value="3">Three</option>
+                    </select>
+                  </div>
+
+                  <div class="input-group">
+                    <select class="custom-select" id="inputGroupSelect04" aria-label="Example select with button addon">
+                      <option selected>Choose...</option>
+                      <option value="1">One</option>
+                      <option value="2">Two</option>
+                      <option value="3">Three</option>
+                    </select>
+                    <div class="input-group-append">
+                      <button class="btn btn-outline-secondary" type="button">Button</button>
+                    </div>
+                  </div>
+                  <!--/Component-->
+                  <div class="sub-title">Custom file input</div>
+                  <!--Component-->
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+                    </div>
+                    <div class="custom-file">
+                      <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+                      <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                    </div>
+                  </div>
+
+                  <div class="input-group mb-3">
+                    <div class="custom-file">
+                      <input type="file" class="custom-file-input" id="inputGroupFile02">
+                      <label class="custom-file-label" for="inputGroupFile02" aria-describedby="inputGroupFileAddon02">Choose file</label>
+                    </div>
+                    <div class="input-group-append">
+                      <span class="input-group-text" id="inputGroupFileAddon02">Upload</span>
+                    </div>
+                  </div>
+
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <button class="btn btn-outline-secondary" type="button" id="inputGroupFileAddon03">Button</button>
+                    </div>
+                    <div class="custom-file">
+                      <input type="file" class="custom-file-input" id="inputGroupFile03" aria-describedby="inputGroupFileAddon03">
+                      <label class="custom-file-label" for="inputGroupFile03">Choose file</label>
+                    </div>
+                  </div>
+
+                  <div class="input-group">
+                    <div class="custom-file">
+                      <input type="file" class="custom-file-input" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04">
+                      <label class="custom-file-label" for="inputGroupFile04">Choose file</label>
+                    </div>
+                    <div class="input-group-append">
+                      <button class="btn btn-outline-secondary" type="button" id="inputGroupFileAddon04">Button</button>
+                    </div>
+                  </div>
+                  <!--/Component-->
+                </div>
+              </div>
+            </div>
+            <!-- /toc-content -->
+          </div>
+        </main>
+        <!-- /docs-contents -->
+      </div>
+
+      <!-- theme-go-to-top -->
+      <div class="theme-go-to-top">
+        <a class="ux-top-link" href="#go-to-top">
+          <span class="glyphicons-top" aria-hidden="true"></span>
+          <span class="sr-only">Go to Top</span>
+        </a>
+      </div>
+      <!-- /theme-go-to-top -->
+    </div>
+    <!-- /wrapper -->
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/hammerjs@2.0.8"></script>
+
+    <!-- UI Script -->
+    <script src="../../../assets/common/js/vendor/perfect_scrollbar_1.4.0/perfect_scrollbar.min.js"></script>
+    <script src="../../../assets/common/js/ui.js"></script>
+    <script src="../../../assets/common/js/demo.js"></script>
+  </body>
+</html>

@@ -1,0 +1,44 @@
+//
+// Override modal
+//
+// .modal {
+//   z-index: 1072;
+  
+//   .modal-header,
+//   .modal-footer {
+//     border-color: $modal-border-color;
+//   }
+//   .modal-title {
+//     font-size: $modal-title-size;
+//   }
+//   .modal-body {
+//     color: $modal-body-color;
+//   }
+// }
+
+.modal-content {
+  @extend %box-shadow-light-2;
+}
+.modal-header {
+  display: flex;
+  align-items: center;
+  padding: $modal-header-padding;
+
+  .modal-title {
+    font-size: 1.125rem;
+  }
+  .close {
+    padding: 0 0.9375rem 0 0;
+    font-size: 1.625rem;
+  }
+}
+.modal-body {
+  padding-bottom: 2.5rem;
+
+  > :last-child {
+    margin: 0;
+  }
+}
+.modal-footer {
+  padding: 1.063rem 1.25rem;
+}

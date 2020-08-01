@@ -1,0 +1,412 @@
+//
+// Color system
+//
+
+// Grays
+$white:    #fff    !default;
+$gray-100: #f8f9fa !default;
+$gray-200: #e9ecef !default;
+$gray-300: #dee2e6 !default;
+$gray-400: #ced4da !default;
+$gray-500: #adb5bd !default;
+$gray-600: #6c757d !default;
+$gray-700: #495057 !default;
+$gray-800: #343a40 !default;
+$gray-900: #212529 !default;
+$black:    #000    !default;
+
+$grays: () !default;
+$grays: map-merge(
+  (
+    "100": $gray-100,
+    "200": $gray-200,  // $light
+    "300": $gray-300,
+    "400": $gray-400,
+    "500": $gray-500,
+    "600": $gray-600,
+    "700": $gray-700,  // $dark
+    "800": $gray-800,
+    "900": $gray-900
+  ),
+  $grays
+);
+
+// Key colors
+$blue:       #007bff !default;
+$indigo:     #6610f2 !default;
+$purple:     #6f42c1 !default;
+$pink:       #e83e8c !default;
+$red:        #dc3545 !default;
+$orange:     #fd7e14 !default;
+$yellow:     #ffc107 !default;
+$green:      #28a745 !default;
+$teal:       #20c997 !default;
+$cyan:       #17a2b8 !default;
+$malibu:     #60a8fd !default;  // $primary
+$carnation:  #f35c4a !default;  // $secondary
+$jade:       #00B342 !default;  // $success
+$fuchsia:    #7B54C4 !default;  // $info
+$pizazz:     #FF9200 !default;  // $warning
+$alizarin:   #DE2D40 !default;  // $danger
+
+$colors: () !default;
+$colors: map-merge(
+  (
+    "blue":       $blue,
+    "indigo":     $indigo,
+    "purple":     $purple,
+    "pink":       $pink,
+    "red":        $red,
+    "orange":     $orange,
+    "yellow":     $yellow,
+    "green":      $green,
+    "teal":       $teal,
+    "cyan":       $cyan,
+    "white":      $white,
+    "gray":       $gray-600,
+    "gray-dark":  $gray-800,
+    "malibu":     $malibu,        // $primary
+    "carnation":  $carnation,     // $secondary
+    "jade":       $jade,          // $success
+    "fuchsia":    $fuchsia,       // $info
+    "pizazz":     $pizazz,        // $warning
+    "alizarin":   $alizarin       // $danger
+  ),
+  $colors
+);
+
+$primary:    $malibu !default;
+$secondary:  $carnation !default;
+$success:    $jade !default;
+$info:       $fuchsia !default;
+$warning:    $pizazz !default;
+$danger:     $alizarin !default;
+$light:      $gray-200 !default;
+$dark:       $gray-700 !default;
+
+$theme-colors: () !default;
+$theme-colors: map-merge(
+  (
+    "primary":    $primary,
+    "secondary":  $secondary,
+    "success":    $success,
+    "info":       $info,
+    "warning":    $warning,
+    "danger":     $danger,
+    "light":      $light,
+    "dark":       $dark
+  ),
+  $theme-colors
+);
+
+// Reserved word
+$bd-grays-9:                                    $gray-900 !default;
+$bd-grays-8:                                    $gray-800 !default;
+$bd-grays-7:                                    $gray-700 !default;
+$bd-grays-6:                                    $gray-600 !default;
+$bd-grays-5:                                    $gray-500 !default;
+$bd-grays-4:                                    $gray-400 !default;
+$bd-grays-3:                                    $gray-300 !default;
+$bd-grays-2:                                    $gray-200 !default;
+$bd-grays-1:                                    $gray-100 !default;
+$bg-grays-9:                                    $gray-900 !default;
+$bg-grays-8:                                    $gray-800 !default;
+$bg-grays-7:                                    $gray-700 !default;
+$bg-grays-6:                                    $gray-600 !default;
+$bg-grays-5:                                    $gray-500 !default;
+$bg-grays-4:                                    $gray-400 !default;
+$bg-grays-3:                                    $gray-300 !default;
+$bg-grays-2:                                    $gray-200 !default;
+$bg-grays-1:                                    $gray-100 !default;
+$text-grays-9:                                  $gray-900 !default;
+$text-grays-8:                                  $gray-800 !default;
+$text-grays-7:                                  $gray-700 !default;
+$text-grays-6:                                  $gray-600 !default;
+$text-grays-5:                                  $gray-500 !default;
+$text-grays-4:                                  $gray-400 !default;
+$text-grays-3:                                  $gray-300 !default;
+$text-grays-2:                                  $gray-200 !default;
+$text-grays-1:                                  $gray-100 !default;
+$mark-color:                                    $white !default;
+$mark-bg-color:                                 $primary !default;
+$white87:                                     rgba(255, 255, 255, .87) !default;
+$white60:                                     rgba(255, 255, 255, .60) !default;
+$white38:                                     rgba(255, 255, 255, .38) !default;
+$shadow-light-1:                              rgba(33, 37, 41, 0.06) !default;
+$shadow-light-2:                              rgba(33, 37, 41, 0.06) !default;
+$shadow-light-3:                              rgba(33, 37, 41, 0.14) !default;
+$dim-bg-color:                                rgba(0, 0, 0, 0.2) !default;
+$blockquote-small-color:                        $gray-500 !default;
+
+
+// Brand Colors
+$navbar-brand-bootstrap:                      #b18bf5 !default;
+$navbar-brand-react:                          #4fa8f7  !default;
+$navbar-brand-vue:                            #51b85f !default;
+
+// Alert
+$alert-bg-level:                                0 !default;
+$alert-border-level:                            0 !default;
+$alert-dismissible-background-color:          rgba(255,255,255, 0.19) !default;
+$alert-hr-border-color:                       rgba(255, 255, 255, 0.2) !default;
+$alert-color:                                   $white !default;
+$alert-light-color:                             $gray-900 !default;
+
+// Pagination
+$pagination-color:                              $gray-700 !default;
+$pagination-disabled-color:                     rgba($gray-900, 0.4) !default;
+$pagination-hover-color:                        $primary !default;
+$pagination-hover-bg:                           transparent !default;
+$pagination-hover-border-color:                 $gray-900 !default;
+$pagination-active-bg:                          $gray-900 !default;
+$pagination-active-border-color:                $gray-900 !default;
+
+// BTN
+$btn-color:                                     $white !default;
+$btn-bg-color:                                  $white !default;
+$btn-light-color:                               $gray-800 !default;
+$btn-disabled-color:                            $gray-500 !default;
+$btn-disabled-bg-color:                         $gray-200 !default;
+$link-hover-color:                              $primary !default;
+$btn-link-disabled-color:                       $gray-500 !default;
+$btn-outline-bg-hover-color:                    $gray-100 !default;
+$btn-outline-bg-active-color:                   $gray-200 !default;
+$btn-outline-dark-color:                        $gray-900 !default;
+$btn-outline-border-dark-color:                 $gray-900 !default;
+$btn-outline-border-light-color:                $gray-500 !default;
+$btn-ghost-light-color:                         $gray-600 !default;
+$btn-ghost-dark-color:                          $gray-900 !default;
+
+// Badge
+$badge-color:                                   $white !default;
+$badge-light-color:                             $gray-800 !default;
+$badge-light-bg-color:                          $gray-200 !default;
+$badge-outline-bg-color:                        $white !default;
+$badge-outline-light-border-color:              $gray-500 !default;
+$badge-outline-dark-color:                      $gray-900 !default;
+
+// breadcrumb
+$breadcrumb-bg:                                 $white !default;
+$breadcrumb-active-color:                       $gray-500 !default;
+$breadcrumb-divider-color:                      $gray-500 !default;
+
+// Dropdown
+$dropdown-link-hover-bg:                        $gray-100 !default;
+$dropdown-link-disabled-color:                  $gray-500 !default;
+$dropdown-item-active-color:                    $gray-900 !default;
+$dropdown-item-active-bg:                       $gray-200 !default;
+$dropdown-item-selected-color:                  $primary !default;
+$dropdown-header-color:                         $gray-600 !default;
+$dropdown-divider-bg:                           $gray-300 !default;
+
+// Navs
+$nav-link-color:                                $gray-900 !default;
+$nav-link-active-color:                         $primary !default;
+$nav-link-disabled-color:                       $gray-500 !default;
+$nav-tabs-link-color:                           $primary !default;
+$nav-tabs-link-active-color:                    $gray-900 !default;
+$nav-tabs-link-active-bg-color:                 $white !default;
+$nav-underlines-link-color:                     $gray-600 !default;
+$nav-underlines-link-hover-color:               $gray-900 !default;
+$nav-underlines-link-active-color:              $gray-900 !default;
+$nav-underlines-shadow-color:                   $primary !default;
+$nav-outlines-color:                            $primary !default;
+$nav-outlines-link-hover-color:               #0372F4 !default;
+$nav-outlines-border-color:                     $primary !default;
+$nav-outlines-bg-color:                         $white !default;
+
+// Navbar
+$navbar-bg-color:                               $white !default;
+$navbar-border-color:                           $gray-300 !default;
+$navbar-light-color:                            $gray-900 !default;
+$navbar-light-brand-color:                      $gray-900 !default;
+$navbar-light-active-color:                     $primary !default;
+$navbar-text-color:                             $gray-700 !default;
+$navbar-dark-color:                             $white !default;
+$navbar-dark-active-color:                      $white !default;
+$navbar-dark-disabled-color:                    $white60 !default;
+$navbar-dark-toggler-border-color:              transparent !default;
+
+// carousel
+$carousel-bg-color:                             $gray-900 !default;
+$carousel-control-color:                        $white !default;
+$carousel-heading-color:                        $white !default;
+$carousel-caption-color:                        $white60 !default;
+
+// Card
+$card-title-color:                              $gray-900 !default;
+$card-body-color:                               $gray-700 !default;
+$card-subtitle-color:                           $gray-500 !default;
+$card-white-title-color:                        $white !default;
+$card-white-color:                              $white87 !default;
+$card-small-color:                              $white60 !default;
+$card-muted-color:                              $gray-500 !default;
+$card-cap-bg:                                 #f8f9fa !default;
+$card-cap-color:                                $gray-900 !default;
+$card-footer-color:                             $gray-600 !default;
+$card-border-color:                             $gray-300 !default;
+$card-warning-title-color:                      $gray-900 !default;
+$card-warning-body-color:                       rgba($gray-800, 0.87) !default;
+$card-header-warning-text-color:                $warning !default;
+$card-border-light-color:                       $gray-300 !default;
+$card-border-dark-title-color:                  $gray-900 !default;
+$card-border-dark-text-color:                   $gray-700 !default;
+
+$accordion-card-header-color:                   $gray-900 !default;
+$accordion-card-header-bg:                      $white !default;
+
+$list-group-border-color:                       $gray-300 !default;
+
+// swiper
+$swiper-user-photo-bg-color:                    $gray-100 !default;
+$swiper-user-name-color:                        $gray-600 !default;
+$swiper-user-review-color:                      $gray-900 !default;
+$swiper-control-color:                          $gray-800 !default;
+$swiper-pagination-bullet-bg-color:             $white !default;
+$swiper-pagination-bullet-border-color:         $gray-500 !default;
+$swiper-pagination-bullet-bg-active-color:      $gray-800 !default;
+$swiper-service-img-bg-color:                 #d8d8d8 !default;
+$swiper-service-name-color:                     $gray-900 !default;
+$swiper-service-desc-color:                     $gray-600 !default;
+
+// Form
+$component-active-color:                        $white !default;
+$custom-control-indicator-checked-color:        $component-active-color !default;
+$input-color:                                   $gray-900 !default;
+$input-placeholder-color:                       $gray-600 !default;
+$input-border-color:                            $gray-500 !default;
+$input-focus-border-color:                      $primary !default;
+$input-disable-color:                           $gray-500 !default;
+$input-disabled-bg:                             $gray-100 !default;
+$input-disable-border-color:                    $gray-400 !default;
+
+$custom-file-color:                             $gray-800 !default;
+
+$custom-select-hover-color:                     $gray-100 !default;
+$custom-select-indicator-color:                 $gray-800 !default;
+
+$custom-range-thumb-bg:                         $gray-900 !default;
+$custom-range-thumb-active-bg:                  $secondary !default;
+$custom-range-thumb-focus-box-shadow:           0 0 0 1px $white, 0 0 0 .2rem lighten($secondary, 20%) !default;
+
+$custom-switch-indicator-color:                 $white !default;
+$custom-switch-indicator-bg:                    $gray-500 !default;
+$custom-switch-disabled-indicator-color:        $gray-300 !default;
+$custom-switch-focus-shadow:                    $gray-500 !default;
+$custom-control-indicator-focus-border-color:   $secondary !default;
+$custom-control-indicator-checked-bg:           $secondary !default;
+$custom-switch-checked-focus-shadow:            $custom-control-indicator-checked-bg !default;
+$custom-checkbox-indicator-indeterminate-bg:    $custom-control-indicator-checked-bg !default;
+
+$custom-radio-checked-border-color:             $secondary !default;
+$custom-radio-disabled-border-color:            $gray-500 !default;
+$custom-radio-checked-bg-color:                 $secondary !default;
+$custom-control-indicator-checked-disabled-bg:  $gray-500 !default;
+$custom-control-radio-checked-disabled-bg:      $white !default;
+
+$custom-search-icon-color:                      $gray-800 !default;
+$custom-search-icon-dark-color:                 $white !default;
+$custom-search-clear-icon-color:                $gray-800 !default;
+$custom-search-clear-icon-dark-color:           $white !default;
+$custom-search-items-border-color:            rgba(0, 0, 0, 0.07) !default;
+$custom-search-items-bg-color:                  $white !default;
+$custom-search-item-color:                      $gray-900 !default;
+$custom-search-item-em-color:                   $gray-900 !default;
+$custom-search-item-bg-hover-color:             $gray-100 !default;
+$input-disabled-color:                        rgba(12, 12, 12, 0.2) !default;
+$input-disabled-border-color:                   $gray-200 !default;
+$input-default-bg-dark-color:                   $gray-900 !default;
+$input-default-border-dark-color:               $gray-900 !default;
+
+
+// contents-search
+$contents-search-toggler-color:                $gray-800 !default;
+
+// Form validation
+$form-file-label:                               $white !default;
+$form-feedback-valid-color:                     $primary !default;
+$form-feedback-invalid-color:                   $danger !default;
+$form-feedback-icon-valid-color:                $form-feedback-valid-color !default;
+$form-feedback-icon-invalid-color:              $form-feedback-invalid-color !default;
+
+// Wizard
+$wizard-items-color:                            $gray-600 !default;
+$wizard-items-current-color:                    $gray-900 !default;
+$wizard-items-bg-color:                         $white !default;
+$wizard-line-bg-color:                          $gray-400 !default;
+$wizard-stage-color:                            $gray-600 !default;
+$wizard-stage-bg-color:                         $white !default;
+$wizard-stage-border-color:                     $gray-400 !default;
+$wizard-stage-current-color:                    $white !default;
+$wizard-stage-bg-current-color:                 $gray-900 !default;
+$wizard-stage-border-current-color:             $wizard-stage-bg-current-color !default;
+$wizard-stage-disabled-color:                   transparent !default;
+$wizard-stage-bg-disabled-color:                $gray-400 !default;
+$wizard-stage-border-disabled-color:            $wizard-stage-bg-disabled-color !default;
+$wizard-stage-disabled-icon-color:              $white !default;
+
+// Tooltip
+$tooltip-bg:                                    $gray-900 !default;
+
+// Accordion
+$accordion-link-color:                          $gray-800 !default;
+
+// Table
+$table-color:                                   $gray-700 !default;
+$table-accent-bg:                               $gray-100 !default;
+$table-hover-bg:                                $gray-100 !default;
+$table-head-bg:                                 $gray-100 !default;
+$table-head-color:                              $gray-900 !default;
+$table-light-bg:                                $gray-200 !default;
+$table-dark-bg:                                 $gray-700 !default;
+$table-caption-color:                           $gray-500 !default;
+
+//Toasts
+$close-color:                                   $gray-500 !default;
+$toast-bg-color:                                $white !default;
+$close-hover-color:                             $gray-900 !default;
+$toast-header-color:                            $gray-900 !default;
+$toast-body-color:                              $gray-700 !default;
+$toast-body-bg-color:                           $toast-bg-color !default;
+$toast-border-color:                            $gray-500 !default;
+$toast-close-color:                             $gray-600 !default;
+
+// Media
+$media-title-color:                             $gray-900 !default;
+$media-body-color:                              $gray-600 !default;
+$media-border-color:                            $gray-300 !default;
+
+// Popover
+$popover-border-color:                          $gray-400 !default;
+$popover-header-bg:                             $gray-100 !default;
+$popover-header-border-color:                   $popover-border-color !default;
+
+// Scrollspy
+$nav-pills-link-active-color:                   $white !default;
+
+// Date Picker
+$date-picker-border-color:                      $gray-500 !default;
+$date-picker-hyphen-color:                      $gray-400 !default;
+$date-picker-form-color:                        $gray-900 !default;
+$date-picker-glyphicons-color:                  $gray-600  !default;
+
+// List Group
+$list-group-item-color:                         $gray-700 !default;
+$list-group-disabled-color:                     $gray-500 !default;
+$list-group-item-white-color:                   $white !default;
+$list-group-item-light-color:                   $gray-700 !default;
+$list-group-item-title-color:                   $gray-900 !default;
+$list-group-item-title-active-color:            $white !default;
+$list-group-muted-active-color:                 $white60 !default;
+$list-group-item-action-active-color:           $white87 !default;
+
+// Modal
+$modal-content-border-color:                    $gray-500 !default;
+
+// ux-go-to-top
+$uxs-top-link-light-color:                    #0c0c0c !default;
+$uxs-top-link-light-bg-color:                 #ffffff !default;
+$uxs-top-link-light-border-color:             #e1e1e1 !default;
+$uxs-top-link-dark-color:                     #bbbbbb !default;
+$uxs-top-link-dark-bg-color:                  #333333 !default;
+$uxs-top-link-dark-border-color:              #464646 !default;

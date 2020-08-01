@@ -1,0 +1,233 @@
+//
+// Override card(accordion)
+//
+.card {
+  .card-title {
+    margin-bottom: 0.625rem;
+    font-size: $card-title-size;
+    color: $card-title-color;
+  }
+  .card-subtitle {
+    margin-bottom: 0.5rem;
+    font-size: $card-subtitle-size;
+    color: $card-subtitle-color;
+  }
+  .card-header {
+    color: $card-cap-color;
+
+    .nav-link {
+      font-size: 1rem;
+    }
+  }
+  .card-body {
+    color: $card-body-color;
+
+    .text-muted {
+      color: $card-muted-color !important;
+    }
+
+    canvas {
+      max-width: 100%;
+    }
+  }
+  .card-footer {
+    color: $card-footer-color;
+  }
+  &.text-white {
+    .card-title {
+      margin-bottom: 0.5rem;
+      color: $card-white-title-color;
+    }
+    .card-body,
+    .card-text {
+      color: $card-white-color !important;
+
+      small {
+        font-size: $card-small-size;
+        color: $card-small-color !important;
+      }
+    }
+  }
+}
+@each $color, $value in $theme-colors {
+  .card {
+    &.bg-#{$color} {
+      border: none;
+
+      .card-header {
+        color: $card-white-title-color;
+        border: 1px solid darken($value, 10%);
+        background-color: darken($value, 5%);
+      }
+      .card-body {
+        @include border-radius($card-border-radius);
+
+        border: 1px solid darken($value, 10%);
+        border-top: 0;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+
+        .card-title {
+          color: $card-white-title-color;
+        }
+        .card-text {
+          color: $card-white-color;
+        }
+      }
+
+      @if $color == light {
+        .card-header {
+          color: $card-title-color;
+        }
+        .card-body {
+          .card-title {
+            color: $card-title-color;
+          }
+          .card-text {
+            color: $card-body-color;
+          }
+        }
+      }
+    }
+  }
+}
+@each $color, $value in $theme-colors {
+  .card {
+    &.bd-#{$color} {
+      @if $color == light {
+        border-color: $card-border-light-color;
+
+        .card-body {
+          .card-title {
+            color: $card-border-dark-title-color;
+          }
+          .card-text {
+            color: $card-border-dark-text-color;
+          }
+        }
+      } @else if $color == dark {
+        .card-body {
+          .card-title {
+            color: $card-border-dark-title-color;
+          }
+          .card-text {
+            color: $card-border-dark-text-color;
+          }
+        }
+      } @else {
+        .card-body {
+          .card-title {
+            color: $value;
+          }
+          .card-text {
+            color: $value;
+          }
+        }
+      }
+    }
+  }
+}
+
+.accordion {
+  > .card {
+    overflow: hidden;
+    border-left: 0;
+    border-right: 0;
+    border-radius: 0;
+
+    .card-header {
+      padding: 0;
+      margin-bottom: -$accordion-card-border-width;
+      background-color: $accordion-card-header-bg;
+      border: 0;
+
+      .btn {
+        width: 100%;
+        padding-left: 0;
+        padding-right: 2rem;
+        text-align: left;
+
+        &.btn-link {
+          padding: 1.25rem 3.25rem 1.25rem 0;
+          font-size: 1rem;
+          font-weight: normal;
+          color: $accordion-link-color;
+          text-decoration: none;
+          background-color: transparent;
+        }
+
+        &::after {
+          @extend .icomoon;
+
+          position: absolute;
+          right: 0.5rem;
+          top: 50%;
+          margin-top: -11px;
+          font-size: 20px;
+          content: "\ea25";
+          transition: transform $transition-show;
+        }
+      }
+
+      &.active {
+        .btn {
+          &.btn-link {
+            color: $primary;
+            font-weight: bold;
+          }
+
+          &::after {
+            transform: rotate(-180deg);
+            transition: transform $transition-hide;
+          }
+        }
+      }
+      // &::after {
+      //   display: block;
+      //   position: absolute;
+      //   right: 0.5rem;
+      //   top: 1.25rem;
+      //   width: 1.25rem;
+      //   height: 1.25rem;
+      //   background: no-repeat 50% / 1.25rem;
+      //   background-image: $accordion-card-icon;
+      //   content: "";
+      //   transition: transform 0.2s ease;
+      // }
+      // &.active::after {
+      //   transform: rotate(180deg);
+      // }
+      // .btn {
+      //   vertical-align: top;
+
+      //   &.btn-link {
+      //     width: 100%;
+      //     padding: 1.25rem 3.25rem 1.25rem 0;
+      //     color: $accordion-card-header-color;
+      //     text-align: left;
+      //     text-decoration: none;
+      //     &.collapsed {
+      //       font-weight: normal;
+      //     }
+
+      //     @include hover {
+      //       color: $accordion-card-header-color;
+      //     }
+      //     &::after {
+      //       display: none;
+      //     }
+      //   }
+      // }
+    }
+    .card-body {
+      font-size: 0.875rem;
+      padding: 0 0 2.5rem;
+    }
+    &:first-child {
+      border-top: 0;
+    }
+    &:last-child {
+      border-bottom: 0;
+    }
+  }
+}
