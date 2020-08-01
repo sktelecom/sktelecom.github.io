@@ -3,10 +3,10 @@
 <channel>
         <title>SKT Open Source Software</title>
         <description>SKT Open Source Software - SKT Open Source Program Manager</description>
-        <link>https://sktelecom.github.io</link>
-        <link>https://sktelecom.github.io</link>
-        <lastBuildDate>2020-08-01T21:59:37+09:00</lastBuildDate>
-        <pubDate>2020-08-01T21:59:37+09:00</pubDate>
+        <link>https://opensource-skt.github.io</link>
+        <link>https://opensource-skt.github.io</link>
+        <lastBuildDate>2020-08-01T22:48:42+09:00</lastBuildDate>
+        <pubDate>2020-08-01T22:48:42+09:00</pubDate>
         <ttl>1800</ttl>
 
 
@@ -154,8 +154,8 @@ preceded by &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;j
 
 &lt;p&gt;&lt;a href=&quot;http://opensource.org/licenses/MIT&quot;&gt;MIT&lt;/a&gt;&lt;/p&gt;
 </description>
-                <link>https://sktelecom.github.io/lessons/2020/07/31/testing-locally-sktelecom-site</link>
-                <guid>https://sktelecom.github.io/lessons/2020/07/31/testing-locally-sktelecom-site</guid>
+                <link>https://opensource-skt.github.io/lessons/2020/07/31/testing-locally-sktelecom-site</link>
+                <guid>https://opensource-skt.github.io/lessons/2020/07/31/testing-locally-sktelecom-site</guid>
                 <pubDate>2020-07-31T00:00:00+09:00</pubDate>
         </item>
 
@@ -630,8 +630,8 @@ you've got to put paragraph tags in your blockquotes:&amp;lt;/p&amp;gt;
 &amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 </description>
-                <link>https://sktelecom.github.io/docs/2020/07/31/blog-markdown-examples</link>
-                <guid>https://sktelecom.github.io/docs/2020/07/31/blog-markdown-examples</guid>
+                <link>https://opensource-skt.github.io/docs/2020/07/31/blog-markdown-examples</link>
+                <guid>https://opensource-skt.github.io/docs/2020/07/31/blog-markdown-examples</guid>
                 <pubDate>2020-07-31T00:00:00+09:00</pubDate>
         </item>
 

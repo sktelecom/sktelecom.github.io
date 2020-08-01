@@ -1,13 +1,13 @@
 
-https://sktelecom.github.io/404.html
-https://sktelecom.github.io/about/
-https://sktelecom.github.io/archive
-https://sktelecom.github.io/blog
-https://sktelecom.github.io/contact
-https://sktelecom.github.io/
-https://sktelecom.github.io/rss.xml
-https://sktelecom.github.io/sitemap.txt
-https://sktelecom.github.io/feed.xml
+https://opensource-skt.github.io/404.html
+https://opensource-skt.github.io/about/
+https://opensource-skt.github.io/archive
+https://opensource-skt.github.io/blog
+https://opensource-skt.github.io/contact
+https://opensource-skt.github.io/
+https://opensource-skt.github.io/rss.xml
+https://opensource-skt.github.io/sitemap.txt
+https://opensource-skt.github.io/feed.xml
 
-https://sktelecom.github.io/lessons/2020/07/31/testing-locally-sktelecom-site
-https://sktelecom.github.io/docs/2020/07/31/blog-markdown-examples
+https://opensource-skt.github.io/lessons/2020/07/31/testing-locally-sktelecom-site
+https://opensource-skt.github.io/docs/2020/07/31/blog-markdown-examples
