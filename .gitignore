@@ -1,3 +1,8 @@
+.DS_Store
+assets/.DS_Store
+._.DS_Store
+**/.DS_Store
+**/._.DS_Store
 # Created by https://www.gitignore.io/api/jekyll
 ### Jekyll ###
 _site/
