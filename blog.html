@@ -14,11 +14,12 @@ canonical: https://sktelecom.github.io/blog
   <div class="col-md-4">
 	  <div class="blog-block">
 	   {% if post.img %}	  
-            <img src="{{ BASE_PATH }}/assets/images/{{ post.img }}" alt="{{ post.title }} image">
+            <img src="{{ BASE_PATH }}/assets/images/blog/{{ post.author }}/{{ post.img }}" alt="{{ post.title }} image">
 	   {% endif %}	  
             <div class="blog-content">
               <h3><a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></h3>
-        <p>{{ post.excerpt }}</p>
+        <!--<p>{{ post.excerpt }}</p>-->
+        <p>{{ post.intro }}</p>
         <blockquote class="blockquote-reverse">
           <cite>
             <a href="/authors/{{ post.author }}">- {{ post.author }} </a>
