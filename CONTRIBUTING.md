@@ -259,3 +259,96 @@ Configuration file: /Users/haksung/project/mysite/_config.yml
 이제 개발을 위한 환경 설정이 테스트까지 완료되었습니다.
 
 Git Workflow에 따라 SK텔레콤 오픈소스 사이트의 소스 코드를 Clone하세요.
+
+
+# Git Workflow
+
+![github-workflow-sktelecom.png](./asset/image/github-workflow-sktelecom.png)
+
+# 소스 코드 Clone 및 Branch 생성
+
+## Step 1. Fork
+
+1.  [https://github.com/sktelecom/sktelecom.github.io](https://github.com/sktelecom/sktelecom.github.io) 에 방문하여,
+2.  화면 우상단의 Fork 버튼을 눌러 fork합니다.
+
+## Step 2. Clone
+
+Fork한 repository를 Local working directory로 Clone하고, Remote에 Upstream repository를 추가합니다.
+
+```
+$ git clone https://github.com/$user/sktelecom.github.io
+Cloning into 'sktelecom.github.io'...
+remote: Enumerating objects: 4373, done.
+remote: Counting objects: 100% (4373/4373), done.
+remote: Compressing objects: 100% (3470/3470), done.
+remote: Total 4373 (delta 590), reused 4334 (delta 571), pack-reused 0
+Receiving objects: 100% (4373/4373), 22.32 MiB | 3.41 MiB/s, done.
+Resolving deltas: 100% (590/590), done.
+ 
+$ cd sktelecom.github.io
+$ git remote add upstream https://github.com/sktelecom/sktelecom.github.io.git
+$ git remote -v                                                              
+origin  https://github.com/haksungjang/sktelecom.github.io.git (fetch)
+origin  https://github.com/haksungjang/sktelecom.github.io.git (push)
+upstream    https://github.com/sktelecom/sktelecom.github.io.git (fetch)
+upstream    https://github.com/sktelecom/sktelecom.github.io.git (push)
+```
+
+
+## Step 3. Fetch and Rebase
+
+개발용 branch(develop)를 생성하기 전에 먼저 master를 최신 상태로 유지합니다.
+```
+$ git fetch upstream
+$ git checkout master
+$ git rebase upstream/master
+```
+
+
+## Step 4. Branch
+
+그리고, 그 상태에서 develop branch를 생성합니다.
+```
+$ git checkout -b develop
+```
+
+
+## * 로컬 PC에서 사이트 구동
+
+로컬 PC에서 SK telecom 오픈소스 사이트를 구동해봅니다.
+```
+$ bundle exec jekyll server
+```
+
+[http://127.0.0.1:4000/](http://127.0.0.1:4000/) 에 접속하면 SK telecom 오픈소스 사이트에 접속하는 것을 확인할 수 있습니다.
+
+# 수정 및 제출
+
+## * 코드 수정
+
+오픈소스 프로젝트 추가, 작가 등록, 블로그 작성 등 수정 사항을 반영합니다. 자세한 사항은 다음 안내를 참고합니다.
+
+1.  Open Source Project 추가 :
+2.  작가 등록 : 
+3.  Blog 작성 :
+
+## Step 5. Commit
+
+수정 사항을 Commit 합니다.
+```
+$ git commit
+```
+
+## Step 6. Push
+
+Commit을 Origin의 develop branch에 Push합니다.
+```
+$ git push -f origin develop
+```
+
+## Step 7. Create a Pull Request
+
+Fork된 GitHub 사이트로 갑니다. : [https://github.com/$user/sktelecom.github.io](https://github.com/$user/sktelecom.github.io)
+
+그러면, "Compare & pull request" 버튼이 생성된 것을 볼 수 있습니다. 이를 눌러서 Upstream repository의 develop branch로 Create pull request를 생성하여 수정 사항을 제출합니다. 
