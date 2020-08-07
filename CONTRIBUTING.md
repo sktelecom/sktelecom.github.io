@@ -263,7 +263,7 @@ Git Workflow에 따라 SK텔레콤 오픈소스 사이트의 소스 코드를 Cl
 
 # Git Workflow
 
-![github-workflow-sktelecom.png](./asset/image/github-workflow-sktelecom.png)
+![github-workflow-sktelecom.png](./asset/images/github-workflow-sktelecom.png)
 
 # 소스 코드 Clone 및 Branch 생성
 
