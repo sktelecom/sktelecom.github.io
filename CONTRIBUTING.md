@@ -174,7 +174,7 @@ SK텔레콤 오픈소스 사이트를 통해 기술 블로그를 공개할 수 �
         -   파일 이름은 "작성년도-월-일-제목.md" 형태가 되어야 합니다. (예: 2020-08-06-Spring-Boot-애플리케이션-관리기법.md)
     -   파일 작성
         
-        -   먼저 파일 상단에서 블로그 정보 (부제, 소개, 대표이미지, 작가계정)를 기재합니다.
+        -   먼저 파일 상단에서 블로그 정보 (부제, 소개, 대표이미지, 작가계정)를 기재하고, 24 line 부터 Markdown 형태로 블로그를 작성합니다.
             
 ```
 tagline: "오픈소스 사용,기여 그리고 공개"
@@ -182,7 +182,6 @@ intro: "SK텔레콤 오픈소스 가이드를 소개합니다."
 img : markdown-samples.jpg
 author : haksung
 ```
-        -   24 line 부터 Markdown 형태로 블로그를 작성합니다.
 
 ## 자료 제출
 
@@ -216,3 +215,47 @@ $ mkdir "자신의 계정명"
 $ cd _posts/"자신의 계정명"
 $ cp ../sample/2020-08-07-샘플-블로그-입니다.md 2020-08-06-Spring-Boot-애플리케이션-관리기법.md
 ```        
+
+
+# 개발 환경 설정
+
+## 1. Ruby, Bundler와 Jekyll 설치
+
+SK telecom 오픈소스 사이트는 Jekyll([https://jekyllrb-ko.github.io/](https://jekyllrb-ko.github.io/))을 이용하여 개발하고, Bundler([https://bundler.io/](https://bundler.io/))로 환경을 구성합니다. 이를 위해 먼저 Local PC에 macOS, Windows등 각 OS 환경에 맞게 Ruby([https://www.ruby-lang.org/en/](https://www.ruby-lang.org/en/))와 Bundler([https://bundler.io/](https://bundler.io/)), 그리고 Jekyll를 설치합니다.
+
+세부 절차는 자신의 운영체제에 해당하는 가이드를 확인하세요. : [https://jekyllrb-ko.github.io/docs/installation/](https://jekyllrb-ko.github.io/docs/installation/)
+
+## 2. 테스트 사이트 구동
+
+개발 환경 설치를 완료했으면, 테스트용 Jekyll 사이트를 생성합니다.
+```
+$ jekyll new mysite
+```
+
+이상없이 생성이 완료되면 생성된 디렉토리로 이동하여 생성된 파일을 확인합니다.
+```
+$ cd mysite/
+mysite $ ls
+404.html    Gemfile     Gemfile.lock    _config.yml _posts      about.markdown  index.markdown
+```
+
+사이트를 빌드하고 로컬 서버에 적용합니다.
+```
+$ bundle exec jekyll server
+Configuration file: /Users/haksung/project/mysite/_config.yml
+            Source: /Users/haksung/project/mysite
+       Destination: /Users/haksung/project/mysite/_site
+ Incremental build: disabled. Enable with --incremental
+      Generating...
+       Jekyll Feed: Generating feed for posts
+                    done in 0.291 seconds.
+ Auto-regeneration: enabled for '/Users/haksung/project/mysite'
+    Server address: http://127.0.0.1:4000/
+  Server running... press ctrl-c to stop.
+```
+
+로컬PC의 브라우저로 [http://127.0.0.1:4000/](http://127.0.0.1:4000/) 에 접속하면 Jekyll이 생성한 페이지를 볼 수 있습니다.
+
+이제 개발을 위한 환경 설정이 테스트까지 완료되었습니다.
+
+Git Workflow에 따라 SK텔레콤 오픈소스 사이트의 소스 코드를 Clone하세요.
