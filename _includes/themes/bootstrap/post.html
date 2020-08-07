@@ -8,6 +8,11 @@
                 {% if page.tagline %}<p>
                           {{ page.tagline }}
                 </p>{% endif %}
+                {% if page.author %}
+                  <p class="text-primary"><strong>Author</strong> :
+                    <a href="{{ BASE_PATH }}/authors/{{ page.author }}">{{ page.author }}</a>
+                  </p>
+                {% endif %}
                 <a href="#post" class="page-scroll btn btn-lg btn-default-filled">Read Post</a>
                 <div class="mb-60"></div>                      
               </div>
@@ -27,7 +32,7 @@
 
 <div class="mb-60"></div>
 
-  <!-- Blog content + sidebar -->
+  <!-- Blog content -->
   <section id="post" class="blog">
     <div class="container">
       <div class="row">
