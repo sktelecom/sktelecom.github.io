@@ -101,7 +101,7 @@ SK텔레콤 오픈소스 사이트에 작가 등록을 하고 기술 블로그�
 1.  (필수) 작가 계정명 (이메일주소에서 골뱅이(@) 앞부분)
 2.  (필수) 작가 fullname (예: Haksung Jang (장학성) )
 3.  (필수) Position (예: Data Scientist)
-4.  (필수) 소속 (예: SK telecom)
+4.  (필수) 소속 (예: SK텔레콤)
 5.  (필수) 작가 사진 (파일명 : "계정명".확장자, 사이즈 : 370*370)
 6.  (필수) 소개글 (자신을 기술블로그 작가로써 적절히 표현할 수 있는 간략한 소개.)
 7.  (필수) 이메일 주소
@@ -178,7 +178,7 @@ SK텔레콤 오픈소스 사이트를 통해 기술 블로그를 공개할 수 �
 5.  대표 이미지 (640*480)
 6.  블로그 파일
     -   파일 생성
-        -   샘플 파일을 복사해서 생성하세요. 블로그 샘플 파일은 여기에 있습니다 : [./_post/sample/2020-08-07-샘플-블로그-입니다.md](./_post/sample/2020-08-07-샘플-블로그-입니다.md)
+        -   샘플 파일을 복사해서 생성하세요. 블로그 샘플 파일은 여기에 있습니다 : [./_posts/sample/2020-08-07-샘플-블로그-입니다.md](./_posts/sample/2020-08-07-샘플-블로그-입니다.md)
         -   파일 이름은 "작성년도-월-일-제목.md" 형태가 되어야 합니다. (예: 2020-08-06-Spring-Boot-애플리케이션-관리기법.md)
     -   파일 작성
         
@@ -234,7 +234,7 @@ $ cp ../sample/2020-08-07-샘플-블로그-입니다.md 2020-08-06-Spring-Boot-�
 
 ## 1. Ruby, Bundler와 Jekyll 설치
 
-SK telecom 오픈소스 사이트는 Jekyll([https://jekyllrb-ko.github.io/](https://jekyllrb-ko.github.io/))을 이용하여 개발하고, Bundler([https://bundler.io/](https://bundler.io/))로 환경을 구성합니다. 이를 위해 먼저 Local PC에 macOS, Windows등 각 OS 환경에 맞게 Ruby([https://www.ruby-lang.org/en/](https://www.ruby-lang.org/en/))와 Bundler([https://bundler.io/](https://bundler.io/)), 그리고 Jekyll를 설치합니다.
+SK텔레콤 오픈소스 사이트는 Jekyll([https://jekyllrb-ko.github.io/](https://jekyllrb-ko.github.io/))을 이용하여 개발하고, Bundler([https://bundler.io/](https://bundler.io/))로 환경을 구성합니다. 이를 위해 먼저 Local PC에 macOS, Windows등 각 OS 환경에 맞게 Ruby([https://www.ruby-lang.org/en/](https://www.ruby-lang.org/en/))와 Bundler([https://bundler.io/](https://bundler.io/)), 그리고 Jekyll를 설치합니다.
 
 세부 절차는 자신의 운영체제에 해당하는 가이드를 확인하세요. : [https://jekyllrb-ko.github.io/docs/installation/](https://jekyllrb-ko.github.io/docs/installation/)
 
@@ -329,12 +329,12 @@ $ git checkout -b develop
 
 ## * 로컬 PC에서 사이트 구동
 
-로컬 PC에서 SK telecom 오픈소스 사이트를 구동해봅니다.
+로컬 PC에서 SK텔레콤 오픈소스 사이트를 구동해봅니다.
 ```
 $ bundle exec jekyll server
 ```
 
-[http://127.0.0.1:4000/](http://127.0.0.1:4000/) 에 접속하면 SK telecom 오픈소스 사이트에 접속하는 것을 확인할 수 있습니다.
+[http://127.0.0.1:4000/](http://127.0.0.1:4000/) 에 접속하면 SK텔레콤 오픈소스 사이트에 접속하는 것을 확인할 수 있습니다.
 
 # 수정 및 제출
 
