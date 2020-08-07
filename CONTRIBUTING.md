@@ -1,7 +1,7 @@
 # 기여하기
 SK텔레콤 오픈소스 사이트는 여러분의 참여로 개선됩니다. 웹사이트 개선, 오픈소스 프로젝트 홍보, 기술 블로그 등록 등 다양한 활동을 하실 수 있습니다. 
 
-# 오픈소스 프로젝트 등록
+# 1. 오픈소스 프로젝트 등록
 SK텔레콤 오픈소스 사이트에 등록하여 홍보하고자 하는 오픈소스 프로젝트가 있다면 다음의 방법으로 사이트에 등록할 수 있습니다.
 
 ## 자료 준비
@@ -77,4 +77,77 @@ SK텔레콤 오픈소스 사이트에 등록하여 홍보하고자 하는 오픈
 3. Local 서버에서 수정사항이 잘 반영되었는지 확인합니다. :
 
 ### Commit, Push & Pull Request
+수정 사항을 Pull Request 합니다. :
+
+# 2. 블로그 작가 등록
+
+SK텔레콤 오픈소스 사이트에 작가 등록을 하고 기술 블로그를 작성하세요. 작가 등록을 하면 다음과 같이 SK텔레콤 오픈소스 사이트에서 작가 프로필과 작성 글을 확인할 수 있습니다. :  [https://sktelecom.github.io/authors/haksung](https://sktelecom.github.io/authors/haksung)
+
+작가 등록 방법은 다음과 같습니다.
+
+## 자료 준비
+
+작가 등록을 위해 다음 사항을 준비합니다.
+
+1.  (필수) 작가 계정명 (이메일주소에서 골뱅이(@) 앞부분)
+2.  (필수) 작가 fullname (예: Haksung Jang (장학성) )
+3.  (필수) Position (예: Data Scientist)
+4.  (필수) 소속 (예: SK telecom)
+5.  (필수) 작가 사진 (파일명 : "계정명".확장자, 사이즈 : 370*370)
+6.  (필수) 소개글 (자신을 기술블로그 작가로써 적절히 표현할 수 있는 간략한 소개.)
+7.  (필수) 이메일 주소
+8.  홈페이지 url
+9.  Github 계정
+10.  Facebook 계정
+11.  Instagram 계정
+12.  Linkedin 계정
+13.  Twitter 계정
+
+## 자료 제출
+
+준비한 자료를 제출하는 방법은 두가지 입니다.
+
+1.  GitHub > New issue하여 위의 자료를 첨부하고, 작가 등록을 요청합니다. : [https://github.com/sktelecom/sktelecom.github.io/issues](https://github.com/sktelecom/sktelecom.github.io/issues)
+    -   관리자가 내용을 검토하여 SK텔레콤 오픈소스 사이트에 작가 등록을 진행합니다.
+2.  로컬 PC에 개발환경을 구축하여 직접 작가 등록을 수행해보고, 이를 Pull Request합니다. 직접 할 경우, 본인이 원하는 형태로 구성하여 등록할 수 있다는 장점이 있습니다.
+    -   자세한 내용은 아래 Pull Request 방법을 참고하세요.
+
+## 작가 등록을 위한 Pull Request 방법
+
+### 선행 작업
+
+1.  로컬 PC에 개발 환경을 구축합니다. :
+2.  소스 코드를 다운 받고 Branch를 생성합니다. :
+
+### 코드 수정
+
+1.  작가 사진 이미지를 "계정명.jpg"란 이름으로 /assets/images/author/ 하위에 위치시킵니다.
+2.  /author/하위의 sample_author.html을 복사해서 "계정명".html을 생성합니다.
+```
+    $ cd ./author/
+    $ cp ./sample_author.html "계정명".html
+```
+3.  생성한 "계정명".html을 열어서 4 ~ 16 line의 다음 값을 자신의 정보에 맞게 수정합니다.
+```
+account : haksung
+fullname : Haksung Jang (장학성)
+position : Open Source Program Manager
+company : SK telecom
+image : haksung.jpg
+intro : 기업이 오픈소스를 사용하면서 최대한의 가치를 창출하는 방법을 고민하며, 기업 전체에 올바른 오픈소스 문화 확산이 될 수 있도록 환경과 시스템을 구축하고 있습니다.
+email : haksung@sk.com
+homepage : https://haksungjang.github.io/
+github : haksungjang
+facebook : haksung.jang
+instagram :
+linkedin : haksung
+twitter :
+keywords: author
+```
+
+    
+4.  Local 서버에서 수정사항이 잘 반영되었는지 확인합니다. :
+
+### Commit, Push & Pull Request
+
 수정 사항을 Pull Request 합니다. :
