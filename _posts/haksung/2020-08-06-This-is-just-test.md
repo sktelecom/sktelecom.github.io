@@ -2,6 +2,7 @@
 layout: post
 category : docs
 tagline: "Example blog in markdown and html classes"
+intro: "Markdown samples usefull when you start write your blog 🎉 🎆."
 tags : [jekyll, code, markdown]
 img : markdown-samples.jpg
 img2 : 
@@ -17,8 +18,6 @@ canonical: https://sktelecom.github.io
 
 ---
 {% include JB/setup %}
-오픈소스 가이드
-Markdown samples usefull when you start write your blog 🎉 🎆.
 
 <!--more-->
 

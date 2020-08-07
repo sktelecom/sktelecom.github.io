@@ -4,6 +4,7 @@ category : lessons
 tagline: "How to test sktelecom Jekyll site locally"
 tags : [intro, beginner, jekyll, tutorial]
 img : helloworld.jpg
+intro : In this tutorial I will teach you *how to test your Jekyll Bootstrap3* site locally.
 img-mobile : 
 img2 : 
 img3 : 
@@ -18,7 +19,6 @@ canonical: https://sktelecom.github.io
 ---
 {% include JB/setup %}
 
-In this tutorial I will teach you *how to test your Jekyll Bootstrap3* site locally.
 <!--more-->
 
 Jekyll is a parsing engine bundled as a ruby gem used to build static websites from
