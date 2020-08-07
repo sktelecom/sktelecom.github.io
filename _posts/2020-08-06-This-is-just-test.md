@@ -6,7 +6,7 @@ tags : [jekyll, code, markdown]
 img : markdown-samples.jpg
 img2 : 
 img3 : 
-author : Sample
+author : haksung
 title2 : 
 title3 : 
 css: 

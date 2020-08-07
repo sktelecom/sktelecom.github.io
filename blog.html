@@ -18,7 +18,12 @@ canonical: https://sktelecom.github.io/blog
 	   {% endif %}	  
             <div class="blog-content">
               <h3><a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></h3>
-	      <p>{{ post.excerpt }}</p>
+        <p>{{ post.excerpt }}</p>
+        <blockquote class="blockquote-reverse">
+          <cite>
+            <a href="/authors/{{ post.author }}">- {{ post.author }} </a>
+          </cite>
+        </blockquote>
               <a class="btn btn-common" href="{{ BASE_PATH }}{{ post.url }}">Read More</a>
             </div>
           </div>

@@ -1,0 +1,116 @@
+---
+layout: default
+title: Haksung Jang
+tagline: 
+tags : [author]
+image : haksung.jpg
+img : 
+img-mobile : 
+author : haksung
+fullname : Haksung Jang (장학성)
+position : Open Source Program Manager
+company : SK telecom
+intro : 기업이 오픈소스를 사용하면서 최대한의 가치를 창출하는 방법을 고민하며, 기업 전체에 올바른 오픈소스 문화 확산이 될 수 있도록 환경과 시스템을 구축하고 있습니다. 
+email : haksung@sk.com
+homepage : https://haksungjang.github.io/
+github : https://github.com/haksungjang
+facebook : https://www.facebook.com/haksung.jang
+instagram : 
+linkedin : https://linkedin.com/in/haksung
+twitter : 
+keywords: author
+canonical: https://sktelecom.github.io
+---
+{% include JB/setup %}
+<!-- Content Area Start -->
+{% assign author = page.url | remove:'/authors/' %}
+<div id="content">
+  <div class="container">
+    <!-- row start -->
+    <div class="row">
+      <div class="col-md-12">
+        <div class="page-header-title">
+          <h2 class="heading-title text-center">{{ page.fullname }}</h2>
+        </div>
+        <!-- Team Members 01 -->
+        <div class="team-members-tow mtb-50">
+          <div class="row">
+            <div class="col-sm-6 col-md-8">
+              <div class="sub-title">
+                <span> {{ page.position }} {% if page.company %} at {{ page.company }} {% endif %}</span>
+              </div>
+              <!-- Team Item Starts -->
+              <div class="team-item">
+                <blockquote>
+                  <p>{{ page.intro }}</p>
+                </blockquote>
+                <blockquote class="blockquote-reverse">
+                  <cite>- {{ page.fullname }} / <a href="mailto:{{ page.email }}">{{ page.email }}</a></cite>
+                </blockquote>
+              
+              </div>
+              <!-- Team Item Ends -->
+            </div>
+
+
+            <div class="col-sm-6 col-md-3">
+              <!-- Team Item Starts -->
+              <figure>
+                <img src="{{ BASE_PATH }}/assets/images/author/{{ page.image }}" alt="">
+                <div class="image-overlay">
+                  <div class="overlay-text text-center">
+                    <div class="info-text">
+                      <strong> {{ page.author }} </strong>
+                      <span>{{ page.position }}</span>
+                    </div>
+                    <hr class="small-divider border-white">
+                    <ul class="social-icons">
+                      {% if page.homepage %}<li><a href="{{ page.homepage }}"><i class="fa fa-home " aria-hidden="true"></i></a></li>{% endif %}
+                      {% if page.github %}<li><a href="{{ page.github }}"><i class="fa fa-github " aria-hidden="true"></i></a></li>{% endif %}
+                      {% if page.facebook %}<li><a href="{{ page.facebook }}"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>{% endif %}
+                      {% if page.instagram %}<li><a href="{{ page.instagram }}"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>{% endif %}
+                      {% if page.linkedin %}<li><a href="{{ page.linkedin }}"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>{% endif %}
+                      {% if page.twitter %}<li><a href="{{ page.twitter }}"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>{% endif %}
+                    </ul>
+                  </div>
+                </div>
+              </figure>
+              <!-- Team Item Ends -->
+            </div>
+
+          </div>
+        </div>
+        <!-- End Team Members 01 -->
+
+
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Content Area End -->
+    
+{% include JB/setup %}
+
+<section class="blog">
+  <div class="container">
+    <h1>Related posts</h1>
+    <div class="sub-title">
+      <span></span>
+    </div>
+{% for post in site.posts %}
+  {% if post.author == author %}
+	  <div class="blog-block post-content-area">
+	   {% if post.img %}	  
+            <img src="{{ BASE_PATH }}/assets/images/{{ post.img }}" alt="{{ post.title }} image">
+	   {% endif %}	  
+            <div class="blog-post">
+              <h3><a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></h3>
+	      <p>{{ post.excerpt }}</p>
+              <a class="btn btn-common" href="{{ BASE_PATH }}{{ post.url }}">Read More</a>
+            </div>
+          </div>
+    <div class="mb-60"></div>
+  {% endif %}
+{% endfor %}
+</div>
+</section>

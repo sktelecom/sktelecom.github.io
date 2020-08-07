@@ -7,7 +7,7 @@ img : helloworld.jpg
 img-mobile : 
 img2 : 
 img3 : 
-author :
+author : sample
 title2 : 
 title3 : 
 css: 
