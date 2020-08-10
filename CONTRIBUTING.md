@@ -196,6 +196,7 @@ author : haksung
 준비한 자료를 제출하는 방법은 두가지 입니다.
 
 1.  GitHub > New issue하여 위의 자료를 첨부하고, 블로그 등록을 요청합니다. : [https://github.com/sktelecom/sktelecom.github.io/issues](https://github.com/sktelecom/sktelecom.github.io/issues)
+    -   관리자가 내용을 검토하여 SK텔레콤 오픈소스 사이트에 작가 등록을 진행합니다.
 2.  로컬 PC에 개발환경을 구축하여 직접 블로그를 추가를 해보고, 이를 Pull Request합니다. 직접 할 경우, 본인이 원하는 형태로 구성하여 등록할 수 있다는 장점이 있습니다.
     -   자세한 내용은 아래 Pull Request 방법을 참고하세요.
 
