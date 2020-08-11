@@ -42,6 +42,7 @@ img-mobile :
                     <th>#</th>
                     <th>Name</th>
                     <th>Version</th>
+                    <th>Description</th>
                     <th>Notice</th>
                     <th>Source Code</th>
                     <th>Contact</th>
@@ -58,6 +59,7 @@ img-mobile :
                       <th scope="row">{{ count }}</th>
                       <td>{{ item.name }}</td>
                       <td>{{ item.version }}</td>
+                      <td>{{ item.description }}</td>
                       <td><a href="{{ BASE_PATH }}/compliance/{{ area-name | downcase }}/{{ item.notice }}" target="_blank" >{{ item.notice }}</a></td>
                       {% if item.url %}
                       <td><a hrea="{{ item.url }}">{{ item.source }}</a></td>
