@@ -10,6 +10,7 @@ SK텔레콤 오픈소스 사이트는 여러분의 참여로 개선됩니다. �
     - [소스 코드 Clone 및 Branch 생성](#소스-코드-clone-및-branch-생성)
 	- [로컬 PC에서 사이트 구동](#-로컬-pc에서-사이트-구동)
 	- [수정 및 제출](#수정-및-제출)
+- [Suppport](#Support)
 
 # 1. 오픈소스 프로젝트 등록
 SK텔레콤 오픈소스 사이트에 등록하여 홍보하고자 하는 오픈소스 프로젝트가 있다면 다음의 방법으로 사이트에 등록할 수 있습니다.
@@ -30,6 +31,8 @@ SK텔레콤 오픈소스 사이트에 등록하여 홍보하고자 하는 오픈
 	-  관리자가 내용을 검토 후 사이트에 반영합니다. 
 2.  로컬 PC에 개발환경을 구축하여 직접 프로젝트 추가를 해보고, 이를 Pull Request합니다. 이와같이 직접 할 경우, 본인이 원하는 형태로 구성하여 등록할 수 있다는 장점이 있습니다. 
 	- 자세한 내용은 아래 Pull Request 방법을 참고하세요.
+
+자료 제출 관련 문의나 요청이 있을 경우, GitHub > New issue에서 이슈를 생성하거나, opensource@sk.com 으로 연락주시기 바랍니다.
 
 ## Pull Request for Project
 ### 선행 작업
@@ -122,6 +125,8 @@ SK텔레콤 오픈소스 사이트에 작가 등록을 하고 기술 블로그�
 2.  로컬 PC에 개발환경을 구축하여 직접 작가 등록을 수행해보고, 이를 Pull Request합니다. 직접 할 경우, 본인이 원하는 형태로 구성하여 등록할 수 있다는 장점이 있습니다.
     -   자세한 내용은 아래 Pull Request 방법을 참고하세요.
 
+자료 제출 관련 문의나 요청이 있을 경우, GitHub > New issue에서 이슈를 생성하거나, opensource@sk.com 으로 연락주시기 바랍니다.
+
 ## 작가 등록을 위한 Pull Request 방법
 
 ### 선행 작업
@@ -201,6 +206,8 @@ author : haksung
 2.  로컬 PC에 개발환경을 구축하여 직접 블로그를 추가를 해보고, 이를 Pull Request합니다. 직접 할 경우, 본인이 원하는 형태로 구성하여 등록할 수 있다는 장점이 있습니다.
     -   자세한 내용은 아래 Pull Request 방법을 참고하세요.
 
+자료 제출 관련 문의나 요청이 있을 경우, GitHub > New issue에서 이슈를 생성하거나, opensource@sk.com 으로 연락주시기 바랍니다.
+
 ## Blog 추가를 위한 Pull Request 방법
 
 ### 선행 작업
@@ -256,6 +263,8 @@ SK텔레콤 오픈소스 사이트을 통해 컴플라이언스 산출물을 공
     -   관리자가 내용을 검토하여 SK텔레콤 오픈소스 사이트에 등록을 진행합니다.
 2.  로컬 PC에 개발환경을 구축하여 직접 블로그를 추가를 해보고, 이를 Pull Request합니다. 직접 할 경우, 본인이 원하는 형태로 구성하여 등록할 수 있다는 장점이 있습니다.
     -   자세한 내용은 아래 Pull Request 방법을 참고하세요.
+
+자료 제출 관련 문의나 요청이 있을 경우, GitHub > New issue에서 이슈를 생성하거나, opensource@sk.com 으로 연락주시기 바랍니다.
 
 ## 컴플라이언스 산출물 등록을 위한 Pull Request 방법
 
@@ -430,3 +439,8 @@ $ git push -f origin develop
 Fork된 GitHub 사이트로 갑니다. : [https://github.com/$user/sktelecom.github.io](https://github.com/$user/sktelecom.github.io)
 
 그러면, "Compare & pull request" 버튼이 생성된 것을 볼 수 있습니다. 이를 눌러서 Upstream repository의 develop branch로 Create pull request를 생성하여 수정 사항을 제출합니다. 
+
+# Support
+SK텔레콤 오픈소스 사이트와 관련하여 문의나 요청이 있을 경우, GitHub > New issue에서 이슈를 생성하거나, opensource@sk.com 으로 연락주시기 바랍니다.
+
+감사합니다. 
