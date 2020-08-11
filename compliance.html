@@ -1,0 +1,87 @@
+---
+layout: default
+title: SKT Open Source Software
+keywords: compliance
+canonical: https://sktelecom.github.io
+tagline: 
+tags : [compliance]
+img : 
+img-mobile : 
+---
+{% include JB/setup %}
+
+<!-- Content Area Start -->
+<div id="content">
+  <div class="container">
+    <!-- row start -->
+    <div class="row">
+      <div class="col-md-12">
+        <div class="page-header-title">
+          <h2 class="heading-title text-center">Compliance Artifacts (under TEST)</h2>
+          <p class="text-primary text-center"><strong>WARNING</strong>:  All data in this page is under test. Do NOT download any files. It is not real data.</p>
+        </div>
+        <div class="table-style1">
+
+          {% assign area-list = "" | split: ',' %}
+          {% for i in site.data.compliance %}
+            {% assign i-area-downcase = i.area | downcase %}
+            {% unless area-list contains i-area-downcase %}
+              {% assign area-list = area-list | push: i-area-downcase %}
+            {% endunless %}
+          {% endfor %}
+
+          {% for area-name in area-list %}
+            <div class="sub-title">
+              <span>{{ area-name | upcase }}</span>
+            </div>
+
+            <div class="table-responsive mtb">
+              <table  class="table table-bordered table-1 ">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Version</th>
+                    <th>Notice</th>
+                    <th>Source Code</th>
+                    <th>Contact</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  {% assign count = 0 %}
+                  {% for item in site.data.compliance %}
+                    {% assign item-area-upcase = item.area | downcase %}
+                    {% if item-area-upcase == area-name %}
+                    <tr>
+                      {% assign count = count | plus: 1 %}
+                      <th scope="row">{{ count }}</th>
+                      <td>{{ item.name }}</td>
+                      <td>{{ item.version }}</td>
+                      <td><a href="{{ BASE_PATH }}/compliance/{{ area-name | downcase }}/{{ item.notice }}" target="_blank" >{{ item.notice }}</a></td>
+                      {% if item.url %}
+                      <td><a hrea="{{ item.url }}">{{ item.source }}</a></td>
+                      {% else %}
+                      <td><a href="{{ BASE_PATH }}/compliance/{{ area-name | downcase }}/{{ item.source }}" target="_blank" >{{ item.source }}</a></td>
+                      {% endif %}
+                      <td><a href="{{ BASE_PATH }}/contact.html"><i class="fa fa-envelope-o icons cyan-color contact-info-icon" target="_blank" ></i></a></td>
+                    </tr>
+                    {% endif %}
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+            <div class="mb-60"></div>  
+          {% endfor %}      
+        </div>
+
+
+
+  </div> <!-- col-md-12 end-->
+  </div> <!-- row end -->
+
+
+
+  </div>
+</div>
+<!-- Content Area End -->
