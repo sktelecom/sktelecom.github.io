@@ -1,6 +1,7 @@
 - area : mno
   name : T map
   version : 2.0
+  description : Android application
   notice : tmap-20-notice.html
   source : tmap-20-sourcecode.zip
   url : 
@@ -8,6 +9,7 @@
 - area : mno
   name : T call
   version : 2.0
+  description : iOS application
   notice : tcall-20-notice.html
   source : tcall-20-sourcecode.zip
   url : 
@@ -15,6 +17,7 @@
 - area : media
   name : wavve
   version : 1.0
+  description : Android application
   notice : wavve-10-notice.html
   source : 
   url : 
@@ -22,6 +25,7 @@
 - area : media
   name : flo
   version : 1.0
+  description : iOS application
   notice : flo-10-notice.html
   source : flo-10-sourcecode.tar.bz2
   url : 
@@ -29,6 +33,7 @@
 - area : ai
   name : nugu
   version : 1.0
+  description : Android application
   notice : nugu-10-notice.html
   source : nugu-10-sourcecode.zip
   url : 

@@ -4,6 +4,7 @@ SK텔레콤 오픈소스 사이트는 여러분의 참여로 개선됩니다. �
 - [1. 오픈소스 프로젝트 등록](#1-오픈소스-프로젝트-등록)  
 - [2. 블로그 작가 등록](#2-블로그-작가-등록)
 - [3. 블로그 작성글 등록](#3-블로그-작성글-등록)
+- [4. 컴플라이언스 산출물 등록](#4-컴플라이언스-산출물-등록)
 - [개발 환경 설정](#개발-환경-설정)
 - [Git Workflow](#git-workflow)
     - [소스 코드 Clone 및 Branch 생성](#소스-코드-clone-및-branch-생성)
@@ -229,6 +230,69 @@ $ cp ../sample/2020-08-07-샘플-블로그-입니다.md 2020-08-06-Spring-Boot-�
 ### Commit, Push & Pull Request
 
 수정 사항을 제출 합니다. : [수정 및 제출](#수정-및-제출)
+
+
+# 4. 컴플라이언스 산출물 등록
+
+SK텔레콤이 배포한 소프트웨어에 포함된 오픈소스에 대한 오픈소스 라이선스 의무 준수를 위해 컴플라이언스 산출물(Compliance Artifacts : 오픈소스 고지문 및 공개할 소스코드)를 등록할 수 있습니다. (등록한 산출물은 다음 페이지를 통해 공개됩니다. : [https://sktelecom.github.io/compliance.html](https://sktelecom.github.io/compliance.html) )
+
+## 자료 준비
+SK텔레콤 오픈소스 사이트을 통해 컴플라이언스 산출물을 공개하기 위해서는 다음 자료를 준비해야 합니다. 
+1.  (필수) 사업 영역 (MNO, Media, Security, Commerce, AI 등)
+2.  (필수) 배포하는 소프트웨어 이름 (예: T map)
+3.  (필수) 배포하는 소프트웨어 버전 (예: 1.0)
+4.  소프트웨어에 대한 부가 설명 (예: Android Application)
+4.  (필수) 오픈소스 고지문 파일 (예: tmap-20-android-notice.html)
+5.  공개할 소스코드 파일 (예: tmap-20-android-sourcecode.zip)
+6.  (소스코드가 100MB 이상일 경우) 공개할 소스코드 다운로드 URL
+    -   공개할 소스 코드의 사이즈가 100MB 이상일 경우, 별도의 저장 공간에 등록하고, 이를 다운로드 받을 수 있는 URL을 기재하세요. 
+    -   혹은, 다음 repository에 디렉토리를 생성하여 소스 코드를 등록하고 (Pull Requset), 디렉토리의 위치 URL을 기재하세요. : [https://github.com/sktelecom/compliance-artifacts](https://github.com/sktelecom/compliance-artifacts)
+
+## 자료 제출
+
+준비한 자료를 제출하는 방법은 두가지 입니다.
+
+1.  GitHub > New issue하여 위의 자료를 작성하여 등록을 요청합니다. : [https://github.com/sktelecom/sktelecom.github.io/issues](https://github.com/sktelecom/sktelecom.github.io/issues)
+    -   관리자가 내용을 검토하여 SK텔레콤 오픈소스 사이트에 등록을 진행합니다.
+2.  로컬 PC에 개발환경을 구축하여 직접 블로그를 추가를 해보고, 이를 Pull Request합니다. 직접 할 경우, 본인이 원하는 형태로 구성하여 등록할 수 있다는 장점이 있습니다.
+    -   자세한 내용은 아래 Pull Request 방법을 참고하세요.
+
+## 컴플라이언스 산출물 등록을 위한 Pull Request 방법
+
+### 선행 작업
+
+1. 로컬 PC에 개발 환경을 구축합니다. : [개발 환경 설정](#개발-환경-설정)
+2. 소스 코드를 다운 받고 Branch를 생성합니다. : [소스 코드 Clone 및 Branch 생성](#소스-코드-clone-및-branch-생성)
+
+
+### 코드 수정
+
+1. 오픈소스 고지문 파일과 공개할 소스코드 파일을 ./compliance/"사업영역"/ 디렉토리 하위에 위치시킵니다. 
+	  - 오픈소스 고지문 파일은 html 혹은 txt 형태로 등록합니다. 
+	  - 공개할 소스 코드는 하나의 파일로 압축합니다. (zip, tar.gz 등)
+```
+$ cd ./compliance/"사업영역"/
+$ cp 오픈소스고지문.html .
+$ cp 공개할소스코드.zip .
+```
+2. ./_data/compliance.yml을 열어서 제일 밑에 다음과 같이 컴플라이언스 산출물의 정보를 추가합니다. (소스 코드 사이즈가 100MB 이하인 경우, url 란은 공란으로 두어도 됩니다.)
+```
+$ vi ./_data/complianceyml
+- area : ai
+  name : Nugu
+  version : 1.0
+  description : Android application
+  notice : nugu-10-notice.html
+  source : nugu-10-sourcecode.zip
+  url :
+```
+그러면, compliance 페이지에 등록한 사항이 반영됩니다. 
+
+3. Local 서버에서 수정사항이 잘 반영되었는지 확인합니다. : [로컬 PC에서 사이트 구동](#-로컬-pc에서-사이트-구동)
+
+### Commit, Push & Pull Request
+
+잘 반영이 되었다면, 수정 사항을 제출 합니다. : [수정 및 제출](#수정-및-제출)
 
 
 # 개발 환경 설정
