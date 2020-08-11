@@ -98,139 +98,31 @@ canonical: https://sktelecom.github.io
           </div>
         </div>
         <div class="container">
-          <!--<div class="container">
-            <h4 class="sub-title space-left">Google AD Sense sample</h4>
-          </div>-->
           <ul class="row portfolio list-unstyled" id="grid">
-
-
-            <!-- Metatron -->
+            {% for item in site.data.project %}
             <li class="col-xs-6 col-md-4 project">
               <figure>
                 <div class="hovereffect">
-                  <img src="{{ BASE_PATH }}/assets/images/project/metatron.png" alt="">
+                  <img src="{{ BASE_PATH }}/assets/images/project/{{ item.image }}" alt="">
                   <div class="overlay">
                     <div class="icons-link">
-                      <a class="right-link" href="https://metatron.app/" target="_blank"><i class="fa fa-plus"></i></a>
-                      <a class="left-link" href="https://github.com/metatron-app/metatron-discovery" target="_blank"><i class="fa fa-github"></i></a>
+                      {% if item.homepage-url %}
+                      <a class="right-link" href="{{ item.homepage-url }}" target="_blank"><i class="fa fa-home"></i></a>
+                      {% endif %}
+                      <a class="left-link" href="{{ item.github-url }}" target="_blank"><i class="fa fa-github"></i></a>
                     </div>
                   </div>
                 </div>
               </figure>
               <div class="portfolio block">
-                <h5>Metatron Discovery</h5>
-                <p class="project-description">Metatron Discovery is a big data analysis platform supports overall process from data cleansing to visualization. Where more than 10 billion of large volume data are processed in seconds, analyze data on variety of levels, discover insights and apply it on your business right away.</p>
+                <h5>{{ item.name }}</h5>
+                <p class="project-description">{{ item.description }}</p>
               </div>
             </li>
-            <!-- End Metatron-->
-
-            <!-- TACO -->
-            <li class="col-xs-6 col-md-4 project">
-              <figure>
-                <div class="hovereffect">
-                  <img src="{{ BASE_PATH }}/assets/images/project/taco.jpg" alt="">
-                  <div class="overlay">
-                    <div class="icons-link">
-                      <a class="right-link" href="https://openinfradev.github.io/" target="_blank"><i class="fa fa-plus"></i></a>
-                      <a class="left-link" href="https://github.com/openinfradev/tacoplay" target="_blank"><i class="fa fa-github"></i></a>
-                    </div>
-                  </div>
-                </div>
-              </figure>
-              <div class="portfolio block">
-                <h5>TACO</h5>
-                <p class="project-description">TACO (SKT All Container OpenStack) is designed to provide convenient and stable use for enterprises by comprehensively implementing virtualization of servers, networks, and storage required for cloud infrastructure.</p>
-              </div>
-            </li>
-            <!-- End TACO -->
-
-            <!-- Sona -->
-            <li class="col-xs-6 col-md-4 project">
-              <figure>
-                <div class="hovereffect">
-                  <img src="{{ BASE_PATH }}/assets/images/project/sona.png" alt="">
-                  <div class="overlay">
-                    <div class="icons-link">
-                      <a class="right-link" href="https://openinfradev.github.io/" target="_blank"><i class="fa fa-plus"></i></a>
-                      <a class="left-link" href="https://github.com/sonaproject" target="_blank"><i class="fa fa-github"></i></a>
-                    </div>
-                  </div>
-                </div>
-              </figure>
-              <div class="portfolio block">
-                <h5>SONA</h5>
-                <p class="project-description">SONA(Simplified Overlay Network Architecture) is an optimized tenant network virtualization service for Cloud-based data center. Basically, it is a set of ONOS applications which provides OpenStack Neutron ML2 mechanism driver and L3 service plugin.</p>
-              </div>
-            </li>
-            <!-- End TACO -->
-
-            
-            <!-- KoBERT -->
-            <li class="col-xs-6 col-md-4 project">
-              <figure>
-                <div class="hovereffect">
-                  <img src="{{ BASE_PATH }}/assets/images/project/kobert.png" alt="">
-                  <div class="overlay">
-                    <div class="icons-link">
-                      <a class="left-link" href="https://github.com/SKTBrain/KoBERT" target="_blank"><i class="fa fa-github"></i></a>
-                    </div>
-                  </div>
-                </div>
-              </figure>
-              <div class="portfolio block">
-                <h5>KoBERT</h5>
-                <p class="project-description">KoBERT(Korean BERT pre-trained cased) is a language AI model that understands Korean and was developed to overcome the Korean limitation of BERT(Bidirectional Encoder Representations from Transformers) developed by Google.</p>
-              </div>
-            </li>
-            <!-- End KoBERT -->
-
-            <!-- KoGPT2 -->
-            <li class="col-xs-6 col-md-4 project">
-              <figure>
-                <div class="hovereffect">
-                  <img src="{{ BASE_PATH }}/assets/images/project/koGPT2.jpg" alt="">
-                  <div class="overlay">
-                    <div class="icons-link">
-                      <a class="left-link" href="https://github.com/SKT-AI/KoGPT2" target="_blank"><i class="fa fa-github"></i></a>
-                    </div>
-                  </div>
-                </div>
-              </figure>
-              <div class="portfolio block">
-                <h5>KoGPT2</h5>
-                <p class="project-description">KoGPT-2 is an open source GPT-2 (Generative Pretrained Transformer-2) model pre-trained with Korean text to improve Korean machine learning (ML) performance. KoGPT-2 can be used for chatbots, search engines and other purposes.</p>
-              </div>
-            </li>
-            <!-- End KoGPT2 -->
-
-            <!-- H8L(Hwangsaeul)  -->
-            <li class="col-xs-6 col-md-4 project">
-              <figure>
-                <div class="hovereffect">
-                  <img src="{{ BASE_PATH }}/assets/images/project/h8l.jpg" alt="">
-                  <div class="overlay">
-                    <div class="icons-link">
-                      <a class="right-link" href="https://hwangsaeul.github.io/" target="_blank"><i class="fa fa-plus"></i></a>
-                      <a class="left-link" href="https://github.com/hwangsaeul" target="_blank"><i class="fa fa-github"></i></a>
-                    </div>
-                  </div>
-                </div>
-              </figure>
-              <div class="portfolio block">
-                <h5>H8L(Hwangsaeul)</h5>
-                <p class="project-description">H8L(Hwangsaeul) is a project to build SRT ecosystem. We are planning to build new streaming system for a cloud-based video surveillance service. In the new system, Secure Reliable Transport (SRT) will be used as a base protocol to archive the critical requirements; ultra-low latency, packet loss recovery. </p>
-              </div>
-            </li>
-            <!-- End H8L(Hwangsaeul) -->
-
-            <!-- Insert new project here. -->
-
-
-            <!-- End new project -->
-          
+            {% endfor %}          
         </div>
       </section>
-      <!-- End portfolio section 3col -->
+      <!-- End Project section -->
       
 
       <!-- Tech. Blog -->

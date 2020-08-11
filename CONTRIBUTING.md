@@ -25,71 +25,42 @@ SK텔레콤 오픈소스 사이트에 등록하여 홍보하고자 하는 오픈
 
 ## 자료 제출
 
-준비한 자료를 제출하는 방법은 두가지 입니다.
+SK텔레콤 오픈소스 사이트에 오픈소스 프로젝트를 등록하기 위해 자료를 제출하는 방법은 두가지 입니다.
+1. GitHub > New issue하여 위의 자료를 첨부하고, 프로젝트 추가를 요청합니다. : [https://github.com/sktelecom/sktelecom.github.io/issues](https://github.com/sktelecom/sktelecom.github.io/issues)
+- 관리자가 내용을 검토 후 사이트에 반영합니다.
 
-1.  GitHub > New issue하여 위의 자료를 첨부하고, 프로젝트 추가를 요청합니다. : [https://github.com/sktelecom/sktelecom.github.io/issues](https://github.com/sktelecom/sktelecom.github.io/issues)
-	-  관리자가 내용을 검토 후 사이트에 반영합니다. 
-2.  로컬 PC에 개발환경을 구축하여 직접 프로젝트 추가를 해보고, 이를 Pull Request합니다. 이와같이 직접 할 경우, 본인이 원하는 형태로 구성하여 등록할 수 있다는 장점이 있습니다. 
-	- 자세한 내용은 아래 Pull Request 방법을 참고하세요.
+2. 로컬 PC에 개발환경을 구축하여 직접 프로젝트 추가를 해보고, 이를 Pull Request합니다. 이와같이 직접 할 경우, 본인이 원하는 형태로 구성하여 등록할 수 있다는 장점이 있습니다.
+- 자세한 내용은 아래 Pull Request 방법을 참고하세요.
 
 자료 제출 관련 문의나 요청이 있을 경우, GitHub > New issue에서 이슈를 생성하거나, opensource@sk.com 으로 연락주시기 바랍니다.
 
-## Pull Request for Project
+  
+
+## 오픈소스 프로젝트 등록을 위한 Pull Request 방법
+
 ### 선행 작업
-1.  로컬 PC에 개발 환경을 구축합니다. : [개발 환경 설정](#개발-환경-설정)
-2.  소스 코드를 다운 받고 Branch를 생성합니다. : [소스 코드 Clone 및 Branch 생성](#소스-코드-clone-및-branch-생성)
+1. 로컬 PC에 개발 환경을 구축합니다. : [개발 환경 설정](#개발-환경-설정)
+2. 소스 코드를 다운 받고 Branch를 생성합니다. : [소스 코드 Clone 및 Branch 생성](#소스-코드-clone-및-branch-생성)
 
 ### 코드 수정
-1.  먼저 대표 이미지를 ./assets/images/project/ 하위에 위치시킵니다.
-2.  ./index.html 내 89 line에 "<!-- Project section-->" 구간이 있습니다. 이 부분에 다음과 같은 프로젝트 하단에 내 프로젝트에 해당하는 내용을 추가합니다.  
-    - 참고로, 아래 코드에서 <!-- H8L(Hwangsaeul) --> 은 기존 등록된 프로젝트의 코드 부분이고, <!-- My Project --> 부분이 신규로 등록하려는 프로젝트를 위한 샘플 코드입니다. (myopensourceproject 라고 된 부분을 실제 나의 프로젝트에 맞는 내용으로 변경하면 됩니다)
+1. 먼저 대표 이미지를 ./assets/images/project/ 하위에 위치시킵니다.
+2. ./_data/project.yml 파일을 열고 최하단에 다음과 같이 등록하려는 오픈소스 프로젝트의 정보를 추가합니다. (홈페이지가 없는 경우 homepage-url은 공란으로 둡니다.)
 
 ```
-<!-- H8L(Hwangsaeul)  -->
-<li class="col-xs-6 col-md-4 project">
-  <figure>
-    <div class="hovereffect">
-      <img src="{{ BASE_PATH }}/assets/images/project/h8l.jpg" alt="">
-      <div class="overlay">
-        <div class="icons-link">
-          <a class="right-link" href="https://hwangsaeul.github.io/" target="_blank"><i class="fa fa-plus"></i></a>
-          <a class="left-link" href="https://github.com/hwangsaeul" target="_blank"><i class="fa fa-github"></i></a>
-        </div>
-      </div>
-    </div>
-  </figure>
-  <div class="portfolio block">
-    <h5>H8L(Hwangsaeul)</h5>
-    <p class="project-description">H8L(Hwangsaeul) is a project to build SRT ecosystem. We are planning to build new streaming system for a cloud-based video surveillance service. In the new system, Secure Reliable Transport (SRT) will be used as a base protocol to archive the critical requirements; ultra-low latency, packet loss recovery. </p>
-  </div>
-</li>
-<!-- End H8L -->
-
-<!-- myopensourceproject  -->
-<li class="col-xs-6 col-md-4 project">
-  <figure>
-    <div class="hovereffect">
-      <img src="{{ BASE_PATH }}/assets/images/project/myopensourceproject.jpg" alt="">
-      <div class="overlay">
-        <div class="icons-link">
-          <a class="right-link" href="https://myopensourceproject.com/" target="_blank"><i class="fa fa-plus"></i></a>
-          <a class="left-link" href="https://github.com/myopensourceproject" target="_blank"><i class="fa fa-github"></i></a>
-        </div>
-      </div>
-    </div>
-  </figure>
-  <div class="portfolio block">
-    <h5>myopensourceproject</h5>
-    <p class="project-description">myopensourceproject. myopensourceproject. myopensourceproject. myopensourceproject. myopensourceproject.  </p>
-  </div>
-</li>
-<!-- End myopensourceproject -->
-
+$ vi ./_data/project.yml
+- name : Metatron Discovery
+  image : metatron.png
+  description : Metatron Discovery is a big data analysis platform supports overall process from data cleansing to visualization. Where more than 10 billion of large volume data are processed in seconds, analyze data on variety of levels, discover insights and apply it on your business right away.
+  github-url : https://github.com/metatron-app/metatron-discovery
+  homepage-url : https://metatron.app/
 ```
-
+이렇게 추가하면 코드 수정이 완료됩니다. 
+  
 3. Local 서버에서 수정사항이 잘 반영되었는지 확인합니다. : [로컬 PC에서 사이트 구동](#-로컬-pc에서-사이트-구동)
 
+  
 ### Commit, Push & Pull Request
+
 수정 사항을 제출합니다. : [수정 및 제출](#수정-및-제출)
 
 # 2. 블로그 작가 등록
