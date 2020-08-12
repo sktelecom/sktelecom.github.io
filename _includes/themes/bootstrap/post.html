@@ -2,7 +2,11 @@
       <div class="header-style-2">
         <div class="container">
           <div class="row">
+            {% if page.img %}
             <div class="col-xs-12 col-sm-6">
+            {% else %}
+            <div class="col-xs-12 col-sm-12">
+            {% endif %}
               <div class="hero-content-v2" style="margin-top:10px!important;">
                 <h3><strong>{{ page.title }}</strong></h3>
                 {% if page.tagline %}<p>
