@@ -20,8 +20,8 @@ img-mobile :
           <h2 class="heading-title text-center">Compliance Artifacts (under TEST)</h2>
           <p class="text-primary text-center"><strong>WARNING</strong>:  All data in this page is under test. Do NOT download any files. It is not real data.</p>
         </div>
-        <div class="table-style1">
-
+        <!--<div class="table-style1">-->
+          <div class="table-style3">
           {% assign area-list = "" | split: ',' %}
           {% for i in site.data.compliance %}
             {% assign i-area-downcase = i.area | downcase %}
@@ -36,8 +36,9 @@ img-mobile :
             </div>
 
             <div class="table-responsive mtb">
-              <table  class="table table-bordered table-1 ">
-                <thead>
+              <!--<table  class="table table-bordered table-1 ">-->
+                <table  class="table table-center">
+                <thead class="thead-default">
                   <tr>
                     <th>#</th>
                     <th>Name</th>
