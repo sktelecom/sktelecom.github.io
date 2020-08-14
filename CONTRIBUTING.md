@@ -374,12 +374,18 @@ $ git checkout -b develop
 
 ## * 로컬 PC에서 사이트 구동
 
-로컬 PC에서 SK텔레콤 오픈소스 사이트를 구동해봅니다.
+로컬 PC에서 SK텔레콤 오픈소스 사이트를 구동해봅니다. 이를 위해 먼저 bundle 환경설정 후 install을 합니다. 
+```
+// ./vendor/bundle/에 Gem을 설치하도록 bundle 설정하고 install
+$ bundle config set path 'vendor/bundle'
+$ bundle install
+```
+사이트를 빌드하고 로컬 서버에 적용합니다. 
 ```
 $ bundle exec jekyll server
 ```
 
-[http://127.0.0.1:4000/](http://127.0.0.1:4000/) 에 접속하면 SK텔레콤 오픈소스 사이트에 접속하는 것을 확인할 수 있습니다.
+이제 [http://127.0.0.1:4000/](http://127.0.0.1:4000/) 에 접속하면 SK텔레콤 오픈소스 사이트에 접속하는 것을 확인할 수 있습니다.
 
 # 수정 및 제출
 
