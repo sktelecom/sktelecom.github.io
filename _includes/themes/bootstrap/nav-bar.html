@@ -1,7 +1,8 @@
 <div class="top-menu">
-  <p>
+  <div class="container">
+    <p>
     <span class="left">
-      <a href="{{ BASE_PATH }}"><i class="fa fa-map-marker"></i>Open Source Program Office</a>
+      <a href="{{ BASE_PATH }}/index.html"></a>
     </span>
     <span class="right hidden-sm-down">         
       <a href="mailto:opensource@sk.com"><i class="fa fa-envelope"></i>opensource@sk.com</a>                 
@@ -10,13 +11,14 @@
       {% if site.author.linkedin %}<a href="https://www.linkedin.com/in/{{ site.author.linkedin }}/"><i class="fa fa-linkedin"></i></a>{% endif %}
       {% if site.author.instagram %}<a href="https://www.instagram.com/{{ site.author.instagram }}/"><i class="fa fa-instagram"></i></a>{% endif %}-->
     </span>
-  </p>
+    </p>
+  </div>
 </div>
 <!-- navbar-default -->
 <nav class="navbar navbar-toggleable-sm navbar-light bg-black">
   <div class="container">
     <!--<a class="navbar-brand" href="{{ BASE_PATH }}/index.html"><img src="{{ BASE_PATH }}/assets/images/skt_ci.png" alt=""></a>-->
-    <a class="navbar-brand" href="{{ BASE_PATH }}"><img src="{{ BASE_PATH }}/assets/images/skt_ci.png" alt=""></a>
+    <a class="navbar-brand" href="{{ BASE_PATH/index.html }}"><img src="{{ BASE_PATH }}/assets/images/skt_ci.png" alt=""></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar2" aria-expanded="false" aria-label="Toggle navigation">
       <i class="fa fa-bars"></i>
     </button>
@@ -32,7 +34,7 @@
     <div class="collapse navbar-collapse justify-content-end" id="navbar2">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" href="{{ BASE_PATH }}">Home</a>
+          <a class="nav-link" href="{{ BASE_PATH }}/index.html">Home</a>
         </li>
         <li class="nav-item">
           <a class="nav-link js-scroll-trigger" href="{{ BASE_PATH }}/index.html#portfolio">Project</a>
@@ -53,6 +55,17 @@
     </div>
   </div>
 </nav>
+
+<div class="top-menu">
+  <div class="container">
+    <p>
+    <span class="left">
+      <a href="{{ BASE_PATH }}/index.html"><i class="fa fa-map-marker"></i>Open Source Program Office</a>
+    </span>
+    </p>
+  </div>
+</div>
+
 <!--
 <nav class="navbar navbar-toggleable-sm navbar-light bg-default">
   <div class="container">
