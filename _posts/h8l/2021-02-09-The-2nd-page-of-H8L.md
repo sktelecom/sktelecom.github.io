@@ -3,6 +3,7 @@ layout: post
 category : docs
 tagline: "How to run SRT streaming services"
 intro: "Hwangsaeul(H8L) opensource project - 2nd version"
+img : relay-authentication.png
 author : "Justin Kim"
 img2 : 
 img3 : 
@@ -39,7 +40,7 @@ In new H8L, there are three major repositories; Gaeul, Hwangsae, and Gaeguli.
 
 Since Gaeul provides all of streaming agents, it will always require *Hwangsae* and *Gaeguli* depending on the feature it uses.
 
-![System Overview](./2021-02-09-The-2nd-page-of-H8L/new-diagram.png "System Overview")
+![System Overview]({{ BASE_PATH }}/assets/images/blog/Justin Kim/new-diagram.png){: .image-fluid }
 
 ## Running H8L
 Nightly builds are available as binary packages for Ubuntu 20.04.
@@ -160,7 +161,8 @@ $ gaeul2-relay-agent -c /etc/gaeul2/gaeul.ini --dbus-type=session
 
 The relay is relatively simple because of SRT-nature; content agnostic. However, it plays very important role as a live stream distributor. In current implmentation, the relay agent supports only SRT's live mode.
 
-![Stream Authentication in Relay](./2021-02-09-The-2nd-page-of-H8L/relay-authentication.png "Stream Authentication in Relay")
+![Stream Authentication in Relay]({{ BASE_PATH }}/assets/images/blog/Justin Kim/relay-authentication.png "Stream Authentication in Relay")
+
 
 The relay provides a whitelist-based stream authentication mechanism. That means, the agent should know streamid before attempting to connect. Otherwise, the agent will reject stream connection.
 
