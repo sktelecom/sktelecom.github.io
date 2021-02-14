@@ -1,0 +1,18 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SKT Open Source – 기여 제출 세부 절차</title>
+    <link>/guide/contribute/process/submit/</link>
+    <description>Recent content in 기여 제출 세부 절차 on SKT Open Source</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	  <atom:link href="/guide/contribute/process/submit/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+  </channel>
+</rss>

@@ -1,0 +1,18 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SKT Open Source – 커뮤니케이션 방법</title>
+    <link>/en/guide/contribute/background/communication/</link>
+    <description>Recent content in 커뮤니케이션 방법 on SKT Open Source</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	  <atom:link href="/en/guide/contribute/background/communication/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+  </channel>
+</rss>

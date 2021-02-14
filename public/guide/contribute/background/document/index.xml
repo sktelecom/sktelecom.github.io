@@ -1,0 +1,18 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SKT Open Source – 오픈소스 프로젝트 주요 문서</title>
+    <link>/guide/contribute/background/document/</link>
+    <description>Recent content in 오픈소스 프로젝트 주요 문서 on SKT Open Source</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	  <atom:link href="/guide/contribute/background/document/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+  </channel>
+</rss>
