@@ -1,0 +1,42 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SKT Open Source – Reference</title>
+    <link>/en/docs/components/fairing/reference/</link>
+    <description>Recent content in Reference on SKT Open Source</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	  <atom:link href="/en/docs/components/fairing/reference/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs:  Kubeflow Fairing SDK Reference</title>
+      <link>/en/docs/components/fairing/reference/sdk/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/en/docs/components/fairing/reference/sdk/</guid>
+      <description>
+        
+        
+        
+
+&lt;div class=&#34;alert alert-warning&#34; role=&#34;alert&#34;&gt;
+&lt;h4 class=&#34;alert-heading&#34;&gt;Out of date&lt;/h4&gt;
+This guide contains outdated information pertaining to Kubeflow 1.0. This guide
+needs to be updated for Kubeflow 1.1.
+&lt;/div&gt;
+
+&lt;p&gt;See the &lt;a href=&#34;https://kubeflow-fairing.readthedocs.io/en/latest/&#34;&gt;generated reference docs for the Kubeflow Fairing
+SDK&lt;/a&gt; (hosted on
+&lt;em&gt;Read the Docs&lt;/em&gt;).&lt;/p&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

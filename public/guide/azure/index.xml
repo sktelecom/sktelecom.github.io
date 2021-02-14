@@ -1,0 +1,670 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SKT Open Source – Kubeflow on Azure</title>
+    <link>/guide/azure/</link>
+    <description>Recent content in Kubeflow on Azure on SKT Open Source</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	  <atom:link href="/guide/azure/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Guide: Deployment</title>
+      <link>/guide/azure/deploy/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/guide/azure/deploy/</guid>
+      <description>
+        
+        
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>Guide: Authentication using OIDC in Azure</title>
+      <link>/guide/azure/authentication-oidc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/guide/azure/authentication-oidc/</guid>
+      <description>
+        
+        
+        &lt;p&gt;This section shows the how to set up Kubeflow with authentication and authorization support through OIDC in Azure using &lt;a href=&#34;https://azure.microsoft.com/en-us/services/active-directory/&#34;&gt;Azure Active Directory&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Install the &lt;a href=&#34;/docs/azure/deploy/install-kubeflow&#34;&gt;prerequisites for Kubeflow in Azure&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app#register-an-application&#34;&gt;Register an application with the Microsoft Identity Platform&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app#add-a-client-secret&#34;&gt;Add a client secret&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt;  Save your client ID, client secret, and tenant ID in a secure place to be used in the next steps to configure OIDC Auth Service.
+&lt;strong&gt;Note:&lt;/strong&gt; The following installation steps automatically install a specific Istio version that must be used.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;kubeflow-configuration&#34;&gt;Kubeflow configuration&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Download the kfctl v1.2.0 release from the
+&lt;a href=&#34;https://github.com/kubeflow/kfctl/releases/tag/v1.2.0&#34;&gt;Kubeflow releases
+page&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Unpack the tar ball:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;tar -xvf kfctl_v1.2.0_&amp;lt;platform&amp;gt;.tar.gz
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Run the below commands to build configuration files before deploying Kubeflow. The code below includes an optional command to add the binary kfctl to your path - if you don’t add it, you must use the full path to the kfctl binary each time you run it.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# The following command is optional, to make kfctl binary easier to use.
+export PATH=$PATH:&amp;lt;path to where kfctl was unpacked&amp;gt;
+
+# Set KF_NAME to the name of your Kubeflow deployment. This also becomes the
+# name of the directory containing your configuration.
+# For example, your deployment name can be &#39;my-kubeflow&#39; or &#39;kf-test&#39;.
+export KF_NAME=&amp;lt;your choice of name for the Kubeflow deployment&amp;gt;
+
+# Set the path to the base directory where you want to store one or more
+# Kubeflow deployments. For example, &#39;/opt/&#39;.
+# Then set the Kubeflow application directory for this deployment.
+export BASE_DIR=&amp;lt;path to a base directory&amp;gt;
+export KF_DIR=${BASE_DIR}/${KF_NAME}
+
+# Set the configuration file to use, such as the file specified below:
+export CONFIG_URI=&amp;quot;https://raw.githubusercontent.com/kubeflow/manifests/v1.2-branch/kfdef/kfctl_azure_aad.v1.2.0.yaml
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&amp;quot;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# Generate and deploy Kubeflow:
+mkdir -p ${KF_DIR}
+cd ${KF_DIR}
+kfctl build -V -f ${CONFIG_URI}
+```
+
+* **${KF_NAME}** - The name of your Kubeflow deployment.
+  If you want a custom deployment name, specify that name here.
+  For example,  `my-kubeflow` or `kf-test`.
+  The value of `KF_NAME` must consist of lower case alphanumeric characters or
+  &#39;-&#39;, and must start and end with an alphanumeric character.
+  The value of this variable cannot be greater than 25 characters. It must
+  contain just a name, not a directory path.
+  This value also becomes the name of the directory where your Kubeflow
+  configurations are stored, that is, the Kubeflow application directory.
+
+* **${KF_DIR}** - The full path to your Kubeflow application directory.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Configure OIDC Auth service settings:&lt;/p&gt;
+&lt;p&gt;In &lt;code&gt;.cache/manifests/manifests-{kubeflow version}-branch/stacks/azure/application/oidc-authservice/kustomization.yaml&lt;/code&gt; update the settings with values corresponding your app registration as follows:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;- client_id=&amp;lt;client_id&amp;gt;
+- oidc_provider=https://login.microsoftonline.com/&amp;lt;tenant_id&amp;gt;/v2.0
+- oidc_redirect_uri=https://&amp;lt;load_balancer_ip&amp;gt; or dns_name&amp;gt;/login/oidc
+- oidc_auth_url=https://login.microsoftonline.com/&amp;lt;tenant_id&amp;gt;/oauth2/v2.0/authorize
+- application_secret=&amp;lt;client_secret&amp;gt;
+- skip_auth_uri=
+- namespace=istio-system
+- userid-header=kubeflow-userid
+- userid-prefix=
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Configure OIDC scopes:&lt;/p&gt;
+&lt;p&gt;In &lt;code&gt;.cache/manifests/manifests-{kkubeflow version}-branch/istio/oidc-authservice/base/statefulset.yaml&lt;/code&gt; update &lt;a href=&#34;https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-permissions-and-consent#openid-connect-scopes&#34;&gt;OIDC scopes&lt;/a&gt; to remove groups and keep profile and email.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;- name: OIDC_SCOPES
+ value: &amp;quot;profile email&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Deploy Kubeflow:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;kfctl apply -V -f &lt;span style=&#34;color:#4e9a06&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;CONFIG_URI&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Check that the resources were deployed correctly in namespace &lt;code&gt;kubeflow&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;kubectl get all -n kubeflow
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;expose-kubeflow-securely-over-https&#34;&gt;Expose Kubeflow securely over HTTPS&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Update Istio Gateway to expose port 443 with HTTPS and make port 80 redirect to 443:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;kubectl edit -n kubeflow gateways.networking.istio.io kubeflow-gateway
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The Gateway spec should look like the following:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;apiVersion&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;networking.istio.io/v1alpha3&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;kind&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;Gateway&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;metadata&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;name&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;kubeflow-gateway&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;namespace&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;kubeflow&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;spec&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;selector&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;        &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;istio&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;ingressgateway&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;servers&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;- &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;hosts&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;        &lt;/span&gt;- &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;*&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;        &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;port&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;            &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;name&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;http&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;            &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;number&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;80&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;            &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;protocol&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;HTTP&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;        &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Upgrade HTTP to HTTPS&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;        &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;tls&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;            &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;httpsRedirect&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;- &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;hosts&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;        &lt;/span&gt;- &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;*&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;        &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;port&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;            &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;name&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;https&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;            &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;number&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;443&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;            &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;protocol&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;HTTPS&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;        &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;tls&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;            &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;mode&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;SIMPLE&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;            &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;privateKey&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;/etc/istio/ingressgateway-certs/tls.key&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;            &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;serverCertificate&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;/etc/istio/ingressgateway-certs/tls.crt&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Expose Kubeflow with a load balancer service:&lt;/p&gt;
+&lt;p&gt;To expose Kubeflow with a load balancer service, change the type of the &lt;code&gt;istio-ingressgateway&lt;/code&gt; service to &lt;code&gt;LoadBalancer&lt;/code&gt;.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;kubectl patch service -n istio-system istio-ingressgateway -p &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;{&amp;#34;spec&amp;#34;: {&amp;#34;type&amp;#34;: &amp;#34;LoadBalancer&amp;#34;}}&amp;#39;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;After that, obtain the &lt;code&gt;LoadBalancer&lt;/code&gt; IP address or Hostname from its status and create the necessary certificate.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;kubectl get svc -n istio-system istio-ingressgateway -o &lt;span style=&#34;color:#000&#34;&gt;jsonpath&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;{.status.loadBalancer.ingress[0]}&amp;#39;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt;: If you are exposing &lt;a href=&#34;https://kubernetes.io/docs/concepts/services-networking/ingress/&#34;&gt;Ingress&lt;/a&gt; gateway through public IP, make sure it matches the IP address of the OIDC &lt;code&gt;REDIRECT_URL&lt;/code&gt; by running:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;kubectl get statefulset authservice -n istio-system -o yaml
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;If it doesn&amp;rsquo;t match, update &lt;code&gt;REDIRECT_URL&lt;/code&gt; in the StatefulSet to be the public IP address from the last step, by running:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;kubectl edit statefulset authservice -n istio-system
+kubectl rollout restart statefulset authservice -n istio-system
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Create a self-signed Certificate with cert-manager:&lt;/p&gt;
+&lt;p&gt;Create a new file &lt;code&gt;certficate.yaml&lt;/code&gt; with the YAML below to create a self-signed Certificate with cert-manager. For production environments, you should use appropriate trusted CA Certificate.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;apiVersion&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;cert-manager.io/v1alpha2&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;kind&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;Certificate&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;metadata&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;name&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;istio-ingressgateway-certs&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;namespace&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;istio-system&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;spec&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;commonName&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;istio-ingressgateway.istio-system.svc&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Use ipAddresses if your LoadBalancer issues an IP address&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;ipAddresses&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;- &amp;lt;LoadBalancer&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;IP&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&amp;gt;
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;    # Use dnsNames if your LoadBalancer issues a hostname&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;dnsNames&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;- &amp;lt;LoadBalancer&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;HostName&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&amp;gt;
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;    isCA: true&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;issuerRef&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;        &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;kind&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;ClusterIssuer&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;        &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;name&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;kubeflow-self-signing-issuer&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;secretName&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;istio-ingressgateway-certs&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Apply &lt;code&gt;certificate.yaml&lt;/code&gt; in &lt;code&gt;istio-system&lt;/code&gt; namespace&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;kubectl apply -f certificate.yaml -n istio-system
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;After applying the above Certificate, cert-manager will generate the TLS certificate inside the istio-ingressgateway-certs secrets. The istio-ingressgateway-certs secret is mounted on the istio-ingressgateway deployment and used to serve HTTPS.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app#add-a-redirect-uri&#34;&gt;Configure Redirect URI for your registered App&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Add the redirect URI below to the app registered with Microsoft Identity:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;https://&amp;lt;YOUR_LOADBALANCER_IP_ADDRESS_OR_DNS_NAME&amp;gt;/login/oidc&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; Make sure the app&amp;rsquo;s redirect URI matches the &lt;code&gt;oidc_redirect_uri&lt;/code&gt; value in OIDC auth service settings.&lt;/p&gt;
+&lt;p&gt;Navigate to &lt;code&gt;https://&amp;lt;YOUR_LOADBALANCER_IP_ADDRESS_OR_DNS_NAME&amp;gt;/&lt;/code&gt; and start using Kubeflow.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;authenticate-kubeflow-pipelines-using-kubeflow-pipelines-sdkhttpswwwkubefloworgdocspipelinessdksdk-overview&#34;&gt;Authenticate Kubeflow pipelines using &lt;a href=&#34;https://www.kubeflow.org/docs/pipelines/sdk/sdk-overview/&#34;&gt;Kubeflow Pipelines SDK&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Perform interactive login from browser by visitng &lt;code&gt;https://&amp;lt;YOUR_LOADBALANCER_IP_ADDRESS_OR_DNS_NAME&amp;gt;/&lt;/code&gt; and copy the value of cookie &lt;code&gt;authservice_session&lt;/code&gt; to authenticate using SDK with below code:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;import kfp
+&lt;span style=&#34;color:#000&#34;&gt;authservice_session_cookie&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;authservice_session=&amp;lt;cookie&amp;gt;&amp;#39;&lt;/span&gt;
+&lt;span style=&#34;color:#000&#34;&gt;client&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; kfp.Client&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;host&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;https://&amp;lt;YOUR_LOADBALANCER_IP_ADDRESS_OR_DNS_NAME&amp;gt;/pipeline&amp;#39;&lt;/span&gt;,
+                    &lt;span style=&#34;color:#000&#34;&gt;cookies&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;authservice_session_cookie&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+client.list_experiments&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;namespace&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;&amp;lt;your_namespace&amp;gt;&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Limitation:&lt;/strong&gt; The current OIDC auth service in Kubeflow system supports only &lt;a href=&#34;https://openid.net/specs/openid-connect-basic-1_0.html#CodeFlow&#34;&gt;Authorization Code Flow&lt;/a&gt;.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Guide: Azure Machine Learning Components</title>
+      <link>/guide/azure/machinelearningcomponent/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/guide/azure/machinelearningcomponent/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Azure Machine Learning (Azure ML) components are pipeline components that integrate with &lt;a href=&#34;https://docs.microsoft.com/en-us/azure/machine-learning/&#34;&gt;Azure ML&lt;/a&gt; to manage the lifecycle of your machine learning (ML) models to improve the quality and consistency of your machine learning solution. A pipeline component is a self-contained set of code that performs one step in the ML workflow. A component is analogous to a function, in that it has a name, parameters, return value and a body.&lt;/p&gt;
+&lt;p&gt;You can use Azure Machine Learning components to increase the efficiency of your workflow with Azure Machine Learning, such as continuous integration, delivery, and deployment.&lt;/p&gt;
+&lt;p&gt;The components provide capabilities for:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Faster experimentation and development of models&lt;/li&gt;
+&lt;li&gt;Faster deployment of models into production&lt;/li&gt;
+&lt;li&gt;Quality assurance&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;You should have Kubeflow installed on your AKS cluster. If you don&amp;rsquo;t, follow the &lt;a href=&#34;https://www.kubeflow.org/docs/azure/deploy/install-kubeflow/&#34;&gt;Kubeflow installation (for Azure) guide&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;To interact with Azure resources, you may need to configure them before using a particular pipeline component. Check the README for each component to learn about what Azure resources are required.&lt;/li&gt;
+&lt;li&gt;The &lt;code&gt;kfp.azure&lt;/code&gt; extension can be used to create a secret to interact with Azure resources. To create Azure credentials, run:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Initialize variables:&lt;/span&gt;
+&lt;span style=&#34;color:#000&#34;&gt;AZ_SUBSCRIPTION_ID&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;={&lt;/span&gt;Your_Azure_subscription_ID&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;span style=&#34;color:#000&#34;&gt;AZ_TENANT_ID&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;={&lt;/span&gt;Your_Tenant_ID&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;span style=&#34;color:#000&#34;&gt;AZ_CLIENT_ID&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;={&lt;/span&gt;Your_client_ID&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;span style=&#34;color:#000&#34;&gt;AZ_CLIENT_SECRET&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;={&lt;/span&gt;Your_client_secret&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;span style=&#34;color:#000&#34;&gt;KUBEFLOW_NAMESPACE&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;kubeflow
+
+kubectl create secret generic azcreds --from-literal&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;AZ_SUBSCRIPTION_ID&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;$AZ_SUBSCRIPTION_ID&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&lt;/span&gt;                                      --from-literal&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;AZ_TENANT_ID&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;$AZ_TENANT_ID&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&lt;/span&gt;                                      --from-literal&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;AZ_CLIENT_ID&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;$AZ_CLIENT_ID&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&lt;/span&gt;                                      --from-literal&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;AZ_CLIENT_SECRET&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;$AZ_CLIENT_SECRET&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&lt;/span&gt;                                      -n &lt;span style=&#34;color:#000&#34;&gt;$KUBEFLOW_NAMESPACE&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;azure-ml-register-model-component&#34;&gt;Azure ML Register Model component&lt;/h2&gt;
+&lt;p&gt;Model registration allows you to store and version your models in Azure Machine Learning in your workspace. The model registry makes it easy to organize and keep track of your trained models. After you register the model, you can then download or deploy it and receive all the registered files.&lt;/p&gt;
+&lt;p&gt;To learn more about the Azure ML Register Model pipeline component, refer to the &lt;a href=&#34;https://github.com/kubeflow/pipelines/tree/master/components/azure/azureml/aml-register-model&#34;&gt;official repository&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;To learn more about using Azure ML to manage the lifecycle of your models, go to &lt;a href=&#34;https://docs.microsoft.com/en-us/azure/machine-learning/concept-model-management-and-deployment&#34;&gt;Model management, deployment, and monitoring&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;azure-ml-deploy-model-component&#34;&gt;Azure ML Deploy Model component&lt;/h2&gt;
+&lt;p&gt;Trained machine learning models are deployed as web services in the cloud and you can use your model by accessing its endpoint. When using the model as a web service, the following items are included in the Azure ML Deploy Model component:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;An entry script&lt;/li&gt;
+&lt;li&gt;Azure ML environment configurations&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;For more information about the Azure ML Deploy Model pipeline component, check the &lt;a href=&#34;https://github.com/kubeflow/pipelines/tree/master/components/azure/azureml/aml-deploy-model&#34;&gt;official repository&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;To learn more about using Azure ML to manage the lifecycle of your models, go to &lt;a href=&#34;https://docs.microsoft.com/en-us/azure/machine-learning/concept-model-management-and-deployment&#34;&gt;Model management, deployment, and monitoring&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;other-azure-ml-capabilities&#34;&gt;Other Azure ML capabilities&lt;/h2&gt;
+&lt;p&gt;You can learn more about the capabilities of Azure ML and how to improve your ML workflow by checking the &lt;a href=&#34;https://docs.microsoft.com/en-us/azure/machine-learning/&#34;&gt;Azure ML documentation&lt;/a&gt;&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Guide: End-to-End Pipeline Example on Azure</title>
+      <link>/guide/azure/azureendtoend/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/guide/azure/azureendtoend/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;introductions&#34;&gt;Introductions&lt;/h2&gt;
+&lt;h3 id=&#34;overview-of-azure-and-aks&#34;&gt;Overview of Azure and AKS&lt;/h3&gt;
+&lt;p&gt;Microsoft Azure is an open, flexible, enterprise-grade cloud computing platform running on Microsoft infrastructure. The platform has various services, many of which are extremely useful in a pipeline that works with ML models.&lt;/p&gt;
+&lt;p&gt;The &lt;a href=&#34;https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest&#34;&gt;Azure CLI&lt;/a&gt; is a set of tools that you can use to interact with Azure from the command line.&lt;/p&gt;
+&lt;p&gt;Azure Kubernetes Service (AKS) on Azure allows you to deploy containerized applications, within which you describe the resources your application needs, and AKS will manage the underlying resources automatically. This workflow is especially efficient at scale.&lt;/p&gt;
+&lt;h3 id=&#34;the-overall-workflow&#34;&gt;The overall workflow&lt;/h3&gt;
+&lt;p&gt;This guide takes you through using your Kubeflow deployment to build a machine learning (ML) pipeline on Azure. This guide uses a sample pipeline to detail the process of creating an ML workflow from scratch. You will learn how to create and run a pipeline that processes data, trains a model, and then registers and deploys that model as a webservice.&lt;/p&gt;
+&lt;p&gt;To build your pipeline, you must create and build containers using Docker images. Containers are used to abstract the dependencies for each step of the pipeline. You can manage your containers using &lt;a href=&#34;https://ms.portal.azure.com/#home&#34;&gt;Azure&amp;rsquo;s portal&lt;/a&gt;, specifically using the Container Registry to store the containers in the cloud. Kubeflow pulls the containers from this registry as they are needed in each step of the pipeline.&lt;/p&gt;
+&lt;p&gt;By following this guide, you will learn how to:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Set up Kubeflow in an AKS Cluster&lt;/li&gt;
+&lt;li&gt;Create and compile a pipeline that can:
+&lt;ul&gt;
+&lt;li&gt;Preprocess data&lt;/li&gt;
+&lt;li&gt;Train a model&lt;/li&gt;
+&lt;li&gt;Register the model to ACR (&lt;a href=&#34;https://docs.microsoft.com/en-us/azure/devops/pipelines/languages/acr-template?view=azure-devops&#34;&gt;Azure Container Registry&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Profile the model to optimize compute resources in AML (Azure Machine Learning)&lt;/li&gt;
+&lt;li&gt;Deploy the model to AML&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Interact with and customize your deployment&lt;/li&gt;
+&lt;li&gt;Test and use your deployed model&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;When your pipeline has finished running, you will be able to see a registered image, model, and deployment in your Azure ML workspace. You will then be able to visit the scoring URI and upload images for scoring in real time.&lt;/p&gt;
+&lt;h2 id=&#34;set-up-your-environment&#34;&gt;Set up your environment&lt;/h2&gt;
+&lt;h3 id=&#34;download-the-project-files&#34;&gt;Download the project files&lt;/h3&gt;
+&lt;p&gt;This tutorial uses the Azure Pipelines example in the Kubeflow examples repo. You can optionally use a pipeline of your own, but several key steps may differ.&lt;/p&gt;
+&lt;p&gt;Clone the project files and go to the directory containing the &lt;a href=&#34;https://github.com/kubeflow/examples/tree/master/pipelines&#34;&gt;Azure Pipelines (Tacos and Burritos)&lt;/a&gt; example:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;git clone https://github.com/kubeflow/examples.git
+cd examples/pipelines/azurepipeline
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;As an alternative to cloning, you can download the &lt;a href=&#34;https://github.com/kubeflow/examples/archive/master.zip&#34;&gt;Kubeflow examples repository zip file&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;deploy-kubeflow&#34;&gt;Deploy Kubeflow&lt;/h2&gt;
+&lt;p&gt;If you don&amp;rsquo;t already have one, create an Azure account. If you have not used Azure services before, you can receive up to &lt;a href=&#34;https://azure.microsoft.com/en-ca/free/&#34;&gt;1 year of free services and free credits.&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Note: that some of the services used in this guide may not be included in the free services, but can be covered by free credits.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;First, install the &lt;a href=&#34;https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest&#34;&gt;Azure CLI&lt;/a&gt;, then follow the instructions in the &lt;a href=&#34;https://www.kubeflow.org/docs/azure/deploy/install-kubeflow/&#34;&gt;guide to deploying Kubeflow on Azure&lt;/a&gt;.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Ensure that the agent size you use has the proper memory and storage requirements. For the Azure Pipelines example, most machine sizes will work, but &lt;strong&gt;premium storage&lt;/strong&gt; is required. Use &lt;a href=&#34;https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes&#34;&gt;this guide&lt;/a&gt; to choose the right agent size for your deployment. (We chose an agent size of Standard_D4s_v3.)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;configuring-azure-resources&#34;&gt;Configuring Azure resources&lt;/h2&gt;
+&lt;h3 id=&#34;create-an-ml-workspace-in-azure&#34;&gt;Create an ML workspace in Azure&lt;/h3&gt;
+&lt;p&gt;Throughout your pipeline&amp;rsquo;s run, all of your models, images, and deployments will be pushed to your ML workspace in Azure. Your ML workspace also has support for managing your active deployments, which will be displayed later in this tutorial.&lt;/p&gt;
+&lt;p&gt;To create an ML workspace:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Go to &lt;a href=&#34;https://portal.azure.com&#34;&gt;the Azure portal&lt;/a&gt; and click on your resource group.&lt;/li&gt;
+&lt;li&gt;Select the &lt;strong&gt;add a new resource&lt;/strong&gt; option.&lt;/li&gt;
+&lt;li&gt;Search for &lt;strong&gt;Machine Learning Studio Workspace&lt;/strong&gt; and use the default options, taking note of the name you decide for it.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;/docs/azure/images/creatingWS.PNG&#34;
+alt=&#34;Creating a Workspace&#34;
+class=&#34;mt-3 mb-3 p-3 border border-info rounded&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;create-an-azure-container-registry&#34;&gt;Create an Azure container registry&lt;/h3&gt;
+&lt;p&gt;Kubeflow uses Docker images to describe each pipeline step&amp;rsquo;s dependencies. You need to create a container registry to store those images in the cloud so that Kubeflow can pull the images as they are needed.&lt;/p&gt;
+&lt;p&gt;To create a container registry:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Go to &lt;a href=&#34;https://portal.azure.com&#34;&gt;the Azure portal&lt;/a&gt; and click on your resource group.&lt;/li&gt;
+&lt;li&gt;From there, select the &lt;strong&gt;add a new resource&lt;/strong&gt; option.&lt;/li&gt;
+&lt;li&gt;Search for &lt;strong&gt;Container Registry&lt;/strong&gt; and add it to your resource group.&lt;/li&gt;
+&lt;li&gt;Configure your registry by selecting and noting the name you use for it. Enable an &lt;strong&gt;admin user&lt;/strong&gt;, and change the SKU option to &lt;strong&gt;Premium&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;/docs/azure/images/createContainerReg.PNG&#34;
+alt=&#34;Creating a Container Registry&#34;
+class=&#34;mt-3 mb-3 p-3 border border-info rounded&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;allow-your-aks-cluster-access-to-your-azure-container-registry&#34;&gt;Allow your AKS Cluster access to your Azure Container Registry&lt;/h3&gt;
+&lt;p&gt;In order for the AKS cluster to have access to pulling images created for execution of the pipeline, you will need to update your cluster so that it is able to pull the images from the container registry we just created. More references can be found &lt;a href=&#34;https://docs.microsoft.com/en-us/azure/aks/cluster-container-registry-integration&#34;&gt;here&lt;/a&gt;, on the Microsoft web site.&lt;/p&gt;
+&lt;p&gt;Using a bash shell, use the following commands to attach the container registry created above to your AKS cluster, using the proper AKS cluster name and resource group:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;az aks update -n &amp;lt;myAKSCluster&amp;gt; -g &amp;lt;MyResourceGroup&amp;gt; --attach-acr &amp;lt;REGISTRY_NAME&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;The execution of the command will take a few minutes.&lt;/p&gt;
+&lt;h3 id=&#34;create-a-persistent-volume-claim-pvc&#34;&gt;Create a persistent volume claim (PVC)&lt;/h3&gt;
+&lt;p&gt;A persistent volume claim is a dynamically provisioned storage resource attached to a Kubernetes cluster. It is used in the pipeline to store data and files across pipeline steps.&lt;/p&gt;
+&lt;p&gt;Using a bash shell, navigate to the &lt;code&gt;azurepipeline&lt;/code&gt; directory. Use the following commands to create a persistent volume claim for your cluster.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;cd kubernetes
+kubectl apply -f pvc.yaml
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;authenticate-your-service-principal&#34;&gt;Authenticate your service principal&lt;/h2&gt;
+&lt;p&gt;A service principal is used to allow your pipeline to securely interface with your Azure services without having to directly login in the pipeline and use admin privileges. To create a service principal with Contributor access to your Azure account, use the following steps.&lt;/p&gt;
+&lt;h3 id=&#34;create-an-app-registration&#34;&gt;Create an App Registration&lt;/h3&gt;
+&lt;p&gt;To create an app registration:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;In the Azure Portal, navigate to &lt;a href=&#34;https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview&#34;&gt;&lt;strong&gt;Azure Active Directory&lt;/strong&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Select &lt;strong&gt;App registrations&lt;/strong&gt; and click &lt;strong&gt;New registration&lt;/strong&gt;. Name it, noting the name and use the default options.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Click &lt;strong&gt;Register&lt;/strong&gt;. &lt;img src=&#34;/docs/azure/images/appReg.PNG&#34;
+alt=&#34;Creating a App Registration&#34;
+class=&#34;mt-3 mb-3 p-3 border border-info rounded&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;You should be redirected to your app registration’s dashboard. Select &lt;strong&gt;Overview&lt;/strong&gt; from the sidebar.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Make note of the &lt;strong&gt;Application (client) ID&lt;/strong&gt; and the &lt;strong&gt;Directory (tenant) ID&lt;/strong&gt;. The client ID is your service principal username. Save these in a secure location. &lt;img src=&#34;/docs/azure/images/clientID2.PNG&#34;
+alt=&#34;Client ID location&#34;
+class=&#34;mt-3 mb-3 p-3 border border-info rounded&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Select &lt;strong&gt;Certificates and Secrets&lt;/strong&gt; from the sidebar.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Select &lt;strong&gt;New client secret&lt;/strong&gt;. Give the client secret a description and select how long you would like it to remain active for. Once you click the &lt;strong&gt;Add&lt;/strong&gt; button, make sure you take note of the client secret value and save it in a secure place. This is your service principal password. &lt;img src=&#34;/docs/azure/images/password.PNG&#34;
+alt=&#34;Client secret location&#34;
+class=&#34;mt-3 mb-3 p-3 border border-info rounded&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;add-a-role-assignment&#34;&gt;Add a role assignment&lt;/h3&gt;
+&lt;p&gt;To add a role assignment for your service principal:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Go to your resource group page on the Azure Portal.&lt;/li&gt;
+&lt;li&gt;Select &lt;strong&gt;Access control (IAM)&lt;/strong&gt; from the sidebar. Select &lt;strong&gt;Add a role assignment&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Set the role to &lt;strong&gt;Contributor&lt;/strong&gt; and search for the name you gave your app registration in the &lt;strong&gt;Select&lt;/strong&gt; dropdown.&lt;/li&gt;
+&lt;li&gt;Click &lt;strong&gt;Save&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;/docs/azure/images/roleAssign.PNG&#34;
+alt=&#34;Creating a Role Assignment&#34;
+class=&#34;mt-3 mb-3 p-3 border border-info rounded&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;creating-containers-from-docker-images&#34;&gt;Creating containers from Docker images&lt;/h2&gt;
+&lt;h3 id=&#34;install-docker&#34;&gt;Install Docker&lt;/h3&gt;
+&lt;p&gt;You need to install Docker to be able to push and pull images to/from your Container registry.&lt;/p&gt;
+&lt;p&gt;For Windows and WSL: &lt;a href=&#34;https://nickjanetakis.com/blog/setting-up-docker-for-windows-and-wsl-to-work-flawlessly&#34;&gt;Guide&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;For other OS: &lt;a href=&#34;https://hub.docker.com/?overlay=onboarding&#34;&gt;Docker Desktop&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;build-images&#34;&gt;Build images&lt;/h3&gt;
+&lt;p&gt;To deploy your code to Kubernetes, you must build your local project’s Docker images and push the containers to your Container Registry so that they are available in the cloud.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Set the path in Container Registry that you want to push the containers to:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code&gt;export REGISTRY_PATH=&amp;lt;REGISTRY_NAME&amp;gt;.azurecr.io
+&lt;/code&gt;&lt;/pre&gt;&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Run the following command to authenticate your Container Registry:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code&gt;az acr login --name &amp;lt;REGISTRY_NAME&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;Create a version, to be associated with your model each time it runs (change this accordingly):&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code&gt;export VERSION_TAG=1
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Each docker image will be built and uploaded to the cloud using the Container Registry.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Note: If you would like to test a container locally, you can use the &lt;code&gt;docker run -it ${REGISTRY_PATH}&amp;lt;CONTAINER NAME&amp;gt;:$(VERSION_TAG}&lt;/code&gt; before pushing to Container Registry.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code&gt;//Starting in the &#39;code&#39; directory of the azurepipeline folder
+
+cd preprocess
+docker build . -t ${REGISTRY_PATH}/preprocess:${VERSION_TAG}
+docker push ${REGISTRY_PATH}/preprocess:${VERSION_TAG}
+
+cd ../training
+docker build . -t ${REGISTRY_PATH}/training:${VERSION_TAG}
+docker push ${REGISTRY_PATH}/training:${VERSION_TAG}
+
+cd ../register
+docker build . -t ${REGISTRY_PATH}/register:${VERSION_TAG}
+docker push ${REGISTRY_PATH}/register:${VERSION_TAG}
+
+cd ../deploy
+docker build . -t ${REGISTRY_PATH}/deploy:${VERSION_TAG}
+docker push ${REGISTRY_PATH}/deploy:${VERSION_TAG}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;When all of the images are pushed successfully, modify the &lt;code&gt;pipeline.py&lt;/code&gt; file to use the appropriate image for each pipeline step.&lt;/p&gt;
+&lt;h2 id=&#34;running-and-deploying-your-pipeline&#34;&gt;Running and deploying your pipeline&lt;/h2&gt;
+&lt;h3 id=&#34;compile&#34;&gt;Compile&lt;/h3&gt;
+&lt;p&gt;To compile the pipeline, simply open a terminal and navigate to the azurepipeline/code folder. Run the following command to generate a pipeline in the tar.gz format:
+&lt;code&gt;python pipeline.py&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;run-and-deploy&#34;&gt;Run and deploy&lt;/h3&gt;
+&lt;p&gt;Upload the pipeline.tar.gz file to the pipelines dashboard on your Kubeflow deployment.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/docs/azure/images/pipelinedash.PNG&#34;
+alt=&#34;Pipeline Dashboard&#34;
+class=&#34;mt-3 mb-3 p-3 border border-info rounded&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Create an experiment and then create a run using the pipeline you just uploaded.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/docs/azure/images/pipelinesInput.png&#34;
+alt=&#34;Pipelines input example&#34;
+class=&#34;mt-3 mb-3 p-3 border border-info rounded&#34;&gt;&lt;/p&gt;
+&lt;p&gt;The finished pipeline should have four completed steps.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/docs/azure/images/finishedRunning.PNG&#34;
+alt=&#34;Finished Pipeline&#34;
+class=&#34;mt-3 mb-3 p-3 border border-info rounded&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;pushing-images-for-scoring&#34;&gt;Pushing images for scoring&lt;/h3&gt;
+&lt;p&gt;Once your pipeline has finished successfully, you can visit the Azure portal to find your deployment url. Go to your ML workspace dashboard and select “Deployments” from the sidebar. Click on the most recent deployment. You should see a link under “Scoring URI”. You can whatever method you know best to send a GET/POST request with an image of a taco or a burrito to this url and it should return whether or not the image is of a taco or a burrito.&lt;/p&gt;
+&lt;p&gt;The easiest method is to find a url of an image of a taco or a burrito and append it to your scoring url as follows: &lt;code&gt;&amp;lt;scoring_url&amp;gt;?image=&amp;lt;image_url&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/docs/azure/images/finalOutput.PNG&#34;
+alt=&#34;Final ML model deployment&#34;
+class=&#34;mt-3 mb-3 p-3 border border-info rounded&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;clean-up-your-azure-environment&#34;&gt;Clean up your Azure environment&lt;/h2&gt;
+&lt;p&gt;When you are done, make sure you delete your resource group to avoid extra charges.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;az group delete -n MyResourceGroup
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;You can optionally choose to delete individual resources on your clusters using the &lt;a href=&#34;https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-tutorial-delete-cluster&#34;&gt;Azure cluster docs&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;next-steps&#34;&gt;Next steps&lt;/h2&gt;
+&lt;p&gt;Build your own pipeline using the &lt;a href=&#34;/docs/pipelines/sdk/sdk-overview/&#34;&gt;Kubeflow Pipelines SDK&lt;/a&gt;.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Guide: Access Control for Azure Deployment</title>
+      <link>/guide/azure/authentication/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/guide/azure/authentication/</guid>
+      <description>
+        
+        
+        &lt;p&gt;This section shows how to restrict access to only certain IP addresses for your LoadBalancer Service on Azure. At a later date, it will also include formal authentication through Azure. This method is not the most ideal way to secure your Kubernetes cluster, as it requires that you access the service from the same IP address every time. This process was adapted from &lt;a href=&#34;https://kubernetes.io/docs/tasks/access-application-cluster/configure-cloud-provider-firewall/#restrict-access-for-loadbalancer-service&#34;&gt;the Kubernetes guide to configuring a firewall&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;When using a service with &lt;code&gt;spec.type: LoadBalancer&lt;/code&gt;, you can specify the IP ranges that are allowed to access the load balancer by using &lt;code&gt;spec.loadBalancerSourceRanges&lt;/code&gt;. This is currently supported on all major cloud providers.&lt;/p&gt;
+&lt;h2 id=&#34;editing-the-loadbalancer-service&#34;&gt;Editing the LoadBalancer Service&lt;/h2&gt;
+&lt;p&gt;Use the &lt;code&gt;kubectl edit svc &amp;lt;loadbalancer-name&amp;gt; -n kubeflow&lt;/code&gt; to add your source ranges. This command will open the editor defined by you KUBE_EDITOR or EDITOR environment variables or fall back to &amp;lsquo;vi&amp;rsquo; for Linux or &amp;lsquo;notepad&amp;rsquo; for Windows. More information about using alternative editors and options for this command can be found in &lt;a href=&#34;https://www.mankier.com/1/kubectl-edit&#34;&gt;the kubectl edit documentation&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;internal-subnet-access&#34;&gt;Internal Subnet Access&lt;/h2&gt;
+&lt;p&gt;Assuming 10.0.0.0/8 is the address for the internal subnet, a load balancer will be created such that the deployment is only accessible from internal Kubernetes cluster IPs. This will not allow clients from outside your Kubernetes cluster to access the load balancer.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;apiVersion: v1
+kind: Service
+metadata:
+  name: myapp
+spec:
+  ports:
+  - port: 8765
+    targetPort: 9376
+  selector:
+    app: example
+  type: LoadBalancer
+  loadBalancerSourceRanges:
+  - 10.0.0.0/8
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;external-ip-addresses&#34;&gt;External IP Addresses&lt;/h2&gt;
+&lt;p&gt;In the following example, a load balancer will be created that is only accessible to clients with IP addresses from 130.211.204.1 and 130.211.204.2.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;apiVersion: v1
+kind: Service
+metadata:
+  name: myapp
+spec:
+  ports:
+  - port: 8765
+    targetPort: 9376
+  selector:
+    app: example
+  type: LoadBalancer
+  loadBalancerSourceRanges:
+  - 130.211.204.1/32
+  - 130.211.204.2/32
+&lt;/code&gt;&lt;/pre&gt;
+      </description>
+    </item>
+    
+    <item>
+      <title>Guide: Configure Azure MySQL database to store metadata</title>
+      <link>/guide/azure/azuremysql/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/guide/azure/azuremysql/</guid>
+      <description>
+        
+        
+        &lt;p&gt;This section shows how to use Kubeflow kustomize to configure an external Azure
+MySQL database to store metadata.&lt;/p&gt;
+&lt;p&gt;Microsoft &lt;a href=&#34;https://docs.microsoft.com/en-us/azure/mysql&#34;&gt;Azure Database for
+MySQL&lt;/a&gt; is a relational database
+service based on &lt;a href=&#34;https://www.mysql.com/products/community/&#34;&gt;MySQL&lt;/a&gt;. It provides
+built-in high availability, data protection using automatic backups and
+point-in-time-restore for up to 35 days, and automated maintainance for
+underlying hardware, operating system and database engine to keep the service
+secure and up to date. &lt;a href=&#34;https://docs.microsoft.com/en-us/azure/mysql/overview&#34;&gt;Learn more about Azure Database for
+MySQL&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Table of contents:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Create an Azure database for MySQL&lt;/li&gt;
+&lt;li&gt;Deploy Kubeflow to use the Azure metadata overlay&lt;/li&gt;
+&lt;li&gt;Update Kubeflow resources&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&#34;create-an-azure-database-for-mysql&#34;&gt;Create an Azure database for MySQL&lt;/h1&gt;
+&lt;p&gt;First, you need to create an Azure database for MySQL on Azure through either Azure
+Portal or using Azure CLI:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Azure Portal&lt;/strong&gt;: follow the
+&lt;a href=&#34;https://docs.microsoft.com/en-us/azure/mysql/quickstart-create-mysql-server-database-using-azure-portal&#34;&gt;quickstart&lt;/a&gt;
+in the Azure documentation.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Azure CLI&lt;/strong&gt;: follow the
+&lt;a href=&#34;https://docs.microsoft.com/en-us/azure/mysql/quickstart-create-mysql-server-database-using-azure-cli&#34;&gt;quickstart&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Remember your &lt;code&gt;Server Name&lt;/code&gt;, &lt;code&gt;Admin username&lt;/code&gt;, and &lt;code&gt;Password&lt;/code&gt; - you&amp;rsquo;ll be using
+them later in this guide.&lt;/p&gt;
+
+
+&lt;div class=&#34;alert alert-warning&#34; role=&#34;alert&#34;&gt;
+&lt;h4 class=&#34;alert-heading&#34;&gt;Warning&lt;/h4&gt;
+By default, the created server is protected with a firewall and is not
+accessible publicly. You can refer to the section on &lt;a href=&#34;https://docs.microsoft.com/en-us/azure/mysql/quickstart-create-mysql-server-database-using-azure-portal#configure-a-server-level-firewall-rule&#34;&gt;configuring a server-level
+firewall
+rule&lt;/a&gt;
+in the official documentation to allow your database to be accessible from
+external IP addresses. Depending on your configuration, you may also be able to
+enable all IP addresses and disable &lt;code&gt;Enforce SSL connection&lt;/code&gt;.
+&lt;/div&gt;
+
+&lt;h1 id=&#34;deploy-kubeflow-to-use-the-azure-metadata-overlay&#34;&gt;Deploy Kubeflow to use the Azure metadata overlay&lt;/h1&gt;
+&lt;p&gt;You have created the MySQL server database. Next, you need to deploy Kubeflow
+to use the Azure metadata overlay.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Follow the &lt;a href=&#34;https://www.kubeflow.org/docs/azure/deploy/install-kubeflow/&#34;&gt;Install
+Kubeflow&lt;/a&gt; on
+AKS (Azure Kubernetes Service) guide until the step where you have to build
+and apply the &lt;code&gt;CONFIG_URI&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;If you followed the previous step, you should have downloaded the
+configuration file. Next, you need to customize the configuration before
+deploying Kubeflow. Run the following command:&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;wget -O kfctl_azure.yaml &lt;span style=&#34;color:#4e9a06&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;CONFIG_URI&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;where the &lt;code&gt;${CONFIG_URL}&lt;/code&gt; is the URL pointing to Kubeflow manifest for Azure
+(for example,
+&lt;code&gt;.../kubeflow/manifests/v1.1-branch/kfdef/kfctl_azure.v1.1.0.yaml&lt;/code&gt;) that you
+specified in step 1.&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;Before deploying Kubeflow, use &lt;code&gt;kfctl build&lt;/code&gt; to create configuration files:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;kfctl build -V -f kfctl_azure.yaml
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;Under &lt;code&gt;/stacks/azure&lt;/code&gt; and &lt;code&gt;resources&lt;/code&gt; replace &lt;code&gt;- ../../metadata/v3&lt;/code&gt; with
+&lt;code&gt;metadata&lt;/code&gt; to  enable using Azure MySQL.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;The updated &lt;code&gt;kustomization.yaml&lt;/code&gt; in &lt;code&gt;stacks/azure&lt;/code&gt; should look similar to this:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;  # Metadata
+  # - ../../metadata/v3
+  # Uncomment the line below if you want to use Azure MySQL
+  - ./metadata
+&lt;/code&gt;&lt;/pre&gt;&lt;ol start=&#34;5&#34;&gt;
+&lt;li&gt;Edit &lt;code&gt;params.env&lt;/code&gt; to provide parameters to configuration map as follows:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code&gt;MYSQL_HOST={YOUR_DB_SERVER_NAME}.mysql.database.azure.com
+MYSQL_DATABASE=mlmetadata
+MYSQL_PORT=3306
+MYSQL_ALLOW_EMPTY_PASSWORD=true
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;where &lt;code&gt;{YOUR_DB_SERVER_NAME}&lt;/code&gt; is your server name.&lt;/p&gt;
+&lt;ol start=&#34;6&#34;&gt;
+&lt;li&gt;Edit &lt;code&gt;secrets.env&lt;/code&gt; to create a secret with the admin username and password
+based on your database configuration. Make sure the user name follows the
+pattern with an &amp;ldquo;@&amp;rdquo;, like the one showed below:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code&gt;MYSQL_USERNAME={ADMIN_USERNAME}@{YOUR_DB_SERVER_NAME}
+MYSQL_PASSWORD={ADMIN_PASSWORD}
+&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&#34;deploy-kubeflow&#34;&gt;Deploy Kubeflow&lt;/h1&gt;
+&lt;p&gt;Having completed the previous steps to set up the MySQL server, you can deploy
+Kubeflow:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;kfctl apply -V -f kfctl_azure.yaml
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Your metadata database should now be using the Azure Database for MySQL.&lt;/p&gt;
+&lt;p&gt;To configure the pipeline database using an external Azure Database for MySQL,
+go to &lt;a href=&#34;https://github.com/kubeflow/pipelines/tree/master/manifests/kustomize/env/azure&#34;&gt;KFP customizations for
+Azure&lt;/a&gt;.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Guide: Troubleshooting Deployments on Azure AKS</title>
+      <link>/guide/azure/troubleshooting-azure/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/guide/azure/troubleshooting-azure/</guid>
+      <description>
+        
+        
+        &lt;h3 id=&#34;jupyter-notebook-is-not-a-valid-page-when-accessing-notebook&#34;&gt;Jupyter Notebook ‘is not a valid page’ when accessing notebook&lt;/h3&gt;
+&lt;p&gt;Restarting the ambassador pods will often fix this issue:
+&lt;code&gt;kubectl delete pods -l service=ambassador&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;the-client-does-not-have-authorization-to-perform-action&#34;&gt;The client does not have authorization to perform action&amp;hellip;&lt;/h3&gt;
+&lt;p&gt;This is likely an issue with ensuring your subscriptions are correctly setup. To fix the issue, list your subscriptions and then change the active subscription.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#list subscription 
+az account list --output table 
+
+#change the active subscription 
+az account set --subscription &amp;quot;My Demos&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+      </description>
+    </item>
+    
+  </channel>
+</rss>

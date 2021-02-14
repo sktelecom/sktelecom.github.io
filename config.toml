@@ -1,0 +1,187 @@
+baseURL = "/"
+languageCode = "en-us"
+title = "SK telecom Open Source"
+theme = ["docsy"]
+description = "Open Source Software at SK telecom"
+Paginate = 20
+
+# SEO
+enableRobotsTXT = true
+
+# Docsy: Gives values to .Lastmod etc.
+enableGitInfo = true
+
+# Docsy: Language settings
+contentDir = "content/ko"
+defaultContentLanguage = "ko"
+# Tell Hugo not to include the /en/ element in the URL path for English docs:
+defaultContentLanguageInSubdir = false
+# Docsy: Useful when translating.
+enableMissingTranslationPlaceholders = true
+
+disableKinds = ["taxonomy", "taxonomyTerm"]
+
+# Docsy: Highlighting config
+pygmentsCodeFences = true
+pygmentsUseClasses = false
+# Use the new Chroma Go highlighter in Hugo.
+pygmentsUseClassic = false
+#pygmentsOptions = "linenos=table"
+# See https://help.farbox.com/pygments.html
+pygmentsStyle = "tango"
+
+ # Docsy: First one is picked as the Twitter card image if not set on page.
+ #images = ["images/project-illustration.png"]
+
+# Top-level navigation (horizontal)
+
+# [[menu.main]]
+#     name = "Projects"
+#     weight = -103
+#     url = "/project/"
+# [[menu.main]]
+#     name = "Guide"
+#     weight = -101
+#     url = "/guide/"
+# [[menu.main]]
+#     name = "Blog"
+#     weight = -100
+#     url = "/blog/"
+
+[[menu.main]]
+    name = "GitHub"
+    weight = 99
+    url = "https://github.com/sktelecom/"
+
+# Docsy: Configure the format of URLs per section.
+#[permalinks]
+#blog = "/:section/:year/:month/:day/:slug/"
+
+# Docsy: Configuration for Goldmark markdown parser, which is default from 
+# Hugo 0.60 onwards. https://github.com/yuin/goldmark/
+[markup]
+[markup.goldmark]
+[markup.goldmark.renderer]
+# Allow Goldmark to render raw HTML:
+      unsafe = true
+
+# Docsy: Image processing configuration.
+[imaging]
+resampleFilter = "CatmullRom"
+quality = 75
+anchor = "smart"
+
+[services]
+[services.googleAnalytics]
+id = "UA-135379910-1"
+
+# Docsy: Language configuration
+
+[languages]
+
+[languages.ko]
+title = "SKT Open Source"
+description = "Open Source Software at SK telecom" 
+languageName ="Korean"
+# time_format_default = "2006.02.01"
+# time_format_blog = "2006.02.01"
+time_format_blog = "Monday, January 02, 2006"
+time_format_default = "January 2, 2006"
+# Weight used for sorting.
+weight = 2
+
+[languages.en]
+title = "SKT Open Source"
+description = "Open Source Software at SK telecom" 
+languageName ="English"
+# Weight used for sorting in the language menu:
+contentDir = "content/en"
+weight = 1
+
+# Below is an example of another language (Norwegian):
+#[languages.no]
+#title = "Docsy"
+#description = "Docsy er operativsystem for skyen"
+#languageName ="Norsk"
+#contentDir = "content/no"
+time_format_default = "02.01.2006"
+time_format_blog = "02.01.2006"
+
+# Site params
+
+[params]
+
+# GitHub repository for in-page links to editing a page and opening and issues.
+github_repo = "https://github.com/sktelecom/website"
+# An optional link to a related project repo. For example, the sibling repository where your product code lives.
+github_project_repo = "https://github.com/sktelecom/sktelecom.github.io"
+
+RSSLink = "/index.xml"
+author = "SK telecom" # add your company name
+github = "sktelecom" # add your github profile name
+twitter = "sktelecom" # add your twitter profile
+email = "opensource@sk.com"
+
+copyright = "SK TELECOM CO., LTD."
+privacy_policy = "https://privacy.sktelecom.com/"
+
+# Docsy: Google Custom Search Engine ID. Remove or comment out to disable search.
+gcs_engine_id = "007239566369470735695:624rglujm-w"
+
+
+
+# Docsy: User interface configuration
+[params.ui]
+# Docsy: Enable to show the side bar menu in its compact state.
+sidebar_menu_compact = true
+# Docsy: Disable the search box in the side bar.
+sidebar_search_disable = true
+#  Docsy: Set to true to disable breadcrumb navigation.
+breadcrumb_disable = false
+
+# Adds a H2 section titled "Feedback" to the bottom of each doc. The responses are sent to Google Analytics as events.
+# This feature depends on [services.googleAnalytics] and will be disabled if "services.googleAnalytics.id" is not set.
+# If you want this feature, but occasionally need to remove the "Feedback" section from a single page,
+# add "hide_feedback: true" to the page's front matter.
+[params.ui.feedback]
+enable = true
+# The responses that the user sees after clicking "yes" (the page was helpful) or "no" (the page was not helpful).
+yes = 'Glad to hear it! Please <a href="https://github.com/sktelecom/sktelecom.github.io/issues/new">tell us how we can improve</a>.'
+no = 'Sorry to hear that. Please <a href="https://github.com/sktelecom/sktelecom.github.io/issues/new">tell us how we can improve</a>.'
+
+
+[params.links]
+# Docsy: "User" links will show on left side of footer and in the community page if you have one.
+[[params.links.user]]
+	name = "GitHub"
+	url = "https://github.com/sktelecom"
+	icon = "fab fa-github"
+        desc = "Development takes place here!"
+# [[params.links.user]]
+# 	name ="Twitter"
+# 	url = "https://twitter.com/sktelecom"
+# 	icon = "fab fa-twitter"
+#         desc = "Follow us on Twitter to get the latest news"
+# [[params.links.user]]
+# 	name = "Instagram"
+# 	url = "https://www.instagram.com/sktelecom/"
+# 	icon = "fab fa-instagram"
+#         desc = "SK telecom Instagram"
+[[params.links.user]]
+	name = "Mail to OSPO"
+	url = "mailto:opensource@sk.com"
+	icon = "fa fa-envelope"
+        desc = "Discussion and help from your fellow users"
+# [[params.links.user]]
+# 	name = "Calendar"
+# 	url = "https://calendar.google.com/calendar/embed?src="
+# 	icon = "fa fa-calendar"
+#         desc = "Discussion and help from your fellow users"
+
+
+# Docsy: "Developer" links will show on right side of footer and in the community page if you have one.
+#[[params.links.developer]]
+#	name = "A name"
+#	url = "http://example.com"
+#	icon = "fab fa-envelope"
+#       desc = "A description"

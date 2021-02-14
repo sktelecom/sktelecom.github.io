@@ -1,0 +1,96 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SKT Open Source – Cloud Installation</title>
+    <link>/en/docs/started/cloud/</link>
+    <description>Recent content in Cloud Installation on SKT Open Source</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	  <atom:link href="/en/docs/started/cloud/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: AWS for Kubeflow</title>
+      <link>/en/docs/started/cloud/getting-started-aws/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/en/docs/started/cloud/getting-started-aws/</guid>
+      <description>
+        
+        
+        
+
+&lt;div class=&#34;alert alert-warning&#34; role=&#34;alert&#34;&gt;
+&lt;h4 class=&#34;alert-heading&#34;&gt;Out of date&lt;/h4&gt;
+This guide contains outdated information pertaining to Kubeflow 1.0. This guide
+needs to be updated for Kubeflow 1.1.
+&lt;/div&gt;
+
+&lt;p&gt;Please refer to the &lt;a href=&#34;/docs/aws/deploy&#34;&gt;deployment section&lt;/a&gt; in the
+&lt;a href=&#34;/docs/aws/&#34;&gt;AWS docs&lt;/a&gt; for information on setting up your AWS environment and deploying Kubeflow on Amazon Elastic Kubernetes Service (Amazon EKS).&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Azure for Kubeflow</title>
+      <link>/en/docs/started/cloud/getting-started-azure/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/en/docs/started/cloud/getting-started-azure/</guid>
+      <description>
+        
+        
+        
+
+&lt;div class=&#34;alert alert-warning&#34; role=&#34;alert&#34;&gt;
+&lt;h4 class=&#34;alert-heading&#34;&gt;Out of date&lt;/h4&gt;
+This guide contains outdated information pertaining to Kubeflow 1.0. This guide
+needs to be updated for Kubeflow 1.1.
+&lt;/div&gt;
+
+&lt;p&gt;Please refer to the &lt;a href=&#34;/docs/azure/deploy&#34;&gt;deployment section&lt;/a&gt; in the
+&lt;a href=&#34;/docs/azure/&#34;&gt;Azure docs&lt;/a&gt; for information on setting up your Azure environment and deploying Kubeflow on an existing Azure Resource Group or Cluster for AKS (Azure Kubernetes Service).&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Google Cloud for Kubeflow</title>
+      <link>/en/docs/started/cloud/getting-started-gke/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/en/docs/started/cloud/getting-started-gke/</guid>
+      <description>
+        
+        
+        &lt;p&gt;For details on setting up your GCP
+environment and deploying Kubeflow on Kubernetes Engine (GKE),
+refer to the &lt;a href=&#34;/docs/gke/deploy/&#34;&gt;deployment section&lt;/a&gt; of the
+&lt;a href=&#34;/docs/gke/&#34;&gt;Kubeflow GCP documentation&lt;/a&gt;.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: IBM Cloud for Kubeflow</title>
+      <link>/en/docs/started/cloud/getting-started-iks/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/en/docs/started/cloud/getting-started-iks/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Please refer to the &lt;a href=&#34;/docs/ibm/deploy/install-kubeflow&#34;&gt;installation section&lt;/a&gt; in the
+&lt;a href=&#34;/docs/ibm/&#34;&gt;IBM docs&lt;/a&gt; for information on setting up your IKS environment and deploying Kubeflow on IBM Cloud Kubernetes Service (IKS).&lt;/p&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

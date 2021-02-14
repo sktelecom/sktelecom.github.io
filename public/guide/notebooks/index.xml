@@ -1,0 +1,646 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SKT Open Source – Jupyter Notebooks</title>
+    <link>/guide/notebooks/</link>
+    <description>Recent content in Jupyter Notebooks on SKT Open Source</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	  <atom:link href="/guide/notebooks/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Guide: Overview of Jupyter Notebooks in Kubeflow</title>
+      <link>/guide/notebooks/why-use-jupyter-notebook/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/guide/notebooks/why-use-jupyter-notebook/</guid>
+      <description>
+        
+        
+        
+
+&lt;div class=&#34;alert alert-warning&#34; role=&#34;alert&#34;&gt;
+&lt;h4 class=&#34;alert-heading&#34;&gt;Out of date&lt;/h4&gt;
+This guide contains outdated information pertaining to Kubeflow 1.0. This guide
+needs to be updated for Kubeflow 1.1.
+&lt;/div&gt;
+
+&lt;div class=&#34;alert alert-primary&#34; role=&#34;alert&#34;&gt;
+This Kubeflow component has &lt;b&gt;stable&lt;/b&gt; status. See the
+&lt;a href=&#34;/docs/reference/version-policy/&#34;&gt;Kubeflow versioning policies&lt;/a&gt;.
+&lt;/div&gt;
+&lt;p&gt;There are multiple benefits of integrating Jupyter notebooks in Kubeflow for enterprise environments. These benefits include:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Integrating well with the rest of the infrastructure with respect to authentication and access control.&lt;/li&gt;
+&lt;li&gt;Enabling easier notebook sharing across the organization. Users can create notebook containers or pods directly in the cluster, rather than locally on their workstations. Admins can provide standard notebook images for their organization, and set up role-based access control (RBAC), Secrets and Credentials to manage which teams and individuals can access the notebooks.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;When you bundle Jupyter notebooks in Kubeflow, you can use the Fairing library to submit training jobs using TFJob. The training job can run single node or distributed on the same Kubernetes cluster, but not inside the notebook pod itself. Submitting the job with the Fairing library makes processes like Docker containerization and pod allocation clear for data scientists.&lt;/p&gt;
+&lt;p&gt;Overall, Kubeflow-hosted notebooks are better integrated with other components while providing extensibility for notebook images.&lt;/p&gt;
+&lt;h2 id=&#34;next-steps&#34;&gt;Next steps&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Learn more about &lt;a href=&#34;/docs/notebooks/setup/&#34;&gt;setting up notebooks&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Guide: Set Up Your Notebooks</title>
+      <link>/guide/notebooks/setup/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/guide/notebooks/setup/</guid>
+      <description>
+        
+        
+        
+
+&lt;div class=&#34;alert alert-warning&#34; role=&#34;alert&#34;&gt;
+&lt;h4 class=&#34;alert-heading&#34;&gt;Out of date&lt;/h4&gt;
+This guide contains outdated information pertaining to Kubeflow 1.0. This guide
+needs to be updated for Kubeflow 1.1.
+&lt;/div&gt;
+
+&lt;p&gt;Your Kubeflow deployment includes services for spawning and managing Jupyter
+notebooks.&lt;/p&gt;
+&lt;p&gt;You can set up multiple &lt;em&gt;notebook servers&lt;/em&gt; per Kubeflow deployment. Each
+notebook server can include multiple &lt;em&gt;notebooks&lt;/em&gt;. Each notebook server belongs
+to a single &lt;em&gt;namespace&lt;/em&gt;, which corresponds to the project group or team for that
+server.&lt;/p&gt;
+&lt;p&gt;This guide shows you how to set up a notebook server for your Jupyter notebooks
+in Kubeflow.&lt;/p&gt;
+&lt;h2 id=&#34;quick-guide&#34;&gt;Quick guide&lt;/h2&gt;
+&lt;p&gt;Summary of steps:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Follow the &lt;a href=&#34;/docs/started/getting-started/&#34;&gt;Kubeflow getting-started guide&lt;/a&gt;
+to set up your Kubeflow deployment and open the Kubeflow UI.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Click &lt;strong&gt;Notebook Servers&lt;/strong&gt; in the left-hand panel of the Kubeflow UI.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Choose the &lt;strong&gt;namespace&lt;/strong&gt; corresponding to your Kubeflow profile.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Click &lt;strong&gt;NEW SERVER&lt;/strong&gt; to create a notebook server.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;When the notebook server provisioning is complete, click &lt;strong&gt;CONNECT&lt;/strong&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Click &lt;strong&gt;Upload&lt;/strong&gt; to upload an existing notebook, or click &lt;strong&gt;New&lt;/strong&gt; to
+create an empty notebook.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;The rest of this page contains details of the above steps.&lt;/p&gt;
+&lt;h2 id=&#34;install-kubeflow-and-open-the-kubeflow-ui&#34;&gt;Install Kubeflow and open the Kubeflow UI&lt;/h2&gt;
+&lt;p&gt;Follow the &lt;a href=&#34;/docs/started/getting-started/&#34;&gt;Kubeflow getting-started guide&lt;/a&gt; to
+set up your Kubeflow deployment in your environment of choice (locally, on
+premises, or in the cloud).&lt;/p&gt;
+&lt;p&gt;When Kubeflow is running, you can access the Kubeflow user interface (UI). If
+the getting-started guide for your chosen environment has instructions on
+accessing the UI, follow those instructions. Alternatively, see the generic
+guide to &lt;a href=&#34;/docs/components/central-dash/overview/&#34;&gt;accessing the Kubeflow
+central dashboard&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;create-a-jupyter-notebook-server-and-add-a-notebook&#34;&gt;Create a Jupyter notebook server and add a notebook&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Click &lt;strong&gt;Notebook Servers&lt;/strong&gt; in the left-hand panel of the Kubeflow UI to
+access the Jupyter notebook services deployed with Kubeflow:
+&lt;img src=&#34;/docs/images/jupyterlink.png&#34; 
+alt=&#34;Opening notebooks from the Kubeflow UI&#34;
+class=&#34;mt-3 mb-3 border border-info rounded&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Sign in:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;On GCP, sign in using your Google Account. (If you have already logged in
+to your Google Account you may not need to log in again.)&lt;/li&gt;
+&lt;li&gt;On all other platforms, sign in using any username and password.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Select a namespace:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Click the namespace dropdown to see the list of available namespaces.&lt;/li&gt;
+&lt;li&gt;Choose the namespace that corresponds to your Kubeflow profile. (See
+the page on &lt;a href=&#34;/docs/components/multi-tenancy/&#34;&gt;multi-user isolation&lt;/a&gt;
+for more information about namespaces.)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;/docs/images/notebooks-namespace.png&#34; 
+alt=&#34;Selecting a Kubeflow namespace&#34;
+class=&#34;mt-3 mb-3 border border-info rounded&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Click &lt;strong&gt;NEW SERVER&lt;/strong&gt; on the &lt;strong&gt;Notebook Servers&lt;/strong&gt; page:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/docs/images/add-notebook-server.png&#34; 
+alt=&#34;The Kubeflow notebook servers page&#34;
+class=&#34;mt-3 mb-3 border border-info rounded&#34;&gt;&lt;/p&gt;
+&lt;p&gt;You should see a page for entering details of your new server. Here is a
+partial screenshot of the page:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/docs/images/new-notebook-server.png&#34; 
+alt=&#34;Form for adding a Kubeflow notebook server&#34;
+class=&#34;mt-3 mb-3 border border-info rounded&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Enter a &lt;strong&gt;name&lt;/strong&gt; of your choice for the notebook server. The name can
+include letters and numbers, but no spaces. For example, &lt;code&gt;my-first-notebook&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Kubeflow automatically updates the value in the &lt;strong&gt;namespace&lt;/strong&gt; field to
+be the same as the namespace that you selected in a previous step. This
+ensures that the new notebook server is in a namespace that you can access.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a id=&#34;docker-image&#34;&gt;&lt;/a&gt; Select a Docker &lt;strong&gt;image&lt;/strong&gt; for the baseline
+deployment of your notebook server. You can specify a custom image or
+choose from a range of standard images:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Custom image&lt;/strong&gt;: If you select the custom option, you must specify a Docker
+image in  the form &lt;code&gt;registry/image:tag&lt;/code&gt;. For guidelines on creating a Docker
+image for your notebook, see the guide to
+&lt;a href=&#34;/docs/notebooks/custom-notebook/&#34;&gt;creating a custom Jupyter image&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Standard image&lt;/strong&gt;: Click the &lt;strong&gt;Image&lt;/strong&gt; dropdown menu to see the list of
+available images. The standard Docker images include typical machine learning
+(ML) packages that you can use within your Jupyter notebooks on
+this notebook server. Click one of the images to select it.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The image names indicate the following choices:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;A TensorFlow version (for example, &lt;code&gt;tensorflow-1.15.2&lt;/code&gt;).&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;cpu&lt;/code&gt; or &lt;code&gt;gpu&lt;/code&gt;, depending on whether you want to train your model on a CPU
+or a GPU.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;If you choose a GPU image, make sure that you have GPUs
+available in your Kubeflow cluster. Run the following command to check
+if there are any GPUs available:
+&lt;pre&gt;&lt;code&gt;kubectl get nodes &amp;quot;-o=custom-columns=NAME:.metadata.name,GPU:.status.allocatable.nvidia\.com/gpu&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;If you have GPUs available, you can schedule your server on a GPU
+node by specifying a number of GPUs to be attached to the server
+under the &lt;strong&gt;GPUs&lt;/strong&gt; section at the bottom of the form.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Kubeflow version (for example, &lt;code&gt;1.0.0&lt;/code&gt;).&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;em&gt;Hint:&lt;/em&gt; If you&amp;rsquo;re not sure which image you need, choose a &lt;em&gt;standard&lt;/em&gt; image
+running TensorFlow on a CPU. You need a TensorFlow image to run the example
+code in the &lt;a href=&#34;#experiment&#34;&gt;experiment section&lt;/a&gt; below.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Specify the total amount of &lt;strong&gt;CPU&lt;/strong&gt; that your notebook server should reserve.
+The default is &lt;code&gt;0.5&lt;/code&gt;. For CPU-intensive jobs, you can choose more than one CPU
+(for example, &lt;code&gt;1.5&lt;/code&gt;).&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Specify the total amount of &lt;strong&gt;memory&lt;/strong&gt; (RAM) that your notebook server should
+reserve. The default is &lt;code&gt;1.0Gi&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Specify a &lt;strong&gt;workspace volume&lt;/strong&gt; to hold your personal workspace for this
+notebook server. Kubeflow provisions a
+&lt;a href=&#34;https://kubernetes.io/docs/concepts/storage/persistent-volumes/&#34;&gt;Kubernetes persistent volume (PV)&lt;/a&gt; for your workspace volume. The PV ensures that you can
+retain data even if you destroy your notebook server.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;The default is to create a new volume for your workspace with the
+following configuration:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Name: The volume name is synced with the name of the notebook server,
+and has the form &lt;code&gt;workspace-&amp;lt;server-name&amp;gt;&lt;/code&gt;.
+When you start typing the notebook server name, the volume name appears.
+You can edit the volume name, but if you later edit the
+notebook server name, the volume name changes to match the notebook
+server name.&lt;/li&gt;
+&lt;li&gt;Size: &lt;code&gt;10Gi&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Access mode: &lt;code&gt;ReadWriteOnce&lt;/code&gt;. This setting means that the volume can be
+mounted as read-write by a single node. See the
+&lt;a href=&#34;https://kubernetes.io/docs/concepts/storage/persistent-volumes/&#34;&gt;Kubernetes documentation&lt;/a&gt; for more details about access modes.&lt;/li&gt;
+&lt;li&gt;Mount point: &lt;code&gt;/home/jovyan&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Alternatively, you can point the notebook server at an existing volume by
+specifying the name of the existing volume.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;em&gt;(Optional)&lt;/em&gt; Specify one or more &lt;strong&gt;data volumes&lt;/strong&gt; if you want to store and
+access data from the notebooks on this notebook server. You can add new
+volumes or specify existing volumes. Kubeflow provisions a
+&lt;a href=&#34;https://kubernetes.io/docs/concepts/storage/persistent-volumes/&#34;&gt;Kubernetes persistent volume (PV)&lt;/a&gt; for each of your data volumes.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;em&gt;(Optional)&lt;/em&gt; Specify one or more additional &lt;strong&gt;configurations&lt;/strong&gt; as a list of
+PodDefault labels. To make use of this option, you must create a
+&lt;a href=&#34;https://github.com/kubeflow/kubeflow/blob/master/components/admission-webhook/README.md&#34;&gt;PodDefault manifest&lt;/a&gt;. In the PodDefault manifest, you can specify configurations
+including volumes, secrets, and environment variables.
+Kubeflow matches the labels in the &lt;strong&gt;configurations&lt;/strong&gt; field against
+the properties specified in the PodDefault manifest. Kubeflow then injects
+these configurations into all the notebook Pods on this notebook server.&lt;/p&gt;
+&lt;p&gt;For example, enter the label &lt;code&gt;addgcpsecret&lt;/code&gt; in the &lt;strong&gt;configurations&lt;/strong&gt; field
+to match to a PodDefault manifest containing the following configuration:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;matchLabels:
+  addgcpsecret: &amp;quot;true&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;For indepth information on PodDefault usage, see the &lt;a href=&#34;https://github.com/kubeflow/kubeflow/blob/master/components/admission-webhook/README.md&#34;&gt;admission-webhook
+README&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;em&gt;(Optional)&lt;/em&gt; Schedule one or more &lt;strong&gt;GPUs&lt;/strong&gt; for your notebook server, as
+discussed in the section on &lt;a href=&#34;#docker-image&#34;&gt;specifying your Docker image&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;You can find more details about scheduling GPUs in the &lt;a href=&#34;https://kubernetes.io/docs/tasks/manage-gpus/scheduling-gpus/&#34;&gt;Kubernetes
+documentation&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;em&gt;(Optional)&lt;/em&gt; Change the setting for &lt;strong&gt;enable shared memory&lt;/strong&gt;. The default is
+that shared memory is enabled. Some libraries like PyTorch use shared memory
+for multiprocessing. Currently there is no implementation in Kubernetes to
+activate shared memory. As a workaround, Kubeflow creates an empty directory
+at &lt;code&gt;/dev/shm&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Click &lt;strong&gt;LAUNCH&lt;/strong&gt;. You should see an entry for your new
+notebook server on the &lt;strong&gt;Notebook Servers&lt;/strong&gt; page, with a spinning indicator in
+the &lt;strong&gt;Status&lt;/strong&gt; column. It can take a few minutes to set up
+the notebook server.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;You can check the status of your Pod by hovering your mouse cursor over
+the icon in the &lt;strong&gt;Status&lt;/strong&gt; column next to the entry for your notebook
+server. For example, if the image is downloading then the status spinner
+has a tooltip that says &lt;code&gt;ContainerCreating&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Alternatively, you can check the Pod status by entering the following
+command:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;kubectl -n &amp;lt;NAMESPACE&amp;gt; describe pods jupyter-&amp;lt;USERNAME&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Where &lt;code&gt;&amp;lt;NAMESPACE&amp;gt;&lt;/code&gt; is the namespace you specified earlier
+(default &lt;code&gt;kubeflow&lt;/code&gt;) and &lt;code&gt;&amp;lt;USERNAME&amp;gt;&lt;/code&gt; is the name you used to log in.
+&lt;strong&gt;A note for GCP users:&lt;/strong&gt; If you have IAP turned on, the Pod has
+a different name. For example, if you signed in as &lt;code&gt;USER@DOMAIN.EXT&lt;/code&gt;
+the Pod has a name of the following form:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;jupyter-accounts-2egoogle-2ecom-3USER-40DOMAIN-2eEXT
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;When the notebook server provisioning is complete, you should see an entry
+for your server on the &lt;strong&gt;Notebook Servers&lt;/strong&gt; page, with a check mark in the
+&lt;strong&gt;Status&lt;/strong&gt; column:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/docs/images/notebook-servers.png&#34; 
+alt=&#34;Opening notebooks from the Kubeflow UI&#34;
+class=&#34;mt-3 mb-3 border border-info rounded&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Click &lt;strong&gt;CONNECT&lt;/strong&gt; to start the notebook server.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;When the notebook server is running, you should see the Jupyter dashboard
+interface. If you requested a new workspace, the dashboard should be empty
+of notebooks:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/docs/images/jupyter-dashboard.png&#34; 
+alt=&#34;Jupyter dashboard with no notebooks&#34;
+class=&#34;mt-3 mb-3 border border-info rounded&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Click &lt;strong&gt;Upload&lt;/strong&gt; to upload an existing notebook, or click &lt;strong&gt;New&lt;/strong&gt; to
+create an empty notebook. You can read about using notebooks in the
+&lt;a href=&#34;https://jupyter-notebook.readthedocs.io/en/latest/notebook.html#notebook-user-interface&#34;&gt;Jupyter documentation&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;a id=&#34;experiment&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;experiment-with-your-notebook&#34;&gt;Experiment with your notebook&lt;/h2&gt;
+&lt;p&gt;The standard notebook images include all the plugins that you need to train a
+TensorFlow model with Jupyter, including
+&lt;a href=&#34;https://www.tensorflow.org/get_started/summaries_and_tensorboard&#34;&gt;Tensorboard&lt;/a&gt;
+for rich visualizations and insights into your model.&lt;/p&gt;
+&lt;p&gt;To test your Jupyter installation, run the following basic &amp;lsquo;hello world&amp;rsquo; program
+(adapted from
+&lt;a href=&#34;https://github.com/tensorflow/tensorflow/blob/r1.4/tensorflow/examples/tutorials/mnist/mnist_softmax.py&#34;&gt;mnist_softmax.py&lt;/a&gt;) as follows:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;When adding the notebook server, make sure that the base image for your
+notebook server includes TensorFlow. To ensure this, you can select one of the
+standard images from the &lt;strong&gt;Image&lt;/strong&gt; dropdown menu.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Use the Jupyter dashboard to create a new &lt;strong&gt;Python 3&lt;/strong&gt; notebook.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Copy the following code and paste it into a code block in your notebook:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;from tensorflow.examples.tutorials.mnist import input_data
+mnist = input_data.read_data_sets(&amp;quot;MNIST_data/&amp;quot;, one_hot=True)
+
+import tensorflow as tf
+
+x = tf.placeholder(tf.float32, [None, 784])
+
+W = tf.Variable(tf.zeros([784, 10]))
+b = tf.Variable(tf.zeros([10]))
+
+y = tf.nn.softmax(tf.matmul(x, W) + b)
+
+y_ = tf.placeholder(tf.float32, [None, 10])
+cross_entropy = tf.reduce_mean(-tf.reduce_sum(y_ * tf.log(y), reduction_indices=[1]))
+
+train_step = tf.train.GradientDescentOptimizer(0.05).minimize(cross_entropy)
+
+sess = tf.InteractiveSession()
+tf.global_variables_initializer().run()
+
+for _ in range(1000):
+  batch_xs, batch_ys = mnist.train.next_batch(100)
+  sess.run(train_step, feed_dict={x: batch_xs, y_: batch_ys})
+
+correct_prediction = tf.equal(tf.argmax(y,1), tf.argmax(y_,1))
+accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
+print(&amp;quot;Accuracy: &amp;quot;, sess.run(accuracy, feed_dict={x: mnist.test.images, y_: mnist.test.labels}))
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Run the code. You should see a number of &lt;code&gt;WARNING&lt;/code&gt; messages from TensorFlow,
+followed by a line showing a training accuracy something like this:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Accuracy:  0.9012
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Please note that when running on most cloud providers, the public IP address is
+exposed to the internet and is an unsecured endpoint by default.&lt;/p&gt;
+&lt;h2 id=&#34;next-steps&#34;&gt;Next steps&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;See a &lt;a href=&#34;https://github.com/kubeflow/examples/tree/master/pipelines/simple-notebook-pipeline&#34;&gt;simple example&lt;/a&gt; of creating Kubeflow pipelines in a Jupyter notebook on GCP.&lt;/li&gt;
+&lt;li&gt;Build machine-learning pipelines with the &lt;a href=&#34;/docs/pipelines/sdk/sdk-overview/&#34;&gt;Kubeflow Pipelines
+SDK&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Explore &lt;a href=&#34;/docs/components/fairing/&#34;&gt;Kubeflow Fairing&lt;/a&gt; for a complete solution to
+building, training, and deploying an ML model from a notebook.&lt;/li&gt;
+&lt;li&gt;See how to configure &lt;a href=&#34;/docs/components/multi-tenancy/&#34;&gt;multi-user isolation&lt;/a&gt; in Kubeflow, to separate the notebooks for each user in a shared Kubeflow deployment.&lt;/li&gt;
+&lt;li&gt;Learn the advanced features available from a Kubeflow notebook, such as
+&lt;a href=&#34;/docs/notebooks/submit-kubernetes/&#34;&gt;submitting Kubernetes resources&lt;/a&gt; or
+&lt;a href=&#34;/docs/notebooks/submit-docker-image/&#34;&gt;building Docker images&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Visit the &lt;a href=&#34;/docs/notebooks/troubleshoot&#34;&gt;troubleshooting guide&lt;/a&gt; for fixing common
+errors in creating Jupyter notebooks in Kubeflow&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Guide: Create a Custom Jupyter Image</title>
+      <link>/guide/notebooks/custom-notebook/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/guide/notebooks/custom-notebook/</guid>
+      <description>
+        
+        
+        
+
+&lt;div class=&#34;alert alert-warning&#34; role=&#34;alert&#34;&gt;
+&lt;h4 class=&#34;alert-heading&#34;&gt;Out of date&lt;/h4&gt;
+This guide contains outdated information pertaining to Kubeflow 1.0. This guide
+needs to be updated for Kubeflow 1.1.
+&lt;/div&gt;
+
+&lt;p&gt;This guide tells you how to configure a custom Docker image for your Jupyter
+notebook server in Kubeflow.&lt;/p&gt;
+&lt;p&gt;Your custom image must meet the requirements of the Kubeflow notebook
+controller which manages the life cycle of notebooks. The Kubeflow UI expects
+Jupyter to start after launching the Docker image with &lt;code&gt;docker run&lt;/code&gt;. You must
+therefore set the default command of your Docker image to launch Jupyter.&lt;/p&gt;
+&lt;p&gt;Follow these steps to configure the launch command (&lt;code&gt;CMD&lt;/code&gt;) in your Docker image:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Set the working directory:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;--notebook-dir=/home/jovyan
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;The &lt;code&gt;/home/jovyan&lt;/code&gt;  directory is backed by a
+&lt;a href=&#34;https://kubernetes.io/docs/concepts/storage/persistent-volumes/&#34;&gt;Kubernetes persistent volume (PV)&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Allow Jupyter to listen on all IP addresses:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;--ip=0.0.0.0
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Allow the user to run the notebook as root:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;--allow-root
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Set the port:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;--port=8888
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Disable authentication. (Kubeflow takes care of authentication based on
+the type of authentication selected during deployment of Kubeflow. After
+authentication to Kubeflow, users can access all Kubeflow components
+from the UI, including notebooks.)&lt;/p&gt;
+&lt;p&gt;Use the following setting to allow passwordless access to your Jupyter
+notebook servers:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;--NotebookApp.token=&#39;&#39;  --NotebookApp.password=&#39;&#39;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Allow any origin to access your Jupyter notebook server:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;--NotebookApp.allow_origin=&#39;*&#39;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Set the base URL. The Kubeflow notebook controller manages the base URL for
+the notebook server using the environment variable called &lt;code&gt;NB_PREFIX&lt;/code&gt;. Your
+Docker image should define the variable and set the value of &lt;code&gt;base_url&lt;/code&gt; as
+follows:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;--NotebookApp.base_url=NB_PREFIX
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Below is an example of what your Dockerfile should contain:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;ENV NB_PREFIX /
+
+CMD [&amp;quot;sh&amp;quot;,&amp;quot;-c&amp;quot;, &amp;quot;jupyter notebook --notebook-dir=/home/jovyan --ip=0.0.0.0 --no-browser --allow-root --port=8888 --NotebookApp.token=&#39;&#39; --NotebookApp.password=&#39;&#39; --NotebookApp.allow_origin=&#39;*&#39; --NotebookApp.base_url=${NB_PREFIX}&amp;quot;]
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;next-steps&#34;&gt;Next steps&lt;/h2&gt;
+&lt;p&gt;When starting a Jupyter notebook server from the
+Kubeflow UI, specify your custom Docker image. See the guide to &lt;a href=&#34;/docs/notebooks/setup/&#34;&gt;setting up
+your Jupyter notebooks&lt;/a&gt;.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Guide: Submit Kubernetes Resources</title>
+      <link>/guide/notebooks/submit-kubernetes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/guide/notebooks/submit-kubernetes/</guid>
+      <description>
+        
+        
+        
+
+&lt;div class=&#34;alert alert-warning&#34; role=&#34;alert&#34;&gt;
+&lt;h4 class=&#34;alert-heading&#34;&gt;Out of date&lt;/h4&gt;
+This guide contains outdated information pertaining to Kubeflow 1.0. This guide
+needs to be updated for Kubeflow 1.1.
+&lt;/div&gt;
+
+&lt;p&gt;Kubeflow assigns the &lt;code&gt;default-editor&lt;/code&gt; service account to the Jupyter notebook
+Pods. This service account is bound to the &lt;code&gt;kubeflow-edit&lt;/code&gt; ClusterRole, which has namespace-scoped permissions to the many Kubernetes resources including:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Pods&lt;/li&gt;
+&lt;li&gt;Deployments&lt;/li&gt;
+&lt;li&gt;Services&lt;/li&gt;
+&lt;li&gt;Jobs&lt;/li&gt;
+&lt;li&gt;TFJobs&lt;/li&gt;
+&lt;li&gt;PyTorchJobs&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;You can get a full list of these permissions using:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;kubectl describe clusterrole kubeflow-edit
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;You can therefore create the above Kubernetes resources directly from your
+Jupyter notebook in Kubeflow. The Kubernetes
+&lt;a href=&#34;https://kubernetes.io/docs/tasks/tools/install-kubectl/&#34;&gt;&lt;code&gt;kubectl&lt;/code&gt;&lt;/a&gt;
+command-line tool is pre-installed in the notebook.&lt;/p&gt;
+&lt;p&gt;Run the following command in a Jupyter notebook cell to create Kubernetes
+resources:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;!kubectl create -f myspec.yaml
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;The &lt;code&gt;myspec.yaml&lt;/code&gt; file should describe one of the above Kubernetes resources.
+For information about the format of the YAML file, see the
+&lt;a href=&#34;https://kubernetes.io/docs/concepts/overview/working-with-objects/kubernetes-objects/&#34;&gt;Kubernetes object guide&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;next-steps&#34;&gt;Next steps&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;See the guide to &lt;a href=&#34;/docs/notebooks/setup/&#34;&gt;setting up
+your Jupyter notebooks in Kubeflow&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Explore the &lt;a href=&#34;/docs/components/&#34;&gt;components of Kubeflow&lt;/a&gt;, including custom
+Kubernetes resources.&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Guide: Build a Docker Image on GCP</title>
+      <link>/guide/notebooks/submit-docker-image/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/guide/notebooks/submit-docker-image/</guid>
+      <description>
+        
+        
+        
+
+&lt;div class=&#34;alert alert-warning&#34; role=&#34;alert&#34;&gt;
+&lt;h4 class=&#34;alert-heading&#34;&gt;Out of date&lt;/h4&gt;
+This guide contains outdated information pertaining to Kubeflow 1.0. This guide
+needs to be updated for Kubeflow 1.1.
+&lt;/div&gt;
+
+&lt;p&gt;If you&amp;rsquo;re using a Jupyter notebook in Kubeflow on Google Cloud Platform
+(GCP), you can submit Docker image builds to
+&lt;a href=&#34;https://cloud.google.com/cloud-build/docs/&#34;&gt;Cloud Build&lt;/a&gt;. Cloud Build builds
+the  Docker image and pushes it to
+&lt;a href=&#34;https://cloud.google.com/container-registry/docs/&#34;&gt;Google Container Registry&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;building-a-docker-image&#34;&gt;Building a Docker image&lt;/h2&gt;
+&lt;p&gt;Run the following command in a Jupyter notebook cell to activate the attached
+service account:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;!gcloud auth activate-service-account --key-file=${GOOGLE_APPLICATION_CREDENTIALS}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Run the
+&lt;a href=&#34;https://cloud.google.com/sdk/gcloud/reference/builds/submit&#34;&gt;&lt;code&gt;gcloud builds submit&lt;/code&gt;&lt;/a&gt; command to submit a build. The following example assumes that your Dockerfile is in the current directory:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;!gcloud builds submit --tag gcr.io/myproject/myimage:tag .
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;a-bit-about-authentication&#34;&gt;A bit about authentication&lt;/h2&gt;
+&lt;p&gt;Kubeflow assigns the &lt;code&gt;jupyter-notebook&lt;/code&gt; service account to the Jupyter notebook
+Pods.
+The &lt;code&gt;${GOOGLE_APPLICATION_CREDENTIALS}&lt;/code&gt; environment variable is pre-configured
+in the notebook. Its value is a path that points to a JSON file containing a
+&lt;a href=&#34;https://kubernetes.io/docs/concepts/configuration/secret/&#34;&gt;Kubernetes secret&lt;/a&gt;.
+The secret contains the credentials needed to authenticate as the notebook
+service account within the cluster. To see the value of the environment
+variable, enter the following command in a notebook cell:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;!echo ${GOOGLE_APPLICATION_CREDENTIALS}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;You should see a response similar to this:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;/secrets/gcp-service-account-credentials/user-gcp-sa.json
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;next-steps&#34;&gt;Next steps&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;For more information about using Cloud Build to build Docker images, see the
+&lt;a href=&#34;https://cloud.google.com/cloud-build/docs/quickstart-docker&#34;&gt;Cloud Build documentation&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;See how to &lt;a href=&#34;/docs/gke/deploy/&#34;&gt;deploy Kubeflow on GCP&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Guide: Troubleshooting Guide for Jupyter Notebooks</title>
+      <link>/guide/notebooks/troubleshoot/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/guide/notebooks/troubleshoot/</guid>
+      <description>
+        
+        
+        
+
+&lt;div class=&#34;alert alert-warning&#34; role=&#34;alert&#34;&gt;
+&lt;h4 class=&#34;alert-heading&#34;&gt;Out of date&lt;/h4&gt;
+This guide contains outdated information pertaining to Kubeflow 1.0. This guide
+needs to be updated for Kubeflow 1.1.
+&lt;/div&gt;
+
+&lt;h2 id=&#34;persistent-volumes-and-persistent-volumes-claims&#34;&gt;Persistent Volumes and Persistent Volumes Claims&lt;/h2&gt;
+&lt;p&gt;First, make sure that &lt;a href=&#34;https://kubernetes.io/docs/concepts/storage/persistent-volumes/&#34;&gt;Persistent Volumes Claims (PVCs)&lt;/a&gt; are bounded when using Jupyter notebooks. This should
+not be a problem when using managed Kubernetes. But if you are using Kubernetes
+on-prem, check out the guide to &lt;a href=&#34;/docs/other-guides/kubeflow-on-multinode-cluster/&#34;&gt;Kubeflow on-prem in a multi-node Kubernetes cluster&lt;/a&gt; if you are running Kubeflow in multi-node on-prem environment. Otherwise, look at the &lt;a href=&#34;/docs/other-guides/troubleshooting/#pods-stuck-in-pending-state&#34;&gt;Pods stuck in Pending State&lt;/a&gt; guide to troubleshoot this problem.&lt;/p&gt;
+&lt;h2 id=&#34;check-the-status-of-notebooks&#34;&gt;Check the status of notebooks&lt;/h2&gt;
+&lt;p&gt;Run the following commands replacing &lt;code&gt;${NOTEBOOK}&lt;/code&gt; with your notebook file name:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;kubectl get notebooks -o yaml &lt;span style=&#34;color:#4e9a06&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;NOTEBOOK&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;}&lt;/span&gt;
+kubectl describe notebooks &lt;span style=&#34;color:#4e9a06&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;NOTEBOOK&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Check the &lt;code&gt;events&lt;/code&gt; section to make sure that there are no errors.&lt;/p&gt;
+&lt;h2 id=&#34;check-the-status-of-statefulsets&#34;&gt;Check the status of statefulsets&lt;/h2&gt;
+&lt;p&gt;Make sure that the number of &lt;code&gt;statefulsets&lt;/code&gt; equals the desired number. If it is
+not the case, check for errors using the &lt;code&gt;kubectl describe&lt;/code&gt;.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;kubectl get statefulsets -o yaml &lt;span style=&#34;color:#4e9a06&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;NOTEBOOK&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;}&lt;/span&gt;
+kubectl describe statefulsets &lt;span style=&#34;color:#4e9a06&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;NOTEBOOK&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The output should look like below:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;NAME            DESIRED   CURRENT   AGE
+your-notebook   1         1         9m4s
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;check-the-status-of-pods&#34;&gt;Check the status of Pods&lt;/h2&gt;
+&lt;p&gt;If the number of statefulsets didn&amp;rsquo;t match the desired number, make sure that
+the number of Pods match the number of desired Pods in the first  command.
+In case it didn&amp;rsquo;t match, follow the steps below to further investigate the issue.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;kubectl get pod -o yaml &lt;span style=&#34;color:#4e9a06&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;NOTEBOOK&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;}&lt;/span&gt;-0
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;The name of the Pod should start with &lt;code&gt;jupyter&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;If you are using username/password auth with Jupyter the pod will be named &lt;code&gt;jupyter-${USERNAME}&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;If you are using &lt;a href=&#34;https://cloud.google.com/iap/docs/concepts-overview&#34;&gt;Identity-Aware Proxy (IAP)&lt;/a&gt; on &lt;a href=&#34;https://cloud.google.com/iap/docs/enabling-kubernetes-howto&#34;&gt;GKE&lt;/a&gt;, the pod will be named as follows: &lt;code&gt;jupyter-accounts-2egoogle-2ecom-3USER-40DOMAIN-2eEXT&lt;/code&gt;, where &lt;code&gt;USER@DOMAIN.EXT&lt;/code&gt; is the Google account you used with IAP.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Once you know the name of the pod, run:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;kubectl describe pod &lt;span style=&#34;color:#4e9a06&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;NOTEBOOK&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;}&lt;/span&gt;-0
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;Check the &lt;code&gt;events&lt;/code&gt; for any errors trying to schedule the pod.&lt;/li&gt;
+&lt;li&gt;One common error is not being able to schedule the pod because there aren&amp;rsquo;t enough resources in the cluster.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;If the error still persists, check for the errors in the logs of containers.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;kubectl logs &lt;span style=&#34;color:#4e9a06&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;NOTEBOOK&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;}&lt;/span&gt;-0
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;delete-notebooks-manually&#34;&gt;Delete notebooks manually&lt;/h2&gt;
+&lt;p&gt;It is possible to delete notebooks manually with the following command:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;kubectl delete notebook &lt;span style=&#34;color:#4e9a06&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;NOTEBOOK&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Note that deleting the &lt;code&gt;statefulset&lt;/code&gt; is not enough, it&amp;rsquo;s necessary to delete the &lt;code&gt;notebook&lt;/code&gt; resource.&lt;/p&gt;
+&lt;h2 id=&#34;note-for-gcp-users&#34;&gt;Note for GCP Users&lt;/h2&gt;
+&lt;p&gt;If you&amp;rsquo;re using Google Cloud, you may encounter an error, such as:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Type     Reason        Age                     From                    Message
+----     ------        ----                    ----                    -------
+Warning  FailedCreate  2m19s (x26 over 7m39s)  statefulset-controller  create Pod test1-0 in StatefulSet test1 failed error: pods &amp;quot;test1-0&amp;quot; is forbidden: error looking up service account kubeflow/default-editor: serviceaccount &amp;quot;default-editor&amp;quot; not found
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;To fix this problem, create a service account named &lt;code&gt;default-editor&lt;/code&gt; with cluster-admin role.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;kubectl create sa default-editor
+kubectl create clusterrolebinding cluster-admin-binding --clusterrole cluster-admin --user default-editor
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+      </description>
+    </item>
+    
+  </channel>
+</rss>

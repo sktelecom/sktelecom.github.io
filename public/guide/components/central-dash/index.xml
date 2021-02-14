@@ -1,0 +1,211 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SKT Open Source – Central Dashboard</title>
+    <link>/guide/components/central-dash/</link>
+    <description>Recent content in Central Dashboard on SKT Open Source</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	  <atom:link href="/guide/components/central-dash/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Guide: Central Dashboard</title>
+      <link>/guide/components/central-dash/overview/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/guide/components/central-dash/overview/</guid>
+      <description>
+        
+        
+        
+
+&lt;div class=&#34;alert alert-warning&#34; role=&#34;alert&#34;&gt;
+&lt;h4 class=&#34;alert-heading&#34;&gt;Out of date&lt;/h4&gt;
+This guide contains outdated information pertaining to Kubeflow 1.0. This guide
+needs to be updated for Kubeflow 1.1.
+&lt;/div&gt;
+
+&lt;div class=&#34;alert alert-primary&#34; role=&#34;alert&#34;&gt;
+This Kubeflow component has &lt;b&gt;stable&lt;/b&gt; status. See the
+&lt;a href=&#34;/docs/reference/version-policy/&#34;&gt;Kubeflow versioning policies&lt;/a&gt;.
+&lt;/div&gt;
+&lt;p&gt;Your Kubeflow deployment includes a central dashboard that provides quick access
+to the Kubeflow components deployed in your cluster. The dashboard includes the
+following features:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Shortcuts to specific actions, a list of recent pipelines and notebooks, and
+metrics, giving you an overview of your jobs and cluster in one view.&lt;/li&gt;
+&lt;li&gt;A housing for the UIs of the components running in the cluster, including
+&lt;strong&gt;Pipelines&lt;/strong&gt;, &lt;strong&gt;Katib&lt;/strong&gt;, &lt;strong&gt;Notebooks&lt;/strong&gt;, and more.&lt;/li&gt;
+&lt;li&gt;A &lt;a href=&#34;/docs/components/central-dash/registration-flow/&#34;&gt;registration flow&lt;/a&gt; that
+prompts new users to set up their namespace if necessary.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;overview-of-kubeflow-uis&#34;&gt;Overview of Kubeflow UIs&lt;/h2&gt;
+&lt;p&gt;The Kubeflow UIs include the following:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Home&lt;/strong&gt;, a central dashboard for navigation between the Kubeflow components.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Pipelines&lt;/strong&gt; for a Kubeflow Pipelines dashboard.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Notebook Servers&lt;/strong&gt; for Jupyter notebooks.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Katib&lt;/strong&gt; for hyperparameter tuning.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Artifact Store&lt;/strong&gt; for tracking of artifact metadata.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Manage Contributors&lt;/strong&gt; for sharing user access across namespaces in the
+Kubeflow deployment.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The central dashboard looks like this:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/docs/images/central-ui.png&#34;
+alt=&#34;Kubeflow central UI&#34;
+class=&#34;mt-3 mb-3 border border-info rounded&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;accessing-the-central-dashboard&#34;&gt;Accessing the central dashboard&lt;/h2&gt;
+&lt;p&gt;To access the central dashboard, you need to connect to the
+&lt;a href=&#34;https://istio.io/docs/concepts/traffic-management/#gateways&#34;&gt;Istio gateway&lt;/a&gt; that
+provides access to the Kubeflow
+&lt;a href=&#34;https://istio.io/docs/concepts/what-is-istio/#what-is-a-service-mesh&#34;&gt;service mesh&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;How you access the Istio gateway varies depending on how you&amp;rsquo;ve configured it.&lt;/p&gt;
+&lt;h2 id=&#34;url-pattern-with-google-cloud-platform-gcp&#34;&gt;URL pattern with Google Cloud Platform (GCP)&lt;/h2&gt;
+&lt;p&gt;If you followed the guide to &lt;a href=&#34;/docs/gke/deploy/&#34;&gt;deploying Kubeflow on GCP&lt;/a&gt;,
+the Kubeflow central UI is accessible at a URL of the following pattern:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;https://&amp;lt;application-name&amp;gt;.endpoints.&amp;lt;project-id&amp;gt;.cloud.goog/
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;The URL brings up the dashboard illustrated above.&lt;/p&gt;
+&lt;p&gt;If you deploy Kubeflow with Cloud Identity-Aware Proxy (IAP), Kubeflow uses the
+&lt;a href=&#34;https://letsencrypt.org/&#34;&gt;Let&amp;rsquo;s Encrypt&lt;/a&gt; service to provide an SSL certificate
+for the Kubeflow UI. For troubleshooting issues with your certificate, see the
+guide to
+&lt;a href=&#34;/docs/gke/deploy/monitor-iap-setup/&#34;&gt;monitoring your Cloud IAP setup&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;using-kubectl-and-port-forwarding&#34;&gt;Using kubectl and port-forwarding&lt;/h2&gt;
+&lt;p&gt;If you didn&amp;rsquo;t configure Kubeflow to integrate with an identity provider
+then you can port-forward directly to the Istio gateway.&lt;/p&gt;
+&lt;p&gt;Port-forwarding typically does not work if any of the following are true:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;You&amp;rsquo;ve deployed Kubeflow on GCP using the
+&lt;a href=&#34;/docs/gke/deploy/deploy-ui/&#34;&gt;GCP deployment UI&lt;/a&gt; or the default settings
+with the &lt;a href=&#34;/docs/gke/deploy/deploy-cli/&#34;&gt;CLI deployment&lt;/a&gt;. (If you want to
+use port forwarding, you must deploy Kubeflow on an existing Kubernetes
+cluster using the &lt;a href=&#34;/docs/started/k8s/kfctl-k8s-istio/&#34;&gt;&lt;code&gt;kfctl_k8s_istio&lt;/code&gt;
+configuration&lt;/a&gt;.)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;You&amp;rsquo;ve configured the Istio ingress to only accept
+HTTPS traffic on a specific domain or IP address.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;You&amp;rsquo;ve configured the Istio ingress to perform an authorization check
+(for example, using Cloud IAP or &lt;a href=&#34;https://github.com/dexidp/dex&#34;&gt;Dex&lt;/a&gt;).&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;You can access Kubeflow via &lt;code&gt;kubectl&lt;/code&gt; and port-forwarding as follows:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Install &lt;code&gt;kubectl&lt;/code&gt; if you haven&amp;rsquo;t already done so:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;If you&amp;rsquo;re using Kubeflow on GCP, run the following command on the command
+line: &lt;code&gt;gcloud components install kubectl&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Alternatively, follow the &lt;a href=&#34;https://kubernetes.io/docs/tasks/tools/install-kubectl/&#34;&gt;&lt;code&gt;kubectl&lt;/code&gt;
+installation guide&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Use the following command to set up port forwarding to the
+&lt;a href=&#34;https://istio.io/docs/tasks/traffic-management/ingress/ingress-control/&#34;&gt;Istio gateway&lt;/a&gt;.&lt;/p&gt;
+ &lt;pre&gt;&lt;code&gt;export NAMESPACE=istio-system
+kubectl port-forward -n ${NAMESPACE} svc/istio-ingressgateway 8080:80&lt;/code&gt;&lt;/pre&gt; 
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Access the central navigation dashboard at:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;http://localhost:8080/
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Depending on how you&amp;rsquo;ve configured Kubeflow, not all UIs work behind
+port-forwarding to the reverse proxy.&lt;/p&gt;
+&lt;p&gt;For some web applications, you need to configure the base URL on which
+the app is serving.&lt;/p&gt;
+&lt;p&gt;For example, if you deployed Kubeflow with an ingress serving at
+&lt;code&gt;https://example.mydomain.com&lt;/code&gt; and configured an application
+to be served at the URL &lt;code&gt;https://example.mydomain.com/myapp&lt;/code&gt;, then the
+app may not work when served on
+&lt;code&gt;https://localhost:8080/myapp&lt;/code&gt; because the paths do not match.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;next-steps&#34;&gt;Next steps&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Explore the &lt;a href=&#34;/docs/components/multi-tenancy/&#34;&gt;contributor management
+option&lt;/a&gt; where you
+can set up a single namespace for a shared deployment or configure
+multi-tenancy for your Kubeflow deployment.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;/docs/notebooks/setup/&#34;&gt;Set up your Jupyter notebooks&lt;/a&gt; in Kubeflow.&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Guide: Registration Flow</title>
+      <link>/guide/components/central-dash/registration-flow/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/guide/components/central-dash/registration-flow/</guid>
+      <description>
+        
+        
+        
+
+&lt;div class=&#34;alert alert-warning&#34; role=&#34;alert&#34;&gt;
+&lt;h4 class=&#34;alert-heading&#34;&gt;Out of date&lt;/h4&gt;
+This guide contains outdated information pertaining to Kubeflow 1.0. This guide
+needs to be updated for Kubeflow 1.1.
+&lt;/div&gt;
+
+&lt;p&gt;This guide is for Kubeflow users who are logging in to Kubeflow for the first
+time. The user may be the person who deployed Kubeflow, or another person who
+has permission to access the Kubeflow cluster and use Kubeflow.&lt;/p&gt;
+&lt;h2 id=&#34;introduction-to-namespaces&#34;&gt;Introduction to namespaces&lt;/h2&gt;
+&lt;p&gt;Depending on the setup of your Kubeflow cluster, you may need to create a
+&lt;em&gt;namespace&lt;/em&gt; when you first log in to Kubeflow. Namespaces are sometimes called
+&lt;em&gt;profiles&lt;/em&gt; or &lt;em&gt;workgroups&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Kubeflow prompts you to create a namespace under the following circumstances:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;For Kubeflow deployments that support multi-user isolation: Your username
+does not yet have an associated namespace with role bindings that give you
+administrative (owner) access to the namespace.&lt;/li&gt;
+&lt;li&gt;For Kubeflow deployments that support single-user isolation: The Kubeflow
+cluster has no namespace role bindings.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;If Kubeflow doesn&amp;rsquo;t prompt you to create a namespace, then your Kubeflow
+administrator may have created a namespace for you. You should be able to see
+the Kubeflow central dashboard and start using Kubeflow.&lt;/p&gt;
+&lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
+&lt;p&gt;Your Kubeflow administrator must perform the following steps:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Deploy Kubeflow to a Kubernetes cluster, by following the &lt;a href=&#34;/docs/started/getting-started/&#34;&gt;Kubeflow
+getting-started guide&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Give you access to the Kubernetes cluster. See the &lt;a href=&#34;/docs/components/multi-tenancy/getting-started/#onboarding-a-new-user&#34;&gt;guide to
+multi-tenancy&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;creating-your-namespace&#34;&gt;Creating your namespace&lt;/h2&gt;
+&lt;p&gt;If you don&amp;rsquo;t yet have a suitable namespace associated with your username,
+Kubeflow shows the following screen when you first log in:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/docs/images/auto-profile1.png&#34; 
+alt=&#34;Profile creation step 1&#34;
+class=&#34;mt-3 mb-3 border border-info rounded&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Click &lt;strong&gt;Start Setup&lt;/strong&gt; and follow the instructions on the screen to set up your
+namespace. The default name for your namespace is your username.&lt;/p&gt;
+&lt;p&gt;After creating the namespace, you should see the Kubeflow central dashboard,
+with your namespace available in the dropdown list at the top of the screen:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/docs/images/central-ui.png&#34;
+alt=&#34;Kubeflow central UI&#34;
+class=&#34;mt-3 mb-3 border border-info rounded&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;next-steps&#34;&gt;Next steps&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;/docs/notebooks/setup/&#34;&gt;Set up a Jupyter notebook&lt;/a&gt; in Kubeflow.&lt;/li&gt;
+&lt;li&gt;Read more about &lt;a href=&#34;/docs/components/multi-tenancy/&#34;&gt;multi-tenancy in Kubeflow&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

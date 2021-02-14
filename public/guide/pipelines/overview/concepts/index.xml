@@ -1,0 +1,294 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SKT Open Source – Concepts</title>
+    <link>/guide/pipelines/overview/concepts/</link>
+    <description>Recent content in Concepts on SKT Open Source</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	  <atom:link href="/guide/pipelines/overview/concepts/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Guide: Pipeline</title>
+      <link>/guide/pipelines/overview/concepts/pipeline/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/guide/pipelines/overview/concepts/pipeline/</guid>
+      <description>
+        
+        
+        &lt;p&gt;A &lt;em&gt;pipeline&lt;/em&gt; is a description of a machine learning (ML) workflow, including all
+of the &lt;a href=&#34;/docs/pipelines/overview/concepts/component/&#34;&gt;components&lt;/a&gt; in the workflow and how the components relate to each other in
+the form of a &lt;a href=&#34;/docs/pipelines/concepts/graph/&#34;&gt;graph&lt;/a&gt;. The pipeline
+configuration includes the definition of the inputs (parameters) required to run
+the pipeline and the inputs and outputs of each component.&lt;/p&gt;
+&lt;p&gt;When you run a pipeline, the system launches one or more Kubernetes Pods
+corresponding to the &lt;a href=&#34;/docs/pipelines/overview/concepts/step/&#34;&gt;steps&lt;/a&gt; (components) in your workflow (pipeline). The Pods
+start Docker containers, and the containers in turn start your programs.&lt;/p&gt;
+&lt;p&gt;After developing your pipeline, you can upload your pipeline using the Kubeflow Pipelines UI or the Kubeflow Pipelines SDK.&lt;/p&gt;
+&lt;h2 id=&#34;next-steps&#34;&gt;Next steps&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Read an &lt;a href=&#34;/docs/pipelines/pipelines-overview/&#34;&gt;overview of Kubeflow Pipelines&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Follow the &lt;a href=&#34;/docs/pipelines/pipelines-quickstart/&#34;&gt;pipelines quickstart guide&lt;/a&gt;
+to deploy Kubeflow and run a sample pipeline directly from the Kubeflow
+Pipelines UI.&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Guide: Component</title>
+      <link>/guide/pipelines/overview/concepts/component/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/guide/pipelines/overview/concepts/component/</guid>
+      <description>
+        
+        
+        &lt;p&gt;A &lt;em&gt;pipeline component&lt;/em&gt; is self-contained set of code that performs one step in
+the ML workflow (pipeline), such as data preprocessing, data transformation,
+model training, and so on. A component is analogous to a function, in that it
+has a name, parameters, return values, and a body.&lt;/p&gt;
+&lt;h2 id=&#34;component-code&#34;&gt;Component code&lt;/h2&gt;
+&lt;p&gt;The code for each component includes the following:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Client code:&lt;/strong&gt; The code that talks to endpoints to submit jobs. For example,
+code to talk to the Google Dataproc API to submit a Spark job.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Runtime code:&lt;/strong&gt; The code that does the actual job and usually runs in the
+cluster. For example, Spark code that transforms raw data into preprocessed
+data.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Note the naming convention for client code and runtime code—for a task
+named &amp;ldquo;mytask&amp;rdquo;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The &lt;code&gt;mytask.py&lt;/code&gt; program contains the client code.&lt;/li&gt;
+&lt;li&gt;The &lt;code&gt;mytask&lt;/code&gt; directory contains all the runtime code.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;component-definition&#34;&gt;Component definition&lt;/h2&gt;
+&lt;p&gt;A component specification in YAML format describes the component for the
+Kubeflow Pipelines system. A component definition has the following parts:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Metadata:&lt;/strong&gt; name, description, etc.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Interface:&lt;/strong&gt; input/output specifications (name, type, description, default
+value, etc).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Implementation:&lt;/strong&gt; A specification of how to run the component given a
+set of argument values for the component&amp;rsquo;s inputs. The implementation section
+also describes how to get the output values from the component once the
+component has finished running.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;For the complete definition of a component, see the
+&lt;a href=&#34;/docs/pipelines/reference/component-spec/&#34;&gt;component specification&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;containerizing-components&#34;&gt;Containerizing components&lt;/h2&gt;
+&lt;p&gt;You must package your component as a
+&lt;a href=&#34;https://docs.docker.com/get-started/&#34;&gt;Docker image&lt;/a&gt;. Components represent a
+specific program or entry point inside a container.&lt;/p&gt;
+&lt;p&gt;Each component in a pipeline executes independently. The components do not run
+in the same process and cannot directly share in-memory data. You must serialize
+(to strings or files) all the data pieces that you pass between the components
+so that the data can travel over the distributed network. You must then
+deserialize the data for use in the downstream component.&lt;/p&gt;
+&lt;h2 id=&#34;next-steps&#34;&gt;Next steps&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Read an &lt;a href=&#34;/docs/pipelines/pipelines-overview/&#34;&gt;overview of Kubeflow Pipelines&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Follow the &lt;a href=&#34;/docs/pipelines/pipelines-quickstart/&#34;&gt;pipelines quickstart guide&lt;/a&gt;
+to deploy Kubeflow and run a sample pipeline directly from the Kubeflow
+Pipelines UI.&lt;/li&gt;
+&lt;li&gt;Build your own
+&lt;a href=&#34;/docs/pipelines/sdk/build-component/&#34;&gt;component and pipeline&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Build a &lt;a href=&#34;/docs/pipelines/sdk/component-development/&#34;&gt;reusable component&lt;/a&gt; for
+sharing in multiple pipelines.&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Guide: Graph</title>
+      <link>/guide/pipelines/overview/concepts/graph/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/guide/pipelines/overview/concepts/graph/</guid>
+      <description>
+        
+        
+        &lt;p&gt;A &lt;em&gt;graph&lt;/em&gt; is a pictorial representation in the Kubeflow Pipelines UI of the
+runtime execution of a pipeline. The graph shows the steps that a pipeline run
+has executed or is executing, with arrows indicating the parent/child
+relationships between the pipeline components represented by each step. The
+graph is viewable as soon as the run begins. Each node within the graph
+corresponds to a step within the pipeline and is labeled accordingly.&lt;/p&gt;
+&lt;p&gt;The screenshot below shows an example of a pipeline graph:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/docs/images/pipelines-xgboost-graph.png&#34; 
+alt=&#34;XGBoost results on the pipelines UI&#34;
+class=&#34;mt-3 mb-3 border border-info rounded&#34;&gt;&lt;/p&gt;
+&lt;p&gt;At the top right of each node is an icon indicating its status: running,
+succeeded, failed, or skipped. (A node can be skipped when its
+parent contains a conditional clause.)&lt;/p&gt;
+&lt;h2 id=&#34;next-steps&#34;&gt;Next steps&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Read an &lt;a href=&#34;/docs/pipelines/pipelines-overview/&#34;&gt;overview of Kubeflow Pipelines&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Follow the &lt;a href=&#34;/docs/pipelines/pipelines-quickstart/&#34;&gt;pipelines quickstart guide&lt;/a&gt;
+to deploy Kubeflow and run a sample pipeline directly from the Kubeflow
+Pipelines UI.&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Guide: Experiment</title>
+      <link>/guide/pipelines/overview/concepts/experiment/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/guide/pipelines/overview/concepts/experiment/</guid>
+      <description>
+        
+        
+        &lt;p&gt;An &lt;em&gt;experiment&lt;/em&gt; is a workspace where you can try different configurations of
+your pipelines. You can use experiments to organize your runs into logical
+groups. Experiments can contain arbitrary runs, including
+&lt;a href=&#34;/docs/pipelines/concepts/run#recurring-run&#34;&gt;recurring runs&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;next-steps&#34;&gt;Next steps&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Read an &lt;a href=&#34;/docs/pipelines/pipelines-overview/&#34;&gt;overview of Kubeflow Pipelines&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Follow the &lt;a href=&#34;/docs/pipelines/pipelines-quickstart/&#34;&gt;pipelines quickstart guide&lt;/a&gt;
+to deploy Kubeflow and run a sample pipeline directly from the Kubeflow
+Pipelines UI.&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Guide: Run and Recurring Run</title>
+      <link>/guide/pipelines/overview/concepts/run/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/guide/pipelines/overview/concepts/run/</guid>
+      <description>
+        
+        
+        &lt;p&gt;A &lt;em&gt;run&lt;/em&gt; is a single execution of a pipeline. Runs comprise an immutable log of
+all experiments that you attempt, and are designed to be self-contained to allow
+for reproducibility. You can track the progress of a run by looking at its
+details page on the Kubeflow Pipelines UI, where you can see the runtime graph,
+output artifacts, and logs for each step in the run.&lt;/p&gt;
+&lt;p&gt;&lt;a id=recurring-run&gt;&lt;/a&gt;
+A &lt;em&gt;recurring run&lt;/em&gt;, or job in the Kubeflow Pipelines &lt;a href=&#34;https://github.com/kubeflow/pipelines/tree/06e4dc660498ce10793d566ca50b8d0425b39981/backend/api/go_http_client/job_client&#34;&gt;backend APIs&lt;/a&gt;, is a repeatable run of
+a pipeline. The configuration for a recurring run includes a copy of a pipeline
+with all parameter values specified and a
+&lt;a href=&#34;/docs/pipelines/concepts/run-trigger/&#34;&gt;run trigger&lt;/a&gt;.
+You can start a recurring run inside any experiment, and it will periodically
+start a new copy of the run configuration. You can enable/disable the recurring
+run from the Kubeflow Pipelines UI. You can also specify the maximum number of
+concurrent runs, to limit the number of runs launched in parallel. This can be
+helpful if the pipeline is expected to run for a long period of time and is
+triggered to run frequently.&lt;/p&gt;
+&lt;h2 id=&#34;next-steps&#34;&gt;Next steps&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Read an &lt;a href=&#34;/docs/pipelines/pipelines-overview/&#34;&gt;overview of Kubeflow Pipelines&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Follow the &lt;a href=&#34;/docs/pipelines/pipelines-quickstart/&#34;&gt;pipelines quickstart guide&lt;/a&gt;
+to deploy Kubeflow and run a sample pipeline directly from the Kubeflow
+Pipelines UI.&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Guide: Run Trigger</title>
+      <link>/guide/pipelines/overview/concepts/run-trigger/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/guide/pipelines/overview/concepts/run-trigger/</guid>
+      <description>
+        
+        
+        &lt;p&gt;A &lt;em&gt;run trigger&lt;/em&gt; is a flag that tells the system when a recurring run
+configuration spawns a new run. The following types of run trigger are
+available:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Periodic: for an interval-based scheduling of runs (for example: every 2 hours
+or every 45 minutes).&lt;/li&gt;
+&lt;li&gt;Cron: for specifying &lt;code&gt;cron&lt;/code&gt; semantics for scheduling runs.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;next-steps&#34;&gt;Next steps&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Read an &lt;a href=&#34;/docs/pipelines/pipelines-overview/&#34;&gt;overview of Kubeflow Pipelines&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Follow the &lt;a href=&#34;/docs/pipelines/pipelines-quickstart/&#34;&gt;pipelines quickstart guide&lt;/a&gt;
+to deploy Kubeflow and run a sample pipeline directly from the Kubeflow
+Pipelines UI.&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Guide: Step</title>
+      <link>/guide/pipelines/overview/concepts/step/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/guide/pipelines/overview/concepts/step/</guid>
+      <description>
+        
+        
+        &lt;p&gt;A &lt;em&gt;step&lt;/em&gt; is an execution of one of the components in the pipeline. The
+relationship between a step and its component is one of instantiation, much like
+the relationship between a run and its pipeline. In a complex pipeline,
+components can execute multiple times in loops, or conditionally after resolving
+an if/else like clause in the pipeline code.&lt;/p&gt;
+&lt;h2 id=&#34;next-steps&#34;&gt;Next steps&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Read an &lt;a href=&#34;/docs/pipelines/pipelines-overview/&#34;&gt;overview of Kubeflow Pipelines&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Follow the &lt;a href=&#34;/docs/pipelines/pipelines-quickstart/&#34;&gt;pipelines quickstart guide&lt;/a&gt;
+to deploy Kubeflow and run a sample pipeline directly from the Kubeflow
+Pipelines UI.&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Guide: Output Artifact</title>
+      <link>/guide/pipelines/overview/concepts/output-artifact/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/guide/pipelines/overview/concepts/output-artifact/</guid>
+      <description>
+        
+        
+        &lt;p&gt;An &lt;em&gt;output artifact&lt;/em&gt; is an output emitted by a pipeline component, which the
+Kubeflow Pipelines UI understands and can render as rich visualizations. It’s
+useful for pipeline components to include artifacts so that you can provide for
+performance evaluation, quick decision making for the run, or comparison across
+different runs. Artifacts also make it possible to understand how the pipeline’s
+various components work. An artifact can range from a plain textual view of the
+data to rich interactive visualizations.&lt;/p&gt;
+&lt;h2 id=&#34;next-steps&#34;&gt;Next steps&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Read an &lt;a href=&#34;/docs/pipelines/pipelines-overview/&#34;&gt;overview of Kubeflow Pipelines&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Follow the &lt;a href=&#34;/docs/pipelines/pipelines-quickstart/&#34;&gt;pipelines quickstart guide&lt;/a&gt;
+to deploy Kubeflow and run a sample pipeline directly from the Kubeflow
+Pipelines UI.&lt;/li&gt;
+&lt;li&gt;Read more about the available
+&lt;a href=&#34;/docs/pipelines/metrics/output-viewer/&#34;&gt;output viewers&lt;/a&gt;
+and how to provide the metadata to make use of the visualizations
+that the output viewers provide.&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

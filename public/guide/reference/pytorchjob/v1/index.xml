@@ -1,0 +1,306 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SKT Open Source – PyTorchJob v1</title>
+    <link>/guide/reference/pytorchjob/v1/</link>
+    <description>Recent content in PyTorchJob v1 on SKT Open Source</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	  <atom:link href="/guide/reference/pytorchjob/v1/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Guide: PyTorchJob</title>
+      <link>/guide/reference/pytorchjob/v1/pytorch/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/guide/reference/pytorchjob/v1/pytorch/</guid>
+      <description>
+        
+        
+        
+
+&lt;div class=&#34;alert alert-warning&#34; role=&#34;alert&#34;&gt;
+&lt;h4 class=&#34;alert-heading&#34;&gt;Out of date&lt;/h4&gt;
+This guide contains outdated information pertaining to Kubeflow 1.0. This guide
+needs to be updated for Kubeflow 1.1.
+&lt;/div&gt;
+
+&lt;p&gt;Packages:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;a href=&#34;#kubeflow.org&#34;&gt;kubeflow.org&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;kubeflow.org&#34;&gt;kubeflow.org&lt;/h2&gt;
+&lt;p&gt;
+&lt;p&gt;Package v1 is the v1 version of the API.&lt;/p&gt;
+&lt;/p&gt;
+Resource Types:
+&lt;ul&gt;&lt;li&gt;
+&lt;a href=&#34;#github.com%2fkubeflow%2fpytorch-operator%2fpkg%2fapis%2fpytorch%2fv1.PyTorchJob&#34;&gt;PyTorchJob&lt;/a&gt;
+&lt;/li&gt;&lt;/ul&gt;
+&lt;h3 id=&#34;github.com/kubeflow/pytorch-operator/pkg/apis/pytorch/v1.PyTorchJob&#34;&gt;PyTorchJob
+&lt;/h3&gt;
+&lt;p&gt;
+&lt;p&gt;Represents a PyTorchJob resource.&lt;/p&gt;
+&lt;/p&gt;
+&lt;div class=&#34;table-responsive&#34;&gt;&lt;table class=&#34;table table-bordered&#34;&gt;
+&lt;thead class=&#34;thead-light&#34;&gt;
+&lt;tr&gt;
+&lt;th&gt;Field&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;code&gt;apiVersion&lt;/code&gt;&lt;/br&gt;
+string&lt;/td&gt;
+&lt;td&gt;
+&lt;code&gt;
+kubeflow.org/v1
+&lt;/code&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;code&gt;kind&lt;/code&gt;&lt;/br&gt;
+string
+&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;PyTorchJob&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;code&gt;metadata&lt;/code&gt;&lt;/br&gt;
+&lt;em&gt;
+&lt;a href=&#34;https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.13/#objectmeta-v1-meta&#34;&gt;
+Kubernetes meta/v1.ObjectMeta
+&lt;/a&gt;
+&lt;/em&gt;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;p&gt;Standard Kubernetes object&amp;rsquo;s metadata.&lt;/p&gt;
+Refer to the Kubernetes API documentation for the fields of the
+&lt;code&gt;metadata&lt;/code&gt; field.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;code&gt;spec&lt;/code&gt;&lt;/br&gt;
+&lt;em&gt;
+&lt;a href=&#34;#github.com/kubeflow/pytorch-operator/pkg/apis/pytorch/v1.PyTorchJobSpec&#34;&gt;
+PyTorchJobSpec
+&lt;/a&gt;
+&lt;/em&gt;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;p&gt;Specification of the desired state of the PyTorchJob.&lt;/p&gt;
+&lt;br/&gt;
+&lt;br/&gt;
+&lt;div class=&#34;table-responsive&#34;&gt;&lt;table class=&#34;table table-bordered&#34;&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;code&gt;activeDeadlineSeconds&lt;/code&gt;&lt;/br&gt;
+&lt;em&gt;
+int64
+&lt;/em&gt;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;em&gt;(Optional)&lt;/em&gt;
+&lt;p&gt;Specifies the duration (in seconds) since startTime during which the job can remain active
+before it is terminated. Must be a positive integer.
+This setting applies only to pods where restartPolicy is OnFailure or Always.&lt;/p&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;code&gt;backoffLimit&lt;/code&gt;&lt;/br&gt;
+&lt;em&gt;
+int32
+&lt;/em&gt;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;em&gt;(Optional)&lt;/em&gt;
+&lt;p&gt;Number of retries before marking this job as failed.&lt;/p&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;code&gt;cleanPodPolicy&lt;/code&gt;&lt;/br&gt;
+&lt;em&gt;
+&lt;a href=&#34;/docs/reference/tfjob/v1/common/#CleanPodPolicy&#34;&gt;
+common/v1.CleanPodPolicy
+&lt;/a&gt;
+&lt;/em&gt;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;p&gt;Defines the policy for cleaning up pods after the PyTorchJob completes.
+Defaults to Running.&lt;/p&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;code&gt;ttlSecondsAfterFinished&lt;/code&gt;&lt;/br&gt;
+&lt;em&gt;
+int32
+&lt;/em&gt;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;p&gt;Defines the TTL for cleaning up finished PyTorchJobs (temporary
+before Kubernetes adds the cleanup controller).
+It may take extra ReconcilePeriod seconds for the cleanup, since
+reconcile gets called periodically.
+Defaults to infinite.&lt;/p&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;code&gt;pytorchReplicaSpecs&lt;/code&gt;&lt;/br&gt;
+&lt;em&gt;
+&lt;a href=&#34;/docs/reference/tfjob/v1/common/#ReplicaSpec&#34;&gt;
+map[github.com/kubeflow/pytorch-operator/pkg/apis/pytorch/v1.PyTorchReplicaType]*github.com/kubeflow/tf-operator/pkg/apis/common/v1.ReplicaSpec
+&lt;/a&gt;
+&lt;/em&gt;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;p&gt;A map of PyTorchReplicaType (type) to ReplicaSpec (value). Specifies the PyTorch cluster configuration.
+For example,
+{
+&amp;ldquo;Master&amp;rdquo;: PyTorchReplicaSpec,
+&amp;ldquo;Worker&amp;rdquo;: PyTorchReplicaSpec,
+}&lt;/p&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;code&gt;status&lt;/code&gt;&lt;/br&gt;
+&lt;em&gt;
+&lt;a href=&#34;/docs/reference/tfjob/v1/common/#JobStatus&#34;&gt;
+common/v1.JobStatus
+&lt;/a&gt;
+&lt;/em&gt;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;p&gt;Most recently observed status of the PyTorchJob.
+Read-only (modified by the system).&lt;/p&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;github.com/kubeflow/pytorch-operator/pkg/apis/pytorch/v1.PyTorchJobSpec&#34;&gt;PyTorchJobSpec
+&lt;/h3&gt;
+&lt;p&gt;
+(&lt;em&gt;Appears on:&lt;/em&gt;
+&lt;a href=&#34;#github.com%2fkubeflow%2fpytorch-operator%2fpkg%2fapis%2fpytorch%2fv1.PyTorchJob&#34;&gt;PyTorchJob&lt;/a&gt;)
+&lt;/p&gt;
+&lt;p&gt;
+&lt;p&gt;PyTorchJobSpec is a desired state description of the PyTorchJob.&lt;/p&gt;
+&lt;/p&gt;
+&lt;div class=&#34;table-responsive&#34;&gt;&lt;table class=&#34;table table-bordered&#34;&gt;
+&lt;thead class=&#34;thead-light&#34;&gt;
+&lt;tr&gt;
+&lt;th&gt;Field&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;code&gt;activeDeadlineSeconds&lt;/code&gt;&lt;/br&gt;
+&lt;em&gt;
+int64
+&lt;/em&gt;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;em&gt;(Optional)&lt;/em&gt;
+&lt;p&gt;Specifies the duration (in seconds) since startTime during which the job can remain active
+before it is terminated. Must be a positive integer.
+This setting applies only to pods where restartPolicy is OnFailure or Always.&lt;/p&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;code&gt;backoffLimit&lt;/code&gt;&lt;/br&gt;
+&lt;em&gt;
+int32
+&lt;/em&gt;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;em&gt;(Optional)&lt;/em&gt;
+&lt;p&gt;Number of retries before marking this job as failed.&lt;/p&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;code&gt;cleanPodPolicy&lt;/code&gt;&lt;/br&gt;
+&lt;em&gt;
+&lt;a href=&#34;/docs/reference/tfjob/v1/common/#CleanPodPolicy&#34;&gt;
+common/v1.CleanPodPolicy
+&lt;/a&gt;
+&lt;/em&gt;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;p&gt;Defines the policy for cleaning up pods after the PyTorchJob completes.
+Defaults to Running.&lt;/p&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;code&gt;ttlSecondsAfterFinished&lt;/code&gt;&lt;/br&gt;
+&lt;em&gt;
+int32
+&lt;/em&gt;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;p&gt;Defines the TTL for cleaning up finished PyTorchJobs (temporary
+before Kubernetes adds the cleanup controller).
+It may take extra ReconcilePeriod seconds for the cleanup, since
+reconcile gets called periodically.
+Defaults to infinite.&lt;/p&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;code&gt;pytorchReplicaSpecs&lt;/code&gt;&lt;/br&gt;
+&lt;em&gt;
+&lt;a href=&#34;/docs/reference/tfjob/v1/common/#ReplicaSpec&#34;&gt;
+map[github.com/kubeflow/pytorch-operator/pkg/apis/pytorch/v1.PyTorchReplicaType]*github.com/kubeflow/tf-operator/pkg/apis/common/v1.ReplicaSpec
+&lt;/a&gt;
+&lt;/em&gt;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;p&gt;A map of PyTorchReplicaType (type) to ReplicaSpec (value). Specifies the PyTorch cluster configuration.
+For example,
+{
+&amp;ldquo;Master&amp;rdquo;: PyTorchReplicaSpec,
+&amp;ldquo;Worker&amp;rdquo;: PyTorchReplicaSpec,
+}&lt;/p&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;github.com/kubeflow/pytorch-operator/pkg/apis/pytorch/v1.PyTorchReplicaType&#34;&gt;PyTorchReplicaType
+(&lt;code&gt;string&lt;/code&gt; alias)&lt;/p&gt;&lt;/h3&gt;
+&lt;p&gt;
+&lt;p&gt;PyTorchReplicaType is the type for PyTorchReplica. Can be one of &amp;ldquo;Master&amp;rdquo; or &amp;ldquo;Worker&amp;rdquo;.&lt;/p&gt;
+&lt;/p&gt;
+&lt;hr/&gt;
+&lt;p&gt;&lt;em&gt;
+Generated with &lt;code&gt;gen-crd-api-reference-docs&lt;/code&gt;
+on git commit &lt;code&gt;e775742&lt;/code&gt;.
+&lt;/em&gt;&lt;/p&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

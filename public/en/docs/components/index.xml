@@ -1,0 +1,322 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SKT Open Source – Components of Kubeflow</title>
+    <link>/en/docs/components/</link>
+    <description>Recent content in Components of Kubeflow on SKT Open Source</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	  <atom:link href="/en/docs/components/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: Central Dashboard</title>
+      <link>/en/docs/components/central-dash/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/en/docs/components/central-dash/</guid>
+      <description>
+        
+        
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Metadata</title>
+      <link>/en/docs/components/metadata/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/en/docs/components/metadata/</guid>
+      <description>
+        
+        
+        &lt;div class=&#34;alert alert-warning&#34; role=&#34;alert&#34;&gt;
+  &lt;h4 class=&#34;alert-heading&#34;&gt;Beta&lt;/h4&gt;
+  This Kubeflow component has &lt;b&gt;beta&lt;/b&gt; status. See the
+  &lt;a href=&#34;/docs/reference/version-policy/&#34;&gt;Kubeflow versioning policies&lt;/a&gt;.
+  The Kubeflow team is interested in your   
+  &lt;a href=&#34;https://github.com/kubeflow/metadata/issues&#34;&gt;feedback&lt;/a&gt;&lt;/h4&gt; 
+  about the usability of the feature.
+&lt;/div&gt;
+&lt;p&gt;The goal of the &lt;a href=&#34;https://github.com/kubeflow/metadata&#34;&gt;Metadata&lt;/a&gt; project is to
+help Kubeflow users understand and manage their machine learning (ML) workflows
+by tracking and managing the metadata that the workflows produce.&lt;/p&gt;
+&lt;p&gt;In this context, &lt;em&gt;metadata&lt;/em&gt; means information about executions (runs), models,
+datasets, and other artifacts. &lt;em&gt;Artifacts&lt;/em&gt; are the files and objects that form
+the inputs and outputs of the components in your ML workflow.&lt;/p&gt;
+&lt;h2 id=&#34;installing-the-metadata-component&#34;&gt;Installing the Metadata component&lt;/h2&gt;
+&lt;p&gt;Kubeflow v0.6.1 and later versions install the Metadata component by default.
+You can skip this section if you are running Kubeflow v0.6.1 or later.&lt;/p&gt;
+&lt;p&gt;If you want to install the latest version of the Metadata component or to
+install the component as an application in your Kubernetes cluster, follow these
+steps:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Download the Kubeflow manifests repository:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;git clone https://github.com/kubeflow/manifests
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Run the following commands to deploy the services of the Metadata component:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;cd manifests/metadata
+kustomize build overlays/db | kubectl apply -n kubeflow -f -
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;using-the-metadata-sdk-to-record-metadata&#34;&gt;Using the Metadata SDK to record metadata&lt;/h2&gt;
+&lt;p&gt;The Metadata project publishes a
+Python SDK (&lt;a href=&#34;https://kubeflow-metadata.readthedocs.io/en/latest/&#34;&gt;API reference&lt;/a&gt;, &lt;a href=&#34;https://github.com/kubeflow/metadata/tree/master/sdk/python&#34;&gt;source&lt;/a&gt;) that you can use to record your metadata.&lt;/p&gt;
+&lt;p&gt;Run the following command to install the Metadata SDK:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;pip install kubeflow-metadata
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;a id=&#34;demo-notebook&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;try-the-metadata-sdk-in-a-sample-jupyter-notebook&#34;&gt;Try the Metadata SDK in a sample Jupyter notebook&lt;/h3&gt;
+&lt;p&gt;You can find an example of how to use the Metadata SDK in this
+&lt;a href=&#34;https://github.com/kubeflow/metadata/blob/master/sdk/python/sample/demo.ipynb&#34;&gt;&lt;code&gt;demo&lt;/code&gt; notebook&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;To run the notebook in your Kubeflow cluster:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Follow the guide to
+&lt;a href=&#34;/docs/notebooks/setup/&#34;&gt;setting up your Jupyter notebooks in Kubeflow&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Go to the &lt;a href=&#34;https://github.com/kubeflow/metadata/blob/master/sdk/python/sample/demo.ipynb&#34;&gt;&lt;code&gt;demo&lt;/code&gt; notebook on GitHub&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Download the notebook code by opening the &lt;strong&gt;Raw&lt;/strong&gt; view of the file, then
+right-clicking on the content and saving the file locally as &lt;code&gt;demo.ipynb&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Go back to your Jupyter notebook server in the Kubeflow UI. (If you&amp;rsquo;ve
+moved away from the notebooks section in Kubeflow, click
+&lt;strong&gt;Notebook Servers&lt;/strong&gt; in the left-hand navigation panel to get back there.)&lt;/li&gt;
+&lt;li&gt;In the Jupyter notebook UI, click &lt;strong&gt;Upload&lt;/strong&gt; and follow the prompts to upload
+the &lt;code&gt;demo.ipynb&lt;/code&gt; notebook.&lt;/li&gt;
+&lt;li&gt;Click the notebook name (&lt;code&gt;demo.ipynb&lt;/code&gt;) to open the notebook in your Kubeflow
+cluster.&lt;/li&gt;
+&lt;li&gt;Run the steps in the notebook to install and use the Metadata SDK.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;When you have finished running through the steps in the &lt;code&gt;demo.ipynb&lt;/code&gt; notebook,
+you can view the resulting metadata on the Kubeflow UI:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Click &lt;strong&gt;Artifact Store&lt;/strong&gt; in the left-hand navigation panel on the Kubeflow
+UI.&lt;/li&gt;
+&lt;li&gt;On the &lt;strong&gt;Artifacts&lt;/strong&gt; screen you should see the following items:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;A &lt;strong&gt;model&lt;/strong&gt; metadata item with the name &lt;strong&gt;MNIST&lt;/strong&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;A &lt;strong&gt;metrics&lt;/strong&gt; metadata item with the name &lt;strong&gt;MNIST-evaluation&lt;/strong&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;A &lt;strong&gt;dataset&lt;/strong&gt; metadata item with the name &lt;strong&gt;mytable-dump&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;You can click the name of each item to view the details. See the section
+below about the &lt;a href=&#34;#metadata-ui&#34;&gt;Metadata UI&lt;/a&gt; for more details.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;learn-more-about-the-metadata-sdk&#34;&gt;Learn more about the Metadata SDK&lt;/h3&gt;
+&lt;p&gt;The Metadata SDK includes the following predefined types
+that you can use to describe your ML workflows:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://kubeflow-metadata.readthedocs.io/en/latest/source/md.html#kubeflow.metadata.metadata.DataSet&#34;&gt;&lt;code&gt;DataSet&lt;/code&gt;&lt;/a&gt;
+to capture metadata for a dataset that forms the input into or the output of
+a component in your workflow.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://kubeflow-metadata.readthedocs.io/en/latest/source/md.html#kubeflow.metadata.metadata.Execution&#34;&gt;&lt;code&gt;Execution&lt;/code&gt;&lt;/a&gt;
+to capture metadata for an execution (run) of your ML workflow.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://kubeflow-metadata.readthedocs.io/en/latest/source/md.html#kubeflow.metadata.metadata.Metrics&#34;&gt;&lt;code&gt;Metrics&lt;/code&gt;&lt;/a&gt;
+to capture metadata for the metrics used to evaluate an ML model.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://kubeflow-metadata.readthedocs.io/en/latest/source/md.html#kubeflow.metadata.metadata.Model&#34;&gt;&lt;code&gt;Model&lt;/code&gt;&lt;/a&gt;
+to capture metadata for an ML model that your workflow produces.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a id=&#34;metadata-watcher&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;using-metadata-watcher-to-record-metadata&#34;&gt;Using metadata watcher to record metadata&lt;/h2&gt;
+&lt;p&gt;Besides using the Python SDK to log metadata directly, you can add your own &lt;a href=&#34;https://github.com/kubeflow/metadata/blob/master/watcher/README.md&#34;&gt;metadata watcher&lt;/a&gt; to watch Kubernetes resource changes and save the metadata into the metadata service.&lt;/p&gt;
+&lt;p&gt;&lt;a id=&#34;metadata-ui&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;tracking-artifacts-on-the-metadata-ui&#34;&gt;Tracking artifacts on the Metadata UI&lt;/h2&gt;
+&lt;p&gt;You can view a list of logged artifacts and the details of each individual
+artifact in the &lt;strong&gt;Artifact Store&lt;/strong&gt; on the Kubeflow UI.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Go to Kubeflow in your browser. (If you haven&amp;rsquo;t yet opened the
+Kubeflow UI, find out how to &lt;a href=&#34;/docs/components/central-dash/overview/&#34;&gt;access the
+central dashboard&lt;/a&gt;.)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Click &lt;strong&gt;Artifact Store&lt;/strong&gt; in the left-hand navigation panel:
+&lt;img src=&#34;/docs/images/metadata-ui-option.png&#34; 
+alt=&#34;Metadata UI&#34;
+class=&#34;mt-3 mb-3 border border-info rounded&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The &lt;strong&gt;Artifacts&lt;/strong&gt; screen opens and displays a list of items for all the
+metadata events that your workflows have logged. You can click the name of
+each item to view the details.&lt;/p&gt;
+&lt;p&gt;The following examples show the items that appear when you run the
+&lt;code&gt;demo.ipynb&lt;/code&gt; notebook described &lt;a href=&#34;#demo-notebook&#34;&gt;above&lt;/a&gt;:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/docs/images/metadata-artifacts-list.png&#34; 
+alt=&#34;A list of metadata items&#34;
+class=&#34;mt-3 mb-3 border border-info rounded&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Example of &lt;strong&gt;model&lt;/strong&gt; metadata with the name &amp;ldquo;MNIST&amp;rdquo;:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/docs/images/metadata-model.png&#34; 
+alt=&#34;Model metadata for an example MNIST model&#34;
+class=&#34;mt-3 mb-3 border border-info rounded&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Example of &lt;strong&gt;metrics&lt;/strong&gt; metadata with the name &amp;ldquo;MNIST-evaluation&amp;rdquo;:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/docs/images/metadata-metrics.png&#34; 
+alt=&#34;Metrics metadata for an evaluation of an MNIST model&#34;
+class=&#34;mt-3 mb-3 border border-info rounded&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Example of &lt;strong&gt;dataset&lt;/strong&gt; metadata with the name &amp;ldquo;mytable-dump&amp;rdquo;:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/docs/images/metadata-dataset.png&#34; 
+alt=&#34;Dataset metadata&#34;
+class=&#34;mt-3 mb-3 border border-info rounded&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;grpc-backend&#34;&gt;GRPC backend&lt;/h2&gt;
+&lt;p&gt;The Kubeflow metadata deploys the &lt;a href=&#34;https://github.com/google/ml-metadata/blob/master/ml_metadata/proto/metadata_store_service.proto&#34;&gt;gRPC service&lt;/a&gt; of &lt;a href=&#34;https://github.com/google/ml-metadata/blob/master/g3doc/get_started.md&#34;&gt;ML Metadata
+(MLMD)&lt;/a&gt; to manage the metadata and relationships.&lt;/p&gt;
+&lt;p&gt;Kubeflow Metadata SDK saves and retrieves data via the gRPC service. Similarly, you can define your own metadata types to log and view metadata for your custom artifacts. For Python examples, you can check &lt;a href=&#34;https://pypi.org/project/ml-metadata/&#34;&gt;MLMD Python client&lt;/a&gt; and Kubeflow Metadata SDK &lt;a href=&#34;https://github.com/kubeflow/metadata/blob/master/sdk/python/kubeflow/metadata/metadata.py&#34;&gt;source code&lt;/a&gt;. For Go examples, you can check the &lt;a href=&#34;https://github.com/kubeflow/metadata/blob/master/watcher/handlers/metalogger.go&#34;&gt;source code&lt;/a&gt; of the &lt;a href=&#34;#metadata-watcher&#34;&gt;metadata watcher&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;next-steps&#34;&gt;Next steps&lt;/h2&gt;
+&lt;p&gt;Run the
+&lt;a href=&#34;https://github.com/kubeflow/examples/tree/master/xgboost_synthetic&#34;&gt;xgboost-synthetic notebook&lt;/a&gt;
+to build, train, and deploy an XGBoost model using Kubeflow Fairing and Kubeflow
+Pipelines with synthetic data. Examine the metadata output after running
+through the steps in the notebook.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Jupyter Notebooks</title>
+      <link>/en/docs/components/jupyter/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/en/docs/components/jupyter/</guid>
+      <description>
+        
+        
+        
+
+&lt;div class=&#34;alert alert-warning&#34; role=&#34;alert&#34;&gt;
+&lt;h4 class=&#34;alert-heading&#34;&gt;Out of date&lt;/h4&gt;
+This guide contains outdated information pertaining to Kubeflow 1.0. This guide
+needs to be updated for Kubeflow 1.1.
+&lt;/div&gt;
+
+&lt;p&gt;Your Kubeflow deployment includes support for spawning and managing Jupyter
+notebooks. See how to &lt;a href=&#34;/docs/notebooks/setup/&#34;&gt;set up your notebooks&lt;/a&gt; and
+&lt;a href=&#34;/docs/notebooks/&#34;&gt;explore more notebook functionality&lt;/a&gt;.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Fairing</title>
+      <link>/en/docs/components/fairing/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/en/docs/components/fairing/</guid>
+      <description>
+        
+        
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Feature Store</title>
+      <link>/en/docs/components/feature-store/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/en/docs/components/feature-store/</guid>
+      <description>
+        
+        
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Frameworks for Training</title>
+      <link>/en/docs/components/training/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/en/docs/components/training/</guid>
+      <description>
+        
+        
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Katib</title>
+      <link>/en/docs/components/katib/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/en/docs/components/katib/</guid>
+      <description>
+        
+        
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Pipelines</title>
+      <link>/en/docs/components/pipelines/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/en/docs/components/pipelines/</guid>
+      <description>
+        
+        
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Tools for Serving</title>
+      <link>/en/docs/components/serving/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/en/docs/components/serving/</guid>
+      <description>
+        
+        
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Multi-Tenancy in Kubeflow</title>
+      <link>/en/docs/components/multi-tenancy/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/en/docs/components/multi-tenancy/</guid>
+      <description>
+        
+        
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Miscellaneous</title>
+      <link>/en/docs/components/misc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/en/docs/components/misc/</guid>
+      <description>
+        
+        
+        
+      </description>
+    </item>
+    
+  </channel>
+</rss>

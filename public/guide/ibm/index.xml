@@ -1,0 +1,407 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SKT Open Source – Kubeflow on IBM Cloud</title>
+    <link>/guide/ibm/</link>
+    <description>Recent content in Kubeflow on IBM Cloud on SKT Open Source</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	  <atom:link href="/guide/ibm/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Guide: Create or access an IBM Cloud Kubernetes cluster</title>
+      <link>/guide/ibm/create-cluster/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/guide/ibm/create-cluster/</guid>
+      <description>
+        
+        
+        &lt;p&gt;This guide describes how to create a Kubernetes cluster with IBM Cloud Kubernetes Service.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.ibm.com/cloud/container-service/&#34;&gt;IBM Cloud Kubernetes Service&lt;/a&gt; provides powerful tools and services to help deploy highly available containerized apps in Kubernetes clusters and to automate, isolate, secure, manage, and monitor your workloads across zones or regions.&lt;/p&gt;
+&lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;IBMid&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;To get started, first go to &lt;a href=&#34;https://ibm.biz/Bdqgck&#34;&gt;IBM Cloud&lt;/a&gt; to create your &lt;code&gt;IBMid&lt;/code&gt; if you do not have one.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Installing the IBM Cloud CLI&lt;/p&gt;
+&lt;p&gt;Follow the instructions in this &lt;a href=&#34;https://cloud.ibm.com/docs/cli?topic=cli-getting-started#overview&#34;&gt;Getting started with the IBM Cloud CLI&lt;/a&gt; guide to install the IBM Cloud CLI.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Installing the IBM Cloud Kubernetes Service plug-in with the command&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;ibmcloud plugin install container-service
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Refer to this &lt;a href=&#34;https://cloud.ibm.com/docs/cli?topic=containers-cli-plugin-kubernetes-service-cli&#34;&gt;link&lt;/a&gt; for more info on IBM Cloud Kubernetes Service CLI.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Authenticating with IBM Cloud&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;ibmcloud login
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Use your registered email and password for your &lt;code&gt;IBMid&lt;/code&gt; to log in to IBM Cloud.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;connecting-to-an-existing-cluster&#34;&gt;Connecting to an existing cluster&lt;/h2&gt;
+&lt;p&gt;If you have an existing cluster, use it to install Kubeflow as far as it meets the minimum system requirement.&lt;/p&gt;
+&lt;p&gt;Get the Kubeconfig file:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;```shell
+ibmcloud ks cluster config --cluster $CLUSTER_NAME
+```
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;From here on, please see &lt;a href=&#34;/docs/ibm/deploy/install-kubeflow&#34;&gt;Install Kubeflow&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;create-and-setup-a-new-cluster&#34;&gt;Create and setup a new cluster&lt;/h2&gt;
+&lt;p&gt;Follow these steps to create and setup a new [IBM Cloud Kubernetes Service(IKS) cluster:&lt;/p&gt;
+&lt;h3 id=&#34;setting-environment-variables&#34;&gt;Setting environment variables&lt;/h3&gt;
+&lt;p&gt;Choose the region and the worker node provider for your cluster, and set the environment variables.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#204a87&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;KUBERNERTES_VERSION&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;1.16
+&lt;span style=&#34;color:#204a87&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;CLUSTER_ZONE&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;dal13
+&lt;span style=&#34;color:#204a87&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;WORKER_NODE_PROVIDER&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;classic
+&lt;span style=&#34;color:#204a87&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;CLUSTER_NAME&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;kubeflow
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;KUBERNETES_VERSION&lt;/code&gt; specifies the Kubernetes version for the cluster. Run &lt;code&gt;ibmcloud ks versions&lt;/code&gt; to see the supported Kubernetes versions. If this environment variable is not set, the cluster will be created with the default version set by IBM Cloud Kubernetes Service. Refer to the &lt;a href=&#34;https://www.kubeflow.org/docs/started/k8s/overview/#minimum-system-requirements&#34;&gt;Minimum system requirements&lt;/a&gt; and choose a Kubernetes version compatible with the Kubeflow release to be deployed.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;CLUSTER_ZONE&lt;/code&gt; identifies the regions or location where CLUSTER_NAME will be created. Run &lt;code&gt;ibmcloud ks locations&lt;/code&gt; to list supported IBM Cloud Kubernetes Service locations. For example, choose &lt;code&gt;dal13&lt;/code&gt; to create CLUSTER_NAME in the Dallas (US) data center.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;WORKER_NODE_PROVIDER&lt;/code&gt; specifies the kind of IBM Cloud infrastructure on which the Kubernetes worker nodes will be created. The &lt;code&gt;classic&lt;/code&gt; type supports worker nodes with GPUs. There are other worker nodes providers including &lt;code&gt;vpc-classic&lt;/code&gt; and &lt;code&gt;vpc-gen2&lt;/code&gt; where zone names and worker flavors will be different. Please use &lt;code&gt;ibmcloud ks zones --provider ${WORKER_NODE_PROVIDER}&lt;/code&gt; to list zone names if using other providers and set the &lt;code&gt;CLUSTER_ZONE&lt;/code&gt; accordingly.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;CLUSTER_NAME&lt;/code&gt; must be lowercase and unique among any other Kubernetes
+clusters in the specified &lt;code&gt;${CLUSTER_ZONE}&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Notice&lt;/strong&gt;: If choosing other Kubernetes worker nodes providers than &lt;code&gt;classic&lt;/code&gt;, refer to the IBM Cloud official document &lt;a href=&#34;https://cloud.ibm.com/docs/containers?topic=containers-clusters&#34;&gt;Creating clusters&lt;/a&gt; for detailed steps.&lt;/p&gt;
+&lt;h3 id=&#34;choosing-a-worker-node-flavor&#34;&gt;Choosing a worker node flavor&lt;/h3&gt;
+&lt;p&gt;The worker nodes flavor name varies from zones and providers. Run &lt;code&gt;ibmcloud ks flavors --zone ${CLUSTER_ZONE} --provider ${WORKER_NODE_PROVIDER}&lt;/code&gt; to list available flavors. For example, following are some flavors supported in the &lt;code&gt;dal13&lt;/code&gt; zone with &lt;code&gt;classic&lt;/code&gt; worker node provider.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;$ ibmcloud ks flavors --zone dal13 --provider classic
+OK
+For more information about these flavors, see &amp;#39;https://ibm.biz/flavors&amp;#39;
+Name                      Cores   Memory   Network Speed   OS             Server Type   Storage      Secondary Storage   Provider
+b2c.16x64                 16      64GB     1000Mbps        UBUNTU_16_64   virtual       25GB         100GB               classic
+b2c.32x128                32      128GB    1000Mbps        UBUNTU_16_64   virtual       25GB         100GB               classic
+b2c.4x16                  4       16GB     1000Mbps        UBUNTU_16_64   virtual       25GB         100GB               classic
+b2c.56x242                56      242GB    1000Mbps        UBUNTU_16_64   virtual       25GB         100GB               classic
+b2c.8x32                  8       32GB     1000Mbps        UBUNTU_16_64   virtual       25GB         100GB               classic
+b3c.16x64                 16      64GB     1000Mbps        UBUNTU_18_64   virtual       25GB         100GB               classic
+b3c.32x128                32      128GB    1000Mbps        UBUNTU_18_64   virtual       25GB         100GB               classic
+b3c.4x16                  4       16GB     1000Mbps        UBUNTU_18_64   virtual       25GB         100GB               classic
+b3c.56x242                56      242GB    1000Mbps        UBUNTU_18_64   virtual       25GB         100GB               classic
+b3c.8x32                  8       32GB     1000Mbps        UBUNTU_18_64   virtual       25GB         100GB               classic
+...
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Choose a flavor that will work for your applications. For the purpose of the Kubeflow deployment, the recommended configuration for a cluster is at least 8 vCPU cores with 16GB memory. Hence you can either choose the &lt;code&gt;b3c.8x32&lt;/code&gt; flavor to create a one-worker-node cluster or choose the &lt;code&gt;b3c.4x16&lt;/code&gt; flavor to create a two-worker-node cluster. Keep in mind that you can always scale the cluster by adding more worker nodes should your application scales up.&lt;/p&gt;
+&lt;p&gt;Now set the environment variable with the flavor you choose.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#204a87&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;WORKER_NODE_FLAVOR&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;b3c.4x16
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;creating-a-ibm-cloud-kubernetes-cluster&#34;&gt;Creating a IBM Cloud Kubernetes cluster&lt;/h3&gt;
+&lt;p&gt;Run with the following command to create a cluster:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;ibmcloud ks cluster create &lt;span style=&#34;color:#4e9a06&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;WORKER_NODE_PROVIDER&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&lt;/span&gt;  --name &lt;span style=&#34;color:#4e9a06&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;CLUSTER_NAME&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&lt;/span&gt;  --zone&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;CLUSTER_ZONE&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&lt;/span&gt;  --version&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;KUBERNETES_VERSION&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&lt;/span&gt;  --flavor &lt;span style=&#34;color:#4e9a06&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;WORKER_NODE_FLAVOR&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&lt;/span&gt;  --workers&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Replace the &lt;code&gt;workers&lt;/code&gt; parameter above with the desired number of worker nodes.&lt;/p&gt;
+&lt;p&gt;Note: If you&amp;rsquo;re starting in a fresh account with no public and private VLANs, they are created automatically for you when creating a Kubernetes cluster with worker nodes provider &lt;code&gt;classic&lt;/code&gt; for the first time. If you already have VLANs configured in your account, retrieve them via &lt;code&gt;ibmcloud ks vlans --zone ${CLUSTER_ZONE}&lt;/code&gt; and include the public and private VLAN ids (set in the &lt;code&gt;PUBLIC_VLAN_ID&lt;/code&gt; and &lt;code&gt;PRIVATE_VLAN_ID&lt;/code&gt; environment variables) in the command, for example:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;ibmcloud ks cluster create &lt;span style=&#34;color:#4e9a06&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;WORKER_NODE_PROVIDER&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&lt;/span&gt;  --name&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;$CLUSTER_NAME&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&lt;/span&gt;  --zone&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;$CLUSTER_ZONE&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&lt;/span&gt;  --version&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;KUBERNETES_VERSION&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&lt;/span&gt;  --flavor &lt;span style=&#34;color:#4e9a06&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;WORKER_NODE_FLAVOR&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&lt;/span&gt;  --workers&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&lt;/span&gt;  --private-vlan &lt;span style=&#34;color:#4e9a06&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;PRIVATE_VLAN_ID&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&lt;/span&gt;  --public-vlan &lt;span style=&#34;color:#4e9a06&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;PUBLIC_VLAN_ID&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;}&lt;/span&gt; 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Wait until the cluster is deployed and configured. It can take a while for the cluster to be ready. Run with following command to periodically check the state of your cluster. Your cluster is ready when the state is &lt;code&gt;normal&lt;/code&gt;.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;ibmcloud ks clusters --provider &lt;span style=&#34;color:#4e9a06&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;WORKER_NODE_PROVIDER&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;grep &lt;span style=&#34;color:#4e9a06&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;CLUSTER_NAME&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;awk &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;{print &amp;#34;Name:&amp;#34;$1&amp;#34;\tState:&amp;#34;$3}&amp;#39;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;verifying-the-cluster&#34;&gt;Verifying the cluster&lt;/h3&gt;
+&lt;p&gt;To use the created cluster, switch the Kubernetes context to point to the cluster with the command&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;ibmcloud ks cluster config --cluster &lt;span style=&#34;color:#4e9a06&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;CLUSTER_NAME&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Make sure all worker nodes are up with the command below&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;kubectl get nodes
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;and make sure all the nodes are in &lt;code&gt;Ready&lt;/code&gt; state.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Guide: Kubeflow Deployment on IBM Cloud</title>
+      <link>/guide/ibm/deploy/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/guide/ibm/deploy/</guid>
+      <description>
+        
+        
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>Guide: Pipelines on IBM Cloud Kubernetes Service (IKS)</title>
+      <link>/guide/ibm/pipelines/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/guide/ibm/pipelines/</guid>
+      <description>
+        
+        
+        &lt;p&gt;By default, Kubeflow Pipelines on IBM Cloud are running with the Tekton backend. In this guide you&amp;rsquo;ll learn how to use the Kubeflow Pipelines with the Tekton backend &lt;a href=&#34;https://github.com/kubeflow/kfp-tekton&#34;&gt;(kfp-tekton)&lt;/a&gt;. This assumes you have deployed &lt;a href=&#34;https://www.kubeflow.org/docs/ibm/deploy/&#34;&gt;Kubeflow on IBM Cloud using the instructions on this website&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;You can also do a &lt;a href=&#34;https://github.com/kubeflow/kfp-tekton/blob/master/guides/kfp_tekton_install.md#standalone-kubeflow-pipelines-with-tekton-backend-deployment&#34;&gt;standalone installation of Kubeflow Pipelines with Tekton&lt;/a&gt; if you don&amp;rsquo;t want whole of Kubeflow.&lt;/p&gt;
+&lt;img src=&#34;/docs/ibm/kfp-tekton.png&#34; alt=&#34;KFP-Tekton&#34;&gt;
+&lt;p&gt;In this tutorial, we use the below single step pipeline as our example&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;kfp&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;dsl&lt;/span&gt;
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;echo_op&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;():&lt;/span&gt;
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;dsl&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;ContainerOp&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;
+        &lt;span style=&#34;color:#000&#34;&gt;name&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;echo&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+        &lt;span style=&#34;color:#000&#34;&gt;image&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;busybox&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+        &lt;span style=&#34;color:#000&#34;&gt;command&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;sh&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;-c&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;],&lt;/span&gt;
+        &lt;span style=&#34;color:#000&#34;&gt;arguments&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;echo &amp;#34;Got scheduled&amp;#34;&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;]&lt;/span&gt;
+    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
+
+&lt;span style=&#34;color:#5c35cc;font-weight:bold&#34;&gt;@dsl.pipeline&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;
+    &lt;span style=&#34;color:#000&#34;&gt;name&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;echo&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+    &lt;span style=&#34;color:#000&#34;&gt;description&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;echo pipeline&amp;#39;&lt;/span&gt;
+&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;echo_pipeline&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;
+&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;):&lt;/span&gt;
+    &lt;span style=&#34;color:#000&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;echo_op&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;declare-the-python-client-for-kubeflow-pipelines&#34;&gt;Declare the Python Client for Kubeflow Pipelines&lt;/h1&gt;
+&lt;h2 id=&#34;1-single-user-kubeflow-pipelines-deployment-with-the-sdk&#34;&gt;1. Single-user Kubeflow Pipelines deployment with the SDK&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;You will be using the Kubeflow Pipelines with Tekton SDK (&lt;a href=&#34;https://pypi.org/project/kfp-tekton/&#34;&gt;&lt;code&gt;kfp-tekton&lt;/code&gt;&lt;/a&gt;) v0.4.0 or above.&lt;/li&gt;
+&lt;li&gt;If you have deployed Kubeflow on IBM Cloud using the
+&lt;a href=&#34;https://raw.githubusercontent.com/kubeflow/manifests/v1.2-branch/kfdef/kfctl_ibm.v1.2.0.yaml&#34;&gt;&lt;code&gt;kfctl_ibm.v1.2.0.yaml&lt;/code&gt;&lt;/a&gt;
+manifest you can configure (&lt;a href=&#34;https://pypi.org/project/kfp-tekton/&#34;&gt;&lt;code&gt;kfp-tekton&lt;/code&gt;&lt;/a&gt;) SDK for a single user as follows:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;kfp_tekton&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;TektonClient&lt;/span&gt;
+
+&lt;span style=&#34;color:#000&#34;&gt;KUBEFLOW_PUBLIC_ENDPOINT_URL&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;http://&amp;lt;Kubeflow_public_endpoint_URL&amp;gt;&amp;#39;&lt;/span&gt;
+&lt;span style=&#34;color:#000&#34;&gt;KUBEFLOW_PROFILE_NAME&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#3465a4&#34;&gt;None&lt;/span&gt;
+&lt;span style=&#34;color:#000&#34;&gt;client&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;TektonClient&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;host&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;KUBEFLOW_PUBLIC_ENDPOINT_URL&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;2-authenticating-multi-user-kubeflow-pipelines-with-the-sdk&#34;&gt;2. Authenticating multi-user Kubeflow Pipelines with the SDK&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;You will be using the Kubeflow Pipelines SDK (&lt;a href=&#34;https://pypi.org/project/kfp-tekton/&#34;&gt;&lt;code&gt;kfp-tekton&lt;/code&gt;&lt;/a&gt;) v0.4.0 or above.&lt;/li&gt;
+&lt;li&gt;Note that this feature is available with multi-user, auth-enabled Kubeflow installation deployed from the &lt;a href=&#34;https://raw.githubusercontent.com/kubeflow/manifests/v1.2-branch/kfdef/kfctl_ibm_multi_user.v1.2.0.yaml&#34;&gt;&lt;code&gt;kfctl_ibm_multi_user.v1.2.0.yaml&lt;/code&gt;&lt;/a&gt;
+manifest.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt;: You&amp;rsquo;re highly recommended enabling HTTPS for the public endpoint of Kubeflow because this method transports sensitive information like session cookie values over edge network.&lt;/p&gt;
+&lt;p&gt;It requires authentication via the public endpoint of Kubeflow deployment when using the Kubeflow Pipelines multi-user feature with Pipelines SDK.&lt;/p&gt;
+&lt;p&gt;You need to provide the following three variables if you&amp;rsquo;re using an in-cluster Jupyter notebook or a remote client machine:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;KUBEFLOW_PUBLIC_ENDPOINT_URL&lt;/code&gt; - Kubeflow public endpoint URL. You can obtain it from command &lt;code&gt;ibmcloud ks nlb-dns ls --cluster &amp;lt;your-cluster-name&amp;gt;&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;SESSION_COOKIE&lt;/code&gt; - A session cookie starts with &lt;code&gt;authservice_session=&lt;/code&gt;. You can obtain it from your browser after authenticated from Kubeflow UI. Notice that this session cookie expires in 24 hours, so you need to obtain it again after cookie expired.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;KUBEFLOW_PROFILE_NAME&lt;/code&gt; - Your Kubeflow profile name&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Once you provide the three variables, the SDK can use the following Python code to list all your Kubeflow Pipelines experiments:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;kfp_tekton&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;TektonClient&lt;/span&gt;
+
+&lt;span style=&#34;color:#000&#34;&gt;KUBEFLOW_PUBLIC_ENDPOINT_URL&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;https://xxxx.&amp;lt;region-name&amp;gt;.containers.appdomain.cloud&amp;#39;&lt;/span&gt;
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# this session cookie looks like &amp;#34;authservice_session=xxxxxxx&amp;#34;&lt;/span&gt;
+&lt;span style=&#34;color:#000&#34;&gt;SESSION_COOKIE&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;authservice_session=xxxxxxx&amp;#39;&lt;/span&gt;
+&lt;span style=&#34;color:#000&#34;&gt;KUBEFLOW_PROFILE_NAME&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;&amp;lt;your-profile-name&amp;gt;&amp;#39;&lt;/span&gt;
+
+&lt;span style=&#34;color:#000&#34;&gt;client&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;TektonClient&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;
+    &lt;span style=&#34;color:#000&#34;&gt;host&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;f&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;{KUBEFLOW_PUBLIC_ENDPOINT_URL}/pipeline&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+    &lt;span style=&#34;color:#000&#34;&gt;cookies&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;SESSION_COOKIE&lt;/span&gt;
+&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
+
+&lt;span style=&#34;color:#000&#34;&gt;experiments&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;client&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;list_experiments&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;namespace&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;KUBEFLOW_PROFILE_NAME&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Pipelines components like experiments and runs are isolated by Kubeflow profiles. A Kubeflow user can only see Pipelines experiments and runs belonging to this user&amp;rsquo;s Kubeflow profile.&lt;/p&gt;
+&lt;h1 id=&#34;upload-pipelines&#34;&gt;Upload pipelines&lt;/h1&gt;
+&lt;p&gt;Once you have declared the Python client, your Kubeflow pipelines can be uploaded using Python.&lt;/p&gt;
+&lt;p&gt;Run the following code inside a Python session to upload the pipelines. This example shows different versions of the pipeline using the Python client.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;os&lt;/span&gt;
+
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Initial version of the compiled pipeline&lt;/span&gt;
+&lt;span style=&#34;color:#000&#34;&gt;pipeline_file_path&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;echo_pipeline.yaml&amp;#39;&lt;/span&gt;
+&lt;span style=&#34;color:#000&#34;&gt;pipeline_name&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;echo_pipeline&amp;#39;&lt;/span&gt;
+
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# For the purpose of this tutorial, we will be using the same pipeline for both version.&lt;/span&gt;
+&lt;span style=&#34;color:#000&#34;&gt;pipeline_version_file_path&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;echo_pipeline.yaml&amp;#39;&lt;/span&gt;
+&lt;span style=&#34;color:#000&#34;&gt;pipeline_version_name&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;new_echo_pipeline&amp;#39;&lt;/span&gt;
+
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Upload initial version of the pipeline&lt;/span&gt;
+&lt;span style=&#34;color:#000&#34;&gt;pipeline_file&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;os&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;path&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;join&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;pipeline_file_path&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
+&lt;span style=&#34;color:#000&#34;&gt;pipeline&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;client&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;pipeline_uploads&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;upload_pipeline&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;pipeline_file&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;name&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;pipeline_name&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
+
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Upload new version of the pipeline&lt;/span&gt;
+&lt;span style=&#34;color:#000&#34;&gt;pipeline_version_file&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;os&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;path&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;join&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;pipeline_version_file_path&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
+&lt;span style=&#34;color:#000&#34;&gt;pipeline_version&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;client&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;pipeline_uploads&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;upload_pipeline_version&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;pipeline_version_file&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+                                                                   &lt;span style=&#34;color:#000&#34;&gt;name&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;pipeline_version_name&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+                                                                   &lt;span style=&#34;color:#000&#34;&gt;pipelineid&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;pipeline&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;id&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;run-pipelines-from-the-sdk&#34;&gt;Run pipelines from the SDK&lt;/h1&gt;
+&lt;p&gt;The &lt;code&gt;TektonClient&lt;/code&gt; can run pipelines using one of the below sources:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;#run-pipelines-from-the-python-dsl-source-code&#34;&gt;Python DSL source code&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#run-pipelines-from-the-compiled-pipeline-file&#34;&gt;Compiled pipeline file&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#run-pipelines-from-the-list-of-uploaded-pipelines&#34;&gt;Uploaded pipelines on KFP engine&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;run-pipelines-from-the-python-dsl-source-code&#34;&gt;Run pipelines from the Python DSL source code&lt;/h2&gt;
+&lt;p&gt;To learn about executing pipelines using the Python DSL source code, try the code below in a Python session using the &lt;code&gt;echo_pipeline&lt;/code&gt; example.
+The &lt;code&gt;create_run_from_pipeline_func&lt;/code&gt; takes the DSL source code to compile and run it directly using the Kubeflow pipeline API without
+uploading it to the pipeline list. This method is recommended if you are doing quick experiments without version control.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# You can overwrite the pipeline default parameters by providing a dictionary of key-value arguments.&lt;/span&gt;
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# If you don&amp;#39;t want to overwrite the default parameters, then define the arguments as an empty dictionary.&lt;/span&gt;
+&lt;span style=&#34;color:#000&#34;&gt;arguments&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{}&lt;/span&gt;
+
+&lt;span style=&#34;color:#000&#34;&gt;client&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;create_run_from_pipeline_func&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;echo_pipeline&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;arguments&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;arguments&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;namespace&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;KUBEFLOW_PROFILE_NAME&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;run-pipelines-from-the-compiled-pipeline-file&#34;&gt;Run pipelines from the compiled pipeline file&lt;/h2&gt;
+&lt;p&gt;Alternatively, you can also run the pipeline directly using a pre-compiled file.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#000&#34;&gt;EXPERIMENT_NAME&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;Demo Experiments&amp;#39;&lt;/span&gt;
+&lt;span style=&#34;color:#000&#34;&gt;experiment&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;client&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;create_experiment&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;name&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;EXPERIMENT_NAME&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;namespace&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;KUBEFLOW_PROFILE_NAME&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
+&lt;span style=&#34;color:#000&#34;&gt;run&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;client&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;run_pipeline&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;experiment&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;id&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;echo-pipeline&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;echo_pipeline.yaml&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;run-pipelines-from-the-list-of-uploaded-pipelines&#34;&gt;Run pipelines from the list of uploaded pipelines&lt;/h2&gt;
+&lt;p&gt;Similarly, you can also run the pipeline from the list of uploaded pipelines using the same &lt;code&gt;run_pipeline&lt;/code&gt; function.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#000&#34;&gt;EXPERIMENT_NAME&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;Demo Experiments&amp;#39;&lt;/span&gt;
+&lt;span style=&#34;color:#000&#34;&gt;experiment&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;client&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;create_experiment&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;name&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;EXPERIMENT_NAME&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;namespace&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;KUBEFLOW_PROFILE_NAME&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
+
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Find the pipeline ID that you want to use.&lt;/span&gt;
+&lt;span style=&#34;color:#000&#34;&gt;client&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;list_pipelines&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt;
+
+&lt;span style=&#34;color:#000&#34;&gt;run&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;client&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;run_pipeline&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;experiment&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;id&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;pipeline_id&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;925415d5-18e9-4e08-b57f-3b06e3e54648&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;job_name&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;echo_pipeline_run&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+      </description>
+    </item>
+    
+    <item>
+      <title>Guide: Using IBM Cloud Container Registry (ICR)</title>
+      <link>/guide/ibm/using-icr/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/guide/ibm/using-icr/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Install and configure the &lt;a href=&#34;https://cloud.ibm.com/docs/cli?topic=cli-getting-started&#34;&gt;IBM Cloud CLI&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Install the CLI plug-in for the IBM Cloud Container Registry by running the command &lt;code&gt;ibmcloud plugin install container-registry&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Create a namespace in ICR with the command &lt;code&gt;ibmcloud cr namespace-add &amp;lt;my_namespace&amp;gt;&lt;/code&gt;, replace &lt;code&gt;&amp;lt;my_namespace&amp;gt;&lt;/code&gt; with your preferred name.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt;: The &lt;a href=&#34;https://cloud.ibm.com/docs/Registry?topic=Registry-getting-started#gs_registry_namespace_add&#34;&gt;ICR namespace&lt;/a&gt; is different from the Kubeflow Profile namespace. The ICR namespace is used to group container images stored in ICR, while a &lt;a href=&#34;/docs/components/multi-tenancy/overview/&#34;&gt;Kubeflow Profile&lt;/a&gt; namespace is a group of all Kubernetes clusters owned by a user.&lt;/p&gt;
+&lt;h2 id=&#34;image-pull-secret&#34;&gt;Image pull secret&lt;/h2&gt;
+&lt;p&gt;As a Kubernetes cluster uses the Secret of &lt;code&gt;docker-registry&lt;/code&gt; type to authenticate with a container registry to pull a private image, it needs an image pull secret to pull container images from IBM Cloud Container Registry. You can use the default image pull secret set up by the cluster or your account&amp;rsquo;s IAM API key.&lt;/p&gt;
+&lt;h3 id=&#34;using-a-default-image-pull-secret&#34;&gt;Using a default image pull secret&lt;/h3&gt;
+&lt;p&gt;By default, the IBM Cloud Kubernetes cluster is set up to pull images from only your account&amp;rsquo;s namespace in IBM Cloud Container Registry by using the secret &lt;code&gt;all-icr-io&lt;/code&gt; in the &lt;code&gt;default&lt;/code&gt; namespace. A cluster admin can copy this secret to any Kubernetes namespace used as Kubeflow profile. For example, run below command to copy the secret &lt;code&gt;all-icr-io&lt;/code&gt; to the &lt;code&gt;anonymous&lt;/code&gt; namespace:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;kubectl get secret all-icr-io -n default -o yaml \
+| sed &#39;s/namespace: default/namespace: anonymous/g&#39; \
+| kubectl -n anonymous create -f -
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Once this secret is ready in your Kubeflow profile, a data scientist can use it to pull container images from ICR.&lt;/p&gt;
+&lt;p&gt;See details and FAQs from the official guide &lt;a href=&#34;https://cloud.ibm.com/docs/containers?topic=containers-registry&#34;&gt;Setting up an image registry&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;getting-an-iam-api-key&#34;&gt;Getting an IAM API Key&lt;/h3&gt;
+&lt;p&gt;You will need an IBM Cloud IAM API Key to work with ICR if you:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Have no access to the default image pull secret &lt;code&gt;all-icr-io&lt;/code&gt; from the &lt;code&gt;default&lt;/code&gt; namespace.&lt;/li&gt;
+&lt;li&gt;Need to access container images in other IBM Cloud accounts.&lt;/li&gt;
+&lt;li&gt;Need customized IAM policy by using a separate IAM service ID.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;If you don&amp;rsquo;t have an IBM Cloud IAM API Key, follow the official guide &lt;a href=&#34;https://cloud.ibm.com/docs/account?topic=account-userapikey#create_user_key&#34;&gt;Create an API Key&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Once you get your IBM Cloud IAM API Key, run the following command:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;kubectl -n &amp;lt;my_namespace&amp;gt; create secret docker-registry &amp;lt;secret_name&amp;gt; \
+--docker-server=&amp;lt;registry_domain_name&amp;gt; \
+--docker-username=iamapikey \
+--docker-password=&amp;lt;ibm_cloud_iam_api_key&amp;gt; \
+--docker-email=&amp;lt;docker_email&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;strong&gt;Notes&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;my_namespace&amp;gt;&lt;/code&gt;: your namespace to use with ICR to create an image pull secret.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;ibm_cloud_iam_api_key&amp;gt;&lt;/code&gt;: your IBM Cloud API Key.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;secret_name&amp;gt;&lt;/code&gt;: a unique name for the pull image secret, such as &lt;code&gt;us-icr-io&lt;/code&gt;, for example.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;registry_domain_name&amp;gt;&lt;/code&gt;: the image registry where your registry namespace is set up. Use regional domain name when storing container images in specific region, such as &lt;code&gt;us.icr.io&lt;/code&gt; when using region &lt;code&gt;en-us&lt;/code&gt; and &lt;code&gt;uk.icr.io&lt;/code&gt; when using region &lt;code&gt;eu-gb&lt;/code&gt;. See full list of regional domain names from the &lt;a href=&#34;https://cloud.ibm.com/docs/Registry?topic=Registry-registry_overview#registry_regions_local&#34;&gt;About IBM Cloud Container Registry page&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;docker_email&amp;gt;&lt;/code&gt;: your docker email address or any fictional email address, such as &lt;code&gt;a@b.c&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;scenarios&#34;&gt;Scenarios&lt;/h2&gt;
+&lt;h3 id=&#34;using-container-images-from-icr-in-kubeflow-pipelines&#34;&gt;Using container images from ICR in Kubeflow Pipelines&lt;/h3&gt;
+&lt;p&gt;The pull image secret may be set in Kubeflow Pipelines SDK&amp;rsquo;s &lt;a href=&#34;https://kubeflow-pipelines.readthedocs.io/en/stable/source/kfp.dsl.html#kfp.dsl.PipelineConf&#34;&gt;&lt;code&gt;PipelineConf&lt;/code&gt;&lt;/a&gt;. Refer to this &lt;a href=&#34;https://github.com/kubeflow/pipelines/blob/ef381aafccf916482d16774cac3b8568d06dff9e/samples/core/imagepullsecrets/imagepullsecrets.py#L55&#34;&gt;&lt;code&gt;imagepullsecrets.py&lt;/code&gt;&lt;/a&gt; sample in Kubeflow Pipelines project for usage.&lt;/p&gt;
+&lt;h3 id=&#34;using-notebook-images-from-icr-in-a-jupyter-notebook&#34;&gt;Using notebook images from ICR in a Jupyter Notebook&lt;/h3&gt;
+&lt;p&gt;When a namespace is created for Kubeflow with its profile controller, a default service account &lt;code&gt;default-editor&lt;/code&gt; is created in that namespace. Before creating a Notebook Server, run following command to patch the service account. Replace &lt;code&gt;&amp;lt;secret_name&amp;gt;&lt;/code&gt; with the ICR pull image secret name and &lt;code&gt;&amp;lt;my_namespace&amp;gt;&lt;/code&gt; with the Kubeflow profile namespace.&lt;/p&gt;
+&lt;p&gt;Replace &lt;code&gt;&amp;lt;my_namespace&amp;gt;&lt;/code&gt; with your namespace then run below command to patch the service account &lt;code&gt;default-editor&lt;/code&gt; with this image pull secret:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-SHELL&#34; data-lang=&#34;SHELL&#34;&gt;kubectl patch serviceaccount default-editor &lt;span style=&#34;color:#4e9a06&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&lt;/span&gt;-p &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;{&amp;#34;imagePullSecrets&amp;#34;: [{&amp;#34;name&amp;#34;: &amp;#34;&amp;lt;secret-name&amp;gt;&amp;#34;}]}&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&lt;/span&gt;-n &amp;lt;my_namespace&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The service account should be updated. Then, when you create the Notebook Server through Kubeflow dashboard, you should be able to choose a Custom Image. Afterwards, set the notebook image path from the ICR as follows:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/docs/images/ibm/notebook-custom-image.png&#34; 
+alt=&#34;Notebook Custom Image&#34;
+class=&#34;mt-3 mb-3 border border-info rounded&#34;&gt;&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Guide: End-to-end Kubeflow on IBM Cloud</title>
+      <link>/guide/ibm/iks-e2e/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/guide/ibm/iks-e2e/</guid>
+      <description>
+        
+        
+        &lt;p&gt;This is a guide for an end-to-end example of Kubeflow on &lt;a href=&#34;https://cloud.ibm.com/docs/containers?topic=containers-getting-started&#34;&gt;IBM Cloud Kubernetes Service (IKS)&lt;/a&gt;. The core steps will be to take a base Tensorflow model, modify it for distributed training, serve the resulting model with TFServing, and deploy a web application that uses the trained model.&lt;/p&gt;
+&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+&lt;h3 id=&#34;overview-of-iks&#34;&gt;Overview of IKS&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://cloud.ibm.com/docs/containers?topic=containers-getting-started&#34;&gt;IBM Cloud Kubernetes Service (IKS)&lt;/a&gt; enables the deployment of containerized applications in Kubernetes clusters with specialized tools for management of the systems.&lt;/p&gt;
+&lt;p&gt;The &lt;a href=&#34;https://cloud.ibm.com/docs/cli?topic=cloud-cli-getting-started&#34;&gt;IBM Cloud CLI&lt;/a&gt; can be used for creating, developing, and deploying cloud applications.&lt;/p&gt;
+&lt;p&gt;Here&amp;rsquo;s a list of IBM Cloud services you will use:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.ibm.com/cloud/container-service/&#34;&gt;IKS&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.ibm.com/cloud/object-storage&#34;&gt;IBM Cloud Object Storage&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;the-model-and-the-data&#34;&gt;The model and the data&lt;/h3&gt;
+&lt;p&gt;This tutorial trains a &lt;a href=&#34;https://www.tensorflow.org/&#34;&gt;TensorFlow&lt;/a&gt; model on the
+&lt;a href=&#34;http://yann.lecun.com/exdb/mnist/index.html&#34;&gt;MNIST dataset&lt;/a&gt;, which is the &lt;em&gt;hello world&lt;/em&gt; for machine learning.&lt;/p&gt;
+&lt;p&gt;The MNIST dataset contains a large number of images of hand-written digits in
+the range 0 to 9, as well as the labels identifying the digit in each image.&lt;/p&gt;
+&lt;p&gt;After training, the model can classify incoming images into 10 categories
+(0 to 9) based on what it&amp;rsquo;s learned about handwritten images. In other words,
+you send an image to the model, and the model does its best to identify the
+digit shown in the image.
+&lt;img src=&#34;/docs/images/gcp-e2e-ui-prediction.png&#34;
+alt=&#34;Prediction UI&#34;
+class=&#34;mt-3 mb-3 p-3 border border-info rounded&#34;&gt;&lt;/p&gt;
+&lt;p&gt;In the above screenshot, the image shows a hand-written &lt;strong&gt;7&lt;/strong&gt;. This image was
+the input to the model. The table below the image shows a bar graph for each
+classification label from 0 to 9, as output by the model. Each bar
+represents the probability that the image matches the respective label.
+Judging by this screenshot, the model seems pretty confident that this image
+is a 7.&lt;/p&gt;
+&lt;h3 id=&#34;the-overall-workflow&#34;&gt;The overall workflow&lt;/h3&gt;
+&lt;p&gt;The following diagram shows what you accomplish by following this guide:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/docs/images/ibm-e2e-kubeflow.png&#34; 
+alt=&#34;ML workflow for training and serving an MNIST model&#34;
+class=&#34;mt-3 mb-3 border border-info rounded&#34;&gt;&lt;/p&gt;
+&lt;p&gt;In summary:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Setting up &lt;a href=&#34;https://www.kubeflow.org/&#34;&gt;Kubeflow&lt;/a&gt; on &lt;a href=&#34;https://www.ibm.com/cloud/container-service/&#34;&gt;IKS&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Training the model:
+&lt;ul&gt;
+&lt;li&gt;Packaging a Tensorflow program in a container.&lt;/li&gt;
+&lt;li&gt;Submitting a Tensorflow training (&lt;a href=&#34;https://www.tensorflow.org/api_guides/python/train&#34;&gt;tf.train&lt;/a&gt;) job.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Using the model for prediction (inference):
+&lt;ul&gt;
+&lt;li&gt;Saving the trained model to &lt;a href=&#34;https://www.ibm.com/cloud/object-storage&#34;&gt;IBM Cloud Object Storage&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Using &lt;a href=&#34;https://www.tensorflow.org/serving/&#34;&gt;Tensorflow Serving&lt;/a&gt; to serve the model.&lt;/li&gt;
+&lt;li&gt;Running the simple web app to send prediction request to the model and display the result.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;It&amp;rsquo;s time to get started!&lt;/p&gt;
+&lt;h2 id=&#34;run-the-mnist-tutorial-on-iks&#34;&gt;Run the MNIST Tutorial on IKS&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Follow the &lt;a href=&#34;/docs/ibm/deploy/install-kubeflow&#34;&gt;IKS instructions&lt;/a&gt; to deploy Kubeflow.&lt;/li&gt;
+&lt;li&gt;Launch a Jupyter notebook.&lt;/li&gt;
+&lt;li&gt;Launch a terminal in Jupyter and clone the Kubeflow examples repo.
+&lt;pre&gt;&lt;code&gt;git clone https://github.com/kubeflow/examples.git git_kubeflow-examples
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Tip&lt;/strong&gt;: When you start a terminal in Jupyter, run the command &lt;code&gt;bash&lt;/code&gt; to start
+a bash terminal which is much more friendly than the default shell.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Tip&lt;/strong&gt;: You can change the URL for your notebook from &amp;lsquo;/tree&amp;rsquo; to &amp;lsquo;/lab&amp;rsquo; to switch to using Jupyterlab.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Open the notebook &lt;code&gt;mnist/mnist_ibm.ipynb&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Follow the notebook to train and deploy MNIST on Kubeflow.&lt;/li&gt;
+&lt;/ol&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

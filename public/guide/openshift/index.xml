@@ -1,0 +1,135 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SKT Open Source – Kubeflow on OpenShift</title>
+    <link>/guide/openshift/</link>
+    <description>Recent content in Kubeflow on OpenShift on SKT Open Source</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	  <atom:link href="/guide/openshift/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Guide: Install Kubeflow on OpenShift</title>
+      <link>/guide/openshift/install-kubeflow/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/guide/openshift/install-kubeflow/</guid>
+      <description>
+        
+        
+        &lt;p&gt;This guide describes how to use the &lt;code&gt;kfctl&lt;/code&gt; CLI to deploy Kubeflow 1.0 on an existing OpenShift 4.x cluster.&lt;/p&gt;
+&lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
+&lt;h3 id=&#34;openshift-4-cluster&#34;&gt;OpenShift 4 cluster&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;You need to have access to an OpenShift 4 cluster as &lt;code&gt;cluster-admin&lt;/code&gt; to be able to deploy Kubeflow.&lt;/li&gt;
+&lt;li&gt;You can use &lt;a href=&#34;https://code-ready.github.io/crc/&#34;&gt;Code Ready Containers&lt;/a&gt; (CRC) to run a local cluster, use &lt;a href=&#34;https://try.openshift.com&#34;&gt;try.openshift.com&lt;/a&gt; to create a new cluster or use an existing cluster.&lt;/li&gt;
+&lt;li&gt;Install &lt;a href=&#34;https://docs.openshift.com/container-platform/4.2/cli_reference/openshift_cli/getting-started-cli.html&#34;&gt;&lt;code&gt;oc&lt;/code&gt; command-line tool&lt;/a&gt; to communicate with the cluster.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;code-ready-containers&#34;&gt;Code Ready Containers&lt;/h4&gt;
+&lt;p&gt;If you are using Code Ready Containers, you need to make sure you have enough resources configured for the VM:&lt;/p&gt;
+&lt;p&gt;Recommended:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;16 GB memory
+6 CPU
+45 GB disk space
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Minimal:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;10 GB memory
+6 CPU
+30 GB disk space (default for CRC)
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;installing-kubeflow&#34;&gt;Installing Kubeflow&lt;/h2&gt;
+&lt;p&gt;Use the following steps to install Kubeflow 1.0 on OpenShift 4.x.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Clone the [opendatahub/manifests]
+(&lt;a href=&#34;https://github.com/opendatahub-io/manifests&#34;&gt;https://github.com/opendatahub-io/manifests&lt;/a&gt;) repository. This repository defaults to the &lt;code&gt;v1.0-branch-openshift&lt;/code&gt; branch.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;git clone https://github.com/opendatahub-io/manifests.git
+cd manifests
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Build the deployment configuration using the OpenShift KFDef file and local downloaded manifests.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Update the manifest repo URI. Copy the KFDef file to the Kubeflow application directory. And finally build the configuration.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code&gt;# update the manifest repo URI
+sed -i &#39;s#uri: .*#uri: &#39;$PWD&#39;#&#39; ./kfdef/kfctl_openshift.yaml
+
+# set the Kubeflow application diretory for this deployment, for example /opt/openshift-kfdef
+export KF_DIR=&amp;lt;path-to-kfdef&amp;gt;
+mkdir -p ${KF_DIR}
+cp ./kfdef/kfctl_openshift.yaml ${KF_DIR}
+   
+# build deployment configuration
+cd ${KF_DIR}
+kfctl build --file=kfctl_openshift.yaml
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Apply the generated deployment configuration.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;kfctl apply --file=kfctl_openshift.yaml
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Wait until all the pods are running.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ oc get pods -n kubeflow
+NAME                                                           READY     STATUS             RESTARTS   AGE
+argo-ui-7c584fc474-k5blx                                       1/1       Running            0          3m46s
+centraldashboard-678f74d985-rblnm                              1/1       Running            0          3m41s
+jupyter-web-app-deployment-57977c6965-2qznb                    1/1       Running            0          3m37s
+katib-controller-fddbb4864-fdzf5                               1/1       Running            1          3m4s
+katib-db-6b9b5bc446-6pbtp                                      1/1       Running            0          3m3s
+katib-manager-7797db7f7c-p5ztb                                 1/1       Running            1          3m3s
+katib-ui-5bdbb97475-585rp                                      1/1       Running            0          3m2s
+metadata-db-c88c9bf6f-5ddbz                                    1/1       Running            0          3m30s
+metadata-deployment-969879b6c-swvqf                            1/1       Running            0          3m30s
+metadata-envoy-deployment-69766744b5-75t5l                     1/1       Running            0          3m29s
+metadata-grpc-deployment-578956fc6d-msvj5                      1/1       Running            3          3m29s
+metadata-ui-57f9b8d667-dckm4                                   1/1       Running            0          3m28s
+minio-784784b9bb-bqslk                                         1/1       Running            0          2m56s
+ml-pipeline-687969b966-wx6jd                                   1/1       Running            0          2m59s
+ml-pipeline-ml-pipeline-visualizationserver-57997bdc64-jw6l4   1/1       Running            0          2m37s
+ml-pipeline-persistenceagent-b74f6455b-z9nzw                   1/1       Running            0          2m51s
+...
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The command below looks up the URL of the Kubeflow user interface assigned by the OpenShift cluster. You can open the printed URL in your browser to access the Kubeflow user interface.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;oc get routes -n istio-system istio-ingressgateway -o jsonpath=&#39;http://{.spec.host}/&#39;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;next-steps&#34;&gt;Next steps&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Learn about the &lt;a href=&#34;https://developers.redhat.com/blog/2020/08/13/open-data-hub-0-7-adds-support-for-kubeflow-1-0//&#34;&gt;changes made&lt;/a&gt; to Kubeflow manifests to enable deployment on OpenShift&lt;/li&gt;
+&lt;li&gt;See how to &lt;a href=&#34;/docs/upgrading/upgrade/&#34;&gt;upgrade Kubeflow&lt;/a&gt; and how to
+&lt;a href=&#34;/docs/pipelines/upgrade/&#34;&gt;upgrade or reinstall a Kubeflow Pipelines deployment&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;See how to &lt;a href=&#34;/docs/openshift/uninstall-kubeflow&#34;&gt;uninstall&lt;/a&gt; your Kubeflow deployment
+using the CLI.&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Guide: Uninstall Kubeflow</title>
+      <link>/guide/openshift/uninstall-kubeflow/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/guide/openshift/uninstall-kubeflow/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;uninstall-a-kubeflow-instance&#34;&gt;Uninstall a Kubeflow Instance&lt;/h2&gt;
+&lt;p&gt;To delete a Kubeflow installation please follow these steps:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;kfctl delete --file=./kfdef/kfctl_openshift.yaml
+rm -rf kfdef/kustomize/
+oc delete mutatingwebhookconfigurations admission-webhook-mutating-webhook-configuration
+oc delete mutatingwebhookconfigurations inferenceservice.serving.kubeflow.org
+oc delete mutatingwebhookconfigurations katib-mutating-webhook-config
+oc delete mutatingwebhookconfigurations mutating-webhook-configurations
+&lt;/code&gt;&lt;/pre&gt;
+      </description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,58 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SKT Open Source – Integrations</title>
+    <link>/guide/other-guides/integrations/</link>
+    <description>Recent content in Integrations on SKT Open Source</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	  <atom:link href="/guide/other-guides/integrations/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Guide: Data Management</title>
+      <link>/guide/other-guides/integrations/data-management/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/guide/other-guides/integrations/data-management/</guid>
+      <description>
+        
+        
+        
+
+&lt;div class=&#34;alert alert-warning&#34; role=&#34;alert&#34;&gt;
+&lt;h4 class=&#34;alert-heading&#34;&gt;Out of date&lt;/h4&gt;
+This guide contains outdated information pertaining to Kubeflow 1.0. This guide
+needs to be updated for Kubeflow 1.1.
+&lt;/div&gt;
+
+&lt;p&gt;Since a data scientist can build hundreds of different variants of their models,
+the ability to quickly create new models and save the code and data of each
+version is critical for faster iterations and better models. Automating
+workflows and keeping track of the machine learning (ML) code, packages,
+libraries, data sets and artifacts for each ML pipeline step requires integrated
+data management systems and processes.&lt;/p&gt;
+&lt;p&gt;As a leading contributor to Kubeflow, Arrikto incorporates its standards-based,
+scale-out storage and data management solution (Rok) with Kubeflow. Arrikto&amp;rsquo;s
+Rok presents a Kubernetes storage class to Kubeflow and integrates with
+the critical Kubeflow components. Rok’s built-in integration simplifies
+operations, boosts performance, and enables best practices for efficient data
+versioning, packaging, and secure sharing across teams and cloud boundaries.&lt;/p&gt;
+&lt;p&gt;The screenshot below shows the &lt;strong&gt;Snapshot Store&lt;/strong&gt; option that Rok adds to the
+left-hand navigation panel in the Kubeflow UI:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/docs/images/snapshot-store-in-kubeflow-ui.png&#34; 
+alt=&#34;Accessing the snapshot store from the Kubeflow UI&#34;
+class=&#34;mt-3 mb-3 border border-info rounded&#34;&gt;&lt;/p&gt;
+&lt;p&gt;To experience the value of Kubeflow and Rok, follow this
+&lt;a href=&#34;http://g.co/codelabs/kubeflow-minikf-kale&#34;&gt;hands-on tutorial&lt;/a&gt;.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

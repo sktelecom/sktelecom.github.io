@@ -1,0 +1,1323 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SKT Open Source – Deploying Kubeflow</title>
+    <link>/guide/gke/deploy/</link>
+    <description>Recent content in Deploying Kubeflow on SKT Open Source</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	  <atom:link href="/guide/gke/deploy/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Guide: Set up a Google Cloud Project</title>
+      <link>/guide/gke/deploy/project-setup/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/guide/gke/deploy/project-setup/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Follow these steps to set up your GCP project:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Select or create a project on the
+&lt;a href=&#34;https://console.cloud.google.com/cloud-resource-manager&#34;&gt;GCP Console&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Make sure that you have the
+&lt;a href=&#34;https://cloud.google.com/iam/docs/understanding-roles#primitive_role_definitions&#34;&gt;owner role&lt;/a&gt;
+for the project in Cloud IAM (Identity and Access Management).
+The deployment process creates various service accounts with
+appropriate roles in order to enable seamless integration with
+GCP services. This process requires that you have the
+owner role for the project in order to deploy Kubeflow.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Make sure that billing is enabled for your project. Refer to the guide to
+&lt;a href=&#34;https://cloud.google.com/billing/docs/how-to/modify-project&#34;&gt;modifying a project&amp;rsquo;s billing
+settings&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Go to the following pages on the GCP Console and ensure that the
+specified APIs are enabled:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://console.cloud.google.com/apis/library/compute.googleapis.com&#34;&gt;Compute Engine API&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://console.cloud.google.com/apis/library/container.googleapis.com&#34;&gt;Kubernetes Engine API&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://console.cloud.google.com/apis/library/iam.googleapis.com&#34;&gt;Identity and Access Management (IAM) API&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://console.cloud.google.com/apis/api/servicemanagement.googleapis.com&#34;&gt;Service Management API&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://console.developers.google.com/apis/library/cloudresourcemanager.googleapis.com&#34;&gt;Cloud Resource Manager API&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://console.developers.google.com/apis/library/ml.googleapis.com&#34;&gt;AI Platform Training &amp;amp; Prediction API&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://console.cloud.google.com/apis/library/cloudbuild.googleapis.com&#34;&gt;Cloud Build API&lt;/a&gt; (It&amp;rsquo;s required if you plan to use &lt;a href=&#34;https://www.kubeflow.org/docs/components/fairing/&#34;&gt;Fairing&lt;/a&gt; in your Kubeflow cluster)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;You can also enable these APIs by running the following command in Cloud Shell:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;gcloud services &lt;span style=&#34;color:#204a87&#34;&gt;enable&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&lt;/span&gt;  compute.googleapis.com &lt;span style=&#34;color:#4e9a06&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&lt;/span&gt;  container.googleapis.com &lt;span style=&#34;color:#4e9a06&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&lt;/span&gt;  iam.googleapis.com &lt;span style=&#34;color:#4e9a06&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&lt;/span&gt;  servicemanagement.googleapis.com &lt;span style=&#34;color:#4e9a06&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&lt;/span&gt;  cloudresourcemanager.googleapis.com &lt;span style=&#34;color:#4e9a06&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&lt;/span&gt;  ml.googleapis.com &lt;span style=&#34;color:#4e9a06&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&lt;/span&gt;  meshconfig.googleapis.com
+
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Cloud Build API is optional, you need it if using Fairing.&lt;/span&gt;
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# gcloud services enable cloudbuild.googleapis.com&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;If you are using the
+&lt;a href=&#34;https://cloud.google.com/free/docs/gcp-free-tier&#34;&gt;GCP Free Tier&lt;/a&gt; or the
+12-month trial period with $300 credit, note that you can&amp;rsquo;t run the default
+GCP installation of Kubeflow, because the free tier does not offer enough
+resources. You need to
+&lt;a href=&#34;https://cloud.google.com/free/docs/gcp-free-tier#how-to-upgrade&#34;&gt;upgrade to a paid account&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;For more information, see the following issues:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/kubeflow/website/issues/1065&#34;&gt;kubeflow/website #1065&lt;/a&gt;
+reports the problem.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/kubeflow/kubeflow/issues/3936&#34;&gt;kubeflow/kubeflow #3936&lt;/a&gt;
+requests a Kubeflow configuration to work with a free trial project.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Read the GCP guide to &lt;a href=&#34;https://cloud.google.com/compute/quotas&#34;&gt;resource quotas&lt;/a&gt;
+to understand the quotas on resource usage that Compute Engine enforces, and
+to learn how to check your quota and how to request an increase in quota.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Initialize your project to prepare it for Anthos Service Mesh installation:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#000&#34;&gt;PROJECT_ID&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&amp;lt;YOUR_PROJECT_ID&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;curl --request POST &lt;span style=&#34;color:#4e9a06&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&lt;/span&gt;  --header &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Authorization: Bearer &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;$(&lt;/span&gt;gcloud auth print-access-token&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;)&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&lt;/span&gt;  --data &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&lt;/span&gt;  https://meshconfig.googleapis.com/v1alpha1/projects/&lt;span style=&#34;color:#4e9a06&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;PROJECT_ID&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;}&lt;/span&gt;:initialize
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Refer to &lt;a href=&#34;https://cloud.google.com/service-mesh/docs/archive/1.4/docs/gke-install-new-cluster#setting_credentials_and_permissions&#34;&gt;Anthos Service Mesh documentation&lt;/a&gt; for details.&lt;/p&gt;
+&lt;p&gt;If you encounter a &lt;code&gt;Workload Identity Pool does not exist&lt;/code&gt; error, refer to the following issue:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/kubeflow/website/issues/2121&#34;&gt;kubeflow/website #2121&lt;/a&gt;
+describes that creating and then removing a temporary Kubernetes cluster may
+be needed for projects that haven&amp;rsquo;t had a cluster set up beforehand.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;You do not need a running GKE cluster. The deployment process creates a
+cluster for you.&lt;/p&gt;
+&lt;h2 id=&#34;next-steps&#34;&gt;Next steps&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;/docs/gke/deploy/oauth-setup&#34;&gt;Set up an OAuth credential&lt;/a&gt; to use
+&lt;a href=&#34;https://cloud.google.com/iap/docs/&#34;&gt;Cloud Identity-Aware Proxy (Cloud IAP)&lt;/a&gt;.
+Cloud IAP is recommended for production deployments or deployments with access
+to sensitive data.&lt;/li&gt;
+&lt;li&gt;Follow the &lt;a href=&#34;/docs/gke/deploy/deploy-cli&#34;&gt;instructions&lt;/a&gt; to deploy Kubeflow using kubectl, kustomize and kpt.&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Guide: Set up OAuth for Cloud IAP</title>
+      <link>/guide/gke/deploy/oauth-setup/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/guide/gke/deploy/oauth-setup/</guid>
+      <description>
+        
+        
+        &lt;p&gt;If you want to use
+&lt;a href=&#34;https://cloud.google.com/iap/docs/&#34;&gt;Cloud Identity-Aware Proxy (Cloud IAP)&lt;/a&gt;
+when deploying Kubeflow on GCP,
+then you must follow these instructions to create an OAuth client for use
+with Kubeflow.&lt;/p&gt;
+&lt;p&gt;Cloud IAP is recommended for production deployments or deployments with access
+to sensitive data.&lt;/p&gt;
+&lt;p&gt;Follow the steps below to create an OAuth client ID that identifies Cloud IAP
+when requesting access to a user&amp;rsquo;s email account. Kubeflow uses the email
+address to verify the user&amp;rsquo;s identity.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Set up your OAuth &lt;a href=&#34;https://console.cloud.google.com/apis/credentials/consent&#34;&gt;consent screen&lt;/a&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;In the &lt;strong&gt;Application name&lt;/strong&gt; box, enter the name of your application.
+The example below uses the name &amp;ldquo;Kubeflow&amp;rdquo;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Under &lt;strong&gt;Support email&lt;/strong&gt;, select the email address that you want to display
+as a public contact. You must use either your email address or a Google
+Group that you own.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;If you see &lt;strong&gt;Authorized domains&lt;/strong&gt;, enter&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;project&amp;gt;.cloud.goog
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;where &amp;lt;project&amp;gt; is your Google Cloud Platform (GCP) project ID.&lt;/li&gt;
+&lt;li&gt;If you are using your own domain, such as &lt;strong&gt;acme.com&lt;/strong&gt;, you should add
+that as well&lt;/li&gt;
+&lt;li&gt;The &lt;strong&gt;Authorized domains&lt;/strong&gt; option appears only for certain project
+configurations. If you don&amp;rsquo;t see the option, then there&amp;rsquo;s nothing you
+need to set.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Click &lt;strong&gt;Save&lt;/strong&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Here&amp;rsquo;s an example of the completed form:&lt;br&gt;
+&lt;img src=&#34;/docs/images/consent-screen.png&#34; 
+alt=&#34;OAuth consent screen&#34;
+class=&#34;mt-3 mb-3 p-3 border border-info rounded&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;On the &lt;a href=&#34;https://console.cloud.google.com/apis/credentials&#34;&gt;credentials screen&lt;/a&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Click &lt;strong&gt;Create credentials&lt;/strong&gt;, and then click &lt;strong&gt;OAuth client ID&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Under &lt;strong&gt;Application type&lt;/strong&gt;, select &lt;strong&gt;Web application&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;In the &lt;strong&gt;Name&lt;/strong&gt; box enter any name for your OAuth client ID. This is &lt;em&gt;not&lt;/em&gt;
+the name of your application nor the name of your Kubeflow deployment. It&amp;rsquo;s
+just a way to help you identify the OAuth client ID.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Click &lt;strong&gt;Create&lt;/strong&gt;. A dialog box appears, like the one below:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/docs/images/new-oauth.png&#34; 
+alt=&#34;OAuth consent screen&#34;
+class=&#34;mt-3 mb-3 p-3 border border-info rounded&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Copy the &lt;strong&gt;client ID&lt;/strong&gt; shown in the dialog box, because you need the client
+ID in the next step.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;On the &lt;strong&gt;Create credentials&lt;/strong&gt; screen, find your newly created OAuth
+credential and click the pencil icon to edit it:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/docs/images/oauth-edit.png&#34; 
+alt=&#34;OAuth consent screen&#34;
+class=&#34;mt-3 mb-3 p-3 border border-info rounded&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;In the &lt;strong&gt;Authorized redirect URIs&lt;/strong&gt; box, enter the following (if it&amp;rsquo;s not
+already present in the list of authorized redirect URIs):&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;https://iap.googleapis.com/v1/oauth/clientIds/&amp;lt;CLIENT_ID&amp;gt;:handleRedirect
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;CLIENT_ID&amp;gt;&lt;/code&gt; is the OAuth client ID that you copied from the dialog box in
+step four. It looks like &lt;code&gt;XXX.apps.googleusercontent.com&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Note that the URI is not dependent on the Kubeflow deployment or endpoint.
+Multiple Kubeflow deployments can share the same OAuth client without the
+need to modify the redirect URIs.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Press &lt;strong&gt;Enter/Return&lt;/strong&gt; to add the URI. Check that the URI now appears as
+a confirmed item under &lt;strong&gt;Authorized redirect URIs&lt;/strong&gt;. (The URI should no longer be
+editable.)&lt;/p&gt;
+&lt;p&gt;Here&amp;rsquo;s an example of the completed form:
+&lt;img src=&#34;/docs/images/oauth-credential.png&#34; 
+alt=&#34;OAuth credentials&#34;
+class=&#34;mt-3 mb-3 p-3 border border-info rounded&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Click &lt;strong&gt;Save&lt;/strong&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Make note that you can find your OAuth client credentials in the credentials
+section of the GCP Console. You need to retrieve the &lt;strong&gt;client ID&lt;/strong&gt; and
+&lt;strong&gt;client secret&lt;/strong&gt; later when you&amp;rsquo;re ready to enable Cloud IAP.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;next-steps&#34;&gt;Next steps&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;/docs/gke/deploy/management-setup/&#34;&gt;Set up your management cluster&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Guide: Management cluster setup</title>
+      <link>/guide/gke/deploy/management-setup/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/guide/gke/deploy/management-setup/</guid>
+      <description>
+        
+        
+        &lt;p&gt;This guide describes how to setup a management cluster which you will use to deploy one or more instances of Kubeflow.&lt;/p&gt;
+&lt;p&gt;The management cluster is used to run &lt;a href=&#34;https://cloud.google.com/config-connector/docs/overview&#34;&gt;Cloud Config Connector&lt;/a&gt;. Cloud Config Connector is a Kubernetes addon that allows you to manage Google Cloud resources through Kubernetes.&lt;/p&gt;
+&lt;p&gt;While the management cluster can be deployed in the same project as your Kubeflow cluster, typically you will want to deploy
+it in a separate project used for administering one or more Kubeflow instances, because it will run with escalated permissions to create Google Cloud resources in the managed projects.&lt;/p&gt;
+&lt;p&gt;Optionally, the cluster can be configured with &lt;a href=&#34;https://cloud.google.com/anthos-config-management/docs&#34;&gt;Anthos Config Management&lt;/a&gt;
+to manage Google Cloud infrastructure using GitOps.&lt;/p&gt;
+&lt;h2 id=&#34;faqs&#34;&gt;FAQs&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Where is &lt;code&gt;kfctl&lt;/code&gt;?&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;kfctl&lt;/code&gt; is no longer being used to apply resources for Google Cloud, because required functionalities are now supported by generic tools including &lt;a href=&#34;https://www.gnu.org/software/make/&#34;&gt;Make&lt;/a&gt;, &lt;a href=&#34;https://kustomize.io&#34;&gt;Kustomize&lt;/a&gt;, &lt;a href=&#34;https://googlecontainertools.github.io/kpt/&#34;&gt;kpt&lt;/a&gt;, and &lt;a href=&#34;https://cloud.google.com/config-connector/docs/overview&#34;&gt;Cloud Config Connector&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Why do we use an extra management cluster to manage Google Cloud resources?&lt;/p&gt;
+&lt;p&gt;The management cluster is very lightweight cluster that runs &lt;a href=&#34;https://cloud.google.com/config-connector/docs/overview&#34;&gt;Cloud Config Connector&lt;/a&gt;. Cloud Config Connector makes it easier to configure Google Cloud resources using YAML and Kustomize.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;For a more detailed explanation of the drastic changes happened in Kubeflow v1.1 on Google Cloud, read &lt;a href=&#34;https://github.com/kubeflow/gcp-blueprints/issues/123&#34;&gt;kubeflow/gcp-blueprints #123&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;install-the-required-tools&#34;&gt;Install the required tools&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Install gcloud components&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;gcloud components install kubectl kpt anthoscli beta
+gcloud components update
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Install &lt;a href=&#34;https://kubectl.docs.kubernetes.io/installation/kustomize/&#34;&gt;Kustomize&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; Starting from Kubeflow v1.2, we fixed the compatibility problem with Kustomize &lt;code&gt;v3.2.1+&lt;/code&gt;, so you can now install any Kustomize &lt;code&gt;v3+&lt;/code&gt;, including the latest Kustomize versions.&lt;/p&gt;
+&lt;p&gt;To deploy the latest version of Kustomize on a Linux or Mac machine, run the following commands:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Detect your OS and download corresponding latest Kustomize binary&lt;/span&gt;
+curl -s &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;https://raw.githubusercontent.com/kubernetes-sigs/kustomize/master/hack/install_kustomize.sh&amp;#34;&lt;/span&gt;  &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; bash
+
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Add the kustomize package to your $PATH env variable&lt;/span&gt;
+sudo mv ./kustomize /usr/local/bin/kustomize
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Then, to verify the installation, run &lt;code&gt;kustomize version&lt;/code&gt;. You should see &lt;code&gt;Version:kustomize/vX.Y.Z&lt;/code&gt; in the output if you&amp;rsquo;ve successfully deployed Kustomize.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Install &lt;a href=&#34;https://github.com/mikefarah/yq#install&#34;&gt;yq&lt;/a&gt;, and follow the official installation steps. Note: due to changes from &lt;a href=&#34;https://mikefarah.gitbook.io/yq/upgrading-from-v3#navigating&#34;&gt;yq v3 to v4&lt;/a&gt;, Versions 4.x of yq will not work with Kubeflow. &lt;a href=&#34;https://github.com/mikefarah/yq/releases/tag/3.3.0&#34;&gt;Version 3.3.0&lt;/a&gt; is confirmed to work.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;environment-variables&#34;&gt;Environment Variables&lt;/h2&gt;
+&lt;p&gt;This guide assumes the following convention:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;The &lt;code&gt;${MGMT_PROJECT}&lt;/code&gt; environment variable contains the Google Cloud project
+ID where management cluster is deployed to.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The &lt;code&gt;${MGMT_DIR}&lt;/code&gt; environment variable contains the path to
+your management directory, which holds your management cluster configuration
+files. For example, &lt;code&gt;~/kf-deployments/management/&lt;/code&gt;. You can choose any path
+you would like for the directory &lt;code&gt;${MGMT_DIR}&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;To continously manage the management cluster, you are recommended to check
+the management configuration directory into source control.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;${MGMT_NAME}&lt;/code&gt; is the cluster name of your management cluster and the prefix for other Google Cloud resources created in the deployment process. Management cluster
+should be a different cluster from your Kubeflow cluster.&lt;/p&gt;
+&lt;p&gt;Note, &lt;code&gt;${MGMT_NAME}&lt;/code&gt; should&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;start with a lowercase letter&lt;/li&gt;
+&lt;li&gt;only contain lowercase letters, numbers and &lt;code&gt;-&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;end with a number or a letter&lt;/li&gt;
+&lt;li&gt;contain no more than 18 characters&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The &lt;code&gt;${LOCATION}&lt;/code&gt; environment variable contains the location of your management cluster.
+you can choose between regional or zonal.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Set these environment variables in your shell:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#000&#34;&gt;MGMT_PROJECT&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&amp;lt;the project where you deploy your management cluster&amp;gt;
+&lt;span style=&#34;color:#000&#34;&gt;MGMT_DIR&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&amp;lt;path to your management cluster configuration directory&amp;gt;
+&lt;span style=&#34;color:#000&#34;&gt;MGMT_NAME&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&amp;lt;name of your management cluster&amp;gt;
+&lt;span style=&#34;color:#000&#34;&gt;LOCATION&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&amp;lt;location of your management cluster&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;However, the environment variables are used purely for command illustration
+purpose. No tools will assume they actually exists in your terminal environment.&lt;/p&gt;
+&lt;h2 id=&#34;setting-up-a-management-cluster&#34;&gt;Setting up a management cluster&lt;/h2&gt;
+&lt;p&gt;To deploy a management cluster:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Fetch the management blueprint to current directory&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;kpt pkg get https://github.com/kubeflow/gcp-blueprints.git/management@v1.2.0 &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;MGMT_DIR&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Change to the Kubeflow directory&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#204a87&#34;&gt;cd&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;MGMT_DIR&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Note, all the instructions below assume your current working directory is &lt;code&gt;${MGMT_DIR}&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Fetch the upstream management package&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;make get-pkg
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Use kpt to set values for the name, project, and location of your management cluster:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;kpt cfg &lt;span style=&#34;color:#204a87&#34;&gt;set&lt;/span&gt; -R . name &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;MGMT_NAME&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&lt;/span&gt;
+kpt cfg &lt;span style=&#34;color:#204a87&#34;&gt;set&lt;/span&gt; -R . gcloud.core.project &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;MGMT_PROJECT&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&lt;/span&gt;
+kpt cfg &lt;span style=&#34;color:#204a87&#34;&gt;set&lt;/span&gt; -R . location &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;LOCATION&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Running &lt;code&gt;kpt cfg set&lt;/code&gt; stores values you set in &lt;code&gt;./instance/Kptfile&lt;/code&gt; and
+&lt;code&gt;./upstream/management/Kptfile&lt;/code&gt;. Commit the changes to source control to
+preserve your configuration.&lt;/p&gt;
+&lt;p&gt;We have two packages with setters: &lt;code&gt;./instance&lt;/code&gt; and &lt;code&gt;./upstream/management&lt;/code&gt;.
+The &lt;code&gt;-R&lt;/code&gt; flag means &lt;code&gt;--recurse-subpackages&lt;/code&gt;. It sets values recursively in all the
+nested subpackages in current directory &lt;code&gt;.&lt;/code&gt; in one command.&lt;/p&gt;
+&lt;p&gt;You can learn more about &lt;code&gt;kpt cfg set&lt;/code&gt; in &lt;a href=&#34;https://googlecontainertools.github.io/kpt/reference/cfg/set/&#34;&gt;kpt documentation&lt;/a&gt;, or by running &lt;code&gt;kpt cfg set --help&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Note, you can find out which setters exist in a package and what their
+current values are by running the following command:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;kpt cfg list-setters .
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Create or apply the management cluster:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;make apply-cluster
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Optionally, you can verify the management cluster spec before applying it by:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;make hydrate-cluster
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;and look into &lt;code&gt;./build/cluster&lt;/code&gt; folder.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Create a kubectl context for the management cluster, it will be named &lt;code&gt;${MGMT_NAME}&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;make create-context
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Install the Cloud Config Connector:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;make apply-kcc
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This step:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Installs Config Connector in your cluster, and&lt;/li&gt;
+&lt;li&gt;Creates the Google Cloud service account &lt;strong&gt;${MGMT_NAME}-cnrm-system@${MGMT_PROJECT}.iam.gserviceaccount.com&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Optionally, you can verify the Config Connector installation before applying it by:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;make hydrate-kcc
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;and check &lt;code&gt;./build/cnrm-install-*&lt;/code&gt; folders.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;authorize-cloud-config-connector-for-each-managed-project&#34;&gt;Authorize Cloud Config Connector for each managed project&lt;/h3&gt;
+&lt;p&gt;In the last step we created the Google Cloud service account &lt;strong&gt;${MGMT_NAME}-cnrm-system@${MGMT_PROJECT}.iam.gserviceaccount.com&lt;/strong&gt;
+this is the service account that Config Connector will use to create any Google Cloud resources. Consequently
+you need to grant this Google Cloud service account sufficient privileges to create the desired
+resources in one or more projects (called managed projects, read &lt;a href=&#34;https://github.com/kubeflow/gcp-blueprints/tree/master/management/instance/managed-project&#34;&gt;more&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;The easiest way to do this is to grant the Google Cloud service account owner permissions on one or more projects.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Set the managed project:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;kpt cfg &lt;span style=&#34;color:#204a87&#34;&gt;set&lt;/span&gt; ./instance managed-project &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;MANAGED_PROJECT&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Update the policy:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;gcloud beta anthos apply ./instance/managed-project/iam.yaml
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Optionally, to restrict permissions you want to grant to this service account. You can edit &lt;code&gt;./instance/managed-project/iam.yaml&lt;/code&gt; and specify more granular roles. Refer to &lt;a href=&#34;https://cloud.google.com/config-connector/docs/reference/resource-docs/iam/iampolicy&#34;&gt;IAMPolicy Config Connector reference&lt;/a&gt; for exact fields you can set.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;understanding-the-deployment-process&#34;&gt;Understanding the deployment process&lt;/h2&gt;
+&lt;p&gt;This section gives you more details about the configuration and
+deployment process, so that you can customize your management cluster if necessary.&lt;/p&gt;
+&lt;h3 id=&#34;management-cluster-folder-layout&#34;&gt;Management cluster folder layout&lt;/h3&gt;
+&lt;p&gt;Your management cluster directory contains the following files and directories:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Makefile&lt;/strong&gt; is a file that defines rules to automate deployment process. You can refer to &lt;a href=&#34;https://www.gnu.org/software/make/manual/make.html#Introduction&#34;&gt;GNU make documentation&lt;/a&gt; for more introduction. The Makefile we provide is designed to be user maintainable. You are encouraged to read, edit and maintain it to suit your own deployment customization needs.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;upstream&lt;/strong&gt; is a directory containing kustomize packages for deploying your management cluster.
+This directory contains the upstream configurations on which your deployment is based on.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;instance&lt;/strong&gt; is a directory that defines user overlays that are applied to the upstream
+configurations in order to customize management cluster for your use case.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;cluster&lt;/strong&gt; is a kustomize package defining all the Google Cloud resources needed using &lt;a href=&#34;https://cloud.google.com/sdk/gcloud/reference/beta/anthos/apply&#34;&gt;gcloud beta anthos apply&lt;/a&gt;. It can apply some Google Cloud resource types using the same resource definition for Config Connector. You can edit this kustomize package in order to customize the Google Cloud resources for your purposes.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;cnrm-install-*&lt;/strong&gt; folders contain kustomize packages for Google Cloud services, iam policies and Kubernetes resources to install Config Connector following &lt;a href=&#34;https://cloud.google.com/config-connector/docs/how-to/advanced-install&#34;&gt;Advanced installation options for Config Connector&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;build&lt;/strong&gt; is a directory that will contain the hydrated manifests outputted by
+the &lt;code&gt;make&lt;/code&gt; rules&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;layout-rationale&#34;&gt;Layout rationale&lt;/h2&gt;
+&lt;p&gt;We explicitly separate &lt;strong&gt;upstream&lt;/strong&gt; and &lt;strong&gt;instance&lt;/strong&gt; folders, so that in most upgrades, you should be able to just re-fetch &lt;strong&gt;upstream&lt;/strong&gt; folder and get all the upgrades without needing to change your customizations in &lt;strong&gt;instance&lt;/strong&gt; folder.&lt;/p&gt;
+&lt;h2 id=&#34;customizing-the-installation&#34;&gt;Customizing the installation&lt;/h2&gt;
+&lt;p&gt;Once you understand the folder layout, it&amp;rsquo;s clearer that to declaratively customize any resources declared in &lt;code&gt;./upstream&lt;/code&gt; folder,
+you can edit &lt;a href=&#34;https://kustomize.io/&#34;&gt;Kustomize&lt;/a&gt; overlays in &lt;code&gt;./instance&lt;/code&gt; folder.&lt;/p&gt;
+&lt;p&gt;The following tips help you customize, verify and re-apply them to your cluster.&lt;/p&gt;
+&lt;p&gt;Some useful links for Kustomize:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://kubectl.docs.kubernetes.io/references/kustomize/patchesstrategicmerge/&#34;&gt;patchesStrategicMerge&lt;/a&gt; let you patch any fields of an existing resource using a partial resource definition.&lt;/li&gt;
+&lt;li&gt;Reference for all Kustomize features: &lt;a href=&#34;https://kubectl.docs.kubernetes.io/references/kustomize/&#34;&gt;https://kubectl.docs.kubernetes.io/references/kustomize/&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;To get detailed reference for Google Cloud resources, refer to
+&lt;a href=&#34;https://cloud.google.com/config-connector/docs/reference/overview&#34;&gt;Config Connector resources reference&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;To verify whether hydrated resources match your expectation:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;make hydrate-cluster
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# or&lt;/span&gt;
+make hydrate-kcc
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;and refer to hydrated resources in &lt;code&gt;./build/*&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;To apply your customizations:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;make apply-cluster
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# or&lt;/span&gt;
+make apply-kcc
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Note that, some fields in some resources may be immutable. You may need to
+manually delete them before applying again.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Guide: Deploy using kubectl and kpt</title>
+      <link>/guide/gke/deploy/deploy-cli/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/guide/gke/deploy/deploy-cli/</guid>
+      <description>
+        
+        
+        &lt;p&gt;This guide describes how to use &lt;code&gt;kubectl&lt;/code&gt; and &lt;a href=&#34;https://googlecontainertools.github.io/kpt/&#34;&gt;kpt&lt;/a&gt; to
+deploy Kubeflow on Google Cloud.&lt;/p&gt;
+&lt;h2 id=&#34;before-you-start&#34;&gt;Before you start&lt;/h2&gt;
+&lt;p&gt;Before installing Kubeflow on the command line:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;You must have created a management cluster and installed Config Connector.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;If you don&amp;rsquo;t have a management cluster follow the &lt;a href=&#34;../management-setup/&#34;&gt;instructions&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Your management cluster must have a namespace setup to administer the Google Cloud project where
+Kubeflow will be deployed. Follow the &lt;a href=&#34;../management-setup/&#34;&gt;instructions&lt;/a&gt; to create
+one if you haven&amp;rsquo;t already.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;If you&amp;rsquo;re using
+&lt;a href=&#34;https://cloud.google.com/shell/&#34;&gt;Cloud Shell&lt;/a&gt;, enable
+&lt;a href=&#34;https://cloud.google.com/shell/docs/features#boost_mode&#34;&gt;boost mode&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Make sure that your Google Cloud project meets the minimum requirements
+described in the &lt;a href=&#34;/docs/gke/deploy/project-setup/&#34;&gt;project setup guide&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Follow the guide
+&lt;a href=&#34;/docs/gke/deploy/oauth-setup/&#34;&gt;setting up OAuth credentials&lt;/a&gt;
+to create OAuth credentials for &lt;a href=&#34;https://cloud.google.com/iap/docs/&#34;&gt;Cloud Identity-Aware Proxy (Cloud
+IAP)&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Refer to
+&lt;a href=&#34;#understanding-the-deployment-process&#34;&gt;Understanding the deployment process&lt;/a&gt; for more information on the kfctl configuration and deployment process.&lt;/p&gt;
+&lt;h3 id=&#34;environment-variables&#34;&gt;Environment Variables&lt;/h3&gt;
+&lt;p&gt;This guide assumes the following settings:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;The &lt;code&gt;${MGMT_NAME}&lt;/code&gt; environment variable contains the name of your management cluster created in &lt;a href=&#34;../management-setup&#34;&gt;Management cluster setup&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The &lt;code&gt;${MGMTCTXT}&lt;/code&gt; environment variable contains a kubectl context that connects
+to the &lt;code&gt;${KF_PROJECT}&lt;/code&gt; namespace of the management cluster. By default, &lt;a href=&#34;../management-setup&#34;&gt;Management
+cluster setup&lt;/a&gt; creates a context named &lt;code&gt;${MGMT_NAME}&lt;/code&gt; for you.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The &lt;code&gt;${KF_NAME}&lt;/code&gt; environment variable contains the name of your Kubeflow cluster.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The &lt;code&gt;${KF_PROJECT}&lt;/code&gt; environment variable contains the Google Cloud project ID where Kubeflow cluster will be deployed to.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The &lt;code&gt;${KF_DIR}&lt;/code&gt; environment variable contains the path where you want to
+put your Kubeflow application directory, which holds your Kubeflow configuration
+files. For example, &lt;code&gt;~/kf-deployments/my-kubeflow/&lt;/code&gt;. You can choose any path you
+would like for the directory &lt;code&gt;${KF_DIR}&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;To continously manage the Kubeflow cluster, you are recommended to check
+the Kubeflow configuration directory into source control.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Set these environment variables in your shell:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#000&#34;&gt;KF_NAME&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&amp;lt;name of your Kubeflow cluster&amp;gt;
+&lt;span style=&#34;color:#000&#34;&gt;KF_PROJECT&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&amp;lt;the project where you deploy your Kubeflow cluster&amp;gt;
+&lt;span style=&#34;color:#000&#34;&gt;KF_DIR&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&amp;lt;path to your Kubeflow configuration directory&amp;gt;
+&lt;span style=&#34;color:#000&#34;&gt;MGMT_NAME&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&amp;lt;name of your management cluster&amp;gt;
+&lt;span style=&#34;color:#000&#34;&gt;MGMTCTXT&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;MGMT_NAME&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;However, the environment variables are used purely for command illustration
+purpose. No tools will assume they actually exists in your terminal environment.&lt;/p&gt;
+&lt;h3 id=&#34;install-the-required-tools&#34;&gt;Install the required tools&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Install &lt;a href=&#34;https://cloud.google.com/sdk/&#34;&gt;gcloud&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Install gcloud components&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;gcloud components install kubectl kpt anthoscli beta
+gcloud components update
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Install &lt;a href=&#34;https://kubectl.docs.kubernetes.io/installation/kustomize/&#34;&gt;Kustomize&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; Prior to Kubeflow v1.2, Kubeflow was compatible only with Kustomize &lt;code&gt;v3.2.1&lt;/code&gt;. Starting from Kubeflow v1.2, you can now use the latest Kustomize versions to install Kubeflow.&lt;/p&gt;
+&lt;p&gt;To deploy the latest version of Kustomize on a Linux or Mac machine, run the following commands:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Detect your OS and download the corresponding latest Kustomize binary&lt;/span&gt;
+curl -s &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;https://raw.githubusercontent.com/kubernetes-sigs/kustomize/master/hack/install_kustomize.sh&amp;#34;&lt;/span&gt;  &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; bash
+
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Add the kustomize package to your $PATH env variable&lt;/span&gt;
+sudo mv ./kustomize /usr/local/bin/kustomize
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Then, to verify the installation, run &lt;code&gt;kustomize version&lt;/code&gt;. You should see &lt;code&gt;Version:kustomize/vX.Y.Z&lt;/code&gt; in the output if you&amp;rsquo;ve successfully deployed Kustomize.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Install &lt;a href=&#34;https://github.com/mikefarah/yq&#34;&gt;yq&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#000&#34;&gt;GO111MODULE&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;on go get github.com/mikefarah/yq/v3
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;If you don&amp;rsquo;t have &lt;a href=&#34;https://golang.org&#34;&gt;Go&lt;/a&gt; installed you can download
+a binary from &lt;a href=&#34;https://github.com/mikefarah/yq/releases&#34;&gt;yq&amp;rsquo;s GitHub releases&lt;/a&gt;, and follow the official installation steps.&lt;/li&gt;
+&lt;li&gt;Note: due to changes from &lt;a href=&#34;https://mikefarah.gitbook.io/yq/upgrading-from-v3#navigating&#34;&gt;yq v3 to v4&lt;/a&gt;, Versions 4.x of yq will not work with Kubeflow. &lt;a href=&#34;https://github.com/mikefarah/yq/releases/tag/3.3.0&#34;&gt;Version 3.3.0&lt;/a&gt; is confirmed to work.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Follow the instructions from &lt;a href=&#34;https://cloud.google.com/service-mesh/docs/archive/1.4/docs/gke-install-new-cluster#preparing_to_install_anthos_service_mesh&#34;&gt;Preparing to install Anthos Service Mesh&lt;/a&gt; to install &lt;code&gt;istioctl&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Note, the &lt;code&gt;istioctl&lt;/code&gt; downloaded from above instructions is specific to Anthos Service Mesh. It is different from the &lt;code&gt;istioctl&lt;/code&gt; you can download on &lt;a href=&#34;https://istio.io/&#34;&gt;https://istio.io/&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;prepare-your-environment&#34;&gt;Prepare your environment&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Log in. You only need to run this command once:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;gcloud auth login
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;fetch-packages-using-kpt&#34;&gt;Fetch packages using kpt&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Fetch the Kubeflow package&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;kpt pkg get https://github.com/kubeflow/gcp-blueprints.git/kubeflow@v1.2.0 &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;KF_DIR&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Change to the Kubeflow directory&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#204a87&#34;&gt;cd&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;KF_DIR&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Note, all the instructions below assume your current working directory is &lt;code&gt;${KF_DIR}&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Fetch Kubeflow manifests&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;make get-pkg
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;configure-kubeflow&#34;&gt;Configure Kubeflow&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;${KF_NAME}&lt;/strong&gt; - The name of your Kubeflow deployment.
+If you want a custom deployment name, specify that name here.
+For example,  &lt;code&gt;my-kubeflow&lt;/code&gt; or &lt;code&gt;kf-test&lt;/code&gt;.
+The value of KF_NAME must consist of lower case alphanumeric characters or
+&amp;lsquo;-&amp;rsquo;, and must start and end with an alphanumeric character.
+The value of this variable cannot be greater than 25 characters. It must
+contain just a name, not a directory path.
+You also use this value as directory name when creating the directory where
+your Kubeflow  configurations are stored, that is, the Kubeflow application
+directory.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;${KF_DIR}&lt;/strong&gt; - The full path to your Kubeflow application directory.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;There are certain parameters that you must define in order to configure how and where
+kubeflow is defined. These are described in the table below.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;kpt setter&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;mgmt-ctxt&lt;/td&gt;
+&lt;td&gt;This is the name of the KUBECONFIG context for the management cluster; this kubecontext will be used to create Config Connector resources for your Kubeflow deployment. &lt;strong&gt;The context must set the namespace to the namespace in your management cluster where you are creating Config Connector resources for the managed project.&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;gcloud.core.project&lt;/td&gt;
+&lt;td&gt;The project you want to deploy in&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;location&lt;/td&gt;
+&lt;td&gt;The zone or region you want to deploy in&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;gcloud.compute.region&lt;/td&gt;
+&lt;td&gt;The region you are deploying in&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;gcloud.compute.zone&lt;/td&gt;
+&lt;td&gt;The zone to use for zonal resources; must be in gcloud.compute.region&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;${KF_NAME}&lt;/code&gt; is the cluster name of your Kubeflow cluster and prefix for other Google Cloud resources created in the deployment process. Kubeflow cluster
+should be a different cluster from your management cluster.&lt;/p&gt;
+&lt;p&gt;Note, &lt;code&gt;${KF_NAME}&lt;/code&gt; should&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;start with a lowercase letter&lt;/li&gt;
+&lt;li&gt;only contain lowercase letters, numbers and &lt;code&gt;-&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;end with a number or a letter&lt;/li&gt;
+&lt;li&gt;contain no more than 24 characters&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Location can be a zone or a region depending on whether you want a regional cluster&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Currently, Kubeflow Pipelines doesn&amp;rsquo;t work with regional deployments. For more, go to &lt;a href=&#34;https://github.com/kubeflow/gcp-blueprints/issues/6&#34;&gt;kubeflow/gcp-blueprints#6&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;For the default configuration, you need to choose a location that supports NVIDIA Tesla K80 Accelerators (&lt;code&gt;nvidia-tesla-k80&lt;/code&gt;).
+To see which accelerators are available in each zone, run the following command:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;gcloud compute accelerator-types list
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The &lt;strong&gt;Makefile&lt;/strong&gt; at &lt;code&gt;${KF_DIR}/Makefile&lt;/code&gt; contains a rule &lt;code&gt;set-values&lt;/code&gt; with appropriate &lt;code&gt;kpt cfg&lt;/code&gt; commands to set the values
+of the parameters&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;You need to edit the makefile at &lt;code&gt;${KF_DIR}/Makefile&lt;/code&gt; to set the parameters to the desired values.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;The management cluster deployment instructions creates a kubectl context
+named &lt;code&gt;${MGMT_NAME}&lt;/code&gt; for you. You can use it as &lt;code&gt;${MGMTCTXT}&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;kpt cfg &lt;span style=&#34;color:#204a87&#34;&gt;set&lt;/span&gt; ./instance mgmt-ctxt &amp;lt;YOUR_MANAGEMENT_CTXT&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Note there are multiple invocations of &lt;code&gt;kpt cfg set&lt;/code&gt; on different directories to
+work around &lt;a href=&#34;https://github.com/GoogleContainerTools/kpt/issues/541&#34;&gt;GoogleContainerTools/kpt#541&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;You need to configure the kubectl context &lt;code&gt;${MGMTCTXT}&lt;/code&gt;.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Choose the management cluster context&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;kubectl config use-context &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;MGMTCTXT&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Create a namespace in your management cluster for the managed project if you haven&amp;rsquo;t done so.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;kubectl create namespace &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;KF_PROJECT&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;where &lt;code&gt;${KF_PROJECT}&lt;/code&gt; is your &lt;code&gt;${MANAGED_PROJECT}&lt;/code&gt; mentioned in the &lt;a href=&#34;../management-setup/#authorize-cloud-config-connector-for-each-managed-project&#34;&gt;Authorize Cloud Config Connector for each managed project
+&lt;/a&gt; step.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Make the Kubeflow project&amp;rsquo;s namespace default of the &lt;code&gt;${MGMTCTXT}&lt;/code&gt; context:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;kubectl config set-context --current --namespace &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;KF_PROJECT&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;If you haven&amp;rsquo;t previously created an OAuth client for IAP then follow
+the &lt;a href=&#34;https://www.kubeflow.org/docs/gke/deploy/oauth-setup/&#34;&gt;directions&lt;/a&gt; to setup
+your consent screen and oauth client.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Unfortunately &lt;a href=&#34;https://cloud.google.com/kubernetes-engine/docs/concepts/backendconfig&#34;&gt;GKE&amp;rsquo;s BackendConfig&lt;/a&gt;
+currently doesn&amp;rsquo;t support creating &lt;a href=&#34;https://cloud.google.com/iap/docs/programmatic-oauth-clients&#34;&gt;IAP OAuth clients programmatically&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Set environment variables with OAuth Client ID and Secret for IAP:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#204a87&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;CLIENT_ID&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&amp;lt;Your CLIENT_ID&amp;gt;
+&lt;span style=&#34;color:#204a87&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;CLIENT_SECRET&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&amp;lt;Your CLIENT_SECRET&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Note, do not omit the &lt;code&gt;export&lt;/code&gt; because scripts triggered by &lt;code&gt;make&lt;/code&gt; need these
+environment variables.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Invoke the make rule to set the kpt setters:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;make set-values
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;deploy-kubeflow&#34;&gt;Deploy Kubeflow&lt;/h2&gt;
+&lt;p&gt;To deploy Kubeflow, run the following command:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;make apply
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;If resources can&amp;rsquo;t be created because &lt;code&gt;webhook.cert-manager.io&lt;/code&gt; is unavailable wait and
+then rerun &lt;code&gt;make apply&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;This issue is being tracked in &lt;a href=&#34;https://github.com/kubeflow/manifests/issues/1234&#34;&gt;kubeflow/manifests#1234&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;If resources can&amp;rsquo;t be created with an error message like:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;error: unable to recognize &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;.build/application/app.k8s.io_v1beta1_application_application-controller-kubeflow.yaml&amp;#34;&lt;/span&gt;: no matches &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;for&lt;/span&gt; kind &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Application&amp;#34;&lt;/span&gt; in version &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;app.k8s.io/v1beta1”
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This issue occurs when the CRD endpoint isn&amp;rsquo;t established in the Kubernetes API server when the CRD&amp;rsquo;s custom object is applied.
+This issue is expected and can happen multiple times for different kinds of resource. To resolve this issue, try running &lt;code&gt;make apply&lt;/code&gt; again.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;check-your-deployment&#34;&gt;Check your deployment&lt;/h2&gt;
+&lt;p&gt;Follow these steps to verify the deployment:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;When the deployment finishes, check the resources installed in the namespace
+&lt;code&gt;kubeflow&lt;/code&gt; in your new cluster.  To do this from the command line, first set
+your &lt;code&gt;kubectl&lt;/code&gt; credentials to point to the new cluster:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;gcloud container clusters get-credentials &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;KF_NAME&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&lt;/span&gt; --zone &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;ZONE&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&lt;/span&gt; --project &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;KF_PROJECT&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Then, check what&amp;rsquo;s installed in the &lt;code&gt;kubeflow&lt;/code&gt; namespace of your GKE cluster:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;kubectl -n kubeflow get all
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;access-the-kubeflow-user-interface-ui&#34;&gt;Access the Kubeflow user interface (UI)&lt;/h2&gt;
+&lt;p&gt;To access the Kubeflow central dashboard, follow these steps:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Use the following command to grant yourself the &lt;a href=&#34;https://cloud.google.com/iap/docs/managing-access&#34;&gt;IAP-secured Web App User&lt;/a&gt; role:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;gcloud projects add-iam-policy-binding &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;KF_PROJECT&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&lt;/span&gt; --member&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;user:&amp;lt;EMAIL&amp;gt; --role&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;roles/iap.httpsResourceAccessor
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Note, you need the &lt;code&gt;IAP-secured Web App User&lt;/code&gt; role even if you are already an owner or editor of the project. &lt;code&gt;IAP-secured Web App User&lt;/code&gt; role is not implied by the &lt;code&gt;Project Owner&lt;/code&gt; or &lt;code&gt;Project Editor&lt;/code&gt; roles.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Enter the following URI into your browser address bar. It can take 20
+minutes for the URI to become available: &lt;code&gt;https://${KF_NAME}.endpoints.${KF_PROJECT}.cloud.goog/&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;You can run the following command to get the URI for your deployment:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;kubectl -n istio-system get ingress
+NAME            HOSTS                                                      ADDRESS         PORTS   AGE
+envoy-ingress   your-kubeflow-name.endpoints.your-gcp-project.cloud.goog   34.102.232.34   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;80&lt;/span&gt;      5d13h
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The following command sets an environment variable named &lt;code&gt;HOST&lt;/code&gt; to the URI:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#204a87&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;HOST&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;$(&lt;/span&gt;kubectl -n istio-system get ingress envoy-ingress -o&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;jsonpath&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;={&lt;/span&gt;.spec.rules&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;0&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;.host&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Follow the instructions on the UI to create a namespace. Refer to this guide on
+&lt;a href=&#34;/docs/components/multi-tenancy/getting-started/#automatic-creation-of-profiles&#34;&gt;creation of profiles&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Notes:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;It can take 20 minutes for the URI to become available.
+Kubeflow needs to provision a signed SSL certificate and register a DNS
+name.&lt;/li&gt;
+&lt;li&gt;If you own or manage the domain or a subdomain with
+&lt;a href=&#34;https://cloud.google.com/dns/docs/&#34;&gt;Cloud DNS&lt;/a&gt;
+then you can configure this process to be much faster.
+Check &lt;a href=&#34;https://github.com/kubeflow/kubeflow/issues/731&#34;&gt;kubeflow/kubeflow#731&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;upgrade-kubeflow&#34;&gt;Upgrade Kubeflow&lt;/h2&gt;
+&lt;p&gt;Refer to &lt;a href=&#34;/docs/gke/deploy/upgrade#upgrading-kubeflow-cluster&#34;&gt;Upgrading Kubeflow cluster&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;understanding-the-deployment-process&#34;&gt;Understanding the deployment process&lt;/h2&gt;
+&lt;p&gt;This section gives you more details about the kfctl configuration and
+deployment process, so that you can customize your Kubeflow deployment if
+necessary.&lt;/p&gt;
+&lt;h3 id=&#34;application-layout&#34;&gt;Application layout&lt;/h3&gt;
+&lt;p&gt;Your Kubeflow application directory &lt;strong&gt;${KF_DIR}&lt;/strong&gt; contains the following files and
+directories:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Makefile&lt;/strong&gt; is a file that defines rules to automate deployment process. You can refer to &lt;a href=&#34;https://www.gnu.org/software/make/manual/make.html#Introduction&#34;&gt;GNU make documentation&lt;/a&gt; for more introduction. The Makefile we provide is designed to be user maintainable. You are encouraged to read, edit and maintain it to suit your own deployment customization needs.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;upstream&lt;/strong&gt; is a directory containing kustomize packages for deploying Kubeflow&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;This directory contains the upstream configurations on which your deployment
+is based&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;instance&lt;/strong&gt; is a directory that defines overlays that are applied to the upstream
+configurations in order to customize Kubeflow for your use case.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;gcp_config&lt;/strong&gt; is a kustomize package defining all the Google Cloud resources needed for Kubeflow
+using &lt;a href=&#34;https://cloud.google.com/config-connector/docs/overview&#34;&gt;Cloud Config Connector&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;You can edit this kustomize package in order to customize the Google Cloud resources for
+your purposes&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;kustomize&lt;/strong&gt; contains kustomize packages for the various Kubernetes applications
+to be installed on your Kubeflow cluster&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;.build&lt;/strong&gt; is a directory that will contain the hydrated manifests outputted by
+the &lt;code&gt;make&lt;/code&gt; rules&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;source-control&#34;&gt;Source Control&lt;/h3&gt;
+&lt;p&gt;It is recommended that you check in your entire &lt;strong&gt;${KF_DIR}&lt;/strong&gt; into source control.&lt;/p&gt;
+&lt;p&gt;Checking in &lt;strong&gt;.build&lt;/strong&gt; is recommended so you can easily see differences in manifests before applying them.&lt;/p&gt;
+&lt;h3 id=&#34;google-cloud-service-accounts&#34;&gt;Google Cloud service accounts&lt;/h3&gt;
+&lt;p&gt;The kfctl deployment process creates three service accounts in your
+Google Cloud project. These service accounts follow the &lt;a href=&#34;https://en.wikipedia.org/wiki/Principle_of_least_privilege&#34;&gt;principle of least
+privilege&lt;/a&gt;.
+The service accounts are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;${KF_NAME}-admin&lt;/code&gt; is used for some admin tasks like configuring the load
+balancers. The principle is that this account is needed to deploy Kubeflow but
+not needed to actually run jobs.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;${KF_NAME}-user&lt;/code&gt; is intended to be used by training jobs and models to access
+Google Cloud resources (Cloud Storage, BigQuery, etc.). This account has a much smaller
+set of privileges compared to &lt;code&gt;admin&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;${KF_NAME}-vm&lt;/code&gt; is used only for the virtual machine (VM) service account. This
+account has the minimal permissions needed to send metrics and logs to
+&lt;a href=&#34;https://cloud.google.com/stackdriver/&#34;&gt;Stackdriver&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;next-steps&#34;&gt;Next steps&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Run a full ML workflow on Kubeflow, using the
+&lt;a href=&#34;/docs/gke/gcp-e2e/&#34;&gt;end-to-end MNIST tutorial&lt;/a&gt; or the
+&lt;a href=&#34;https://github.com/kubeflow/examples/tree/master/github_issue_summarization/pipelines&#34;&gt;GitHub issue summarization Pipelines
+example&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Learn how to &lt;a href=&#34;/docs/gke/deploy/delete-cli/&#34;&gt;delete your Kubeflow deployment using the CLI&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;To add users to Kubeflow, go to &lt;a href=&#34;/docs/gke/customizing-gke/#add-users-to-kubeflow&#34;&gt;a dedicated section in Customizing Kubeflow on GKE&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;To taylor your Kubeflow deployment on GKE, go to &lt;a href=&#34;/docs/gke/customizing-gke/&#34;&gt;Customizing Kubeflow on GKE&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;For troubleshooting Kubeflow deployments on GKE, go to the &lt;a href=&#34;/docs/gke/troubleshooting-gke/&#34;&gt;Troubleshooting deployments&lt;/a&gt; guide.&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Guide: Upgrade Kubeflow</title>
+      <link>/guide/gke/deploy/upgrade/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/guide/gke/deploy/upgrade/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;before-you-start&#34;&gt;Before you start&lt;/h2&gt;
+&lt;p&gt;To better understand upgrade process, you should read the following sections first:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;../management-setup#understanding-the-deployment-process&#34;&gt;Understanding the deployment process for management cluster&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;../deploy-cli#understanding-the-deployment-process&#34;&gt;Understanding the deployment process for Kubeflow cluster&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This guide assumes the following settings:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The &lt;code&gt;${MGMT_DIR}&lt;/code&gt; and &lt;code&gt;${MGMT_NAME}&lt;/code&gt; environment variables
+are the same as in &lt;a href=&#34;../management-setup#environment-variables&#34;&gt;Management cluster setup&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;The &lt;code&gt;${KF_DIR}&lt;/code&gt;, &lt;code&gt;${KF_NAME}&lt;/code&gt;, &lt;code&gt;${CLIENT_ID}&lt;/code&gt; and &lt;code&gt;${CLIENT_SECRET}&lt;/code&gt; environment variables
+are the same as in &lt;a href=&#34;../deploy-cli#environment-variables&#34;&gt;Deploy using kubectl and kpt&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;general-upgrade-instructions&#34;&gt;General upgrade instructions&lt;/h2&gt;
+&lt;p&gt;Both management cluster and Kubeflow cluster follow the same &lt;code&gt;instance&lt;/code&gt; and &lt;code&gt;upstream&lt;/code&gt; folder convention. To upgrade, you&amp;rsquo;ll typically need to update packages in &lt;code&gt;upstream&lt;/code&gt; to the new version and repeat the &lt;code&gt;make apply-&amp;lt;subcommand&amp;gt;&lt;/code&gt; commands in their respective deployment process.&lt;/p&gt;
+&lt;p&gt;However, specific upgrades might need manual actions below.&lt;/p&gt;
+&lt;h2 id=&#34;upgrading-management-cluster&#34;&gt;Upgrading management cluster&lt;/h2&gt;
+&lt;h3 id=&#34;upgrade-management-cluster-from-v11-to-v12&#34;&gt;Upgrade management cluster from v1.1 to v1.2&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;The instructions below assume that your current working directory is&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#204a87&#34;&gt;cd&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;MGMT_DIR&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Use your management cluster&amp;rsquo;s kubectl context:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Look at all your contexts&lt;/span&gt;
+kubectl config get-contexts
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Select your management cluster&amp;#39;s context&lt;/span&gt;
+kubectl config use-context &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;MGMT_NAME&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Verify the context connects to the cluster properly&lt;/span&gt;
+kubectl get namespace
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;If you are using a different enviroment, you can always
+reconfigure the context by:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;make create-context
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Check your existing config connector version:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# For Kubeflow v1.1, it should be 1.15.1&lt;/span&gt;
+$ kubectl get namespace cnrm-system -ojsonpath&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;{.metadata.annotations.cnrm\.cloud\.google\.com\/version}&amp;#39;&lt;/span&gt;
+1.15.1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Uninstall the old config connector in the management cluster:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;kubectl delete sts,deploy,po,svc,roles,clusterroles,clusterrolebindings --all-namespaces -l cnrm.cloud.google.com/system&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#204a87&#34;&gt;true&lt;/span&gt; --wait&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#204a87&#34;&gt;true&lt;/span&gt;
+kubectl delete validatingwebhookconfiguration abandon-on-uninstall.cnrm.cloud.google.com --ignore-not-found --wait&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#204a87&#34;&gt;true&lt;/span&gt;
+kubectl delete validatingwebhookconfiguration validating-webhook.cnrm.cloud.google.com --ignore-not-found --wait&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#204a87&#34;&gt;true&lt;/span&gt;
+kubectl delete mutatingwebhookconfiguration mutating-webhook.cnrm.cloud.google.com --ignore-not-found --wait&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#204a87&#34;&gt;true&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;These commands uninstall the config connector without removing your resources.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Replace your &lt;code&gt;./Makefile&lt;/code&gt; with the version in Kubeflow &lt;code&gt;v1.2.0&lt;/code&gt;: &lt;a href=&#34;https://github.com/kubeflow/gcp-blueprints/blob/v1.2.0/management/Makefile&#34;&gt;https://github.com/kubeflow/gcp-blueprints/blob/v1.2.0/management/Makefile&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;If you made any customizations in &lt;code&gt;./Makefile&lt;/code&gt;, you should merge your changes with the upstream version. We&amp;rsquo;ve refactored the Makefile to move substantial commands into the upstream package, so hopefully future upgrades won&amp;rsquo;t require a manual merge of the Makefile.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Update &lt;code&gt;./upstream/management&lt;/code&gt; package:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;make update
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Use kpt to set user values:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;kpt cfg &lt;span style=&#34;color:#204a87&#34;&gt;set&lt;/span&gt; -R . name &lt;span style=&#34;color:#4e9a06&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;MGMT_NAME&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;}&lt;/span&gt;
+kpt cfg &lt;span style=&#34;color:#204a87&#34;&gt;set&lt;/span&gt; -R . gcloud.core.project &lt;span style=&#34;color:#4e9a06&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;MGMT_PROJECT&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;}&lt;/span&gt;
+kpt cfg &lt;span style=&#34;color:#204a87&#34;&gt;set&lt;/span&gt; -R . location &lt;span style=&#34;color:#4e9a06&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;LOCATION&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Note, you can find out which setters exist in a package and what there current values are by:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;kpt cfg list-setters .
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Apply upgraded config connector:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;make apply-kcc
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Note, you can optionally also run &lt;code&gt;make apply-cluster&lt;/code&gt;, but it should be the same as your existing management cluster.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Check that your config connector upgrade is successful:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# For Kubeflow v1.2, it should be 1.29.0&lt;/span&gt;
+$ kubectl get namespace cnrm-system -ojsonpath&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;{.metadata.annotations.cnrm\.cloud\.google\.com\/version}&amp;#39;&lt;/span&gt;
+1.29.0
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;upgrading-kubeflow-cluster&#34;&gt;Upgrading Kubeflow cluster&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;DISCLAIMERS&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The upgrade process depends on each Kubeflow application to handle the upgrade properly. There&amp;rsquo;s no guarantee on data completeness unless the application provides such a guarantee.&lt;/li&gt;
+&lt;li&gt;You are recommended to back up your data before an upgrade.&lt;/li&gt;
+&lt;li&gt;Upgrading Kubeflow cluster can be a disruptive process, please schedule some downtime and communicate with your users.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;To upgrade from specific versions of Kubeflow, you may need to take certain manual actions — refer to specific sections in the guidelines below.&lt;/p&gt;
+&lt;p&gt;General instructions for upgrading Kubeflow:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;The instructions below assume that:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Your current working directory is:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#204a87&#34;&gt;cd&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;KF_DIR&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Your kubectl uses a context that connects to your Kubeflow cluster&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# List your existing contexts&lt;/span&gt;
+kubectl config get-contexts
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Use the context that connects to your Kubeflow cluster&lt;/span&gt;
+kubectl config use-context &lt;span style=&#34;color:#4e9a06&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;KF_NAME&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Edit the Makefile at &lt;code&gt;./Makefile&lt;/code&gt; and change &lt;code&gt;MANIFESTS_URL&lt;/code&gt; to point at the version of Kubeflow manifests you want to use&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Refer to the &lt;a href=&#34;https://googlecontainertools.github.io/kpt/reference/pkg/&#34;&gt;kpt docs&lt;/a&gt; for more info about supported dependencies&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Update the local copies:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;make update
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Redeploy:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;make apply
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;To evaluate the changes before deploying them you can run &lt;code&gt;make hydrate&lt;/code&gt; and then compare the contents
+of &lt;code&gt;.build&lt;/code&gt; to what is currently deployed.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;upgrade-kubeflow-cluster-from-v11-to-v12&#34;&gt;Upgrade Kubeflow cluster from v1.1 to v1.2&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;The instructions below assume&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Your current working directory is:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#204a87&#34;&gt;cd&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;KF_DIR&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Your kubectl uses a context that connects to your Kubeflow cluster:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# List your existing contexts&lt;/span&gt;
+kubectl config get-contexts
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Use the context that connects to your Kubeflow cluster&lt;/span&gt;
+kubectl config use-context &lt;span style=&#34;color:#4e9a06&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;KF_NAME&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;(Recommended) Replace your &lt;code&gt;./Makefile&lt;/code&gt; with the version in Kubeflow &lt;code&gt;v1.2.0&lt;/code&gt;: &lt;a href=&#34;https://github.com/kubeflow/gcp-blueprints/blob/v1.2.0/kubeflow/Makefile&#34;&gt;https://github.com/kubeflow/gcp-blueprints/blob/v1.2.0/kubeflow/Makefile&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;If you made any customizations in &lt;code&gt;./Makefile&lt;/code&gt;, you should merge your changes with the upstream version.&lt;/p&gt;
+&lt;p&gt;This step is recommended, because we introduced usability improvements and fixed compatibility for newer Kustomize versions (while still being compatible with Kustomize v3.2.1) to the Makefile. However, the deployment process is backward-compatible, so this is recommended, but not required.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Update &lt;code&gt;./upstream/manifests&lt;/code&gt; package:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;make update
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Before applying new resources, you need to delete some immutable resources that were updated in this release:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;kubectl delete statefulset kfserving-controller-manager -n kubeflow --wait
+kubectl delete crds experiments.kubeflow.org suggestions.kubeflow.org trials.kubeflow.org
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;WARNING&lt;/strong&gt;: This step &lt;strong&gt;deletes&lt;/strong&gt; all Katib running resources.&lt;/p&gt;
+&lt;p&gt;Refer to &lt;a href=&#34;https://github.com/kubeflow/kubeflow/issues/5371#issuecomment-731359384&#34;&gt;a github comment in the v1.2 release issue&lt;/a&gt; for more details.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Redeploy:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;make apply
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;To evaluate the changes before deploying them you can:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Run &lt;code&gt;make hydrate&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Compare the contents
+of &lt;code&gt;.build&lt;/code&gt; with a historic version with tools like &lt;code&gt;git diff&lt;/code&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Guide: Monitor Cloud IAP Setup</title>
+      <link>/guide/gke/deploy/monitor-iap-setup/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/guide/gke/deploy/monitor-iap-setup/</guid>
+      <description>
+        
+        
+        
+
+&lt;div class=&#34;alert alert-warning&#34; role=&#34;alert&#34;&gt;
+&lt;h4 class=&#34;alert-heading&#34;&gt;Out of date&lt;/h4&gt;
+This guide contains outdated information pertaining to Kubeflow 1.0. This guide
+needs to be updated for Kubeflow 1.1.
+&lt;/div&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://cloud.google.com/iap/docs/&#34;&gt;Cloud Identity-Aware Proxy (Cloud IAP)&lt;/a&gt; is
+the recommended solution for accessing your Kubeflow
+deployment from outside the cluster, when running Kubeflow on Google Cloud
+Platform (GCP).&lt;/p&gt;
+&lt;p&gt;This document is a step-by-step guide to ensuring that your IAP-secured endpoint
+is available, and to debugging problems that may cause the endpoint to be
+unavailable.&lt;/p&gt;
+&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;When deploying Kubeflow using the &lt;a href=&#34;/docs/gke/deploy/deploy-ui/&#34;&gt;deployment UI&lt;/a&gt;
+or the &lt;a href=&#34;/docs/gke/deploy/deploy-cli/&#34;&gt;command-line interface&lt;/a&gt;,
+you choose the authentication method you want to use. One of the options is
+Cloud IAP. This document assumes that you have already deployed Kubeflow.&lt;/p&gt;
+&lt;p&gt;Kubeflow uses the &lt;a href=&#34;https://cloud.google.com/kubernetes-engine/docs/how-to/managed-certs&#34;&gt;Google-managed certificate&lt;/a&gt;
+to provide an SSL certificate for the Kubeflow Ingress.&lt;/p&gt;
+&lt;p&gt;Cloud IAP gives you the following benefits:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Users can log in in using their GCP accounts.&lt;/li&gt;
+&lt;li&gt;You benefit from Google&amp;rsquo;s security expertise to protect your sensitive
+workloads.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;monitoring-your-cloud-iap-setup&#34;&gt;Monitoring your Cloud IAP setup&lt;/h2&gt;
+&lt;p&gt;Follow these instructions to monitor your Cloud IAP setup and troubleshoot any
+problems:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Examine the
+&lt;a href=&#34;https://kubernetes.io/docs/concepts/services-networking/ingress/&#34;&gt;Ingress&lt;/a&gt;
+and Google Cloud Build (GCB) load balancer to make sure it is available:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;kubectl -n istio-system describe ingress
+
+Name:             envoy-ingress
+Namespace:        kubeflow
+Address:          35.244.132.160
+Default backend:  default-http-backend:80 (10.20.0.10:8080)
+Annotations:
+...
+Events:
+   Type     Reason     Age                 From                     Message
+   ----     ------     ----                ----                     -------
+   Normal   ADD        12m                 loadbalancer-controller  kubeflow/envoy-ingress
+   Warning  Translate  12m (x10 over 12m)  loadbalancer-controller  error while evaluating the ingress spec: could not find service &amp;quot;kubeflow/envoy&amp;quot;
+   Warning  Translate  12m (x2 over 12m)   loadbalancer-controller  error while evaluating the ingress spec: error getting BackendConfig for port &amp;quot;8080&amp;quot; on service &amp;quot;kubeflow/envoy&amp;quot;, err: no BackendConfig for service port exists.
+   Warning  Sync       12m                 loadbalancer-controller  Error during sync: Error running backend syncing routine: received errors when updating backend service: googleapi: Error 400: The resource &#39;projects/code-search-demo/global/backendServices/k8s-be-32230--bee2fc38fcd6383f&#39; is not ready, resourceNotReady
+ googleapi: Error 400: The resource &#39;projects/code-search-demo/global/backendServices/k8s-be-32230--bee2fc38fcd6383f&#39; is not ready, resourceNotReady
+   Normal  CREATE  11m  loadbalancer-controller  ip: 35.244.132.160
+...
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;There should be an annotation indicating that we are using managed certificate:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;annotation:
+  networking.gke.io/managed-certificates: gke-certificate
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Any problems with creating the load balancer are reported as Kubernetes
+events in the results of the above &lt;code&gt;describe&lt;/code&gt; command.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;If the address isn&amp;rsquo;t set then there was a problem creating the load
+balancer.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The &lt;code&gt;CREATE&lt;/code&gt; event indicates the load balancer was successfully
+created on the specified IP address.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The most common error is running out of GCP quota. To fix this problem,
+you must either increase the quota for the relevant resource on your GCP
+project or delete some existing resources.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Verify that a managed certificate resource is generated:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;kubectl describe -n istio-system managedcertificate gke-certificate
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;The status field should have information about the current status of the Certificate.
+Eventually, certificate status should be &lt;code&gt;Active&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Wait for the load balancer to report the back ends as healthy:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;kubectl describe -n istio-system ingress envoy-ingress
+
+...
+Annotations:
+ kubernetes.io/ingress.global-static-ip-name:  kubeflow-ip
+ kubernetes.io/tls-acme:                       true
+ certmanager.k8s.io/issuer:                    letsencrypt-prod
+ ingress.kubernetes.io/backends:               {&amp;quot;k8s-be-31380--5e1566252944dfdb&amp;quot;:&amp;quot;HEALTHY&amp;quot;,&amp;quot;k8s-be-32133--5e1566252944dfdb&amp;quot;:&amp;quot;HEALTHY&amp;quot;}
+...
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Both backends should be reported as healthy.
+It can take several minutes for the load balancer to consider the back ends
+healthy.&lt;/p&gt;
+&lt;p&gt;The service with port &lt;code&gt;31380&lt;/code&gt; is the one that handles Kubeflow
+traffic. (31380 is the default port of the service &lt;code&gt;istio-ingressgateway&lt;/code&gt;.)&lt;/p&gt;
+&lt;p&gt;If the backend is unhealthy, check the pods in &lt;code&gt;istio-system&lt;/code&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;kubectl get pods -n istio-system&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;The &lt;code&gt;istio-ingressgateway-XX&lt;/code&gt; pods should be running&lt;/li&gt;
+&lt;li&gt;Check the logs of pod &lt;code&gt;backend-updater-0&lt;/code&gt;, &lt;code&gt;iap-enabler-XX&lt;/code&gt; to see if there is any error&lt;/li&gt;
+&lt;li&gt;Follow the steps &lt;a href=&#34;https://www.kubeflow.org/docs/gke/troubleshooting-gke/#502-server-error&#34;&gt;here&lt;/a&gt; to check the load balancer and backend service on GCP.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Try accessing Cloud IAP at the fully qualified domain name in your web
+browser:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;https://&amp;lt;your-fully-qualified-domain-name&amp;gt;     
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;If you get SSL errors when you log in, this typically means that your SSL
+certificate is still propagating. Wait a few minutes and try again. SSL
+propagation can take up to 10 minutes.&lt;/p&gt;
+&lt;p&gt;If you do not see a login prompt and you get a 404 error, the configuration
+of Cloud IAP is not yet complete. Keep retrying for up to 10 minutes.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;If you get an error &lt;code&gt;Error: redirect_uri_mismatch&lt;/code&gt; after logging in, this means the list of OAuth authorized redirect URIs does not include your domain.&lt;/p&gt;
+&lt;p&gt;The full error message looks like the following example and includes the 
+relevant links:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;The redirect URI in the request, https://mykubeflow.endpoints.myproject.cloud.goog/_gcp_gatekeeper/authenticate, does not match the ones authorized for the OAuth client. 	
+To update the authorized redirect URIs, visit: https://console.developers.google.com/apis/credentials/oauthclient/22222222222-7meeee7a9a76jvg54j0g2lv8lrsb4l8g.apps.googleusercontent.com?project=22222222222	
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Follow the link in the error message to find the OAuth credential being used
+and add the redirect URI listed in the error message to the list of 
+authorized URIs. For more information, read the guide to 
+&lt;a href=&#34;/docs/gke/deploy/oauth-setup/&#34;&gt;setting up OAuth for Cloud IAP&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;next-steps&#34;&gt;Next steps&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;The &lt;a href=&#34;/docs/gke/troubleshooting-gke/&#34;&gt;GCP troubleshooting guide&lt;/a&gt; for Kubeflow.&lt;/li&gt;
+&lt;li&gt;Guide to &lt;a href=&#34;/docs/components/multi-tenancy/getting-started&#34;&gt;sharing cluster access&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;GCP guide to &lt;a href=&#34;https://cloud.google.com/iap/docs/&#34;&gt;Cloud IAP&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Guide: Delete using CLI</title>
+      <link>/guide/gke/deploy/delete-cli/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/guide/gke/deploy/delete-cli/</guid>
+      <description>
+        
+        
+        &lt;p&gt;This page explains how to delete your Kubeflow cluster or management cluster on
+Google Cloud.&lt;/p&gt;
+&lt;h2 id=&#34;before-you-start&#34;&gt;Before you start&lt;/h2&gt;
+&lt;p&gt;This guide assumes the following settings:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;The &lt;code&gt;${MGMT_PROJECT}&lt;/code&gt;, &lt;code&gt;${MGMT_DIR}&lt;/code&gt; and &lt;code&gt;${MGMT_NAME}&lt;/code&gt; environment variables
+are the same as in &lt;a href=&#34;../management-setup#environment-variables&#34;&gt;Management cluster setup&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The &lt;code&gt;${KF_PROJECT}&lt;/code&gt;, &lt;code&gt;${KF_DIR}&lt;/code&gt;, &lt;code&gt;${KF_NAME}&lt;/code&gt; and &lt;code&gt;${MGMTCTXT}&lt;/code&gt; environment variables
+are the same as in &lt;a href=&#34;../deploy-cli#environment-variables&#34;&gt;Deploy using kubectl and kpt&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;deleting-your-kubeflow-cluster&#34;&gt;Deleting your Kubeflow cluster&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;To delete the applications running in the Kubeflow namespace, remove that namespace:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;kubectl delete namespace kubeflow
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;To delete the cluster and all GCP resources, run the following commands:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#204a87&#34;&gt;cd&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;KF_DIR&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&lt;/span&gt;
+make delete-gcp
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Warning&lt;/strong&gt;: this will delete the persistent disks storing metadata. If you want to preserve the disks don&amp;rsquo;t run this command;
+instead selectively delete only those resources you want to delete.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;clean-up-your-management-cluster&#34;&gt;Clean up your management cluster&lt;/h2&gt;
+&lt;p&gt;The following instructions introduce how to clean up all resources created when
+installing management cluster and using management cluster to manage Google
+Cloud resources in managed projects.&lt;/p&gt;
+&lt;h3 id=&#34;delete-or-keep-managed-google-cloud-resources&#34;&gt;Delete or keep managed Google Cloud resources&lt;/h3&gt;
+&lt;p&gt;There are Google Cloud resources managed by Config Connector in the
+management cluster after you deploy Kubeflow clusters with this management
+cluster.&lt;/p&gt;
+&lt;p&gt;To delete all the managed Google Cloud resources, delete the managed project namespace:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;kubectl use-context &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;MGMTCTXT&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&lt;/span&gt;
+kubectl delete namespace --wait &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;KF_PROJECT&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;To keep all the managed Google Cloud resources, you can delete the management
+cluster directly.&lt;/p&gt;
+&lt;p&gt;If you need fine-grained control, refer to
+&lt;a href=&#34;https://cloud.google.com/config-connector/docs/how-to/managing-deleting-resources#keeping_resources_after_deletion&#34;&gt;Config Connector: Keeping resources after deletion&lt;/a&gt;
+for more details.&lt;/p&gt;
+&lt;p&gt;After deleting Config Connector resources for a managed project, you can revoke IAM permission
+that let the management cluster manage the project:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;gcloud projects remove-iam-policy-binding &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;KF_PROJECT&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;--member=serviceAccount:&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;MGMT_NAME&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;-cnrm-system@&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;MGMT_PROJECT&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;.iam.gserviceaccount.com&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&lt;/span&gt;    --role&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;roles/owner
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;delete-management-cluster&#34;&gt;Delete management cluster&lt;/h3&gt;
+&lt;p&gt;To delete the Google service account and the management cluster:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#204a87&#34;&gt;cd&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;MGMT_DIR&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&lt;/span&gt;
+make delete-cluster
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Note, after deleting the management cluster, all the managed Google Cloud
+resources will be kept. You will be responsible for managing them by yourself.&lt;/p&gt;
+&lt;p&gt;You can create a management cluster to manage them again if you apply the same
+Config Connector resources. Refer to &lt;a href=&#34;https://cloud.google.com/config-connector/docs/how-to/managing-deleting-resources#acquiring_an_existing_resource&#34;&gt;Managing and deleting resources - Acquiring an existing resource&lt;/a&gt;.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Guide: Features of Kubeflow on GCP</title>
+      <link>/guide/gke/deploy/reasons/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/guide/gke/deploy/reasons/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Running Kubeflow on GCP has the following benefits:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The
+&lt;a href=&#34;https://cloud.google.com/config-connector/docs&#34;&gt;Cloud Connector&lt;/a&gt; to
+declaratively manage all non-Kubernetes resources (including the GKE
+cluster).&lt;/li&gt;
+&lt;li&gt;You can take advantage of GKE&amp;rsquo;s
+&lt;a href=&#34;https://cloud.google.com/kubernetes-engine/docs/concepts/cluster-autoscaler&#34;&gt;Cluster Autoscaler&lt;/a&gt;
+to automatically resize the number of nodes in a node pool in your cluster depending on the workload demands.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://cloud.google.com/iap/&#34;&gt;Cloud Identity-Aware Proxy (Cloud IAP)&lt;/a&gt;
+makes it easy to securely connect to Jupyter and other
+web apps running as part of Kubeflow.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://cloud.google.com/logging/docs/&#34;&gt;Stackdriver&lt;/a&gt; provides
+persistent logs to aid in debugging and troubleshooting.&lt;/li&gt;
+&lt;li&gt;You can use GPUs and &lt;a href=&#34;https://cloud.google.com/tpu/&#34;&gt;Cloud TPU&lt;/a&gt; to
+accelerate your workload.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;next-steps&#34;&gt;Next steps&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;/docs/gke/deploy/deploy-ui/&#34;&gt;Deploy Kubeflow&lt;/a&gt; if you haven&amp;rsquo;t already done so.&lt;/li&gt;
+&lt;li&gt;Run a full ML workflow on Kubeflow, using the
+&lt;a href=&#34;/docs/gke/gcp-e2e/&#34;&gt;end-to-end MNIST tutorial&lt;/a&gt; or the
+&lt;a href=&#34;https://github.com/kubeflow/examples/tree/master/github_issue_summarization&#34;&gt;GitHub issue summarization
+example&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Guide: Deploy using UI</title>
+      <link>/guide/gke/deploy/deploy-ui/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/guide/gke/deploy/deploy-ui/</guid>
+      <description>
+        
+        
+        
+
+&lt;div class=&#34;alert alert-warning&#34; role=&#34;alert&#34;&gt;
+&lt;h4 class=&#34;alert-heading&#34;&gt;No longer supported&lt;/h4&gt;
+Starting with Kubeflow v1.1.0 deploying Kubeflow via the click to deploy web application
+is no longer supported. Please &lt;a href=&#34;/docs/gke/deploy/deploy-cli/&#34;&gt;use kustomize and kpt&lt;/a&gt; to deploy Kubeflow.
+&lt;/div&gt;
+
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

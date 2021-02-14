@@ -1,0 +1,51 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SKT Open Source – Pipelines</title>
+    <link>/en/docs/components/pipelines/</link>
+    <description>Recent content in Pipelines on SKT Open Source</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	  <atom:link href="/en/docs/components/pipelines/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: Pipelines</title>
+      <link>/en/docs/components/pipelines/pipelines/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/en/docs/components/pipelines/pipelines/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Kubeflow Pipelines is a platform for building and deploying portable and
+scalable end-to-end ML workflows, based on containers.&lt;/p&gt;
+&lt;p&gt;The Kubeflow Pipelines platform has the following goals:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;End-to-end orchestration: enabling and simplifying the orchestration of
+machine learning pipelines.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Easy experimentation: making it easy for you to try numerous ideas and
+techniques and manage your various trials/experiments.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Easy re-use: enabling you to re-use components and pipelines to quickly
+cobble together end-to-end solutions, without having to rebuild each time.&lt;/p&gt;
+&lt;p&gt;Read more in the
+&lt;a href=&#34;/docs/pipelines/pipelines-overview&#34;&gt;pipelines section&lt;/a&gt;
+of the documentation.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

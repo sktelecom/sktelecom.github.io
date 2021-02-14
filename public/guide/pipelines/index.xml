@@ -1,0 +1,651 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SKT Open Source – Pipelines</title>
+    <link>/guide/pipelines/</link>
+    <description>Recent content in Pipelines on SKT Open Source</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	  <atom:link href="/guide/pipelines/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Guide: Pipelines Quickstart</title>
+      <link>/guide/pipelines/pipelines-quickstart/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/guide/pipelines/pipelines-quickstart/</guid>
+      <description>
+        
+        
+        
+
+&lt;div class=&#34;alert alert-warning&#34; role=&#34;alert&#34;&gt;
+&lt;h4 class=&#34;alert-heading&#34;&gt;Out of date&lt;/h4&gt;
+This guide contains outdated information pertaining to Kubeflow 1.0. This guide
+needs to be updated for Kubeflow 1.1.
+&lt;/div&gt;
+
+&lt;div class=&#34;alert alert-primary&#34; role=&#34;alert&#34;&gt;
+This Kubeflow component has &lt;b&gt;stable&lt;/b&gt; status. See the
+&lt;a href=&#34;/docs/reference/version-policy/&#34;&gt;Kubeflow versioning policies&lt;/a&gt;.
+&lt;/div&gt;
+&lt;p&gt;Use this guide if you want to get a simple pipeline running quickly in
+Kubeflow Pipelines.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;This quickstart guide shows you how to use one of the samples that come with
+the Kubeflow Pipelines installation and are visible on the Kubeflow Pipelines
+user interface (UI). You can use this guide as an introduction to the
+Kubeflow Pipelines UI.&lt;/li&gt;
+&lt;li&gt;The end-to-end tutorial shows you how to prepare and compile a pipeline,
+upload it to Kubeflow Pipelines, then run it.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;deploy-kubeflow-and-open-the-pipelines-ui&#34;&gt;Deploy Kubeflow and open the pipelines UI&lt;/h2&gt;
+&lt;p&gt;Follow these steps to deploy Kubeflow and open the pipelines dashboard:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Follow the guide to &lt;a href=&#34;/docs/gke/deploy/&#34;&gt;deploying Kubeflow on GCP&lt;/a&gt;.&lt;/p&gt;
+ &lt;p&gt;&lt;i&gt;Due to &lt;a href=&#34;https://github.com/kubeflow/pipelines/issues/1700&#34;&gt;kubeflow/pipelines#1700&lt;/a&gt;, the container builder in Kubeflow Pipelines currently prepares credentials for Google Cloud Platform (GCP) only. As a result, the container builder supports only Google Container Registry. However, you can store the container images on other registries, provided you set up the credentials correctly to fetch the image.&lt;/i&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;When Kubeflow is running, access the Kubeflow UI at a URL of the form
+&lt;code&gt;https://&amp;lt;deployment-name&amp;gt;.endpoints.&amp;lt;project&amp;gt;.cloud.goog/&lt;/code&gt;, as described in the setup
+guide. The Kubeflow UI looks like this:
+&lt;img src=&#34;/docs/images/central-ui.png&#34; 
+alt=&#34;Kubeflow UI&#34;
+class=&#34;mt-3 mb-3 border border-info rounded&#34;&gt;&lt;/p&gt;
+&lt;p&gt;If you skipped the Cloud IAP option when deploying Kubeflow, or if you
+haven&amp;rsquo;t yet set up your Kubeflow endpoint, you can access Kubeflow via
+&lt;code&gt;kubectl&lt;/code&gt; and port-forwarding:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Install &lt;code&gt;kubectl&lt;/code&gt; if you haven&amp;rsquo;t already done so, by running the
+following command on the command line:
+&lt;code&gt;gcloud components install kubectl&lt;/code&gt;. For more information, see the
+&lt;a href=&#34;https://kubernetes.io/docs/tasks/tools/install-kubectl/&#34;&gt;&lt;code&gt;kubectl&lt;/code&gt;
+documentation&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Run &lt;code&gt;kubectl port-forward -n kubeflow svc/ml-pipeline-ui 8080:80&lt;/code&gt; and go to &lt;code&gt;http://localhost:8080/&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Click &lt;strong&gt;Pipelines&lt;/strong&gt; to access the pipelines UI. The pipelines UI looks like
+this:
+&lt;img src=&#34;/docs/images/pipelines-ui.png&#34; 
+alt=&#34;Pipelines UI&#34;
+class=&#34;mt-3 mb-3 border border-info rounded&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;run-a-basic-pipeline&#34;&gt;Run a basic pipeline&lt;/h2&gt;
+&lt;p&gt;The pipelines UI offers a few samples that you can use to try out
+pipelines quickly. The steps below show you how to run a basic sample that
+includes some Python operations, but doesn&amp;rsquo;t include a machine learning (ML)
+workload:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Click the name of the sample, &lt;strong&gt;[Sample] Basic - Parallel Execution&lt;/strong&gt;, on the pipelines
+UI:
+&lt;img src=&#34;/docs/images/click-pipeline-sample.png&#34; 
+alt=&#34;Pipelines UI&#34;
+class=&#34;mt-3 mb-3 border border-info rounded&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Click &lt;strong&gt;Create experiment&lt;/strong&gt;:
+&lt;img src=&#34;/docs/images/pipelines-start-experiment.png&#34; 
+alt=&#34;Starting an experiment on the pipelines UI&#34;
+class=&#34;mt-3 mb-3 border border-info rounded&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Follow the prompts to create an &lt;strong&gt;experiment&lt;/strong&gt; and then create a &lt;strong&gt;run&lt;/strong&gt;.
+The sample supplies default values for all the parameters you need. The
+following screenshot assumes you&amp;rsquo;ve already created an experiment named
+&lt;em&gt;My experiment&lt;/em&gt; and are now creating a run named &lt;em&gt;My first run&lt;/em&gt;:
+&lt;img src=&#34;/docs/images/pipelines-start-run.png&#34; 
+alt=&#34;Creating a run on the pipelines UI&#34;
+class=&#34;mt-3 mb-3 border border-info rounded&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Click &lt;strong&gt;Start&lt;/strong&gt; to create the run.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Click the name of the run on the experiments dashboard:
+&lt;img src=&#34;/docs/images/pipelines-experiments-dashboard.png&#34; 
+alt=&#34;Experiments dashboard on the pipelines UI&#34;
+class=&#34;mt-3 mb-3 border border-info rounded&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Explore the graph and other aspects of your run by clicking on the
+components of the graph and the other UI elements:
+&lt;img src=&#34;/docs/images/pipelines-basic-run.png&#34; 
+alt=&#34;Run results on the pipelines UI&#34;
+class=&#34;mt-3 mb-3 border border-info rounded&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;You can find &lt;a href=&#34;https://github.com/kubeflow/pipelines/blob/master/samples/core/parallel_join/parallel_join.py&#34;&gt;the source code for the basic parallel join sample&lt;/a&gt;
+in the Kubeflow Pipelines repo.&lt;/p&gt;
+&lt;h2 id=&#34;run-an-ml-pipeline&#34;&gt;Run an ML pipeline&lt;/h2&gt;
+&lt;p&gt;This section shows you how to run the XGBoost sample available
+from the pipelines UI. Unlike the basic sample described above, the
+XGBoost sample does include ML components. Before running this sample,
+you need to set up some GCP services for use by the sample.&lt;/p&gt;
+&lt;p&gt;Follow these steps to set up the necessary GCP services and run the sample:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;In addition to the standard GCP APIs that you need for Kubeflow (see the
+&lt;a href=&#34;/docs/gke/deploy/project-setup&#34;&gt;GCP setup guide&lt;/a&gt;), ensure that the
+following APIs are enabled:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://console.cloud.google.com/apis/library/storage-component.googleapis.com&#34;&gt;Cloud Storage&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://console.cloud.google.com/apis/library/dataproc.googleapis.com&#34;&gt;Dataproc&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Create a
+&lt;a href=&#34;https://console.cloud.google.com/storage/create-bucket&#34;&gt;Cloud Storage bucket&lt;/a&gt;
+to hold the results of the pipeline run.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Your &lt;em&gt;bucket name&lt;/em&gt; must be unique across all of Cloud Storage.&lt;/li&gt;
+&lt;li&gt;Each time you create a new run for this pipeline, Kubeflow creates a unique
+directory within the output bucket, so the output of each run does not
+override the output of the previous run.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Click the name of the sample,
+&lt;strong&gt;[Sample] ML - XGBoost - Training with Confusion Matrix&lt;/strong&gt;, on the pipelines
+UI:
+&lt;img src=&#34;/docs/images/click-xgboost-sample.png&#34; 
+alt=&#34;XGBoost sample on the pipelines UI&#34;
+class=&#34;mt-3 mb-3 border border-info rounded&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Click &lt;strong&gt;Create experiment&lt;/strong&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Follow the prompts to create an &lt;strong&gt;experiment&lt;/strong&gt; and then create a &lt;strong&gt;run&lt;/strong&gt;.
+Supply the following &lt;strong&gt;run parameters&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;output:&lt;/strong&gt; The Cloud Storage bucket that you created earlier to hold the
+results of the pipeline run.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;project:&lt;/strong&gt; Your GCP project ID.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The sample supplies the values for the other parameters:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;region: The GCP geographical region in which the training and evaluation
+data is stored.&lt;/li&gt;
+&lt;li&gt;train-data: Cloud Storage path to the training data.&lt;/li&gt;
+&lt;li&gt;eval-data: Cloud Storage path to the evaluation data.&lt;/li&gt;
+&lt;li&gt;schema: Cloud Storage path to a JSON file describing the format of the
+CSV files that contain the training and evaluation data.&lt;/li&gt;
+&lt;li&gt;target: Column name of the target variable.&lt;/li&gt;
+&lt;li&gt;rounds: The number of rounds for XGBoost training.&lt;/li&gt;
+&lt;li&gt;workers: Number of workers used for distributed training.&lt;/li&gt;
+&lt;li&gt;true-label: Column to be used for text representation of the label output
+by the model.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The following partial screenshot shows the run parameters, including the
+two parameters that you must supply:
+&lt;img src=&#34;/docs/images/pipelines-start-xgboost-run.png&#34; 
+alt=&#34;Starting the XGBoost run on the pipelines UI&#34;
+class=&#34;mt-3 mb-3 border border-info rounded&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Click &lt;strong&gt;Start&lt;/strong&gt; to create the run.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Click the name of the run on the experiments dashboard.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Explore the graph and other aspects of your run by clicking on the
+components of the graph and the other UI elements. The following screenshot
+shows the graph when the pipeline has finished running:
+&lt;img src=&#34;/docs/images/pipelines-xgboost-graph.png&#34; 
+alt=&#34;XGBoost results on the pipelines UI&#34;
+class=&#34;mt-3 mb-3 border border-info rounded&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;You can find the source code for the XGBoost training sample in the
+&lt;a href=&#34;https://github.com/kubeflow/pipelines/tree/master/samples/core/xgboost_training_cm&#34;&gt;Kubeflow Pipelines
+repo&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;clean-up-your-gcp-environment&#34;&gt;Clean up your GCP environment&lt;/h2&gt;
+&lt;p&gt;As you work through this guide, your project uses billable components of
+GCP. To minimise costs, follow these steps to clean up resources when you&amp;rsquo;ve
+finished with them:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Visit &lt;a href=&#34;https://console.cloud.google.com/dm&#34;&gt;Deployment Manager&lt;/a&gt; to delete
+your deployment and related resources.&lt;/li&gt;
+&lt;li&gt;Delete your &lt;a href=&#34;https://console.cloud.google.com/storage&#34;&gt;Cloud Storage bucket&lt;/a&gt;
+when you&amp;rsquo;ve finished examining the output of the pipeline.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;next-steps&#34;&gt;Next steps&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Learn more about the
+&lt;a href=&#34;/docs/pipelines/concepts/&#34;&gt;important concepts&lt;/a&gt; in Kubeflow
+Pipelines.&lt;/li&gt;
+&lt;li&gt;This page showed you how to run some of the examples supplied in the Kubeflow
+Pipelines UI. Next, you may want to run a pipeline from a notebook, or compile
+and run a sample from the code. See the guide to experimenting with
+&lt;a href=&#34;/docs/pipelines/tutorials/build-pipeline/&#34;&gt;the Kubeflow Pipelines samples&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Build your own machine-learning pipelines with the &lt;a href=&#34;/docs/pipelines/sdk/sdk-overview/&#34;&gt;Kubeflow Pipelines
+SDK&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Guide: Installing Pipelines</title>
+      <link>/guide/pipelines/installation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/guide/pipelines/installation/</guid>
+      <description>
+        
+        
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>Guide: Understanding Pipelines</title>
+      <link>/guide/pipelines/overview/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/guide/pipelines/overview/</guid>
+      <description>
+        
+        
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>Guide: Building Pipelines with the SDK</title>
+      <link>/guide/pipelines/sdk/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/guide/pipelines/sdk/</guid>
+      <description>
+        
+        
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>Guide: Multi-user Isolation for Pipelines</title>
+      <link>/guide/pipelines/multi-user/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/guide/pipelines/multi-user/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Multi-user isolation for Kubeflow Pipelines is an integration to &lt;a href=&#34;/docs/components/multi-tenancy/&#34;&gt;Kubeflow multi-user isolation&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Refer to &lt;a href=&#34;/docs/components/multi-tenancy/getting-started/&#34;&gt;Getting Started with Multi-user isolation&lt;/a&gt;
+for the common Kubeflow multi-user operations including the following:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;/docs/components/multi-tenancy/getting-started/#pre-requisites-grant-user-minimal-kubernetes-cluster-access&#34;&gt;Grant user minimal Kubernetes cluster access&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;/docs/components/multi-tenancy/getting-started/#managing-contributors-through-the-kubeflow-ui&#34;&gt;Managing contributors through the Kubeflow UI&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;For Google Cloud: &lt;a href=&#34;/docs/gke/authentication/#in-cluster-authentication&#34;&gt;In-cluster authentication to Google Cloud from Kubeflow&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Note, Kubeflow Pipelines multi-user isolation is only supported in
+&lt;a href=&#34;/docs/pipelines/installation/overview/#full-kubeflow-deployment&#34;&gt;the full Kubeflow deployment&lt;/a&gt;
+starting from Kubeflow v1.1 and &lt;strong&gt;currently&lt;/strong&gt; on all platforms except OpenShift. For the latest status about platform support, refer to &lt;a href=&#34;https://github.com/kubeflow/manifests/issues/1364#issuecomment-668415871&#34;&gt;kubeflow/manifests#1364&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Also be aware that the isolation support in Kubeflow doesn’t provide any hard
+security guarantees against malicious attempts by users to infiltrate other
+user’s profiles.&lt;/p&gt;
+&lt;h2 id=&#34;how-are-resources-separated&#34;&gt;How are resources separated?&lt;/h2&gt;
+&lt;p&gt;Kubeflow Pipelines separates its resources by Kubernetes namespaces (Kubeflow profiles).&lt;/p&gt;
+&lt;p&gt;Experiments belong to namespaces directly and there&amp;rsquo;s no longer a default
+experiment. Runs and recurring runs belong to their parent experiment&amp;rsquo;s namespace.&lt;/p&gt;
+&lt;p&gt;Pipeline runs are executed in user namespaces, so that users can leverage Kubernetes
+namespace isolation. For example, they can configure different secrets for other
+services in different namespaces.&lt;/p&gt;
+&lt;p&gt;Other users cannot see resources in your namespace without permission, because
+the Kubeflow Pipelines API server rejects requests for namespaces that the
+current user is not authorized to access.&lt;/p&gt;
+&lt;p&gt;Note, there&amp;rsquo;s no multi-user isolation for pipeline definitions right now.
+Refer to &lt;a href=&#34;#current-limitations&#34;&gt;Current Limitations&lt;/a&gt; section for more details.&lt;/p&gt;
+&lt;h3 id=&#34;when-using-the-ui&#34;&gt;When using the UI&lt;/h3&gt;
+&lt;p&gt;When you visit the Kubeflow Pipelines UI from the Kubeflow dashboard, it only shows
+experiments, runs, and recurring runs in your chosen namespace. Similarly, when
+you create resources from the UI, they also belong to the namespace you have
+chosen.&lt;/p&gt;
+&lt;p&gt;You can select a different namespace to view resources in other namespaces.&lt;/p&gt;
+&lt;h3 id=&#34;when-using-the-sdk&#34;&gt;When using the SDK&lt;/h3&gt;
+&lt;p&gt;First, you need to connect to the Kubeflow Pipelines public endpoint using the
+SDK. For Google Cloud, follow &lt;a href=&#34;/docs/gke/pipelines/authentication-sdk/#connecting-to-kubeflow-pipelines-in-a-full-kubeflow-deployment&#34;&gt;these instructions&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;When calling SDK methods for experiments, you need to provide the additional
+namespace argument. Runs, recurring runs are owned by an experiment. They are
+in the same namespace as the parent experiment, so you can just call their SDK
+methods in the same way as before.&lt;/p&gt;
+&lt;p&gt;For example:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;kfp&lt;/span&gt;
+&lt;span style=&#34;color:#000&#34;&gt;client&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;kfp&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Client&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;...&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Refer to documentation above for detailed arguments.&lt;/span&gt;
+
+&lt;span style=&#34;color:#000&#34;&gt;client&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;create_experiment&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;name&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;&amp;lt;Your experiment name&amp;gt;&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;namespace&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;&amp;lt;Your namespace&amp;gt;&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;print&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;client&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;list_experiments&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;namespace&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;&amp;lt;Your namespace&amp;gt;&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;))&lt;/span&gt;
+&lt;span style=&#34;color:#000&#34;&gt;client&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;run_pipeline&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;
+    &lt;span style=&#34;color:#000&#34;&gt;experiment_id&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;&amp;lt;Your experiment ID&amp;gt;&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Experiment determines namespace.&lt;/span&gt;
+    &lt;span style=&#34;color:#000&#34;&gt;job_name&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;&amp;lt;Your job ID&amp;gt;&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+    &lt;span style=&#34;color:#000&#34;&gt;pipeline_id&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;&amp;lt;Your pipeline ID&amp;gt;&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;print&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;client&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;list_runs&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;experiment_id&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;&amp;lt;Your experiment ID&amp;gt;&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;))&lt;/span&gt;
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;print&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;client&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;list_runs&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;namespace&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;&amp;lt;Your namespace&amp;gt;&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;))&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;To store your user namespace as the default context, use the
+&lt;a href=&#34;https://kubeflow-pipelines.readthedocs.io/en/stable/source/kfp.client.html#kfp.Client.set_user_namespace&#34;&gt;&lt;code&gt;set_user_namespace&lt;/code&gt;&lt;/a&gt;
+method. This method stores your user namespace in a configuration file at
+&lt;code&gt;$HOME/.config/kfp/context.json&lt;/code&gt;. After setting a default namespace, the SDK
+methods default to use this namespace if no namespace argument is provided.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Note, this saves the namespace in `$HOME/.config/kfp/context.json`. Therefore,&lt;/span&gt;
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# You only need to call this once. The saved namespace context will be picked up&lt;/span&gt;
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# by other clients you use later.&lt;/span&gt;
+&lt;span style=&#34;color:#000&#34;&gt;client&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;set_user_namespace&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;namespace&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;&amp;lt;Your namespace&amp;gt;&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;print&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;client&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;get_user_namespace&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;())&lt;/span&gt;
+
+&lt;span style=&#34;color:#000&#34;&gt;client&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;create_experiment&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;name&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;&amp;lt;Your experiment name&amp;gt;&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;print&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;client&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;list_experiments&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;())&lt;/span&gt;
+&lt;span style=&#34;color:#000&#34;&gt;client&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;run_pipeline&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;
+    &lt;span style=&#34;color:#000&#34;&gt;experiment_id&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;&amp;lt;Your experiment ID&amp;gt;&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Experiment determines namespace.&lt;/span&gt;
+    &lt;span style=&#34;color:#000&#34;&gt;job_name&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;&amp;lt;Your job name&amp;gt;&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+    &lt;span style=&#34;color:#000&#34;&gt;pipeline_id&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;&amp;lt;Your pipeline ID&amp;gt;&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;print&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;client&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;list_runs&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;())&lt;/span&gt;
+
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Specifying a different namespace will override the default context.&lt;/span&gt;
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;print&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;client&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;list_runs&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;namespace&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;&amp;lt;Your other namespace&amp;gt;&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;))&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Note, it is no longer possible to access the Kubeflow Pipelines API service from
+in-cluster workload directly, read &lt;a href=&#34;#current-limitations&#34;&gt;Current Limitations section&lt;/a&gt;
+for more details.&lt;/p&gt;
+&lt;p&gt;Detailed documentation for the Kubeflow Pipelines SDK can be found in the
+&lt;a href=&#34;https://kubeflow-pipelines.readthedocs.io/en/stable/source/kfp.client.html&#34;&gt;Kubeflow Pipelines SDK Reference&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;when-using-rest-api-or-generated-python-api-client&#34;&gt;When using REST API or generated python API client&lt;/h3&gt;
+&lt;p&gt;Similarly, when calling &lt;a href=&#34;/docs/pipelines/reference/api/kubeflow-pipeline-api-spec/&#34;&gt;REST API endpoints&lt;/a&gt;
+or using &lt;a href=&#34;https://kubeflow-pipelines.readthedocs.io/en/stable/source/kfp.server_api.html&#34;&gt;the generated python API client&lt;/a&gt;,
+namespace argument is required for experiment APIs. Note that namespace is
+referred to using a resource reference. The resource reference &lt;strong&gt;type&lt;/strong&gt; is
+&lt;code&gt;NAMESPACE&lt;/code&gt; and resource reference &lt;strong&gt;key id&lt;/strong&gt; is the namespace name.&lt;/p&gt;
+&lt;p&gt;The following example demonstrates how to use &lt;a href=&#34;https://kubeflow-pipelines.readthedocs.io/en/stable/source/kfp.server_api.html&#34;&gt;the generated Python API client (kf-server-api)&lt;/a&gt; in a multi-user environment.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;kfp_server_api&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;ApiRun&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;ApiPipelineSpec&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; \
+    &lt;span style=&#34;color:#000&#34;&gt;ApiExperiment&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;ApiResourceType&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;ApiRelationship&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; \
+    &lt;span style=&#34;color:#000&#34;&gt;ApiResourceReference&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;ApiResourceKey&lt;/span&gt;
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# or you can also do the following instead&lt;/span&gt;
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# from kfp_server_api import *&lt;/span&gt;
+
+&lt;span style=&#34;color:#000&#34;&gt;experiment&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;client&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;experiments&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;create_experiment&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;body&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;ApiExperiment&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;
+    &lt;span style=&#34;color:#000&#34;&gt;name&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;test-experiment-1234&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+    &lt;span style=&#34;color:#000&#34;&gt;resource_references&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;ApiResourceReference&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;
+        &lt;span style=&#34;color:#000&#34;&gt;key&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;ApiResourceKey&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;
+            &lt;span style=&#34;color:#204a87&#34;&gt;id&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;&amp;lt;namespace&amp;gt;&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Replace with your own namespace.&lt;/span&gt;
+            &lt;span style=&#34;color:#204a87&#34;&gt;type&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;ApiResourceType&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;NAMESPACE&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+        &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;),&lt;/span&gt;
+        &lt;span style=&#34;color:#000&#34;&gt;relationship&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;ApiRelationship&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;OWNER&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)],&lt;/span&gt;
+&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;))&lt;/span&gt;
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;print&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;experiment&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
+&lt;span style=&#34;color:#000&#34;&gt;pipeline&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;client&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;pipelines&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;list_pipelines&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;pipelines&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;]&lt;/span&gt;
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;print&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;pipeline&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
+&lt;span style=&#34;color:#000&#34;&gt;client&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;runs&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;create_run&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;body&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;ApiRun&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;
+    &lt;span style=&#34;color:#000&#34;&gt;name&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;test-run-1234&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+    &lt;span style=&#34;color:#000&#34;&gt;pipeline_spec&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;ApiPipelineSpec&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;
+        &lt;span style=&#34;color:#000&#34;&gt;pipeline_id&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;pipeline&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;id&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;),&lt;/span&gt;
+    &lt;span style=&#34;color:#000&#34;&gt;resource_references&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;ApiResourceReference&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;
+        &lt;span style=&#34;color:#000&#34;&gt;key&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;ApiResourceKey&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;
+            &lt;span style=&#34;color:#204a87&#34;&gt;id&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;experiment&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;id&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+            &lt;span style=&#34;color:#204a87&#34;&gt;type&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;ApiResourceType&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;EXPERIMENT&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+        &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;),&lt;/span&gt;
+        &lt;span style=&#34;color:#000&#34;&gt;relationship&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;ApiRelationship&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;OWNER&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)],&lt;/span&gt;
+&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;))&lt;/span&gt;
+&lt;span style=&#34;color:#000&#34;&gt;runs&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;client&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;runs&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;list_runs&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;
+    &lt;span style=&#34;color:#000&#34;&gt;resource_reference_key_type&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;ApiResourceType&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;EXPERIMENT&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+    &lt;span style=&#34;color:#000&#34;&gt;resource_reference_key_id&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;experiment&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;id&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;print&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;runs&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;current-limitations&#34;&gt;Current limitations&lt;/h2&gt;
+&lt;h3 id=&#34;resources-without-isolation&#34;&gt;Resources without isolation&lt;/h3&gt;
+&lt;p&gt;The following resources do not currently support isolation and are shared
+without access control:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Pipelines (Pipeline definitions).&lt;/li&gt;
+&lt;li&gt;Artifacts, Executions, and other metadata entities in &lt;a href=&#34;https://www.tensorflow.org/tfx/guide/mlmd&#34;&gt;Machine Learning Metadata (MLMD)&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://min.io/&#34;&gt;Minio artifact storage&lt;/a&gt; which contains pipeline runs&amp;rsquo; input/output artifacts.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;in-cluster-api-request-authentication&#34;&gt;In-cluster API request authentication&lt;/h3&gt;
+&lt;p&gt;Clients can only access the Kubeflow Pipelines API from the public endpoint
+that enforces authentication.&lt;/p&gt;
+&lt;p&gt;In-cluster direct access to the API endpoint is denied by Istio authorization
+policies, because there&amp;rsquo;s no secure way to authenticate in-cluster requests to
+the Kubeflow Pipelines API server yet.&lt;/p&gt;
+&lt;p&gt;If you need to access the API endpoint from in-cluster workload like Jupyter
+notebooks or cron tasks, current suggested workaround is to connect through
+public endpoint and follow platform specific documentation to authenticate
+programmatically using user credentials. For Google Cloud, you can refer to
+&lt;a href=&#34;/docs/gke/pipelines/authentication-sdk/#connecting-to-kubeflow-pipelines-in-a-full-kubeflow-deployment&#34;&gt;Connecting to Kubeflow Pipelines in a full Kubeflow deployment on Google Cloud&lt;/a&gt;.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Guide: Caching</title>
+      <link>/guide/pipelines/caching/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/guide/pipelines/caching/</guid>
+      <description>
+        
+        
+        
+
+&lt;div class=&#34;alert alert-warning&#34; role=&#34;alert&#34;&gt;
+&lt;h4 class=&#34;alert-heading&#34;&gt;Out of date&lt;/h4&gt;
+This guide contains outdated information pertaining to Kubeflow 1.0. This guide
+needs to be updated for Kubeflow 1.1.
+&lt;/div&gt;
+
+&lt;p&gt;Starting from Kubeflow Pipelines 0.4, Kubeflow Pipelines supports step caching capabilities in both standalone deployment and GCP hosted deployment.&lt;/p&gt;
+&lt;h2 id=&#34;before-you-start&#34;&gt;Before you start&lt;/h2&gt;
+&lt;p&gt;This guide tells you the basic concepts of Kubeflow Pipelines step caching and how to use it.
+This guide assumes that you already have Kubeflow Pipelines installed or want to use standalone or GCP hosted deployment options in the &lt;a href=&#34;/docs/pipelines/installation/&#34;&gt;Kubeflow Pipelines deployment
+guide&lt;/a&gt; to deploy Kubeflow Pipelines.&lt;/p&gt;
+&lt;h2 id=&#34;what-is-step-caching&#34;&gt;What is step caching?&lt;/h2&gt;
+&lt;p&gt;Kubeflow Pipelines caching provides step-level output caching.
+And caching is enabled by default for all pipelines submitted through the KFP backend and UI.
+The exception is pipelines authored using TFX SDK which has its own caching mechanism.
+The cache key calculation is based on the component (base image, command-line, code), arguments passed to the component (values or artifacts) and any additional customizations.
+If the component is exactly the same and the arguments are exactly the same as in some previous execution, then the task can be skipped and the outputs of the old step can be used.
+The cache reuse behavior can be controlled and the pipeline author can specify the maximum staleness of the cached data considered for reuse.
+With caching enabled, the system can skip a step that has already been executed which saves time and money.&lt;/p&gt;
+&lt;h2 id=&#34;disablingenabling-caching&#34;&gt;Disabling/enabling caching&lt;/h2&gt;
+&lt;p&gt;Cache is enabled by default after Kubeflow Pipelines 0.4.
+These are instructions on disabling and enabling cache service:&lt;/p&gt;
+&lt;h3 id=&#34;configure-access-to-your-kubeflow-cluster&#34;&gt;Configure access to your Kubeflow cluster&lt;/h3&gt;
+&lt;p&gt;Use the following instructions to configure &lt;code&gt;kubectl&lt;/code&gt; with access to your
+Kubeflow cluster.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;To check if you have &lt;code&gt;kubectl&lt;/code&gt; installed, run the following command:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;which kubectl
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The response should be something like this:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;/usr/bin/kubectl
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;If you do not have &lt;code&gt;kubectl&lt;/code&gt; installed, follow the instructions in the
+guide to &lt;a href=&#34;https://kubernetes.io/docs/tasks/tools/install-kubectl/&#34;&gt;installing and setting up kubectl&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Follow the &lt;a href=&#34;https://kubernetes.io/docs/reference/access-authn-authz/authentication/&#34;&gt;guide to configuring access to Kubernetes
+clusters&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;disabling-caching-in-your-kubeflow-pipelines-deployment&#34;&gt;Disabling caching in your Kubeflow Pipelines deployment:&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Make sure &lt;code&gt;mutatingwebhookconfiguration&lt;/code&gt; exists in your cluster:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;export NAMESPACE=&amp;lt;Namespace where KFP is installed&amp;gt;
+kubectl get mutatingwebhookconfiguration cache-webhook -n ${NAMESPACE}
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Change &lt;code&gt;mutatingwebhookconfiguration&lt;/code&gt; rules:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;kubectl patch mutatingwebhookconfiguration cache-webhook -n ${NAMESPACE} --type=&#39;json&#39; -p=&#39;[{&amp;quot;op&amp;quot;:&amp;quot;replace&amp;quot;, &amp;quot;path&amp;quot;: &amp;quot;/webhooks/0/rules/0/operations/0&amp;quot;, &amp;quot;value&amp;quot;: &amp;quot;DELETE&amp;quot;}]&#39;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;enabling-caching&#34;&gt;Enabling caching&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Make sure &lt;code&gt;mutatingwebhookconfiguration&lt;/code&gt; exists in your cluster:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;export NAMESPACE=&amp;lt;Namespace where KFP is installed&amp;gt;
+kubectl get mutatingwebhookconfiguration cache-webhook -n ${NAMESPACE}
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Change back &lt;code&gt;mutatingwebhookconfiguration&lt;/code&gt; rules:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;kubectl patch mutatingwebhookconfiguration cache-webhook -n ${NAMESPACE} --type=&#39;json&#39; -p=&#39;[{&amp;quot;op&amp;quot;:&amp;quot;replace&amp;quot;, &amp;quot;path&amp;quot;: &amp;quot;/webhooks/0/rules/0/operations/0&amp;quot;, &amp;quot;value&amp;quot;: &amp;quot;CREATE&amp;quot;}]&#39;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;managing-caching-staleness&#34;&gt;Managing caching staleness&lt;/h2&gt;
+&lt;p&gt;The cache is enabled by default and if you ever executed same component with the same arguments, any new execution of the component will be skipped and the outputs will be taken from the cache.
+For some scenarios, the cached output data of some components might become too stale for use after some time.
+To control the maximum staleness of the reused cached data, you can set the step&amp;rsquo;s &lt;code&gt;max_cache_staleness&lt;/code&gt; parameter.
+The &lt;code&gt;max_cache_staleness&lt;/code&gt; is in &lt;a href=&#34;https://www.ietf.org/rfc/rfc3339.txt&#34;&gt;RFC3339 Duration&lt;/a&gt; format (so 30 days = &amp;ldquo;P30D&amp;rdquo;).
+By default the &lt;code&gt;max_cache_staleness&lt;/code&gt; is set to infinity so any old cached data will be reused.&lt;/p&gt;
+&lt;p&gt;Set &lt;code&gt;max_cache_staleness&lt;/code&gt; to 30 days for a step:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;def some_pipeline():
+      # task is a target step in a pipeline
+      task = some_op()
+      task.execution_options.caching_strategy.max_cache_staleness = &amp;quot;P30D&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Ideally, the component code should be pure and deterministic in the sense that it produces same outputs given same inputs.
+If your component is not deterministic (for example, it returns a different random number on every invocation) you might want to disable caching for the tasks created from this component by setting &lt;code&gt;max_cache_staleness&lt;/code&gt; to 0:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;def some_pipeline():
+      # task is a target step in a pipeline
+      task_never_use_cache = some_op()
+      task_never_use_cache.execution_options.caching_strategy.max_cache_staleness = &amp;quot;P0D&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;A better solution would be to make the component deterministic. If the component uses random number generation, you can expose the RNG seed as a component input. If the component fetches some changing data you can add a timestamp or date input.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Guide: Upgrading</title>
+      <link>/guide/pipelines/upgrade/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/guide/pipelines/upgrade/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Refer to &lt;a href=&#34;/docs/gke/pipelines/upgrade/&#34;&gt;Upgrading Kubeflow Pipelines on Google Cloud&lt;/a&gt;.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Guide: Samples and Tutorials</title>
+      <link>/guide/pipelines/tutorials/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/guide/pipelines/tutorials/</guid>
+      <description>
+        
+        
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>Guide: Troubleshooting</title>
+      <link>/guide/pipelines/troubleshooting/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/guide/pipelines/troubleshooting/</guid>
+      <description>
+        
+        
+        
+
+&lt;div class=&#34;alert alert-warning&#34; role=&#34;alert&#34;&gt;
+&lt;h4 class=&#34;alert-heading&#34;&gt;Out of date&lt;/h4&gt;
+This guide contains outdated information pertaining to Kubeflow 1.0. This guide
+needs to be updated for Kubeflow 1.1.
+&lt;/div&gt;
+
+&lt;p&gt;This page presents some hints for troubleshooting specific problems that you
+may encounter.&lt;/p&gt;
+&lt;h2 id=&#34;diagnosing-problems-in-your-kubeflow-pipelines-environment&#34;&gt;Diagnosing problems in your Kubeflow Pipelines environment&lt;/h2&gt;
+&lt;p&gt;For help diagnosing environment issues that affect Kubeflow Pipelines, run
+the &lt;a href=&#34;/docs/pipelines/sdk/sdk-overview/#kfp-cli-tool&#34;&gt;&lt;code&gt;kfp diagnose_me&lt;/code&gt; command-line tool&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;kfp diagnose_me&lt;/code&gt; CLI reports on the configuration of your local
+development environment, Kubernetes cluster, or Google Cloud environment.
+Use this command to help resolve issues like the following:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Python library dependencies&lt;/li&gt;
+&lt;li&gt;Trouble accessing resources or APIs using Kubernetes secrets&lt;/li&gt;
+&lt;li&gt;Trouble accessing Persistent Volume Claims&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;To use the &lt;code&gt;kfp diagnose_me&lt;/code&gt; CLI, follow these steps:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Install the &lt;a href=&#34;/docs/pipelines/sdk/install-sdk/&#34;&gt;Kubeflow Pipelines SDK&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Follow the &lt;a href=&#34;https://kubernetes.io/docs/reference/access-authn-authz/authentication/&#34;&gt;guide to configuring access to Kubernetes clusters&lt;/a&gt;,
+to update your kubeconfig file with appropriate credentials and endpoint
+information to access your Kubeflow cluster.
+If your Kubeflow Pipelines cluster is hosted on a cloud provider like
+Google Cloud, use your cloud provider&amp;rsquo;s instructions for configuring
+access to your Kubernetes cluster.&lt;/li&gt;
+&lt;li&gt;Run the &lt;code&gt;kfp diagnose_me&lt;/code&gt; command.&lt;/li&gt;
+&lt;li&gt;Analyze the results to troubleshoot your environment.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;troubleshooting-the-kubeflow-pipelines-sdk&#34;&gt;Troubleshooting the Kubeflow Pipelines SDK&lt;/h2&gt;
+&lt;p&gt;The following sections describe how to resolve issues that can occur when
+installing or using the Kubeflow Pipelines SDK.&lt;/p&gt;
+&lt;h3 id=&#34;error-could-not-find-a-version-that-satisfies-the-requirement-kfp&#34;&gt;Error: Could not find a version that satisfies the requirement kfp&lt;/h3&gt;
+&lt;p&gt;This error indicates that you have not installed the &lt;code&gt;kfp&lt;/code&gt; package in your
+Python3 environment. Follow the instructions in the &lt;a href=&#34;/docs/pipelines/sdk/install-sdk/&#34;&gt;Kubeflow Pipelines SDK
+installation guide&lt;/a&gt;, if you have not already
+installed the SDK.&lt;/p&gt;
+&lt;p&gt;If you have already installed the Kubeflow Pipelines SDK, check that you have
+Python 3.5 or higher:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;python3 -V
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;The response should be something like the following:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Python 3.7.3
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;If you do not have Python 3.5 or higher, you can
+&lt;a href=&#34;https://www.python.org/downloads/&#34;&gt;download Python&lt;/a&gt; from the Python
+Software Foundation.&lt;/p&gt;
+&lt;h3 id=&#34;kfp-or-dsl-compile-command-not-found&#34;&gt;kfp or dsl-compile command not found&lt;/h3&gt;
+&lt;p&gt;If your install the Kubeflow Pipelines SDK with the &lt;code&gt;--user&lt;/code&gt; flag, you may
+get the following error when using the &lt;code&gt;kfp&lt;/code&gt; or &lt;code&gt;dsl-compile&lt;/code&gt; command-line
+tools.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;bash: kfp: command not found
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;This error occurs because installing the Kubeflow Pipelines SDK with
+&lt;code&gt;--user&lt;/code&gt; stores &lt;code&gt;kfp&lt;/code&gt; and &lt;code&gt;dsl-compile&lt;/code&gt; in your &lt;code&gt;~/.local/bin&lt;/code&gt; directory.
+In some Linux distributions, the &lt;code&gt;~/.local/bin&lt;/code&gt; directory is not part of the
+$PATH environment variable.&lt;/p&gt;
+&lt;p&gt;You can resolve this issue by using one of the following options:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Add &lt;code&gt;export $PATH=$PATH:~/.local/bin&lt;/code&gt; to the end of your &lt;code&gt;~/.bashrc&lt;/code&gt; file.
+Then restart your terminal session or run &lt;code&gt;source ~/.bashrc&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Run the &lt;code&gt;kfp&lt;/code&gt; and &lt;code&gt;dsl-compile&lt;/code&gt; commands as &lt;code&gt;~/.local/bin/kfp&lt;/code&gt; and
+&lt;code&gt;~/.local/bin/dsl-compile&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Guide: Reference</title>
+      <link>/guide/pipelines/reference/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/guide/pipelines/reference/</guid>
+      <description>
+        
+        
+        
+      </description>
+    </item>
+    
+  </channel>
+</rss>

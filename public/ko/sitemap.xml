@@ -1,0 +1,1434 @@
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/about/kubeflow/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/project/metatron/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/components/serving/overview/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/started/k8s/overview/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/reference/overview/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/gke/deploy/project-setup/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/about/use-cases/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/started/cloud/getting-started-aws/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/started/cloud/getting-started-azure/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/started/cloud/getting-started-gke/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/project/hanu/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/started/cloud/getting-started-iks/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/components/serving/kfserving/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/started/k8s/kfctl-k8s-istio/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/gke/deploy/oauth-setup/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/about/contributing/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/ibm/create-cluster/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/gke/deploy/management-setup/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/project/sona/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/components/training/chainer/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/about/community/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/gke/deploy/deploy-cli/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/aws/deploy/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/azure/deploy/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/aws/deploy/install-kubeflow/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/azure/deploy/install-kubeflow/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/openshift/install-kubeflow/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/operator/introduction/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/project/kobert/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/ibm/deploy/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/started/k8s/kfctl-existing-arrikto/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/started/k8s/kfctl-istio-dex/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/components/central-dash/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/about/gsoc/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/azure/deploy/existing-cluster/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/ibm/deploy/install-kubeflow/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/operator/install-operator/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/project/kogpt2/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/reference/version-policy/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/components/metadata/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/notebooks/why-use-jupyter-notebook/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/components/fairing/fairing-overview/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/ibm/pipelines/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/gke/deploy/upgrade/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/azure/authentication-oidc/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/azure/machinelearningcomponent/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/about/docs/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/project/h8l/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/gke/deploy/monitor-iap-setup/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/about/style-guide/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/ibm/using-icr/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/gke/deploy/delete-cli/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/ibm/iks-e2e/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/about/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/about/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/components/central-dash/overview/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/pipelines/reference/component-spec/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/other-guides/kustomize/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/other-guides/integrations/data-management/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/gke/deploy/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/other-guides/kubeflow-behind-proxy/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/reference/images/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/about/events/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/gke/deploy/reasons/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/components/fairing/install-fairing/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/pipelines/installation/overview/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/operator/install-kubeflow/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/components/feature-store/overview/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/components/katib/overview/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/components/multi-tenancy/overview/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/pipelines/sdk/sdk-overview/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/components/jupyter/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/reference/katib/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/reference/katib/v1beta1/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/started/workstation/getting-started-linux/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/started/kubeflow-overview/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/examples/kubeflow-samples/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/reference/mpijob/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/reference/mpijob/v1alpha2/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/reference/notebook/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/reference/notebook/v1/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/pipelines/overview/pipelines-overview/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/pipelines/overview/concepts/pipeline/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/pipelines/reference/api/kubeflow-pipeline-api-spec/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/pipelines/pipelines-quickstart/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/reference/pytorchjob/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/reference/pytorchjob/v1/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/reference/pytorchjob/v1beta2/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/components/central-dash/registration-flow/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/ibm/deploy/authentication/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/notebooks/setup/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/reference/tfjob/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/reference/tfjob/v1/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/reference/tfjob/v1beta2/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/aws/deploy/uninstall-kubeflow/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/azure/deploy/uninstall-kubeflow/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/openshift/uninstall-kubeflow/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/pipelines/tutorials/benchmark-examples/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/pipelines/tutorials/sdk-examples/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/gke/anthos/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/pipelines/installation/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/gke/pipelines/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/operator/uninstall-kubeflow/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/components/fairing/reference/sdk/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/pipelines/reference/sdk/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/examples/codelabs-tutorials/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/pipelines/overview/concepts/component/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/components/fairing/configure-fairing/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/components/fairing/gcp/configure-gcp/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/gke/pipelines/authentication-sdk/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/aws/customizing-aws/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/gke/customizing-gke/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/components/multi-tenancy/design/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/pipelines/tutorials/api-pipelines/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/started/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/components/feature-store/getting-started/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/components/katib/hyperparameter/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/pipelines/sdk/install-sdk/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/started/getting-started/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/pipelines/overview/interfaces/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/reference/katib/v1alpha3/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/started/workstation/getting-started-macos/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/pipelines/installation/standalone-deployment/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/project/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/pipelines/overview/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/ibm/deploy/uninstall-kubeflow/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/operator/uninstall-operator/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/components/training/mpi/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/components/training/mxnet/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/operator/troubleshooting/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/examples/blog-posts/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/pipelines/sdk/build-component/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/pipelines/sdk/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/started/cloud/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/components/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/notebooks/custom-notebook/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/pipelines/installation/localcluster-deployment/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/pipelines/tutorials/build-pipeline/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/components/multi-tenancy/getting-started/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/pipelines/overview/concepts/graph/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/started/workstation/getting-started-windows/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/other-guides/kubeflow-on-multinode-cluster/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/components/katib/experiment/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/components/fairing/gcp/tutorials/gcp-local-notebook/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/gke/custom-domain/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/notebooks/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/started/workstation/getting-started-minikf/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/pipelines/multi-user/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/components/pipelines/pipelines/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/components/training/pytorch/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/components/fairing/gcp/tutorials/gcp-kubeflow-notebook/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/gke/authentication/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/pipelines/overview/concepts/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/pipelines/sdk/component-development/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/started/workstation/minikf-aws/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/started/workstation/minikf-gcp/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/pipelines/overview/concepts/experiment/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/components/fairing/gcp/tutorials/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/started/k8s/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/components/misc/nuclio/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/pipelines/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/components/katib/resume-experiment/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/pipelines/tutorials/cloud-tutorials/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/components/serving/seldon/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/notebooks/submit-kubernetes/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/other-guides/usage-reporting/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/examples/videos/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/components/serving/bentoml/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/components/fairing/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/components/fairing/azure/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/components/fairing/gcp/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/gke/pipelines/authentication-pipelines/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/aws/iam-for-sa/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/notebooks/submit-docker-image/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/pipelines/sdk/python-function-components/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/pipelines/caching/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/started/workstation/minikube-linux/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/azure/azureendtoend/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/other-guides/istio-in-kubeflow/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/aws/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/azure/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/gke/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/ibm/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/operator/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/components/serving/tritoninferenceserver/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/components/fairing/tutorials/other-tutorials/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/components/katib/trial-template/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/pipelines/overview/concepts/run/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/examples/shared-resources/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/notebooks/troubleshoot/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/gke/pipelines/upgrade/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/pipelines/upgrade/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/started/workstation/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/components/serving/tfserving_new/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/pipelines/sdk/best-practices/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/started/workstation/getting-started-multipass/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/openshift/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/pipelines/overview/concepts/run-trigger/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/pipelines/tutorials/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/components/serving/tfbatchpredict/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/components/training/tftraining/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/components/fairing/tutorials/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/gke/cloud-filestore/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/components/katib/early-stopping/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/pipelines/troubleshooting/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/gke/pipelines/enable-gpu-and-tpu/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/components/feature-store/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/components/training/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/other-guides/job-scheduling/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/components/katib/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/components/katib/katib-config/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/aws/logging/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/pipelines/sdk/parameters/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/components/pipelines/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/components/fairing/reference/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/pipelines/reference/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/gke/private-clusters/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/pipelines/overview/concepts/step/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/components/serving/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/components/multi-tenancy/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/blog/2021/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/components/katib/env-variables/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/components/misc/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/pipelines/overview/concepts/output-artifact/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/aws/private-access/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/pipelines/sdk/python-based-visualizations/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/gke/troubleshooting-gke/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/examples/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/gke/pipelines/preemptible/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/pipelines/sdk/output-viewer/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/blog/2020/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/aws/authentication/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/aws/authentication-oidc/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/aws/pipeline/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/aws/custom-domain/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/other-guides/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/aws/notebook-server/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/pipelines/sdk/pipelines-metrics/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/gke/gcp-e2e/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/aws/storage/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/aws/rds/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/azure/authentication/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/azure/azuremysql/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/gke/deploy/deploy-ui/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/pipelines/sdk/static-type-checking/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/reference/katib/v1alpha3/katib/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/reference/katib/v1beta1/katib/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/reference/mpijob/v1alpha2/mpi/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/reference/pytorchjob/v1/pytorch/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/reference/pytorchjob/v1beta2/pytorch/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/blog/sample/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/reference/tfjob/v1/common/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/reference/tfjob/v1beta2/common/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/reference/tfjob/v1/tensorflow/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/reference/tfjob/v1beta2/tensorflow/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/other-guides/troubleshooting/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/aws/troubleshooting-aws/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/azure/troubleshooting-azure/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/other-guides/freq-ask-questions/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/pipelines/sdk/dsl-recursion/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/gke/monitoring/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/other-guides/support/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/pipelines/sdk/enviroment_variables/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/other-guides/integrations/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/pipelines/sdk/gcp/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/pipelines/sdk/pipelines-with-tekton/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/aws/features/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/aws/aws-e2e/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/reference/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/pipelines/sdk/manipulate-resources/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/blog/2021/20210115-opensource-license-used-by-it-companies/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/blog/2020/20201216-iso-standard-openchain/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/blog/2020/20201124-kakao-training-materials/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/blog/2020/20201123-ncsoft-training-materials/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/blog/2020/20201123-ncsoft-compliance-book/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/blog/sample/sample-post-2/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/blog/sample/sample-post/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/guide/pipelines/sdk/owners/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/blog/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.org/search/</loc>
+    <lastmod>2021-02-07T21:14:57+09:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/search/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="/search/"
+                />
+  </url>
+  
+</urlset>

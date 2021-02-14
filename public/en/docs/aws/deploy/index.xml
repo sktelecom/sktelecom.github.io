@@ -1,0 +1,333 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SKT Open Source – Deployment</title>
+    <link>/en/docs/aws/deploy/</link>
+    <description>Recent content in Deployment on SKT Open Source</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	  <atom:link href="/en/docs/aws/deploy/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: Install Kubeflow</title>
+      <link>/en/docs/aws/deploy/install-kubeflow/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/en/docs/aws/deploy/install-kubeflow/</guid>
+      <description>
+        
+        
+        &lt;p&gt;This guide describes how to use the kfctl CLI to
+deploy Kubeflow on Amazon Web Services (AWS).&lt;/p&gt;
+&lt;h2 id=&#34;compatibility&#34;&gt;Compatibility&lt;/h2&gt;
+&lt;p&gt;EKS enabled E2E tests between EKS versions and Kubeflow versions since 1.2.&lt;/p&gt;
+&lt;div class=&#34;table-responsive&#34;&gt;
+  &lt;table class=&#34;table table-bordered&#34;&gt;
+    &lt;thead class=&#34;thead-light&#34;&gt;
+      &lt;tr&gt;
+        &lt;th&gt;EKS Versions&lt;/th&gt;
+        &lt;th&gt;Kubeflow 1.2&lt;/th&gt;
+      &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;
+        &lt;td&gt;1.15&lt;/td&gt;
+        &lt;td&gt;&lt;b&gt;compatible&lt;/b&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;1.16&lt;/td&gt;
+        &lt;td&gt;&lt;b&gt;compatible&lt;/b&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;1.17&lt;/td&gt;
+        &lt;td&gt;&lt;b&gt;compatible&lt;/b&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;1.18&lt;/td&gt;
+        &lt;td&gt;&lt;b&gt;compatible&lt;/b&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;incompatible&lt;/strong&gt;: the combination does not work at all&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;compatible&lt;/strong&gt;: all Kubeflow features have been tested and verified for the
+EKS version&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;no known issues&lt;/strong&gt;: the combination has not been fully tested but there are
+no reported issues&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Install &lt;a href=&#34;https://kubernetes.io/docs/tasks/tools/install-kubectl/#install-kubectl&#34;&gt;kubectl&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Install and configure the AWS Command Line Interface (AWS CLI):
+&lt;ul&gt;
+&lt;li&gt;Install the &lt;a href=&#34;https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html&#34;&gt;AWS Command Line Interface&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Configure the AWS CLI by running the following command: &lt;code&gt;aws configure&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Enter your Access Keys (&lt;a href=&#34;https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys&#34;&gt;Access Key ID and Secret Access Key&lt;/a&gt;).&lt;/li&gt;
+&lt;li&gt;Enter your preferred AWS Region and default output options.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Install &lt;a href=&#34;https://github.com/weaveworks/eksctl&#34;&gt;eksctl&lt;/a&gt; (version 0.1.31 or newer) and the &lt;a href=&#34;https://docs.aws.amazon.com/eks/latest/userguide/install-aws-iam-authenticator.html&#34;&gt;aws-iam-authenticator&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;eks-cluster&#34;&gt;EKS cluster&lt;/h2&gt;
+&lt;p&gt;There&amp;rsquo;re many ways to provision EKS cluster, using AWS EKS CLI, CloudFormation or Terraform, AWS CDK or eksctl.
+Here, we highly recommend you to create an EKS cluster using &lt;a href=&#34;https://github.com/weaveworks/eksctl&#34;&gt;eksctl&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;You are required to have an existing Amazon Elastic Kubernetes Service (Amazon EKS) cluster before moving the next step.&lt;/p&gt;
+&lt;p&gt;The installation tool uses the &lt;code&gt;eksctl&lt;/code&gt; command and doesn&amp;rsquo;t support the &lt;code&gt;--profile&lt;/code&gt; option in that command.
+If you need to switch role, use the &lt;code&gt;aws sts assume-role&lt;/code&gt; commands. See the AWS guide to &lt;a href=&#34;https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_use-resources.html&#34;&gt;using temporary security credentials to request access to AWS resources&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;a id=&#34;prepare-environment&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;prepare-your-environment&#34;&gt;Prepare your environment&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt;: kfctl is currently available for Linux and macOS users only. If you use Windows, you can install kfctl on Windows Subsystem for Linux (WSL). Refer to the official &lt;a href=&#34;https://docs.microsoft.com/en-us/windows/wsl/install-win10&#34;&gt;instructions&lt;/a&gt; for setting up WSL.&lt;/p&gt;
+&lt;p&gt;To deploy Kubeflow on your existing Amazon EKS cluster, you need to provide &lt;code&gt;AWS_CLUSTER_NAME&lt;/code&gt;, &lt;code&gt;cluster region&lt;/code&gt; and &lt;code&gt;worker roles&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Follow these steps to download the kfctl binary for the Kubeflow CLI and set
+some handy environment variables:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Download the kfctl v1.2.0 release from the
+&lt;a href=&#34;https://github.com/kubeflow/kfctl/releases/tag/v1.2.0&#34;&gt;Kubeflow releases
+page&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Unpack the tar ball:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;tar -xvf kfctl_v1.2.0_&amp;lt;platform&amp;gt;.tar.gz
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Create environment variables to make the deployment process easier:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# 1. Add kfctl to PATH, to make the kfctl binary easier to use.
+export PATH=$PATH:&amp;quot;&amp;lt;path to kfctl&amp;gt;&amp;quot;
+
+# 2. Use the following kfctl configuration file for the AWS setup without authentication:
+export CONFIG_URI=&amp;quot;https://raw.githubusercontent.com/kubeflow/manifests/v1.2-branch/kfdef/kfctl_aws.v1.2.0.yaml&amp;quot;
+
+# Alternatively, use the following kfctl configuration if you want to enable
+# authentication, authorization and multi-user:
+export CONFIG_URI=&amp;quot;https://raw.githubusercontent.com/kubeflow/manifests/v1.2-branch/kfdef/kfctl_aws_cognito.v1.2.0.yaml&amp;quot;
+
+# 3. Set an environment variable for your AWS cluster name.
+export AWS_CLUSTER_NAME=&amp;lt;YOUR EKS CLUSTER NAME&amp;gt;
+
+# 4. Create the directory you want to store deployment, this has to be ${AWS_CLUSTER_NAME}
+mkdir ${AWS_CLUSTER_NAME} &amp;amp;&amp;amp; cd ${AWS_CLUSTER_NAME}
+
+# 5. Download your configuration files, so that you can customize the configuration before deploying Kubeflow.
+wget -O kfctl_aws.yaml $CONFIG_URI
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Notes:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;${CONFIG_URI}&lt;/strong&gt; - The GitHub address of the configuration YAML file that
+you want to use to deploy Kubeflow. For AWS deployments, the following
+configurations are available:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;https://raw.githubusercontent.com/kubeflow/manifests/v1.2-branch/kfdef/kfctl_aws.v1.2.0.yaml&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;https://raw.githubusercontent.com/kubeflow/manifests/v1.2-branch/kfdef/kfctl_aws_cognito.v1.2.0.yaml&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;When you run &lt;code&gt;kfctl apply&lt;/code&gt; or &lt;code&gt;kfctl build&lt;/code&gt; (see the next step), kfctl creates
+a local version of the configuration YAML file which you can further
+customize if necessary.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;${AWS_CLUSTER_NAME}&lt;/strong&gt; - The name of your eks cluster.
+This will be picked by &lt;code&gt;kfctl&lt;/code&gt; and set value to &lt;code&gt;metadata.name&lt;/code&gt;.
+&lt;code&gt;alb-ingress-controller&lt;/code&gt; requires correct value to provision application load balancers.
+Alb will be only created with correct cluster name.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;configure-kubeflow&#34;&gt;Configure Kubeflow&lt;/h2&gt;
+&lt;p&gt;Since v1.0.1, Kubeflow supports to use &lt;a href=&#34;https://docs.aws.amazon.com/eks/latest/userguide/iam-roles-for-service-accounts.html&#34;&gt;AWS IAM Roles for Service Account&lt;/a&gt; to fine grain control AWS service access.
+kfctl will create two roles &lt;code&gt;kf-admin-${region}-${cluster_name}&lt;/code&gt; and &lt;code&gt;kf-user-${region}-${cluster_name}&lt;/code&gt; and Kubernetes service account &lt;code&gt;kf-admin&lt;/code&gt; and &lt;code&gt;kf-user&lt;/code&gt; under kubeflow namespace. &lt;code&gt;kf-admin-${region}-${cluster_name}&lt;/code&gt; will be assumed by components like &lt;code&gt;alb-ingress-controller&lt;/code&gt;, &lt;code&gt;profile-controller&lt;/code&gt; or any Kubeflow control plane components which need to talk to AWS services. &lt;code&gt;kf-user-${region}-${cluster_name}&lt;/code&gt; can be used by user&amp;rsquo;s application.&lt;/p&gt;
+&lt;p&gt;This is only available on EKS, for DIY Kubernetes on AWS, check out &lt;a href=&#34;https://github.com/aws/amazon-eks-pod-identity-webhook/&#34;&gt;aws/amazon-eks-pod-identity-webhook&lt;/a&gt; to setup webhook.&lt;/p&gt;
+&lt;p&gt;Traditional way to attach IAM policies to node group role is still working, feel free choose the way you like to use.&lt;/p&gt;
+&lt;h3 id=&#34;option-1-use-iam-for-service-account&#34;&gt;Option 1: Use IAM For Service Account&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;kfctl&lt;/code&gt; will help create or reuse IAM OIDC Identity Provider, create role and handle trust relationship binding with Kubernetes Service Accounts.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Note: By default, we don&amp;rsquo;t attach any policies to &lt;code&gt;kf-user-${region}-${cluster_name}&lt;/code&gt;, you can attach policies based on your need.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Add &lt;code&gt;enablePodIamPolicy: true&lt;/code&gt; in your &lt;code&gt;${CONFIG_URI}&lt;/code&gt; file:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;region: us-west-2
+enablePodIamPolicy: true
+
+# you can delete following roles settings.
+#roles:
+#- eksctl-kubeflow-example-nodegroup-ng-185-NodeInstanceRole-1DDJJXQBG9EM6
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Check &lt;a href=&#34;/docs/aws/iam-for-sa&#34;&gt;IAM Role For Service Account&lt;/a&gt; for more usage.&lt;/p&gt;
+&lt;h3 id=&#34;option-2-use-node-group-role&#34;&gt;Option 2: Use Node Group Role&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Retrieve the AWS Region and IAM role name for your worker nodes.
+To get the IAM role name for your Amazon EKS worker node, run the following
+command:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;aws iam list-roles \
+    | jq -r &amp;quot;.Roles[] \
+    | select(.RoleName \
+    | startswith(\&amp;quot;eksctl-$AWS_CLUSTER_NAME\&amp;quot;) and contains(\&amp;quot;NodeInstanceRole\&amp;quot;)) \
+    .RoleName&amp;quot;
+
+eksctl-kubeflow-example-nodegroup-ng-185-NodeInstanceRole-1DDJJXQBG9EM6
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Note: The above command assumes that you used &lt;code&gt;eksctl&lt;/code&gt; to create your
+cluster. If you use other provisioning tools to create your worker node
+groups, find the role that is associated with your worker nodes in the
+Amazon EC2 console.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Change cluster region and worker role names in your &lt;code&gt;kfctl_aws.yaml&lt;/code&gt; file:&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code&gt;region: us-west-2
+roles:
+- eksctl-kubeflow-example-nodegroup-ng-185-NodeInstanceRole-1DDJJXQBG9EM6
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;If you have multiple node groups, you will see corresponding number of node group roles. In that case, please provide the role names as an array.&lt;/p&gt;
+&lt;p&gt;By default, the username is set to &lt;code&gt;admin@kubeflow.org&lt;/code&gt; and the password is &lt;code&gt;12341234&lt;/code&gt;. To secure your Kubeflow deployment, change this configuration.&lt;/p&gt;
+&lt;h2 id=&#34;deploy-kubeflow&#34;&gt;Deploy Kubeflow&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Run the following commands to initialize the Kubeflow cluster:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;kfctl apply -V -f kfctl_aws.yaml
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Wait for all the resources to become ready in the &lt;code&gt;kubeflow&lt;/code&gt; namespace.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;kubectl -n kubeflow get all
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;access-kubeflow-central-dashboard&#34;&gt;Access Kubeflow central dashboard&lt;/h2&gt;
+&lt;p&gt;Run the following command to get your Kubeflow service&amp;rsquo;s endpoint host name and copy link in browser.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;kubectl get ingress -n istio-system
+
+NAMESPACE      NAME            HOSTS   ADDRESS                                                             PORTS   AGE
+istio-system   istio-ingress   *       a743484b-istiosystem-istio-2af2-xxxxxx.us-west-2.elb.amazonaws.com   80      1h
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;This deployment may take 3-5 minutes to become ready. Verify that the address works by opening it in your preferred Internet browser.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Dex&lt;/strong&gt;
+If you&amp;rsquo;re using basic authentication, the credentials are the ones you specified in the KfDef file, or the default (&lt;code&gt;admin@kubeflow.org&lt;/code&gt;:&lt;code&gt;12341234&lt;/code&gt;). It is highly recommended to change the default credentials. To add static users or change the existing one, &lt;a href=&#34;/docs/aws/deploy/install-kubeflow/#add-static-users-for-basic-auth&#34;&gt;add static users for basic auth&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Cognito&lt;/strong&gt;
+To secure an enterprise-level installation, use the &lt;a href=&#34;https://raw.githubusercontent.com/kubeflow/manifests/v1.2-branch/kfdef/kfctl_aws_cognito.v1.2.0.yaml&#34;&gt;https://raw.githubusercontent.com/kubeflow/manifests/v1.2-branch/kfdef/kfctl_aws_cognito.v1.2.0.yaml&lt;/a&gt; configuration file and &lt;a href=&#34;/docs/aws/authentication&#34;&gt;configure authentication and authorization&lt;/a&gt; for your cluster.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;add-static-users-for-basic-authentication&#34;&gt;Add static users for basic authentication&lt;/h3&gt;
+&lt;p&gt;To add users to basic auth, you just have to edit the Dex ConfigMap under the key staticPasswords.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# Edit the dex config with extra users.
+kubectl edit configmap dex -n auth
+
+# The original example of configmap as below
+staticPasswords:
+- email: admin@kubeflow.org
+  hash: JDJhJDEwJEU4SGhqTnpBRzc2eWJJM1RHSDk5Ly4xcWxIckx6UGlJbzMzdW9BWHZ4VU5hTWxjZXAzVTBp
+  username: admin
+  userID: 08a8684b-db88-4b73-90a9-3cd1661f5466
+
+# If you want to add a static user (test@kubeflow.org: 123456789)
+# The password (123456789) must be hashed with bcrypt with an at least 10 difficulty level.
+# You can use an online tool like: https://passwordhashing.com/BCrypt
+# After change, the example of configmap:
+staticPasswords:
+- email: admin@kubeflow.org
+  hash: JDJhJDEwJEU4SGhqTnpBRzc2eWJJM1RHSDk5Ly4xcWxIckx6UGlJbzMzdW9BWHZ4VU5hTWxjZXAzVTBp
+  username: admin
+  userID: 08a8684b-db88-4b73-90a9-3cd1661f5466
+- email: test@kubeflow.org
+  hash: $2b$10$ow6fWbPojHUg56hInYmYXe.B7u3frcSR.kuUkQp2EzXs5t0xfMRtS
+  username: test
+  userID: 08a8684b-db88-4b73-90a9-3cd1661f5466
+
+# After editing the config, restart Dex to pick up the changes in the ConfigMap
+kubectl rollout restart deployment dex -n auth
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;post-installation&#34;&gt;Post Installation&lt;/h2&gt;
+&lt;p&gt;Kubeflow provides multi-tenancy support and users are not able to create notebooks in &lt;code&gt;kubeflow&lt;/code&gt;, &lt;code&gt;default&lt;/code&gt; namespace.&lt;/p&gt;
+&lt;p&gt;The first time you visit the cluster, you can create a namespace &lt;code&gt;anonymous&lt;/code&gt; to use. If you want to create different users, you can create &lt;code&gt;Profile&lt;/code&gt; and then &lt;code&gt;kubectl apply -f profile.yaml&lt;/code&gt;. Profile controller will create new namespace and service account which is allowed to create notebook in that namespace.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;apiVersion&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;kubeflow.org/v1beta1&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;kind&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;Profile&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;metadata&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;name&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;test&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;spec&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;owner&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;kind&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;User&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;name&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;test@amazon.com&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;Note: &lt;code&gt;spec.owner.name&lt;/code&gt; has to match your IDP user&amp;rsquo;s email.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Check &lt;a href=&#34;/docs/components/multi-tenancy&#34;&gt;Multi-Tenancy in Kubeflow&lt;/a&gt; for more details.&lt;/p&gt;
+&lt;h2 id=&#34;understanding-the-deployment-process&#34;&gt;Understanding the deployment process&lt;/h2&gt;
+&lt;p&gt;The kfctl deployment process is controlled by the following commands:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;kfctl build&lt;/code&gt; - (Optional) Creates configuration files defining the various
+resources in your deployment. You only need to run &lt;code&gt;kfctl build&lt;/code&gt; if you want
+to edit the resources before running &lt;code&gt;kfctl apply&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;kfctl apply&lt;/code&gt; - Creates or updates the resources.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;kfctl delete&lt;/code&gt; - Deletes the resources.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;app-layout&#34;&gt;App layout&lt;/h3&gt;
+&lt;p&gt;Your Kubeflow app directory &lt;strong&gt;${KF_DIR}&lt;/strong&gt; contains the following files and directories:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;${CONFIG_URI}&lt;/strong&gt; is a YAML file that defines configurations related to your
+Kubeflow deployment.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;This file is a copy of the GitHub-based configuration YAML file that
+you used when deploying Kubeflow.&lt;/li&gt;
+&lt;li&gt;When you run &lt;code&gt;kfctl apply&lt;/code&gt; or &lt;code&gt;kfctl build&lt;/code&gt;, kfctl creates
+a local version of the configuration file, &lt;code&gt;${CONFIG_URI}&lt;/code&gt;,
+which you can further customize if necessary.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;aws_config&lt;/strong&gt; is a directory that contains a sample &lt;code&gt;eksctl&lt;/code&gt; cluster configuration file that defines the AWS cluster and policy files to attach to your node group roles.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;You can modify the &lt;code&gt;cluster_config.yaml&lt;/code&gt; and &lt;code&gt;cluster_features.yaml&lt;/code&gt; files to customize your AWS infrastructure.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;kustomize&lt;/strong&gt; is a directory that contains the kustomize packages for Kubeflow applications.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The directory is created when you run &lt;code&gt;kfctl build&lt;/code&gt; or &lt;code&gt;kfctl apply&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;You can customize the Kubernetes resources (modify the manifests and run &lt;code&gt;kfctl apply&lt;/code&gt; again).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The provisioning scripts can either bring up a new cluster and install Kubeflow on it, or you can install Kubeflow on your existing cluster. We recommend that you create a new cluster for better isolation.&lt;/p&gt;
+&lt;p&gt;If you experience any issues running these scripts, see the &lt;a href=&#34;/docs/aws/troubleshooting-aws&#34;&gt;troubleshooting guidance&lt;/a&gt; for more information.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Uninstall Kubeflow</title>
+      <link>/en/docs/aws/deploy/uninstall-kubeflow/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/en/docs/aws/deploy/uninstall-kubeflow/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;uninstall-kubeflow&#34;&gt;Uninstall Kubeflow&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;kfctl delete -V -f kfctl_aws.yaml
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;This will delete the kubeflow and istio-system namespaces which have been created via kfctl.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Note: If you installed Kubeflow on an existing Amazon EKS cluster, these scripts won&amp;rsquo;t tear down your cluster in this step. If you want to shutdown EKS cluster, you must manually delete it by yourself.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;uninstall-kubernetes&#34;&gt;Uninstall Kubernetes&lt;/h2&gt;
+&lt;p&gt;If you have installed a dedicated EKS cluster for kubeflow and you want to delete this as well, assuming it was done via a &lt;code&gt;cluster.yaml&lt;/code&gt; file and eksctl, use this:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;eksctl delete cluster -f cluster.yaml
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;That will invoke the DELETE action in the cloudformation stacks.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Note: It is possible that parts of the cloudformation delete will fail. In that case try to manually delete the eks-xxx role in IAM first, then the ALB, the eks target groups and the subnets of that particular cluster. Then retry the command, it will properly delete the nodegroups and the cluster.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

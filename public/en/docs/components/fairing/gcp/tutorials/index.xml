@@ -1,0 +1,254 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SKT Open Source – GCP Samples and Tutorials</title>
+    <link>/en/docs/components/fairing/gcp/tutorials/</link>
+    <description>Recent content in GCP Samples and Tutorials on SKT Open Source</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	  <atom:link href="/en/docs/components/fairing/gcp/tutorials/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: Train and Deploy on GCP from a Local Notebook</title>
+      <link>/en/docs/components/fairing/gcp/tutorials/gcp-local-notebook/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/en/docs/components/fairing/gcp/tutorials/gcp-local-notebook/</guid>
+      <description>
+        
+        
+        &lt;p&gt;This guide introduces you to using Kubeflow Fairing to train and deploy a
+model to Kubeflow on Google Kubernetes Engine (GKE), and Google Cloud ML Engine.
+As an example, this guide uses a local notebook to demonstrate how to:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Train an XGBoost model in a local notebook,&lt;/li&gt;
+&lt;li&gt;Use Kubeflow Fairing to train an XGBoost model remotely on Kubeflow,&lt;/li&gt;
+&lt;li&gt;Use Kubeflow Fairing to train an XGBoost model remotely on Cloud ML Engine,&lt;/li&gt;
+&lt;li&gt;Use Kubeflow Fairing to deploy a trained model to Kubeflow, and&lt;/li&gt;
+&lt;li&gt;Call the deployed endpoint for predictions.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This guide has been tested on Linux and Mac OS X. Currently, this guide has not been
+tested on Windows.&lt;/p&gt;
+&lt;h2 id=&#34;clone-the-kubeflow-fairing-repository&#34;&gt;Clone the Kubeflow Fairing repository&lt;/h2&gt;
+&lt;p&gt;Clone the Kubeflow Fairing repository to download the files used in this example.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;git clone https://github.com/kubeflow/fairing 
+&lt;span style=&#34;color:#204a87&#34;&gt;cd&lt;/span&gt; fairing
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;set-up-python-jupyter-notebook-and-kubeflow-fairing&#34;&gt;Set up Python, Jupyter Notebook, and Kubeflow Fairing&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;You need &lt;strong&gt;Python 3.6&lt;/strong&gt; or later to use Kubeflow Fairing. To check if
+you have Python 3.6 or later installed, run the following command:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;python3 -V
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The response should be something like this:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Python 3.6.5
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;If you do not have Python 3.6 or later, you can &lt;a href=&#34;https://www.python.org/downloads/&#34;&gt;download
+Python&lt;/a&gt; from the Python Software
+Foundation.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Use virtualenv to create a virtual environment to install Kubeflow
+Fairing in. To check if you have virtualenv installed, run the
+following command:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;which virtualenv
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The response should be something like this.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;/usr/bin/virtualenv
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;If you do not have virtualenv, use pip3 to install virtualenv.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;pip3 install --upgrade virtualenv
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Create a new virtual environment, and activate it.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;virtualenv venv --python&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;python3
+&lt;span style=&#34;color:#204a87&#34;&gt;source&lt;/span&gt; venv/bin/activate
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Install Jupyter Notebook.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;pip3 install --upgrade jupyter
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Install Kubeflow Fairing from the cloned repository.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;pip3 install --upgrade .
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Install the Python dependencies for the XGBoost demo notebook.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;pip3 install -r examples/prediction/requirements.txt
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;install-and-configure-the-google-cloud-sdk&#34;&gt;Install and configure the Google Cloud SDK&lt;/h2&gt;
+&lt;p&gt;In order to use Kubeflow Fairing to train or deploy to Kubeflow on GKE,
+or Cloud Machine Learning Engine, you must configure
+your development environment with access to GCP.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;If you do not have the Cloud SDK installed, &lt;a href=&#34;https://cloud.google.com/sdk/docs/&#34;&gt;install the
+Cloud SDK&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Use &lt;code&gt;gcloud&lt;/code&gt; to set a default project.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#204a87&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;PROJECT_ID&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&amp;lt;your-project-id&amp;gt;
+gcloud config &lt;span style=&#34;color:#204a87&#34;&gt;set&lt;/span&gt; project &lt;span style=&#34;color:#4e9a06&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;PROJECT_ID&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Kubeflow Fairing needs a service account to make API calls to GCP. The
+recommended way to provide Fairing with access to this
+service account is to set the &lt;code&gt;GOOGLE_APPLICATION_CREDENTIALS&lt;/code&gt; environment
+variable. To check for the &lt;code&gt;GOOGLE_APPLICATION_CREDENTIALS&lt;/code&gt; environment
+variable, run the following command:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;ls &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;GOOGLE_APPLICATION_CREDENTIALS&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The response should be something like this:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;/.../.../key.json
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;If you do not have a service account, then create one and grant it
+access to the required roles.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#204a87&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;SA_NAME&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&amp;lt;your-sa-name&amp;gt;
+gcloud iam service-accounts create &lt;span style=&#34;color:#4e9a06&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;SA_NAME&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;}&lt;/span&gt;
+gcloud projects add-iam-policy-binding &lt;span style=&#34;color:#4e9a06&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;PROJECT_ID&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&lt;/span&gt;    --member serviceAccount:&lt;span style=&#34;color:#4e9a06&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;SA_NAME&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;}&lt;/span&gt;@&lt;span style=&#34;color:#4e9a06&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;PROJECT_ID&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;}&lt;/span&gt;.iam.gserviceaccount.com &lt;span style=&#34;color:#4e9a06&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&lt;/span&gt;    --role &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;roles/editor&amp;#39;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Create a key for your service account.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;gcloud iam service-accounts keys create ~/key.json &lt;span style=&#34;color:#4e9a06&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&lt;/span&gt;    --iam-account &lt;span style=&#34;color:#4e9a06&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;SA_NAME&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;}&lt;/span&gt;@&lt;span style=&#34;color:#4e9a06&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;PROJECT_ID&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;}&lt;/span&gt;.iam.gserviceaccount.com
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Create the &lt;code&gt;GOOGLE_APPLICATION_CREDENTIALS&lt;/code&gt; environment variable.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#204a87&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;GOOGLE_APPLICATION_CREDENTIALS&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;~/key.json
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;set-up-docker&#34;&gt;Set up Docker&lt;/h2&gt;
+&lt;p&gt;You need to have Docker installed to use Kubeflow Fairing. Fairing packages
+your code as a Docker image and executes it in the remote cluster. To check
+if your local Docker daemon is running, run the following command:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;docker ps
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;If you get a message like &lt;code&gt;docker: command not found&lt;/code&gt;, then &lt;a href=&#34;https://docs.docker.com/install/&#34;&gt;install
+Docker&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;If you get an error like &lt;code&gt;Error response from daemon: Bad response from Docker engine&lt;/code&gt;, then &lt;a href=&#34;https://docs.docker.com/config/daemon/#start-the-daemon-using-operating-system-utilities&#34;&gt;restart your docker daemon&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;If you are using Linux and you use sudo to access Docker, follow these
+steps to &lt;a href=&#34;https://docs.docker.com/install/linux/linux-postinstall/#manage-docker-as-a-non-root-user&#34;&gt;add your user to the &lt;code&gt;docker&lt;/code&gt; group&lt;/a&gt;. Note, the
+&lt;code&gt;docker&lt;/code&gt; group grants privileges equivalent to the root user. To learn more
+about how this affects security in your system, see the guide to the
+&lt;a href=&#34;https://docs.docker.com/engine/security/security/#docker-daemon-attack-surface&#34;&gt;Docker daemon attack surface&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Authorize Docker to access your &lt;a href=&#34;https://cloud.google.com/container-registry/&#34;&gt;GCP Container Registry&lt;/a&gt;.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;gcloud auth configure-docker
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;set-up-kubeflow&#34;&gt;Set up Kubeflow&lt;/h2&gt;
+&lt;p&gt;Use the following instructions to set up and configure your Kubeflow and
+development environments for training and prediction from Kubeflow Fairing.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;If you do not have a Kubeflow environment, follow the guide to &lt;a href=&#34;https://www.kubeflow.org/docs/gke/deploy/&#34;&gt;deploying
+Kubeflow on GKE&lt;/a&gt; to set up your Kubeflow environment.
+The guide provides two options for setting up your environment:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The &lt;a href=&#34;https://deploy.kubeflow.cloud&#34;&gt;Kubeflow deployment user interface&lt;/a&gt; is an easy
+way for you to set up a GKE cluster with Kubeflow
+installed, or&lt;/li&gt;
+&lt;li&gt;You can deploy Kubeflow using the &lt;a href=&#34;https://www.kubeflow.org/docs/gke/deploy/deploy-cli/&#34;&gt;command line&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Update your &lt;code&gt;kubeconfig&lt;/code&gt; with appropriate credentials and endpoint
+information for your Kubeflow cluster. To find your
+cluster&amp;rsquo;s name, run the following command to list the clusters in your
+project:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;gcloud container clusters list
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Update the following command with your cluster&amp;rsquo;s name and GCP zone, then
+run the command to update your &lt;code&gt;kubeconfig&lt;/code&gt; to provide it with credentials
+to access this Kubeflow cluster.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#204a87&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;CLUSTER_NAME&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;kubeflow
+&lt;span style=&#34;color:#204a87&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;ZONE&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;us-central1-a
+gcloud container clusters get-credentials &lt;span style=&#34;color:#4e9a06&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;CLUSTER_NAME&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;}&lt;/span&gt; --region &lt;span style=&#34;color:#4e9a06&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;ZONE&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;use-kubeflow-fairing-to-train-a-model-locally-and-on-gcp&#34;&gt;Use Kubeflow Fairing to train a model locally and on GCP&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Launch the XGBoost quickstart in a local Jupyter notebook.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;jupyter notebook examples/prediction/xgboost-high-level-apis.ipynb
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Follow the instructions in the notebook to train a model locally, on
+Kubeflow, and on Cloud ML Engine. Then deploy the trained model
+to Kubeflow for predictions and send requests to the prediction endpoint.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Train and Deploy on GCP from a Kubeflow Notebook</title>
+      <link>/en/docs/components/fairing/gcp/tutorials/gcp-kubeflow-notebook/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/en/docs/components/fairing/gcp/tutorials/gcp-kubeflow-notebook/</guid>
+      <description>
+        
+        
+        &lt;p&gt;This guide introduces you to using &lt;a href=&#34;https://github.com/kubeflow/fairing&#34;&gt;Kubeflow Fairing&lt;/a&gt; to train and
+deploy a model to Kubeflow on Google Kubernetes Engine (GKE) and
+Google AI Platform Training.&lt;/p&gt;
+&lt;p&gt;Your Kubeflow deployment includes services for spawning and managing Jupyter
+notebooks. Kubeflow Fairing is preinstalled in the Kubeflow notebooks, along
+with a number of machine learning (ML) libraries.&lt;/p&gt;
+&lt;h2 id=&#34;set-up-kubeflow-and-access-the-kubeflow-notebook-environment&#34;&gt;Set up Kubeflow and access the Kubeflow notebook environment&lt;/h2&gt;
+&lt;p&gt;Follow the &lt;a href=&#34;/docs/notebooks/setup/&#34;&gt;Kubeflow notebook setup guide&lt;/a&gt;
+to install Kubeflow, access your Kubeflow hosted notebook environment, and
+create a new notebook server.&lt;/p&gt;
+&lt;p&gt;When selecting a Docker image and other settings for the baseline deployment
+of your notebook server, you can leave all the settings at the default value.&lt;/p&gt;
+&lt;h2 id=&#34;run-the-example-notebook&#34;&gt;Run the example notebook&lt;/h2&gt;
+&lt;p&gt;As an example, this guide uses a notebook that is hosted on Kubeflow
+to demonstrate how to:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Train an XGBoost model in a notebook,&lt;/li&gt;
+&lt;li&gt;Use Kubeflow Fairing to train an XGBoost model remotely on Kubeflow,&lt;/li&gt;
+&lt;li&gt;Use Kubeflow Fairing to train an XGBoost model remotely on
+AI Platform Training,&lt;/li&gt;
+&lt;li&gt;Use Kubeflow Fairing to deploy a trained model to Kubeflow, and&lt;/li&gt;
+&lt;li&gt;Call the deployed endpoint for predictions.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Follow these instructions to run the XGBoost quickstart notebook:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Download the files used in this example and install the packages that the
+XGBoost quickstart notebook depends on.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;On the &lt;strong&gt;Jupyter dashboard&lt;/strong&gt; for your notebook server, click &lt;strong&gt;New&lt;/strong&gt; and
+select &lt;strong&gt;Terminal&lt;/strong&gt; to start a new terminal session in your notebook
+environment. Use the terminal session to set up your notebook
+environment to run this example.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Clone the Kubeflow Fairing repository to download the files used in
+this example.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;git clone https://github.com/kubeflow/fairing 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Install the Python dependencies for the XGBoost quickstart notebook.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;pip3 install -r fairing/examples/prediction/requirements.txt
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Use the notebook user interface to open the XGBoost quickstart notebook
+at &lt;code&gt;fairing/examples/prediction/xgboost-high-level-apis.ipynb&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Follow the instructions in the notebook to:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Train an XGBoost model in a notebook,&lt;/li&gt;
+&lt;li&gt;Use Kubeflow Fairing to train an XGBoost model remotely on Kubeflow,&lt;/li&gt;
+&lt;li&gt;Use Kubeflow Fairing to train an XGBoost model remotely on AI Platform Training,&lt;/li&gt;
+&lt;li&gt;Use Kubeflow Fairing to deploy a trained model to Kubeflow, and&lt;/li&gt;
+&lt;li&gt;Call the deployed endpoint for predictions.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

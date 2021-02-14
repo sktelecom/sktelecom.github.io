@@ -1,0 +1,333 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SKT Open Source – Kubeflow Operator</title>
+    <link>/en/docs/operator/</link>
+    <description>Recent content in Kubeflow Operator on SKT Open Source</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	  <atom:link href="/en/docs/operator/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: Introduction</title>
+      <link>/en/docs/operator/introduction/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/en/docs/operator/introduction/</guid>
+      <description>
+        
+        
+        &lt;p&gt;This guide describes the Kubeflow Operator and the current supported releases of Kubeflow Operator.&lt;/p&gt;
+&lt;h2 id=&#34;kubeflow-operator&#34;&gt;Kubeflow Operator&lt;/h2&gt;
+&lt;p&gt;Kubeflow Operator helps deploy, monitor and manage the lifecycle of Kubeflow. Built using the &lt;a href=&#34;https://coreos.com/blog/introducing-operator-framework&#34;&gt;Operator Framework&lt;/a&gt; which offers an open source toolkit to build, test, package operators and manage the lifecycle of operators.&lt;/p&gt;
+&lt;p&gt;The operator is currently in incubation phase and is based on this &lt;a href=&#34;https://docs.google.com/document/d/1vNBZOM-gDMpwTbhx0EDU6lDpyUjc7vhT3bdOWWCRjdk/edit#&#34;&gt;design doc&lt;/a&gt;. It is built on top of &lt;em&gt;KfDef&lt;/em&gt; CR, and uses &lt;em&gt;kfctl&lt;/em&gt; as the nucleus for Controller. Current roadmap for this Operator is listed &lt;a href=&#34;https://github.com/kubeflow/kfctl/issues/193&#34;&gt;here&lt;/a&gt;. The Operator is also &lt;a href=&#34;https://operatorhub.io/operator/kubeflow&#34;&gt;published on OperatorHub&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Applications and components to be deployed as part of Kubeflow platform are defined in the KfDef configuration manifest. Each application has a &lt;a href=&#34;https://github.com/kubernetes-sigs/kustomize&#34;&gt;kustomize&lt;/a&gt; configuration with all its resource manifests. KfDef &lt;code&gt;spec&lt;/code&gt; includes the &lt;code&gt;applications&lt;/code&gt; field.  Application are specified in the &lt;code&gt;kustomizeConfig&lt;/code&gt; field. &lt;code&gt;parameters&lt;/code&gt; and &lt;code&gt;overlays&lt;/code&gt; may be used to provide custom setting for the application. &lt;code&gt;repoRef&lt;/code&gt; field specifies the path to retrieve the application&amp;rsquo;s kustomize configuration.&lt;/p&gt;
+&lt;p&gt;KfDef &lt;code&gt;spec&lt;/code&gt; may also include a &lt;code&gt;plugins&lt;/code&gt; field for certain cloud platforms, including AWS and GCP. It is used by the platforms to preprocess certain tasks before Kubeflow deployment.&lt;/p&gt;
+&lt;p&gt;An example of KfDef is as follow:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;apiVersion&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;kfdef.apps.kubeflow.org/v1&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;kind&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;KfDef&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;metadata&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;namespace&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;kubeflow&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;spec&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;applications&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Install Istio&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;- &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;kustomizeConfig&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;      &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;repoRef&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;        &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;name&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;manifests&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;        &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;path&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;stacks/ibm/application/istio-stack&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;name&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;istio-stack&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Install Kubeflow applications.&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;- &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;kustomizeConfig&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;      &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;repoRef&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;        &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;name&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;manifests&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;        &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;path&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;stacks/ibm&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;name&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;kubeflow-apps&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Other applications&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;- &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;kustomizeConfig&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;      &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;repoRef&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;        &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;name&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;manifests&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;        &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;path&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;stacks/ibm/application/spark-operator&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;name&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;spark-operator&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Model Serving applications&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;- &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;kustomizeConfig&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;      &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;repoRef&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;        &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;name&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;manifests&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;        &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;path&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;knative/installs/generic&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;name&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;knative&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;- &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;kustomizeConfig&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;      &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;repoRef&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;        &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;name&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;manifests&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;        &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;path&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;kfserving/installs/generic&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;name&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;kfserving&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;repos&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;- &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;name&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;manifests&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;uri&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;https&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;//github.com/kubeflow/manifests/archive/master.tar.gz&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;version&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;master&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;More KfDef examples may be found in Kubeflow &lt;a href=&#34;https://github.com/kubeflow/manifests/tree/master/kfdef&#34;&gt;manifests&lt;/a&gt; repo. Users can pick one there and make some modification to fit their requirements. &lt;a href=&#34;https://github.com/opendatahub-io&#34;&gt;OpenDataHub&lt;/a&gt; project also maintains a KfDef &lt;a href=&#34;https://github.com/opendatahub-io/manifests/blob/v1.0-branch-openshift/kfdef/kfctl_openshift.yaml&#34;&gt;manifest&lt;/a&gt; for Kubeflow deployment on OpenShift Container Platforms.&lt;/p&gt;
+&lt;p&gt;The operator watches on all KfDef configuration instances in the cluster as custom resources (CR) and manage them. It handles reconcile requests to all the &lt;em&gt;KfDef&lt;/em&gt; instances. To understand more on the operator controller behavior, refer to this &lt;a href=&#34;https://github.com/kubernetes-sigs/controller-runtime/blob/master/pkg/doc.go&#34;&gt;controller-runtime link&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Kubeflow Operator shares the same packages and functions as the &lt;code&gt;kfctl&lt;/code&gt; CLI, which is the command line approach to deploy Kubeflow. Therefore, the deployment flow is similar except that the &lt;code&gt;ownerReferences&lt;/code&gt; metadata is added for each application&amp;rsquo;s Kubernetes object. The KfDef CR is the parent of all these objects. Kubeflow Operator does better in tearing down the Kubeflow deployment than the CLI approach. When the KfDef CR is deleted, Kubernetes garbage collection mechanism then takes over the responsibility to remove all and only the resources deployed through this KfDef configuration.&lt;/p&gt;
+&lt;p&gt;One of the many good reasons to use an operator is to monitor the resources. The Kubeflow Operator also watches all child resources of the KfDef CR. Should any of these resources be deleted, the operator would try to apply the resource manifest and bring the object up again.&lt;/p&gt;
+&lt;p&gt;The operator responds to following events:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;When a &lt;em&gt;KfDef&lt;/em&gt; instance is created or updated, the operator&amp;rsquo;s &lt;em&gt;reconciler&lt;/em&gt; will be notified of the event and invoke the &lt;code&gt;Apply&lt;/code&gt; functions provided by the &lt;a href=&#34;https://github.com/kubeflow/kfctl/tree/master/pkg&#34;&gt;&lt;code&gt;kfctl&lt;/code&gt; package&lt;/a&gt; to deploy Kubeflow. The Kubeflow resources specified with the manifests will be owned by the &lt;em&gt;KfDef&lt;/em&gt; instance with their &lt;code&gt;ownerReferences&lt;/code&gt; set.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;When a &lt;em&gt;KfDef&lt;/em&gt; instance is deleted, since the owner is deleted, all the secondary resources owned by it will be deleted through the &lt;a href=&#34;https://kubernetes.io/docs/concepts/cluster-administration/kubelet-garbage-collection/&#34;&gt;garbage colleciton&lt;/a&gt;. In the mean time, the &lt;em&gt;reconciler&lt;/em&gt; will be notified of the event and remove the finalizers.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;When any resource deployed as part of a &lt;em&gt;KfDef&lt;/em&gt; instance is deleted, the operator&amp;rsquo;s &lt;em&gt;reconciler&lt;/em&gt; will be notified of the event and invoke the &lt;code&gt;Apply&lt;/code&gt; functions provided by the &lt;a href=&#34;https://github.com/kubeflow/kfctl/tree/master/pkg&#34;&gt;&lt;code&gt;kfctl&lt;/code&gt; package&lt;/a&gt; to re-deploy the Kubeflow. The deleted resource will be recreated with the same manifest as specified when the &lt;em&gt;KfDef&lt;/em&gt; instance is created.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Deploying Kubeflow with the Kubeflow Operator includes two steps: &lt;a href=&#34;/docs/operator/install-operator&#34;&gt;installing the Kubeflow Operator&lt;/a&gt; followed by &lt;a href=&#34;/docs/operator/deploy/operator&#34;&gt;deploying&lt;/a&gt; the KfDef custom resource.&lt;/p&gt;
+&lt;h2 id=&#34;current-tested-operators-and-pre-built-images&#34;&gt;Current Tested Operators and Pre-built Images&lt;/h2&gt;
+&lt;p&gt;Kubeflow Operator controller logic is based on the &lt;a href=&#34;https://github.com/kubeflow/kfctl/tree/master/pkg&#34;&gt;&lt;code&gt;kfctl&lt;/code&gt; package&lt;/a&gt;, so for each major release of &lt;code&gt;kfctl&lt;/code&gt;, an operator image is built and tested with that version of &lt;a href=&#34;github.com/kubeflow/manifests&#34;&gt;&lt;code&gt;manifests&lt;/code&gt;&lt;/a&gt; to deploy a &lt;em&gt;KfDef&lt;/em&gt; instance. Following table shows what releases have been tested.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;branch tag&lt;/th&gt;
+&lt;th&gt;operator image&lt;/th&gt;
+&lt;th&gt;manifests version&lt;/th&gt;
+&lt;th&gt;kfdef example&lt;/th&gt;
+&lt;th&gt;note&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/kubeflow/kfctl/tree/v1.0&#34;&gt;v1.0&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://hub.docker.com/layers/aipipeline/kubeflow-operator/v1.0.0/images/sha256-63d00b29a61ff5bc9b0527c8a515cd4cb55de474c45d8e0f65742908ede4d88f?context=repo&#34;&gt;aipipeline/kubeflow-operator:v1.0.0&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/kubeflow/manifests/tree/f56bb47d7dc5378497ad1e38ea99f7b5ebe7a950&#34;&gt;1.0.0&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/kubeflow/manifests/blob/f56bb47d7dc5378497ad1e38ea99f7b5ebe7a950/kfdef/kfctl_k8s_istio.v1.0.0.yaml&#34;&gt;kfctl_k8s_istio.v1.0.0.yaml&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/kubeflow/kfctl/tree/v1.0.1&#34;&gt;v1.0.1&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://hub.docker.com/layers/aipipeline/kubeflow-operator/v1.0.1/images/sha256-828024b773040271e4b547ce9219046f705fb7123e05503d5a2d1428dfbcfb6e?context=repo&#34;&gt;aipipeline/kubeflow-operator:v1.0.1&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/kubeflow/manifests/tree/v1.0.1&#34;&gt;1.0.1&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/kubeflow/manifests/blob/v1.0.1/kfdef/kfctl_k8s_istio.v1.0.1.yaml&#34;&gt;kfctl_k8s_istio.v1.0.1.yaml&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/kubeflow/kfctl/tree/v1.0.2&#34;&gt;v1.0.2&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://hub.docker.com/layers/aipipeline/kubeflow-operator/v1.0.2/images/sha256-18d2ca6f19c1204d5654dfc4cc08032c168e89a95dee68572b9e2aaedada4bda?context=repo&#34;&gt;aipipeline/kubeflow-operator:v1.0.2&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/kubeflow/manifests/tree/v1.0.2&#34;&gt;1.0.2&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/kubeflow/manifests/blob/v1.0.2/kfdef/kfctl_k8s_istio.v1.0.2.yaml&#34;&gt;kfctl_k8s_istio.v1.0.2.yaml&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/kubeflow/kfctl/tree/v1.1.0&#34;&gt;v1.1.0&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://hub.docker.com/layers/aipipeline/kubeflow-operator/v1.0.0/images/sha256-63d00b29a61ff5bc9b0527c8a515cd4cb55de474c45d8e0f65742908ede4d88f?context=explore&#34;&gt;aipipeline/kubeflow-operator:v1.1.0&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/kubeflow/manifests/tree/v1.1.0&#34;&gt;1.1.0&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/kubeflow/manifests/blob/v1.1-branch/kfdef/kfctl_ibm.v1.1.0.yaml&#34;&gt;kfctl_ibm.v1.1.0.yaml&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/kubeflow/kfctl&#34;&gt;master&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://hub.docker.com/layers/aipipeline/kubeflow-operator/master/images/sha256-e81020c426a12237c7cf84316dbbd0efda76e732233ddd57ef33543381dfb8a1?context=repo&#34;&gt;aipipeline/kubeflow-operator:master&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/kubeflow/manifests&#34;&gt;master&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/kubeflow/manifests/blob/master/kfdef/kfctl_ibm.yaml&#34;&gt;kfctl_ibm.yaml&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;as of 07/29/2020&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Note: if building a customized operator for a specific version of Kubeflow is desired, you can run &lt;code&gt;git checkout&lt;/code&gt; to that specific branch tag. Keep in mind to use the matching version of manifests.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Installing Kubeflow Operator</title>
+      <link>/en/docs/operator/install-operator/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/en/docs/operator/install-operator/</guid>
+      <description>
+        
+        
+        &lt;p&gt;This guide describes how to install the Kubeflow Operator.&lt;/p&gt;
+&lt;p&gt;There are different ways to install the Kubeflow Operator, choose one of the following:&lt;/p&gt;
+&lt;h2 id=&#34;1-installing-the-kubeflow-operator-through-the-operatorhubiohttpsoperatorhubiooperatorkubeflow&#34;&gt;1. Installing the Kubeflow Operator through the &lt;a href=&#34;https://operatorhub.io/operator/kubeflow&#34;&gt;operatorhub.io&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;The stable release of Kubeflow Operator is published to the &lt;a href=&#34;https://operatorhub.io&#34;&gt;operatorhub.io&lt;/a&gt;. Navigate to the &lt;a href=&#34;https://operatorhub.io/operator/kubeflow&#34;&gt;operatorhub.io&lt;/a&gt;, click on the &lt;code&gt;Install&lt;/code&gt; and follow the instructions there to install the operator.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/docs/images/operator-operatorhubio-kubeflow.png&#34; 
+alt=&#34;Kubeflow Operator in OperatorHub&#34;
+class=&#34;mt-3 mb-3 border border-info rounded&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Verify the Kubeflow Operator is running with following command.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;kubectl get pod -n operators
+
+NAME                                 READY   STATUS    RESTARTS   AGE
+kubeflow-operator-55876578df-25mq5   1/1     Running   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;          17h
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;2-installing-the-kubeflow-operator-with-kustomize-and-kubectl&#34;&gt;2. Installing the Kubeflow Operator with &lt;code&gt;kustomize&lt;/code&gt; and &lt;code&gt;kubectl&lt;/code&gt;&lt;/h2&gt;
+&lt;p&gt;Previous method is convenient and simple enough without any knowledges of the Operator SDK. However, if any of the following reasons applies, choose this approach to install the operator.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;You want to install a different release of Kubeflow Operator since the Kubeflow KfDef manifests may not be compatible from release to release.&lt;/li&gt;
+&lt;li&gt;You want to install the latest release of Kubeflow Operator.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Install &lt;a href=&#34;https://github.com/kubernetes-sigs/kustomize/blob/master/docs/INSTALL.md&#34;&gt;kustomize&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;clone-the-kfctlhttpsgithubcomkubeflowkfctlgit-repo-and-switch-to-the-desired-release-branch&#34;&gt;Clone the &lt;a href=&#34;https://github.com/kubeflow/kfctl.git&#34;&gt;&lt;code&gt;kfctl&lt;/code&gt;&lt;/a&gt; repo and switch to the desired release branch&lt;/h3&gt;
+&lt;p&gt;Clone the repo and switch to the desired release branch with the following &lt;code&gt;git&lt;/code&gt; commands&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;git clone https://github.com/kubeflow/kfctl.git
+&lt;span style=&#34;color:#204a87&#34;&gt;cd&lt;/span&gt; kfctl
+git checkout v1.1-branch
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;create-operators-namespace-and-update-the-operator-manifests&#34;&gt;Create &lt;code&gt;operators&lt;/code&gt; namespace and update the operator manifests&lt;/h3&gt;
+&lt;p&gt;The &lt;code&gt;operators&lt;/code&gt; namespace is the namespace where the Kubeflow Operator will be installed to. Create the namespace and update the manifests with these commands&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#204a87&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;OPERATOR_NAMESPACE&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;operators
+kubectl create ns &lt;span style=&#34;color:#4e9a06&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;OPERATOR_NAMESPACE&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;}&lt;/span&gt;
+
+&lt;span style=&#34;color:#204a87&#34;&gt;cd&lt;/span&gt; deploy
+kustomize edit &lt;span style=&#34;color:#204a87&#34;&gt;set&lt;/span&gt; namespace &lt;span style=&#34;color:#4e9a06&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;OPERATOR_NAMESPACE&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;}&lt;/span&gt;
+
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# only deploy this if the k8s cluster is 1.15+ and has resource quota support, which will allow only one _kfdef_ instance or one deployment of Kubeflow on the cluster. This follows the singleton model, and is the current recommended and supported mode.&lt;/span&gt;
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# kustomize edit add resource kustomize/include/quota&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;install-the-operator&#34;&gt;Install the operator&lt;/h3&gt;
+&lt;p&gt;Install the Kubeflow Operator with the &lt;code&gt;kustomize&lt;/code&gt; and &lt;code&gt;kubectl&lt;/code&gt; commands&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;kustomize build &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; kubectl apply -f -
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Verify the Kubeflow Operator is running with following command.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;kubectl get pod -n operators
+
+NAME                                 READY   STATUS    RESTARTS   AGE
+kubeflow-operator-55876578df-25mq5   1/1     Running   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;          17h
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Installing Kubeflow</title>
+      <link>/en/docs/operator/install-kubeflow/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/en/docs/operator/install-kubeflow/</guid>
+      <description>
+        
+        
+        &lt;p&gt;This guide describes how to use the Kubeflow Operator to deploy Kubeflow. As mentioned in the Operator &lt;a href=&#34;/docs/operator/introduction.md&#34;&gt;introduction&lt;/a&gt;, the Operator also allows you to monitor and manage the Kubeflow installation beyond the initial installation.&lt;/p&gt;
+&lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Kubeflow Operator needs to be deployed on your cluster for rest of steps to work. Please follow the &lt;a href=&#34;/docs/operator/install-operator&#34;&gt;&lt;code&gt;Install the Kubeflow Operator&lt;/code&gt;&lt;/a&gt; guide to install the Kubeflow Operator&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;deployment-instructions&#34;&gt;Deployment Instructions&lt;/h2&gt;
+&lt;p&gt;The Kubeflow Operator uses the KfDef as its custom resource. You can compose a KfDef configuration or pick a default KfDef from the Kubeflow &lt;a href=&#34;https://github.com/kubeflow/manifests/tree/master/kfdef&#34;&gt;manifests&lt;/a&gt; repo. Keep in mind choosing the release that will work with the Kubeflow Operator.&lt;/p&gt;
+&lt;h3 id=&#34;prepare-kfdef-configuration&#34;&gt;Prepare KfDef configuration&lt;/h3&gt;
+&lt;p&gt;The &lt;code&gt;metadata.name&lt;/code&gt; field must be set for the KfDef manifests whether it is downloaded from the Kubeflow manifests repo or is originally written. Following example shows how to prepare the KfDef manifests&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# download a default KfDef configuration from remote repo&lt;/span&gt;
+&lt;span style=&#34;color:#204a87&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;KFDEF_URL&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;https://raw.githubusercontent.com/kubeflow/manifests/v1.1-branch/kfdef/kfctl_ibm.yaml
+&lt;span style=&#34;color:#204a87&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;KFDEF&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;$(&lt;/span&gt;&lt;span style=&#34;color:#204a87&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;KFDEF_URL&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; rev &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; cut -d/ -f1 &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; rev&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;)&lt;/span&gt;
+curl -L &lt;span style=&#34;color:#4e9a06&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;KFDEF_URL&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;}&lt;/span&gt; &amp;gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;KFDEF&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;}&lt;/span&gt;
+
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# add metadata.name field&lt;/span&gt;
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Note: yq can be installed from https://github.com/mikefarah/yq&lt;/span&gt;
+&lt;span style=&#34;color:#204a87&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;KUBEFLOW_DEPLOYMENT_NAME&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;kubeflow
+yq w &lt;span style=&#34;color:#4e9a06&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;KFDEF&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;metadata.name&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;KUBEFLOW_DEPLOYMENT_NAME&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;}&lt;/span&gt; &amp;gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;KFDEF&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;}&lt;/span&gt;.tmp &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; mv &lt;span style=&#34;color:#4e9a06&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;KFDEF&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;}&lt;/span&gt;.tmp &lt;span style=&#34;color:#4e9a06&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;KFDEF&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;deploy-the-kubeflow-with-the-kubeflow-operator&#34;&gt;Deploy the Kubeflow with the Kubeflow Operator&lt;/h3&gt;
+&lt;p&gt;Kubeflow Operator is watching on any KfDef resource in the Kubernetes cluster. Depends on how the operator is installed, there are a couple of ways to start the Kubeflow deployment. You can always manually run with following commands&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# create the namespace for Kubeflow deployment&lt;/span&gt;
+&lt;span style=&#34;color:#000&#34;&gt;KUBEFLOW_NAMESPACE&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;kubeflow
+kubectl create ns &lt;span style=&#34;color:#4e9a06&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;KUBEFLOW_NAMESPACE&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;}&lt;/span&gt;
+
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# create the KfDef custom resource&lt;/span&gt;
+kubectl create -f &lt;span style=&#34;color:#4e9a06&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;KFDEF&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;}&lt;/span&gt; -n &lt;span style=&#34;color:#4e9a06&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;KUBEFLOW_NAMESPACE&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Note: in the example above, ${KFDEF} points to a local KfDef configuration file, however, it can also points to a remote URL containing a valid KfDef configuration.&lt;/p&gt;
+&lt;h3 id=&#34;watch-the-deployment-progress&#34;&gt;Watch the deployment progress&lt;/h3&gt;
+&lt;p&gt;The Kubeflow deployment is carried on by the operator, you can watch the progress with this command&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;kubectl logs deployment/kubeflow-operator -n &lt;span style=&#34;color:#4e9a06&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;OPERATOR_NAMESPACE&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;}&lt;/span&gt; -f
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Verify the Kubeflow deployment by monitoring the pods in the ${KUBEFLOW_NAMESPACE}&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;kubectl get pod -n &lt;span style=&#34;color:#4e9a06&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;KUBEFLOW_NAMESPACE&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;}&lt;/span&gt;
+
+NAME                                                     READY   STATUS    RESTARTS   AGE
+admission-webhook-bootstrap-stateful-set-0               1/1     Running   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;3&lt;/span&gt;          2m26s
+admission-webhook-deployment-5bc5f97cfd-chjnm            1/1     Running   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2&lt;/span&gt;          46s
+application-controller-stateful-set-0                    1/1     Running   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;          2m30s
+argo-ui-669bcd8bfc-5dk5c                                 1/1     Running   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;          45s
+cache-deployer-deployment-b75f5c5f6-42n6l                2/2     Running   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;          45s
+cache-server-85bccd99bd-tfrnr                            2/2     Running   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;          44s
+centraldashboard-8849f64cf-l45zc                         1/1     Running   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;          44s
+jupyter-web-app-deployment-6c568f4cbc-pd68m              1/1     Running   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;          43s
+kubeflow-pipelines-profile-controller-846cc56f44-cmbbf   1/1     Running   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;          43s
+metacontroller-0                                         1/1     Running   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;          96s
+metadata-writer-59d755696c-fh6px                         2/2     Running   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;          43s
+minio-d45d44d4f-rmxft                                    1/1     Running   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;          42s
+ml-pipeline-6bc56cd86d-kn7zt                             1/2     Running   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;          42s
+ml-pipeline-persistenceagent-6f99b56974-x2f52            2/2     Running   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;          41s
+ml-pipeline-scheduledworkflow-d596b8bd-qdz6m             2/2     Running   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;          41s
+ml-pipeline-ui-8695cc6b46-hr8p5                          2/2     Running   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;          40s
+ml-pipeline-viewer-crd-5998ff7f56-5rn4s                  2/2     Running   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2&lt;/span&gt;          40s
+ml-pipeline-visualizationserver-cbbb5b5b-w7rbd           2/2     Running   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;          39s
+mysql-76597cf5b5-jpsrx                                   1/2     Running   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;          39s
+notebook-controller-deployment-756587d86-fffg8           1/1     Running   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;          38s
+profiles-deployment-865b78d47f-pbgl4                     2/2     Running   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;          38s
+workflow-controller-54dccb7dc4-hkg9s                     1/1     Running   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;          37s
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Uninstalling Kubeflow</title>
+      <link>/en/docs/operator/uninstall-kubeflow/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/en/docs/operator/uninstall-kubeflow/</guid>
+      <description>
+        
+        
+        &lt;p&gt;This guide describes how to delete the Kubeflow deployment when it is deployed with the Kubeflow Operator.&lt;/p&gt;
+&lt;p&gt;To delete the Kubeflow deployment, simply delete the KfDef custom resource from the cluster.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;kubectl delete kfdef &lt;span style=&#34;color:#4e9a06&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;KUBEFLOW_DEPLOYMENT_NAME&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;}&lt;/span&gt; -n &lt;span style=&#34;color:#4e9a06&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;KUBEFLOW_NAMESPACE&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Note: ${KUBEFLOW_DEPLOYMENT_NAME} and ${KUBEFLOW_NAMESPACE} are defined in the &lt;a href=&#34;/docs/operator/install-kubeflow&#34;&gt;Installing Kubeflow&lt;/a&gt; guide.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Uninstalling Kubeflow Operator</title>
+      <link>/en/docs/operator/uninstall-operator/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/en/docs/operator/uninstall-operator/</guid>
+      <description>
+        
+        
+        &lt;p&gt;This guide describes how to uninstall the Kubeflow Operator.&lt;/p&gt;
+&lt;p&gt;You can always uninstall the operator with following commands&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# switch to the cloned kfctl directory&lt;/span&gt;
+&lt;span style=&#34;color:#204a87&#34;&gt;cd&lt;/span&gt; kfctl
+
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# uninstall the operator&lt;/span&gt;
+kubectl delete -f deploy/operator.yaml -n &lt;span style=&#34;color:#4e9a06&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;OPERATOR_NAMESPACE&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;}&lt;/span&gt;
+kubectl delete clusterrolebinding kubeflow-operator
+kubectl delete -f deploy/service_account.yaml -n &lt;span style=&#34;color:#4e9a06&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;OPERATOR_NAMESPACE&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;}&lt;/span&gt;
+kubectl delete -f deploy/crds/kfdef.apps.kubeflow.org_kfdefs_crd.yaml
+kubectl delete ns &lt;span style=&#34;color:#4e9a06&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;OPERATOR_NAMESPACE&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Troubleshooting</title>
+      <link>/en/docs/operator/troubleshooting/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/en/docs/operator/troubleshooting/</guid>
+      <description>
+        
+        
+        &lt;p&gt;This guide provides some tips on troubleshooting known Kubeflow deployment problems.&lt;/p&gt;
+&lt;h3 id=&#34;remove-leftover-cluster-wide-resources-after-the-kubeflow-is-uninstalled&#34;&gt;Remove leftover cluster-wide resources after the Kubeflow is uninstalled&lt;/h3&gt;
+&lt;p&gt;After Kubeflow deployment is uninstalled, some &lt;em&gt;mutatingwebhookconfigurations&lt;/em&gt; and &lt;em&gt;validatingwebhookconfigurations&lt;/em&gt; resources are cluster-wide resources and may not be removed as their owner is not the &lt;em&gt;KfDef&lt;/em&gt; instance. To remove them, run following:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;kubectl delete mutatingwebhookconfigurations --all
+kubectl delete validatingwebhookconfigurations --all
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+      </description>
+    </item>
+    
+  </channel>
+</rss>
