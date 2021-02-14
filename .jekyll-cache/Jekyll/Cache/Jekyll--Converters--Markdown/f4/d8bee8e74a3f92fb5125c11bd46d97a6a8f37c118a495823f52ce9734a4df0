@@ -1,0 +1,426 @@
+I"ƒ=
+<!--more-->
+
+<h1 id="examples">Examples</h1>
+
+<h4 class="sub-title" id="code-in-markdown-cannot-guarantee-it-work-well">Code in markdown cannot guarantee it work well</h4>
+
+<p class="bg-danger">Test paragraph with <strong>bg-danger</strong> custom class.</p>
+
+<p class="bg-success">Test paragraph with <strong>bg-success</strong> custom class.</p>
+
+<p class="bg-info">Test paragraph with <strong>bg-info</strong> custom class.</p>
+
+<p class="bg-warning">Test paragraph with <strong>bg-warning</strong> custom class.</p>
+
+<hr class="sub-title" />
+<h4 id="code-in-markdown">Code in markdown</h4>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{:.bg-danger}
+Test paragraph with **bg-danger** custom class.
+
+{:.bg-success}
+Test paragraph with **bg-success** custom class.
+
+{:.bg-info}
+Test paragraph with **bg-info** custom class.
+
+{:.bg-warning}
+Test paragraph with **bg-warning** custom class.
+
+</code></pre></div></div>
+<hr />
+
+<p><strong>Test Bold</strong></p>
+
+<p><em>Test coursive</em></p>
+
+<p>A divider: <code class="language-plaintext highlighter-rouge">----</code></p>
+
+<hr />
+
+<p>This is **not** in bold.</p>
+
+<ul>
+  <li>This</li>
+  <li>is</li>
+  <li>a list</li>
+</ul>
+
+<blockquote>
+  <p>This is quoted</p>
+</blockquote>
+
+<ol>
+  <li>with</li>
+  <li>numbers</li>
+</ol>
+
+<p><a href="https://sktelecom.github.io">This is a link</a></p>
+
+<hr />
+
+<p><strong>Default</strong>. Text paragraph basic color</p>
+
+<p class="text-primary"><strong>.text-primary</strong>: Text paragraph using Primary color</p>
+
+<p class="text-success"><strong>.text-success</strong>: Text paragraph using Success color</p>
+
+<p class="text-info"><strong>.text-info</strong>: Text paragraph using Info Color</p>
+
+<p class="text-warning"><strong>.text-warning</strong>: Text paragraph using Warning color</p>
+
+<p class="text-danger"><strong>.text-danger</strong>: Text paragraph using Danger color</p>
+
+<hr />
+
+<h1 id="heading-h1">Heading h1</h1>
+<h2 id="heading-h2">Heading h2</h2>
+<h3 id="heading-h3">Heading h3</h3>
+<h4 id="heading-h4">Heading h4</h4>
+<h5 id="heading-h5">Heading h5</h5>
+<h6 id="heading-h6">Heading h6</h6>
+
+<h4 class="sub-title" id="subtitle-h-class-using-sub-title">Subtitle h class using <code class="language-plaintext highlighter-rouge">{:.sub-title}</code></h4>
+
+<hr />
+
+<h1 id="images">IMAGES</h1>
+
+<p>Image syntax is very much like link syntax.</p>
+
+<p>Inline (titles are optional):</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>![alt text](/path/to/img.jpg "Title")
+</code></pre></div></div>
+
+<p>Reference-style:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>![alt text][id]
+
+[id]: /path/to/img.jpg "Title"
+</code></pre></div></div>
+
+<p>Both of the above examples produce the same output:</p>
+
+<p><code class="language-plaintext highlighter-rouge">&lt;img src="/path/to/img.jpg" alt="alt text" title="Title" /&gt;</code></p>
+
+<h2 id="testing-images">Testing images</h2>
+
+<p><img src="/assets/img/1.jpg" alt="Lost in space" class="image-fluid" /></p>
+
+<hr />
+<h5 id="code-in-markdown-1">Code in markdown</h5>
+<pre><code class="language-HTML">	
+	![Lost in space](/assets/img/2.jpg){: .image-fluid }
+
+</code></pre>
+
+<h3 id="img-with-description-on-hover">IMG With description on hover</h3>
+
+<p><img src="/assets/img/3.jpg" alt="Lost in space with description" title="Description of lost in space image" class="image-fluid" /></p>
+
+<hr />
+<h5 id="code-in-markdown-2">Code in markdown</h5>
+<pre><code class="language-HTML">	
+	![Lost in space with description](/assets/img/3.jpg "Description of lost in space image"){: .image-fluid }
+
+</code></pre>
+
+<h3 id="with-floating-in-markdown">With floating in markdown</h3>
+
+<table>
+  <tbody>
+    <tr>
+      <td>In markdown you can quikly use tables to align your images in right way, remember to style as you like the CSS of your table to have a amazing results. Use to size your pics in right way for best results.</td>
+      <td><img src="/assets/img/2.jpg" alt="Lost in space with description" title="Description of lost in space image" class="image-fluid" /></td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+<h5 id="code-in-markdown-3">Code in markdown</h5>
+<pre><code class="language-HTML">
+	| In markdown you can quikly use tables to align your images in right way, remember to style as you like the CSS of your table to have a amazing results. Use to size your pics in right way for best results. | ![Lost in space with description](/assets/img/2.jpg "Description of lost in space image"){: .image-fluid } |
+
+
+</code></pre>
+
+<table>
+  <tbody>
+    <tr>
+      <td><img src="/assets/img/3.jpg" alt="Lost in space with description" title="Description of lost in space image" class="image-fluid" /></td>
+      <td>I am text to the right I am text to the right I am text to the right I am text to the right</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+<h5 id="code-in-markdown-4">Code in markdown</h5>
+<pre><code class="language-HTML">
+	| ![Lost in space with description](/assets/img/3.jpg "Description of lost in space image"){: .image-fluid } | I am text to the right I am text to the right I am text to the right I am text to the right |
+
+</code></pre>
+
+<h3 id="video-embed-sample">Video embed sample</h3>
+<div class="video-container">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/IwWoImdgFKI?ecver=1" frameborder="0" allowfullscreen=""></iframe>
+</div>
+
+<hr />
+<h5 id="code-in-markdown-5">Code in markdown</h5>
+<pre><code class="language-HTML">	&lt;div class="video-container"&gt;
+	&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/IwWoImdgFKI?ecver=1" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;
+	&lt;/div&gt;
+
+</code></pre>
+<hr />
+<h2 id="paragraphs">Paragraphs</h2>
+
+<p class="lead text-sm"><strong>A large paragraph</strong> using <code class="language-plaintext highlighter-rouge">{:.lead}</code>: But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system
+<strong>Regular Paragraph</strong>: But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system</p>
+<p class="text-xs"><strong>Small Paragraph</strong> using <code class="language-plaintext highlighter-rouge">{:.text-sm}</code>: But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system</p>
+<p><strong>Extra Small Paragraph</strong> using <code class="language-plaintext highlighter-rouge">{:.text-xs}</code>: But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system</p>
+
+<hr />
+
+<h1 id="alerts">Alerts</h1>
+
+<h4 class="sub-title" id="code-in-markdown-cannot-guarantee-it-work-well-1">Code in markdown cannot guarantee it work well</h4>
+
+<p>If are you looking to html version explore <a href="/labels-alerts">Labels Alerts</a> and <a href="/components">Components</a></p>
+
+<p class="massage-box alert-success"><strong>Test Message alert success</strong> 
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt a in, ullam.</p>
+
+<p class="massage-box alert-info"><strong>Test Message alert info</strong> 
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt a in, ullam.</p>
+
+<p class="massage-box alert-danger"><strong>Test Message alert danger</strong> 
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt a in, ullam.</p>
+
+<p class="massage-box alert-warning"><strong>Test Message alert warning</strong> 
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt a in, ullam.</p>
+
+<hr />
+
+<h4 class="sub-title" id="code-in-markdown-6">Code in markdown</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{:.massage-box .alert-success}
+**Test Message alert success** 
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt a in, ullam.
+
+{:.massage-box .alert-info}
+**Test Message alert info** 
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt a in, ullam.
+
+{:.massage-box .alert-danger}
+**Test Message alert danger** 
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt a in, ullam.
+
+{:.massage-box .alert-warning}
+**Test Message alert warning** 
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt a in, ullam.
+</code></pre></div></div>
+<hr />
+
+<h1 id="labels">Labels</h1>
+
+<h4 class="sub-title" id="code-in-markdown-cannot-guarantee-it-work-well-2">Code in markdown cannot guarantee it work well</h4>
+
+<p class="label label-default-filled">Default</p>
+
+<p class="label label-success-filled">Success</p>
+
+<p class="label label-info-filled">Info</p>
+
+<p class="label label-warning-filled">Warning</p>
+
+<p class="label label-danger-filled">Danger</p>
+
+<hr />
+
+<h4 class="sub-title" id="code-in-markdown-7">Code in markdown</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{:.label .label-default-filled}
+Default
+
+{:.label .label-success-filled}
+Success
+
+{:.label .label-info-filled}
+Info
+
+{:.label .label-warning-filled}
+Warning
+
+{:.label .label-danger-filled} 
+Danger
+</code></pre></div></div>
+<hr />
+
+<h1 id="class-nesting-samples">Class nesting samples</h1>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>*   list item
+
+*   list item {.classA}
+    {.classB}
+{.classC}
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">{.some-class .proposed-syntax}</code>
+A paragraph of text.</p>
+
+<p>vs</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;p class="some-class" markdown="1"&gt;
+  A paragraph of text.
+&lt;/p&gt;
+</code></pre></div></div>
+<h2 id="tables">Tables</h2>
+
+<p>When you compare the code for tables, the ability to add a class via markdown attributes makes a world of difference:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Some</th>
+      <th>Basic</th>
+      <th>Table</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>a</td>
+      <td>b</td>
+      <td>c</td>
+    </tr>
+    <tr>
+      <td>d</td>
+      <td>e</td>
+      <td>f</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 class="sub-title" id="code-in-markdown-8">Code in markdown</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{.table .table-striped}
+Some | Basic | Table 
+-----|-------|------
+a    | b     | c
+d    | e     | f
+</code></pre></div></div>
+<hr />
+<h3 id="other-features">Other features</h3>
+<hr />
+
+<h1 id="lists-uneder-construction">Lists (Uneder construction)</h1>
+
+<ol>
+  <li>Red one</li>
+  <li>Green two</li>
+  <li>Blue three</li>
+</ol>
+
+<ul>
+  <li>
+    <p>A list item.</p>
+
+    <p>With multiple paragraphs.</p>
+  </li>
+  <li>
+    <p>Another item in the list.</p>
+  </li>
+</ul>
+
+<h1 id="links">LINKS</h1>
+
+<p>Markdown supports two styles for creating links: inline and reference. With both styles, you use square brackets to delimit the text you want to turn into a link.</p>
+
+<p>Inline-style links use parentheses immediately after the link text. For example:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>This is an [example link](http://example.com/).
+Output:
+
+&lt;p&gt;This is an &lt;a href="http://example.com/"&gt;
+example link&lt;/a&gt;.&lt;/p&gt;
+</code></pre></div></div>
+<p>Optionally, you may include a title attribute in the parentheses:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>This is an [example link](http://example.com/ "With a Title").
+</code></pre></div></div>
+<p>Output:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;p&gt;This is an &lt;a href="http://example.com/" title="With a Title"&gt;
+example link&lt;/a&gt;.&lt;/p&gt;
+</code></pre></div></div>
+
+<p>Reference-style links allow you to refer to your links by names, which you define elsewhere in your document:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>I get 10 times more traffic from [Google][1] than from
+[Yahoo][2] or [MSN][3].
+
+[1]: http://google.com/        "Google"
+[2]: http://search.yahoo.com/  "Yahoo Search"
+[3]: http://search.msn.com/    "MSN Search"
+</code></pre></div></div>
+<p>Output:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;p&gt;I get 10 times more traffic from &lt;a href="http://google.com/"
+title="Google"&gt;Google&lt;/a&gt; than from &lt;a href="http://search.yahoo.com/"
+title="Yahoo Search"&gt;Yahoo&lt;/a&gt; or &lt;a href="http://search.msn.com/"
+title="MSN Search"&gt;MSN&lt;/a&gt;.&lt;/p&gt;
+</code></pre></div></div>
+
+<p>The title attribute is optional. Link names may contain letters, numbers and spaces, but are not case sensitive:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>I start my morning with a cup of coffee and
+[The New York Times][NY Times].
+
+[ny times]: http://www.nytimes.com
+</code></pre></div></div>
+
+<p>Output:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;p&gt;I start my morning with a cup of coffee and
+&lt;a href="http://www.nytimes.com/"&gt;The New York Times&lt;/a&gt;.&lt;/p&gt;
+</code></pre></div></div>
+
+<h1 id="code">CODE</h1>
+
+<p>In a regular paragraph, you can create code span by wrapping text in backtick quotes. Any ampersands (&amp;) and angle brackets (&lt; or &gt;) will automatically be translated into HTML entities. This makes it easy to use Markdown to write about HTML example code:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>I strongly recommend against using any `&lt;blink&gt;` tags.
+
+
+I wish SmartyPants used named entities like `&amp;mdash;`
+instead of decimal-encoded entites like `&amp;#8212;`.
+</code></pre></div></div>
+
+<p>Output:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;p&gt;I strongly recommend against using any
+&lt;code&gt;&amp;lt;blink&amp;gt;&lt;/code&gt; tags.&lt;/p&gt;
+
+&lt;p&gt;I wish SmartyPants used named entities like
+&lt;code&gt;&amp;amp;mdash;&lt;/code&gt; instead of decimal-encoded
+entites like &lt;code&gt;&amp;amp;#8212;&lt;/code&gt;.&lt;/p&gt;
+To specify an entire block of pre-formatted code, indent every line of the block by 4 spaces or 1 tab. Just like with code spans, &amp;, &lt;, and &gt; characters will be escaped automatically.
+</code></pre></div></div>
+<h1 id="markdown">Markdown:</h1>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>If you want your page to validate under XHTML 1.0 Strict,
+you've got to put paragraph tags in your blockquotes:
+
+    &lt;blockquote&gt;
+        &lt;p&gt;For example.&lt;/p&gt;
+    &lt;/blockquote&gt;
+</code></pre></div></div>
+<p>Output:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;p&gt;If you want your page to validate under XHTML 1.0 Strict,
+you've got to put paragraph tags in your blockquotes:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;blockquote&amp;gt;
+    &amp;lt;p&amp;gt;For example.&amp;lt;/p&amp;gt;
+&amp;lt;/blockquote&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+</code></pre></div></div>
+:ET
