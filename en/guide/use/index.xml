@@ -188,7 +188,7 @@ at no charge to all third parties under the terms of this License.
 &lt;img src=&#34;./01.png&#34; alt=&#34;01&#34;&gt;
 (&lt;a href=&#34;https://github.com/SKTBrain/KoBERT/blob/master/kobert/pytorch_kobert.py&#34;&gt;https://github.com/SKTBrain/KoBERT/blob/master/kobert/pytorch_kobert.py&lt;/a&gt;)&lt;/p&gt;
 &lt;p&gt;이 내용으로 오픈소스 라이선스를 확인할 수 있다.&lt;/p&gt;
-&lt;p&gt;SK텔레콤은 &lt;a href=&#34;https://tde.sktelecom.com/wiki/display/OSP/fossology&#34;&gt;fossology&lt;/a&gt;라는 도구를 제공하여 누구나 소스 코드 파일 상단의 오픈소스 라이선스를 쉽게 확인할 수 있게 하였다.&lt;/p&gt;
+&lt;p&gt;SK텔레콤은 &lt;a href=&#34;https://www.fossology.org/&#34;&gt;fossology&lt;/a&gt;라는 도구를 제공하여 누구나 소스 코드 파일 상단의 오픈소스 라이선스를 쉽게 확인할 수 있게 하였다.&lt;/p&gt;
 &lt;h2 id=&#34;방법-2-root-폴더-내-license-혹은-copying-파일-확인&#34;&gt;방법 2. Root 폴더 내 LICENSE (혹은 COPYING) 파일 확인&lt;/h2&gt;
 &lt;p&gt;일반적인 오픈소스는 Root 폴더 내 LICENSE 혹은 COPYING 파일로 라이선스 정보를 표시한다.
 &lt;img src=&#34;./02.png&#34; alt=&#34;02&#34;&gt;
@@ -234,7 +234,7 @@ at no charge to all third parties under the terms of this License.
 &lt;h4 class=&#34;alert-heading&#34;&gt;Public Domain&lt;/h4&gt;
 &lt;p&gt;단, Public Domain이라고 선언된 소프트웨어라도 사례별로 법적 검토가 필요한 복잡한 문제가 내재되어 있을 수 있다. 사용하려는 코드가 Public Domain인지 확인이 필요하다면 OSPO(Open Source Program Office)에 문의하라.&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://tde.sktelecom.com/wiki/pages/viewpage.action?pageId=305680229&#34;&gt;Support (opensource@sk.com)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://link-removed/&#34;&gt;Support (opensource@sk.com)&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;/div&gt;
@@ -344,9 +344,9 @@ GPL-3.0, LGPL-3.0하의 오픈소스가 설치된 제품(User Product)을 배포
 &lt;li&gt;AGPL (GNU Affero General Public License)&lt;/li&gt;
 &lt;li&gt;SSPL (Server Side Public License)&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;이러한 라이선스 하의 오픈소스를 반드시 포함해야 하는 경우라면 OSPO(Open Source Program Office)에 포함할 수 있는 방법을 문의하라. : &lt;a href=&#34;https://tde.sktelecom.com/wiki/pages/viewpage.action?pageId=305680229&#34;&gt;Support (opensource@sk.com)&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;이러한 라이선스 하의 오픈소스를 반드시 포함해야 하는 경우라면 OSPO(Open Source Program Office)에 포함할 수 있는 방법을 문의하라. : &lt;a href=&#34;https://link-removed/&#34;&gt;Support (opensource@sk.com)&lt;/a&gt;&lt;/p&gt;
 &lt;h3 id=&#34;이외-언급하지-않은-라이선스&#34;&gt;이외 언급하지 않은 라이선스&lt;/h3&gt;
-&lt;p&gt;위에서 분류되지 않은 라이선스가 적용된 오픈소스를 SK텔레콤의 제품에 사용하기 위해서는 사전 검토가 필요하다. OSPO(Open Source Program Office)에 사용 가능 여부를 문의하라. : &lt;a href=&#34;https://tde.sktelecom.com/wiki/pages/viewpage.action?pageId=305680229&#34;&gt;Support (opensource@sk.com)&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;위에서 분류되지 않은 라이선스가 적용된 오픈소스를 SK텔레콤의 제품에 사용하기 위해서는 사전 검토가 필요하다. OSPO(Open Source Program Office)에 사용 가능 여부를 문의하라. : &lt;a href=&#34;https://link-removed/&#34;&gt;Support (opensource@sk.com)&lt;/a&gt;&lt;/p&gt;
 
       </description>
     </item>

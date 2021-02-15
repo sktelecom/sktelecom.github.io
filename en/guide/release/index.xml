@@ -164,7 +164,7 @@
 &lt;h3 id=&#34;1-소속-조직-내부-승인&#34;&gt;1. 소속 조직 내부 승인&lt;/h3&gt;
 &lt;p&gt;소프트웨어를 오픈소스로 공개하기 위해 소속 조직의 담당 임원 혹은 리더에게 승인을 받는다.&lt;/p&gt;
 &lt;h3 id=&#34;2-ospo-지원-요청&#34;&gt;2. OSPO 지원 요청&lt;/h3&gt;
-&lt;p&gt;오픈소스 공개를 결정하고 소속 조직의 승인을 받은 후, OSPO에 지원을 요청한다. : &lt;a href=&#34;https://tde.sktelecom.com/wiki/pages/viewpage.action?pageId=305680229&#34;&gt;Support (opensource@sk.com)&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;오픈소스 공개를 결정하고 소속 조직의 승인을 받은 후, OSPO에 지원을 요청한다. : &lt;a href=&#34;https://link-removed/&#34;&gt;Support (opensource@sk.com)&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;OSPO는 이 가이드의 내용 위주로 오픈소스 공개 Rule 및 절차를 설명하고, 필요 사항을 지원한다.&lt;/p&gt;
 &lt;h3 id=&#34;3-주요-의사-결정&#34;&gt;3. 주요 의사 결정&lt;/h3&gt;
 &lt;h4 id=&#34;프로젝트-이름-결정&#34;&gt;프로젝트 이름 결정&lt;/h4&gt;
@@ -189,7 +189,7 @@
 
 &lt;div class=&#34;alert alert-warning&#34; role=&#34;alert&#34;&gt;
 &lt;h4 class=&#34;alert-heading&#34;&gt;문의&lt;/h4&gt;
-만약, 이외의 다른 라이선스를 선택해야 할 상황이라면 OSPO(Open Source Program Office)에 문의하라. : &lt;a href=&#34;https://tde.sktelecom.com/wiki/pages/viewpage.action?pageId=305680229&#34;&gt;Support (opensource@sk.com)&lt;/a&gt;
+만약, 이외의 다른 라이선스를 선택해야 할 상황이라면 OSPO(Open Source Program Office)에 문의하라. : &lt;a href=&#34;https://link-removed/&#34;&gt;Support (opensource@sk.com)&lt;/a&gt;
 &lt;/div&gt;
 
 &lt;h4 id=&#34;cla-결정&#34;&gt;CLA 결정&lt;/h4&gt;
@@ -210,7 +210,7 @@
 &lt;h4 id=&#34;3rd-party-코드-정리&#34;&gt;3rd party 코드 정리&lt;/h4&gt;
 &lt;p&gt;프로젝트에 3rd party 코드를 포함해야 하는 경우라면, 즉, SK텔레콤이 저작권을 갖고 있지 않은 코드를 프로젝트에 포함해야 한다면 먼저 SK텔레콤이 재배포할 수 있는 권한이 있는지 확인하라. 이미 오픈소스 라이선스가 적용된 코드라면 라이선스 의무를 준수하는 조건으로 재배포할 수 있다.&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;재배포할 수 있는 권한 확인에 대한 도움이 필요하다면 OSPO(Open Source Program Office)에 문의하라. : &lt;a href=&#34;https://tde.sktelecom.com/wiki/pages/viewpage.action?pageId=305680229&#34;&gt;Support (opensource@sk.com)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;재배포할 수 있는 권한 확인에 대한 도움이 필요하다면 OSPO(Open Source Program Office)에 문의하라. : &lt;a href=&#34;https://link-removed/&#34;&gt;Support (opensource@sk.com)&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;SK텔레콤이 재배포할 수 있는 3rd party 코드인 경우, 기존 코드와는 다른 디렉토리(예: third_party)에 위치시킨다. 이는 라이선스 관점에서 프로젝트의 투명성을 증대시키며, 향후 사용자도 3rd party 코드를 쉽게 찾게 찾게 되어 정확한 라이선스 요구사항을 준수할 수 있게 한다.&lt;/p&gt;
 &lt;p&gt;3rd party 디렉토리에 있는 모든 디렉토리는 각각 LICENSE 파일 (저작권 정보와 라이선스 전문을 포함하는 텍스트 파일)을 포함해야 한다. 예를 들어, Repository에서 third_party 디렉토리의 구조는 다음과 같다.&lt;/p&gt;
@@ -271,7 +271,7 @@
 
 &lt;div class=&#34;alert alert-warning&#34; role=&#34;alert&#34;&gt;
 &lt;h4 class=&#34;alert-heading&#34;&gt;오픈소스 라이선스 점검 요청&lt;/h4&gt;
-오픈소스 라이선스 점검은 OSRB에 요청한다. : &lt;a href=&#34;https://tde.sktelecom.com/wiki/pages/viewpage.action?pageId=305680229&#34;&gt;Support (opensource@sk.com)&lt;/a&gt;
+오픈소스 라이선스 점검은 OSRB에 요청한다. : &lt;a href=&#34;https://link-removed/&#34;&gt;Support (opensource@sk.com)&lt;/a&gt;
 &lt;/div&gt;
 
 &lt;h4 id=&#34;오픈소스-보안취약점-점검&#34;&gt;오픈소스 보안취약점 점검&lt;/h4&gt;
@@ -280,7 +280,7 @@
 
 &lt;div class=&#34;alert alert-warning&#34; role=&#34;alert&#34;&gt;
 &lt;h4 class=&#34;alert-heading&#34;&gt;오픈소스 보안 취약점 점검 요청&lt;/h4&gt;
-오픈소스 보안 취약점 점검은 OSRB에 요청한다. : &lt;a href=&#34;https://tde.sktelecom.com/wiki/pages/viewpage.action?pageId=305680229&#34;&gt;Support (opensource@sk.com)&lt;/a&gt;
+오픈소스 보안 취약점 점검은 OSRB에 요청한다. : &lt;a href=&#34;https://link-removed/&#34;&gt;Support (opensource@sk.com)&lt;/a&gt;
 &lt;/div&gt;
 
 &lt;h3 id=&#34;5-개발-환경--인프라-구축&#34;&gt;5. 개발 환경 / 인프라 구축&lt;/h3&gt;
@@ -288,7 +288,7 @@
 &lt;p&gt;프로젝트를 위한 저장소를 준비하라. 많은 프로젝트가 GitHub 또는 GitLab repository를 사용하거나 Gerrit과 같은 도구를 사용하여 자체 저장소를 제공한다. Bug, issue, feature tracking을 위한 기능도 인프라 계획의 일부로 포함되어야 한다.&lt;/p&gt;
 &lt;p&gt;SK텔레콤 GitHub Repository를 이용할 것을 권장한다. : https://github.com/sktelecom&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;GitHub 멤버 등록은 OSRB에 요청한다. : &lt;a href=&#34;https://tde.sktelecom.com/wiki/pages/viewpage.action?pageId=305680229&#34;&gt;Support (opensource@sk.com)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;GitHub 멤버 등록은 OSRB에 요청한다. : &lt;a href=&#34;https://link-removed/&#34;&gt;Support (opensource@sk.com)&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h4 id=&#34;테스트-자동화&#34;&gt;테스트 자동화&lt;/h4&gt;
 &lt;p&gt;오픈소스 개발은 원격지의 다수가 비동기로 협업해야 하는 특성을 갖는다. 그러면서도 우수한 품질을 유지하기 위해서는 테스트 자동화가 필수이다. 다음과 같은 테스트를 제공하고 자동화하라. &lt;/p&gt;
@@ -394,7 +394,7 @@
 
 &lt;p&gt;CONTRIBUTING 파일도 README와 마찬가지로 프로젝트 Repository내 최상이 폴더에 위치시킨다. 그리고, 사용자들이 접근하기 쉽도록 README 파일 내에 링크를 제공하라.&lt;/p&gt;
 &lt;h3 id=&#34;8-ospo-리뷰-요청&#34;&gt;8. OSPO 리뷰 요청&lt;/h3&gt;
-&lt;p&gt;위의 절차를 통하여 공개할 준비가 되면 다음 정보를 OSPO에 제공하고 리뷰를 요청한다. OSPO는 SK텔레콤의 소프트웨어를 오픈소스로 올바르게 공개하고 커뮤니티를 활성화하기 위해 지원한다. : &lt;a href=&#34;https://tde.sktelecom.com/wiki/pages/viewpage.action?pageId=305680229&#34;&gt;Support (opensource@sk.com)&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;위의 절차를 통하여 공개할 준비가 되면 다음 정보를 OSPO에 제공하고 리뷰를 요청한다. OSPO는 SK텔레콤의 소프트웨어를 오픈소스로 올바르게 공개하고 커뮤니티를 활성화하기 위해 지원한다. : &lt;a href=&#34;https://link-removed/&#34;&gt;Support (opensource@sk.com)&lt;/a&gt;&lt;/p&gt;
 
 
 &lt;div class=&#34;alert alert-success&#34; role=&#34;alert&#34;&gt;
