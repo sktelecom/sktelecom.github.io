@@ -8,6 +8,8 @@ description: >
 menu:
   main:
     weight: 30
+aliases:
+    - /oss-guide/
 ---
 
 {{% alert title="NOTICE" color="success" %}}
