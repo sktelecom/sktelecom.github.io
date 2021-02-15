@@ -7,11 +7,8 @@ description: >
   SONA(Simplified Overlay Networking Architecture)'
 ---
 
-
-# SONA Project
-
 ![sona](./sona-logo.png)
 
-SONA는 가상화 기술인 'SDN(Software Defined Networking·소프트웨어정의네트워크)'을 기반으로 기존 네트워크를 재구축하는 솔루션입니다. SK텔레콤은 SONA로 인해 데이터 센터의 기능이 전반적으로 고도화 될 것으로 전망하며 솔루션 중 일부를 글로벌 오픈소스 프로젝트인 'ONOS(오픈네트워크 운용체계 : Open Network Operating System)'에 포함해 오픈소스로 공개하였습니다. 이를 통해 Open Source Community에 기여하는 등 국내외 오픈 네트워킹 생태계 조성을 선도할 계획입니다. 
+SONA is a solution that rebuilds the existing network based on the virtualization technology'SDN (Software Defined Networking)'. SK telecom expects that the overall function of the data center will be enhanced due to SONA, and some of the solutions have been released as open source, including in the global open source project'ONOS (Open Network Operating System)'. Through this, SONA plans to lead the creation of an open networking ecosystem at home and abroad by contributing to the open source community.
 
 * GitHub : https://github.com/sonaproject
