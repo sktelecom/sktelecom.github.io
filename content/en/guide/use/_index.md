@@ -63,8 +63,9 @@ SK텔레콤 개발조직에서 고지 등 오픈소스 컴플라이언스 활동
 #### GitHub 확인
 대표적인 오픈소스 저장소인 GitHub은 Public Reporitory에서 취약한 Dependency를 감지하고 [Dependabot](https://docs.github.com/en/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies#dependabot-alerts-for-vulnerable-dependencies) 경고를 생성한다. 
 
-### 보안취약점 점검 요청
-SK텔레콤은 오픈소스 보안취약점 점검을 위한 도구를 운영한다. 담당부서(정보보호담당)에 점검을 요청할 수 있다. 
+### 보안취약점 진단 요청
+SK텔레콤은 오픈소스 보안취약점 진단을 위한 도구를 운영한다. 담당부서(정보보호담당)에 진단을 요청할 수 있다. 
+* [오픈소스 보안취약점 진단 요청](http://devops.sktelecom.com/myshare/pages/viewpage.action?pageId=103913560)
 
 ## SK텔레콤 오픈소스 정책
 SK텔레콤 오픈소스 정책 및 부서별  R&R과 검증 프로세스는 다음 페이지를 참고한다.
