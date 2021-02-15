@@ -16,7 +16,7 @@ description: >
 
 이 내용으로 오픈소스 라이선스를 확인할 수 있다. 
 
-SK텔레콤은 [fossology](https://tde.sktelecom.com/wiki/display/OSP/fossology)라는 도구를 제공하여 누구나 소스 코드 파일 상단의 오픈소스 라이선스를 쉽게 확인할 수 있게 하였다.
+SK텔레콤은 [fossology](https://www.fossology.org/)라는 도구를 제공하여 누구나 소스 코드 파일 상단의 오픈소스 라이선스를 쉽게 확인할 수 있게 하였다.
 
 ## 방법 2. Root 폴더 내 LICENSE (혹은 COPYING) 파일 확인
 일반적인 오픈소스는 Root 폴더 내 LICENSE 혹은 COPYING 파일로 라이선스 정보를 표시한다. 

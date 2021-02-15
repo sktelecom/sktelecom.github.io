@@ -35,5 +35,5 @@ SK텔레콤의 오픈소스 기여 규칙에 따라 구성원은 외부 오픈�
 ---
 
 {{% alert title="문의" color="success" %}}
-오픈소스 기여 시 문의/요청은 OSPO에 연락하라: [Support (opensource@sk.com)](https://tde.sktelecom.com/wiki/pages/viewpage.action?pageId=305680229)
+오픈소스 기여 시 문의/요청은 OSPO에 연락하라: [Support (opensource@sk.com)](https://link-removed/)
 {{% /alert %}}

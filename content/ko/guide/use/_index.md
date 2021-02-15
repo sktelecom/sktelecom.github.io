@@ -49,7 +49,7 @@ SK텔레콤의 제품/서비스에 오픈소스를 포함하여 배포할 경우
 {{% alert title="오픈소스 고지문 요청" color="warning" %}}
 SK텔레콤 개발조직에서 고지 등 오픈소스 컴플라이언스 활동을 위해서는 개발 프로세스의 분석/설계 완료 단계에서 사용할 오픈소스 확정 후 ITGO를 통하여 점검을 요청한다. 
 
-* http://itgo.sktelecom.com 
+* http://link-removed
 
 담당 부서 (준법법무경영 그룹 IPR팀)에서 점검 후 고지를 위한 오픈소스 고지문을 발급한다. 
 
@@ -69,11 +69,11 @@ SK텔레콤은 오픈소스 보안취약점 진단을 위한 도구를 운영한
 
 ## SK텔레콤 오픈소스 정책
 SK텔레콤 오픈소스 정책 및 부서별  R&R과 검증 프로세스는 다음 페이지를 참고한다.
-* [오픈소스 점검 프로세스 (사내한)](https://tde.sktelecom.com/wiki/pages/viewpage.action?pageId=345410260)
+* [오픈소스 점검 프로세스 (사내한)](https://link-removed/)
 
 
 ---
 
 {{% alert title="문의" color="success" %}}
-오픈소스 사용 시 문의/요청은 OSPO에 연락하라: [Support (opensource@sk.com)](https://tde.sktelecom.com/wiki/pages/viewpage.action?pageId=305680229)
+오픈소스 사용 시 문의/요청은 OSPO에 연락하라: [Support (opensource@sk.com)](https://link-removed/)
 {{% /alert %}}

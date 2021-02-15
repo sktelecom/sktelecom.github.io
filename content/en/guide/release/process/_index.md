@@ -45,7 +45,7 @@ description: >
 소프트웨어를 오픈소스로 공개하기 위해 소속 조직의 담당 임원 혹은 리더에게 승인을 받는다. 
 
 ### 2. OSPO 지원 요청
-오픈소스 공개를 결정하고 소속 조직의 승인을 받은 후, OSPO에 지원을 요청한다. : [Support (opensource@sk.com)](https://tde.sktelecom.com/wiki/pages/viewpage.action?pageId=305680229)
+오픈소스 공개를 결정하고 소속 조직의 승인을 받은 후, OSPO에 지원을 요청한다. : [Support (opensource@sk.com)](https://link-removed/)
 
 OSPO는 이 가이드의 내용 위주로 오픈소스 공개 Rule 및 절차를 설명하고, 필요 사항을 지원한다. 
 
@@ -69,7 +69,7 @@ SK텔레콤은 소프트웨어를 오픈소스로 공개 시 기본적으로 [Ap
 참고로, GitHub에서는 오픈소스 공개 시 라이선스 선택에 대한 가이드를 제공하고 있다. : https://choosealicense.com
 
 {{% alert title="문의" color="warning" %}}
-만약, 이외의 다른 라이선스를 선택해야 할 상황이라면 OSPO(Open Source Program Office)에 문의하라. : [Support (opensource@sk.com)](https://tde.sktelecom.com/wiki/pages/viewpage.action?pageId=305680229)
+만약, 이외의 다른 라이선스를 선택해야 할 상황이라면 OSPO(Open Source Program Office)에 문의하라. : [Support (opensource@sk.com)](https://link-removed/)
 {{% /alert %}}
 
 #### CLA 결정
@@ -96,7 +96,7 @@ SK텔레콤은 첨부의 CLA를 사용하고 있다. SK텔레콤 템플릿
 #### 3rd party 코드 정리
 프로젝트에 3rd party 코드를 포함해야 하는 경우라면, 즉, SK텔레콤이 저작권을 갖고 있지 않은 코드를 프로젝트에 포함해야 한다면 먼저 SK텔레콤이 재배포할 수 있는 권한이 있는지 확인하라. 이미 오픈소스 라이선스가 적용된 코드라면 라이선스 의무를 준수하는 조건으로 재배포할 수 있다. 
 
-* 재배포할 수 있는 권한 확인에 대한 도움이 필요하다면 OSPO(Open Source Program Office)에 문의하라. : [Support (opensource@sk.com)](https://tde.sktelecom.com/wiki/pages/viewpage.action?pageId=305680229)
+* 재배포할 수 있는 권한 확인에 대한 도움이 필요하다면 OSPO(Open Source Program Office)에 문의하라. : [Support (opensource@sk.com)](https://link-removed/)
 
 SK텔레콤이 재배포할 수 있는 3rd party 코드인 경우, 기존 코드와는 다른 디렉토리(예: third_party)에 위치시킨다. 이는 라이선스 관점에서 프로젝트의 투명성을 증대시키며, 향후 사용자도 3rd party 코드를 쉽게 찾게 찾게 되어 정확한 라이선스 요구사항을 준수할 수 있게 한다.
 
@@ -157,14 +157,14 @@ $ find <path-to-source-dir> -type f | egrep '\.(py|sh)' | while read f; \
 * 여러분이 적용할 오픈소스 라이선스와 충돌하는 라이선스하의 코드 포함 여부
 
 {{% alert title="오픈소스 라이선스 점검 요청" color="warning" %}}
-오픈소스 라이선스 점검은 OSRB에 요청한다. : [Support (opensource@sk.com)](https://tde.sktelecom.com/wiki/pages/viewpage.action?pageId=305680229)
+오픈소스 라이선스 점검은 OSRB에 요청한다. : [Support (opensource@sk.com)](https://link-removed/)
 {{% /alert %}}
 
 #### 오픈소스 보안취약점 점검
 오픈소스 보안취약점 점검 도구를 이용하여 공개할 소스 코드에 보안취약점 이슈가 있는 오픈소스가 포함되어 있는지 확인한다. 
 
 {{% alert title="오픈소스 보안 취약점 점검 요청" color="warning" %}}
-오픈소스 보안 취약점 점검은 OSRB에 요청한다. : [Support (opensource@sk.com)](https://tde.sktelecom.com/wiki/pages/viewpage.action?pageId=305680229)
+오픈소스 보안 취약점 점검은 OSRB에 요청한다. : [Support (opensource@sk.com)](https://link-removed/)
 {{% /alert %}}
 
 ### 5. 개발 환경 / 인프라 구축
@@ -173,7 +173,7 @@ $ find <path-to-source-dir> -type f | egrep '\.(py|sh)' | while read f; \
 
 SK텔레콤 GitHub Repository를 이용할 것을 권장한다. : https://github.com/sktelecom
 
-* GitHub 멤버 등록은 OSRB에 요청한다. : [Support (opensource@sk.com)](https://tde.sktelecom.com/wiki/pages/viewpage.action?pageId=305680229)
+* GitHub 멤버 등록은 OSRB에 요청한다. : [Support (opensource@sk.com)](https://link-removed/)
 
 #### 테스트 자동화
 오픈소스 개발은 원격지의 다수가 비동기로 협업해야 하는 특성을 갖는다. 그러면서도 우수한 품질을 유지하기 위해서는 테스트 자동화가 필수이다. 다음과 같은 테스트를 제공하고 자동화하라. 
@@ -276,7 +276,7 @@ CONTRIBUTING 파일도 README와 마찬가지로 프로젝트 Repository내 최�
 
 ### 8. OSPO 리뷰 요청
 
-위의 절차를 통하여 공개할 준비가 되면 다음 정보를 OSPO에 제공하고 리뷰를 요청한다. OSPO는 SK텔레콤의 소프트웨어를 오픈소스로 올바르게 공개하고 커뮤니티를 활성화하기 위해 지원한다. : [Support (opensource@sk.com)](https://tde.sktelecom.com/wiki/pages/viewpage.action?pageId=305680229)
+위의 절차를 통하여 공개할 준비가 되면 다음 정보를 OSPO에 제공하고 리뷰를 요청한다. OSPO는 SK텔레콤의 소프트웨어를 오픈소스로 올바르게 공개하고 커뮤니티를 활성화하기 위해 지원한다. : [Support (opensource@sk.com)](https://link-removed/)
 
 {{% alert title="제출해야 할 정보" color="success" %}}
 1. 현재 소스 코드 확인할 수 있는 프로젝트의 Repository 링크 (OSPO 인원이 접근할 수 있도록 권한 부여)
