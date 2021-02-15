@@ -18,12 +18,22 @@
   
   <url>
     <loc>https://sktelecom.github.io//about/ospo/</loc>
-    <lastmod>2021-02-14T20:56:28+09:00</lastmod>
+    <lastmod>2021-02-15T18:14:57+09:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/about/ospo/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="/about/ospo/"
+                />
   </url>
   
   <url>
     <loc>https://sktelecom.github.io//project/hanu/</loc>
-    <lastmod>2021-02-14T20:56:28+09:00</lastmod>
+    <lastmod>2021-02-15T18:14:57+09:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -39,11 +49,31 @@
   <url>
     <loc>https://sktelecom.github.io//about/osrb/</loc>
     <lastmod>2021-02-14T20:56:28+09:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/about/osrb/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="/about/osrb/"
+                />
   </url>
   
   <url>
     <loc>https://sktelecom.github.io//about/contact/</loc>
     <lastmod>2021-02-14T20:56:28+09:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/about/contact/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="/about/contact/"
+                />
   </url>
   
   <url>
@@ -603,7 +633,7 @@
   
   <url>
     <loc>https://sktelecom.github.io//</loc>
-    <lastmod>2021-02-14T20:56:28+09:00</lastmod>
+    <lastmod>2021-02-15T18:14:57+09:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
