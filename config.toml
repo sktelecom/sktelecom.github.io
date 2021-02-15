@@ -128,8 +128,8 @@ copyright = "SK TELECOM CO., LTD."
 privacy_policy = "https://privacy.sktelecom.com/"
 
 # Docsy: Google Custom Search Engine ID. Remove or comment out to disable search.
-gcs_engine_id = "007239566369470735695:624rglujm-w"
-
+# gcs_engine_id = "007239566369470735695:624rglujm-w"
+gcs_engine_id = "a137d95fe1def7d89"
 
 
 # Docsy: User interface configuration
