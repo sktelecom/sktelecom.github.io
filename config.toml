@@ -112,7 +112,7 @@ time_format_blog = "02.01.2006"
 [params]
 
 # GitHub repository for in-page links to editing a page and opening and issues.
-github_repo = "https://github.com/sktelecom/website"
+github_repo = "https://github.com/sktelecom/sktelecom.github.io"
 # An optional link to a related project repo. For example, the sibling repository where your product code lives.
 github_project_repo = "https://github.com/sktelecom/sktelecom.github.io"
 
