@@ -4,7 +4,7 @@ linkTitle: "SONA"
 weight: 3
 type: docs
 description: >
-  SONA(Simplified Overlay Networking Architecture)'
+  SONA(Simplified Overlay Networking Architecture)
 ---
 
 ![sona](./sona-logo.png)
