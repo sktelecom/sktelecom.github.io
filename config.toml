@@ -1,5 +1,6 @@
 baseURL = "/"
-languageCode = "en-us"
+# languageCode = "en-us"
+languageCode = "ko-kr"
 title = "SK telecom Open Source"
 theme = ["docsy"]
 description = "Open Source Software at SK telecom"
@@ -73,7 +74,8 @@ anchor = "smart"
 
 [services]
 [services.googleAnalytics]
-id = "UA-135379910-1"
+# id = "UA-135379910-1"
+id = "UA-189808797-1"
 
 # Docsy: Language configuration
 
