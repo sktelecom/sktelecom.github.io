@@ -7,7 +7,7 @@ description: >
   H8L(Hwangsaeul) is a project to build SRT ecosystem.
 ---
 
-![h8l](./h8l.jpg)
+![h8l](./h8l.png)
 
 # Ultra-Low latency video transport
 
