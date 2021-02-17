@@ -1,10 +1,10 @@
 ---
-title: "Hwangsaeul"
-linkTitle: "Hwangsaeul"
+title: "황새울"
+linkTitle: "황새울"
 weight: 6
 type: docs
 description: >
-  H8L(Hwangsaeul) is a project to build SRT ecosystem.
+  네트워크와 고속 인코딩 기술을 이용하는 오픈 소스 프로젝트
 ---
 
 ![h8l](./h8l.jpg)
