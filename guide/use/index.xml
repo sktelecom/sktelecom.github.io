@@ -71,25 +71,25 @@
 &lt;thead&gt;
 &lt;tr&gt;
 &lt;th&gt;&lt;/th&gt;
-&lt;th align=&#34;center&#34;&gt;저작권&lt;/th&gt;
-&lt;th align=&#34;center&#34;&gt;특허권&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;저작권&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;특허권&lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td&gt;권리 발생&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;창작과 동시에 발생&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;특허 출원, 심사, 등록&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;창작과 동시에 발생&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;특허 출원, 심사, 등록&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;권리 내용&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;인격권 (공표권, 성명 표시권, 동일성 유지권)  &lt;br /&gt;재산권 (복제권, 개작권, 배포권, 전송권)&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;독점배타권 실시권&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;인격권 (공표권, 성명 표시권, 동일성 유지권)  &lt;br /&gt;재산권 (복제권, 개작권, 배포권, 전송권)&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;독점배타권 실시권&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;효력 범위&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;표현(코드)의 실질적 유사성&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;아이디어(알고리즘, 기능)의 동일성&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;표현(코드)의 실질적 유사성&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;아이디어(알고리즘, 기능)의 동일성&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
