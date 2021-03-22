@@ -1,18 +1,1 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>SKT Open Source – SK텔레콤 오픈소스 기여 Rule</title>
-    <link>/guide/contribute/rule/</link>
-    <description>Recent content in SK텔레콤 오픈소스 기여 Rule on SKT Open Source</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>ko-kr</language>
-    
-	  <atom:link href="/guide/contribute/rule/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-      
-        
-      
-    
-    
-  </channel>
-</rss>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SKT Open Source – SK텔레콤 오픈소스 기여 Rule</title><link>/guide/contribute/rule/</link><description>Recent content in SK텔레콤 오픈소스 기여 Rule on SKT Open Source</description><generator>Hugo -- gohugo.io</generator><language>ko-kr</language><atom:link href="/guide/contribute/rule/index.xml" rel="self" type="application/rss+xml"/></channel></rss>

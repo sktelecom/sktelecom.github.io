@@ -1,65 +1,40 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>SKT Open Source – Open Source at SK telecom</title>
-    <link>/</link>
-    <description>Recent content in Open Source at SK telecom on SKT Open Source</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>ko-kr</language>
-    
-	  <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-      
-      
-    
-    
-    <item>
-      <title>Blog: The 2nd Page Of H8l</title>
-      <link>/blog/2021/20210209-2nd-page-of-h8l/</link>
-      <pubDate>Tue, 09 Feb 2021 00:00:00 +0000</pubDate>
-      
-      <guid>/blog/2021/20210209-2nd-page-of-h8l/</guid>
-      <description>
-        
-        
-        
-        <![CDATA[<img src="/blog/2021/20210209-2nd-page-of-h8l/featured-diagram_hu0ebf613d48f3584022125dc29e10620b_117033_640x0_resize_catmullrom_2.png" width="640" height="426"/>]]>
-        
-        &lt;h1 id=&#34;the-2nd-page-of-hwangsaeul-project&#34;&gt;The 2nd page of Hwangsaeul project&lt;/h1&gt;
-&lt;p&gt;It&amp;rsquo;s been almost a year and half since Jakub posted the &lt;a href=&#34;https://www.collabora.com/news-and-blog/news-and-events/low-latency-streaming-of-security-feeds-with-srt-and-gstreamer.html&#34;&gt;installation document&lt;/a&gt; of Hwangsaeul (a.k.a H8L) project. The project members are still rush to develop the project for the various use cases. Although the H8L project is originally designed to support the massive deployment of video surveillance cameras which enable SRT transmission, we found that there is much more potential when we switch the domain to UAV(Unmanned Areial Viehicle) and UGV(Unmanned Ground Vehicle). Therefore, we had to change the overall shape of H8L to optimize for the new targets.&lt;/p&gt;
-&lt;h2 id=&#34;deprecation-of-messages-queue&#34;&gt;Deprecation of Messages Queue&lt;/h2&gt;
-&lt;p&gt;The major architecture change for ​the second version of H8L is to remove the dependency on message queue by the deprecation of ​&lt;a href=&#34;https://github.com/hwangsaeul/chamge&#34;&gt;Chamge​&lt;/a&gt;. Although the module is good for exchanging complex messages among service components, it is an overkill architecture for real-time video streaming that focuses on video quality and ultra-low latency. In addition, there are lots of message queue based platform so we decided not to keep developing duplicated effort. Instead, we re-designed that each component provides D-Bus API and local settings. Since we removed this component, unfortunately, ABI compatibility with the previous version will not be guaranteed while this project is on-going.&lt;/p&gt;
-&lt;h2 id=&#34;gaeul-umbrella-repository-for-streaming-agents&#34;&gt;Gaeul: Umbrella repository for streaming agents&lt;/h2&gt;
-&lt;p&gt;Another change is done on the &lt;a href=&#34;https://github.com/hwangsaeul/gaeul&#34;&gt;Gaeul&lt;/a&gt;. In the previous version, the module was in charge of edge streaming only. However, from the second version, it becomes a set of streaming agents; video source, relay, and even protocol conversion including transcoding. By analogy from the meaning of the word, it would be a very natural change for this module to handle the stream of data and video because &lt;em&gt;Gaeul&lt;/em&gt; means babbling brook in Korean.&lt;/p&gt;
-&lt;h2 id=&#34;new-architecture&#34;&gt;New Architecture&lt;/h2&gt;
-&lt;p&gt;In new H8L, there are three major repositories; Gaeul, Hwangsae, and Gaeguli.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Hwangsae: SRT relay library&lt;/li&gt;
-&lt;li&gt;Gaeguli: Video stream source library&lt;/li&gt;
-&lt;li&gt;Gaeul: A set of video streaming services&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Since Gaeul provides all of streaming agents, it will always require &lt;em&gt;Hwangsae&lt;/em&gt; and &lt;em&gt;Gaeguli&lt;/em&gt; depending on the feature it uses.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;./featured-diagram.png&#34; alt=&#34;System Overview&#34;&gt;&lt;/p&gt;
-&lt;h2 id=&#34;running-h8l&#34;&gt;Running H8L&lt;/h2&gt;
-&lt;p&gt;Nightly builds are available as binary packages for Ubuntu 20.04.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;$ sudo add-apt-repository ppa:hwangsaeul/nightly
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SKT Open Source – Open Source at SK telecom</title><link>/</link><description>Recent content in Open Source at SK telecom on SKT Open Source</description><generator>Hugo -- gohugo.io</generator><language>ko-kr</language><atom:link href="/index.xml" rel="self" type="application/rss+xml"/><item><title>Blog: The 2nd Page Of H8l</title><link>/blog/2021/20210209-2nd-page-of-h8l/</link><pubDate>Tue, 09 Feb 2021 00:00:00 +0000</pubDate><guid>/blog/2021/20210209-2nd-page-of-h8l/</guid><description>
+&lt;img src="/blog/2021/20210209-2nd-page-of-h8l/featured-diagram_hu0ebf613d48f3584022125dc29e10620b_117033_640x0_resize_catmullrom_2.png" width="640" height="426"/>
+&lt;h1 id="the-2nd-page-of-hwangsaeul-project">The 2nd page of Hwangsaeul project&lt;/h1>
+&lt;p>It&amp;rsquo;s been almost a year and half since Jakub posted the &lt;a href="https://www.collabora.com/news-and-blog/news-and-events/low-latency-streaming-of-security-feeds-with-srt-and-gstreamer.html">installation document&lt;/a> of Hwangsaeul (a.k.a H8L) project. The project members are still rush to develop the project for the various use cases. Although the H8L project is originally designed to support the massive deployment of video surveillance cameras which enable SRT transmission, we found that there is much more potential when we switch the domain to UAV(Unmanned Areial Viehicle) and UGV(Unmanned Ground Vehicle). Therefore, we had to change the overall shape of H8L to optimize for the new targets.&lt;/p>
+&lt;h2 id="deprecation-of-messages-queue">Deprecation of Messages Queue&lt;/h2>
+&lt;p>The major architecture change for ​the second version of H8L is to remove the dependency on message queue by the deprecation of ​&lt;a href="https://github.com/hwangsaeul/chamge">Chamge​&lt;/a>. Although the module is good for exchanging complex messages among service components, it is an overkill architecture for real-time video streaming that focuses on video quality and ultra-low latency. In addition, there are lots of message queue based platform so we decided not to keep developing duplicated effort. Instead, we re-designed that each component provides D-Bus API and local settings. Since we removed this component, unfortunately, ABI compatibility with the previous version will not be guaranteed while this project is on-going.&lt;/p>
+&lt;h2 id="gaeul-umbrella-repository-for-streaming-agents">Gaeul: Umbrella repository for streaming agents&lt;/h2>
+&lt;p>Another change is done on the &lt;a href="https://github.com/hwangsaeul/gaeul">Gaeul&lt;/a>. In the previous version, the module was in charge of edge streaming only. However, from the second version, it becomes a set of streaming agents; video source, relay, and even protocol conversion including transcoding. By analogy from the meaning of the word, it would be a very natural change for this module to handle the stream of data and video because &lt;em>Gaeul&lt;/em> means babbling brook in Korean.&lt;/p>
+&lt;h2 id="new-architecture">New Architecture&lt;/h2>
+&lt;p>In new H8L, there are three major repositories; Gaeul, Hwangsae, and Gaeguli.&lt;/p>
+&lt;ul>
+&lt;li>Hwangsae: SRT relay library&lt;/li>
+&lt;li>Gaeguli: Video stream source library&lt;/li>
+&lt;li>Gaeul: A set of video streaming services&lt;/li>
+&lt;/ul>
+&lt;p>Since Gaeul provides all of streaming agents, it will always require &lt;em>Hwangsae&lt;/em> and &lt;em>Gaeguli&lt;/em> depending on the feature it uses.&lt;/p>
+&lt;p>&lt;img src="./featured-diagram.png" alt="System Overview">&lt;/p>
+&lt;h2 id="running-h8l">Running H8L&lt;/h2>
+&lt;p>Nightly builds are available as binary packages for Ubuntu 20.04.&lt;/p>
+&lt;pre>&lt;code>$ sudo add-apt-repository ppa:hwangsaeul/nightly
 $ sudo apt-get update
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Note that the PPA provides important packages; libsrt and gst-plugins-bad. Since Ubuntu 20.04 provides slightly old version of those packages, some features like stream-id and SRT option strings are not supported. SRT(=1.4.2) and gst-plugins-bad with some patches that will be provided by newer version of GStreamer should be installed before using H8L features. Using PPA may be more convenient to test and have experience of H8L than building from scratch. Surely, some enhancement patches of SRT and GStreamer are already submitted to the upstream and most of them are landed onto master branch or ready for landing.  If you&amp;rsquo;d like to check the patches, you can refer to our forked repositories; &lt;a href=&#34;https://github.com/hwangsaeul/libsrt&#34;&gt;libsrt&lt;/a&gt; and &lt;a href=&#34;https://github.com/hwangsaeul/gst-plugins-bad&#34;&gt;gst-plugins-bad&lt;/a&gt;.&lt;/p&gt;
-&lt;h3 id=&#34;source&#34;&gt;Source&lt;/h3&gt;
-&lt;p&gt;The first agent of &lt;em&gt;Gaeul&lt;/em&gt; is &lt;code&gt;gaeul2-source-agent&lt;/code&gt; that is nomally simlilar to stream generator(or simply called as encoder).&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;$ sudo apt-get install gaeul2-source-agent
-&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&#34;settings&#34;&gt;Settings&lt;/h4&gt;
-&lt;p&gt;Before running the source agent, we need to set configurations to specify video parameters and SRT options. The settings are consist of two parts; one main configuration and multiple channel configurations.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Main Configuration&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;This configuration file is an entry point that provide capture device informations to the source agent. For the stream authentication, &lt;em&gt;Stream ID&lt;/em&gt; is mandatory for H8L&amp;rsquo;s source agent and &lt;code&gt;uid&lt;/code&gt; will be used for stream-id prefix for channels.&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;channel-configs&lt;/code&gt; option takes a list of absolute file paths that are channel configurations.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;[org/hwangsaeul/Gaeul2/Source]
+&lt;/code>&lt;/pre>&lt;p>Note that the PPA provides important packages; libsrt and gst-plugins-bad. Since Ubuntu 20.04 provides slightly old version of those packages, some features like stream-id and SRT option strings are not supported. SRT(=1.4.2) and gst-plugins-bad with some patches that will be provided by newer version of GStreamer should be installed before using H8L features. Using PPA may be more convenient to test and have experience of H8L than building from scratch. Surely, some enhancement patches of SRT and GStreamer are already submitted to the upstream and most of them are landed onto master branch or ready for landing. If you&amp;rsquo;d like to check the patches, you can refer to our forked repositories; &lt;a href="https://github.com/hwangsaeul/libsrt">libsrt&lt;/a> and &lt;a href="https://github.com/hwangsaeul/gst-plugins-bad">gst-plugins-bad&lt;/a>.&lt;/p>
+&lt;h3 id="source">Source&lt;/h3>
+&lt;p>The first agent of &lt;em>Gaeul&lt;/em> is &lt;code>gaeul2-source-agent&lt;/code> that is nomally simlilar to stream generator(or simply called as encoder).&lt;/p>
+&lt;pre>&lt;code>$ sudo apt-get install gaeul2-source-agent
+&lt;/code>&lt;/pre>&lt;h4 id="settings">Settings&lt;/h4>
+&lt;p>Before running the source agent, we need to set configurations to specify video parameters and SRT options. The settings are consist of two parts; one main configuration and multiple channel configurations.&lt;/p>
+&lt;p>&lt;strong>Main Configuration&lt;/strong>&lt;/p>
+&lt;p>This configuration file is an entry point that provide capture device informations to the source agent. For the stream authentication, &lt;em>Stream ID&lt;/em> is mandatory for H8L&amp;rsquo;s source agent and &lt;code>uid&lt;/code> will be used for stream-id prefix for channels.&lt;/p>
+&lt;p>&lt;code>channel-configs&lt;/code> option takes a list of absolute file paths that are channel configurations.&lt;/p>
+&lt;pre>&lt;code>[org/hwangsaeul/Gaeul2/Source]
 uid=&amp;quot;device0&amp;quot;
 channel-configs=[&amp;quot;/etc/gaeul2/conf.d/ch0.ini&amp;quot;, &amp;quot;/etc/gaeul2/conf.d/ch1.ini&amp;quot;]
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;strong&gt;Channel Configuration&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;This sub-configuration describes what type of SRT stream will be sent from which video capture device. In theory, the source agent can have an infinite number of channel configurations, but it will be limited by hardware performance. Normally, it shouldn&amp;rsquo;t exceed 2 channels encoding for 4K 30fps, or equivalent video encoding parameters.&lt;/p&gt;
-&lt;p&gt;The below is an example of a channel configuration.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;[org/hwangsaeul/Gaeul2/Source/Channel]
+&lt;/code>&lt;/pre>&lt;p>&lt;strong>Channel Configuration&lt;/strong>&lt;/p>
+&lt;p>This sub-configuration describes what type of SRT stream will be sent from which video capture device. In theory, the source agent can have an infinite number of channel configurations, but it will be limited by hardware performance. Normally, it shouldn&amp;rsquo;t exceed 2 channels encoding for 4K 30fps, or equivalent video encoding parameters.&lt;/p>
+&lt;p>The below is an example of a channel configuration.&lt;/p>
+&lt;pre>&lt;code>[org/hwangsaeul/Gaeul2/Source/Channel]
 name=&amp;quot;channel0&amp;quot;
 source=&amp;quot;v4l2src&amp;quot;
 device=&amp;quot;/dev/video0&amp;quot;
@@ -73,22 +48,22 @@ passphrase=&amp;quot;&amp;quot;
 pbkeylen=&amp;quot;AES-128&amp;quot;
 prefer-hw-decoding=false
 record-location=&amp;quot;/somewhare/recording-location&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;With &lt;code&gt;uid&lt;/code&gt; of a main configuration, &lt;code&gt;name&lt;/code&gt; option will be used to compose a stream-id for this channel stream. if &lt;code&gt;device0&lt;/code&gt; is given for the uid and &lt;code&gt;channel0&lt;/code&gt; is for the name, this video channel will have &lt;code&gt;device0_channel0&lt;/code&gt; stream id.&lt;/p&gt;
-&lt;h4 id=&#34;running&#34;&gt;Running&lt;/h4&gt;
-&lt;p&gt;Now, it&amp;rsquo;s time to run the source agent. If the configurations are provided correctly, user can choose D-Bus mode; &lt;code&gt;session&lt;/code&gt;, &lt;code&gt;system&lt;/code&gt; and &lt;code&gt;none&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;If &lt;code&gt;none&lt;/code&gt; is used, the agent will not try to acquire d-bus name. Regardless &lt;code&gt;--dbus-type&lt;/code&gt;, it will send stream or trying to connect to the given &lt;code&gt;target-uri&lt;/code&gt; of a channel configuration until SRT stream receiver is ready.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;$ gaeul2-source-agent -c /etc/gaeul2/gaeul.ini --dbus-type=none
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;debugging&#34;&gt;Debugging&lt;/h3&gt;
-&lt;p&gt;If it is suspicious that the source agent sends a stream or not, the easiest way to check is to get log messages. Since all of H8L components follows GLib and GStreamer conventions, it shows log messages by setting two major environmental variables.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;$ export G_MESSAGES_DEBUG=all
+&lt;/code>&lt;/pre>&lt;p>With &lt;code>uid&lt;/code> of a main configuration, &lt;code>name&lt;/code> option will be used to compose a stream-id for this channel stream. if &lt;code>device0&lt;/code> is given for the uid and &lt;code>channel0&lt;/code> is for the name, this video channel will have &lt;code>device0_channel0&lt;/code> stream id.&lt;/p>
+&lt;h4 id="running">Running&lt;/h4>
+&lt;p>Now, it&amp;rsquo;s time to run the source agent. If the configurations are provided correctly, user can choose D-Bus mode; &lt;code>session&lt;/code>, &lt;code>system&lt;/code> and &lt;code>none&lt;/code>.&lt;/p>
+&lt;p>If &lt;code>none&lt;/code> is used, the agent will not try to acquire d-bus name. Regardless &lt;code>--dbus-type&lt;/code>, it will send stream or trying to connect to the given &lt;code>target-uri&lt;/code> of a channel configuration until SRT stream receiver is ready.&lt;/p>
+&lt;pre>&lt;code>$ gaeul2-source-agent -c /etc/gaeul2/gaeul.ini --dbus-type=none
+&lt;/code>&lt;/pre>&lt;h3 id="debugging">Debugging&lt;/h3>
+&lt;p>If it is suspicious that the source agent sends a stream or not, the easiest way to check is to get log messages. Since all of H8L components follows GLib and GStreamer conventions, it shows log messages by setting two major environmental variables.&lt;/p>
+&lt;pre>&lt;code>$ export G_MESSAGES_DEBUG=all
 $ export GST_DEBUG=*:3
 $ gaeul2-source-agent -c /etc/gaeul2/gaeul.ini --dbus-type=none
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Then, now user can get log messages on their console.&lt;/p&gt;
-&lt;h3 id=&#34;relay&#34;&gt;Relay&lt;/h3&gt;
-&lt;p&gt;The relay agent plays a role to distribute SRT stream from source to users. It provides stream authentication option to distinguish SRT session by stream-id. Surely, the authentication option can be disabled when it requires the compatiblity with the legacy SRT equipment or software.&lt;/p&gt;
-&lt;h4 id=&#34;settings-1&#34;&gt;Settings&lt;/h4&gt;
-&lt;p&gt;Unlike the source agent, the relay agent has a main configuration only.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;[org/hwangsaeul/Gaeul2/Relay]
+&lt;/code>&lt;/pre>&lt;p>Then, now user can get log messages on their console.&lt;/p>
+&lt;h3 id="relay">Relay&lt;/h3>
+&lt;p>The relay agent plays a role to distribute SRT stream from source to users. It provides stream authentication option to distinguish SRT session by stream-id. Surely, the authentication option can be disabled when it requires the compatiblity with the legacy SRT equipment or software.&lt;/p>
+&lt;h4 id="settings-1">Settings&lt;/h4>
+&lt;p>Unlike the source agent, the relay agent has a main configuration only.&lt;/p>
+&lt;pre>&lt;code>[org/hwangsaeul/Gaeul2/Relay]
 uid=&amp;quot;relay0&amp;quot;
 sink-port=50010
 source-port=60010
@@ -96,597 +71,506 @@ sink-latency=125
 source-latency=125
 external-ip=&amp;quot;xxx.xxx.xxx.xxx&amp;quot;
 authentication=true
-&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;uid&lt;/code&gt;: a unique id, it is used for identifying each relay service.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;sink-port&lt;/code&gt;: a network port to be connected from a source agent.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;source-port&lt;/code&gt;: a network port to be connected from a user or video stream consumer.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;sink-latency&lt;/code&gt;, &lt;code&gt;source-latency&lt;/code&gt;: SRT latency value for each connection.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;external-ip&lt;/code&gt;: usually, it is used for VM in cloud service that has an external address.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;authentication&lt;/code&gt;: an option to inteprete SRT streamid or not.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4 id=&#34;running-1&#34;&gt;Running&lt;/h4&gt;
-&lt;p&gt;If a configuration file is ready, it can be run with the below command. In a relay service, D-Bus API should be enabled to use a stream authentication feature. Here, it is assumed to use session-wide D-Bus API.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;$ gaeul2-relay-agent -c /etc/gaeul2/gaeul.ini --dbus-type=session
-&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&#34;srt-stream-authentication&#34;&gt;SRT Stream authentication&lt;/h4&gt;
-&lt;p&gt;The relay is relatively simple because of SRT-nature; content agnostic. However, it plays very important role as a live stream distributor. In current implmentation, the relay agent supports only SRT&amp;rsquo;s live mode.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;./relay-authentication.png&#34; alt=&#34;Stream Authentication in Relay&#34;&gt;&lt;/p&gt;
-&lt;p&gt;The relay provides a whitelist-based stream authentication mechanism. That means, the agent should know streamid before attempting to connect. Otherwise, the agent will reject stream connection.&lt;/p&gt;
-&lt;p&gt;To allow a connection from source agent, the stream-id of source agent must be registered. Here, it assumed that the source agent uses &lt;code&gt;device0_channel0&lt;/code&gt; as its stream-id.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;$ busctl call \
-    org.hwangsaeul.Gaeul2.Relay \
-    /org/hwangsaeul/Gaeul2/Relay \
-    org.hwangsaeul.Gaeul2.Relay \
-    AddSinkToken &amp;quot;s&amp;quot; &amp;quot;device0_chanel0&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Then, if a user who has the unique id, &lt;code&gt;admin0&lt;/code&gt;, wants to get a video stream of the source agent, &lt;code&gt;device0_channel0&lt;/code&gt;, a source token should be registered too.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;$ busctl call \
-    org.hwangsaeul.Gaeul2.Relay \
-    /org/hwangsaeul/Gaeul2/Relay \
-    org.hwangsaeul.Gaeul2.Relay \
-    AddSourceToken &amp;quot;ss&amp;quot; &amp;quot;admin0&amp;quot; &amp;quot;device0_channel0&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&#34;playing-srt-stream-via-hwangsae&#34;&gt;Playing SRT stream via Hwangsae&lt;/h4&gt;
-&lt;p&gt;Currently, there are few video players that support SRT and its streamid.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;VLC Nightly build (&amp;gt;= 4.0)&lt;/li&gt;
-&lt;li&gt;GStreamer (&amp;gt;= 1.18)&lt;/li&gt;
-&lt;li&gt;SRT Play Pro (iOS only)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;If you are using GStreamer, you can test playing with the below command.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;$ gst-launch-1.0 \
-    srtsrc uri=&amp;quot;srt://relay.ip:port?mode=caller&amp;quot; streamid=&amp;quot;#\!::u=admin0,r=device0_channel0&amp;quot; ! \
-    queue ! decodebin ! autovideosink
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;see-also&#34;&gt;See also&lt;/h3&gt;
-&lt;p&gt;H8L is not all about streaming video over SRT. It is actually designed to overcome unpredictable network in two major concerns. The first is how to stream high-quality video over high bandwidth capable network, and the second is to prevent video stuttering at a discernable level even if the quality is dropped. SRT dealt with the first issue very well by congestion control, but the second issue is complicated. Without media processing and network status prediction, it will be difficult to find solution. Here, we sugguest network adaptive streaming of H8L.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://col.la/h8ls&#34;&gt;Netowrk Adaptive Streaming in H8L&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.collabora.com/news-and-blog/news-and-events/low-latency-streaming-of-security-feeds-with-srt-and-gstreamer.html&#34;&gt;Low latency streaming of security video feeds with SRT and GStreamer&lt;/a&gt; - The first implementation of H8L&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;p&gt;This article is originally posted in &lt;a href=&#34;https://groou.com/2021/02/08/h8l-2nd/&#34;&gt;Justin&amp;rsquo;s blog&lt;/a&gt;&lt;/p&gt;
-
-      </description>
-    </item>
-    
-    <item>
-      <title>Blog: 소스 코드 내 저작권 표시 방법</title>
-      <link>/blog/2020/20200812-copyright-license/</link>
-      <pubDate>Wed, 12 Aug 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/blog/2020/20200812-copyright-license/</guid>
-      <description>
-        
-        
-        
-        <![CDATA[<img src="/blog/2020/20200812-copyright-license/featured_copyright_hu3c20e8f1f30640c88b46434ba146f1f1_89522_640x0_resize_catmullrom_2.png" width="640" height="299"/>]]>
-        
-        &lt;h1 id=&#34;소스-코드-내-저작권-표시를-해야-하는-이유와-올바른-방법&#34;&gt;소스 코드 내 저작권 표시를 해야 하는 이유와 올바른 방법&lt;/h1&gt;
-&lt;p&gt;오픈소스 분야의 저명한 변호사인 Matija Šuklje는 최근 소스 코드 내 저작권 표시가 필요한 이유와 올바르게 작성하는 방법을 소개하였습니다. : &lt;a href=&#34;https://matija.suklje.name/how-and-why-to-properly-write-copyright-statements-in-your-code&#34;&gt;https://matija.suklje.name/how-and-why-to-properly-write-copyright-statements-in-your-code&lt;/a&gt;​
-&lt;img src=&#34;./featured_copyright.png&#34; alt=&#34;copyright&#34;&gt;&lt;/p&gt;
-&lt;p&gt;여기서는 이 글의 주요 사항을 정리하였습니다.&lt;/p&gt;
-&lt;h1 id=&#34;tldr&#34;&gt;TL;DR&lt;/h1&gt;
-&lt;p&gt;아래 포맷의 저작권 및 라이선스 표시 당신이 작성한 모든 소스 코드 파일에 추가하세요.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;SPDX-FileCopyrightText: © {$year_of_file_creation} {$name_of_copyright_holder} &amp;lt;{$contact}&amp;gt;
+&lt;/code>&lt;/pre>&lt;ul>
+&lt;li>&lt;code>uid&lt;/code>: a unique id, it is used for identifying each relay service.&lt;/li>
+&lt;li>&lt;code>sink-port&lt;/code>: a network port to be connected from a source agent.&lt;/li>
+&lt;li>&lt;code>source-port&lt;/code>: a network port to be connected from a user or video stream consumer.&lt;/li>
+&lt;li>&lt;code>sink-latency&lt;/code>, &lt;code>source-latency&lt;/code>: SRT latency value for each connection.&lt;/li>
+&lt;li>&lt;code>external-ip&lt;/code>: usually, it is used for VM in cloud service that has an external address.&lt;/li>
+&lt;li>&lt;code>authentication&lt;/code>: an option to inteprete SRT streamid or not.&lt;/li>
+&lt;/ul>
+&lt;h4 id="running-1">Running&lt;/h4>
+&lt;p>If a configuration file is ready, it can be run with the below command. In a relay service, D-Bus API should be enabled to use a stream authentication feature. Here, it is assumed to use session-wide D-Bus API.&lt;/p>
+&lt;pre>&lt;code>$ gaeul2-relay-agent -c /etc/gaeul2/gaeul.ini --dbus-type=session
+&lt;/code>&lt;/pre>&lt;h4 id="srt-stream-authentication">SRT Stream authentication&lt;/h4>
+&lt;p>The relay is relatively simple because of SRT-nature; content agnostic. However, it plays very important role as a live stream distributor. In current implmentation, the relay agent supports only SRT&amp;rsquo;s live mode.&lt;/p>
+&lt;p>&lt;img src="./relay-authentication.png" alt="Stream Authentication in Relay">&lt;/p>
+&lt;p>The relay provides a whitelist-based stream authentication mechanism. That means, the agent should know streamid before attempting to connect. Otherwise, the agent will reject stream connection.&lt;/p>
+&lt;p>To allow a connection from source agent, the stream-id of source agent must be registered. Here, it assumed that the source agent uses &lt;code>device0_channel0&lt;/code> as its stream-id.&lt;/p>
+&lt;pre>&lt;code>$ busctl call \
+org.hwangsaeul.Gaeul2.Relay \
+/org/hwangsaeul/Gaeul2/Relay \
+org.hwangsaeul.Gaeul2.Relay \
+AddSinkToken &amp;quot;s&amp;quot; &amp;quot;device0_chanel0&amp;quot;
+&lt;/code>&lt;/pre>&lt;p>Then, if a user who has the unique id, &lt;code>admin0&lt;/code>, wants to get a video stream of the source agent, &lt;code>device0_channel0&lt;/code>, a source token should be registered too.&lt;/p>
+&lt;pre>&lt;code>$ busctl call \
+org.hwangsaeul.Gaeul2.Relay \
+/org/hwangsaeul/Gaeul2/Relay \
+org.hwangsaeul.Gaeul2.Relay \
+AddSourceToken &amp;quot;ss&amp;quot; &amp;quot;admin0&amp;quot; &amp;quot;device0_channel0&amp;quot;
+&lt;/code>&lt;/pre>&lt;h4 id="playing-srt-stream-via-hwangsae">Playing SRT stream via Hwangsae&lt;/h4>
+&lt;p>Currently, there are few video players that support SRT and its streamid.&lt;/p>
+&lt;ul>
+&lt;li>VLC Nightly build (&amp;gt;= 4.0)&lt;/li>
+&lt;li>GStreamer (&amp;gt;= 1.18)&lt;/li>
+&lt;li>SRT Play Pro (iOS only)&lt;/li>
+&lt;/ul>
+&lt;p>If you are using GStreamer, you can test playing with the below command.&lt;/p>
+&lt;pre>&lt;code>$ gst-launch-1.0 \
+srtsrc uri=&amp;quot;srt://relay.ip:port?mode=caller&amp;quot; streamid=&amp;quot;#\!::u=admin0,r=device0_channel0&amp;quot; ! \
+queue ! decodebin ! autovideosink
+&lt;/code>&lt;/pre>&lt;h3 id="see-also">See also&lt;/h3>
+&lt;p>H8L is not all about streaming video over SRT. It is actually designed to overcome unpredictable network in two major concerns. The first is how to stream high-quality video over high bandwidth capable network, and the second is to prevent video stuttering at a discernable level even if the quality is dropped. SRT dealt with the first issue very well by congestion control, but the second issue is complicated. Without media processing and network status prediction, it will be difficult to find solution. Here, we sugguest network adaptive streaming of H8L.&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://col.la/h8ls">Netowrk Adaptive Streaming in H8L&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.collabora.com/news-and-blog/news-and-events/low-latency-streaming-of-security-feeds-with-srt-and-gstreamer.html">Low latency streaming of security video feeds with SRT and GStreamer&lt;/a> - The first implementation of H8L&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;p>This article is originally posted in &lt;a href="https://groou.com/2021/02/08/h8l-2nd/">Justin&amp;rsquo;s blog&lt;/a>&lt;/p></description></item><item><title>Blog: 소스 코드 내 저작권 표시 방법</title><link>/blog/2020/20200812-copyright-license/</link><pubDate>Wed, 12 Aug 2020 00:00:00 +0000</pubDate><guid>/blog/2020/20200812-copyright-license/</guid><description>
+&lt;img src="/blog/2020/20200812-copyright-license/featured_copyright_hu3c20e8f1f30640c88b46434ba146f1f1_89522_640x0_resize_catmullrom_2.png" width="640" height="299"/>
+&lt;h1 id="소스-코드-내-저작권-표시를-해야-하는-이유와-올바른-방법">소스 코드 내 저작권 표시를 해야 하는 이유와 올바른 방법&lt;/h1>
+&lt;p>오픈소스 분야의 저명한 변호사인 Matija Šuklje는 최근 소스 코드 내 저작권 표시가 필요한 이유와 올바르게 작성하는 방법을 소개하였습니다. : &lt;a href="https://matija.suklje.name/how-and-why-to-properly-write-copyright-statements-in-your-code">https://matija.suklje.name/how-and-why-to-properly-write-copyright-statements-in-your-code&lt;/a>​
+&lt;img src="./featured_copyright.png" alt="copyright">&lt;/p>
+&lt;p>여기서는 이 글의 주요 사항을 정리하였습니다.&lt;/p>
+&lt;h1 id="tldr">TL;DR&lt;/h1>
+&lt;p>아래 포맷의 저작권 및 라이선스 표시 당신이 작성한 모든 소스 코드 파일에 추가하세요.&lt;/p>
+&lt;pre>&lt;code>SPDX-FileCopyrightText: © {$year_of_file_creation} {$name_of_copyright_holder} &amp;lt;{$contact}&amp;gt;
 SPDX-License-Identifier: {$SPDX_license_name}
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;예를 들어, 내가 오늘 소스 코드 파일을 하나 작성하였고, 이를 &lt;a href=&#34;https://spdx.org/licenses/BSD-3-Clause.html&#34;&gt;BSD-3-Clause&lt;/a&gt; 라이선스로 공개하였다면, 다음과 같은 내용을 파일 상단 주석 부분에 추가합니다.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;SPDX-FileCopyrightText: © 2020 Matija Šuklje &amp;lt;matija@suklje.name&amp;gt;
+&lt;/code>&lt;/pre>&lt;p>예를 들어, 내가 오늘 소스 코드 파일을 하나 작성하였고, 이를 &lt;a href="https://spdx.org/licenses/BSD-3-Clause.html">BSD-3-Clause&lt;/a> 라이선스로 공개하였다면, 다음과 같은 내용을 파일 상단 주석 부분에 추가합니다.&lt;/p>
+&lt;pre>&lt;code>SPDX-FileCopyrightText: © 2020 Matija Šuklje &amp;lt;matija@suklje.name&amp;gt;
 SPDX-License-Identifier: BSD-3-Clause
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;참고로 &lt;a href=&#34;https://reuse.software/&#34;&gt;REUSE.software&lt;/a&gt; 프로젝트의 가이드를 따르면 모든 파일에 적절한 표시가 되었는지 확인할 수 있습니다.&lt;/p&gt;
-&lt;h1 id=&#34;저작권이란&#34;&gt;저작권이란?&lt;/h1&gt;
-&lt;p&gt;저작권은 (&lt;a href=&#34;https://en.wikipedia.org/wiki/Berne_Convention&#34;&gt;베른 협약&lt;/a&gt; 이후) 저작자가 저작물 만들 때 자동으로 생성됩니다. 모든 저작물은 저작권에 의해 보호되며, 저작권 보유자에게 저작물에 대한 독점적인 권한이 부여됩니다. 따라서 당신의 저작물(소스 코드, 텍스트, 이미지, 기타 미디어 등)을 다른 사용자가 사용할 수 있게 하려면 그들에게 라이선스를 부여해야 합니다. 라이선스의 사전적 정의는 &amp;ldquo;특정 권리를 실행하기 위해 자격이 있는 기관으로부터 받은 허가&amp;quot;이며, 이러한 허가 없이 특정 권리를 실행하는 것은 저작권 침해와 같은 불법 행위가 됩니다.&lt;/p&gt;
-&lt;p&gt;마찬가지로 당신이 다른 사람의 소스 코드를 복사, 수정 등의 작업을 하려면 필요한 권한을 부여 받아야 합니다. 즉, 라이선스를 받아야 합니다. 만약, 그 라이선스가 권리 실행 허가 조건으로 특정 의무를 요구한다면, 당신은 권리 실행을 위해 그 의무사항도 따라야만 합니다.&lt;/p&gt;
-&lt;p&gt;어쨌든, 저작권법의 기본 요건을 준수해야 하며, 이를 위해서는 최소한 다음 두 가지가 필요합니다.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;저작자 표시 (attribution)&lt;/strong&gt; : 저작권 보유자 및/또는 저자를 명시합니다. (특히 도덕적 권리를 인정하는 관할권에서)&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;라이선스 (license)&lt;/strong&gt; : 라이선스는 저작권 보유자 이외의 다른 사람에게 코드를 사용할 권한을 부여하는 유일한 방법이기 때문에 라이선스를 고지하고 전체 라이선스 텍스트를 제공하는 것이 좋습니다. 이는 당신이 내보내는 Outbound 라이선스나 (복사된 코드나 라이브러리 같은 3rd party 저작물을 사용하면서) 다른 이로부터 받는 Inbound 라이선스 모두에 해당합니다.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;div class=&#34;alert alert-success&#34; role=&#34;alert&#34;&gt;
-&lt;h4 class=&#34;alert-heading&#34;&gt;Inbound vs. Outbound 라이선스&lt;/h4&gt;
+&lt;/code>&lt;/pre>&lt;p>참고로 &lt;a href="https://reuse.software/">REUSE.software&lt;/a> 프로젝트의 가이드를 따르면 모든 파일에 적절한 표시가 되었는지 확인할 수 있습니다.&lt;/p>
+&lt;h1 id="저작권이란">저작권이란?&lt;/h1>
+&lt;p>저작권은 (&lt;a href="https://en.wikipedia.org/wiki/Berne_Convention">베른 협약&lt;/a> 이후) 저작자가 저작물 만들 때 자동으로 생성됩니다. 모든 저작물은 저작권에 의해 보호되며, 저작권 보유자에게 저작물에 대한 독점적인 권한이 부여됩니다. 따라서 당신의 저작물(소스 코드, 텍스트, 이미지, 기타 미디어 등)을 다른 사용자가 사용할 수 있게 하려면 그들에게 라이선스를 부여해야 합니다. 라이선스의 사전적 정의는 &amp;ldquo;특정 권리를 실행하기 위해 자격이 있는 기관으로부터 받은 허가&amp;quot;이며, 이러한 허가 없이 특정 권리를 실행하는 것은 저작권 침해와 같은 불법 행위가 됩니다.&lt;/p>
+&lt;p>마찬가지로 당신이 다른 사람의 소스 코드를 복사, 수정 등의 작업을 하려면 필요한 권한을 부여 받아야 합니다. 즉, 라이선스를 받아야 합니다. 만약, 그 라이선스가 권리 실행 허가 조건으로 특정 의무를 요구한다면, 당신은 권리 실행을 위해 그 의무사항도 따라야만 합니다.&lt;/p>
+&lt;p>어쨌든, 저작권법의 기본 요건을 준수해야 하며, 이를 위해서는 최소한 다음 두 가지가 필요합니다.&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>저작자 표시 (attribution)&lt;/strong> : 저작권 보유자 및/또는 저자를 명시합니다. (특히 도덕적 권리를 인정하는 관할권에서)&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>라이선스 (license)&lt;/strong> : 라이선스는 저작권 보유자 이외의 다른 사람에게 코드를 사용할 권한을 부여하는 유일한 방법이기 때문에 라이선스를 고지하고 전체 라이선스 텍스트를 제공하는 것이 좋습니다. 이는 당신이 내보내는 Outbound 라이선스나 (복사된 코드나 라이브러리 같은 3rd party 저작물을 사용하면서) 다른 이로부터 받는 Inbound 라이선스 모두에 해당합니다.&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;div class="alert alert-success" role="alert">
+&lt;h4 class="alert-heading">Inbound vs. Outbound 라이선스&lt;/h4>
 당신이 사용자(downstream)에게 부여한 라이선스를 Outbound 라이선스라고 부릅니다. 이는 당신으로부터 흘러나오는(out) 코드의 권한을 다루기 때문입니다. 반대로, (동일한 코드의) 사용자 입장에서는 그들에게 흘러들어오는 (In) 코드의 권한을 다루기 때문에 Inbound 라이선스로 간주합니다.
 간단히 말해, 유입되는 권한을 설명하는 라이선스를 Inbound 라이선스라고 하고, 유출되는 권한을 설명하는 라이선스를 Outbound 라이선스라고 합니다.
 다행인 점은 저작자 표시는 저자의 권리이지 의무는 아닙니다. 또한 사용자는 저자가 저작자 표시 권리를 사용한 경우에만 이를 유지해야 하는 의무가 있습니다. 즉, 저자가 저작자 표시를 하지 않았을 때에는 사용자가 이를 직 표시하려고 수고하지 않아도 됩니다.
-&lt;/div&gt;
-
-&lt;h1 id=&#34;왜-저작권-표시를-해야-하나요&#34;&gt;왜 저작권 표시를 해야 하나요?&lt;/h1&gt;
-&lt;p&gt;1989년 베른 협약에 가입하기 전까지 미국 저작권법은 저작물을 보호하려면 명시적인 저작권 표시를 요구했습니다. 그러나 베른 협약으로 저작권 표시를 하지 않아도 저작권은 자동으로 생성됩니다. 그럼에도 저작권 표시는 유용합니다.&lt;/p&gt;
-
-
-&lt;div class=&#34;alert alert-success&#34; role=&#34;alert&#34;&gt;
-
+&lt;/div>
+&lt;h1 id="왜-저작권-표시를-해야-하나요">왜 저작권 표시를 해야 하나요?&lt;/h1>
+&lt;p>1989년 베른 협약에 가입하기 전까지 미국 저작권법은 저작물을 보호하려면 명시적인 저작권 표시를 요구했습니다. 그러나 베른 협약으로 저작권 표시를 하지 않아도 저작권은 자동으로 생성됩니다. 그럼에도 저작권 표시는 유용합니다.&lt;/p>
+&lt;div class="alert alert-success" role="alert">
 저작권 표시가 법에 따라 요구되는 것은 아니지만, 실제로는 해당 저작물의 저작권이 누구에게 있는지에 대한 증거로서 매우 유용합니다. 또한, 이는 컴플라이언스 측면이나 코드 추적을 위해서도 큰 도움이 됩니다.
-&lt;/div&gt;
-
-&lt;p&gt;저작권 표시는 실질적으로 다음과 같은 이유로 필요합니다.&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;대부분의 라이선스가 저작권 표시를 요구합니다.&lt;/li&gt;
-&lt;li&gt;라이선스에서 요구하지 않더라도 대부분의 관할권의 저작권 법률에서 요구합니다.&lt;/li&gt;
-&lt;li&gt;(이러한 요구가 없더라도) 사용자는 법적 또는 기술적인 이유로 원저작자에게 연락하기를 원할 수도 있습니다.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;따라서, 저작물에 저작자의 이름과 연락처 정보를 포함하는 것은 의미가 있습니다.&lt;/p&gt;
-&lt;h1 id=&#34;저작권-표시-및-라이선스-고지의-올바른-방법&#34;&gt;저작권 표시 및 라이선스 고지의 올바른 방법&lt;/h1&gt;
-&lt;h2 id=&#34;저작권-표시&#34;&gt;저작권 표시&lt;/h2&gt;
-&lt;p&gt;저작권 표시는 다음 정보로 구성합니다.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;​&lt;a href=&#34;https://haksung.gitbook.io/oss/research/license/copyright-statements#c&#34;&gt;© 기호&lt;/a&gt;​&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;연도 : 처음 소스 코드 파일을 작성한 연도입니다. 한번 작성했으면 &lt;a href=&#34;https://haksung.gitbook.io/oss/research/license/copyright-statements#undefined-6&#34;&gt;더 수정하지 마세요&lt;/a&gt;.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;저작권 보유자 이름 : 일반적으로 저자이지만, 저자의 고용주일 수 있습니다. 또한, CLA에 따라 다른 법인이나 개인이 될 수도 있습니다.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;​&lt;a href=&#34;https://haksung.gitbook.io/oss/research/license/copyright-statements#undefined-8&#34;&gt;연락처&lt;/a&gt; : 저작권 보유자에게 연락할 수 있는 정보&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;예를 들어, 오늘 소스 코드 파일을 작성했다면 다음과 같이 저작권 표시를 파일 상단 헤더 부분에 추가합니다.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;© 2020 Matija Šuklje &amp;lt;matija@suklje.name&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;라이선스-고지&#34;&gt;라이선스 고지&lt;/h2&gt;
-&lt;p&gt;또한, 코드를 공개하면서 라이선스가 무엇인지 알리는 것도 매우 중요합니다. &lt;a href=&#34;https://spdx.org/ids&#34;&gt;SPDX ID&lt;/a&gt;를 사용하면 코드의 라이선스를 명확하게 알릴 수 있습니다. 라이선스 고지가 명확하지 않으면 이를 보는 사용자에게 혼란을 야기시킬 수 있습니다.&lt;/p&gt;
-&lt;h2 id=&#34;reusesoftware&#34;&gt;REUSE.software&lt;/h2&gt;
-&lt;p&gt;​&lt;a href=&#34;https://reuse.software/&#34;&gt;REUSE.software&lt;/a&gt; 프로젝트는 SPDX tag를 사용해서 저작권 표시와 라이선스 고지를 작성하는 Best Practice를 제공합니다.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;저작권 표시 tag : SPDX-FileCopyrightText&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;라이선스 고지 tag : SPDX-License-Identifier&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;아래의 예는 위의 모든 사항을 고려하고 SPDX 및 REUSE.software 요구사항을 모두 준수하는 저작권 표시 및 라이선스 고지입니다.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;SPDX-FileCopyrightText: © 2020 Matija Šuklje &amp;lt;matija@suklje.name&amp;gt;
-
+&lt;/div>
+&lt;p>저작권 표시는 실질적으로 다음과 같은 이유로 필요합니다.&lt;/p>
+&lt;ol>
+&lt;li>대부분의 라이선스가 저작권 표시를 요구합니다.&lt;/li>
+&lt;li>라이선스에서 요구하지 않더라도 대부분의 관할권의 저작권 법률에서 요구합니다.&lt;/li>
+&lt;li>(이러한 요구가 없더라도) 사용자는 법적 또는 기술적인 이유로 원저작자에게 연락하기를 원할 수도 있습니다.&lt;/li>
+&lt;/ol>
+&lt;p>따라서, 저작물에 저작자의 이름과 연락처 정보를 포함하는 것은 의미가 있습니다.&lt;/p>
+&lt;h1 id="저작권-표시-및-라이선스-고지의-올바른-방법">저작권 표시 및 라이선스 고지의 올바른 방법&lt;/h1>
+&lt;h2 id="저작권-표시">저작권 표시&lt;/h2>
+&lt;p>저작권 표시는 다음 정보로 구성합니다.&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>​&lt;a href="https://haksung.gitbook.io/oss/research/license/copyright-statements#c">© 기호&lt;/a>​&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>연도 : 처음 소스 코드 파일을 작성한 연도입니다. 한번 작성했으면 &lt;a href="https://haksung.gitbook.io/oss/research/license/copyright-statements#undefined-6">더 수정하지 마세요&lt;/a>.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>저작권 보유자 이름 : 일반적으로 저자이지만, 저자의 고용주일 수 있습니다. 또한, CLA에 따라 다른 법인이나 개인이 될 수도 있습니다.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>​&lt;a href="https://haksung.gitbook.io/oss/research/license/copyright-statements#undefined-8">연락처&lt;/a> : 저작권 보유자에게 연락할 수 있는 정보&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;p>예를 들어, 오늘 소스 코드 파일을 작성했다면 다음과 같이 저작권 표시를 파일 상단 헤더 부분에 추가합니다.&lt;/p>
+&lt;pre>&lt;code>© 2020 Matija Šuklje &amp;lt;matija@suklje.name&amp;gt;
+&lt;/code>&lt;/pre>&lt;h2 id="라이선스-고지">라이선스 고지&lt;/h2>
+&lt;p>또한, 코드를 공개하면서 라이선스가 무엇인지 알리는 것도 매우 중요합니다. &lt;a href="https://spdx.org/ids">SPDX ID&lt;/a>를 사용하면 코드의 라이선스를 명확하게 알릴 수 있습니다. 라이선스 고지가 명확하지 않으면 이를 보는 사용자에게 혼란을 야기시킬 수 있습니다.&lt;/p>
+&lt;h2 id="reusesoftware">REUSE.software&lt;/h2>
+&lt;p>​&lt;a href="https://reuse.software/">REUSE.software&lt;/a> 프로젝트는 SPDX tag를 사용해서 저작권 표시와 라이선스 고지를 작성하는 Best Practice를 제공합니다.&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>저작권 표시 tag : SPDX-FileCopyrightText&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>라이선스 고지 tag : SPDX-License-Identifier&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;p>아래의 예는 위의 모든 사항을 고려하고 SPDX 및 REUSE.software 요구사항을 모두 준수하는 저작권 표시 및 라이선스 고지입니다.&lt;/p>
+&lt;pre>&lt;code>SPDX-FileCopyrightText: © 2020 Matija Šuklje &amp;lt;matija@suklje.name&amp;gt;
 SPDX-License-Identifier: BSD-3-Clause
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;이제 당신이 작성한 모든 소스 코드 파일에 이러한 주석이 포함되었는지 확인하세요!&lt;/p&gt;
-&lt;h1 id=&#34;faq&#34;&gt;FAQ&lt;/h1&gt;
-&lt;h2 id=&#34;왜-연도를-표시해야-하나요&#34;&gt;왜 연도를 표시해야 하나요?&lt;/h2&gt;
-&lt;p&gt;어떤 사람들은 연도를 생략하고 단순하게 작성하는 게 오히려 저작권 표시를 유지하기 쉬울 것이라고 주장합니다. 실제로 이는 Microsoft와 GitHub의 정책이기도 합니다.&lt;/p&gt;
-&lt;p&gt;연도를 표시하지 않는 게 작업을 크게 단순화한다는 데에는 동의하지만, 이를 유지한다면 코드 베이스에서의 모호한 타임라인을 확인하는 데 도움이 됩니다. 또한, 발명이 처음으로 일반인에게 언제 공개되었는지를 알아내는데 유용할 수 있습니다. 특히 특허 방어에 유용하게 사용될 수 있습니다.&lt;/p&gt;
-&lt;p&gt;이런 사항들을 고려하여 Liferay의 새로운 정책에서는 파일 생성 연도를 작성하고, 연도를 더 변경하지 않습니다.&lt;/p&gt;
-&lt;h2 id=&#34;왜-연도-표시를-변경하지-말아야-하나요&#34;&gt;왜 연도 표시를 변경하지 말아야 하나요?&lt;/h2&gt;
-&lt;p&gt;다음과 같은 저작권 표시를 보았을 겁니다.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;Copyright (C) 1992, 1995, 2000, 2001, 2003 CompanyX Inc.
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;이렇게 계속해서 연도를 추가하는 건 이렇게 하면 저작권 보호 기간을 연장할 수 있다는 생각이 있기 때문이며, 실제 널리 행해 지고 있습니다. 하지만, 불행하게도 이런 작업은 쓸모가 없고, 오히려 해가 될 도 있습니다.&lt;/p&gt;
-&lt;p&gt;게다가 새로운 변경이나 기여를 받을 때마다 이렇게 그 연도를 추가하는 행위를 법적으로 본다면 논란의 여지가 있습니다. 문제는 모든 기여가 저작권을 주장할 수 있을 정도로 독창적이거나 규모가 있지 않습니다. 따라서, 문제 소지를 없애려면 모든 기여에 대해 법률에 따라 저작권 보호를 받을 수 있을 만큼 독창적인지 여부를 먼저 판단하고, 그에 따라 저작권 표시에 연도를 추가해야할 것입니다.&lt;/p&gt;
-&lt;p&gt;반면에 저작권은 저자의 사망 이후 (혹은 저작권자가 법인일 경우, 발행 이후) 최소 50년 (보통 70년) 동안 지속됩니다. 따라서, 굳이 저작권 표시에 연도를 계속해서 추가하지 않아도 보호 기간 만료 때문에 저작권을 주장하지 못하게 될 위험은 매우 낮습니다.&lt;/p&gt;
-&lt;p&gt;게다가, 일반적으로 하나의 소스 코드 파일은 소프트웨어를 구성하는 수많은 파일 중 하나일 뿐입니다. 소프트웨어가 성장해가면서 새롭게 파일이 추가될 텐데, 그때 새로운 파일에 새로운 작성 연도를 추가해간다면 전체 저작물로서의 소프트웨어에는 최신 연도의 저작권 표시가 이미 포함되고 있는 겁니다.&lt;/p&gt;
-
-
-&lt;div class=&#34;alert alert-success&#34; role=&#34;alert&#34;&gt;
-&lt;h4 class=&#34;alert-heading&#34;&gt;Git/VCS 히스토리를 더럽히지 마세요&lt;/h4&gt;
+&lt;/code>&lt;/pre>&lt;p>이제 당신이 작성한 모든 소스 코드 파일에 이러한 주석이 포함되었는지 확인하세요!&lt;/p>
+&lt;h1 id="faq">FAQ&lt;/h1>
+&lt;h2 id="왜-연도를-표시해야-하나요">왜 연도를 표시해야 하나요?&lt;/h2>
+&lt;p>어떤 사람들은 연도를 생략하고 단순하게 작성하는 게 오히려 저작권 표시를 유지하기 쉬울 것이라고 주장합니다. 실제로 이는 Microsoft와 GitHub의 정책이기도 합니다.&lt;/p>
+&lt;p>연도를 표시하지 않는 게 작업을 크게 단순화한다는 데에는 동의하지만, 이를 유지한다면 코드 베이스에서의 모호한 타임라인을 확인하는 데 도움이 됩니다. 또한, 발명이 처음으로 일반인에게 언제 공개되었는지를 알아내는데 유용할 수 있습니다. 특히 특허 방어에 유용하게 사용될 수 있습니다.&lt;/p>
+&lt;p>이런 사항들을 고려하여 Liferay의 새로운 정책에서는 파일 생성 연도를 작성하고, 연도를 더 변경하지 않습니다.&lt;/p>
+&lt;h2 id="왜-연도-표시를-변경하지-말아야-하나요">왜 연도 표시를 변경하지 말아야 하나요?&lt;/h2>
+&lt;p>다음과 같은 저작권 표시를 보았을 겁니다.&lt;/p>
+&lt;pre>&lt;code>Copyright (C) 1992, 1995, 2000, 2001, 2003 CompanyX Inc.
+&lt;/code>&lt;/pre>&lt;p>이렇게 계속해서 연도를 추가하는 건 이렇게 하면 저작권 보호 기간을 연장할 수 있다는 생각이 있기 때문이며, 실제 널리 행해 지고 있습니다. 하지만, 불행하게도 이런 작업은 쓸모가 없고, 오히려 해가 될 도 있습니다.&lt;/p>
+&lt;p>게다가 새로운 변경이나 기여를 받을 때마다 이렇게 그 연도를 추가하는 행위를 법적으로 본다면 논란의 여지가 있습니다. 문제는 모든 기여가 저작권을 주장할 수 있을 정도로 독창적이거나 규모가 있지 않습니다. 따라서, 문제 소지를 없애려면 모든 기여에 대해 법률에 따라 저작권 보호를 받을 수 있을 만큼 독창적인지 여부를 먼저 판단하고, 그에 따라 저작권 표시에 연도를 추가해야할 것입니다.&lt;/p>
+&lt;p>반면에 저작권은 저자의 사망 이후 (혹은 저작권자가 법인일 경우, 발행 이후) 최소 50년 (보통 70년) 동안 지속됩니다. 따라서, 굳이 저작권 표시에 연도를 계속해서 추가하지 않아도 보호 기간 만료 때문에 저작권을 주장하지 못하게 될 위험은 매우 낮습니다.&lt;/p>
+&lt;p>게다가, 일반적으로 하나의 소스 코드 파일은 소프트웨어를 구성하는 수많은 파일 중 하나일 뿐입니다. 소프트웨어가 성장해가면서 새롭게 파일이 추가될 텐데, 그때 새로운 파일에 새로운 작성 연도를 추가해간다면 전체 저작물로서의 소프트웨어에는 최신 연도의 저작권 표시가 이미 포함되고 있는 겁니다.&lt;/p>
+&lt;div class="alert alert-success" role="alert">
+&lt;h4 class="alert-heading">Git/VCS 히스토리를 더럽히지 마세요&lt;/h4>
 만약 매년 모든 파일에 연도 표시를 새롭게 추가한다면 이로 인해 Git/VCS 히스토리가 불필요하게 길어지게 되고, 저장소 공간을 소비하며, 정작 중요한 정보를 찾을 때 방해가 될 수 있습니다.
-&lt;/div&gt;
-
-&lt;h2 id=&#34;연도를-범위로-표시하는-건-어떤가요&#34;&gt;연도를 범위로 표시하는 건 어떤가요?&lt;/h2&gt;
-&lt;p&gt;연도를 범위로 표시하는 것(예: 1999-2020)도 매년 연도 표시를 변경해줘야 하기 때문에 위의 질문에서 언급한 모든 사항이 동일하게 적용됩니다.&lt;/p&gt;
-&lt;p&gt;어떤 경우는 &amp;lsquo;{$year}-present&amp;rsquo;와 같은 형태로 범위를 지정하기도 합니다. 이 또한 위에서 언급한 사항들이 대부분 적용되며, 추가로 또 다른 혼란을 줄 수 있습니다. &amp;lsquo;present&amp;rsquo;가 의미하는 것은 추상적입니다. &amp;lsquo;present&amp;rsquo;는 어떤 것을 의미하는 걸까요?&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;파일이 마지막으로 수정 시간?&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;패키지가 릴리즈된 시간?&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;처음 다운로드 한 시간?&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;마지막으로 실행한 시간?&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;아니면 바로 지금?&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;이처럼 &amp;lsquo;present&amp;rsquo;는 전혀 도움이 되지 않는 표시입니다.&lt;/p&gt;
-&lt;h2 id=&#34;gitmercurial이-저작권-정보를-추적하는데-더-좋지-않나요&#34;&gt;Git/Mercurial이 저작권 정보를 추적하는데 더 좋지 않나요?&lt;/h2&gt;
-&lt;p&gt;항상 그렇지는 않습니다. Git (및 다른 VCS)은 메타데이터 관리에 뛰어나지만, 항상 이 의존하는 것은 주의해야 합니다.&lt;/p&gt;
-&lt;p&gt;먼저 Git은 &amp;lsquo;Committer&amp;rsquo; 필드와 별개로 &amp;lsquo;Author&amp;rsquo; 필드가 있습니다. 기여자마다 &amp;lsquo;Author&amp;rsquo; 필드에 제각각의 값을 포함시킬 뿐더러, &amp;lsquo;Author&amp;rsquo; 필드에 입력된 사람이 실제 저자라고 가정하여도 저자는 저작권 보유자가 아닐 수도 있습니다.&lt;/p&gt;
-&lt;p&gt;더 중요하게는, 파일이 저장소에서 옮기게 되면 메타데이터는 사라집니다. 소스 코드만 압축해서 배포한다거나, 저장소를 fork 혹은 rebase하는 방식으로 각 파일을 새로운 코드 베이스로 복사하면 이전까지의 추적 데이터는 더 이상 확인할 수 없습니다.&lt;/p&gt;
-&lt;p&gt;이러한 문제들은 모든 파일에 저작권 및 라이선스 정보를 표시하면 해결됩니다. &lt;a href=&#34;https://reuse.software/&#34;&gt;REUSE.software&lt;/a&gt;의 Best Practice는 이를 아주 잘 처리합니다.&lt;/p&gt;
-&lt;h2 id=&#34;왜--기호를-사용하나요&#34;&gt;왜 © 기호를 사용하나요?&lt;/h2&gt;
-&lt;p&gt;어떤 사람은 &amp;ldquo;Copyright&amp;quot;라는 영어 단어가 더 자주 사용되고, 이미 많은 사람이 익숙하다고 주장할 수도 있지만, 실제로 저작권법을 보면 &amp;ldquo;©&amp;rdquo; (Copyright Sign)을 사용하는 것이 저작권 진술을 위한 유일한 방법임을 알 수 있습니다.&lt;/p&gt;
-
-
-&lt;div class=&#34;alert alert-success&#34; role=&#34;alert&#34;&gt;
-
+&lt;/div>
+&lt;h2 id="연도를-범위로-표시하는-건-어떤가요">연도를 범위로 표시하는 건 어떤가요?&lt;/h2>
+&lt;p>연도를 범위로 표시하는 것(예: 1999-2020)도 매년 연도 표시를 변경해줘야 하기 때문에 위의 질문에서 언급한 모든 사항이 동일하게 적용됩니다.&lt;/p>
+&lt;p>어떤 경우는 &amp;lsquo;{$year}-present&amp;rsquo;와 같은 형태로 범위를 지정하기도 합니다. 이 또한 위에서 언급한 사항들이 대부분 적용되며, 추가로 또 다른 혼란을 줄 수 있습니다. &amp;lsquo;present&amp;rsquo;가 의미하는 것은 추상적입니다. &amp;lsquo;present&amp;rsquo;는 어떤 것을 의미하는 걸까요?&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>파일이 마지막으로 수정 시간?&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>패키지가 릴리즈된 시간?&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>처음 다운로드 한 시간?&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>마지막으로 실행한 시간?&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>아니면 바로 지금?&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;p>이처럼 &amp;lsquo;present&amp;rsquo;는 전혀 도움이 되지 않는 표시입니다.&lt;/p>
+&lt;h2 id="gitmercurial이-저작권-정보를-추적하는데-더-좋지-않나요">Git/Mercurial이 저작권 정보를 추적하는데 더 좋지 않나요?&lt;/h2>
+&lt;p>항상 그렇지는 않습니다. Git (및 다른 VCS)은 메타데이터 관리에 뛰어나지만, 항상 이 의존하는 것은 주의해야 합니다.&lt;/p>
+&lt;p>먼저 Git은 &amp;lsquo;Committer&amp;rsquo; 필드와 별개로 &amp;lsquo;Author&amp;rsquo; 필드가 있습니다. 기여자마다 &amp;lsquo;Author&amp;rsquo; 필드에 제각각의 값을 포함시킬 뿐더러, &amp;lsquo;Author&amp;rsquo; 필드에 입력된 사람이 실제 저자라고 가정하여도 저자는 저작권 보유자가 아닐 수도 있습니다.&lt;/p>
+&lt;p>더 중요하게는, 파일이 저장소에서 옮기게 되면 메타데이터는 사라집니다. 소스 코드만 압축해서 배포한다거나, 저장소를 fork 혹은 rebase하는 방식으로 각 파일을 새로운 코드 베이스로 복사하면 이전까지의 추적 데이터는 더 이상 확인할 수 없습니다.&lt;/p>
+&lt;p>이러한 문제들은 모든 파일에 저작권 및 라이선스 정보를 표시하면 해결됩니다. &lt;a href="https://reuse.software/">REUSE.software&lt;/a>의 Best Practice는 이를 아주 잘 처리합니다.&lt;/p>
+&lt;h2 id="왜--기호를-사용하나요">왜 © 기호를 사용하나요?&lt;/h2>
+&lt;p>어떤 사람은 &amp;ldquo;Copyright&amp;quot;라는 영어 단어가 더 자주 사용되고, 이미 많은 사람이 익숙하다고 주장할 수도 있지만, 실제로 저작권법을 보면 &amp;ldquo;©&amp;rdquo; (Copyright Sign)을 사용하는 것이 저작권 진술을 위한 유일한 방법임을 알 수 있습니다.&lt;/p>
+&lt;div class="alert alert-success" role="alert">
 EU에서의 한 예로, 슬로베니아의 ZASP §175. (1)은 독점적 저작권 보유자가 자신의 저작물을 표시하기 위해 &amp;ldquo;(c)&amp;rdquo; 또는 &amp;ldquo;©&amp;quot;로 표시할 수 있다고 명시하고 있습니다.
 반면에 미국에서는 17 U.S. Code § 401. (b)(1) 에서는 다음과 같이 저작물 표시 방법을 지정하고 있습니다.
 &amp;ldquo;the symbol © (the letter C in a circle), or the word “Copyright”, or the abbreviation “Copr.”&amp;rdquo;
-&lt;/div&gt;
-
-&lt;p&gt;또한, © 는 &amp;ldquo;common global denominator&amp;quot;이기 때문에 이를 사용하는 것이 합리적입니다.&lt;/p&gt;
-&lt;p&gt;© 기호가 호불호가 있을 수 있지만, 실용적인 관점에서 볼 때 사실 그다지 중요하지 않은 부분입니다. 위에서 설명했듯이 저작권은 자동으로 생성되기 때문에 어떤 기호를 쓰느냐에 따라 법적인 리스크가 달라지지는 않습니다.&lt;/p&gt;
-&lt;h2 id=&#34;왜-연락처를-남겨야-하나요-두-명-이상의-저자가-있을-때는-어떻게-하죠&#34;&gt;왜 연락처를 남겨야 하나요? 두 명 이상의 저자가 있을 때는 어떻게 하죠?&lt;/h2&gt;
-&lt;p&gt;연락처 정보는 저작권법에 의해 요구되는 것은 아니지만, 실용적인 이유로 매우 유용합니다.&lt;/p&gt;
-&lt;p&gt;사용자는 법적 또는 기술적인 문의를 위해 코드의 저자 또는 저작권 보유자에게 연락하고 싶을 수 있습니다. 코드가 어떻게 동작하는지 물어보거나 수정을 요청할 수도 있습니다. 라이선스 문제를 발견하여 문제를 해결할 수 있도록 도움을 주거나 별도의 라이선스를 요청해야 할 수도 있습니다. 이 모든 경우에 연락처 정보가 많은 도움이 됩니다.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;현재까지도 이메일이 자주 사용되는 연락 방법이기 때문에 저작권자의 이메일 주소를 제공하는 것이 가장 좋습니다.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;저작권이 매우 분산되어 있거나 법인인 경우도 있습니다. 이런 경우에는 프로젝트 또는 법인 홈페이지의 URL을 제공하는 것이 더 합리적일 수 있습니다.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;프로젝트에서 AUTHORS 또는 CONTRIBUTORS와 같은 파일에 저작권 보유자를 표시하는 경우 해당 파일을 가리키는 링크를 제공하는 것도 좋은 옵션입니다.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;public-domain은-무엇인가요&#34;&gt;Public Domain은 무엇인가요?&lt;/h2&gt;
-&lt;p&gt;일반적으로 Public Domain은 저작권 기간이 만료된 저작물이지만, 까다로운 개념이어서 주의가 필요합니다.&lt;/p&gt;
-&lt;p&gt;일부 관할권 (예: 미국, 영국)에서는 저작권 보유자가 자신의 저작권을 포기하고 저작물을 Public Domain으로 기부할 수 있지만, 대부분의 관할권(예: 대부분의 EU 회원국)에서는 이런 행위가 불가능합니다. 이는 관할권에 따라 저자가 자신의 저작물을 Public Domain으로 제공한다고 표시했다고 하더라도 이것이 실제로 유효하게 하기 위한 법적 기준을 충족할 수 없고, 결국 여전히 저작물에 대한 저작권을 저작권자만 보유하고 있음을 의미합니다.&lt;/p&gt;
-&lt;p&gt;따라서 저작권과 라이선스를 진지하게 다루는 오픈소스 컴플라이언스 담당자들은 &amp;ldquo;this is public domain&amp;quot;이라는 표시를 매우 경계합니다.&lt;/p&gt;
-&lt;p&gt;저작권자는 이런 문제를 다음 두 가지 방법으로 완화할 수 있습니다.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;자신의 저작물에 대해 저작권을 포기하고 기부하고 싶을 때 &amp;ldquo;public domain&amp;quot;이라는 단어 대신, &lt;a href=&#34;https://spdx.org/licenses/CC0-1.0&#34;&gt;CC0-1.0&lt;/a&gt;과 같은 매우 허용적인 라이선스를 사용하세요.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&amp;ldquo;SPDX-FileCopyrightText:&amp;rdquo; 필드에 이름과 연락처 정보를 남기세요. 사용자가 저작권자의 의도를 궁금해하거나, 어떤 불분명한 사항이 있으면 연락을 취하여 문제를 해결할 수 있게 하세요.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;minified-javascript에서는-저작권-표시를-어떻게-하죠&#34;&gt;Minified JavaScript에서는 저작권 표시를 어떻게 하죠?&lt;/h2&gt;
-&lt;p&gt;최근의 Minifier는 주석을 제거하더라도 저작권 및 라이선스 정보는 보존하는 옵션을 제공합니다. 코드를 minify 할 때 이런 옵션을 사용하여 저작권과 라이선스 정보를 유지하세요.&lt;/p&gt;
-
-
-&lt;div class=&#34;alert alert-success&#34; role=&#34;alert&#34;&gt;
-
+&lt;/div>
+&lt;p>또한, © 는 &amp;ldquo;common global denominator&amp;quot;이기 때문에 이를 사용하는 것이 합리적입니다.&lt;/p>
+&lt;p>© 기호가 호불호가 있을 수 있지만, 실용적인 관점에서 볼 때 사실 그다지 중요하지 않은 부분입니다. 위에서 설명했듯이 저작권은 자동으로 생성되기 때문에 어떤 기호를 쓰느냐에 따라 법적인 리스크가 달라지지는 않습니다.&lt;/p>
+&lt;h2 id="왜-연락처를-남겨야-하나요-두-명-이상의-저자가-있을-때는-어떻게-하죠">왜 연락처를 남겨야 하나요? 두 명 이상의 저자가 있을 때는 어떻게 하죠?&lt;/h2>
+&lt;p>연락처 정보는 저작권법에 의해 요구되는 것은 아니지만, 실용적인 이유로 매우 유용합니다.&lt;/p>
+&lt;p>사용자는 법적 또는 기술적인 문의를 위해 코드의 저자 또는 저작권 보유자에게 연락하고 싶을 수 있습니다. 코드가 어떻게 동작하는지 물어보거나 수정을 요청할 수도 있습니다. 라이선스 문제를 발견하여 문제를 해결할 수 있도록 도움을 주거나 별도의 라이선스를 요청해야 할 수도 있습니다. 이 모든 경우에 연락처 정보가 많은 도움이 됩니다.&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>현재까지도 이메일이 자주 사용되는 연락 방법이기 때문에 저작권자의 이메일 주소를 제공하는 것이 가장 좋습니다.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>저작권이 매우 분산되어 있거나 법인인 경우도 있습니다. 이런 경우에는 프로젝트 또는 법인 홈페이지의 URL을 제공하는 것이 더 합리적일 수 있습니다.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>프로젝트에서 AUTHORS 또는 CONTRIBUTORS와 같은 파일에 저작권 보유자를 표시하는 경우 해당 파일을 가리키는 링크를 제공하는 것도 좋은 옵션입니다.&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="public-domain은-무엇인가요">Public Domain은 무엇인가요?&lt;/h2>
+&lt;p>일반적으로 Public Domain은 저작권 기간이 만료된 저작물이지만, 까다로운 개념이어서 주의가 필요합니다.&lt;/p>
+&lt;p>일부 관할권 (예: 미국, 영국)에서는 저작권 보유자가 자신의 저작권을 포기하고 저작물을 Public Domain으로 기부할 수 있지만, 대부분의 관할권(예: 대부분의 EU 회원국)에서는 이런 행위가 불가능합니다. 이는 관할권에 따라 저자가 자신의 저작물을 Public Domain으로 제공한다고 표시했다고 하더라도 이것이 실제로 유효하게 하기 위한 법적 기준을 충족할 수 없고, 결국 여전히 저작물에 대한 저작권을 저작권자만 보유하고 있음을 의미합니다.&lt;/p>
+&lt;p>따라서 저작권과 라이선스를 진지하게 다루는 오픈소스 컴플라이언스 담당자들은 &amp;ldquo;this is public domain&amp;quot;이라는 표시를 매우 경계합니다.&lt;/p>
+&lt;p>저작권자는 이런 문제를 다음 두 가지 방법으로 완화할 수 있습니다.&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>자신의 저작물에 대해 저작권을 포기하고 기부하고 싶을 때 &amp;ldquo;public domain&amp;quot;이라는 단어 대신, &lt;a href="https://spdx.org/licenses/CC0-1.0">CC0-1.0&lt;/a>과 같은 매우 허용적인 라이선스를 사용하세요.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&amp;ldquo;SPDX-FileCopyrightText:&amp;rdquo; 필드에 이름과 연락처 정보를 남기세요. 사용자가 저작권자의 의도를 궁금해하거나, 어떤 불분명한 사항이 있으면 연락을 취하여 문제를 해결할 수 있게 하세요.&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="minified-javascript에서는-저작권-표시를-어떻게-하죠">Minified JavaScript에서는 저작권 표시를 어떻게 하죠?&lt;/h2>
+&lt;p>최근의 Minifier는 주석을 제거하더라도 저작권 및 라이선스 정보는 보존하는 옵션을 제공합니다. 코드를 minify 할 때 이런 옵션을 사용하여 저작권과 라이선스 정보를 유지하세요.&lt;/p>
+&lt;div class="alert alert-success" role="alert">
 소스 코드를 다른 언어나 컴파일러 및 다른 형태로 변환하더라도 모두 저작권 보유자에게 독점적 권리가 있습니다. 따라서, minify 한 코드를 사용할 때에도 유효한 라이선스가 필요합니다.
-&lt;/div&gt;
-
-&lt;h2 id=&#34;all-rights-reserved-표시에는-어떤-문제가-있나요&#34;&gt;&amp;ldquo;All rights reserved&amp;rdquo; 표시에는 어떤 문제가 있나요?&lt;/h2&gt;
-&lt;p&gt;종종 저작권 표시에 &amp;ldquo;All rights reserved&amp;quot;라는 문장을 본 적이 있을 겁니다. 저작권법은 이런 표현을 요구하지 않습니다. 아마 음악 CD나 책에서 사용하는 걸 보고 단순히 모방해서 사용하는 게 아닐까 생각합니다. 하지만, 오픈소스에서 이런 표현은 혼란을 야기시킵니다.&lt;/p&gt;
-&lt;p&gt;&amp;ldquo;All rights reserved&amp;quot;는 명백히 오픈소스 라이선스와 모순됩니다. 오픈소스 라이선스는 누구나 코드를 사용, 연구, 공유 및 개선할 수 있는 권리를 제공합니다. 반면에 &amp;ldquo;All rights reserved&amp;quot;는 이러한 모든 권리가 자신에게만 부여된다는 표현입니다.&lt;/p&gt;
-&lt;p&gt;&amp;ldquo;All right reserved&amp;quot;는 이와 같은 문제만 가져올 뿐, 어떤 이점도 가져오지 않기 때문에 오픈소스에서는 사용하지 말아야 합니다.&lt;/p&gt;
-
-      </description>
-    </item>
-    
-    <item>
-      <title>Blog: 이미지를 포함한 샘플 블로그입니다.</title>
-      <link>/blog/sample/sample-post/</link>
-      <pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/blog/sample/sample-post/</guid>
-      <description>
-        
-        
-        
-        <![CDATA[<img src="/blog/sample/sample-post/featured-sunset-get_hu69849a7cdb847c2393a7b3a7f6061c86_387442_640x0_resize_catmullrom_2.png" width="640" height="253"/>]]>
-        
-        &lt;p&gt;Text can be &lt;strong&gt;bold&lt;/strong&gt;, &lt;em&gt;italic&lt;/em&gt;, or &lt;del&gt;strikethrough&lt;/del&gt;. &lt;a href=&#34;https://github.com&#34;&gt;Links&lt;/a&gt; should be blue with no underlines (unless hovered over).&lt;/p&gt;
-&lt;p&gt;There should be whitespace between paragraphs. There should be whitespace between paragraphs. There should be whitespace between paragraphs. There should be whitespace between paragraphs.&lt;/p&gt;
-&lt;p&gt;There should be whitespace between paragraphs. There should be whitespace between paragraphs. There should be whitespace between paragraphs. There should be whitespace between paragraphs.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;There should be no margin above this first sentence.&lt;/p&gt;
-&lt;p&gt;Blockquotes should be a lighter gray with a border along the left side in the secondary color.&lt;/p&gt;
-&lt;p&gt;There should be no margin below this final sentence.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&#34;first-header&#34;&gt;First Header&lt;/h2&gt;
-&lt;p&gt;This is a normal paragraph following a header. Bacon ipsum dolor sit amet t-bone doner shank drumstick, pork belly porchetta chuck sausage brisket ham hock rump pig. Chuck kielbasa leberkas, pork bresaola ham hock filet mignon cow shoulder short ribs biltong.  Bacon ipsum dolor sit amet t-bone doner shank drumstick, pork belly porchetta chuck sausage brisket ham hock rump pig. Chuck kielbasa leberkas, pork bresaola ham hock filet mignon cow shoulder short ribs biltong.  Bacon ipsum dolor sit amet t-bone doner shank drumstick, pork belly porchetta chuck sausage brisket ham hock rump pig. Chuck kielbasa leberkas, pork bresaola ham hock filet mignon cow shoulder short ribs biltong.&lt;/p&gt;
-&lt;p&gt;Bacon ipsum dolor sit amet t-bone doner shank drumstick, pork belly porchetta chuck sausage brisket ham hock rump pig. Chuck kielbasa leberkas, pork bresaola ham hock filet mignon cow shoulder short ribs biltong.&lt;/p&gt;
-&lt;p&gt;On big screens, paragraphs and headings should not take up the full container width, but we want tables, code blocks and similar to take the full width.&lt;/p&gt;
-&lt;p&gt;Lorem markdownum tuta hospes stabat; idem saxum facit quaterque repetito
+&lt;/div>
+&lt;h2 id="all-rights-reserved-표시에는-어떤-문제가-있나요">&amp;ldquo;All rights reserved&amp;rdquo; 표시에는 어떤 문제가 있나요?&lt;/h2>
+&lt;p>종종 저작권 표시에 &amp;ldquo;All rights reserved&amp;quot;라는 문장을 본 적이 있을 겁니다. 저작권법은 이런 표현을 요구하지 않습니다. 아마 음악 CD나 책에서 사용하는 걸 보고 단순히 모방해서 사용하는 게 아닐까 생각합니다. 하지만, 오픈소스에서 이런 표현은 혼란을 야기시킵니다.&lt;/p>
+&lt;p>&amp;ldquo;All rights reserved&amp;quot;는 명백히 오픈소스 라이선스와 모순됩니다. 오픈소스 라이선스는 누구나 코드를 사용, 연구, 공유 및 개선할 수 있는 권리를 제공합니다. 반면에 &amp;ldquo;All rights reserved&amp;quot;는 이러한 모든 권리가 자신에게만 부여된다는 표현입니다.&lt;/p>
+&lt;p>&amp;ldquo;All right reserved&amp;quot;는 이와 같은 문제만 가져올 뿐, 어떤 이점도 가져오지 않기 때문에 오픈소스에서는 사용하지 말아야 합니다.&lt;/p></description></item><item><title>Blog: 이미지를 포함한 샘플 블로그입니다.</title><link>/blog/sample/sample-post/</link><pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate><guid>/blog/sample/sample-post/</guid><description>
+&lt;img src="/blog/sample/sample-post/featured-sunset-get_hu69849a7cdb847c2393a7b3a7f6061c86_387442_640x0_resize_catmullrom_2.png" width="640" height="253"/>
+&lt;p>Text can be &lt;strong>bold&lt;/strong>, &lt;em>italic&lt;/em>, or &lt;del>strikethrough&lt;/del>. &lt;a href="https://github.com">Links&lt;/a> should be blue with no underlines (unless hovered over).&lt;/p>
+&lt;p>There should be whitespace between paragraphs. There should be whitespace between paragraphs. There should be whitespace between paragraphs. There should be whitespace between paragraphs.&lt;/p>
+&lt;p>There should be whitespace between paragraphs. There should be whitespace between paragraphs. There should be whitespace between paragraphs. There should be whitespace between paragraphs.&lt;/p>
+&lt;blockquote>
+&lt;p>There should be no margin above this first sentence.&lt;/p>
+&lt;p>Blockquotes should be a lighter gray with a border along the left side in the secondary color.&lt;/p>
+&lt;p>There should be no margin below this final sentence.&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="first-header">First Header&lt;/h2>
+&lt;p>This is a normal paragraph following a header. Bacon ipsum dolor sit amet t-bone doner shank drumstick, pork belly porchetta chuck sausage brisket ham hock rump pig. Chuck kielbasa leberkas, pork bresaola ham hock filet mignon cow shoulder short ribs biltong. Bacon ipsum dolor sit amet t-bone doner shank drumstick, pork belly porchetta chuck sausage brisket ham hock rump pig. Chuck kielbasa leberkas, pork bresaola ham hock filet mignon cow shoulder short ribs biltong. Bacon ipsum dolor sit amet t-bone doner shank drumstick, pork belly porchetta chuck sausage brisket ham hock rump pig. Chuck kielbasa leberkas, pork bresaola ham hock filet mignon cow shoulder short ribs biltong.&lt;/p>
+&lt;p>Bacon ipsum dolor sit amet t-bone doner shank drumstick, pork belly porchetta chuck sausage brisket ham hock rump pig. Chuck kielbasa leberkas, pork bresaola ham hock filet mignon cow shoulder short ribs biltong.&lt;/p>
+&lt;p>On big screens, paragraphs and headings should not take up the full container width, but we want tables, code blocks and similar to take the full width.&lt;/p>
+&lt;p>Lorem markdownum tuta hospes stabat; idem saxum facit quaterque repetito
 occumbere, oves novem gestit haerebat frena; qui. Respicit recurvam erat:
-pignora hinc reppulit nos &lt;strong&gt;aut&lt;/strong&gt;, aptos, ipsa.&lt;/p&gt;
-&lt;p&gt;Meae optatos &lt;em&gt;passa est&lt;/em&gt; Epiros utiliter &lt;em&gt;Talibus niveis&lt;/em&gt;, hoc lata, edidit.
-Dixi ad aestum.&lt;/p&gt;
-&lt;h2 id=&#34;header-2&#34;&gt;Header 2&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;This is a blockquote following a header. Bacon ipsum dolor sit amet t-bone doner shank drumstick, pork belly porchetta chuck sausage brisket ham hock rump pig. Chuck kielbasa leberkas, pork bresaola ham hock filet mignon cow shoulder short ribs biltong.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3 id=&#34;header-3&#34;&gt;Header 3&lt;/h3&gt;
-&lt;pre&gt;&lt;code&gt;This is a code block following a header.
-&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&#34;header-4&#34;&gt;Header 4&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;This is an unordered list following a header.&lt;/li&gt;
-&lt;li&gt;This is an unordered list following a header.&lt;/li&gt;
-&lt;li&gt;This is an unordered list following a header.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h5 id=&#34;header-5&#34;&gt;Header 5&lt;/h5&gt;
-&lt;ol&gt;
-&lt;li&gt;This is an ordered list following a header.&lt;/li&gt;
-&lt;li&gt;This is an ordered list following a header.&lt;/li&gt;
-&lt;li&gt;This is an ordered list following a header.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h6 id=&#34;header-6&#34;&gt;Header 6&lt;/h6&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;What&lt;/th&gt;
-&lt;th&gt;Follows&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;A table&lt;/td&gt;
-&lt;td&gt;A header&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;A table&lt;/td&gt;
-&lt;td&gt;A header&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;A table&lt;/td&gt;
-&lt;td&gt;A header&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;hr&gt;
-&lt;p&gt;There&amp;rsquo;s a horizontal rule above and below this.&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;Here is an unordered list:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Salt-n-Pepa&lt;/li&gt;
-&lt;li&gt;Bel Biv DeVoe&lt;/li&gt;
-&lt;li&gt;Kid &amp;lsquo;N Play&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;And an ordered list:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Michael Jackson&lt;/li&gt;
-&lt;li&gt;Michael Bolton&lt;/li&gt;
-&lt;li&gt;Michael Bublé&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;And an unordered task list:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Create a sample markdown document&lt;/li&gt;
-&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Add task lists to it&lt;/li&gt;
-&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Take a vacation&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;And a &amp;ldquo;mixed&amp;rdquo; task list:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Steal underpants&lt;/li&gt;
-&lt;li&gt;?&lt;/li&gt;
-&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Profit!&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;And a nested list:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Jackson 5
-&lt;ul&gt;
-&lt;li&gt;Michael&lt;/li&gt;
-&lt;li&gt;Tito&lt;/li&gt;
-&lt;li&gt;Jackie&lt;/li&gt;
-&lt;li&gt;Marlon&lt;/li&gt;
-&lt;li&gt;Jermaine&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;TMNT
-&lt;ul&gt;
-&lt;li&gt;Leonardo&lt;/li&gt;
-&lt;li&gt;Michelangelo&lt;/li&gt;
-&lt;li&gt;Donatello&lt;/li&gt;
-&lt;li&gt;Raphael&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Definition lists can be used with Markdown syntax. Definition terms are bold.&lt;/p&gt;
-&lt;dl&gt;
-&lt;dt&gt;Name&lt;/dt&gt;
-&lt;dd&gt;Godzilla&lt;/dd&gt;
-&lt;dt&gt;Born&lt;/dt&gt;
-&lt;dd&gt;1952&lt;/dd&gt;
-&lt;dt&gt;Birthplace&lt;/dt&gt;
-&lt;dd&gt;Japan&lt;/dd&gt;
-&lt;dt&gt;Color&lt;/dt&gt;
-&lt;dd&gt;Green&lt;/dd&gt;
-&lt;/dl&gt;
-&lt;hr&gt;
-&lt;p&gt;Tables should have bold headings and alternating shaded rows.&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Artist&lt;/th&gt;
-&lt;th&gt;Album&lt;/th&gt;
-&lt;th&gt;Year&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;Michael Jackson&lt;/td&gt;
-&lt;td&gt;Thriller&lt;/td&gt;
-&lt;td&gt;1982&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Prince&lt;/td&gt;
-&lt;td&gt;Purple Rain&lt;/td&gt;
-&lt;td&gt;1984&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Beastie Boys&lt;/td&gt;
-&lt;td&gt;License to Ill&lt;/td&gt;
-&lt;td&gt;1986&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;If a table is too wide, it should scroll horizontally.&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Artist&lt;/th&gt;
-&lt;th&gt;Album&lt;/th&gt;
-&lt;th&gt;Year&lt;/th&gt;
-&lt;th&gt;Label&lt;/th&gt;
-&lt;th&gt;Awards&lt;/th&gt;
-&lt;th&gt;Songs&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;Michael Jackson&lt;/td&gt;
-&lt;td&gt;Thriller&lt;/td&gt;
-&lt;td&gt;1982&lt;/td&gt;
-&lt;td&gt;Epic Records&lt;/td&gt;
-&lt;td&gt;Grammy Award for Album of the Year, American Music Award for Favorite Pop/Rock Album, American Music Award for Favorite Soul/R&amp;amp;B Album, Brit Award for Best Selling Album, Grammy Award for Best Engineered Album, Non-Classical&lt;/td&gt;
-&lt;td&gt;Wanna Be Startin&amp;rsquo; Somethin&#39;, Baby Be Mine, The Girl Is Mine, Thriller, Beat It, Billie Jean, Human Nature, P.Y.T. (Pretty Young Thing), The Lady in My Life&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Prince&lt;/td&gt;
-&lt;td&gt;Purple Rain&lt;/td&gt;
-&lt;td&gt;1984&lt;/td&gt;
-&lt;td&gt;Warner Brothers Records&lt;/td&gt;
-&lt;td&gt;Grammy Award for Best Score Soundtrack for Visual Media, American Music Award for Favorite Pop/Rock Album, American Music Award for Favorite Soul/R&amp;amp;B Album, Brit Award for Best Soundtrack/Cast Recording, Grammy Award for Best Rock Performance by a Duo or Group with Vocal&lt;/td&gt;
-&lt;td&gt;Let&amp;rsquo;s Go Crazy, Take Me With U, The Beautiful Ones, Computer Blue, Darling Nikki, When Doves Cry, I Would Die 4 U, Baby I&amp;rsquo;m a Star, Purple Rain&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Beastie Boys&lt;/td&gt;
-&lt;td&gt;License to Ill&lt;/td&gt;
-&lt;td&gt;1986&lt;/td&gt;
-&lt;td&gt;Mercury Records&lt;/td&gt;
-&lt;td&gt;noawardsbutthistablecelliswide&lt;/td&gt;
-&lt;td&gt;Rhymin &amp;amp; Stealin, The New Style, She&amp;rsquo;s Crafty, Posse in Effect, Slow Ride, Girls, (You Gotta) Fight for Your Right, No Sleep Till Brooklyn, Paul Revere, Hold It Now, Hit It, Brass Monkey, Slow and Low, Time to Get Ill&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;hr&gt;
-&lt;p&gt;Code snippets like &lt;code&gt;var foo = &amp;quot;bar&amp;quot;;&lt;/code&gt; can be shown inline.&lt;/p&gt;
-&lt;p&gt;Also, &lt;code&gt;this should vertically align&lt;/code&gt; &lt;del&gt;&lt;code&gt;with this&lt;/code&gt;&lt;/del&gt; &lt;del&gt;and this&lt;/del&gt;.&lt;/p&gt;
-&lt;p&gt;Code can also be shown in a block element.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;foo := &amp;quot;bar&amp;quot;;
+pignora hinc reppulit nos &lt;strong>aut&lt;/strong>, aptos, ipsa.&lt;/p>
+&lt;p>Meae optatos &lt;em>passa est&lt;/em> Epiros utiliter &lt;em>Talibus niveis&lt;/em>, hoc lata, edidit.
+Dixi ad aestum.&lt;/p>
+&lt;h2 id="header-2">Header 2&lt;/h2>
+&lt;blockquote>
+&lt;p>This is a blockquote following a header. Bacon ipsum dolor sit amet t-bone doner shank drumstick, pork belly porchetta chuck sausage brisket ham hock rump pig. Chuck kielbasa leberkas, pork bresaola ham hock filet mignon cow shoulder short ribs biltong.&lt;/p>
+&lt;/blockquote>
+&lt;h3 id="header-3">Header 3&lt;/h3>
+&lt;pre>&lt;code>This is a code block following a header.
+&lt;/code>&lt;/pre>&lt;h4 id="header-4">Header 4&lt;/h4>
+&lt;ul>
+&lt;li>This is an unordered list following a header.&lt;/li>
+&lt;li>This is an unordered list following a header.&lt;/li>
+&lt;li>This is an unordered list following a header.&lt;/li>
+&lt;/ul>
+&lt;h5 id="header-5">Header 5&lt;/h5>
+&lt;ol>
+&lt;li>This is an ordered list following a header.&lt;/li>
+&lt;li>This is an ordered list following a header.&lt;/li>
+&lt;li>This is an ordered list following a header.&lt;/li>
+&lt;/ol>
+&lt;h6 id="header-6">Header 6&lt;/h6>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>What&lt;/th>
+&lt;th>Follows&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>A table&lt;/td>
+&lt;td>A header&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>A table&lt;/td>
+&lt;td>A header&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>A table&lt;/td>
+&lt;td>A header&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;hr>
+&lt;p>There&amp;rsquo;s a horizontal rule above and below this.&lt;/p>
+&lt;hr>
+&lt;p>Here is an unordered list:&lt;/p>
+&lt;ul>
+&lt;li>Salt-n-Pepa&lt;/li>
+&lt;li>Bel Biv DeVoe&lt;/li>
+&lt;li>Kid &amp;lsquo;N Play&lt;/li>
+&lt;/ul>
+&lt;p>And an ordered list:&lt;/p>
+&lt;ol>
+&lt;li>Michael Jackson&lt;/li>
+&lt;li>Michael Bolton&lt;/li>
+&lt;li>Michael Bublé&lt;/li>
+&lt;/ol>
+&lt;p>And an unordered task list:&lt;/p>
+&lt;ul>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> Create a sample markdown document&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> Add task lists to it&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> Take a vacation&lt;/li>
+&lt;/ul>
+&lt;p>And a &amp;ldquo;mixed&amp;rdquo; task list:&lt;/p>
+&lt;ul>
+&lt;li>&lt;input disabled="" type="checkbox"> Steal underpants&lt;/li>
+&lt;li>?&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> Profit!&lt;/li>
+&lt;/ul>
+&lt;p>And a nested list:&lt;/p>
+&lt;ul>
+&lt;li>Jackson 5
+&lt;ul>
+&lt;li>Michael&lt;/li>
+&lt;li>Tito&lt;/li>
+&lt;li>Jackie&lt;/li>
+&lt;li>Marlon&lt;/li>
+&lt;li>Jermaine&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>TMNT
+&lt;ul>
+&lt;li>Leonardo&lt;/li>
+&lt;li>Michelangelo&lt;/li>
+&lt;li>Donatello&lt;/li>
+&lt;li>Raphael&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>Definition lists can be used with Markdown syntax. Definition terms are bold.&lt;/p>
+&lt;dl>
+&lt;dt>Name&lt;/dt>
+&lt;dd>Godzilla&lt;/dd>
+&lt;dt>Born&lt;/dt>
+&lt;dd>1952&lt;/dd>
+&lt;dt>Birthplace&lt;/dt>
+&lt;dd>Japan&lt;/dd>
+&lt;dt>Color&lt;/dt>
+&lt;dd>Green&lt;/dd>
+&lt;/dl>
+&lt;hr>
+&lt;p>Tables should have bold headings and alternating shaded rows.&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Artist&lt;/th>
+&lt;th>Album&lt;/th>
+&lt;th>Year&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Michael Jackson&lt;/td>
+&lt;td>Thriller&lt;/td>
+&lt;td>1982&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Prince&lt;/td>
+&lt;td>Purple Rain&lt;/td>
+&lt;td>1984&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Beastie Boys&lt;/td>
+&lt;td>License to Ill&lt;/td>
+&lt;td>1986&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>If a table is too wide, it should scroll horizontally.&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Artist&lt;/th>
+&lt;th>Album&lt;/th>
+&lt;th>Year&lt;/th>
+&lt;th>Label&lt;/th>
+&lt;th>Awards&lt;/th>
+&lt;th>Songs&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Michael Jackson&lt;/td>
+&lt;td>Thriller&lt;/td>
+&lt;td>1982&lt;/td>
+&lt;td>Epic Records&lt;/td>
+&lt;td>Grammy Award for Album of the Year, American Music Award for Favorite Pop/Rock Album, American Music Award for Favorite Soul/R&amp;amp;B Album, Brit Award for Best Selling Album, Grammy Award for Best Engineered Album, Non-Classical&lt;/td>
+&lt;td>Wanna Be Startin&amp;rsquo; Somethin', Baby Be Mine, The Girl Is Mine, Thriller, Beat It, Billie Jean, Human Nature, P.Y.T. (Pretty Young Thing), The Lady in My Life&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Prince&lt;/td>
+&lt;td>Purple Rain&lt;/td>
+&lt;td>1984&lt;/td>
+&lt;td>Warner Brothers Records&lt;/td>
+&lt;td>Grammy Award for Best Score Soundtrack for Visual Media, American Music Award for Favorite Pop/Rock Album, American Music Award for Favorite Soul/R&amp;amp;B Album, Brit Award for Best Soundtrack/Cast Recording, Grammy Award for Best Rock Performance by a Duo or Group with Vocal&lt;/td>
+&lt;td>Let&amp;rsquo;s Go Crazy, Take Me With U, The Beautiful Ones, Computer Blue, Darling Nikki, When Doves Cry, I Would Die 4 U, Baby I&amp;rsquo;m a Star, Purple Rain&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Beastie Boys&lt;/td>
+&lt;td>License to Ill&lt;/td>
+&lt;td>1986&lt;/td>
+&lt;td>Mercury Records&lt;/td>
+&lt;td>noawardsbutthistablecelliswide&lt;/td>
+&lt;td>Rhymin &amp;amp; Stealin, The New Style, She&amp;rsquo;s Crafty, Posse in Effect, Slow Ride, Girls, (You Gotta) Fight for Your Right, No Sleep Till Brooklyn, Paul Revere, Hold It Now, Hit It, Brass Monkey, Slow and Low, Time to Get Ill&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;hr>
+&lt;p>Code snippets like &lt;code>var foo = &amp;quot;bar&amp;quot;;&lt;/code> can be shown inline.&lt;/p>
+&lt;p>Also, &lt;code>this should vertically align&lt;/code> &lt;del>&lt;code>with this&lt;/code>&lt;/del> &lt;del>and this&lt;/del>.&lt;/p>
+&lt;p>Code can also be shown in a block element.&lt;/p>
+&lt;pre>&lt;code>foo := &amp;quot;bar&amp;quot;;
 bar := &amp;quot;foo&amp;quot;;
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Code can also use syntax highlighting.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;main&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
-  &lt;span style=&#34;color:#000&#34;&gt;input&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;`var foo = &amp;#34;bar&amp;#34;;`&lt;/span&gt;
-
-  &lt;span style=&#34;color:#000&#34;&gt;lexer&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;lexers&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Get&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;javascript&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
-  &lt;span style=&#34;color:#000&#34;&gt;iterator&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;_&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;lexer&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Tokenise&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;nil&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;input&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
-  &lt;span style=&#34;color:#000&#34;&gt;style&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;styles&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Get&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;github&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
-  &lt;span style=&#34;color:#000&#34;&gt;formatter&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;html&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;New&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;html&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;WithLineNumbers&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;())&lt;/span&gt;
-
-  &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;var&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;buff&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;bytes&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Buffer&lt;/span&gt;
-  &lt;span style=&#34;color:#000&#34;&gt;formatter&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Format&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;&amp;amp;&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;buff&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;style&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;iterator&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
-
-  &lt;span style=&#34;color:#000&#34;&gt;fmt&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Println&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;buff&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;String&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;())&lt;/span&gt;
-&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;pre&gt;&lt;code&gt;Long, single-line code blocks should not wrap. They should horizontally scroll if they are too long. This line should be long enough to demonstrate this.
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Inline code inside table cells should still be distinguishable.&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Language&lt;/th&gt;
-&lt;th&gt;Code&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;Javascript&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;var foo = &amp;quot;bar&amp;quot;;&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Ruby&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;foo = &amp;quot;bar&amp;quot;{&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;hr&gt;
-&lt;p&gt;Small images should be shown at their actual size.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://placekitten.com/g/300/200/&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
-&lt;p&gt;Large images should always scale down and fit in the content container.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://placekitten.com/g/1200/800/&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
-&lt;h2 id=&#34;components&#34;&gt;Components&lt;/h2&gt;
-&lt;h3 id=&#34;alerts&#34;&gt;Alerts&lt;/h3&gt;
-&lt;p&gt;
-
-&lt;div class=&#34;alert alert-primary&#34; role=&#34;alert&#34;&gt;
-
+&lt;/code>&lt;/pre>&lt;p>Code can also use syntax highlighting.&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">func&lt;/span> &lt;span style="color:#000">main&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#000">input&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#4e9a06">`var foo = &amp;#34;bar&amp;#34;;`&lt;/span>
+&lt;span style="color:#000">lexer&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">lexers&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Get&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;javascript&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#000">iterator&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">_&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">lexer&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Tokenise&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#204a87;font-weight:bold">nil&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">input&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#000">style&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">styles&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Get&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;github&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#000">formatter&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">html&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">New&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">html&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">WithLineNumbers&lt;/span>&lt;span style="color:#000;font-weight:bold">())&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">var&lt;/span> &lt;span style="color:#000">buff&lt;/span> &lt;span style="color:#000">bytes&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Buffer&lt;/span>
+&lt;span style="color:#000">formatter&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Format&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&lt;/span>&lt;span style="color:#000">buff&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">style&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">iterator&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#000">fmt&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Println&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">buff&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">String&lt;/span>&lt;span style="color:#000;font-weight:bold">())&lt;/span>
+&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;pre>&lt;code>Long, single-line code blocks should not wrap. They should horizontally scroll if they are too long. This line should be long enough to demonstrate this.
+&lt;/code>&lt;/pre>&lt;p>Inline code inside table cells should still be distinguishable.&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Language&lt;/th>
+&lt;th>Code&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Javascript&lt;/td>
+&lt;td>&lt;code>var foo = &amp;quot;bar&amp;quot;;&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ruby&lt;/td>
+&lt;td>&lt;code>foo = &amp;quot;bar&amp;quot;{&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;hr>
+&lt;p>Small images should be shown at their actual size.&lt;/p>
+&lt;p>&lt;img src="https://placekitten.com/g/300/200/" alt="">&lt;/p>
+&lt;p>Large images should always scale down and fit in the content container.&lt;/p>
+&lt;p>&lt;img src="https://placekitten.com/g/1200/800/" alt="">&lt;/p>
+&lt;h2 id="components">Components&lt;/h2>
+&lt;h3 id="alerts">Alerts&lt;/h3>
+&lt;p>
+&lt;div class="alert alert-primary" role="alert">
 This is an alert.
-&lt;/div&gt;
-
-
-
-&lt;div class=&#34;alert alert-primary&#34; role=&#34;alert&#34;&gt;
-&lt;h4 class=&#34;alert-heading&#34;&gt;Note:&lt;/h4&gt;
+&lt;/div>
+&lt;div class="alert alert-primary" role="alert">
+&lt;h4 class="alert-heading">Note:&lt;/h4>
 This is an alert with a title.
-&lt;/div&gt;
-
-
-
-&lt;div class=&#34;alert alert-primary&#34; role=&#34;alert&#34;&gt;
-
+&lt;/div>
+&lt;div class="alert alert-primary" role="alert">
 This is a successful alert.
-&lt;/div&gt;
-
-
-
-&lt;div class=&#34;alert alert-primary&#34; role=&#34;alert&#34;&gt;
-
+&lt;/div>
+&lt;div class="alert alert-primary" role="alert">
 This is a warning!
-&lt;/div&gt;
-
-
-
-&lt;div class=&#34;alert alert-primary&#34; role=&#34;alert&#34;&gt;
-&lt;h4 class=&#34;alert-heading&#34;&gt;Warning!&lt;/h4&gt;
+&lt;/div>
+&lt;div class="alert alert-primary" role="alert">
+&lt;h4 class="alert-heading">Warning!&lt;/h4>
 This is a warning with a title!
-&lt;/div&gt;
-&lt;/p&gt;
-&lt;h2 id=&#34;sizing&#34;&gt;Sizing&lt;/h2&gt;
-&lt;p&gt;Add some sections here to see how the ToC looks like. Bacon ipsum dolor sit amet t-bone doner shank drumstick, pork belly porchetta chuck sausage brisket ham hock rump pig. Chuck kielbasa leberkas, pork bresaola ham hock filet mignon cow shoulder short ribs biltong.&lt;/p&gt;
-&lt;h3 id=&#34;parameters-available&#34;&gt;Parameters available&lt;/h3&gt;
-&lt;p&gt;Bacon ipsum dolor sit amet t-bone doner shank drumstick, pork belly porchetta chuck sausage brisket ham hock rump pig. Chuck kielbasa leberkas, pork bresaola ham hock filet mignon cow shoulder short ribs biltong.&lt;/p&gt;
-&lt;h3 id=&#34;using-pixels&#34;&gt;Using pixels&lt;/h3&gt;
-&lt;p&gt;Bacon ipsum dolor sit amet t-bone doner shank drumstick, pork belly porchetta chuck sausage brisket ham hock rump pig. Chuck kielbasa leberkas, pork bresaola ham hock filet mignon cow shoulder short ribs biltong.&lt;/p&gt;
-&lt;h3 id=&#34;using-rem&#34;&gt;Using rem&lt;/h3&gt;
-&lt;p&gt;Bacon ipsum dolor sit amet t-bone doner shank drumstick, pork belly porchetta chuck sausage brisket ham hock rump pig. Chuck kielbasa leberkas, pork bresaola ham hock filet mignon cow shoulder short ribs biltong.&lt;/p&gt;
-&lt;h2 id=&#34;memory&#34;&gt;Memory&lt;/h2&gt;
-&lt;p&gt;Bacon ipsum dolor sit amet t-bone doner shank drumstick, pork belly porchetta chuck sausage brisket ham hock rump pig. Chuck kielbasa leberkas, pork bresaola ham hock filet mignon cow shoulder short ribs biltong.&lt;/p&gt;
-&lt;h3 id=&#34;ram-to-use&#34;&gt;RAM to use&lt;/h3&gt;
-&lt;p&gt;Bacon ipsum dolor sit amet t-bone doner shank drumstick, pork belly porchetta chuck sausage brisket ham hock rump pig. Chuck kielbasa leberkas, pork bresaola ham hock filet mignon cow shoulder short ribs biltong.&lt;/p&gt;
-&lt;h3 id=&#34;more-is-better&#34;&gt;More is better&lt;/h3&gt;
-&lt;p&gt;Bacon ipsum dolor sit amet t-bone doner shank drumstick, pork belly porchetta chuck sausage brisket ham hock rump pig. Chuck kielbasa leberkas, pork bresaola ham hock filet mignon cow shoulder short ribs biltong.&lt;/p&gt;
-&lt;h3 id=&#34;used-ram&#34;&gt;Used RAM&lt;/h3&gt;
-&lt;p&gt;Bacon ipsum dolor sit amet t-bone doner shank drumstick, pork belly porchetta chuck sausage brisket ham hock rump pig. Chuck kielbasa leberkas, pork bresaola ham hock filet mignon cow shoulder short ribs biltong.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;This is the final element on the page and there should be no margin below this.
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;including-images&#34;&gt;Including images&lt;/h2&gt;
-&lt;p&gt;Here&amp;rsquo;s an image (&lt;code&gt;featured-sunset-get.png&lt;/code&gt;) that includes a byline and a caption.&lt;/p&gt;
-
-
-
-
-
-
-
-&lt;div class=&#34;card rounded p-2 td-post-card mb-4 mt-4&#34; style=&#34;max-width: 610px&#34;&gt;
-	&lt;img class=&#34;card-img-top&#34; src=&#34;/blog/sample/sample-post/featured-sunset-get_hu69849a7cdb847c2393a7b3a7f6061c86_387442_600x300_fill_catmullrom_smart1_2.png&#34; width=&#34;600&#34; height=&#34;300&#34;&gt;
-	
-	&lt;div class=&#34;card-body px-0 pt-2 pb-0&#34;&gt;
-		&lt;p class=&#34;card-text&#34;&gt;
+&lt;/div>
+&lt;/p>
+&lt;h2 id="sizing">Sizing&lt;/h2>
+&lt;p>Add some sections here to see how the ToC looks like. Bacon ipsum dolor sit amet t-bone doner shank drumstick, pork belly porchetta chuck sausage brisket ham hock rump pig. Chuck kielbasa leberkas, pork bresaola ham hock filet mignon cow shoulder short ribs biltong.&lt;/p>
+&lt;h3 id="parameters-available">Parameters available&lt;/h3>
+&lt;p>Bacon ipsum dolor sit amet t-bone doner shank drumstick, pork belly porchetta chuck sausage brisket ham hock rump pig. Chuck kielbasa leberkas, pork bresaola ham hock filet mignon cow shoulder short ribs biltong.&lt;/p>
+&lt;h3 id="using-pixels">Using pixels&lt;/h3>
+&lt;p>Bacon ipsum dolor sit amet t-bone doner shank drumstick, pork belly porchetta chuck sausage brisket ham hock rump pig. Chuck kielbasa leberkas, pork bresaola ham hock filet mignon cow shoulder short ribs biltong.&lt;/p>
+&lt;h3 id="using-rem">Using rem&lt;/h3>
+&lt;p>Bacon ipsum dolor sit amet t-bone doner shank drumstick, pork belly porchetta chuck sausage brisket ham hock rump pig. Chuck kielbasa leberkas, pork bresaola ham hock filet mignon cow shoulder short ribs biltong.&lt;/p>
+&lt;h2 id="memory">Memory&lt;/h2>
+&lt;p>Bacon ipsum dolor sit amet t-bone doner shank drumstick, pork belly porchetta chuck sausage brisket ham hock rump pig. Chuck kielbasa leberkas, pork bresaola ham hock filet mignon cow shoulder short ribs biltong.&lt;/p>
+&lt;h3 id="ram-to-use">RAM to use&lt;/h3>
+&lt;p>Bacon ipsum dolor sit amet t-bone doner shank drumstick, pork belly porchetta chuck sausage brisket ham hock rump pig. Chuck kielbasa leberkas, pork bresaola ham hock filet mignon cow shoulder short ribs biltong.&lt;/p>
+&lt;h3 id="more-is-better">More is better&lt;/h3>
+&lt;p>Bacon ipsum dolor sit amet t-bone doner shank drumstick, pork belly porchetta chuck sausage brisket ham hock rump pig. Chuck kielbasa leberkas, pork bresaola ham hock filet mignon cow shoulder short ribs biltong.&lt;/p>
+&lt;h3 id="used-ram">Used RAM&lt;/h3>
+&lt;p>Bacon ipsum dolor sit amet t-bone doner shank drumstick, pork belly porchetta chuck sausage brisket ham hock rump pig. Chuck kielbasa leberkas, pork bresaola ham hock filet mignon cow shoulder short ribs biltong.&lt;/p>
+&lt;pre>&lt;code>This is the final element on the page and there should be no margin below this.
+&lt;/code>&lt;/pre>&lt;h2 id="including-images">Including images&lt;/h2>
+&lt;p>Here&amp;rsquo;s an image (&lt;code>featured-sunset-get.png&lt;/code>) that includes a byline and a caption.&lt;/p>
+&lt;div class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 610px">
+&lt;img class="card-img-top" src="/blog/sample/sample-post/featured-sunset-get_hu69849a7cdb847c2393a7b3a7f6061c86_387442_600x300_fill_catmullrom_smart1_2.png" width="600" height="300">
+&lt;div class="card-body px-0 pt-2 pb-0">
+&lt;p class="card-text">
 Fetch and scale an image in the upcoming Hugo 0.43.
-&lt;small class=&#34;text-muted&#34;&gt;&lt;br/&gt;Photo: Riona MacNamara / CC-BY-CA&lt;/small&gt;&lt;/p&gt;
-	&lt;/div&gt;
-	
-&lt;/div&gt;
-&lt;p&gt;The front matter of this post specifies properties to be assigned to all image resources:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;resources:
+&lt;small class="text-muted">&lt;br/>Photo: Riona MacNamara / CC-BY-CA&lt;/small>&lt;/p>
+&lt;/div>
+&lt;/div>
+&lt;p>The front matter of this post specifies properties to be assigned to all image resources:&lt;/p>
+&lt;pre>&lt;code>resources:
 - src: &amp;quot;**.{png,jpg}&amp;quot;
-  title: &amp;quot;Image #:counter&amp;quot;
-  params:
-    byline: &amp;quot;Photo: Riona MacNamara / CC-BY-CA&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;To include the image in a page, specify its details like this:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;
-
-
-
-
-
-
-&lt;div class=&#34;card rounded p-2 td-post-card mb-4 mt-4&#34; style=&#34;max-width: 610px&#34;&gt;
-	&lt;img class=&#34;card-img-top&#34; src=&#34;/blog/sample/sample-post/featured-sunset-get_hu69849a7cdb847c2393a7b3a7f6061c86_387442_600x300_fill_catmullrom_smart1_2.png&#34; width=&#34;600&#34; height=&#34;300&#34;&gt;
-	
-	&lt;div class=&#34;card-body px-0 pt-2 pb-0&#34;&gt;
-		&lt;p class=&#34;card-text&#34;&gt;
+title: &amp;quot;Image #:counter&amp;quot;
+params:
+byline: &amp;quot;Photo: Riona MacNamara / CC-BY-CA&amp;quot;
+&lt;/code>&lt;/pre>&lt;p>To include the image in a page, specify its details like this:&lt;/p>
+&lt;pre>&lt;code>
+&lt;div class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 610px">
+&lt;img class="card-img-top" src="/blog/sample/sample-post/featured-sunset-get_hu69849a7cdb847c2393a7b3a7f6061c86_387442_600x300_fill_catmullrom_smart1_2.png" width="600" height="300">
+&lt;div class="card-body px-0 pt-2 pb-0">
+&lt;p class="card-text">
 Fetch and scale an image in the upcoming Hugo 0.43.
-&lt;small class=&#34;text-muted&#34;&gt;&lt;br/&gt;Photo: Riona MacNamara / CC-BY-CA&lt;/small&gt;&lt;/p&gt;
-	&lt;/div&gt;
-	
-&lt;/div&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;The image will be rendered at the size and byline specified in the front matter.&lt;/p&gt;
-&lt;hr&gt;
-
-      </description>
-    </item>
-    
-  </channel>
-</rss>
+&lt;small class="text-muted">&lt;br/>Photo: Riona MacNamara / CC-BY-CA&lt;/small>&lt;/p>
+&lt;/div>
+&lt;/div>
+&lt;/code>&lt;/pre>&lt;p>The image will be rendered at the size and byline specified in the front matter.&lt;/p>
+&lt;hr></description></item></channel></rss>

@@ -1,18 +1,1 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>SKT Open Source – 오픈소스 선택 시 고려사항</title>
-    <link>/guide/use/choose/</link>
-    <description>Recent content in 오픈소스 선택 시 고려사항 on SKT Open Source</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>ko-kr</language>
-    
-	  <atom:link href="/guide/use/choose/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-      
-        
-      
-    
-    
-  </channel>
-</rss>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SKT Open Source – 오픈소스 선택 시 고려사항</title><link>/guide/use/choose/</link><description>Recent content in 오픈소스 선택 시 고려사항 on SKT Open Source</description><generator>Hugo -- gohugo.io</generator><language>ko-kr</language><atom:link href="/guide/use/choose/index.xml" rel="self" type="application/rss+xml"/></channel></rss>

@@ -1,18 +1,1 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>SKT Open Source – 기여하기에 좋은 프로젝트 확인 방법</title>
-    <link>/guide/contribute/background/good-project/</link>
-    <description>Recent content in 기여하기에 좋은 프로젝트 확인 방법 on SKT Open Source</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>ko-kr</language>
-    
-	  <atom:link href="/guide/contribute/background/good-project/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-      
-        
-      
-    
-    
-  </channel>
-</rss>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SKT Open Source – 기여하기에 좋은 프로젝트 확인 방법</title><link>/guide/contribute/background/good-project/</link><description>Recent content in 기여하기에 좋은 프로젝트 확인 방법 on SKT Open Source</description><generator>Hugo -- gohugo.io</generator><language>ko-kr</language><atom:link href="/guide/contribute/background/good-project/index.xml" rel="self" type="application/rss+xml"/></channel></rss>
