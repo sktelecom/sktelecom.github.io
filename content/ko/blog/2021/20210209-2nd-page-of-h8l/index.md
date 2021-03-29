@@ -1,7 +1,7 @@
 ---
 date: 2021-02-09
-title: "The 2nd Page Of H8l"
-linkTitle: "The 2nd Page Of H8l"
+title: "The 2nd Page of H8l"
+linkTitle: "H8l 2nd Page"
 description: "How to run SRT streaming services"
 author: Justin Kim ([@justinjoy](https://github.com/justinjoy))
 resources:
