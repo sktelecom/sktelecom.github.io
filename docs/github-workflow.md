@@ -2,6 +2,15 @@
 
 웹사이트 개발을 위한 Git Workflow를 설명합니다. 
 
+- [Git Workflow](#git-workflow)
+  - [Step 1. Fork](#step-1-fork)
+  - [Step 2. Clone](#step-2-clone)
+  - [Step 3. Fetch and Rebase](#step-3-fetch-and-rebase)
+  - [Step 4. 개발용 Branch 생성](#step-4-개발용-branch-생성)
+  - [Step 5. Commit](#step-5-commit)
+  - [Step 6. Push](#step-6-push)
+  - [Step 7. Create a Pull Request](#step-7-create-a-pull-request)
+
 ![git-workflow.png](./github-workflow.png)
 
 ## Step 1. Fork

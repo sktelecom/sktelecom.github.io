@@ -1,8 +1,14 @@
 # 오픈소스 블로그 작성하기
 
-SK텔레콤 오픈소스 포털 웹사이트 > 메뉴 > **[Blog](https://sktelecom.github.io/blog/)** 에는 오픈소스 블로그를 작성할 수 있습니다. 
+오픈소스 블로그를 작성하여 SK텔레콤 오픈소스 포털 웹사이트 > 메뉴 > [Blog](https://sktelecom.github.io/blog/) 등록할 수 있습니다. 
 
-* 작성한 블로그는 일반적인 [GitHub workflow에](./github-workflow.md) 따라 제출할 수 있습니다. 
+- [오픈소스 블로그 작성하기](#오픈소스-블로그-작성하기)
+  - [소스 코드 다운로드](#소스-코드-다운로드)
+  - [블로그 소스 코드 위치 확인](#블로그-소스-코드-위치-확인)
+  - [블로그 작성하기](#블로그-작성하기)
+  - [수정 사항 확인하기](#수정-사항-확인하기)
+  - [영문 페이지 반영하기](#영문-페이지-반영하기)
+  - [수정 사항 반영 요청하기](#수정-사항-반영-요청하기)
 
 ## 소스 코드 다운로드
 
@@ -10,15 +16,13 @@ SK텔레콤 오픈소스 포털 웹사이트 > 메뉴 > **[Blog](https://sktelec
 
 ## 블로그 소스 코드 위치 확인
 
-[블로그](https://sktelecom.github.io/blog/) 내용에 대한 코드는 다음 디렉토리에 위치합니다. 
+블로그의 소스 코드는 다음 디렉토리에 위치합니다. 
 
 ```
 $ cd content/ko/blog/
 $ ls
 2020		2021		_index.md	sample
 ```
-
-여기에는 하나의 [_index.md](../content/ko/blog/_index.md) 파일과 연도별 디렉토리가 있습니다. 
 
 ## 블로그 작성하기
 
@@ -31,9 +35,7 @@ $ cp -R ../sample/sample-post/ ./2021-03-30-title
 
 생성한 디렉토리 내에는 기본적으로 index.md 파일이 있어야 합니다. 그리고, 블로그 작성에 필요한 이미지 파일 등을 위치시킵니다. 
 
-index.md 파일은 Markdown 형태이며 상단의 헤더 영역과 본문 영역으로 구분됩니다. 
-
-### 헤더 영역
+index.md 파일은 Markdown 형태이며 상단의 헤더 영역과 본문 영역으로 구분되며, 헤더 영역은 다음과 같이 구성됩니다,
 
 ```
 ---
@@ -59,10 +61,8 @@ resources:
 * author : 저자 정보이며, 블로그 상단에 **By Riona MacNamara (@rionam) **와 같은 형태로 표시됩니다. (예: [Sample blog post](https://sktelecom.github.io/blog/sample/sample-post/)
 * resource : 블로그 본문에서 사용할 이미지 파일에 대한 정보를 작성합니다. 세부 내용은 [hugo의 Image Processing 기능을 사용하여 보여주기](./attach-file-image.md#hugo의-image-processing-기능을-사용하여-보여주기) 부분을 참고하세요. 
 
-그리고, 블로그 본문을 Markdown 문법에 맞추어 작성합니다. 필요에 따라 파일과 그림을 첨부합니다. 
 
-* [파일 첨부와 그림 보여주기](./attach-file-image.md)
-
+헤더 영역을 작성 후 블로그 본문을 Markdown 문법에 맞추어 작성합니다. 필요에 따라 파일과 그림을 첨부합니다. : [파일 첨부와 그림 보여주기](./attach-file-image.md)
 
 ## 수정 사항 확인하기
 
