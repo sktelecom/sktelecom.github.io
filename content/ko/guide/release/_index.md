@@ -29,5 +29,5 @@ SK텔레콤의 오픈소스 공개 Rule에 따라 오픈소스 공개를 위한 
 ---
 
 {{% alert title="문의" color="success" %}}
-오픈소스 공개 시 문의/요청은 OSPO에 연락하라: [Support (opensource@sk.com)](https://link-removed/)
+오픈소스 공개 시 문의/요청은 OSPO에 연락하라: [Support (opensource@sktelecom.com)](https://link-removed/)
 {{% /alert %}}
