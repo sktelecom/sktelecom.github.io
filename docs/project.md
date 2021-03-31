@@ -12,7 +12,7 @@ SK텔레콤 오픈소스 포털 웹사이트에서는 [SK텔레콤이 공개한 
 
 ## 소스 코드 다운로드
 
-* [GitHub workflow에](./github-workflow.md)의 Step 1~4를 수행하여 SK텔레콤 오픈소스 포털 웹사이트의 소스 코드를 로컬 PC에 다운로드합니다. 
+* [GitHub workflow](./github-workflow.md)의 Step 1~4를 수행하여 SK텔레콤 오픈소스 포털 웹사이트의 소스 코드를 로컬 PC에 다운로드합니다. 
 
 ## 오픈소스 프로젝트 소스 코드 위치 확인
 
