@@ -122,7 +122,7 @@ RSSLink = "/index.xml"
 author = "SK telecom" # add your company name
 github = "sktelecom" # add your github profile name
 twitter = "sktelecom" # add your twitter profile
-email = "opensource@sk.com"
+email = "opensource@sktelecom.com"
 
 copyright = "SK TELECOM CO., LTD."
 privacy_policy = "https://privacy.sktelecom.com/"
@@ -171,7 +171,7 @@ no = 'Sorry to hear that. Please <a href="https://github.com/sktelecom/sktelecom
 #         desc = "SK telecom Instagram"
 [[params.links.user]]
 	name = "Mail to OSPO"
-	url = "mailto:opensource@sk.com"
+	url = "mailto:opensource@sktelecom.com"
 	icon = "fa fa-envelope"
         desc = "Discussion and help from your fellow users"
 # [[params.links.user]]

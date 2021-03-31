@@ -50,4 +50,4 @@ SK텔레콤의 오픈소스 공개 가이드는 다음 링크를 참고한다.
 
 ## Contact
 
-SK텔레콤 OSPO에는 [opensource@sk.com](opensource@sk.com)으로 연락할 수 있다. 
+SK텔레콤 OSPO에는 [opensource@sktelecom.com](opensource@sktelecom.com)으로 연락할 수 있다. 

@@ -50,4 +50,4 @@ For SK telecom's open source release guide, refer to the following link.
 
 ## Contact
 
-SK telecom OSPO can be contacted at [opensource@sk.com] (opensource@sk.com).
+SK telecom OSPO can be contacted at [opensource@sktelecom.com] (opensource@sktelecom.com).

@@ -23,7 +23,7 @@ SK텔레콤의 오픈소스 기여 규칙에 따라 구성원은 외부 오픈�
 하나의 오픈소스 프로젝트에 기여를 시작하기 전에 소속 조직의 담당 임원 혹은 리더에게 승인을 받는다. 
 
 ## 2. OSPO Review 요청
-조직 내 승인을 받은 후에는 OSPO(Open Source Program Office)에 리뷰를 요청한다. : [Support (opensource@sk.com)](https://link-removed/)
+조직 내 승인을 받은 후에는 OSPO(Open Source Program Office)에 리뷰를 요청한다. : [Support (opensource@sktelecom.com)](https://link-removed/)
 
 * 리뷰 요청 시에는 다음 내용을 포함한다. : [Template]
   * 오픈소스 프로젝트 이름

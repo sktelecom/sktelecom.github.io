@@ -75,5 +75,5 @@ SK텔레콤 오픈소스 정책 및 부서별  R&R과 검증 프로세스는 다
 ---
 
 {{% alert title="문의" color="success" %}}
-오픈소스 사용 시 문의/요청은 OSPO에 연락하라: [Support (opensource@sk.com)](https://link-removed/)
+오픈소스 사용 시 문의/요청은 OSPO에 연락하라: [Support (opensource@sktelecom.com)](https://link-removed/)
 {{% /alert %}}
