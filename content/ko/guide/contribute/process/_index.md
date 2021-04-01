@@ -23,7 +23,7 @@ SK텔레콤의 오픈소스 기여 규칙에 따라 구성원은 외부 오픈�
 하나의 오픈소스 프로젝트에 기여를 시작하기 전에 소속 조직의 담당 임원 혹은 리더에게 승인을 받는다. 
 
 ## 2. OSPO Review 요청
-조직 내 승인을 받은 후에는 OSPO(Open Source Program Office)에 리뷰를 요청한다. : [Support (opensource@sktelecom.com)](https://link-removed/)
+조직 내 승인을 받은 후에는 OSPO(Open Source Program Office)에 리뷰를 요청한다. : [Support (opensource@sktelecom.com)](https://sktelecom.github.io/about/contact/)
 
 * 리뷰 요청 시에는 다음 내용을 포함한다. : [Template]
   * 오픈소스 프로젝트 이름
@@ -49,7 +49,7 @@ SK텔레콤의 오픈소스 기여 규칙에 따라 구성원은 외부 오픈�
 그렇기 때문에 기여하고자 하는 프로젝트의 프로세스를 제대로 이해하기 위해서는 우선 프로젝트에서 제공하는 문서를 잘 확인해야 한다. 대개의 프로젝트는 CONTRIBUTING 또는 README 파일로 이러한 문서를 제공한다. 예를 들어, Kubernetes는 기여자를 위한 자세한 가이드를 제공한다. ([contributing.md](https://github.com/kubernetes/community/blob/master/contributors/guide/contributing.md) : Kubernetes에 기여하기 위한 가이드) 문서에서 요구하는 사항을 잘 준수할수록 우리의 기여가 수락될 가능성이 커진다.
 
 ## 4. 오픈소스 기여 Rule 준수
-[SK텔레콤 오픈소스 기여 Rule](/guide/contribute/contribute-rule)을 확인하고 이에 따라 기여할 코드를 개선한다. 
+[SK텔레콤 오픈소스 기여 Rule](/guide/contribute/rule)을 확인하고 이에 따라 기여할 코드를 개선한다. 
 
 ## 5. 기여 제출
 이제 프로젝트의 문서에서 요구하는 절차에 따라 기여를 제출한다. 일반적인 오픈소스 프로젝트에 기여하는 방법은 다음 페이지를 참고하라. 

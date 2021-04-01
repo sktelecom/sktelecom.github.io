@@ -52,6 +52,6 @@ SK텔레콤 OSPO(Open Source Program Office, 2021년 2월 기준, T3K ESG Tech P
 
 {{% alert title="Contacts" color="success" %}}
 오픈소스 가이드와 관련하여 문의/요청이 있는 분은 SK텔레콤 OSPO에 연락주시기 바랍니다. 
-* [Support (opensource@sktelecom.com)](https://link-removed/)
+* [Support (opensource@sktelecom.com)](https://sktelecom.github.io/about/contact/)
 {{% /alert %}}
 
