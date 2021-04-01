@@ -72,7 +72,7 @@ MongoDB는 AGPL을 "[듀얼 라이선스](http://monty-says.blogspot.com/2009/08
 
 ## 무상 사용<sub>Strip-mining</sub>
 
-클라우드 이용이 GPL 모델을 "파괴<sub>broken</sub>"시켰던 것처럼, 2010년대 클라우드 컴퓨팅이 발전하면서 AGPL 듀얼 라이선스 모델도 압박을 받기 시작하였다. 이번에는 문제가 달랐다. GPL 또는 AGPL의 범위는 하나의 단일 실행 가능 프로그램<sub>single program executable</sub>까지만 확장된다. 이 "기능"은 저작권 라이선스가 단일 저작물에 대해서만 사용 조건을 지정할 수 있다는 이론에 따라 GPL에서 의도적으로 설계된 것이었다. 즉, GPL은 파생 저작물<sub>derivative work</sub>에 대한 소스 코드 공유 요건을 갖지만, 집합 저작물<sub>collective work</sub>에 대해서는 아니다. 법적으로 이 둘 간의 경게는 상당히 불분명하지만 GPL이 인기를 얻으면서 단일 프로그램이란 하나의 실행 가능한 프로세스라고 정의하는 것이 일반적인 관행이 되었다. 자유소프트웨어재단<sub>Free Software Foundation</sub>은 [GPL FAQ](https://www.gnu.org/licenses/gpl-faq.en.html#MereAggregation)에서 오랫동안 이런 원칙을 주장해왔다. 
+클라우드 이용이 GPL 모델을 "파괴<sub>broken</sub>"시켰던 것처럼, 2010년대 클라우드 컴퓨팅이 발전하면서 AGPL 듀얼 라이선스 모델도 압박을 받기 시작하였다. 이번에는 문제가 달랐다. GPL 또는 AGPL의 범위는 하나의 단일 실행 가능 프로그램<sub>single program executable</sub>까지만 확장된다. 이 "기능"은 저작권 라이선스가 단일 저작물에 대해서만 사용 조건을 지정할 수 있다는 이론에 따라 GPL에서 의도적으로 설계된 것이었다. 즉, GPL은 파생 저작물<sub>derivative work</sub>에 대한 소스 코드 공유 요건을 갖지만, 집합 저작물<sub>collective work</sub>에 대해서는 아니다. 법적으로 이 둘 간의 경계는 상당히 불분명하지만 GPL이 인기를 얻으면서 단일 프로그램이란 하나의 실행 가능한 프로세스라고 정의하는 것이 일반적인 관행이 되었다. 자유소프트웨어재단<sub>Free Software Foundation</sub>은 [GPL FAQ](https://www.gnu.org/licenses/gpl-faq.en.html#MereAggregation)에서 오랫동안 이런 원칙을 주장해왔다. 
 
 하지만 클라우드 서비스가 발전하면서 두 가지 일이 발생하였다. 첫째, 소프트웨어 엔지니어링을 클라우드 구현에 더욱 집중하게 되었다. 클라우드 공급 업체는 한때 클라우드 환경에서 실행하기 위한 소프트웨어를 개선하거나 수정해야 했던 반면, 소프트웨어 엔지니어링이 발전하면서 클라우드 공급 업체는 기존 오픈소스 소프트웨어를 "플러그 앤드 플레이<sub>plug and play</sub>"형태로 사용할 수 있게 되었다. 그러다 보니 클라우드 공급 업체는 혁신의 주체를 주요 실행 파일이 아닌 곳으로 변화할 수 있었다. 그들은 소프트웨어를 관리, 모니터링 및 배포하기 위한 소프트웨어를 추가로 개발했으며, 이러한 혁신은 클라우드 서비스를 키울 수 있었다. AGPL은 클라우드 공급 업체의 이러한 개선사항에 대해서는 이를 공유하도록 강제하는 데 아무런 도움이 되지 않았다.
 
