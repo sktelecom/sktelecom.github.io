@@ -23,7 +23,7 @@ resources:
 > 여하튼 시대가 변하며 소프트웨어 배포 방식이 바뀌는 상황에 따라 상용 오픈소스 기업들이 개발과 사업을 병행하기 위해 어떤 라이선스 모델을 도입해야 할지 고민해야 했고, Elastic License가 나온 배경에 대한 한 측면을 이해하는 데 도움이 되는 글이라 생각합니다. 
 > 글에 오류가 있다면 언제든 [연락](https://haksungjang.github.io/)해주세요. :-)
 > 
-> * 감수에 도움 주신 카카오의 [Sean](https://www.linkedin.com/in/%EC%98%81%ED%99%98-%EA%B9%80-4069b5135/) 그리고 [Robin](https://www.linkedin.com/in/hwang-minho/)에게 깊은 감사 드립니다. 
+> * 감수에 도움 주신 카카오의 [Sean](https://www.linkedin.com/in/%EC%98%81%ED%99%98-%EA%B9%80-4069b5135/), [Robin](https://www.linkedin.com/in/hwang-minho/) 그리고 LG전자의 [김경애](https://www.linkedin.com/in/kyoungae-kim-597a1630)님에게 깊은 감사 드립니다. 
 
 ---
 
@@ -185,7 +185,7 @@ Elastic의 선택은 SSPL과 Elastic License 2.0의 두 가지 무료 라이선�
 
 ## Elastic License 2.0과 최신 라이선스 기술
 
-Elasticsearch는 사용자와 개발자 모두에게 공정하고 지속 가능한 비즈니스 모델을 유지하면서 가능한 한 개방성을 유지하기 위해 새로운 라이선스 모델로 전환하였다. 그렇게 함으로써 소스 공개 운동<sub>source-available movement</sub>에 참여한 다른 참여자들의 목표와 추구하는 바를 라이선스 작성 시를 반영하였다. 
+Elasticsearch는 사용자와 개발자 모두에게 공정하고 지속 가능한 비즈니스 모델을 유지하면서 가능한 한 개방성을 유지하기 위해 새로운 라이선스 모델로 전환하였다. 그렇게 함으로써 소스 공개 운동<sub>source-available movement</sub>에 참여한 다른 참여자들의 목표와 추구하는 바를 라이선스 작성 시 반영하였다. 
 
 [라이선스 변경에 대한 FAQ](https://www.elastic.co/licensing/elastic-license/faq)에서 요약한 바와 같이 Elastic의 라이선스 변경은 고객이나 커뮤니티 사용자 수에 영향을 미치지 않을 것으로 예상된다. 대부분의 사용자는 Elastic의 소프트웨어를 기반으로 애플리케이션을 구축한다. 이는 "제3자에게 호스팅 또는 관리 서비스<sub>as a hosted or managed Service</sub>로 제공"하는 비즈니스가 아니기 때문이다.
 
