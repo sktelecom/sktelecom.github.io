@@ -37,7 +37,7 @@ Elastic License 2.0은 개방형 개발 모델<sub>Open Development Model</sub>�
 
 Elastic License 2.0과 같은 새로운 라이선스의 추세를 이해하려면 오픈소스 라이선스 운동이 어떻게 성장했는지 살펴보는 것이 도움이 된다. 
 
-오픈소스와 자유소프트웨어<sub>Free Software</sub> 운동은 소프트웨어가 사유화되는 것에 대한 개발자의 우려에서 시작되었다. 이러한 우려의 불씨는 당시 가장 인기있는 운영체제인 유닉스였다. 수년간 유닉스는 매우 관대한 조건 하의 라이선스가 적용되었다. 이는 1956년 동의령<sub>consent decree</sub>이 유닉스의 개발사인 AT&T Bell Labs가 유닉스 및 C언어를 포함하는 연구 프로젝트로 이익 얻는 것을 금지했었기 때문이다[^decree]. 학계, 연구자, 개발자들은 수정/개선 사항을 공유하기 시작했고, 유닉스는 곧 운영체제 분야의 선두가 되었다. 1983년 동의령이 해제되자 AT&T는 수정 사항의 공유를 허용하지 않는 상용 조항을 적용하기 시작하였다. 이에 따라 유닉스는 많은 호환되지 않는 종류로 쪼개졌고, 라이선스 사용자들은 더 이상 협업할 수 없게 되었다. 
+오픈소스와 자유소프트웨어<sub>Free Software</sub> 운동은 소프트웨어가 사유화되는 것에 대한 개발자의 우려에서 시작되었다. 이러한 우려의 불씨는 당시 가장 인기있는 운영체제인 유닉스였다. 유닉스의 개발사인 AT&T Bell Labs은 1956년의 동의령<sub>consent decree</sub>에 따라 유닉스 및 C언어를 포함하는 연구 프로젝트로 이익 얻는 것을 금지[^decree] 당했으며, 이때문에 수년간 매우 관대한 조건의 라이선스로 유닉스를 배포하였다. 학계, 연구자, 개발자들은 유닉스를 수정/개선하여 공유하기 시작했고, 유닉스는 곧 운영체제 분야의 선두가 되었다. 하지만, 1983년 동의령이 해제되자 AT&T는 유닉스에 수정 사항 공유를 허용하지 않는 조항을 적용하였다. 이에 따라 각 업체별로 각자 수정한 운영체제를 사용하며 유닉스는 많은 호환되지 않는 종류로 쪼개졌으며, 사용자들은 더 이상 협업할 수 없게 되었다. 
 
 [^decree]: "Modification of Final Judgment," August 24, 1982, filed in case 82-0192, United States of America v. Western Electric Company, Incorporated, and American Telephone and Telegraph Company, U.S. District Court for the District of Columbia [web.archive.org/web/20060827191354/members.cox](http://web.archive.org/web/20060827191354/members.cox.net/hwilkerson/documents/AT&T_Consent_Decree.pdf).
 
@@ -68,7 +68,7 @@ AGPL은 첫 번째 릴리스부터 논란이 있었다. 2007년, GPL 3.0 초안 
 
 > AGPL 3.0의 Remote Network Interaction 조항은 프로그램을 변경하였을 때에 한하여 변경 사항의 소스 코드를 컴퓨터 네트워크를 통한 원격 사용자에게 제공해야 합니다. 즉, 변경하지 않는다면 소스 코드 공개 의무가 발생하지 않습니다. 
 
-MongoDB는 AGPL을 "[듀얼 라이선스](http://monty-says.blogspot.com/2009/08/thoughts-about-dual-licensing-open.html)" 비즈니스 모델의 한 축으로 사용하였다. 사용자<sub>licensee</sub>에게 AGPL 또는 상용 소프트웨어 라이선스 중 하나를 선택할 수 있게 하였다. AGPL의 요구사항을 준수하고 싶지 않거나 준수할 수 있는지 확인하기 위한 법적 분석에 관여하고 싶지 않은 사람들은 상용 라이선스를 선택하게 하였다. 이 비즈니스 모델은 MySQL이 GPL을 이용하는 방식으로 개발되었으나 시간이 지나면서 GPL 대신 AGPL이 듀얼 라이선스 모델을 위해 주로 사용되는 라이선스가 되었다. MongoDB의 이 라이선스 모델은 상당히 성공적이었다. AGPL은 가장 강력한 카피레프트 라이선스였기 때문에 상업적인 협상을 추진하는 데 유용하였다. 그러나, AGPL의 작성자들은 이 사업모델이 [해로운](http://ebb.org/bkuhn/blog/) 갈취<sub>toxic shakedown</sub>라면서 라이선스의 사용을 비판하였다. 그럼에도 불구하고 AGPL의 소스 코드 공유 조건은 개발자나 사용자 커뮤니티에 아무것도 돌려주지 않는 방식으로 대규모의 상업적 사용을 막기에는 충분하지 않았다. 
+MongoDB는 "[듀얼 라이선스](http://monty-says.blogspot.com/2009/08/thoughts-about-dual-licensing-open.html)" 비즈니스 모델로 AGPL을 사용하였다. 사용자<sub>licensee</sub>에게 AGPL 또는 상용 소프트웨어 라이선스 중 하나를 선택하게 하였다. 사용자는 AGPL의 요구사항을 준수하고 싶지 않거나 준수하기 위한 법적인 검토조차 관여하고 싶지 않다면 상용 라이선스를 선택하였다. 이러한 MongoDB의 듀얼 라이선스 비즈니스 모델은 원래 GPL과 상용 라이선스를 선택하게 하는 방식으로 개발되었으나 시간이 지나면서 GPL 대신 보다 카피레프트 범위를 확장한 AGPL이 사용되었다. MongoDB의 이 라이선스 모델은 상당히 성공적이었다. AGPL은 가장 강력한 카피레프트 라이선스였기 때문에 MongoDB가 상업적인 협상을 추진하는 데 유용하였다. 한편, AGPL을 만든 이들은 AGPL이 MongoDB의 사업 수단으로 사용되는 모습이 [유해한 갈취](http://ebb.org/bkuhn/blog/)<sub>toxic shakedown</sub>라면서 비판하기도 하였다. 여하튼, 그렇게 강력하다고 평가 받던 AGP의 소스 코드 공유 조건도 클라우드 공급 업체가 오픈소스를 대규모로 상업적인 사용을 하면서 개발자나 커뮤니티에 아무것도 되돌려 주지 않는 행위를 막기에는 충분하지 않았다.
 
 ## 무상 사용<sub>Strip-mining</sub>
 
@@ -129,7 +129,7 @@ using the Service Source Code you make available. [emphasis added].
 
 이 라이선스는 무상 사용 문제에 대응하기 위한 오픈소스 솔루션을 만들기 위해 작성되었다. 소스 코드 공유 요구 사항은 AGPL의 요구 사항보다 훨씬 광범위하다. 이러한 요구 사항의 범위는 분산 소프트웨어에 대해서도 GPL 요구 사항과 유사하게 작동하도록 설계되었다. [MongoDB는 SSPL 또는 상용 라이선스](https://www.mongodb.com/community/licensing)에 따라 소프트웨어를 사용할 수 있는 듀얼 라이선스 모델을 적용하였다. 
 
-MongoDB는 SSPL을 [OSI<sub>Open Source Initiative</sub>](https://opensource.org/approval)에 승인받기 위해 제출하였다. 수개월 간의 논쟁 끝에 승인을 받지는 못하였지만, MongoDB는 듀얼 라이선스 모델의 오픈소스 선택지로 SSPL을 계속 사용하고 있다. 이 라이선스가 [오픈소스 정의](https://opensource.org/osd)<sub>Open Source Definition</sub>에 적합하지 않은 이유에 대한 논의는 복잡했으며, 이 정의를 충족하는 것만이 유일한 기준은 아니었다. 요약하자면, 이렇게 광범위한 소스 공유 요구 사항을 가진 라이선스가 "[소프트웨어 자유를 보장](https://opensource.org/approval)"할지가 분명하지 않았다. 
+MongoDB는 SSPL을 [OSI](https://opensource.org/approval)<sub>Open Source Initiative</sub>에 승인받기 위해 제출하였다. 수개월 간의 논쟁 끝에 승인을 받지는 못하였지만, MongoDB는 듀얼 라이선스 모델의 오픈소스 선택지로 SSPL을 계속 사용하고 있다. 이 라이선스가 [오픈소스 정의](https://opensource.org/osd)<sub>Open Source Definition</sub>에 적합하지 않은 이유에 대한 논의는 복잡했으며, 이 정의를 충족하는 것만이 유일한 기준은 아니었다. 요약하자면, 이렇게 광범위한 소스 공유 요구 사항을 가진 라이선스가 "[소프트웨어 자유를 보장](https://opensource.org/approval)"할지가 분명하지 않았다. 
 
 ### 제한 조건을 갖는 소스 공개 라이선스
 
@@ -167,7 +167,7 @@ any functionality in the software that is protected by the license key.
 
 첫 번째 제한은 무상 사용 문제를 해결하는 데 초점이 맞춰져 있다. 이로써 이 제한을 위반하여 소프트웨어를 사용하면 소프트웨어의 권한을 침해하게 된다. 
 
-두 번째 제한은 소프트웨어 라이선스 키의 해킹을 금지하기 위한 것이다. 이러한 제한은 소프트웨어 라이선스에서는 오랫동안 일반적이었지만 소스 공개 라이선스에서는 이제 막 사용이 시작되었다. 이러한 조항을 통해 개발자는 소프트웨어와 상호 작용하는 유료 서비스를 실행하거나 유료 기능을 위해 소프트웨어 구성 요소 일부를 저장할 수 있게 되었다. 
+두 번째 제한은 소프트웨어 라이선스 키의 해킹을 금지하기 위한 것이다. 이러한 제한은 소프트웨어 라이선스에서는 오래전부터 일반적이었으나, 소스 공개 라이선스에서는 이제 막 사용되기 시작하였다. 이 조항을 통해 개발자는 유료 서비스를 ELv2하의 소프트웨어와 상호 작용하게 하거나, 유료 기능을 위한 소프트웨어 구성 요소 일부를 보호할 수 있게 되었다. 
 
 이 라이선스의 다른 조항들은 매우 간단하며 오픈소스 라이선스를 읽은 사람이라면 누구나 익숙할 것이다.
 
