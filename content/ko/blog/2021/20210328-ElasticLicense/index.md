@@ -37,7 +37,7 @@ Elastic License 2.0은 개방형 개발 모델<sub>Open Development Model</sub>�
 
 Elastic License 2.0과 같은 새로운 라이선스의 추세를 이해하려면 오픈소스 라이선스 운동이 어떻게 성장했는지 살펴보는 것이 도움이 된다. 
 
-오픈소스와 자유소프트웨어<sub>Free Software</sub> 운동은 소프트웨어가 사유화되는 것에 대한 개발자의 우려에서 시작되었다. 이러한 우려의 불씨는 당시 가장 인기있는 운영체제인 유닉스였다. 유닉스의 개발사인 AT&T Bell Labs은 1956년의 동의령<sub>consent decree</sub>에 따라 유닉스 및 C언어를 포함하는 연구 프로젝트로 이익 얻는 것을 금지[^decree] 당했으며, 이때문에 수년간 매우 관대한 조건의 라이선스로 유닉스를 배포하였다. 학계, 연구자, 개발자들은 유닉스를 수정/개선하여 공유하기 시작했고, 유닉스는 곧 운영체제 분야의 선두가 되었다. 하지만, 1983년 동의령이 해제되자 AT&T는 유닉스에 수정 사항 공유를 허용하지 않는 조항을 적용하였다. 이에 따라 각 업체별로 각자 수정한 운영체제를 사용하며 유닉스는 많은 호환되지 않는 종류로 쪼개졌으며, 사용자들은 더 이상 협업할 수 없게 되었다. 
+오픈소스와 자유소프트웨어<sub>Free Software</sub> 운동은 소프트웨어가 사유화되는 것에 대한 개발자의 우려에서 시작되었다. 이러한 우려의 불씨는 당시 가장 인기있는 운영체제인 유닉스였다. 유닉스의 개발사인 AT&T Bell Labs은 1956년의 동의령<sub>consent decree</sub>에 따라 유닉스 및 C언어를 포함하는 연구 프로젝트로 이익 얻는 것을 금지[^decree] 당했으며, 이때문에 수년간 매우 관대한 조건의 라이선스로 유닉스를 배포하였다. 학계, 연구자, 개발자들은 유닉스를 수정/개선하여 공유하기 시작했고, 유닉스는 곧 운영체제 분야의 선두가 되었다. 하지만, 1983년 동의령이 해제되자 AT&T는 유닉스에 수정 사항 공유를 허용하지 않는 조항을 적용하였다. 이에 따라 각 업체별로 각자 수정한 운영체제를 사용하며 유닉스는 많은 호환되지 않는 종류로 쪼개졌고, 사용자들은 더 이상 협업할 수 없게 되었다. 
 
 [^decree]: "Modification of Final Judgment," August 24, 1982, filed in case 82-0192, United States of America v. Western Electric Company, Incorporated, and American Telephone and Telegraph Company, U.S. District Court for the District of Columbia [web.archive.org/web/20060827191354/members.cox](http://web.archive.org/web/20060827191354/members.cox.net/hwilkerson/documents/AT&T_Consent_Decree.pdf).
 
