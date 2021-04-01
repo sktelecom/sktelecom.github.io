@@ -26,7 +26,7 @@
 &lt;h3 id="7-리더쉽을-배울-수-있다">7. 리더쉽을 배울 수 있다&lt;/h3>
 &lt;p>오픈소스에서는 팀 구성, 갈등 해결 및 우선순위 조정과 같은 리더십과 관리 기술을 배울 수 있다. 오픈소스 프로젝트에서 공동 작업을 하려면 누군가에게 업무 수행 방식을 설명해야 하고, 다른 사람들에게 도움을 요청해야 할 일이 있다. 이렇게 배우고 가르치는 일을 통해 리더쉽을 경험하고, 성취감을 맛보게 된다.&lt;/p></description></item><item><title>Guide: SK텔레콤 오픈소스 기여 Rule</title><link>/guide/contribute/rule/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/guide/contribute/rule/</guid><description>
 &lt;p>SK텔레콤은 오픈소스 커뮤니티와의 협업의 가치를 존중하고, 이를 위해 구성원의 외부 오픈소스 프로젝트로의 기여를 장려한다. 하지만, SK텔레콤의 지식재산 보호와 의도치 않은 저작권 침해를 방지하기 위해 준수해야 할 몇가지 규칙이 있다.&lt;/p>
-&lt;p>어느 것이라도 무언가 바람직하지 않아 보이는 상황이 있다면 주저하지 말고 OSPO에 문의하라. :&lt;a href="https://link-removed/">Support (opensource@sktelecom.com)&lt;/a>&lt;/p>
+&lt;p>어느 것이라도 무언가 바람직하지 않아 보이는 상황이 있다면 주저하지 말고 OSPO에 문의하라. :&lt;a href="https://sktelecom.github.io/about/contact/">Support (opensource@sktelecom.com)&lt;/a>&lt;/p>
 &lt;h2 id="승인을-받아라">승인을 받아라&lt;/h2>
 &lt;p>오픈소스 기여는 저작권 관점에서 저작자가 저작물을 수정/사용/배포할 수 있는 권한을 오픈소스 프로젝트에 부여하는 것이다. 때에 따라서는 오픈소스 프로젝트에 여러분의 저작권을 양도해야 하기도 한다. 그런데 일반적으로 고용 기간에 만든 저작물의 저작권은 고용주가 소유한다. 즉, SK텔레콤 구성원이 만든 저작물은 SK텔레콤이 소유한다. 구성원이 임의로 저작물을 오픈소스에 기여하는 행위는 불필요한 저작권 침해 이슈를 유발시킬 수 있다.&lt;/p>
 &lt;p>따라서, 기여하고자 하는 오픈소스 프로젝트가 있다면 SK텔레콤 오픈소스 기여 정책에 따라 최초 기여하기 전에 리뷰 요청 및 승인 절차를 따른다.&lt;/p>
@@ -80,7 +80,7 @@ SPDX-License-Identifier: {$SPDX_license_name}
 &lt;h2 id="1-소속-조직-내부-승인">1. 소속 조직 내부 승인&lt;/h2>
 &lt;p>하나의 오픈소스 프로젝트에 기여를 시작하기 전에 소속 조직의 담당 임원 혹은 리더에게 승인을 받는다.&lt;/p>
 &lt;h2 id="2-ospo-review-요청">2. OSPO Review 요청&lt;/h2>
-&lt;p>조직 내 승인을 받은 후에는 OSPO(Open Source Program Office)에 리뷰를 요청한다. : &lt;a href="https://link-removed/">Support (opensource@sktelecom.com)&lt;/a>&lt;/p>
+&lt;p>조직 내 승인을 받은 후에는 OSPO(Open Source Program Office)에 리뷰를 요청한다. : &lt;a href="https://sktelecom.github.io/about/contact/">Support (opensource@sktelecom.com)&lt;/a>&lt;/p>
 &lt;ul>
 &lt;li>리뷰 요청 시에는 다음 내용을 포함한다. : [Template]
 &lt;ul>
@@ -107,7 +107,7 @@ SPDX-License-Identifier: {$SPDX_license_name}
 &lt;/ul>
 &lt;p>그렇기 때문에 기여하고자 하는 프로젝트의 프로세스를 제대로 이해하기 위해서는 우선 프로젝트에서 제공하는 문서를 잘 확인해야 한다. 대개의 프로젝트는 CONTRIBUTING 또는 README 파일로 이러한 문서를 제공한다. 예를 들어, Kubernetes는 기여자를 위한 자세한 가이드를 제공한다. (&lt;a href="https://github.com/kubernetes/community/blob/master/contributors/guide/contributing.md">contributing.md&lt;/a> : Kubernetes에 기여하기 위한 가이드) 문서에서 요구하는 사항을 잘 준수할수록 우리의 기여가 수락될 가능성이 커진다.&lt;/p>
 &lt;h2 id="4-오픈소스-기여-rule-준수">4. 오픈소스 기여 Rule 준수&lt;/h2>
-&lt;p>&lt;a href="/guide/contribute/contribute-rule">SK텔레콤 오픈소스 기여 Rule&lt;/a>을 확인하고 이에 따라 기여할 코드를 개선한다.&lt;/p>
+&lt;p>&lt;a href="/guide/contribute/rule">SK텔레콤 오픈소스 기여 Rule&lt;/a>을 확인하고 이에 따라 기여할 코드를 개선한다.&lt;/p>
 &lt;h2 id="5-기여-제출">5. 기여 제출&lt;/h2>
 &lt;p>이제 프로젝트의 문서에서 요구하는 절차에 따라 기여를 제출한다. 일반적인 오픈소스 프로젝트에 기여하는 방법은 다음 페이지를 참고하라.&lt;/p>
 &lt;ul>
