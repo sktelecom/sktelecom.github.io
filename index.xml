@@ -1,4 +1,29 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SKT Open Source – Open Source at SK telecom</title><link>/</link><description>Recent content in Open Source at SK telecom on SKT Open Source</description><generator>Hugo -- gohugo.io</generator><language>ko-kr</language><atom:link href="/index.xml" rel="self" type="application/rss+xml"/><item><title>Blog: Elastic License 2.0 그리고 진화하는 오픈소스 라이선스</title><link>/blog/2021/20210328-elasticlicense/</link><pubDate>Sun, 28 Mar 2021 00:00:00 +0000</pubDate><guid>/blog/2021/20210328-elasticlicense/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SKT Open Source – Open Source at SK telecom</title><link>/</link><description>Recent content in Open Source at SK telecom on SKT Open Source</description><generator>Hugo -- gohugo.io</generator><language>ko-kr</language><atom:link href="/index.xml" rel="self" type="application/rss+xml"/><item><title>Blog: SRT Alliance Welcomes SKT to the SRT Open Source Video Streaming Project</title><link>/blog/news/20210330-srtalliance/</link><pubDate>Tue, 30 Mar 2021 00:00:00 +0000</pubDate><guid>/blog/news/20210330-srtalliance/</guid><description>
+&lt;img src="/blog/news/20210330-srtalliance/featured-srtalliance_hu6199ebb984ef2b4f6e640f692ae06d0d_22052_640x0_resize_q75_catmullrom.jpg" width="640" height="360"/>
+&lt;div class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 610px">
+&lt;img class="card-img-top" src="/blog/news/20210330-srtalliance/featured-srtalliance_hu6199ebb984ef2b4f6e640f692ae06d0d_22052_600x300_fill_q75_catmullrom_smart1.jpg" width="600" height="300">
+&lt;div class="card-body px-0 pt-2 pb-0">
+&lt;p class="card-text">
+Image credit: SRT Alliance
+&lt;/p>
+&lt;/div>
+&lt;/div>
+&lt;p>&lt;strong>MONTREAL, CANADA – March 30, 2021&lt;/strong> – The &lt;a href="https://www.srtalliance.org/">SRT Alliance&lt;/a>, established by &lt;a href="http://www.haivision.com/">Haivision&lt;/a> (TSX: HAI), a leading global provider of mission-critical, real-time video streaming and networking solutions, today announced that SK Telecom (hereinafter referred to as “SKT”), Korea’s largest wireless telecommunications operator, has joined the SRT Alliance to support and adopt the SRT open source protocol.&lt;/p>
+&lt;p>SRT (Secure Reliable Transport) is a free open source video transport protocol and technology stack originally developed and pioneered by Haivision that enables the delivery of high-quality and secure, low latency video across the public internet. With over 450 members in the SRT Alliance and widespread industry adoption, SRT is the fastest growing open source streaming project.&lt;/p>
+&lt;p>SKT has implemented SRT for the secure and reliable transport of real-time low latency video over 5G networks, a first for the SRT Alliance. It is also actively working with Haivision to establish SRT as the industry standard in the IETF. Through its 5G MEC-based security video system development project named Hwangsaeul, SKT has already achieved 4K streaming over 5G networks with SRT and is currently developing an intelligent bandwidth-aware streaming technology suitable for challenging network environments.&lt;/p>
+&lt;p>“We are delighted to join the SRT Alliance. We will utilize SRT to develop secure and reliable ultra-low latency real-time video streaming solutions so as to provide our customers with differentiated value and experience,” said Kim Jeong-seok, manager, Smart Space &amp;amp; Care Technology Development Team, SKT.&lt;/p>
+&lt;p>“SKT’s use of SRT over 5G networks is another big step forward for the Alliance and as an emerging standard for anyone delivering live video over public internet,” said Suso Carrillo, Director of the SRT Alliance for Haivision. “We are very proud to have SKT as a member of the SRT Alliance and be the first member to implement the open source SRT protocol for 5G network delivery.”&lt;/p>
+&lt;h2 id="about-the-srt-alliance">About the SRT Alliance&lt;/h2>
+&lt;p>The SRT Alliance is a collaborative community of industry leaders and developers striving to achieve lower latency internet video transport by continuously improving SRT, an open source video transport protocol and technology stack. Originally developed and pioneered by Haivision, SRT optimizes streaming performance across unpredictable networks with secure streams and easy firewall traversal, bringing the best quality live video over the worst networks. Haivision was awarded an Emmy® for Technology and Engineering from the National Academy of Television Arts and Sciences for developing the SRT protocol. For more information about the project and how to join the SRT Alliance, visit srtalliance.org.&lt;/p>
+&lt;h2 id="director-srt-alliance">Director SRT Alliance &lt;/h2>
+&lt;p>Jesús (Suso) Carrillo&lt;br>
++34 649 801 593&lt;br>
+&lt;a href="mailto:director@srtalliance.org">director@srtalliance.org&lt;/a>&lt;br>
+&lt;a href="mailto:suso@haivision.com">suso@haivision.com&lt;/a>&lt;/p>
+&lt;hr>
+&lt;blockquote>
+&lt;p>Origin : &lt;a href="https://www.srtalliance.org/sk-telecom-joins-srt-alliance/">https://www.srtalliance.org/sk-telecom-joins-srt-alliance/&lt;/a>&lt;/p>
+&lt;/blockquote></description></item><item><title>Blog: Elastic License 2.0 그리고 진화하는 오픈소스 라이선스</title><link>/blog/2021/20210328-elasticlicense/</link><pubDate>Sun, 28 Mar 2021 00:00:00 +0000</pubDate><guid>/blog/2021/20210328-elasticlicense/</guid><description>
 &lt;img src="/blog/2021/20210328-elasticlicense/featured-scale_hu0adce3c464c6f6e27493d0d0745cd5d4_35813_640x0_resize_catmullrom_2.png" width="640" height="612"/>
 &lt;hr>
 &lt;blockquote>
@@ -143,7 +168,36 @@ It describes a software model where software:
 &lt;p>Open source licenses can contain conditions, such as notices or source code sharing. But these are not limitations that tell you what you cannot do with software, they only require that if you elect to do certain things, you also must do others. &lt;a href="#fnref:3" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
 &lt;/ol>
-&lt;/section></description></item><item><title>Blog: The 2nd Page of H8l</title><link>/blog/2021/20210209-2nd-page-of-h8l/</link><pubDate>Tue, 09 Feb 2021 00:00:00 +0000</pubDate><guid>/blog/2021/20210209-2nd-page-of-h8l/</guid><description>
+&lt;/section></description></item><item><title>Blog: SK텔레콤, 초저지연 영상전송기술 오픈소스 공개</title><link>/blog/news/20210308-hwangsaeul/</link><pubDate>Mon, 08 Mar 2021 00:00:00 +0000</pubDate><guid>/blog/news/20210308-hwangsaeul/</guid><description>
+&lt;img src="/blog/news/20210308-hwangsaeul/featured-structure_hu987d9e4157edc27f079c66674ea0d98e_27305_640x0_resize_q75_catmullrom.jpeg" width="640" height="413"/>
+&lt;div class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 610px">
+&lt;img class="card-img-top" src="/blog/news/20210308-hwangsaeul/featured-structure_hu987d9e4157edc27f079c66674ea0d98e_27305_600x300_fill_q75_catmullrom_smart1.jpeg" width="600" height="300">
+&lt;div class="card-body px-0 pt-2 pb-0">
+&lt;p class="card-text">
+우아한형제들 실외 자율주행 배달로봇 딜리드라이브. [사진=SK텔레콤 제공]
+&lt;/p>
+&lt;/div>
+&lt;/div>
+&lt;p>SK텔레콤이 배달의민족 자율주행로봇 &amp;lsquo;딜리드라이브&amp;rsquo;에 활용한 5세대(5G) 이동통신용 초저지연 영상전송기술이 공개됐다. 다른 기업의 개발자들이 이 기술을 SK텔레콤의 5G망과 함께 활용하면 딜리드라이브처럼 실외 영상촬영 데이터를 빠르게 수집·처리해야 하는 유형의 응용 서비스를 더 쉽게 개발하고 실험할 수 있게 된다.&lt;/p>
+&lt;p>8일 현재 SK텔레콤은 영상전송기술 &amp;lsquo;황새울(hwangsaeul)&amp;rsquo; 프로젝트 정보와 소스코드를 오픈소스 소프트웨어(SW) 공유 웹사이트 &amp;lsquo;깃허브(GitHub)&amp;lsquo;에서 제공하고 있다. 오픈소스는 SW를 소유한 기업·개발자가 그 코드를 다른 개발자가 쓸 수 있게 공개한 것이다.&lt;/p>
+&lt;p>황새울 프로젝트는 일종의 클라우드 기반 영상 중계 프로그램이다. 흩어진 여러 장소에서 촬영되는 실시간 영상 데이터를 전송해 하나의 서비스에서 효율적으로 기록·활용할 수 있게 해주는 SW다. 무선통신 구간의 지연시간을 없앤 5G망의 이점을 극대화해, 영상 데이터를 빠르게 모아서 효율적으로 전송하는 데 초점을 맞췄다.
+특히 이 SW는 통신 품질의 변수가 많은 실외에서 최적 속도를 얻는 데 초점을 맞춰 개발됐다. 통신 문제를 알아채기 위해 시시각각 데이터를 분석하고, 필요시 영상 화질을 떨어뜨리더라도 실시간 전송 속도를 보장하는 식으로 서비스가 동작하도록 만들 수 있다. 5G망 기지국이 소규모 클라우드 역할을 하는 5G 모바일에지컴퓨팅(MEC) 기술과 어울린다.&lt;/p>
+&lt;p>SK텔레콤 측은 공식 블로그를 통해 &amp;ldquo;황새울 프로젝트는 SRT(Secure Reliable Transport) 전송이 가능한 영상감시 카메라의 대규모 배포 환경을 지원하기 위해 설계됐는데, 우리는 무인항공기(UAV)와 무인지상차량(UGV)과 같은 분야로 전환시 훨씬 더 큰 잠재력이 있음을 알게 됐다&amp;quot;며 &amp;ldquo;이 새로운 분야에 최적화하기 위해 황새울 프로젝트의 전반적인 형태를 변경했다&amp;quot;고 설명하고 있다.&lt;/p>
+&lt;p>황새울 프로젝트의 설계와 개발에 참여한 영국 오픈소스 전문기업 &amp;lsquo;콜라보라&amp;rsquo;는 SK텔레콤이 배달의민족 서비스를 운영하는 우아한형제들과 함께 실험 중인 자율주행로봇 테스트에도 이 초저지연 영상전송 기술이 함께 쓰였다고 소개했다. 양사는 작년부터 SK텔레콤의 5G MEC와 우아한형제들의 스마트로봇 서비스를 접목한 무인유통시스템 구축에 협력해 왔다.&lt;/p>
+&lt;p>SK텔레콤은 작년 8월 우아한형제들과 손잡고 배달로봇에 5G MEC 기술을 적용해 자율주행 안정성과 원격관제 효율성을 높였다. 황새울 프로젝트는 이처럼 5G MEC 기술과 함께 초고속 실시간 영상데이터 처리가 필요한 실외 자율주행, 영상관제, 드론 비행·운영 등 서비스를 구현하는 외부 개발자들의 수고를 덜어 줄 수 있다.&lt;/p>
+&lt;p>황새울 프로젝트는 SK텔레콤의 5G MEC 인프라를 활용하는 영상기반 5G 융합서비스의 실현을 돕는 촉매가 될 수 있다. 작년 12월 SK텔레콤은 5G MEC 인프라를 아마존웹서비스로 활용할 수 있는 &amp;lsquo;SKT 5GX 에지&amp;rsquo;를 상용화하며 자율주행, 스마트 의료, 로봇배송, 원격 관제, 화상회의, 실감형 콘텐츠, 돌봄 등 여러 서비스의 실증을 진행해 왔다고 밝혔다.&lt;/p>
+&lt;div class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 610px">
+&lt;img class="card-img-top" src="/blog/news/20210308-hwangsaeul/featured-structure_hu987d9e4157edc27f079c66674ea0d98e_27305_600x300_fill_q75_catmullrom_smart1.jpeg" width="600" height="300">
+&lt;div class="card-body px-0 pt-2 pb-0">
+&lt;p class="card-text">
+[그래픽=김효곤 기자]
+&lt;/p>
+&lt;/div>
+&lt;/div>
+&lt;hr>
+&lt;blockquote>
+&lt;p>기사 출처 : &lt;a href="https://www.ajunews.com/view/20210308115656420">https://www.ajunews.com/view/20210308115656420&lt;/a>&lt;/p>
+&lt;/blockquote></description></item><item><title>Blog: The 2nd Page of H8l</title><link>/blog/2021/20210209-2nd-page-of-h8l/</link><pubDate>Tue, 09 Feb 2021 00:00:00 +0000</pubDate><guid>/blog/2021/20210209-2nd-page-of-h8l/</guid><description>
 &lt;img src="/blog/2021/20210209-2nd-page-of-h8l/featured-diagram_hu0ebf613d48f3584022125dc29e10620b_117033_640x0_resize_catmullrom_2.png" width="640" height="426"/>
 &lt;h1 id="the-2nd-page-of-hwangsaeul-project">The 2nd page of Hwangsaeul project&lt;/h1>
 &lt;p>It&amp;rsquo;s been almost a year and half since Jakub posted the &lt;a href="https://www.collabora.com/news-and-blog/news-and-events/low-latency-streaming-of-security-feeds-with-srt-and-gstreamer.html">installation document&lt;/a> of Hwangsaeul (a.k.a H8L) project. The project members are still rush to develop the project for the various use cases. Although the H8L project is originally designed to support the massive deployment of video surveillance cameras which enable SRT transmission, we found that there is much more potential when we switch the domain to UAV(Unmanned Areial Viehicle) and UGV(Unmanned Ground Vehicle). Therefore, we had to change the overall shape of H8L to optimize for the new targets.&lt;/p>
