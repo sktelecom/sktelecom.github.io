@@ -11,7 +11,7 @@ resources:
   byline:
 ---
 
-{{< imgproc structure Fill "600x300" >}}
+{{< imgproc 20210308121349363500 Fill "600x300" >}}
 우아한형제들 실외 자율주행 배달로봇 딜리드라이브. [사진=SK텔레콤 제공]
 {{< /imgproc >}}
 
