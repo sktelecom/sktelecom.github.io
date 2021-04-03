@@ -85,10 +85,8 @@ id = "UA-189808797-2"
 title = "SKT Open Source"
 description = "Open Source Software at SK telecom" 
 languageName ="Korean"
-# time_format_default = "2006.02.01"
-# time_format_blog = "2006.02.01"
-time_format_blog = "Monday, January 02, 2006"
-time_format_default = "January 2, 2006"
+time_format_default = "2006년 1일 2월"
+time_format_blog = "2006년 1일 2월"
 # Weight used for sorting.
 weight = 2
 
@@ -98,6 +96,8 @@ description = "Open Source Software at SK telecom"
 languageName ="English"
 # Weight used for sorting in the language menu:
 contentDir = "content/en"
+time_format_blog = "Monday, January 02, 2006"
+time_format_default = "January 2, 2006"
 weight = 1
 
 # Below is an example of another language (Norwegian):
@@ -106,8 +106,6 @@ weight = 1
 #description = "Docsy er operativsystem for skyen"
 #languageName ="Norsk"
 #contentDir = "content/no"
-time_format_default = "02.01.2006"
-time_format_blog = "02.01.2006"
 
 # Site params
 
