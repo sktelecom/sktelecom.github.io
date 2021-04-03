@@ -5,10 +5,10 @@ linkTitle: "SRT Alliance Welcomes SKT"
 description: "SK Telecom becomes the first SRT Alliance member to apply SRT for enhanced 5G video streaming services"
 author: Jesús (Suso) Carrillo
 resources:
-- src: "**.{png,jpg}"
+- src: "**.{png,jpg,jpeg}"
   title: "Image #:counter"
   params:
-  byline: "SRT Alliance"
+    byline: "SRT Alliance"
 ---
 
 {{< imgproc srtalliance Fill "600x300" >}}

@@ -2,13 +2,16 @@
 date: 2021-03-08
 title: "SK텔레콤, 초저지연 영상전송기술 오픈소스 공개"
 linkTitle: "초저지연 영상전송기술 오픈소스 공개"
-description: "클라우드 영상중계 기술 '황새울' 프로젝트 5G MEC로 초저지연 영상전송 서비스 지원, 배달의민족 배달 로봇 '딜리드라이브' 적용 자율주행·드론 등 실외 5G 융합서비스 촉매"
+description: "클라우드 영상중계 기술 '황새울' 프로젝트<br>
+5G MEC로 초저지연 영상전송 서비스 지원<br>
+배달의민족 배달 로봇 '딜리드라이브' 적용<br>
+자율주행·드론 등 실외 5G 융합서비스 촉매"
 author: 임민철 기자
 resources:
-- src: "**.{png,jpg}"
+- src: "**.{png,jpg,jpeg}"
   title: "Image #:counter"
   params:
-  byline:
+    byline: "아주경제"
 ---
 
 {{< imgproc 20210308121349363500 Fill "600x300" >}}
