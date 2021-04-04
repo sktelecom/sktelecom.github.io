@@ -10,10 +10,10 @@ resources:
     byline: "Bloter&Media"
 ---
 
-클라우드 서비스 아마존웹서비스(Amazon Web Services, 이하 AWS)와 SK텔레콤은 양사 협력을 통해 한국어 자연어 처리를 위한 GPT-2(Generative Pretrained Transformer-2) 모델(이하, KoGPT-2)을 공개했다고 4월28일 밝혔다.
+SK텔레콤과 AWS는 양사 NLP 지식과 학습 경험을 기반으로 KoGPT-2 모델을 학습시켰다. SK텔레콤이 제공한 한국어 데이터셋과 AWS 서비스를 활용해 한국어 모델을 개발, 학습했다.
 
-양사에 따르면 GPT-2는 머신러닝(ML) 알고리즘을 활용해 입력된 샘플 텍스트를 분석해 구문론적, 문법적, 정보적 일관성을 갖춘 텍스트로 완성하고 생성하는 자연어 처리 모델이다. 한국어로 학습된 오픈소스 기반 GPT-2 모델인 KoGPT-2는 일반적인 질문에 대한 응답 생성, 문장 완성, 챗봇 등 한국어 해석이 요구되는 다양한 애플리케이션의 머신러닝 성능을 향상시킬 수 있다.
+KoGPT-2는 수정 MIT 라이선스(Modified MIT License) 아래 SKT AIX 센터 깃허브 저장소(https://github.com/SKT-AI/KoGPT2)에서 이용 가능하다.
 
 ---
 
-기사 원문에서 전체 내용을 확인하세요. : https://www.bloter.net/newsView/blt202004280010
+자세한 내용은 기사 원문에서 확인하세요. : https://www.bloter.net/newsView/blt202004280010
