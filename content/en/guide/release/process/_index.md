@@ -69,7 +69,7 @@ SK텔레콤은 소프트웨어를 오픈소스로 공개 시 기본적으로 [Ap
 참고로, GitHub에서는 오픈소스 공개 시 라이선스 선택에 대한 가이드를 제공하고 있다. : https://choosealicense.com
 
 {{% alert title="문의" color="warning" %}}
-만약, 이외의 다른 라이선스를 선택해야 할 상황이라면 OSPO(Open Source Program Office)에 문의하라. : [Support (opensource@sktelecom.com)](https://sktelecom.github.io/about/contact/)
+만약, 이외의 다른 라이선스를 선택해야 할 상황이라면 OSPO<sub>Open Source Program Office</sub>에 문의하라. : [Support (opensource@sktelecom.com)](https://sktelecom.github.io/about/contact/)
 {{% /alert %}}
 
 #### CLA 결정
@@ -96,7 +96,7 @@ SK텔레콤은 첨부의 CLA를 사용하고 있다. SK텔레콤 템플릿
 #### 3rd party 코드 정리
 프로젝트에 3rd party 코드를 포함해야 하는 경우라면, 즉, SK텔레콤이 저작권을 갖고 있지 않은 코드를 프로젝트에 포함해야 한다면 먼저 SK텔레콤이 재배포할 수 있는 권한이 있는지 확인하라. 이미 오픈소스 라이선스가 적용된 코드라면 라이선스 의무를 준수하는 조건으로 재배포할 수 있다. 
 
-* 재배포할 수 있는 권한 확인에 대한 도움이 필요하다면 OSPO(Open Source Program Office)에 문의하라. : [Support (opensource@sktelecom.com)](https://sktelecom.github.io/about/contact/)
+* 재배포할 수 있는 권한 확인에 대한 도움이 필요하다면 OSPO<sub>Open Source Program Office</sub>에 문의하라. : [Support (opensource@sktelecom.com)](https://sktelecom.github.io/about/contact/)
 
 SK텔레콤이 재배포할 수 있는 3rd party 코드인 경우, 기존 코드와는 다른 디렉토리(예: third_party)에 위치시킨다. 이는 라이선스 관점에서 프로젝트의 투명성을 증대시키며, 향후 사용자도 3rd party 코드를 쉽게 찾게 찾게 되어 정확한 라이선스 요구사항을 준수할 수 있게 한다.
 

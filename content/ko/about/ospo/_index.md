@@ -7,7 +7,7 @@ description: >
   Open Source Program Office
 ---
 
-SK텔레콤은 OSPO (Open Source Program Office)를 설립하여 오픈소스 거버넌스 체계를 구축할 뿐만 아니라 ICT 기업으로서 성공을 위한 오픈소스 전략을 수립하고 이를 실행하는데 필요한 정책, 프로세스 구축 및 자동화 도구를 제공한다. 
+SK텔레콤은 OSPO<sub>Open Source Program Office</sub>를 설립하여 오픈소스 거버넌스 체계를 구축할 뿐만 아니라 ICT 기업으로서 성공을 위한 오픈소스 전략을 수립하고 이를 실행하는데 필요한 정책, 프로세스 구축 및 자동화 도구를 제공한다. 
 
 {{% alert title="Open Source Program" color="success" %}}
 오픈소스 프로그램이란 기업이 오픈소스의 활용을 효과적으로 관리하여 (1) 라이선스 위반 리스크는 감소시키면서 (2) 최고의 가치를 창출하기 위한 프로그램을 의미한다. 오픈소스 프로그램은 오픈소스 정책과 절차, 그리고 이를 자동화/효율화할 수 있는 도구를 마련하는 일이 포함된다. 

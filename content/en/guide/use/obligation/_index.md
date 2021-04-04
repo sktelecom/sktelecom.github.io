@@ -24,7 +24,7 @@ CC0, Public Domain과 같이 아무런 제한 없이 무료로 사용할 수 있
 * [Unlicense](http://unlicense.org/)
 
 {{% alert title="Public Domain" color="warning" %}}
-단, Public Domain이라고 선언된 소프트웨어라도 사례별로 법적 검토가 필요한 복잡한 문제가 내재되어 있을 수 있다. 사용하려는 코드가 Public Domain인지 확인이 필요하다면 OSPO(Open Source Program Office)에 문의하라.   
+단, Public Domain이라고 선언된 소프트웨어라도 사례별로 법적 검토가 필요한 복잡한 문제가 내재되어 있을 수 있다. 사용하려는 코드가 Public Domain인지 확인이 필요하다면 OSPO<sub>Open Source Program Office</sub>에 문의하라.   
 * [Support (opensource@sktelecom.com)](https://sktelecom.github.io/about/contact/)
 {{% /alert %}}
 
@@ -135,7 +135,7 @@ AGPL, SSPL은 Network 서비스도 배포로 간주하여 의무사항 준수를
 * AGPL (GNU Affero General Public License)
 * SSPL (Server Side Public License)
 
-이러한 라이선스 하의 오픈소스를 반드시 포함해야 하는 경우라면 OSPO(Open Source Program Office)에 포함할 수 있는 방법을 문의하라. : [Support (opensource@sktelecom.com)](https://sktelecom.github.io/about/contact/)
+이러한 라이선스 하의 오픈소스를 반드시 포함해야 하는 경우라면 OSPO<sub>Open Source Program Office</sub>에 포함할 수 있는 방법을 문의하라. : [Support (opensource@sktelecom.com)](https://sktelecom.github.io/about/contact/)
 
 ### 이외 언급하지 않은 라이선스
-위에서 분류되지 않은 라이선스가 적용된 오픈소스를 SK텔레콤의 제품에 사용하기 위해서는 사전 검토가 필요하다. OSPO(Open Source Program Office)에 사용 가능 여부를 문의하라. : [Support (opensource@sktelecom.com)](https://sktelecom.github.io/about/contact/)
+위에서 분류되지 않은 라이선스가 적용된 오픈소스를 SK텔레콤의 제품에 사용하기 위해서는 사전 검토가 필요하다. OSPO<sub>Open Source Program Office</sub>에 사용 가능 여부를 문의하라. : [Support (opensource@sktelecom.com)](https://sktelecom.github.io/about/contact/)

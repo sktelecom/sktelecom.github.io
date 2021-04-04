@@ -7,7 +7,7 @@ description: >
   Open Source Program Office
 ---
 
-SK telecom established OSPO (Open Source Program Office). OSPO establishes an open source governance system, establishes an open source strategy for success as an ICT company, and provides policies, processes and automation tools necessary to implement it.
+SK telecom established OSPO<sub>Open Source Program Office</sub>. OSPO establishes an open source governance system, establishes an open source strategy for success as an ICT company, and provides policies, processes and automation tools necessary to implement it.
 
 {{% alert title="Open Source Program" color="success" %}}
 The open source program means a program in which a company effectively manages open source, (1) reduces the risk of license violation, and (2) creates the best value. Open source programs include open source policies and processes, as well as providing tools to automate/efficient them.
