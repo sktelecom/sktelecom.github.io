@@ -140,117 +140,418 @@ at no charge to all third parties under the terms of this License.
 &lt;/div>
 &lt;h2 id="아무-조건-없이-사용-가능한-라이선스">아무 조건 없이 사용 가능한 라이선스&lt;/h2>
 &lt;p>CC0, Public Domain과 같이 아무런 제한 없이 무료로 사용할 수 있는 라이선스가 있다. ‌&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="http://creativecommons.org/publicdomain/zero/1.0/">Creative Commons CC0 (public domain dedication)&lt;/a>&lt;/li>
-&lt;li>&lt;a href="http://cr.yp.to/qmail/dist.html">qmail Terms of Distribution&lt;/a>&lt;/li>
-&lt;li>&lt;a href="http://unlicense.org/">Unlicense&lt;/a>&lt;/li>
-&lt;/ul>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Full name&lt;/th>
+&lt;th style="text-align:left">&lt;a href="https://spdx.org/licenses/">Identifier&lt;/a>&lt;/th>
+&lt;th style="text-align:center">사용 사례별 가이드&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;a href="http://creativecommons.org/publicdomain/zero/1.0/">&lt;code>Creative Commons Zero v1.0 Universal&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:left">&lt;a href="https://spdx.org/licenses/CC0-1.0.html">&lt;code>CC0-1.0&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:center">&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;a href="http://unlicense.org/">&lt;code>The Unlicense&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:left">&lt;a href="https://spdx.org/licenses/Unlicense.html">&lt;code>Unlicense&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:center">&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
 &lt;div class="alert alert-warning" role="alert">
 &lt;h4 class="alert-heading">Public Domain&lt;/h4>
-&lt;p>단, Public Domain이라고 선언된 소프트웨어라도 사례별로 법적 검토가 필요한 복잡한 문제가 내재되어 있을 수 있다. 사용하려는 코드가 Public Domain인지 확인이 필요하다면 OSPO(Open Source Program Office)에 문의하라.&lt;/p>
+&lt;p>단, Public Domain이라고 선언된 소프트웨어라도 사례별로 법적 검토가 필요한 복잡한 문제가 내재되어 있을 수 있다. 사용하려는 코드가 Public Domain인지 확인이 필요하다면 OSPO&lt;sub>Open Source Program Office&lt;/sub>에 문의하라.&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://sktelecom.github.io/about/contact/">Support (opensource@sktelecom.com)&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;/div>
 &lt;h2 id="수월하게-사용-가능한-라이선스">수월하게 사용 가능한 라이선스&lt;/h2>
-&lt;p>오픈소스 라이선스의 고지 의무는 비교적 수월하게 준수할 수 있다. Permissive License라고 분류할 수 있는 아래의 오픈소스 라이선스는 수월하게 사용 가능하다.&lt;/p>
+&lt;p>Permissive License라고 분류할 수 있는 아래의 오픈소스 라이선스는 고지 의무를 요구한다. 오픈소스 라이선스의 고지 의무는 비교적 수월하게 준수할 수 있다. &lt;/p>
 &lt;ul>
-&lt;li>Academic Free License: &lt;a href="http://web.archive.org/web/20060428203736/http://opensource.org/licenses/afl-2.1.php">AFL 2.1&lt;/a> and &lt;a href="http://opensource.org/licenses/AFL-3.0">AFL 3.0&lt;/a>&lt;/li>
-&lt;li>&lt;a href="http://apache.org/licenses/LICENSE-2.0">Apache License 2.0&lt;/a>&lt;/li>
-&lt;li>&lt;a href="http://opensource.org/licenses/artistic-license-1.0">Artistic License 1.0&lt;/a> and &lt;a href="http://opensource.org/licenses/artistic-license-2.0">Artistic License 2.0&lt;/a>&lt;/li>
-&lt;li>&lt;a href="http://apache.org/licenses/LICENSE-1.1">ASL 1.1&lt;/a> (Apache Software License 1.1)&lt;/li>
-&lt;li>&lt;a href="http://usa.autodesk.com/adsk/servlet/item?siteID=123112&amp;amp;id=5522878">Autodesk DWF Toolkit&lt;/a>&lt;/li>
-&lt;li>&lt;a href="http://www.boost.org/users/license.html">Boost Software License&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://opensource.org/licenses/bsd-license.php">BSD (occasionally referred to as the “University of California” license)&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://opensource.org/licenses/BSD-3-Clause">BSD 3-clause (sometimes called BSD-new)&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://opensource.org/licenses/BSDplusPatent">BSD + Patent&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://web.archive.org/web/20190806093009/https://fedoraproject.org/wiki/Licensing:BSD#AES_Variant">BSD - AES variant&lt;/a>&lt;/li>
-&lt;li>&lt;a href="http://creativecommons.org/licenses/">Creative Commons “Attribution” (CC BY) license&lt;/a>&lt;/li>
-&lt;li>&lt;em>JSON License&lt;/em> (MIT license with the added note: “The Software shall be used for Good, not Evil.”)&lt;/li>
-&lt;li>&lt;a href="https://www.eclipse.org/org/documents/edl-v10.php">Eclipse Distribution License (BSD variant)&lt;/a>&lt;/li>
-&lt;li>&lt;a href="http://freetype.sourceforge.net/FTL.TXT">FreeType Project License&lt;/a>&lt;/li>
-&lt;li>&lt;a href="http://opensource.org/licenses/ISC">ISC License&lt;/a>&lt;/li>
-&lt;li>&lt;a href="http://bazaar.launchpad.net/~tom-gall/libjpeg-turbo/trunk/view/1/README">libjpeg-turbo&lt;/a>&lt;/li>
-&lt;li>&lt;a href="http://www.remotesensing.org/libtiff/misc.html">LibTIFF&lt;/a>&lt;/li>
-&lt;li>&lt;a href="http://cm.bell-labs.com/plan9/license.html">Lucent Public License 1.02 (used by Plan 9 now, but different from “the Plan 9 license”)&lt;/a>&lt;/li>
-&lt;li>&lt;a href="http://opensource.org/licenses/MS-PL">Microsoft Public License (MS-PL)&lt;/a>&lt;/li>
-&lt;li>&lt;a href="http://opensource.org/licenses/mit-license.php">MIT/X11/Expat&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://web.archive.org/web/20190922104304/https://fedoraproject.org/wiki/Licensing:MIT?rd=Licensing/MIT#CMU_Style">MIT adapted by CMU&lt;/a>&lt;/li>
-&lt;li>&lt;a href="http://opensource.org/licenses/UoI-NCSA.php">NCSA&lt;/a>&lt;/li>
-&lt;li>&lt;a href="http://www.openssl.org/source/license.html">OpenSSL&lt;/a>&lt;/li>
-&lt;li>&lt;a href="http://www.php.net/license/2_02.txt">PHP License 2.02&lt;/a> and &lt;a href="http://www.php.net/license/3_0.txt">3.0&lt;/a>&lt;/li>
-&lt;li>&lt;em>PostgreSQL License&lt;/em>&lt;/li>
-&lt;li>&lt;a href="https://web.archive.org/web/20190921164759/http://www.pythonware.com/products/pil/license.htm">Python Imaging Library (PIL) License&lt;/a>&lt;/li>
-&lt;li>&lt;a href="http://www.blackberry.com/support/blackberrypresenter/opensourcefiles/LICENSE-BSD-LIBWRAP.TXT">TCP Wrappers&lt;/a>&lt;/li>
-&lt;li>&lt;a href="http://www.python.org/download/releases/2.3.2/license/">Python Software Foundation&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://web.archive.org/web/20190804123932/http://www.stlport.org/doc/license.html">STLport License&lt;/a>&lt;/li>
-&lt;li>&lt;a href="http://www.blackberry.com/support/blackberrypresenter/opensourcefiles/LICENSE-BSD-LIBWRAP.TXT">TCP Wrappers&lt;/a>&lt;/li>
-&lt;li>&lt;a href="http://www.unicode.org/copyright.html#Exhibit1">Unicode, Inc. License Agreement - Data Files and Software&lt;/a>&lt;/li>
-&lt;li>&lt;a href="http://opensource.org/licenses/UPL">Universal Permissive License (UPL), Version 1.0&lt;/a>&lt;/li>
-&lt;li>&lt;a href="http://opensource.org/licenses/W3C.php">W3C Software license&lt;/a>&lt;/li>
-&lt;li>&lt;a href="http://opensource.org/licenses/xnet.php">X.Net&lt;/a>&lt;/li>
-&lt;li>&lt;a href="http://www.zend.com/license/2_00.txt">Zend Engine License, v2.00&lt;/a>&lt;/li>
-&lt;li>&lt;a href="http://opensource.org/licenses/zlib-license.php">zlib/libpng&lt;/a>&lt;/li>
-&lt;li>&lt;a href="http://opensource.org/licenses/zpl.php">ZPL&lt;/a>&lt;/li>
+&lt;li>이와 같이 고지 의무를 요구하는 Permissive 라이선스 하의 오픈소스를 포함하는 소프트웨어를 배포할 경우, &amp;ldquo;저작권 표시&amp;rdquo;, &amp;ldquo;라이선스 고지&amp;rdquo; 등의 의무를 준수해야 한다. (참고 : &lt;a href="../license/#%EC%A0%80%EC%9E%91%EA%B6%8C-%ED%91%9C%EC%8B%9C-%EB%B0%8F-%EB%9D%BC%EC%9D%B4%EC%84%A0%EC%8A%A4-%EA%B3%A0%EC%A7%80">저작권 표시 및 라이선스 고지&lt;/a>)&lt;/li>
+&lt;li>SK텔레콤 오픈소스 컴플라이언스 프로세스를 통해 오픈소스 고지문을 발행하고 소프트웨어 배포 시 이를 동봉하여 고지 의무를 준수할 수 있다. &lt;/li>
 &lt;/ul>
-&lt;p>이와 같이 고지 의무를 요구하는 Permissive 라이선스 하의 오픈소스를 포함하는 소프트웨어를 배포할 경우, &amp;ldquo;저작권 표시&amp;rdquo;, &amp;ldquo;라이선스 고지&amp;rdquo; 등의 의무를 준수해야 한다. 예를 들어, SK텔레콤이 배포하는 모바일 애플리케이션은 요구되는 고지 사항을 &amp;ldquo;About&amp;rdquo; 페이지를 통해 제공할 수 있다.&lt;/p>
-&lt;p>고지할 수 있는 방법은 아래의 &amp;ldquo;오픈소스 라이선스 의무 준수 활동&amp;quot;을 참고한다.&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Full name&lt;/th>
+&lt;th style="text-align:left">&lt;a href="https://spdx.org/licenses/">Identifier&lt;/a>&lt;/th>
+&lt;th style="text-align:center">사용 사례별 가이드&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;a href="http://web.archive.org/web/20060428203736/http://opensource.org/licenses/afl-2.1.php">&lt;code>Academic Free License v2.1&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:left">&lt;a href="https://spdx.org/licenses/AFL-2.1.html">&lt;code>AFL-2.1&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:center">&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;a href="http://opensource.org/licenses/AFL-3.0">&lt;code>Academic Free License v3.0&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:left">&lt;a href="https://spdx.org/licenses/AFL-3.0.html">&lt;code>AFL-3.0&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:center">&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;a href="https://opensource.org/licenses/artistic-license-1.0">&lt;code>Artistic License 1.0&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:left">&lt;a href="https://spdx.org/licenses/Artistic-1.0.html">&lt;code>Artistic-1.0&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:center">&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;a href="http://opensource.org/licenses/artistic-license-2.0">&lt;code>Artistic License 2.0&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:left">&lt;a href="https://spdx.org/licenses/Artistic-2.0.html">&lt;code>Artistic-2.0&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:center">&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;a href="http://apache.org/licenses/LICENSE-1.1">&lt;code>Apache License 1.1&lt;/code> &lt;/a>&lt;/td>
+&lt;td style="text-align:left">&lt;a href="https://spdx.org/licenses/Apache-1.1.html">&lt;code>Apache-1.1&lt;/code> &lt;/a>&lt;/td>
+&lt;td style="text-align:center">&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;a href="https://www.apache.org/licenses/LICENSE-2.0">&lt;code>Apache License 2.0&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:left">&lt;a href="https://spdx.org/licenses/Apache-2.0.html">&lt;code>Apache-2.0&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:center">&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;a href="http://www.boost.org/users/license.html">&lt;code>Boost Software License 1.0&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:left">&lt;a href="https://spdx.org/licenses/BSL-1.0.html">&lt;code>BSL-1.0&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:center">&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;a href="https://opensource.org/licenses/bsd-license.php">&lt;code>BSD 2-Clause &amp;quot;Simplified&amp;quot; License&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:left">&lt;a href="https://spdx.org/licenses/BSD-2-Clause.html">&lt;code>BSD-2-Clause&lt;/code> &lt;/a>&lt;/td>
+&lt;td style="text-align:center">&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;a href="https://opensource.org/licenses/BSD-3-Clause">&lt;code>BSD 3-Clause &amp;quot;New&amp;quot; or &amp;quot;Revised&amp;quot; License&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:left">&lt;a href="https://spdx.org/licenses/BSD-3-Clause.html">&lt;code>BSD-3-Clause&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:center">&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;a href="https://opensource.org/licenses/BSDplusPatent">&lt;code>BSD-2-Clause Plus Patent License&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:left">&lt;a href="https://spdx.org/licenses/BSD-2-Clause-Patent.html">&lt;code>BSD-2-Clause-Patent&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:center">&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;a href="https://creativecommons.org/licenses/by/4.0/">&lt;code>Creative Commons Attribution 4.0 International&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:left">&lt;a href="https://spdx.org/licenses/CC-BY-4.0.html">&lt;code>CC-BY-4.0&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:center">&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;a href="https://www.json.org/license.html">&lt;code>JSON License&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:left">&lt;a href="https://spdx.org/licenses/JSON.html">&lt;code>JSON&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:center">&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;a href="http://freetype.sourceforge.net/FTL.TXT">&lt;code>Freetype Project License&lt;/code>&lt;/a>)&lt;/td>
+&lt;td style="text-align:left">&lt;a href="https://spdx.org/licenses/FTL.html">&lt;code>FTL&lt;/code> &lt;/a>&lt;/td>
+&lt;td style="text-align:center">&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;a href="http://opensource.org/licenses/ISC">&lt;code>ISC License&lt;/code>&lt;/a>)&lt;/td>
+&lt;td style="text-align:left">&lt;a href="https://spdx.org/licenses/ISC.html">&lt;code>ISC&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:center">&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;a href="http://dev.w3.org/cvsweb/Amaya/libjpeg/Attic/README?rev=1.2">&lt;code>Independent JPEG Group License&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:left">&lt;a href="https://spdx.org/licenses/IJG.html">&lt;code>IJG&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:center">&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;a href="http://www.remotesensing.org/libtiff/misc.html">&lt;code>libtiff License&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:left">&lt;a href="https://spdx.org/licenses/libtiff.html">&lt;code>libtiff&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:center">&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;a href="http://cm.bell-labs.com/plan9/license.html">&lt;code>Lucent Public License v1.02&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:left">&lt;a href="https://spdx.org/licenses/LPL-1.02.html">&lt;code>LPL-1.02&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:center">&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;a href="http://opensource.org/licenses/MS-PL">&lt;code>Microsoft Public License&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:left">&lt;a href="https://spdx.org/licenses/MS-PL.html">&lt;code>MS-PL&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:center">&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;a href="http://opensource.org/licenses/mit-license.php">&lt;code>MIT License&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:left">&lt;a href="https://spdx.org/licenses/MIT.html">&lt;code>MIT&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:center">&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;a href="http://www.xfree86.org/3.3.6/COPYRIGHT2.html#3">&lt;code>X11 License&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:left">&lt;a href="https://spdx.org/licenses/X11.html">&lt;code>X11&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:center">&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;a href="https://web.archive.org/web/20190922104304/https://fedoraproject.org/wiki/Licensing:MIT?rd=Licensing/MIT#CMU_Style">&lt;code>CMU License&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:left">&lt;a href="https://spdx.org/licenses/MIT-CMU.html">&lt;code>MIT-CMU&lt;/code> &lt;/a>&lt;/td>
+&lt;td style="text-align:center">&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;a href="http://opensource.org/licenses/UoI-NCSA.php">&lt;code>University of Illinois/NCSA Open Source License&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:left">&lt;a href="https://spdx.org/licenses/NCSA.html">&lt;code>NCSA&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:center">&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;a href="http://www.openssl.org/source/license.html">&lt;code>OpenSSL License&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:left">&lt;a href="https://spdx.org/licenses/OpenSSL.html">&lt;code>OpenSSL&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:center">&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;a href="http://www.php.net/license/3_0.txt">&lt;code>PHP License v3.0&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:left">&lt;a href="https://spdx.org/licenses/PHP-3.0.html">&lt;code>PHP-3.0&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:center">&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;a href="http://www.postgresql.org/about/licence">&lt;code>PostgreSQL License&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:left">&lt;a href="https://spdx.org/licenses/PostgreSQL.html">&lt;code>PostgreSQL&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:center">&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;a href="http://www.blackberry.com/support/blackberrypresenter/opensourcefiles/LICENSE-BSD-LIBWRAP.TXT">&lt;code>TCP Wrappers License&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:left">&lt;a href="https://spdx.org/licenses/TCP-wrappers.html">&lt;code>TCP-wrappers&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:center">&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;a href="http://www.python.org/download/releases/2.3.2/license/">&lt;code>Python Software Foundation License 2.0&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:left">&lt;a href="https://spdx.org/licenses/PSF-2.0.html">&lt;code>PSF-2.0&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:center">&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;a href="http://www.unicode.org/copyright.html#Exhibit1">&lt;code>Unicode License Agreement - Data Files and Software (2016)&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:left">&lt;a href="https://spdx.org/licenses/Unicode-DFS-2016.html">&lt;code>Unicode-DFS-2016&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:center">&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;a href="http://opensource.org/licenses/UPL">&lt;code>Universal Permissive License v1.0&lt;/code>&lt;/a>)&lt;/td>
+&lt;td style="text-align:left">&lt;a href="https://spdx.org/licenses/UPL-1.0.html">&lt;code>UPL-1.0&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:center">&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;a href="http://opensource.org/licenses/W3C.php">&lt;code>W3C Software Notice and License (2002-12-31)&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:left">&lt;a href="https://spdx.org/licenses/W3C.html">&lt;code>W3C&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:center">&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;a href="http://opensource.org/licenses/xnet.php">&lt;code>X.Net License&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:left">&lt;a href="https://spdx.org/licenses/Xnet.html">&lt;code>Xnet&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:center">&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;a href="http://www.zend.com/license/2_00.txt">&lt;code>Zend License v2.0&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:left">&lt;a href="https://spdx.org/licenses/Zend-2.0.html">&lt;code>Zend-2.0&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:center">&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;a href="http://opensource.org/licenses/zlib-license.php">&lt;code>zlib License&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:left">&lt;a href="https://spdx.org/licenses/Zlib.html">&lt;code>zlib&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:center">&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;a href="http://opensource.org/licenses/zpl.php">&lt;code>Zope Public License 2.0&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:left">&lt;a href="https://spdx.org/licenses/ZPL-2.0.html">&lt;code>ZPL-2.0&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:center">&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
 &lt;h2 id="주의가-필요한-라이선스">주의가 필요한 라이선스&lt;/h2>
 &lt;h3 id="copyleft-라이선스-유형">Copyleft 라이선스 유형&lt;/h3>
 &lt;p>GPL(GNU General Public License)은 오픈소스를 재배포 시 소스 코드 공개를 요구한다. 오픈소스 자체의 소스 코드 뿐만 아니라 결합한 소스 코드까지 함께 동일한 라이선스 조건으로 공개할 것을 요구해서 Copyleft 성격의 라이선스라고도 한다. Copyleft 라이선스 유형은 오픈소스 라이선스 중에 요구하는 의무사항이 가장 많은 라이선스 유형이기 때문에 이 유형의 라이선스로 배포되는 오픈소스는 사용 시 주의가 필요하다.&lt;/p>
 &lt;div class="alert alert-warning" role="alert">
 &lt;h4 class="alert-heading">자사 코드 분리 방법&lt;/h4>
 &lt;p>대표적인 의무 사항은 이 라이선스로 배포되는 오픈소스를 제품에 포함하여 배포하려면 해당 오픈소스의 소스 코드의 공개가 필요하다. 또한 이 오픈소스와 결합하는 소스 코드까지도 동일한 오픈소스 라이선스를 적용하여 공개해야 한다. ‌&lt;/p>
-&lt;p>따라서, Copyleft 라이선스 유형의 라이선스가 적용된 오픈소스는 SK텔레콤이 배포하는 제품에 포함 시 주의해야 한다.&lt;/p>
+&lt;p>따라서, &lt;strong>Copyleft 라이선스 유형의 라이선스가 적용된 오픈소스는 SK텔레콤이 배포하는 제품에 포함 시 주의해야 한다&lt;/strong>.&lt;/p>
 &lt;p>&lt;span style="color:red">이러한 오픈소스는 설계 단계에서부터 Build 시 자사 소프트웨어와 통합되지 않고 Runtime에도 독립된 프로세스로 동작되도록 해야 한다.&lt;/span>&lt;/p>
 &lt;/div>
 &lt;p>Copyleft 라이선스 유형으로 분류할 수 있는 오픈소스 라이선스는 다음과 같다.&lt;/p>
-&lt;ul>
-&lt;li>BCL&lt;/li>
-&lt;li>&lt;a href="http://creativecommons.org/licenses/">Creative Commons “Attribution-ShareAlike” (CC BY-SA) and “Attribution-NoDerivs” (CC BY-ND) licenses&lt;/a>&lt;/li>
-&lt;li>&lt;a href="http://www.gnu.org/software/classpath/license.html">GNU Classpath’s GPL + exception&lt;/a>&lt;/li>
-&lt;li>&lt;a href="http://opensource.org/licenses/gpl-license.php">GNU GPL v1, v2, v3&lt;/a>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Full name&lt;/th>
+&lt;th style="text-align:left">&lt;a href="https://spdx.org/licenses/">Identifier&lt;/a>&lt;/th>
+&lt;th style="text-align:center">사용 사례별 가이드&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;a href="https://www.gnu.org/licenses/old-licenses/gpl-2.0-standalone.html">&lt;code>GNU General Public License v2.0&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:left">&lt;a href="https://spdx.org/licenses/GPL-2.0-only.html">&lt;code>GPL-2.0&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:center">&lt;a href="./gpl-2.0/">GPL-2.0 가이드&lt;/a>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;a href="https://www.gnu.org/licenses/gpl-3.0-standalone.html">&lt;code>GNU General Public License v3.0&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:left">&lt;a href="https://spdx.org/licenses/GPL-3.0-only.html">&lt;code>GPL-3.0&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:center">&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;a href="https://creativecommons.org/licenses/by-sa/4.0/legalcode">&lt;code>Creative Commons Attribution Share Alike 4.0 International&lt;/code> &lt;/a>&lt;/td>
+&lt;td style="text-align:left">&lt;a href="https://spdx.org/licenses/CC-BY-SA-4.0.html">&lt;code>CC-BY-SA-4.0&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:center">&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;a href="https://creativecommons.org/licenses/by-nd/4.0/legalcode">&lt;code>Creative Commons Attribution No Derivatives 4.0 International&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:left">&lt;a href="https://spdx.org/licenses/CC-BY-ND-4.0.html">&lt;code>CC-BY-ND-4.0&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:center">&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;a href="http://opensource.org/licenses/osl-2.1.php">&lt;code>Open Software License 3.0&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:left">&lt;a href="https://spdx.org/licenses/OSL-3.0.html">&lt;code>OSL-3.0&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:center">&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;a href="http://opensource.org/licenses/qtpl.php">&lt;code>Q Public License 1.0&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:left">&lt;a href="https://spdx.org/licenses/QPL-1.0.html">&lt;code>QPL-1.0&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:center">&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;a href="http://opensource.org/licenses/sleepycat.php">&lt;code>Sleepycat License&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:left">&lt;a href="https://spdx.org/licenses/Sleepycat.html">&lt;code>Sleepycat&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:center">&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
 &lt;div class="alert alert-danger" role="alert">
-&lt;h4 class="alert-heading">설치정보&lt;/h4>
-GPL-3.0, LGPL-3.0하의 오픈소스가 설치된 제품(User Product)을 배포하기 위해서는 소스 코드 뿐만 아니라 설치 정보 (Installation Information : 사용자가 소소 코드를 빌드하여 다시 제품에 설치하기 위해 필요한 모든 정보 및 방법)를 함께 제공해야 한다. 이는 기업이 준수하기 어려운 조건이기 때문에 일반적으로 &lt;span style="color:red">GPL-3.0, LGPL-3.0하의 오픈소스는 제품(User Product) 개발 시 사용할 수 없음&lt;/span>에 주의하라.
-&lt;/div>
-&lt;/li>
-&lt;li>Netscape Public License &lt;a href="http://www.mozilla.org/MPL/NPL/1.0/">NPL 1.0&lt;/a> and &lt;a href="http://www.mozilla.org/MPL/NPL/1.1/">NPL 1.1&lt;/a>&lt;/li>
-&lt;li>&lt;a href="http://opensource.org/licenses/osl-2.1.php">OSL&lt;/a>&lt;/li>
-&lt;li>&lt;a href="http://opensource.org/licenses/qtpl.php">QPL&lt;/a>&lt;/li>
-&lt;li>&lt;a href="http://opensource.org/licenses/sleepycat.php">Sleepycat License&lt;/a>‌&lt;/li>
-&lt;/ul>
-&lt;p>이와 같이 소스 코드 공개 의무를 요구하는 Copyleft 라이선스 하의 오픈소스를 포함하는 소프트웨어를 배포할 경우, 사용자에게 소스 코드를 직접 제공하거나, 사용자가 요청시 소스 코드를 제공하겠다는 서면 약정서를 제공해야 한다. 이에 대한 세부 절차 및 방법은 다음 가이드를 참고하라. : 오픈소스 컴플라이언스&lt;/p>
-&lt;h3 id="weak-copyleft-유형">Weak Copyleft 유형&lt;/h3>
-&lt;p>LGPL (Lesser GPL)도 역시 재배포 시 소스 코드 공개를 요구하는 등 GPL과 동일한 조건을 요구한다. 단, Library 형태의 LGPL하의 오픈소스를 Link 형태로 결합할 경우, LGPL Library 부분만 소스 코드를 공개하면 되고, 결합하는 코드는 공개 의무가 없다는 점이 GPL과 다르다. Weak Copyleft 유형의 라이선스는 이와 같이 소스 코드 공개는 요구하지만, 공개 범위가 Copyleft 유형의 라이선스에 비해 약하다는 특성이 있다.&lt;/p>
-&lt;p>Weak Copyleft 라이선스 유형으로 분류할 수 있는 오픈소스 라이선스는 다음과 같다.&lt;/p>
+&lt;h4 class="alert-heading">주의 : GPL/LGPL-3.0 설치정보 제공 의무&lt;/h4>
+&lt;p>GPL-3.0/LGPL-3.0하의 오픈소스가 설치된 사용자 제품(User Product)을 배포하기 위해서는 소스 코드 뿐만 아니라 설치 정보를 함께 제공해야 한다. 이는 기업이 준수하기 어려운 조건이기 때문에 &lt;span style="color:red">일반적으로 GPL-3.0/LGPL-3.0의 오픈소스는 사용자 제품(User Product) 개발 시 사용할 수 없음에 주의&lt;/span>하라.&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="http://opensource.org/licenses/lgpl-license.php">GNU LGPL v2.1, v3&lt;/a> (&lt;span style="color:red">단, LGPL이 적용된 컴포넌트를 &lt;a href="https://opensource.google/docs/thirdparty/licenses/#LinkingRequirements">dynamically-linked&lt;/a> 형태로 사용할 경우, 자사 코드를 공개하지 않는 방식으로 사용할 수 있다.&lt;/span>)&lt;/li>
-&lt;li>Common Development and Distribution License &lt;a href="http://opensource.org/licenses/cddl1.php">CDDL 1.0&lt;/a>, &lt;em>CDDL 1.1&lt;/em>&lt;/li>
-&lt;li>&lt;em>CeCILL-C License&lt;/em>&lt;/li>
-&lt;li>&lt;a href="http://opensource.org/licenses/cpl1.0.php">CPL 1.0&lt;/a>&lt;/li>
-&lt;li>&lt;a href="http://opensource.org/licenses/eclipse-1.0.php">EPL 1.0&lt;/a> and &lt;a href="https://opensource.org/licenses/EPL-2.0">EPL 2.0&lt;/a> (Eclipse Public License)&lt;/li>
-&lt;li>&lt;a href="http://opensource.org/licenses/ibmpl.php">IPL 1.0&lt;/a> (IBM Public License)&lt;/li>
-&lt;li>Mozilla Public License &lt;a href="http://opensource.org/licenses/mozilla1.0.php">MPL 1.0&lt;/a>, &lt;a href="http://opensource.org/licenses/mozilla1.1.php">MPL 1.1&lt;/a>, and &lt;a href="http://opensource.org/licenses/MPL-2.0">MPL 2.0&lt;/a>&lt;/li>
-&lt;li>&lt;a href="http://opensource.org/licenses/apsl-2.0.php">Apple Public Source License (APSL) 2.0&lt;/a>&lt;/li>
-&lt;li>&lt;em>Ruby&lt;/em>&lt;/li>
+&lt;li>사용자 제품(User Product) : 전자 기기와 같은 embedded device&lt;/li>
+&lt;li>설치 정보(Installation Information) : 사용자가 소소 코드를 빌드하여 다시 제품에 설치하기 위해 필요한 모든 정보 및 방법&lt;/li>
 &lt;/ul>
-&lt;h2 id="사용-불가-라이선스">사용 불가 라이선스&lt;/h2>
+&lt;/div>
+&lt;p>같이 소스 코드 공개 의무를 요구하는 Copyleft 라이선스 하의 오픈소스를 포함하는 소프트웨어를 배포할 경우, 사용자에게 소스 코드를 직접 제공하거나, 사용자가 요청시 소스 코드를 제공하겠다는 서면 약정서를 제공해야 한다. 이에 대한 세부 절차 및 방법은 다음 가이드를 참고하라. : &lt;em>internal_link&lt;/em>&lt;/p>
+&lt;h3 id="weak-copyleft-유형">Weak Copyleft 유형&lt;/h3>
+&lt;p>Weak Copyleft 유형의 라이선스는 이와 같이 소스 코드 공개는 요구하지만, 공개 범위가 Copyleft 유형의 라이선스에 비해 약하다는 특성이 있다.&lt;/p>
+&lt;div class="alert alert-danger" role="alert">
+&lt;h4 class="alert-heading">LGPL Library는 Dynamic Link하여 사용&lt;/h4>
+&lt;p>LGPL (Lesser GPL)도 역시 재배포 시 소스 코드 공개를 요구하는 등 GPL과 동일한 조건을 요구한다. 단, Library 형태의 LGPL하의 오픈소스를 Link 형태로 결합할 경우, LGPL Library 부분만 소스 코드를 공개하면 되고, 결합하는 코드는 공개 의무가 없다는 점이 GPL과 다르다.&lt;/p>
+&lt;p>LGPL이 적용된 컴포넌트를 &lt;a href="https://opensource.google/docs/thirdparty/licenses/#LinkingRequirements">dynamically-linked&lt;/a> 형태로 사용할 경우, &lt;span style="color:red">자사 코드를 공개하지 않는 방식&lt;/span>으로 사용할 수 있다.&lt;/p>
+&lt;/div>
+&lt;p>Weak Copyleft 라이선스 유형으로 분류할 수 있는 오픈소스 라이선스는 다음과 같다.&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Full name&lt;/th>
+&lt;th style="text-align:left">&lt;a href="https://spdx.org/licenses/">Identifier&lt;/a>&lt;/th>
+&lt;th style="text-align:center">사용 사례별 가이드&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;a href="https://www.gnu.org/licenses/old-licenses/lgpl-2.1-standalone.html">&lt;code>GNU Lesser General Public License v2.1&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:left">&lt;a href="https://spdx.org/licenses/LGPL-2.1-only.html">&lt;code>LGPL-2.1&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:center">&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;a href="https://www.gnu.org/licenses/lgpl-3.0-standalone.html">&lt;code>GNU Lesser General Public License v3.0&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:left">&lt;a href="https://spdx.org/licenses/LGPL-3.0-only.html">&lt;code>LGPL-3.0&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:center">&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;a href="http://opensource.org/licenses/cddl1.php">&lt;code>Common Development and Distribution License 1.0&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:left">&lt;a href="https://spdx.org/licenses/CDDL-1.0.html">&lt;code>CDDL-1.0&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:center">&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;a href="http://opensource.org/licenses/cpl1.0.php">&lt;code>Common Public License 1.0&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:left">&lt;a href="https://spdx.org/licenses/CPL-1.0.html">&lt;code>CPL-1.0&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:center">&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;a href="http://opensource.org/licenses/eclipse-1.0.php">&lt;code>Eclipse Public License 1.0&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:left">&lt;a href="https://spdx.org/licenses/EPL-1.0.html">&lt;code>EPL-1.0&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:center">&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;a href="https://opensource.org/licenses/EPL-2.0">&lt;code>Eclipse Public License 2.0&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:left">&lt;a href="https://spdx.org/licenses/EPL-2.0.html">&lt;code>EPL-2.0&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:center">&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;a href="http://opensource.org/licenses/ibmpl.php">&lt;code>IBM Public License v1.0&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:left">&lt;a href="https://spdx.org/licenses/IPL-1.0.html">&lt;code>IPL-1.0&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:center">&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;a href="http://opensource.org/licenses/mozilla1.1.php">&lt;code>Mozilla Public License 1.1&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:left">&lt;a href="https://spdx.org/licenses/MPL-1.1.html">&lt;code>MPL-1.1&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:center">&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;a href="http://opensource.org/licenses/MPL-2.0">&lt;code>Mozilla Public License 2.0&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:left">&lt;a href="https://spdx.org/licenses/MPL-2.0.html">&lt;code>MPL-2.0&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:center">&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;a href="http://opensource.org/licenses/apsl-2.0.php">&lt;code>Apple Public Source License 2.0&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:left">&lt;a href="https://spdx.org/licenses/APSL-2.0.html">&lt;code>APSL-2.0&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:center">&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;a href="http://www.ruby-lang.org/en/LICENSE.txt">&lt;code>Ruby License&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:left">&lt;a href="https://spdx.org/licenses/Ruby.html">&lt;code>Ruby&lt;/code> &lt;/a>&lt;/td>
+&lt;td style="text-align:center">&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="사용-제한-라이선스">사용 제한 라이선스&lt;/h2>
 &lt;p>다음의 라이선스는 SK텔레콤의 제품/서비스에 사용하기에 적합하지 않은 조건을 포함하고 있다. 따라서, 이러한 라이선스 하의 오픈소스는 사용하지 말아야 한다.&lt;/p>
 &lt;h3 id="비상업용-라이선스">비상업용 라이선스&lt;/h3>
 &lt;p>연구, 학습만을 위해서라고 해도 SK텔레콤 내에서 사용한다면 상업적인 활동으로 간주될 수 있다. 따라서 비상업적으로만 사용할 수 있도록 제한하는 라이선스에 따라 공개된 오픈소스는 SK텔레콤에서 사용할 수 없다. 이러한 비상업용 (Non-Commercial) 라이선스는 다음과 같다.‌&lt;/p>
-&lt;ul>
-&lt;li>CC BY-NC&lt;/li>
-&lt;li>CC BY-NC-SA&lt;/li>
-&lt;li>CC BY-NC-ND&lt;/li>
-&lt;/ul>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Full name&lt;/th>
+&lt;th style="text-align:left">&lt;a href="https://spdx.org/licenses/">Identifier&lt;/a>&lt;/th>
+&lt;th style="text-align:center">사용 사례별 가이드&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;a href="https://creativecommons.org/licenses/by-nc/4.0/legalcode">&lt;code>Creative Commons Attribution Non Commercial 4.0 International&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:left">&lt;a href="https://spdx.org/licenses/CC-BY-NC-4.0.html">&lt;code>CC-BY-NC-4.0&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:center">&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;a href="https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode">&lt;code>Creative Commons Attribution Non Commercial Share Alike 4.0 International&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:left">&lt;a href="https://spdx.org/licenses/CC-BY-NC-SA-4.0.html">&lt;code>CC-BY-NC-SA-4.0&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:center">&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;a href="https://creativecommons.org/licenses/by-nc-nd/4.0/legalcode">&lt;code>Creative Commons Attribution Non Commercial No Derivatives 4.0 International&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:left">&lt;a href="https://spdx.org/licenses/CC-BY-NC-ND-4.0.html">&lt;code>CC-BY-NC-ND-4.0&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:center">&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
 &lt;h3 id="network-서비스-제한-라이선스">Network 서비스 제한 라이선스&lt;/h3>
 &lt;p>AGPL, SSPL은 Network 서비스도 배포로 간주하여 의무사항 준수를 요구하는 조항을 포함한다. 이에 따라 Network 서비스를 제공하는 서버에 AGPL로 공개된 오픈소스가 포함되어 있다면, 소프트웨어를 배포하지 않아도, AGPL 오픈소스 뿐만 아니라 함께 링크되어 동작하는 다른 소프트웨어의 소스코드 까지 AGPL로 공개해야 하는 의무가 발생한다. 이 경우, SK텔레콤의 핵심 서버 프로그램까지도 AGPL로 공개해야 하는 위험이 있다. 따라서, SK텔레콤의 제품 및 서비스 개발 시, AGPL 및 SSPL 등의 오픈소스 라이선스가 적용된 오픈소스는 사용할 수 없다.&lt;/p>
 &lt;p>이러한 Network 서비스 시 조건을 부여하는 라이선스는 다음과 같다.&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Full name&lt;/th>
+&lt;th style="text-align:left">&lt;a href="https://spdx.org/licenses/">Identifier&lt;/a>&lt;/th>
+&lt;th style="text-align:center">사용 사례별 가이드&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;a href="https://www.gnu.org/licenses/agpl.txt">&lt;code>GNU Affero General Public License v3.0&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:left">&lt;a href="https://spdx.org/licenses/AGPL-3.0-only.html">&lt;code>AGPL-3.0&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:center">&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;a href="https://www.mongodb.com/licensing/server-side-public-license">&lt;code>Server Side Public License, v 1&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:left">&lt;a href="https://spdx.org/licenses/SSPL-1.0.html">&lt;code>SSPL-1.0&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:center">&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
 &lt;ul>
 &lt;li>AGPL (GNU Affero General Public License)&lt;/li>
 &lt;li>SSPL (Server Side Public License)&lt;/li>
 &lt;/ul>
-&lt;p>이러한 라이선스 하의 오픈소스를 반드시 포함해야 하는 경우라면 OSPO(Open Source Program Office)에 포함할 수 있는 방법을 문의하라. : &lt;a href="https://sktelecom.github.io/about/contact/">Support (opensource@sktelecom.com)&lt;/a>&lt;/p>
+&lt;p>이러한 라이선스 하의 오픈소스를 반드시 포함해야 하는 경우라면 OSPO&lt;sub>Open Source Program Office&lt;/sub>에 포함할 수 있는 방법을 문의하라. : &lt;a href="https://sktelecom.github.io/about/contact/">Support (opensource@sktelecom.com)&lt;/a>&lt;/p>
 &lt;h3 id="이외-언급하지-않은-라이선스">이외 언급하지 않은 라이선스&lt;/h3>
-&lt;p>위에서 분류되지 않은 라이선스가 적용된 오픈소스를 SK텔레콤의 제품에 사용하기 위해서는 사전 검토가 필요하다. OSPO(Open Source Program Office)에 사용 가능 여부를 문의하라. : &lt;a href="https://sktelecom.github.io/about/contact/">Support (opensource@sktelecom.com)&lt;/a>&lt;/p></description></item></channel></rss>
+&lt;p>위에서 분류되지 않은 라이선스가 적용된 오픈소스를 SK텔레콤의 제품에 사용하기 위해서는 사전 검토가 필요하다. OSPO&lt;sub>Open Source Program Office&lt;/sub>에 사용 가능 여부를 문의하라. : &lt;a href="https://sktelecom.github.io/about/contact/">Support (opensource@sktelecom.com)&lt;/a>&lt;/p></description></item></channel></rss>

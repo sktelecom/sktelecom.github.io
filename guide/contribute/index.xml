@@ -80,7 +80,7 @@ SPDX-License-Identifier: {$SPDX_license_name}
 &lt;h2 id="1-소속-조직-내부-승인">1. 소속 조직 내부 승인&lt;/h2>
 &lt;p>하나의 오픈소스 프로젝트에 기여를 시작하기 전에 소속 조직의 담당 임원 혹은 리더에게 승인을 받는다.&lt;/p>
 &lt;h2 id="2-ospo-review-요청">2. OSPO Review 요청&lt;/h2>
-&lt;p>조직 내 승인을 받은 후에는 OSPO(Open Source Program Office)에 리뷰를 요청한다. : &lt;a href="https://sktelecom.github.io/about/contact/">Support (opensource@sktelecom.com)&lt;/a>&lt;/p>
+&lt;p>조직 내 승인을 받은 후에는 OSPO&lt;sub>Open Source Program Office&lt;/sub>에 리뷰를 요청한다. : &lt;a href="https://sktelecom.github.io/about/contact/">Support (opensource@sktelecom.com)&lt;/a>&lt;/p>
 &lt;ul>
 &lt;li>리뷰 요청 시에는 다음 내용을 포함한다. : [Template]
 &lt;ul>

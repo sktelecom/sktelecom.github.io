@@ -137,7 +137,7 @@
 &lt;p>참고로, GitHub에서는 오픈소스 공개 시 라이선스 선택에 대한 가이드를 제공하고 있다. : &lt;a href="https://choosealicense.com">https://choosealicense.com&lt;/a>&lt;/p>
 &lt;div class="alert alert-warning" role="alert">
 &lt;h4 class="alert-heading">문의&lt;/h4>
-만약, 이외의 다른 라이선스를 선택해야 할 상황이라면 OSPO(Open Source Program Office)에 문의하라. : &lt;a href="https://sktelecom.github.io/about/contact/">Support (opensource@sktelecom.com)&lt;/a>
+만약, 이외의 다른 라이선스를 선택해야 할 상황이라면 OSPO(&lt;sub>Open Source Program Office&lt;/sub>에 문의하라. : &lt;a href="https://sktelecom.github.io/about/contact/">Support (opensource@sktelecom.com)&lt;/a>
 &lt;/div>
 &lt;h4 id="cla-결정">CLA 결정&lt;/h4>
 &lt;p>오픈소스로 공개한 프로젝트를 운영하면서 어떤 이유에서든지 기존의 오픈소스 라이선스를 다른 라이선스로 변경해야 할 상황이 발생할 수 있다. 이때는 프로젝트의 Leader라고 해도 임의로 라이선스를 변경할 수 없으며, 프로젝트에 저작물을 기여한 모든 저작권자의 동의를 얻어야 가능하다. 오랜 기간동안 많은 기여자로부터 저작물을 기여 받은 프로젝트의 경우 모든 저작권자에게 동의를 받는 것은 사실상 거의 불가능하고, 따라서 오픈소스 라이선스의 변경 또한 불가능하다.&lt;/p>
@@ -157,7 +157,7 @@
 &lt;h4 id="3rd-party-코드-정리">3rd party 코드 정리&lt;/h4>
 &lt;p>프로젝트에 3rd party 코드를 포함해야 하는 경우라면, 즉, SK텔레콤이 저작권을 갖고 있지 않은 코드를 프로젝트에 포함해야 한다면 먼저 SK텔레콤이 재배포할 수 있는 권한이 있는지 확인하라. 이미 오픈소스 라이선스가 적용된 코드라면 라이선스 의무를 준수하는 조건으로 재배포할 수 있다.&lt;/p>
 &lt;ul>
-&lt;li>재배포할 수 있는 권한 확인에 대한 도움이 필요하다면 OSPO(Open Source Program Office)에 문의하라. : &lt;a href="https://sktelecom.github.io/about/contact/">Support (opensource@sktelecom.com)&lt;/a>&lt;/li>
+&lt;li>재배포할 수 있는 권한 확인에 대한 도움이 필요하다면 OSPO(&lt;sub>Open Source Program Office&lt;/sub>에 문의하라. : &lt;a href="https://sktelecom.github.io/about/contact/">Support (opensource@sktelecom.com)&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;p>SK텔레콤이 재배포할 수 있는 3rd party 코드인 경우, 기존 코드와는 다른 디렉토리(예: third_party)에 위치시킨다. 이는 라이선스 관점에서 프로젝트의 투명성을 증대시키며, 향후 사용자도 3rd party 코드를 쉽게 찾게 찾게 되어 정확한 라이선스 요구사항을 준수할 수 있게 한다.&lt;/p>
 &lt;p>3rd party 디렉토리에 있는 모든 디렉토리는 각각 LICENSE 파일 (저작권 정보와 라이선스 전문을 포함하는 텍스트 파일)을 포함해야 한다. 예를 들어, Repository에서 third_party 디렉토리의 구조는 다음과 같다.&lt;/p>
