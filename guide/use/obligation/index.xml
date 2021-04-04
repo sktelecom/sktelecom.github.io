@@ -1,23 +1,21 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SKT Open Source – 오픈소스 라이선스 별 의무사항</title><link>/guide/use/obligation/</link><description>Recent content in 오픈소스 라이선스 별 의무사항 on SKT Open Source</description><generator>Hugo -- gohugo.io</generator><language>ko-kr</language><atom:link href="/guide/use/obligation/index.xml" rel="self" type="application/rss+xml"/><item><title>Guide: GPL-2.0 가이드</title><link>/guide/use/obligation/gpl-2.0/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/guide/use/obligation/gpl-2.0/</guid><description>
-&lt;p>1991년 &lt;a href="http://www.fsf.org/">Free Software Foundation&lt;/a>에서 만든 대표적인 Copyleft 라이선스인 &lt;a href="https://www.gnu.org/licenses/old-licenses/gpl-2.0.html">GPL-2.0&lt;/a>은 재배포 시 소스 코드 공개를 요구하기 때문에 사용에 주의가 필요하다.&lt;/p>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SKT Open Source – 오픈소스 라이선스 별 의무사항</title><link>/guide/use/obligation/</link><description>Recent content in 오픈소스 라이선스 별 의무사항 on SKT Open Source</description><generator>Hugo -- gohugo.io</generator><language>ko-kr</language><atom:link href="/guide/use/obligation/index.xml" rel="self" type="application/rss+xml"/><item><title>Guide: AGPL-3.0 가이드</title><link>/guide/use/obligation/agpl-3.0/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/guide/use/obligation/agpl-3.0/</guid><description>
 &lt;h2 id="소스-코드-내-라이선스-문구">소스 코드 내 라이선스 문구&lt;/h2>
-&lt;p>GPL-2.0하의 오픈소스는 일반적으로 소스 코드 상단에 다음과 같은 문구가 있다.&lt;/p>
-&lt;pre>&lt;code>Copyright (C) yyyy name of author
-This program is free software; you can redistribute it and/or
-modify it under the terms of the GNU General Public License
-as published by the Free Software Foundation; either version 2
-of the License, or (at your option) any later version.
+&lt;p>AGPL-3.0하의 오픈소스는 일반적으로 소스 코드 상단에 다음과 같은 문구가 있다.&lt;/p>
+&lt;pre>&lt;code>Copyright (C) &amp;lt;year&amp;gt; &amp;lt;name of author&amp;gt;
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as
+published by the Free Software Foundation, either version 3 of the
+License, or (at your option) any later version.
 This program is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-GNU General Public License for more details.
-You should have received a copy of the GNU General Public License
-along with this program; if not, write to the Free Software
-Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+GNU Affero General Public License for more details.
+You should have received a copy of the GNU Affero General Public License
+along with this program. If not, see &amp;lt;http://www.gnu.org/licenses/&amp;gt;.
 &lt;/code>&lt;/pre>&lt;h2 id="사용-사례-별-의무-사항">사용 사례 별 의무 사항&lt;/h2>
-&lt;h3 id="소스-형태로-재배포">소스 형태로 재배포&lt;/h3>
-&lt;p>GPL하의 오픈소스를 소스 형태로 재배포 시 다음 사항을 준수한다 .&lt;/p>
-&lt;h4 id="고지-의무">고지 의무&lt;/h4>
+&lt;h3 id="case-1-소스-형태로-재배포">Case 1. 소스 형태로 재배포&lt;/h3>
+&lt;p>AGPL-3.0하의 오픈소스를 소스 형태로 재배포 시 다음 사항을 준수한다 .&lt;/p>
+&lt;h4 id="1-1-고지-의무">1-1 고지 의무&lt;/h4>
 &lt;ul>
 &lt;li>저작권 고지 제공&lt;/li>
 &lt;li>보증 부인 제공&lt;/li>
@@ -28,27 +26,34 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
 &lt;h4 class="alert-heading">수정 시 의무 사항&lt;/h4>
 &lt;p>오픈소스의 소스 코드를 일부 추가/수정하였을 경우, 다음 사항을 준수한다.&lt;/p>
 &lt;ol>
-&lt;li>추가/수정한 부분에 GPL을 적용한다.&lt;/li>
+&lt;li>추가/수정한 부분에 AGPL-3.0을 적용한다.&lt;/li>
 &lt;li>수정 사항에 대한 고지를 포함한다. (예: 수정일, 수정내용을 주석 형태로 포함)&lt;/li>
 &lt;/ol>
-&lt;p>대부분의 저작자들은 이에 대해 긍정적으로 대응할 것이다.&lt;/p>
 &lt;/div>
-&lt;h3 id="바이너리-형태로-재배포">바이너리 형태로 재배포&lt;/h3>
-&lt;p>GPL하의 오픈소스를 빌드하여 바이너리 형태로만 재배포 시 다음 사항을 준수한다.&lt;/p>
-&lt;h4 id="고지-의무-1">고지 의무&lt;/h4>
+&lt;h3 id="case-2-바이너리-형태로-재배포">Case 2. 바이너리 형태로 재배포&lt;/h3>
+&lt;p>AGPL-3.0하의 오픈소스를 빌드하여 바이너리 형태로만 재배포 시 다음 사항을 준수한다.&lt;/p>
+&lt;h4 id="2-1-고지-의무">2-1 고지 의무&lt;/h4>
 &lt;ul>
 &lt;li>저작권 고지 제공&lt;/li>
 &lt;li>보증 부인 제공&lt;/li>
 &lt;li>라이선스 사본 제공
 이상의 내용을 포함하는 오픈소스 고지문을 생성하여 바이너리 재배포 시 동봉한다.&lt;/li>
 &lt;/ul>
-&lt;h4 id="소스-코드-제공-의무">소스 코드 제공 의무&lt;/h4>
-&lt;p>빌드한 바이너리에 해당하는 소스 코드를 제공한다. 이때 다음 사항을 준수한다.&lt;/p>
+&lt;div class="alert alert-success" role="alert">
+&lt;h4 class="alert-heading">수정 시 의무 사항&lt;/h4>
+&lt;p>오픈소스의 소스 코드를 일부 추가/수정하였을 경우, 다음 사항을 준수한다.&lt;/p>
 &lt;ol>
-&lt;li>GPL은 파생저작물에 대해서도 GPL을 적용하여 소스 코드를 공개할 것을 요구한다. 아래 내용을 참고하여 GPL하의 오픈소스와 파생저작물의 소스 코드를 공개한다.
+&lt;li>추가/수정한 부분에 AGPL-3.0을 적용한다.&lt;/li>
+&lt;li>수정 사항에 대한 고지를 포함한다. (예: 오픈소스 고지문에 수정일, 수정내용을 포함)&lt;/li>
+&lt;/ol>
+&lt;/div>
+&lt;h4 id="2-2-소스-코드-제공-의무">2-2 소스 코드 제공 의무&lt;/h4>
+&lt;p>바이너리에 해당하는 소스 코드를 제공한다. 이때 다음 사항을 준수한다.&lt;/p>
+&lt;ol>
+&lt;li>AGPL-3.0은 파생저작물에 대해서도 AGPL-3.0을 적용하여 소스 코드를 공개할 것을 요구한다. 아래 내용을 참고하여 AGPL-3.0하의 오픈소스와 파생저작물의 소스 코드를 공개한다.
 &lt;div class="alert alert-warning" role="alert">
-&lt;h4 class="alert-heading">GPL 파생 저작물의 범위&lt;/h4>
-&lt;p>일반적인 GPL의 파생 저작물의 범위는 다음과 같다.&lt;/p>
+&lt;h4 class="alert-heading">AGPL-3.0 파생 저작물의 범위&lt;/h4>
+&lt;p>일반적인 AGPL-3.0의 파생 저작물의 범위는 다음과 같다.&lt;/p>
 &lt;ul>
 &lt;li>수정 코드&lt;/li>
 &lt;li>GPL 프로그램과 동일한 프로세스에서 동작하는 Module&lt;/li>
@@ -70,8 +75,142 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
 &lt;/ul>
 &lt;/li>
 &lt;/ol>
+&lt;p>소스 코드 대신 서면 약정서 (Written Offer)를 제공할 수 있다. 여기에는 다음 진술이 포함되어야 한다.&lt;/p>
+&lt;ol>
+&lt;li>서면 약정서는 제품 판매 후 3년간 유효하다.&lt;/li>
+&lt;li>누구에게나 제공한다.&lt;/li>
+&lt;li>비용 청구를 하지 않는다. (소스 전달을 위해 발생하는 비용 제외)
+&lt;div class="alert alert-warning" role="alert">
+이후 외부로부터 서면 약정서를 근거로 소스 코드 제공을 요청 받을 경우, 위에서 언급한 바이너리에 해당하는 소스 코드를 제공해야 한다. 따라서 회사는 제품 판매 후 최소 3년간 소스 코드를 보관해야 한다.
+&lt;/div>
+&lt;/li>
+&lt;/ol>
+&lt;h4 id="2-3-설치-정보-제공-의무">2-3 설치 정보 제공 의무&lt;/h4>
+&lt;p>바이너리를 User Product와 배포한다면 설치 정보(Installation Information)을 제공한다.&lt;/p>
+&lt;ul>
+&lt;li>User Product : 전자 기기와 같은 Embedded Device&lt;/li>
+&lt;li>설치 정보(Installation Information) : 사용자가 소소 코드를 빌드하여 다시 제품에 설치하기 위해 필요한 모든 정보 및 방법
+&lt;div class="alert alert-warning" role="alert">
+&lt;h4 class="alert-heading">사용 제한&lt;/h4>
+대부분의 User Product는 보안상의 이유로 설치 정보를 제공하는 것이 불가능하다. 따라서, User Product로 배포하는 소프트웨어에는 AGPL-3.0의 오픈소스를 사용하지 않아야 한다.
+&lt;/div>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="case-3-원격-네트워크-상호-작용">Case 3. 원격 네트워크 상호 작용&lt;/h3>
+&lt;p>AGPL-3.0하의 오픈소스를 (1) 수정하고, (2) 수정한 버전이 네트워크를 통해 원격의 사용자와 상호 작용하는 경우,&lt;/p>
+&lt;ul>
+&lt;li>원격 사용자가 통해 수정된 버전의 소스 코드를 다운 받을 수 있도록 네트워크 서버를 제공해야 한다.&lt;/li>
+&lt;li>여기서의 소스 코드는 위의 &amp;ldquo;2-2. 소스 코드 제공 의무&amp;quot;에서 요구하는 범위와 동일하다.
+&lt;div class="alert alert-warning" role="alert">
+&lt;h4 class="alert-heading">사용 제한&lt;/h4>
+따라서, 바이너리를 배포하지 않는 네트워크 서버 개발 시에도 AGPL-3.0하의 오픈소스를 사용할 경우에는 소스 코드 공개가 필요할 수 있기 때문에 가능한 사용하지 않아야 한다.
+&lt;/div>
+&lt;/li>
+&lt;/ul>
 &lt;h2 id="라이선스-호환성">라이선스 호환성&lt;/h2>
-&lt;p>서로 요구하는 의무사항이 상충되는 오픈소스 라이선스는 하나의 프로그램에 동시에 존재해서는 안된다. 다음은 GPL과 충돌하는 라이선스 목록이다. GPL 프로그램 내에 다음 라이선스 하의 오픈소스를 포함해서는 안된다. (참고 : &lt;a href="https://www.gnu.org/licenses/license-list.html#GPLIncompatibleLicenses">https://www.gnu.org/licenses/license-list.html#GPLIncompatibleLicenses&lt;/a>)&lt;/p>
+&lt;p>서로 요구하는 의무사항이 상충되는 오픈소스 라이선스는 하나의 프로그램에 동시에 존재해서는 안된다. 다음은 AGPL-3.0과 충돌하는 라이선스 목록이다. AGPL-3.0 프로그램 내에 다음 라이선스 하의 오픈소스를 포함해서는 안된다. (참고 : &lt;a href="https://www.gnu.org/licenses/license-list.html#GPLIncompatibleLicenses">https://www.gnu.org/licenses/license-list.html#GPLIncompatibleLicenses&lt;/a>)&lt;/p>
+&lt;ul>
+&lt;li>Apache-1.1&lt;/li>
+&lt;li>BSD-4-Clause&lt;/li>
+&lt;li>FTL&lt;/li>
+&lt;li>IJG&lt;/li>
+&lt;li>OpenSSL&lt;/li>
+&lt;li>Python-2.0&lt;/li>
+&lt;li>zlib-acknowledgement&lt;/li>
+&lt;li>XFree86-1.1&lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>참고 : &lt;a href="https://www.osadl.org/fileadmin/checklists/unreflicenses/AGPL-3.0-only.txt">https://www.osadl.org/fileadmin/checklists/unreflicenses/AGPL-3.0-only.txt&lt;/a>&lt;/p>
+&lt;/blockquote></description></item><item><title>Guide: GPL-2.0 가이드</title><link>/guide/use/obligation/gpl-2.0/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/guide/use/obligation/gpl-2.0/</guid><description>
+&lt;h2 id="소스-코드-내-라이선스-문구">소스 코드 내 라이선스 문구&lt;/h2>
+&lt;p>GPL-2.0하의 오픈소스는 일반적으로 소스 코드 상단에 다음과 같은 문구가 있다.&lt;/p>
+&lt;pre>&lt;code>Copyright (C) yyyy name of author
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU General Public License for more details.
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+&lt;/code>&lt;/pre>&lt;h2 id="사용-사례-별-의무-사항">사용 사례 별 의무 사항&lt;/h2>
+&lt;h3 id="case-1-소스-형태로-재배포">Case 1. 소스 형태로 재배포&lt;/h3>
+&lt;p>GPL-2.0하의 오픈소스를 소스 형태로 재배포 시 다음 사항을 준수한다 .&lt;/p>
+&lt;h4 id="1-1-고지-의무">1-1 고지 의무&lt;/h4>
+&lt;ul>
+&lt;li>저작권 고지 제공&lt;/li>
+&lt;li>보증 부인 제공&lt;/li>
+&lt;li>라이선스 사본 제공
+즉, 소스 코드 내 명시된 저작권/라이선스 정보를 그대로 유지한 상태로 재배포한다.&lt;/li>
+&lt;/ul>
+&lt;div class="alert alert-success" role="alert">
+&lt;h4 class="alert-heading">수정 시 의무 사항&lt;/h4>
+&lt;p>오픈소스의 소스 코드를 일부 추가/수정하였을 경우, 다음 사항을 준수한다.&lt;/p>
+&lt;ol>
+&lt;li>추가/수정한 부분에 GPL-2.0을 적용한다.&lt;/li>
+&lt;li>수정 사항에 대한 고지를 포함한다. (예: 수정일, 수정내용을 주석 형태로 포함)&lt;/li>
+&lt;/ol>
+&lt;/div>
+&lt;h3 id="case-2-바이너리-형태로-재배포">Case 2. 바이너리 형태로 재배포&lt;/h3>
+&lt;p>GPL-2.0하의 오픈소스를 빌드하여 바이너리 형태로만 재배포 시 다음 사항을 준수한다.&lt;/p>
+&lt;h4 id="2-1-고지-의무">2-1 고지 의무&lt;/h4>
+&lt;ul>
+&lt;li>저작권 고지 제공&lt;/li>
+&lt;li>보증 부인 제공&lt;/li>
+&lt;li>라이선스 사본 제공
+이상의 내용을 포함하는 오픈소스 고지문을 생성하여 바이너리 재배포 시 동봉한다.&lt;/li>
+&lt;/ul>
+&lt;div class="alert alert-success" role="alert">
+&lt;h4 class="alert-heading">수정 시 의무 사항&lt;/h4>
+&lt;p>오픈소스의 소스 코드를 일부 추가/수정하였을 경우, 다음 사항을 준수한다.&lt;/p>
+&lt;ol>
+&lt;li>추가/수정한 부분에 GPL-2.0을 적용한다.&lt;/li>
+&lt;li>수정 사항에 대한 고지를 포함한다. (예: 오픈소스 고지문에 수정일, 수정내용을 포함)&lt;/li>
+&lt;/ol>
+&lt;/div>
+&lt;h4 id="2-2-소스-코드-제공-의무">2-2 소스 코드 제공 의무&lt;/h4>
+&lt;p>바이너리에 해당하는 소스 코드를 제공한다. 이때 다음 사항을 준수한다.&lt;/p>
+&lt;ol>
+&lt;li>GPL-2.0은 파생저작물에 대해서도 GPL-2.0을 적용하여 소스 코드를 공개할 것을 요구한다. 아래 내용을 참고하여 GPL-2.0하의 오픈소스와 파생저작물의 소스 코드를 공개한다.
+&lt;div class="alert alert-warning" role="alert">
+&lt;h4 class="alert-heading">GPL-2.0 파생 저작물의 범위&lt;/h4>
+&lt;p>일반적인 GPL-2.0의 파생 저작물의 범위는 다음과 같다.&lt;/p>
+&lt;ul>
+&lt;li>수정 코드&lt;/li>
+&lt;li>GPL 프로그램과 동일한 프로세스에서 동작하는 Module&lt;/li>
+&lt;li>GPL 프로그램과 링크로 연결한 Library&lt;/li>
+&lt;li>GPL 프로그램을 상속한 Class&lt;/li>
+&lt;/ul>
+&lt;p>다음의 경우 GPL의 파생 저작물로 보지 않는다.&lt;/p>
+&lt;ul>
+&lt;li>CD와 같은 매체에 함께 존재하지만 GPL프로그램과 전혀 연동하지 않는 독립 프로그램 (#&lt;a href="https://www.gnu.org/licenses/gpl-faq.en.html#MereAggregation">MereAggregation&lt;/a>)&lt;/li>
+&lt;li>GPL 프로그램과는 별도의 프로그램으로써 Pipe, Socket, IPC, Command Line Arguments로 GPL 프로그램과 통신하는 경우&lt;/li>
+&lt;/ul>
+&lt;/div>
+&lt;/li>
+&lt;li>바이너리 사용자가 공개된 소스 코드로 동일한 바이너리를 만들 수 있는 빌드 환경을 제공한다. 여기에는 다음 사항이 포함된다.
+&lt;ul>
+&lt;li>Tool chain 정보&lt;/li>
+&lt;li>빌드 스크립트&lt;/li>
+&lt;li>빌드 방법 (README)&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ol>
+&lt;p>소스 코드 대신 서면 약정서 (Written Offer)를 제공할 수 있다. 여기에는 다음 진술이 포함되어야 한다.&lt;/p>
+&lt;ol>
+&lt;li>서면 약정서는 제품 판매 후 3년간 유효하다.&lt;/li>
+&lt;li>누구에게나 제공한다.&lt;/li>
+&lt;li>비용 청구를 하지 않는다. (소스 전달을 위해 발생하는 비용 제외)
+&lt;div class="alert alert-warning" role="alert">
+이후 외부로부터 서면 약정서를 근거로 소스 코드 제공을 요청 받을 경우, 위에서 언급한 바이너리에 해당하는 소스 코드를 제공해야 한다. 따라서 회사는 제품 판매 후 최소 3년간 소스 코드를 보관해야 한다.
+&lt;/div>
+&lt;/li>
+&lt;/ol>
+&lt;h2 id="라이선스-호환성">라이선스 호환성&lt;/h2>
+&lt;p>서로 요구하는 의무사항이 상충되는 오픈소스 라이선스는 하나의 프로그램에 동시에 존재해서는 안된다. 다음은 GPL-2.0과 충돌하는 라이선스 목록이다. GPL-2.0 프로그램 내에 다음 라이선스 하의 오픈소스를 포함해서는 안된다. (참고 : &lt;a href="https://www.gnu.org/licenses/license-list.html#GPLIncompatibleLicenses">https://www.gnu.org/licenses/license-list.html#GPLIncompatibleLicenses&lt;/a>)&lt;/p>
 &lt;ul>
 &lt;li>Apache-1.1&lt;/li>
 &lt;li>Apache-2.0&lt;/li>
@@ -80,4 +219,330 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
 &lt;li>IJG&lt;/li>
 &lt;li>OpenSSL&lt;/li>
 &lt;li>Python-2.0&lt;/li>
-&lt;/ul></description></item></channel></rss>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>참고 : &lt;a href="https://www.osadl.org/fileadmin/checklists/unreflicenses/GPL-2.0-only.txt">https://www.osadl.org/fileadmin/checklists/unreflicenses/GPL-2.0-only.txt&lt;/a>&lt;/p>
+&lt;/blockquote></description></item><item><title>Guide: GPL-3.0 가이드</title><link>/guide/use/obligation/gpl-3.0/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/guide/use/obligation/gpl-3.0/</guid><description>
+&lt;h2 id="소스-코드-내-라이선스-문구">소스 코드 내 라이선스 문구&lt;/h2>
+&lt;p>GPL-3.0하의 오픈소스는 일반적으로 소스 코드 상단에 다음과 같은 문구가 있다.&lt;/p>
+&lt;pre>&lt;code>Copyright (C) &amp;lt;year&amp;gt; &amp;lt;name of author&amp;gt;
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU General Public License for more details.
+You should have received a copy of the GNU General Public License
+along with this program. If not, see &amp;lt;http://www.gnu.org/licenses/&amp;gt;
+&lt;/code>&lt;/pre>&lt;h2 id="사용-사례-별-의무-사항">사용 사례 별 의무 사항&lt;/h2>
+&lt;h3 id="case-1-소스-형태로-재배포">Case 1. 소스 형태로 재배포&lt;/h3>
+&lt;p>GPL-3.0하의 오픈소스를 소스 형태로 재배포 시 다음 사항을 준수한다 .&lt;/p>
+&lt;h4 id="1-1-고지-의무">1-1 고지 의무&lt;/h4>
+&lt;ul>
+&lt;li>저작권 고지 제공&lt;/li>
+&lt;li>보증 부인 제공&lt;/li>
+&lt;li>라이선스 사본 제공
+즉, 소스 코드 내 명시된 저작권/라이선스 정보를 그대로 유지한 상태로 재배포한다.&lt;/li>
+&lt;/ul>
+&lt;div class="alert alert-success" role="alert">
+&lt;h4 class="alert-heading">수정 시 의무 사항&lt;/h4>
+&lt;p>오픈소스의 소스 코드를 일부 추가/수정하였을 경우, 다음 사항을 준수한다.&lt;/p>
+&lt;ol>
+&lt;li>추가/수정한 부분에 GPL-3.0을 적용한다.&lt;/li>
+&lt;li>수정 사항에 대한 고지를 포함한다. (예: 수정일, 수정내용을 주석 형태로 포함)&lt;/li>
+&lt;/ol>
+&lt;/div>
+&lt;h3 id="case-2-바이너리-형태로-재배포">Case 2. 바이너리 형태로 재배포&lt;/h3>
+&lt;p>GPL-3.0하의 오픈소스를 빌드하여 바이너리 형태로만 재배포 시 다음 사항을 준수한다.&lt;/p>
+&lt;h4 id="2-1-고지-의무">2-1 고지 의무&lt;/h4>
+&lt;ul>
+&lt;li>저작권 고지 제공&lt;/li>
+&lt;li>보증 부인 제공&lt;/li>
+&lt;li>라이선스 사본 제공
+이상의 내용을 포함하는 오픈소스 고지문을 생성하여 바이너리 재배포 시 동봉한다.&lt;/li>
+&lt;/ul>
+&lt;div class="alert alert-success" role="alert">
+&lt;h4 class="alert-heading">수정 시 의무 사항&lt;/h4>
+&lt;p>오픈소스의 소스 코드를 일부 추가/수정하였을 경우, 다음 사항을 준수한다.&lt;/p>
+&lt;ol>
+&lt;li>추가/수정한 부분에 GPL-3.0을 적용한다.&lt;/li>
+&lt;li>수정 사항에 대한 고지를 포함한다. (예: 오픈소스 고지문에 수정일, 수정내용을 포함)&lt;/li>
+&lt;/ol>
+&lt;/div>
+&lt;h4 id="2-2-소스-코드-제공-의무">2-2 소스 코드 제공 의무&lt;/h4>
+&lt;p>바이너리에 해당하는 소스 코드를 제공한다. 이때 다음 사항을 준수한다.&lt;/p>
+&lt;ol>
+&lt;li>GPL-3.0은 파생저작물에 대해서도 GPL-3.0을 적용하여 소스 코드를 공개할 것을 요구한다. 아래 내용을 참고하여 GPL-3.0하의 오픈소스와 파생저작물의 소스 코드를 공개한다.
+&lt;div class="alert alert-warning" role="alert">
+&lt;h4 class="alert-heading">GPL-3.0 파생 저작물의 범위&lt;/h4>
+&lt;p>일반적인 GPL-3.0의 파생 저작물의 범위는 다음과 같다.&lt;/p>
+&lt;ul>
+&lt;li>수정 코드&lt;/li>
+&lt;li>GPL 프로그램과 동일한 프로세스에서 동작하는 Module&lt;/li>
+&lt;li>GPL 프로그램과 링크로 연결한 Library&lt;/li>
+&lt;li>GPL 프로그램을 상속한 Class&lt;/li>
+&lt;/ul>
+&lt;p>다음의 경우 GPL의 파생 저작물로 보지 않는다.&lt;/p>
+&lt;ul>
+&lt;li>CD와 같은 매체에 함께 존재하지만 GPL프로그램과 전혀 연동하지 않는 독립 프로그램 (#&lt;a href="https://www.gnu.org/licenses/gpl-faq.en.html#MereAggregation">MereAggregation&lt;/a>)&lt;/li>
+&lt;li>GPL 프로그램과는 별도의 프로그램으로써 Pipe, Socket, IPC, Command Line Arguments로 GPL 프로그램과 통신하는 경우&lt;/li>
+&lt;/ul>
+&lt;/div>
+&lt;/li>
+&lt;li>바이너리 사용자가 공개된 소스 코드로 동일한 바이너리를 만들 수 있는 빌드 환경을 제공한다. 여기에는 다음 사항이 포함된다.
+&lt;ul>
+&lt;li>Tool chain 정보&lt;/li>
+&lt;li>빌드 스크립트&lt;/li>
+&lt;li>빌드 방법 (README)&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ol>
+&lt;p>소스 코드 대신 서면 약정서 (Written Offer)를 제공할 수 있다. 여기에는 다음 진술이 포함되어야 한다.&lt;/p>
+&lt;ol>
+&lt;li>서면 약정서는 제품 판매 후 3년간 유효하다.&lt;/li>
+&lt;li>누구에게나 제공한다.&lt;/li>
+&lt;li>비용 청구를 하지 않는다. (소스 전달을 위해 발생하는 비용 제외)
+&lt;div class="alert alert-warning" role="alert">
+이후 외부로부터 서면 약정서를 근거로 소스 코드 제공을 요청 받을 경우, 위에서 언급한 바이너리에 해당하는 소스 코드를 제공해야 한다. 따라서 회사는 제품 판매 후 최소 3년간 소스 코드를 보관해야 한다.
+&lt;/div>
+&lt;/li>
+&lt;/ol>
+&lt;h4 id="2-3-설치-정보-제공-의무">2-3 설치 정보 제공 의무&lt;/h4>
+&lt;p>바이너리를 User Product와 배포한다면 설치 정보(Installation Information)을 제공한다.&lt;/p>
+&lt;ul>
+&lt;li>User Product : 전자 기기와 같은 Embedded Device&lt;/li>
+&lt;li>설치 정보(Installation Information) : 사용자가 소소 코드를 빌드하여 다시 제품에 설치하기 위해 필요한 모든 정보 및 방법
+&lt;div class="alert alert-warning" role="alert">
+&lt;h4 class="alert-heading">사용 제한&lt;/h4>
+대부분의 User Product는 보안상의 이유로 설치 정보를 제공하는 것이 불가능하다. 따라서, User Product로 배포하는 소프트웨어에는 GPL-3.0의 오픈소스를 사용하지 않아야 한다.
+&lt;/div>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="라이선스-호환성">라이선스 호환성&lt;/h2>
+&lt;p>서로 요구하는 의무사항이 상충되는 오픈소스 라이선스는 하나의 프로그램에 동시에 존재해서는 안된다. 다음은 GPL-3.0과 충돌하는 라이선스 목록이다. GPL-3.0 프로그램 내에 다음 라이선스 하의 오픈소스를 포함해서는 안된다.&lt;/p>
+&lt;ul>
+&lt;li>Apache-1.1&lt;/li>
+&lt;li>BSD-4-Clause&lt;/li>
+&lt;li>FTL&lt;/li>
+&lt;li>IJG&lt;/li>
+&lt;li>OpenSSL&lt;/li>
+&lt;li>Python-2.0&lt;/li>
+&lt;li>zlib-acknowledgement&lt;/li>
+&lt;li>XFree86-1.1&lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>참고 : &lt;a href="https://www.osadl.org/fileadmin/checklists/unreflicenses/GPL-3.0-only.txt">https://www.osadl.org/fileadmin/checklists/unreflicenses/GPL-3.0-only.txt&lt;/a>&lt;/p>
+&lt;/blockquote></description></item><item><title>Guide: LGPL-2.1 가이드</title><link>/guide/use/obligation/lgpl-2.1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/guide/use/obligation/lgpl-2.1/</guid><description>
+&lt;h2 id="소스-코드-내-라이선스-문구">소스 코드 내 라이선스 문구&lt;/h2>
+&lt;p>LGPL-2.1하의 오픈소스는 일반적으로 소스 코드 상단에 다음과 같은 문구가 있다.&lt;/p>
+&lt;pre>&lt;code>Copyright (C) year name of author
+This library is free software; you can redistribute it and/or
+modify it under the terms of the GNU Lesser General Public
+License as published by the Free Software Foundation; either
+version 2.1 of the License, or (at your option) any later version.
+This library is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+Lesser General Public License for more details.
+You should have received a copy of the GNU Lesser General Public
+License along with this library; if not, write to the Free Software
+Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
+&lt;/code>&lt;/pre>&lt;h2 id="사용-사례-별-의무-사항">사용 사례 별 의무 사항&lt;/h2>
+&lt;h3 id="case-1-소스-형태로-재배포">Case 1. 소스 형태로 재배포&lt;/h3>
+&lt;p>LGPL-2.1하의 오픈소스를 소스 형태로 재배포 시 다음 사항을 준수한다 .&lt;/p>
+&lt;h4 id="1-1-고지-의무">1-1 고지 의무&lt;/h4>
+&lt;ul>
+&lt;li>저작권 고지 제공&lt;/li>
+&lt;li>보증 부인 제공&lt;/li>
+&lt;li>라이선스 사본 제공
+즉, 소스 코드 내 명시된 저작권/라이선스 정보를 그대로 유지한 상태로 재배포한다.&lt;/li>
+&lt;/ul>
+&lt;div class="alert alert-success" role="alert">
+&lt;h4 class="alert-heading">수정 시 의무 사항&lt;/h4>
+&lt;p>오픈소스의 소스 코드를 일부 추가/수정하였을 경우, 다음 사항을 준수한다.&lt;/p>
+&lt;ol>
+&lt;li>추가/수정한 부분에 LGPL-2.1을 적용한다.&lt;/li>
+&lt;li>수정 사항에 대한 고지를 포함한다. (예: 수정일, 수정내용을 주석 형태로 포함)&lt;/li>
+&lt;/ol>
+&lt;/div>
+&lt;h3 id="case-2-바이너리라이브러리-형태로-재배포">Case 2. 바이너리(라이브러리) 형태로 재배포&lt;/h3>
+&lt;p>LGPL-2.1하의 오픈소스를 빌드하여 바이너리 형태로만 재배포 시 다음 사항을 준수한다.&lt;/p>
+&lt;h4 id="2-1-고지-의무">2-1 고지 의무&lt;/h4>
+&lt;ul>
+&lt;li>저작권 고지 제공&lt;/li>
+&lt;li>보증 부인 제공&lt;/li>
+&lt;li>라이선스 사본 제공
+이상의 내용을 포함하는 오픈소스 고지문을 생성하여 라이브러리 재배포 시 동봉한다.&lt;/li>
+&lt;/ul>
+&lt;div class="alert alert-success" role="alert">
+&lt;h4 class="alert-heading">수정 시 의무 사항&lt;/h4>
+&lt;p>오픈소스의 소스 코드를 일부 추가/수정하였을 경우, 다음 사항을 준수한다.&lt;/p>
+&lt;ol>
+&lt;li>추가/수정한 부분에 LGPL-2.1을 적용한다.&lt;/li>
+&lt;li>수정 사항에 대한 고지를 포함한다. (예: 오픈소스 고지문에 수정일, 수정내용을 포함)&lt;/li>
+&lt;/ol>
+&lt;/div>
+&lt;h4 id="2-2-소스-코드-제공-의무">2-2 소스 코드 제공 의무&lt;/h4>
+&lt;p>바이너리(라이브러리)에 해당하는 소스 코드를 제공한다. 이때 다음 사항을 준수한다.&lt;/p>
+&lt;ol>
+&lt;li>LGPL-2.1은 파생저작물에 대해서도 LGPL-2.1을 적용하여 소스 코드를 공개할 것을 요구한다. 아래 내용을 참고하여 LGPL-2.1하의 오픈소스와 파생저작물의 소스 코드를 공개한다.
+&lt;div class="alert alert-warning" role="alert">
+&lt;h4 class="alert-heading">LGPL-2.1 파생 저작물의 범위&lt;/h4>
+&lt;p>일반적인 LGPL-2.1의 파생 저작물의 범위는 다음과 같다.&lt;/p>
+&lt;ul>
+&lt;li>라이브러리 내 수정/추가 파일&lt;/li>
+&lt;/ul>
+&lt;p>다음의 경우 LGPL-2.1의 파생 저작물로 보지 않는다.&lt;/p>
+&lt;ul>
+&lt;li>LGPL-2.1 라이브러리를 Dynamic Link하여 사용하는 프로그램&lt;/li>
+&lt;li>참고로, Java에서 LGPL-2.1인 JAR 파일을 import하는 프로그램도 LGPL-2.1의 파생저작물로 간주하지 않는다. (&lt;a href="http://www.gnu.org/licenses/lgpl-java.html">http://www.gnu.org/licenses/lgpl-java.html&lt;/a>)&lt;/li>
+&lt;/ul>
+&lt;/div>
+&lt;/li>
+&lt;li>사용자가 공개된 LGPL 라이브러리의 소스 코드를 빌드하여 동일한 라이브러리를 만들 수 있는 빌드 환경을 제공한다. 여기에는 다음 사항이 포함된다.
+&lt;ul>
+&lt;li>Tool chain 정보&lt;/li>
+&lt;li>빌드 스크립트&lt;/li>
+&lt;li>빌드 방법 (README)&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>LGPL 라이브러리를 Static Link하여 생성한 실행파일(Executable)을 배포하는 경우, 사용자가 LGPL 라이브러리를 수정하고 다시 실행파일을 생성할 수 있도록 실행파일을 구성하는 오브젝트 코드를 제공한다. (&lt;a href="https://www.gnu.org/licenses/gpl-faq.en.html#LGPLStaticVsDynamic">#LGPLStaticVsDynamic&lt;/a>)&lt;/li>
+&lt;/ol>
+&lt;p>소스 코드 대신 서면 약정서 (Written Offer)를 제공할 수 있다. 여기에는 다음 진술이 포함되어야 한다.&lt;/p>
+&lt;ol>
+&lt;li>서면 약정서는 제품 판매 후 3년간 유효하다.&lt;/li>
+&lt;li>누구에게나 제공한다.&lt;/li>
+&lt;li>비용 청구를 하지 않는다. (소스 전달을 위해 발생하는 비용 제외)
+&lt;div class="alert alert-warning" role="alert">
+이후 외부로부터 서면 약정서를 근거로 소스 코드 제공을 요청 받을 경우, 위에서 언급한 바이너리에 해당하는 소스 코드를 제공해야 한다. 따라서 회사는 제품 판매 후 최소 3년간 소스 코드를 보관해야 한다.
+&lt;/div>
+&lt;/li>
+&lt;/ol>
+&lt;h2 id="라이선스-호환성">라이선스 호환성&lt;/h2>
+&lt;p>서로 요구하는 의무사항이 상충되는 오픈소스 라이선스는 하나의 프로그램에 동시에 존재해서는 안된다. 다음은 LGPL-2.1과 충돌하는 라이선스 목록이다. LGPL-2.1 프로그램 내에 다음 라이선스 하의 오픈소스를 포함해서는 안된다.&lt;/p>
+&lt;ul>
+&lt;li>Apache-1.1&lt;/li>
+&lt;li>Apache-2.0&lt;/li>
+&lt;li>BSD-4-Clause&lt;/li>
+&lt;li>FTL&lt;/li>
+&lt;li>IJG&lt;/li>
+&lt;li>OpenSSL&lt;/li>
+&lt;li>Python-2.0&lt;/li>
+&lt;li>zlib-acknowledgement&lt;/li>
+&lt;li>XFree86-1.1&lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>참고 : &lt;a href="https://www.osadl.org/fileadmin/checklists/unreflicenses/LGPL-2.1-only.txt">https://www.osadl.org/fileadmin/checklists/unreflicenses/LGPL-2.1-only.txt&lt;/a>&lt;/p>
+&lt;/blockquote></description></item><item><title>Guide: LGPL-3.0 가이드</title><link>/guide/use/obligation/lgpl-3.0/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/guide/use/obligation/lgpl-3.0/</guid><description>
+&lt;h2 id="소스-코드-내-라이선스-문구">소스 코드 내 라이선스 문구&lt;/h2>
+&lt;p>LGPL-3.0하의 오픈소스는 일반적으로 소스 코드 상단에 다음과 같은 문구가 있다.&lt;/p>
+&lt;pre>&lt;code>Copyright (C) &amp;lt;year&amp;gt; &amp;lt;name of author&amp;gt;
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU Lesser General Public License as
+published by the Free Software Foundation, either version 3 of the
+License, or (at your option) any later version.
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU Lesser General Public License for more details.
+You should have received a copy of the GNU Lesser General Public License
+along with this program. If not, see &amp;lt;http://www.gnu.org/licenses/&amp;gt;.
+&lt;/code>&lt;/pre>&lt;h2 id="사용-사례-별-의무-사항">사용 사례 별 의무 사항&lt;/h2>
+&lt;h3 id="case-1-소스-형태로-재배포">Case 1. 소스 형태로 재배포&lt;/h3>
+&lt;p>LGPL-3.0하의 오픈소스를 소스 형태로 재배포 시 다음 사항을 준수한다 .&lt;/p>
+&lt;h4 id="1-1-고지-의무">1-1 고지 의무&lt;/h4>
+&lt;ul>
+&lt;li>저작권 고지 제공&lt;/li>
+&lt;li>보증 부인 제공&lt;/li>
+&lt;li>라이선스 사본 제공
+즉, 소스 코드 내 명시된 저작권/라이선스 정보를 그대로 유지한 상태로 재배포한다.&lt;/li>
+&lt;/ul>
+&lt;div class="alert alert-success" role="alert">
+&lt;h4 class="alert-heading">수정 시 의무 사항&lt;/h4>
+&lt;p>오픈소스의 소스 코드를 일부 추가/수정하였을 경우, 다음 사항을 준수한다.&lt;/p>
+&lt;ol>
+&lt;li>추가/수정한 부분에 LGPL-3.0을 적용한다.&lt;/li>
+&lt;li>수정 사항에 대한 고지를 포함한다. (예: 수정일, 수정내용을 주석 형태로 포함)&lt;/li>
+&lt;/ol>
+&lt;/div>
+&lt;h3 id="case-2-바이너리라이브러리-형태로-재배포">Case 2. 바이너리(라이브러리) 형태로 재배포&lt;/h3>
+&lt;p>LGPL-3.0하의 오픈소스를 빌드하여 바이너리 형태로만 재배포 시 다음 사항을 준수한다.&lt;/p>
+&lt;h4 id="2-1-고지-의무">2-1 고지 의무&lt;/h4>
+&lt;ul>
+&lt;li>저작권 고지 제공&lt;/li>
+&lt;li>보증 부인 제공&lt;/li>
+&lt;li>라이선스 사본 제공
+이상의 내용을 포함하는 오픈소스 고지문을 생성하여 라이브러리 재배포 시 동봉한다.&lt;/li>
+&lt;/ul>
+&lt;div class="alert alert-success" role="alert">
+&lt;h4 class="alert-heading">수정 시 의무 사항&lt;/h4>
+&lt;p>오픈소스의 소스 코드를 일부 추가/수정하였을 경우, 다음 사항을 준수한다.&lt;/p>
+&lt;ol>
+&lt;li>추가/수정한 부분에 LGPL-3.0을 적용한다.&lt;/li>
+&lt;li>수정 사항에 대한 고지를 포함한다. (예: 오픈소스 고지문에 수정일, 수정내용을 포함)&lt;/li>
+&lt;/ol>
+&lt;/div>
+&lt;h4 id="2-2-소스-코드-제공-의무">2-2 소스 코드 제공 의무&lt;/h4>
+&lt;p>바이너리(라이브러리)에 해당하는 소스 코드를 제공한다. 이때 다음 사항을 준수한다.&lt;/p>
+&lt;ol>
+&lt;li>LGPL-3.0은 파생저작물에 대해서도 LGPL-3.0을 적용하여 소스 코드를 공개할 것을 요구한다. 아래 내용을 참고하여 LGPL-3.0하의 오픈소스와 파생저작물의 소스 코드를 공개한다.
+&lt;div class="alert alert-warning" role="alert">
+&lt;h4 class="alert-heading">LGPL-3.0 파생 저작물의 범위&lt;/h4>
+&lt;p>일반적인 LGPL-3.0의 파생 저작물의 범위는 다음과 같다.&lt;/p>
+&lt;ul>
+&lt;li>라이브러리 내 수정/추가 파일&lt;/li>
+&lt;/ul>
+&lt;p>다음의 경우 LGPL-3.0의 파생 저작물로 보지 않는다.&lt;/p>
+&lt;ul>
+&lt;li>LGPL-3.0 라이브러리를 Dynamic Link하여 사용하는 프로그램&lt;/li>
+&lt;li>참고로, Java에서 LGPL-3.0인 JAR 파일을 import하는 프로그램도 LGPL-3.0의 파생저작물로 간주하지 않는다. (&lt;a href="http://www.gnu.org/licenses/lgpl-java.html">http://www.gnu.org/licenses/lgpl-java.html&lt;/a>)&lt;/li>
+&lt;/ul>
+&lt;/div>
+&lt;/li>
+&lt;li>사용자가 공개된 LGPL 라이브러리의 소스 코드를 빌드하여 동일한 라이브러리를 만들 수 있는 빌드 환경을 제공한다. 여기에는 다음 사항이 포함된다.
+&lt;ul>
+&lt;li>Tool chain 정보&lt;/li>
+&lt;li>빌드 스크립트&lt;/li>
+&lt;li>빌드 방법 (README)&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>LGPL 라이브러리를 Static Link하여 생성한 실행파일(Executable)을 배포하는 경우, 사용자가 LGPL 라이브러리를 수정하고 다시 실행파일을 생성할 수 있도록 실행파일을 구성하는 오브젝트 코드를 제공한다. (&lt;a href="https://www.gnu.org/licenses/gpl-faq.en.html#LGPLStaticVsDynamic">#LGPLStaticVsDynamic&lt;/a>)&lt;/li>
+&lt;/ol>
+&lt;p>소스 코드 대신 서면 약정서 (Written Offer)를 제공할 수 있다. 여기에는 다음 진술이 포함되어야 한다.&lt;/p>
+&lt;ol>
+&lt;li>서면 약정서는 제품 판매 후 3년간 유효하다.&lt;/li>
+&lt;li>누구에게나 제공한다.&lt;/li>
+&lt;li>비용 청구를 하지 않는다. (소스 전달을 위해 발생하는 비용 제외)
+&lt;div class="alert alert-warning" role="alert">
+이후 외부로부터 서면 약정서를 근거로 소스 코드 제공을 요청 받을 경우, 위에서 언급한 바이너리에 해당하는 소스 코드를 제공해야 한다. 따라서 회사는 제품 판매 후 최소 3년간 소스 코드를 보관해야 한다.
+&lt;/div>
+&lt;/li>
+&lt;/ol>
+&lt;h4 id="2-3-설치-정보-제공-의무">2-3 설치 정보 제공 의무&lt;/h4>
+&lt;p>라이브러리를 User Product와 배포한다면 설치 정보(Installation Information)을 제공한다.&lt;/p>
+&lt;ul>
+&lt;li>User Product : 전자 기기와 같은 Embedded Device&lt;/li>
+&lt;li>설치 정보(Installation Information) : 사용자가 소소 코드를 빌드하여 다시 제품에 설치하기 위해 필요한 모든 정보 및 방법
+&lt;div class="alert alert-warning" role="alert">
+&lt;h4 class="alert-heading">사용 제한&lt;/h4>
+대부분의 User Product는 보안상의 이유로 설치 정보를 제공하는 것이 불가능하다. 따라서, User Product로 배포하는 소프트웨어에는 LGPL-3.0의 오픈소스를 사용하지 않아야 한다.
+&lt;/div>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="라이선스-호환성">라이선스 호환성&lt;/h2>
+&lt;p>서로 요구하는 의무사항이 상충되는 오픈소스 라이선스는 하나의 프로그램에 동시에 존재해서는 안된다. 다음은 LGPL-3.0과 충돌하는 라이선스 목록이다. LGPL-3.0 프로그램 내에 다음 라이선스 하의 오픈소스를 포함해서는 안된다.&lt;/p>
+&lt;ul>
+&lt;li>Apache-1.1&lt;/li>
+&lt;li>BSD-4-Clause&lt;/li>
+&lt;li>FTL&lt;/li>
+&lt;li>IJG&lt;/li>
+&lt;li>OpenSSL&lt;/li>
+&lt;li>Python-2.0&lt;/li>
+&lt;li>zlib-acknowledgement&lt;/li>
+&lt;li>XFree86-1.1&lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>참고 : &lt;a href="https://www.osadl.org/fileadmin/checklists/unreflicenses/LGPL-3.0-only.txt">https://www.osadl.org/fileadmin/checklists/unreflicenses/LGPL-3.0-only.txt&lt;/a>&lt;/p>
+&lt;/blockquote></description></item></channel></rss>

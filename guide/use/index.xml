@@ -382,7 +382,7 @@ at no charge to all third parties under the terms of this License.
 &lt;tr>
 &lt;td>&lt;a href="https://www.gnu.org/licenses/gpl-3.0-standalone.html">&lt;code>GNU General Public License v3.0&lt;/code>&lt;/a>&lt;/td>
 &lt;td style="text-align:left">&lt;a href="https://spdx.org/licenses/GPL-3.0-only.html">&lt;code>GPL-3.0&lt;/code>&lt;/a>&lt;/td>
-&lt;td style="text-align:center">&lt;/td>
+&lt;td style="text-align:center">&lt;a href="./gpl-3.0/">GPL-3.0 가이드&lt;/a>&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>&lt;a href="https://creativecommons.org/licenses/by-sa/4.0/legalcode">&lt;code>Creative Commons Attribution Share Alike 4.0 International&lt;/code> &lt;/a>&lt;/td>
@@ -440,12 +440,12 @@ at no charge to all third parties under the terms of this License.
 &lt;tr>
 &lt;td>&lt;a href="https://www.gnu.org/licenses/old-licenses/lgpl-2.1-standalone.html">&lt;code>GNU Lesser General Public License v2.1&lt;/code>&lt;/a>&lt;/td>
 &lt;td style="text-align:left">&lt;a href="https://spdx.org/licenses/LGPL-2.1-only.html">&lt;code>LGPL-2.1&lt;/code>&lt;/a>&lt;/td>
-&lt;td style="text-align:center">&lt;/td>
+&lt;td style="text-align:center">&lt;a href="./lgpl-2.1/">LGPL-2.1 가이드&lt;/a>&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>&lt;a href="https://www.gnu.org/licenses/lgpl-3.0-standalone.html">&lt;code>GNU Lesser General Public License v3.0&lt;/code>&lt;/a>&lt;/td>
 &lt;td style="text-align:left">&lt;a href="https://spdx.org/licenses/LGPL-3.0-only.html">&lt;code>LGPL-3.0&lt;/code>&lt;/a>&lt;/td>
-&lt;td style="text-align:center">&lt;/td>
+&lt;td style="text-align:center">&lt;a href="./lgpl-3.0/">LGPL-3.0 가이드&lt;/a>&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>&lt;a href="http://opensource.org/licenses/cddl1.php">&lt;code>Common Development and Distribution License 1.0&lt;/code>&lt;/a>&lt;/td>
@@ -539,7 +539,7 @@ at no charge to all third parties under the terms of this License.
 &lt;tr>
 &lt;td>&lt;a href="https://www.gnu.org/licenses/agpl.txt">&lt;code>GNU Affero General Public License v3.0&lt;/code>&lt;/a>&lt;/td>
 &lt;td style="text-align:left">&lt;a href="https://spdx.org/licenses/AGPL-3.0-only.html">&lt;code>AGPL-3.0&lt;/code>&lt;/a>&lt;/td>
-&lt;td style="text-align:center">&lt;/td>
+&lt;td style="text-align:center">&lt;a href="./agpl-3.0/">AGPL-3.0 가이드&lt;/a>&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>&lt;a href="https://www.mongodb.com/licensing/server-side-public-license">&lt;code>Server Side Public License, v 1&lt;/code>&lt;/a>&lt;/td>
