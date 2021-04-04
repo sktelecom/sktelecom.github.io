@@ -92,7 +92,7 @@ Copyleft 라이선스 유형으로 분류할 수 있는 오픈소스 라이선�
 | Full name | [Identifier](https://spdx.org/licenses/) | 사용 사례별 가이드 |
 |---|:---|:---:|
 | [`GNU General Public License v2.0`](https://www.gnu.org/licenses/old-licenses/gpl-2.0-standalone.html) | [`GPL-2.0`](https://spdx.org/licenses/GPL-2.0-only.html) | [GPL-2.0 가이드](./gpl-2.0/) |
-| [`GNU General Public License v3.0`](https://www.gnu.org/licenses/gpl-3.0-standalone.html) | [`GPL-3.0`](https://spdx.org/licenses/GPL-3.0-only.html)|  |
+| [`GNU General Public License v3.0`](https://www.gnu.org/licenses/gpl-3.0-standalone.html) | [`GPL-3.0`](https://spdx.org/licenses/GPL-3.0-only.html)| [GPL-3.0 가이드](./gpl-3.0/)  |
 | [`Creative Commons Attribution Share Alike 4.0 International` ](https://creativecommons.org/licenses/by-sa/4.0/legalcode)| [`CC-BY-SA-4.0`](https://spdx.org/licenses/CC-BY-SA-4.0.html) |  |
 | [`Creative Commons Attribution No Derivatives 4.0 International`](https://creativecommons.org/licenses/by-nd/4.0/legalcode) | [`CC-BY-ND-4.0`](https://spdx.org/licenses/CC-BY-ND-4.0.html) |  |
 | [`Open Software License 3.0`](http://opensource.org/licenses/osl-2.1.php) | [`OSL-3.0`](https://spdx.org/licenses/OSL-3.0.html) |  |
@@ -121,8 +121,8 @@ Weak Copyleft 라이선스 유형으로 분류할 수 있는 오픈소스 라이
 
 | Full name | [Identifier](https://spdx.org/licenses/) | 사용 사례별 가이드 |
 |---|:---|:---:|
-| [`GNU Lesser General Public License v2.1`](https://www.gnu.org/licenses/old-licenses/lgpl-2.1-standalone.html) | [`LGPL-2.1`](https://spdx.org/licenses/LGPL-2.1-only.html) |  |
-| [`GNU Lesser General Public License v3.0`](https://www.gnu.org/licenses/lgpl-3.0-standalone.html) | [`LGPL-3.0`](https://spdx.org/licenses/LGPL-3.0-only.html)|  |
+| [`GNU Lesser General Public License v2.1`](https://www.gnu.org/licenses/old-licenses/lgpl-2.1-standalone.html) | [`LGPL-2.1`](https://spdx.org/licenses/LGPL-2.1-only.html) | [LGPL-2.1 가이드](./lgpl-2.1/)  |
+| [`GNU Lesser General Public License v3.0`](https://www.gnu.org/licenses/lgpl-3.0-standalone.html) | [`LGPL-3.0`](https://spdx.org/licenses/LGPL-3.0-only.html)| [LGPL-3.0 가이드](./lgpl-3.0/)  |
 | [`Common Development and Distribution License 1.0`](http://opensource.org/licenses/cddl1.php) | [`CDDL-1.0`](https://spdx.org/licenses/CDDL-1.0.html) |  |
 | [`Common Public License 1.0`](http://opensource.org/licenses/cpl1.0.php) | [`CPL-1.0`](https://spdx.org/licenses/CPL-1.0.html) |  |
 | [`Eclipse Public License 1.0`](http://opensource.org/licenses/eclipse-1.0.php) | [`EPL-1.0`](https://spdx.org/licenses/EPL-1.0.html) |  |
@@ -154,7 +154,7 @@ AGPL, SSPL은 Network 서비스도 배포로 간주하여 의무사항 준수를
 
 | Full name | [Identifier](https://spdx.org/licenses/) | 사용 사례별 가이드 |
 |---|:---|:---:|
-| [`GNU Affero General Public License v3.0`](https://www.gnu.org/licenses/agpl.txt) | [`AGPL-3.0`](https://spdx.org/licenses/AGPL-3.0-only.html) |  |
+| [`GNU Affero General Public License v3.0`](https://www.gnu.org/licenses/agpl.txt) | [`AGPL-3.0`](https://spdx.org/licenses/AGPL-3.0-only.html) | [AGPL-3.0 가이드](./agpl-3.0/) |
 | [`Server Side Public License, v 1`](https://www.mongodb.com/licensing/server-side-public-license) | [`SSPL-1.0`](https://spdx.org/licenses/SSPL-1.0.html) |  |
 
 * AGPL (GNU Affero General Public License)
