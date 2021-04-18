@@ -8,7 +8,7 @@ resources:
 - src: "**.{png,jpg}"
   title: "Image #:counter"
   params:
-  byline: "Photo: Justin Kim"
+    byline: "Photo: Justin Kim"
 ---
 
 # The 2nd page of Hwangsaeul project
