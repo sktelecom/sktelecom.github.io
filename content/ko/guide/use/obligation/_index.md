@@ -43,10 +43,10 @@ Permissive License라고 분류할 수 있는 아래의 오픈소스 라이선�
 | [`Artistic License 1.0`](https://opensource.org/licenses/artistic-license-1.0) | [`Artistic-1.0`](https://spdx.org/licenses/Artistic-1.0.html) |  | 
 | [`Artistic License 2.0`](http://opensource.org/licenses/artistic-license-2.0) | [`Artistic-2.0`](https://spdx.org/licenses/Artistic-2.0.html) |  | 
 | [`Apache License 1.1` ](http://apache.org/licenses/LICENSE-1.1)| [`Apache-1.1` ](https://spdx.org/licenses/Apache-1.1.html)|  |
-| [`Apache License 2.0`](https://www.apache.org/licenses/LICENSE-2.0) | [`Apache-2.0`](https://spdx.org/licenses/Apache-2.0.html) |  |
+| [`Apache License 2.0`](https://www.apache.org/licenses/LICENSE-2.0) | [`Apache-2.0`](https://spdx.org/licenses/Apache-2.0.html) | [Apache-2.0 가이드](./apache-2.0/) |
 | [`Boost Software License 1.0`](http://www.boost.org/users/license.html) | [`BSL-1.0`](https://spdx.org/licenses/BSL-1.0.html)|  |
-| [`BSD 2-Clause "Simplified" License`](https://opensource.org/licenses/bsd-license.php) | [`BSD-2-Clause` ](https://spdx.org/licenses/BSD-2-Clause.html)|  |
-| [`BSD 3-Clause "New" or "Revised" License`](https://opensource.org/licenses/BSD-3-Clause) | [`BSD-3-Clause`](https://spdx.org/licenses/BSD-3-Clause.html) |  |
+| [`BSD 2-Clause "Simplified" License`](https://opensource.org/licenses/bsd-license.php) | [`BSD-2-Clause` ](https://spdx.org/licenses/BSD-2-Clause.html)| [BSD-2-Clause 가이드](./bsd-2-clause/) |
+| [`BSD 3-Clause "New" or "Revised" License`](https://opensource.org/licenses/BSD-3-Clause) | [`BSD-3-Clause`](https://spdx.org/licenses/BSD-3-Clause.html) | [BSD-3-Clause 가이드](./bsd-3-clause/) |
 | [`BSD-2-Clause Plus Patent License`](https://opensource.org/licenses/BSDplusPatent) | [`BSD-2-Clause-Patent`](https://spdx.org/licenses/BSD-2-Clause-Patent.html)|  |
 | [`Creative Commons Attribution 4.0 International`](https://creativecommons.org/licenses/by/4.0/) | [`CC-BY-4.0`](https://spdx.org/licenses/CC-BY-4.0.html)|  |
 | [`JSON License`](https://www.json.org/license.html) | [`JSON`](https://spdx.org/licenses/JSON.html) |  |
@@ -56,7 +56,7 @@ Permissive License라고 분류할 수 있는 아래의 오픈소스 라이선�
 | [`libtiff License`](http://www.remotesensing.org/libtiff/misc.html) | [`libtiff`](https://spdx.org/licenses/libtiff.html) |  |
 | [`Lucent Public License v1.02`](http://cm.bell-labs.com/plan9/license.html) | [`LPL-1.02`](https://spdx.org/licenses/LPL-1.02.html) |  |
 | [`Microsoft Public License`](http://opensource.org/licenses/MS-PL) | [`MS-PL`](https://spdx.org/licenses/MS-PL.html) |  |
-| [`MIT License`](http://opensource.org/licenses/mit-license.php) | [`MIT`](https://spdx.org/licenses/MIT.html) |  |
+| [`MIT License`](http://opensource.org/licenses/mit-license.php) | [`MIT`](https://spdx.org/licenses/MIT.html) | [MIT 가이드](./mit/) |
 | [`X11 License`](http://www.xfree86.org/3.3.6/COPYRIGHT2.html#3)| [`X11`](https://spdx.org/licenses/X11.html) |  |
 | [`CMU License`](https://web.archive.org/web/20190922104304/https://fedoraproject.org/wiki/Licensing:MIT?rd=Licensing/MIT#CMU_Style)| [`MIT-CMU` ](https://spdx.org/licenses/MIT-CMU.html)|  | 
 | [`University of Illinois/NCSA Open Source License`](http://opensource.org/licenses/UoI-NCSA.php) | [`NCSA`](https://spdx.org/licenses/NCSA.html) |  | 
@@ -123,13 +123,13 @@ Weak Copyleft 라이선스 유형으로 분류할 수 있는 오픈소스 라이
 |---|:---|:---:|
 | [`GNU Lesser General Public License v2.1`](https://www.gnu.org/licenses/old-licenses/lgpl-2.1-standalone.html) | [`LGPL-2.1`](https://spdx.org/licenses/LGPL-2.1-only.html) | [LGPL-2.1 가이드](./lgpl-2.1/)  |
 | [`GNU Lesser General Public License v3.0`](https://www.gnu.org/licenses/lgpl-3.0-standalone.html) | [`LGPL-3.0`](https://spdx.org/licenses/LGPL-3.0-only.html)| [LGPL-3.0 가이드](./lgpl-3.0/)  |
-| [`Common Development and Distribution License 1.0`](http://opensource.org/licenses/cddl1.php) | [`CDDL-1.0`](https://spdx.org/licenses/CDDL-1.0.html) |  |
+| [`Common Development and Distribution License 1.0`](http://opensource.org/licenses/cddl1.php) | [`CDDL-1.0`](https://spdx.org/licenses/CDDL-1.0.html) | [CDDL-1.0 가이드](./cddl-1.0/) |
 | [`Common Public License 1.0`](http://opensource.org/licenses/cpl1.0.php) | [`CPL-1.0`](https://spdx.org/licenses/CPL-1.0.html) |  |
 | [`Eclipse Public License 1.0`](http://opensource.org/licenses/eclipse-1.0.php) | [`EPL-1.0`](https://spdx.org/licenses/EPL-1.0.html) |  |
-| [`Eclipse Public License 2.0`](https://opensource.org/licenses/EPL-2.0) | [`EPL-2.0`](https://spdx.org/licenses/EPL-2.0.html) |  |
+| [`Eclipse Public License 2.0`](https://opensource.org/licenses/EPL-2.0) | [`EPL-2.0`](https://spdx.org/licenses/EPL-2.0.html) | [EPL-2.0 가이드](./epl-2.0/) |
 | [`IBM Public License v1.0`](http://opensource.org/licenses/ibmpl.php) | [`IPL-1.0`](https://spdx.org/licenses/IPL-1.0.html)|  |
 | [`Mozilla Public License 1.1`](http://opensource.org/licenses/mozilla1.1.php) | [`MPL-1.1`](https://spdx.org/licenses/MPL-1.1.html) |  |
-| [`Mozilla Public License 2.0`](http://opensource.org/licenses/MPL-2.0) | [`MPL-2.0`](https://spdx.org/licenses/MPL-2.0.html) |  |
+| [`Mozilla Public License 2.0`](http://opensource.org/licenses/MPL-2.0) | [`MPL-2.0`](https://spdx.org/licenses/MPL-2.0.html) | [MPL-2.0 가이드](./mpl-2.0/) |
 | [`Apple Public Source License 2.0`](http://opensource.org/licenses/apsl-2.0.php) | [`APSL-2.0`](https://spdx.org/licenses/APSL-2.0.html) |  |
 | [`Ruby License`](http://www.ruby-lang.org/en/LICENSE.txt) | [`Ruby` ](https://spdx.org/licenses/Ruby.html)|  |
 
@@ -159,6 +159,14 @@ AGPL, SSPL은 Network 서비스도 배포로 간주하여 의무사항 준수를
 
 * AGPL (GNU Affero General Public License)
 * SSPL (Server Side Public License)
+
+### 광고 조항 포함 라이선스
+BSD-4-Clause 라이선스는 오픈소스의 기능 / 활용을 언급하는 모든 광고에 특정 문구 ("This product includes software developed by the <organization>.")의 포함을 요구한다. 이러한 "advertising clause"의 요구사항을 준수하는 것은 쉽지 않기 때문에 사용을 제한한다. 
+
+| Full name | [Identifier](https://spdx.org/licenses/) | 사용 사례별 가이드 |
+|---|:---|:---:|
+| [`BSD 4-Clause "Original" or "Old" License`](http://directory.fsf.org/wiki/License:BSD_4Clause) | [`BSD-4-Clause`](https://spdx.org/licenses/BSD-4-Clause.html) | [BSD-4-Clause 가이드](./bsd-4-clause/) |
+
 
 이러한 라이선스 하의 오픈소스를 반드시 포함해야 하는 경우라면 OSPO<sub>Open Source Program Office</sub>에 포함할 수 있는 방법을 문의하라. : [Support (opensource@sktelecom.com)](https://sktelecom.github.io/about/contact/)
 

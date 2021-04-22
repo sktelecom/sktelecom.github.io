@@ -28,7 +28,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 ## 사용 사례 별 의무 사항
 ### Case 1. 소스 형태로 재배포 
-AGPL-3.0하의 오픈소스를 소스 형태로 재배포 시 다음 사항을 준수한다 .
+AGPL-3.0하의 오픈소스를 소스 형태로 재배포 시 다음 사항을 준수한다.
 
 #### 1-1 고지 의무
 * 저작권 고지 제공
