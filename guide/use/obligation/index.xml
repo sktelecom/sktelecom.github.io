@@ -14,7 +14,7 @@ You should have received a copy of the GNU Affero General Public License
 along with this program. If not, see &amp;lt;http://www.gnu.org/licenses/&amp;gt;.
 &lt;/code>&lt;/pre>&lt;h2 id="사용-사례-별-의무-사항">사용 사례 별 의무 사항&lt;/h2>
 &lt;h3 id="case-1-소스-형태로-재배포">Case 1. 소스 형태로 재배포&lt;/h3>
-&lt;p>AGPL-3.0하의 오픈소스를 소스 형태로 재배포 시 다음 사항을 준수한다 .&lt;/p>
+&lt;p>AGPL-3.0하의 오픈소스를 소스 형태로 재배포 시 다음 사항을 준수한다.&lt;/p>
 &lt;h4 id="1-1-고지-의무">1-1 고지 의무&lt;/h4>
 &lt;ul>
 &lt;li>저작권 고지 제공&lt;/li>
@@ -121,6 +121,283 @@ along with this program. If not, see &amp;lt;http://www.gnu.org/licenses/&amp;gt
 &lt;/ul>
 &lt;blockquote>
 &lt;p>참고 : &lt;a href="https://www.osadl.org/fileadmin/checklists/unreflicenses/AGPL-3.0-only.txt">https://www.osadl.org/fileadmin/checklists/unreflicenses/AGPL-3.0-only.txt&lt;/a>&lt;/p>
+&lt;/blockquote></description></item><item><title>Guide: Apache-2.0 가이드</title><link>/guide/use/obligation/apache-2.0/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/guide/use/obligation/apache-2.0/</guid><description>
+&lt;h2 id="소스-코드-내-라이선스-문구">소스 코드 내 라이선스 문구&lt;/h2>
+&lt;p>Apache-2.0하의 오픈소스는 일반적으로 소스 코드 상단에 다음과 같은 문구가 있다.&lt;/p>
+&lt;pre>&lt;code>Copyright [yyyy] [name of copyright owner]
+Licensed under the Apache License, Version 2.0 (the &amp;quot;License&amp;quot;);
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+http://www.apache.org/licenses/LICENSE-2.0
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an &amp;quot;AS IS&amp;quot; BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+&lt;/code>&lt;/pre>&lt;h2 id="사용-사례-별-의무-사항">사용 사례 별 의무 사항&lt;/h2>
+&lt;h3 id="case-1-소스-형태로-재배포">Case 1. 소스 형태로 재배포&lt;/h3>
+&lt;p>Apache-2.0하의 오픈소스를 소스 형태로 재배포 시 다음 사항을 준수한다.&lt;/p>
+&lt;h4 id="1-1-고지-의무">1-1 고지 의무&lt;/h4>
+&lt;ul>
+&lt;li>라이선스 사본 제공&lt;/li>
+&lt;li>저작권, 특허, 상표권 등 정보를 유지한다.&lt;/li>
+&lt;li>NOTICE 파일이 포함되어 있을 경우 이를 유지한다.
+즉, 소스 코드 내 명시된 저작권/라이선스 정보를 그대로 유지한 상태로 재배포한다.&lt;/li>
+&lt;/ul>
+&lt;div class="alert alert-success" role="alert">
+&lt;h4 class="alert-heading">수정 시 의무 사항&lt;/h4>
+&lt;p>오픈소스의 소스 코드를 일부 추가/수정하였을 경우, 다음 사항을 준수한다.&lt;/p>
+&lt;ul>
+&lt;li>수정 사항에 대한 고지를 포함한다. (예: 수정일, 수정내용을 주석 형태로 포함)&lt;/li>
+&lt;/ul>
+&lt;/div>
+&lt;h3 id="case-2-바이너리-형태로-재배포">Case 2. 바이너리 형태로 재배포&lt;/h3>
+&lt;p>Apache-2.0하의 오픈소스를 빌드하여 바이너리 형태로만 재배포 시 다음 사항을 준수한다.&lt;/p>
+&lt;h4 id="2-1-고지-의무">2-1 고지 의무&lt;/h4>
+&lt;ul>
+&lt;li>라이선스 사본 제공&lt;/li>
+&lt;li>저작권, 특허, 상표권 등 정보를 유지한다.&lt;/li>
+&lt;li>NOTICE 파일이 포함되어 있을 경우 이를 유지한다.
+이를 포함하는 오픈소스 고지문을 생성하여 바이너리 재배포 시 동봉한다.&lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>참고 : &lt;a href="https://www.osadl.org/fileadmin/checklists/unreflicenses/Apache-2.0.txt">https://www.osadl.org/fileadmin/checklists/unreflicenses/Apache-2.0.txt&lt;/a>&lt;/p>
+&lt;/blockquote></description></item><item><title>Guide: BSD-2-Clause 가이드</title><link>/guide/use/obligation/bsd-2-clause/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/guide/use/obligation/bsd-2-clause/</guid><description>
+&lt;h2 id="소스-코드-내-라이선스-문구">소스 코드 내 라이선스 문구&lt;/h2>
+&lt;p>BSD-2-Clause하의 오픈소스는 일반적으로 소스 코드 상단에 다음과 같은 문구가 있다.&lt;/p>
+&lt;pre>&lt;code>Copyright (c) &amp;lt;YEAR&amp;gt;, &amp;lt;OWNER&amp;gt;
+All rights reserved.
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+1. Redistributions of source code must retain the above copyright notice, this
+list of conditions and the following disclaimer.
+2. Redistributions in binary form must reproduce the above copyright notice,
+this list of conditions and the following disclaimer in the documentation
+and/or other materials provided with the distribution.
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &amp;quot;AS IS&amp;quot; AND
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
+ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+&lt;/code>&lt;/pre>&lt;h2 id="사용-사례-별-의무-사항">사용 사례 별 의무 사항&lt;/h2>
+&lt;h3 id="case-1-소스-형태로-재배포">Case 1. 소스 형태로 재배포&lt;/h3>
+&lt;p>BSD-2-Clause하의 오픈소스를 소스 형태로 재배포 시 다음 사항을 준수한다.&lt;/p>
+&lt;h4 id="1-1-고지-의무">1-1 고지 의무&lt;/h4>
+&lt;ul>
+&lt;li>저작권 고지&lt;/li>
+&lt;li>라이선스 사본 제공&lt;/li>
+&lt;li>보증 부인 고지
+즉, 소스 코드 내 저작권, 라이선스 등을 그대로 유지한다.&lt;/li>
+&lt;/ul>
+&lt;h3 id="case-2-바이너리-형태로-재배포">Case 2. 바이너리 형태로 재배포&lt;/h3>
+&lt;p>BSD-2-Clause하의 오픈소스를 빌드하여 바이너리 형태로만 재배포 시 다음 사항을 준수한다.&lt;/p>
+&lt;h4 id="2-1-고지-의무">2-1 고지 의무&lt;/h4>
+&lt;ul>
+&lt;li>저작권 고지&lt;/li>
+&lt;li>라이선스 사본 제공&lt;/li>
+&lt;li>보증 부인 고지
+이를 포함하는 오픈소스 고지문을 생성하여 바이너리 재배포 시 동봉한다.&lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>참고 : &lt;a href="https://www.osadl.org/fileadmin/checklists/unreflicenses/BSD-2-Clause.txt">https://www.osadl.org/fileadmin/checklists/unreflicenses/BSD-2-Clause.txt&lt;/a>&lt;/p>
+&lt;/blockquote></description></item><item><title>Guide: BSD-3-Clause 가이드</title><link>/guide/use/obligation/bsd-3-clause/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/guide/use/obligation/bsd-3-clause/</guid><description>
+&lt;h2 id="소스-코드-내-라이선스-문구">소스 코드 내 라이선스 문구&lt;/h2>
+&lt;p>BSD-3-Clause하의 오픈소스는 일반적으로 소스 코드 상단에 다음과 같은 문구가 있다.&lt;/p>
+&lt;pre>&lt;code>Copyright (c) &amp;lt;year&amp;gt;, &amp;lt;copyright holder&amp;gt;
+All rights reserved.
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+* Redistributions of source code must retain the above copyright
+notice, this list of conditions and the following disclaimer.
+* Redistributions in binary form must reproduce the above copyright
+notice, this list of conditions and the following disclaimer in the
+documentation and/or other materials provided with the distribution.
+* Neither the name of the &amp;lt;organization&amp;gt; nor the
+names of its contributors may be used to endorse or promote products
+derived from this software without specific prior written permission.
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &amp;quot;AS IS&amp;quot; AND
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL &amp;lt;COPYRIGHT HOLDER&amp;gt; BE LIABLE FOR ANY
+DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+&lt;/code>&lt;/pre>&lt;h2 id="사용-사례-별-의무-사항">사용 사례 별 의무 사항&lt;/h2>
+&lt;h3 id="case-1-소스-형태로-재배포">Case 1. 소스 형태로 재배포&lt;/h3>
+&lt;p>BSD-3-Clause하의 오픈소스를 소스 형태로 재배포 시 다음 사항을 준수한다.&lt;/p>
+&lt;h4 id="1-1-고지-의무">1-1 고지 의무&lt;/h4>
+&lt;ul>
+&lt;li>저작권 고지&lt;/li>
+&lt;li>라이선스 사본 제공&lt;/li>
+&lt;li>보증 부인 고지
+즉, 소스 코드 내 저작권, 라이선스 등을 그대로 유지한다.&lt;/li>
+&lt;/ul>
+&lt;h3 id="case-2-바이너리-형태로-재배포">Case 2. 바이너리 형태로 재배포&lt;/h3>
+&lt;p>BSD-3-Clause하의 오픈소스를 빌드하여 바이너리 형태로만 재배포 시 다음 사항을 준수한다.&lt;/p>
+&lt;h4 id="2-1-고지-의무">2-1 고지 의무&lt;/h4>
+&lt;ul>
+&lt;li>저작권 고지&lt;/li>
+&lt;li>라이선스 사본 제공&lt;/li>
+&lt;li>보증 부인 고지
+이를 포함하는 오픈소스 고지문을 생성하여 바이너리 재배포 시 동봉한다.&lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>참고 : &lt;a href="https://www.osadl.org/fileadmin/checklists/unreflicenses/BSD-3-Clause.txt">https://www.osadl.org/fileadmin/checklists/unreflicenses/BSD-3-Clause.txt&lt;/a>&lt;/p>
+&lt;/blockquote></description></item><item><title>Guide: BSD-4-Clause 가이드</title><link>/guide/use/obligation/bsd-4-clause/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/guide/use/obligation/bsd-4-clause/</guid><description>
+&lt;h2 id="소스-코드-내-라이선스-문구">소스 코드 내 라이선스 문구&lt;/h2>
+&lt;p>BSD-4-Clause하의 오픈소스는 일반적으로 소스 코드 상단에 다음과 같은 문구가 있다.&lt;/p>
+&lt;pre>&lt;code>Copyright (c) &amp;lt;year&amp;gt;, &amp;lt;copyright holder&amp;gt;
+All rights reserved.
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+1. Redistributions of source code must retain the above copyright
+notice, this list of conditions and the following disclaimer.
+2. Redistributions in binary form must reproduce the above copyright
+notice, this list of conditions and the following disclaimer in the
+documentation and/or other materials provided with the distribution.
+3. All advertising materials mentioning features or use of this software
+must display the following acknowledgement:
+This product includes software developed by the &amp;lt;organization&amp;gt;.
+4. Neither the name of the &amp;lt;organization&amp;gt; nor the
+names of its contributors may be used to endorse or promote products
+derived from this software without specific prior written permission.
+THIS SOFTWARE IS PROVIDED BY &amp;lt;COPYRIGHT HOLDER&amp;gt; ''AS IS'' AND ANY
+EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL &amp;lt;COPYRIGHT HOLDER&amp;gt; BE LIABLE FOR ANY
+DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+&lt;/code>&lt;/pre>&lt;h2 id="사용-사례-별-의무-사항">사용 사례 별 의무 사항&lt;/h2>
+&lt;h3 id="case-1-소스-형태로-재배포">Case 1. 소스 형태로 재배포&lt;/h3>
+&lt;p>BSD-4-Clause하의 오픈소스를 소스 형태로 재배포 시 다음 사항을 준수한다.&lt;/p>
+&lt;h4 id="1-1-고지-의무">1-1 고지 의무&lt;/h4>
+&lt;ul>
+&lt;li>저작권 고지&lt;/li>
+&lt;li>라이선스 사본 제공&lt;/li>
+&lt;li>보증 부인 고지&lt;/li>
+&lt;li>BSD-4-Clause하 오픈소스의 기능 / 활용을 언급하는 모든 광고에 다음 문구 포함&lt;br>
+&lt;b>&lt;i>&amp;ldquo;This product includes software developed by the &lt;organization>.&amp;rdquo; &lt;/i>&lt;/b>&lt;/li>
+&lt;/ul>
+&lt;p>즉, 소스 코드 내 저작권, 라이선스 등을 그대로 유지한다.&lt;/p>
+&lt;h3 id="case-2-바이너리-형태로-재배포">Case 2. 바이너리 형태로 재배포&lt;/h3>
+&lt;p>BSD-4-Clause하의 오픈소스를 빌드하여 바이너리 형태로만 재배포 시 다음 사항을 준수한다.&lt;/p>
+&lt;h4 id="2-1-고지-의무">2-1 고지 의무&lt;/h4>
+&lt;ul>
+&lt;li>저작권 고지&lt;/li>
+&lt;li>라이선스 사본 제공&lt;/li>
+&lt;li>보증 부인 고지BSD-4-Clause하 오픈소스의 기능 / 활용을 언급하는 모든 광고에 다음 문구 포함&lt;br>
+&lt;b>&lt;i>&amp;ldquo;This product includes software developed by the &lt;organization>.&amp;rdquo; &lt;/i>&lt;/b>&lt;/li>
+&lt;/ul>
+&lt;p>이를 포함하는 오픈소스 고지문을 생성하여 바이너리 재배포 시 동봉한다.&lt;/p>
+&lt;div class="alert alert-warning" role="alert">
+&lt;p>FreeBSD, NetBSD, BSD 등의 오픈소스는 원래 BSD-4-Clause를 적용하였으나, &amp;ldquo;advertising clause&amp;rdquo; 조항의 문제를 인식하여 BSD-3-Clause, BSD-2-Clauese 등으로 라이선스를 변경하였다.&lt;/p>
+&lt;ul>
+&lt;li>FreeBSD : BSD-2-Clause로 변경함 - &lt;a href="http://www.gnu.org/licenses/bsd.html">http://www.gnu.org/licenses/bsd.html&lt;/a>&lt;/li>
+&lt;li>NetBSD : BSD-2-Clause로 변경함 - &lt;a href="http://www.netbsd.org/about/redistribution.html#why2clause">http://www.netbsd.org/about/redistribution.html#why2clause&lt;/a>&lt;/li>
+&lt;li>BSD : BSD-3-Clause로 변경함 - &lt;a href="ftp://ftp.cs.berkeley.edu/pub/4bsd/README.Impt.License.Change">ftp://ftp.cs.berkeley.edu/pub/4bsd/README.Impt.License.Change&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/div>
+&lt;blockquote>
+&lt;p>참고 : &lt;a href="https://www.osadl.org/fileadmin/checklists/unreflicenses/BSD-4-Clause.txt">https://www.osadl.org/fileadmin/checklists/unreflicenses/BSD-4-Clause.txt&lt;/a>&lt;/p>
+&lt;/blockquote></description></item><item><title>Guide: CDDL-1.0 가이드</title><link>/guide/use/obligation/cddl-1.0/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/guide/use/obligation/cddl-1.0/</guid><description>
+&lt;h2 id="사용-사례-별-의무-사항">사용 사례 별 의무 사항&lt;/h2>
+&lt;h3 id="case-1-소스-형태로-재배포">Case 1. 소스 형태로 재배포&lt;/h3>
+&lt;p>CDDL-1.0하의 오픈소스를 소스 형태로 재배포 시 다음 사항을 준수한다.&lt;/p>
+&lt;h4 id="1-1-고지-의무">1-1 고지 의무&lt;/h4>
+&lt;ul>
+&lt;li>라이선스 사본&lt;/li>
+&lt;li>저작권, 특허, 상표권 등 법적 고지 유지
+즉, 소스 코드 내 명시된 저작권/라이선스 정보를 그대로 유지한 상태로 재배포한다.&lt;/li>
+&lt;/ul>
+&lt;div class="alert alert-success" role="alert">
+&lt;h4 class="alert-heading">수정 시 의무 사항&lt;/h4>
+&lt;p>오픈소스의 소스 코드를 일부 추가/수정하였을 경우, 다음 사항을 준수한다.&lt;/p>
+&lt;ul>
+&lt;li>수정한 파일에 CDDL-1.0을 적용한다. (별도로 추가한 파일에는 CDDL-1.0 적용 의무 없음)&lt;/li>
+&lt;/ul>
+&lt;/div>
+&lt;h3 id="case-2-바이너리-형태로-재배포">Case 2. 바이너리 형태로 재배포&lt;/h3>
+&lt;p>CDDL-1.0하의 오픈소스를 빌드하여 바이너리 형태로만 재배포 시 다음 사항을 준수한다.&lt;/p>
+&lt;h4 id="2-1-고지-의무">2-1 고지 의무&lt;/h4>
+&lt;ul>
+&lt;li>라이선스 사본 제공&lt;/li>
+&lt;li>저작권, 특허, 상표권 등 법적 고지 유지
+이상의 내용을 포함하는 오픈소스 고지문을 생성하여 바이너리 재배포 시 동봉한다.&lt;/li>
+&lt;/ul>
+&lt;div class="alert alert-success" role="alert">
+&lt;h4 class="alert-heading">수정 시 의무 사항&lt;/h4>
+&lt;p>오픈소스의 소스 코드를 일부 추가/수정하였을 경우, 다음 사항을 준수한다.&lt;/p>
+&lt;ul>
+&lt;li>수정한 파일에 CDDL-1.0을 적용한다. (별도로 추가한 파일에는 CDDL-1.0 적용 의무 없음)&lt;/li>
+&lt;/ul>
+&lt;/div>
+&lt;h4 id="2-2-소스-코드-제공-의무">2-2 소스 코드 제공 의무&lt;/h4>
+&lt;p>바이너리 내 CDDL-1.0에 해당하는 소스 코드 파일을 제공한다. 이때 다음 사항을 준수한다. &lt;/p>
+&lt;ul>
+&lt;li>CDDL-1.0은 파일 내 추가한 내용에 대해서도 CDDL-1.0을 적용하여 소스 코드를 공개할 것을 요구한다. 따라서, 원본 파일과 더불어 수정한 파일도 CDDL-1.0을 적용하여 공개한다.&lt;/li>
+&lt;/ul>
+&lt;p>오픈소스 고지문에 사용자가 소스 코드를 수령할 수 있는 방법을 안내함으로써 소스 코드 제공 의무를 준수할 수 있다. &lt;/p>
+&lt;blockquote>
+&lt;p>참고 : https://www.osadl.org/fileadmin/checklists/unreflicenses/CDDL-1.0.txt&lt;/p>
+&lt;/blockquote></description></item><item><title>Guide: EPL-2.0가이드</title><link>/guide/use/obligation/epl-2.0/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/guide/use/obligation/epl-2.0/</guid><description>
+&lt;h2 id="소스-코드-내-라이선스-문구">소스 코드 내 라이선스 문구&lt;/h2>
+&lt;p>EPL-2.0하의 오픈소스는 일반적으로 소스 코드 상단에 다음과 같은 문구가 있다.&lt;/p>
+&lt;pre>&lt;code>This program and the accompanying materials are made available under the
+terms of the Eclipse Public License v. 2.0 which is available at
+http://www.eclipse.org/legal/epl-2.0, or the Eclipse Distribution License
+v. 1.0 which is available at
+http://www.eclipse.org/org/documents/edl-v10.php.
+&lt;/code>&lt;/pre>&lt;h2 id="사용-사례-별-의무-사항">사용 사례 별 의무 사항&lt;/h2>
+&lt;h3 id="case-1-소스-형태로-재배포">Case 1. 소스 형태로 재배포&lt;/h3>
+&lt;p>EPL-2.0하의 오픈소스를 소스 형태로 재배포 시 다음 사항을 준수한다.&lt;/p>
+&lt;h4 id="1-1-고지-의무">1-1 고지 의무&lt;/h4>
+&lt;ul>
+&lt;li>라이선스 사본 제공&lt;/li>
+&lt;li>저작권, 특허, 상표권, 보증부인, 면책 등 법적 고지 수정 금지
+즉, 소스 코드 내 명시된 라이선스 정보를 그대로 유지한 상태로 재배포한다.&lt;/li>
+&lt;/ul>
+&lt;div class="alert alert-success" role="alert">
+&lt;h4 class="alert-heading">수정 시 의무 사항&lt;/h4>
+&lt;p>오픈소스의 소스 코드를 일부 추가/수정하였을 경우, 다음 사항을 준수한다.&lt;/p>
+&lt;ul>
+&lt;li>수정한 모듈에 EPL-2.0을 적용한다.&lt;/li>
+&lt;/ul>
+&lt;/div>
+&lt;h3 id="case-2-바이너리-형태로-재배포">Case 2. 바이너리 형태로 재배포&lt;/h3>
+&lt;p>EPL-2.0하의 오픈소스를 빌드하여 바이너리 형태로만 재배포 시 다음 사항을 준수한다.&lt;/p>
+&lt;h4 id="2-1-고지-의무">2-1 고지 의무&lt;/h4>
+&lt;ul>
+&lt;li>라이선스 사본 제공&lt;/li>
+&lt;li>저작권, 특허, 상표권, 보증부인, 면책 등 법적 고지 수정 금지
+이상의 내용을 포함하는 오픈소스 고지문을 생성하여 바이너리 재배포 시 동봉한다.&lt;/li>
+&lt;/ul>
+&lt;div class="alert alert-success" role="alert">
+&lt;h4 class="alert-heading">수정 시 의무 사항&lt;/h4>
+&lt;p>오픈소스의 소스 코드를 일부 추가/수정하였을 경우, 다음 사항을 준수한다.&lt;/p>
+&lt;ul>
+&lt;li>수정한 모듈에 EPL-2.0을 적용한다.&lt;/li>
+&lt;/ul>
+&lt;/div>
+&lt;h4 id="2-2-소스-코드-제공-의무">2-2 소스 코드 제공 의무&lt;/h4>
+&lt;p>바이너리 내 EPL-2.0에 해당하는 모듈의 소스 코드 파일을 제공한다. 이때 다음 사항을 준수한다.&lt;/p>
+&lt;ul>
+&lt;li>EPL-2.0은 모듈 내 추가한 내용에 대해서도 EPL-2.0을 적용하여 소스 코드를 공개할 것을 요구한다. 따라서, 원 모듈과 더불어 모듈 내 추가/수정한 내용도 EPL-2.0을 적용하여 공개한다.&lt;/li>
+&lt;/ul>
+&lt;p>오픈소스 고지문에 사용자가 소스 코드를 수령할 수 있는 방법을 안내함으로써 소스 코드 제공 의무를 준수할 수 있다.&lt;/p>
+&lt;blockquote>
+&lt;p>참고 : https://www.osadl.org/fileadmin/checklists/unreflicenses/EPL-2.0.txt&lt;/p>
 &lt;/blockquote></description></item><item><title>Guide: GPL-2.0 가이드</title><link>/guide/use/obligation/gpl-2.0/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/guide/use/obligation/gpl-2.0/</guid><description>
 &lt;h2 id="소스-코드-내-라이선스-문구">소스 코드 내 라이선스 문구&lt;/h2>
 &lt;p>GPL-2.0하의 오픈소스는 일반적으로 소스 코드 상단에 다음과 같은 문구가 있다.&lt;/p>
@@ -138,7 +415,7 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
 &lt;/code>&lt;/pre>&lt;h2 id="사용-사례-별-의무-사항">사용 사례 별 의무 사항&lt;/h2>
 &lt;h3 id="case-1-소스-형태로-재배포">Case 1. 소스 형태로 재배포&lt;/h3>
-&lt;p>GPL-2.0하의 오픈소스를 소스 형태로 재배포 시 다음 사항을 준수한다 .&lt;/p>
+&lt;p>GPL-2.0하의 오픈소스를 소스 형태로 재배포 시 다음 사항을 준수한다.&lt;/p>
 &lt;h4 id="1-1-고지-의무">1-1 고지 의무&lt;/h4>
 &lt;ul>
 &lt;li>저작권 고지 제공&lt;/li>
@@ -238,7 +515,7 @@ You should have received a copy of the GNU General Public License
 along with this program. If not, see &amp;lt;http://www.gnu.org/licenses/&amp;gt;
 &lt;/code>&lt;/pre>&lt;h2 id="사용-사례-별-의무-사항">사용 사례 별 의무 사항&lt;/h2>
 &lt;h3 id="case-1-소스-형태로-재배포">Case 1. 소스 형태로 재배포&lt;/h3>
-&lt;p>GPL-3.0하의 오픈소스를 소스 형태로 재배포 시 다음 사항을 준수한다 .&lt;/p>
+&lt;p>GPL-3.0하의 오픈소스를 소스 형태로 재배포 시 다음 사항을 준수한다.&lt;/p>
 &lt;h4 id="1-1-고지-의무">1-1 고지 의무&lt;/h4>
 &lt;ul>
 &lt;li>저작권 고지 제공&lt;/li>
@@ -351,7 +628,7 @@ License along with this library; if not, write to the Free Software
 Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
 &lt;/code>&lt;/pre>&lt;h2 id="사용-사례-별-의무-사항">사용 사례 별 의무 사항&lt;/h2>
 &lt;h3 id="case-1-소스-형태로-재배포">Case 1. 소스 형태로 재배포&lt;/h3>
-&lt;p>LGPL-2.1하의 오픈소스를 소스 형태로 재배포 시 다음 사항을 준수한다 .&lt;/p>
+&lt;p>LGPL-2.1하의 오픈소스를 소스 형태로 재배포 시 다음 사항을 준수한다.&lt;/p>
 &lt;h4 id="1-1-고지-의무">1-1 고지 의무&lt;/h4>
 &lt;ul>
 &lt;li>저작권 고지 제공&lt;/li>
@@ -451,7 +728,7 @@ You should have received a copy of the GNU Lesser General Public License
 along with this program. If not, see &amp;lt;http://www.gnu.org/licenses/&amp;gt;.
 &lt;/code>&lt;/pre>&lt;h2 id="사용-사례-별-의무-사항">사용 사례 별 의무 사항&lt;/h2>
 &lt;h3 id="case-1-소스-형태로-재배포">Case 1. 소스 형태로 재배포&lt;/h3>
-&lt;p>LGPL-3.0하의 오픈소스를 소스 형태로 재배포 시 다음 사항을 준수한다 .&lt;/p>
+&lt;p>LGPL-3.0하의 오픈소스를 소스 형태로 재배포 시 다음 사항을 준수한다.&lt;/p>
 &lt;h4 id="1-1-고지-의무">1-1 고지 의무&lt;/h4>
 &lt;ul>
 &lt;li>저작권 고지 제공&lt;/li>
@@ -545,4 +822,89 @@ along with this program. If not, see &amp;lt;http://www.gnu.org/licenses/&amp;gt
 &lt;/ul>
 &lt;blockquote>
 &lt;p>참고 : &lt;a href="https://www.osadl.org/fileadmin/checklists/unreflicenses/LGPL-3.0-only.txt">https://www.osadl.org/fileadmin/checklists/unreflicenses/LGPL-3.0-only.txt&lt;/a>&lt;/p>
+&lt;/blockquote></description></item><item><title>Guide: MIT 가이드</title><link>/guide/use/obligation/mit/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/guide/use/obligation/mit/</guid><description>
+&lt;h2 id="소스-코드-내-라이선스-문구">소스 코드 내 라이선스 문구&lt;/h2>
+&lt;p>MIT하의 오픈소스는 일반적으로 소스 코드 상단에 다음과 같은 문구가 있다.&lt;/p>
+&lt;pre>&lt;code>Copyright (c) &amp;lt;year&amp;gt; &amp;lt;copyright holders&amp;gt;
+Permission is hereby granted, free of charge, to any person
+obtaining a copy of this software and associated documentation
+files (the &amp;quot;Software&amp;quot;), to deal in the Software without
+restriction, including without limitation the rights to use,
+copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the
+Software is furnished to do so, subject to the following
+conditions:
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+THE SOFTWARE IS PROVIDED &amp;quot;AS IS&amp;quot;, WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+OTHER DEALINGS IN THE SOFTWARE.
+&lt;/code>&lt;/pre>&lt;h2 id="사용-사례-별-의무-사항">사용 사례 별 의무 사항&lt;/h2>
+&lt;h3 id="case-1-소스-형태로-재배포">Case 1. 소스 형태로 재배포&lt;/h3>
+&lt;p>MIT하의 오픈소스를 소스 형태로 재배포 시 다음 사항을 준수한다.&lt;/p>
+&lt;h4 id="1-1-고지-의무">1-1 고지 의무&lt;/h4>
+&lt;ul>
+&lt;li>저작권 고지&lt;/li>
+&lt;li>라이선스 사본 제공
+즉, 소스 코드 내 저작권, 라이선스 등을 그대로 유지한다.&lt;/li>
+&lt;/ul>
+&lt;h3 id="case-2-바이너리-형태로-재배포">Case 2. 바이너리 형태로 재배포&lt;/h3>
+&lt;p>MIT하의 오픈소스를 빌드하여 바이너리 형태로만 재배포 시 다음 사항을 준수한다.&lt;/p>
+&lt;h4 id="2-1-고지-의무">2-1 고지 의무&lt;/h4>
+&lt;ul>
+&lt;li>저작권 고지&lt;/li>
+&lt;li>라이선스 사본 제공
+이를 포함하는 오픈소스 고지문을 생성하여 바이너리 재배포 시 동봉한다.&lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>참고 : &lt;a href="https://www.osadl.org/fileadmin/checklists/unreflicenses/MIT.txt">https://www.osadl.org/fileadmin/checklists/unreflicenses/MIT.txt&lt;/a>&lt;/p>
+&lt;/blockquote></description></item><item><title>Guide: MPL-2.0 가이드</title><link>/guide/use/obligation/mpl-2.0/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/guide/use/obligation/mpl-2.0/</guid><description>
+&lt;h2 id="소스-코드-내-라이선스-문구">소스 코드 내 라이선스 문구&lt;/h2>
+&lt;p>MPL-2.0하의 오픈소스는 일반적으로 소스 코드 상단에 다음과 같은 문구가 있다.&lt;/p>
+&lt;pre>&lt;code>This Source Code Form is subject to the terms of the Mozilla Public
+License, v.2.0. If a copy of the MPL was not distributed with this file,
+You can obtain one at https://mozilla.org/MPL/2.0/.
+&lt;/code>&lt;/pre>&lt;h2 id="사용-사례-별-의무-사항">사용 사례 별 의무 사항&lt;/h2>
+&lt;h3 id="case-1-소스-형태로-재배포">Case 1. 소스 형태로 재배포&lt;/h3>
+&lt;p>MPL-2.0하의 오픈소스를 소스 형태로 재배포 시 다음 사항을 준수한다.&lt;/p>
+&lt;h4 id="1-1-고지-의무">1-1 고지 의무&lt;/h4>
+&lt;ul>
+&lt;li>라이선스 사본 제공 혹은 참조&lt;/li>
+&lt;li>법적 고지 수정 금지
+즉, 소스 코드 내 명시된 라이선스 정보를 그대로 유지한 상태로 재배포한다.&lt;/li>
+&lt;/ul>
+&lt;div class="alert alert-success" role="alert">
+&lt;h4 class="alert-heading">수정 시 의무 사항&lt;/h4>
+&lt;p>오픈소스의 소스 코드를 일부 추가/수정하였을 경우, 다음 사항을 준수한다.&lt;/p>
+&lt;ul>
+&lt;li>수정한 파일에 MPL-2.0을 적용한다. (별도로 추가한 파일에는 MPL-2.0 적용 의무 없음)&lt;/li>
+&lt;/ul>
+&lt;/div>
+&lt;h3 id="case-2-바이너리-형태로-재배포">Case 2. 바이너리 형태로 재배포&lt;/h3>
+&lt;p>MPL-2.0하의 오픈소스를 빌드하여 바이너리 형태로만 재배포 시 다음 사항을 준수한다.&lt;/p>
+&lt;h4 id="2-1-고지-의무">2-1 고지 의무&lt;/h4>
+&lt;ul>
+&lt;li>라이선스 사본 제공
+이상의 내용을 포함하는 오픈소스 고지문을 생성하여 바이너리 재배포 시 동봉한다.&lt;/li>
+&lt;/ul>
+&lt;div class="alert alert-success" role="alert">
+&lt;h4 class="alert-heading">수정 시 의무 사항&lt;/h4>
+&lt;p>오픈소스의 소스 코드를 일부 추가/수정하였을 경우, 다음 사항을 준수한다.&lt;/p>
+&lt;ul>
+&lt;li>수정한 파일에 MPL-2.0을 적용한다. (별도로 추가한 파일에는 MPL-2.0 적용 의무 없음)&lt;/li>
+&lt;/ul>
+&lt;/div>
+&lt;h4 id="2-2-소스-코드-제공-의무">2-2 소스 코드 제공 의무&lt;/h4>
+&lt;p>바이너리 내 MPL-2.0에 해당하는 소스 코드 파일을 제공한다. 이때 다음 사항을 준수한다.&lt;/p>
+&lt;ul>
+&lt;li>MPL-2.0은 파일 내 추가한 내용에 대해서도 MPL-2.0을 적용하여 소스 코드를 공개할 것을 요구한다. 따라서, 원본 파일과 더불어 수정한 파일도 MPL-2.0을 적용하여 공개한다.&lt;/li>
+&lt;/ul>
+&lt;p>오픈소스 고지문에 사용자가 소스 코드를 수령할 수 있는 방법을 안내함으로써 소스 코드 제공 의무를 준수할 수 있다.&lt;/p>
+&lt;blockquote>
+&lt;p>참고 : https://www.osadl.org/fileadmin/checklists/unreflicenses/MPL-2.0.txt&lt;/p>
 &lt;/blockquote></description></item></channel></rss>

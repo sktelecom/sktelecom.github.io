@@ -211,7 +211,7 @@ at no charge to all third parties under the terms of this License.
 &lt;tr>
 &lt;td>&lt;a href="https://www.apache.org/licenses/LICENSE-2.0">&lt;code>Apache License 2.0&lt;/code>&lt;/a>&lt;/td>
 &lt;td style="text-align:left">&lt;a href="https://spdx.org/licenses/Apache-2.0.html">&lt;code>Apache-2.0&lt;/code>&lt;/a>&lt;/td>
-&lt;td style="text-align:center">&lt;/td>
+&lt;td style="text-align:center">&lt;a href="./apache-2.0/">Apache-2.0 가이드&lt;/a>&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>&lt;a href="http://www.boost.org/users/license.html">&lt;code>Boost Software License 1.0&lt;/code>&lt;/a>&lt;/td>
@@ -221,12 +221,12 @@ at no charge to all third parties under the terms of this License.
 &lt;tr>
 &lt;td>&lt;a href="https://opensource.org/licenses/bsd-license.php">&lt;code>BSD 2-Clause &amp;quot;Simplified&amp;quot; License&lt;/code>&lt;/a>&lt;/td>
 &lt;td style="text-align:left">&lt;a href="https://spdx.org/licenses/BSD-2-Clause.html">&lt;code>BSD-2-Clause&lt;/code> &lt;/a>&lt;/td>
-&lt;td style="text-align:center">&lt;/td>
+&lt;td style="text-align:center">&lt;a href="./bsd-2-clause/">BSD-2-Clause 가이드&lt;/a>&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>&lt;a href="https://opensource.org/licenses/BSD-3-Clause">&lt;code>BSD 3-Clause &amp;quot;New&amp;quot; or &amp;quot;Revised&amp;quot; License&lt;/code>&lt;/a>&lt;/td>
 &lt;td style="text-align:left">&lt;a href="https://spdx.org/licenses/BSD-3-Clause.html">&lt;code>BSD-3-Clause&lt;/code>&lt;/a>&lt;/td>
-&lt;td style="text-align:center">&lt;/td>
+&lt;td style="text-align:center">&lt;a href="./bsd-3-clause/">BSD-3-Clause 가이드&lt;/a>&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>&lt;a href="https://opensource.org/licenses/BSDplusPatent">&lt;code>BSD-2-Clause Plus Patent License&lt;/code>&lt;/a>&lt;/td>
@@ -276,7 +276,7 @@ at no charge to all third parties under the terms of this License.
 &lt;tr>
 &lt;td>&lt;a href="http://opensource.org/licenses/mit-license.php">&lt;code>MIT License&lt;/code>&lt;/a>&lt;/td>
 &lt;td style="text-align:left">&lt;a href="https://spdx.org/licenses/MIT.html">&lt;code>MIT&lt;/code>&lt;/a>&lt;/td>
-&lt;td style="text-align:center">&lt;/td>
+&lt;td style="text-align:center">&lt;a href="./mit/">MIT 가이드&lt;/a>&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>&lt;a href="http://www.xfree86.org/3.3.6/COPYRIGHT2.html#3">&lt;code>X11 License&lt;/code>&lt;/a>&lt;/td>
@@ -450,7 +450,7 @@ at no charge to all third parties under the terms of this License.
 &lt;tr>
 &lt;td>&lt;a href="http://opensource.org/licenses/cddl1.php">&lt;code>Common Development and Distribution License 1.0&lt;/code>&lt;/a>&lt;/td>
 &lt;td style="text-align:left">&lt;a href="https://spdx.org/licenses/CDDL-1.0.html">&lt;code>CDDL-1.0&lt;/code>&lt;/a>&lt;/td>
-&lt;td style="text-align:center">&lt;/td>
+&lt;td style="text-align:center">&lt;a href="./cddl-1.0/">CDDL-1.0 가이드&lt;/a>&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>&lt;a href="http://opensource.org/licenses/cpl1.0.php">&lt;code>Common Public License 1.0&lt;/code>&lt;/a>&lt;/td>
@@ -465,7 +465,7 @@ at no charge to all third parties under the terms of this License.
 &lt;tr>
 &lt;td>&lt;a href="https://opensource.org/licenses/EPL-2.0">&lt;code>Eclipse Public License 2.0&lt;/code>&lt;/a>&lt;/td>
 &lt;td style="text-align:left">&lt;a href="https://spdx.org/licenses/EPL-2.0.html">&lt;code>EPL-2.0&lt;/code>&lt;/a>&lt;/td>
-&lt;td style="text-align:center">&lt;/td>
+&lt;td style="text-align:center">&lt;a href="./epl-2.0/">EPL-2.0 가이드&lt;/a>&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>&lt;a href="http://opensource.org/licenses/ibmpl.php">&lt;code>IBM Public License v1.0&lt;/code>&lt;/a>&lt;/td>
@@ -480,7 +480,7 @@ at no charge to all third parties under the terms of this License.
 &lt;tr>
 &lt;td>&lt;a href="http://opensource.org/licenses/MPL-2.0">&lt;code>Mozilla Public License 2.0&lt;/code>&lt;/a>&lt;/td>
 &lt;td style="text-align:left">&lt;a href="https://spdx.org/licenses/MPL-2.0.html">&lt;code>MPL-2.0&lt;/code>&lt;/a>&lt;/td>
-&lt;td style="text-align:center">&lt;/td>
+&lt;td style="text-align:center">&lt;a href="./mpl-2.0/">MPL-2.0 가이드&lt;/a>&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>&lt;a href="http://opensource.org/licenses/apsl-2.0.php">&lt;code>Apple Public Source License 2.0&lt;/code>&lt;/a>&lt;/td>
@@ -552,6 +552,24 @@ at no charge to all third parties under the terms of this License.
 &lt;li>AGPL (GNU Affero General Public License)&lt;/li>
 &lt;li>SSPL (Server Side Public License)&lt;/li>
 &lt;/ul>
+&lt;h3 id="광고-조항-포함-라이선스">광고 조항 포함 라이선스&lt;/h3>
+&lt;p>BSD-4-Clause 라이선스는 오픈소스의 기능 / 활용을 언급하는 모든 광고에 특정 문구 (&amp;ldquo;This product includes software developed by the &lt;organization>.&amp;quot;)의 포함을 요구한다. 이러한 &amp;ldquo;advertising clause&amp;quot;의 요구사항을 준수하는 것은 쉽지 않기 때문에 사용을 제한한다.&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Full name&lt;/th>
+&lt;th style="text-align:left">&lt;a href="https://spdx.org/licenses/">Identifier&lt;/a>&lt;/th>
+&lt;th style="text-align:center">사용 사례별 가이드&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;a href="http://directory.fsf.org/wiki/License:BSD_4Clause">&lt;code>BSD 4-Clause &amp;quot;Original&amp;quot; or &amp;quot;Old&amp;quot; License&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:left">&lt;a href="https://spdx.org/licenses/BSD-4-Clause.html">&lt;code>BSD-4-Clause&lt;/code>&lt;/a>&lt;/td>
+&lt;td style="text-align:center">&lt;a href="./bsd-4-clause/">BSD-4-Clause 가이드&lt;/a>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
 &lt;p>이러한 라이선스 하의 오픈소스를 반드시 포함해야 하는 경우라면 OSPO&lt;sub>Open Source Program Office&lt;/sub>에 포함할 수 있는 방법을 문의하라. : &lt;a href="https://sktelecom.github.io/about/contact/">Support (opensource@sktelecom.com)&lt;/a>&lt;/p>
 &lt;h3 id="이외-언급하지-않은-라이선스">이외 언급하지 않은 라이선스&lt;/h3>
 &lt;p>위에서 분류되지 않은 라이선스가 적용된 오픈소스를 SK텔레콤의 제품에 사용하기 위해서는 사전 검토가 필요하다. OSPO&lt;sub>Open Source Program Office&lt;/sub>에 사용 가능 여부를 문의하라. : &lt;a href="https://sktelecom.github.io/about/contact/">Support (opensource@sktelecom.com)&lt;/a>&lt;/p></description></item></channel></rss>
