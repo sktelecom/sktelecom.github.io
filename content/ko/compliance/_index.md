@@ -18,5 +18,5 @@ menu:
 
 | Name | OSS Notice | Source Code |
 |---|:---|:---:|
-| Sameple | [Meetus-iOS_20210421_103155_OSS_Notice.html](./Meetus-iOS_20210421_103155_OSS_Notice.html)  | - |
-| Sameple2 | OSS_Notice_Sample.htm | OSS_Package_sample.zip |
+| T-deal (Android) 1.2 | [T-deal_android_1.2_OSS_Notice.htm](./T-deal_android_1.2_OSS_Notice.htm)  | - |
+| T-deal (iOS) 1.2 | [T-deal_ios_1.2_OSS_Notice.htm](./T-deal_ios_1.2_OSS_Notice.htm)  | - |
