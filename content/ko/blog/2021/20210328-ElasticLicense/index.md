@@ -11,12 +11,6 @@ resources:
     byline: "Photo: Haksung Jang"
 ---
 
-{{% pageinfo %}}
-This paper was translated by Haksung Jang from the English version available at this [white paper](https://www.coss.community/coss/elastic-license-2-0-and-the-evolution-of-open-source-licensing-3jb3).  The original author, [Heather Meeker](https://heathermeeker.com/about-me/), has not reviewed this translation.
-{{% /pageinfo %}}
-
----
-
 > 안녕하세요. 
 > 
 > 미국의 오픈소스 전문 변호사인 [Heather Meeker](https://heathermeeker.com/about-me/)가 2021년 3월 11일 공개한 Elastic License에 대한 [White Paper](https://www.coss.community/coss/elastic-license-2-0-and-the-evolution-of-open-source-licensing-3jb3)를 기반으로 아래의 글을 작성하였습니다. 대부분 원글을 번역하는 방식이며, 제 의견은 인용구로 추가하였습니다. 
@@ -29,7 +23,11 @@ This paper was translated by Haksung Jang from the English version available at 
 > 
 > * 감수에 도움 주신 카카오의 [Sean](https://www.linkedin.com/in/%EC%98%81%ED%99%98-%EA%B9%80-4069b5135/), [Robin](https://www.linkedin.com/in/hwang-minho/) 그리고 LG전자의 [김경애](https://www.linkedin.com/in/kyoungae-kim-597a1630)님에게 깊은 감사 드립니다. 
 
----
+
+{{% pageinfo %}}
+This paper was translated by Haksung Jang from the English version available at this [white paper](https://www.coss.community/coss/elastic-license-2-0-and-the-evolution-of-open-source-licensing-3jb3).  The original author, [Heather Meeker](https://heathermeeker.com/about-me/), has not reviewed this translation.
+{{% /pageinfo %}}
+
 
 최근, 2021년 2월, [Elastic](https://www.elastic.co/)은 소프트웨어 제품에 [Elastic License 2.0](https://www.elastic.co/licensing/elastic-license)이라는 새로운 라이선스를 도입하였다. 이 라이선스 모델은 Elasticsearch, Kibana 등 주요 소프트웨어 제품군에 적용되었다. 이런 변화의 목적과 의미하는 바가 무엇인지 알아보자. 
 
