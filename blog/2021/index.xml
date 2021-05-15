@@ -358,10 +358,6 @@ Software Interactions (a.k.a linking), Available at: &lt;a href="https://www.ifo
 &lt;/ol>
 &lt;/section></description></item><item><title>Blog: Elastic License 2.0 그리고 진화하는 오픈소스 라이선스</title><link>/blog/2021/20210328-elasticlicense/</link><pubDate>Sun, 28 Mar 2021 00:00:00 +0000</pubDate><guid>/blog/2021/20210328-elasticlicense/</guid><description>
 &lt;img src="/blog/2021/20210328-elasticlicense/featured-scale_hu0adce3c464c6f6e27493d0d0745cd5d4_35813_640x0_resize_catmullrom_2.png" width="640" height="612"/>
-&lt;div class="pageinfo pageinfo-primary">
-&lt;p>This paper was translated by Haksung Jang from the English version available at this &lt;a href="https://www.coss.community/coss/elastic-license-2-0-and-the-evolution-of-open-source-licensing-3jb3">white paper&lt;/a>. The original author, &lt;a href="https://heathermeeker.com/about-me/">Heather Meeker&lt;/a>, has not reviewed this translation.&lt;/p>
-&lt;/div>
-&lt;hr>
 &lt;blockquote>
 &lt;p>안녕하세요.&lt;/p>
 &lt;p>미국의 오픈소스 전문 변호사인 &lt;a href="https://heathermeeker.com/about-me/">Heather Meeker&lt;/a>가 2021년 3월 11일 공개한 Elastic License에 대한 &lt;a href="https://www.coss.community/coss/elastic-license-2-0-and-the-evolution-of-open-source-licensing-3jb3">White Paper&lt;/a>를 기반으로 아래의 글을 작성하였습니다. 대부분 원글을 번역하는 방식이며, 제 의견은 인용구로 추가하였습니다.&lt;/p>
@@ -375,7 +371,9 @@ Software Interactions (a.k.a linking), Available at: &lt;a href="https://www.ifo
 &lt;li>감수에 도움 주신 카카오의 &lt;a href="https://www.linkedin.com/in/%EC%98%81%ED%99%98-%EA%B9%80-4069b5135/">Sean&lt;/a>, &lt;a href="https://www.linkedin.com/in/hwang-minho/">Robin&lt;/a> 그리고 LG전자의 &lt;a href="https://www.linkedin.com/in/kyoungae-kim-597a1630">김경애&lt;/a>님에게 깊은 감사 드립니다.&lt;/li>
 &lt;/ul>
 &lt;/blockquote>
-&lt;hr>
+&lt;div class="pageinfo pageinfo-primary">
+&lt;p>This paper was translated by Haksung Jang from the English version available at this &lt;a href="https://www.coss.community/coss/elastic-license-2-0-and-the-evolution-of-open-source-licensing-3jb3">white paper&lt;/a>. The original author, &lt;a href="https://heathermeeker.com/about-me/">Heather Meeker&lt;/a>, has not reviewed this translation.&lt;/p>
+&lt;/div>
 &lt;p>최근, 2021년 2월, &lt;a href="https://www.elastic.co/">Elastic&lt;/a>은 소프트웨어 제품에 &lt;a href="https://www.elastic.co/licensing/elastic-license">Elastic License 2.0&lt;/a>이라는 새로운 라이선스를 도입하였다. 이 라이선스 모델은 Elasticsearch, Kibana 등 주요 소프트웨어 제품군에 적용되었다. 이런 변화의 목적과 의미하는 바가 무엇인지 알아보자.&lt;/p>
 &lt;p>Elastic License 2.0은 개방형 개발 모델&lt;sub>Open Development Model&lt;/sub>로 사업하는 기업이 취할 수 있는 대표적인 라이선스 모범 사례이다. Elastic License 2.0은 오픈소스 라이선스는 아니지만, 소프트웨어의 사용, 공유 및 변경의 자유와 커뮤니티에 해를 끼는 행동 방지 간의 공정한 균형을 유지하는 데 필요한 최소한의 제한 설정을 목표로 한다.&lt;/p>
 &lt;p>&lt;img src="./featured-scale.png" alt="scale">&lt;/p>
