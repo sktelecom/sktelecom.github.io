@@ -18,5 +18,6 @@ menu:
 
 | Name | OSS Notice | Source Code |
 |---|:---|:---:|
+| Meetus 1.2.4.6 (Windows) | [Meetus_windows_1.2.4.6_with_engine_OSS_Notice.htm](./Meetus_windows_1.2.4.6_with_engine_OSS_Notice.htm)  | - |
 | T-deal 1.2 (Android) | [T-deal_android_1.2_OSS_Notice.htm](./T-deal_android_1.2_OSS_Notice.htm)  | - |
 | T-deal 1.2 (iOS) | [T-deal_ios_1.2_OSS_Notice.htm](./T-deal_ios_1.2_OSS_Notice.htm)  | - |
