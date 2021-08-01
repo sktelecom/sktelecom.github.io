@@ -24,7 +24,7 @@ Image credit: SRT Alliance
 &lt;blockquote>
 &lt;p>Origin : &lt;a href="https://www.srtalliance.org/sk-telecom-joins-srt-alliance/">https://www.srtalliance.org/sk-telecom-joins-srt-alliance/&lt;/a>&lt;/p>
 &lt;/blockquote></description></item><item><title>Blog: The 2nd Page Of H8l</title><link>/en/blog/2021/20210209-2nd-page-of-h8l/</link><pubDate>Tue, 09 Feb 2021 00:00:00 +0000</pubDate><guid>/en/blog/2021/20210209-2nd-page-of-h8l/</guid><description>
-&lt;img src="/en/blog/2021/20210209-2nd-page-of-h8l/featured-diagram_hu0ebf613d48f3584022125dc29e10620b_117033_640x0_resize_catmullrom_2.png" width="640" height="426"/>
+&lt;img src="/en/blog/2021/20210209-2nd-page-of-h8l/featured-diagram_hu0ebf613d48f3584022125dc29e10620b_117033_640x0_resize_catmullrom_3.png" width="640" height="426"/>
 &lt;h1 id="the-2nd-page-of-hwangsaeul-project">The 2nd page of Hwangsaeul project&lt;/h1>
 &lt;p>It&amp;rsquo;s been almost a year and half since Jakub posted the &lt;a href="https://www.collabora.com/news-and-blog/news-and-events/low-latency-streaming-of-security-feeds-with-srt-and-gstreamer.html">installation document&lt;/a> of Hwangsaeul (a.k.a H8L) project. The project members are still rush to develop the project for the various use cases. Although the H8L project is originally designed to support the massive deployment of video surveillance cameras which enable SRT transmission, we found that there is much more potential when we switch the domain to UAV(Unmanned Areial Viehicle) and UGV(Unmanned Ground Vehicle). Therefore, we had to change the overall shape of H8L to optimize for the new targets.&lt;/p>
 &lt;h2 id="deprecation-of-messages-queue">Deprecation of Messages Queue&lt;/h2>
@@ -147,7 +147,7 @@ queue ! decodebin ! autovideosink
 &lt;p>Anyone can write.&lt;/p>
 &lt;p>Please refer to the guide on the next page. : &lt;a href="https://github.com/sktelecom/sktelecom.github.io/blob/master/docs/blog.md">How to write a blog&lt;/a>&lt;/p>
 &lt;/div></description></item><item><title>Blog: The sample blog post</title><link>/en/blog/sample/sample-post/</link><pubDate>Sat, 29 Aug 2020 00:00:00 +0000</pubDate><guid>/en/blog/sample/sample-post/</guid><description>
-&lt;img src="/en/blog/sample/sample-post/featured-sunset-get_hu69849a7cdb847c2393a7b3a7f6061c86_387442_640x0_resize_catmullrom_2.png" width="640" height="253"/>
+&lt;img src="/en/blog/sample/sample-post/featured-sunset-get_hu69849a7cdb847c2393a7b3a7f6061c86_387442_640x0_resize_catmullrom_3.png" width="640" height="253"/>
 &lt;p>Text can be &lt;strong>bold&lt;/strong>, &lt;em>italic&lt;/em>, or &lt;del>strikethrough&lt;/del>. &lt;a href="https://github.com">Links&lt;/a> should be blue with no underlines (unless hovered over).&lt;/p>
 &lt;p>There should be whitespace between paragraphs. There should be whitespace between paragraphs. There should be whitespace between paragraphs. There should be whitespace between paragraphs.&lt;/p>
 &lt;p>There should be whitespace between paragraphs. There should be whitespace between paragraphs. There should be whitespace between paragraphs. There should be whitespace between paragraphs.&lt;/p>
@@ -338,7 +338,7 @@ Dixi ad aestum.&lt;/p>
 &lt;pre>&lt;code>foo := &amp;quot;bar&amp;quot;;
 bar := &amp;quot;foo&amp;quot;;
 &lt;/code>&lt;/pre>&lt;p>Code can also use syntax highlighting.&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">func&lt;/span> &lt;span style="color:#000">main&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">func&lt;/span> &lt;span style="color:#000">main&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
 &lt;span style="color:#000">input&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#4e9a06">`var foo = &amp;#34;bar&amp;#34;;`&lt;/span>
 &lt;span style="color:#000">lexer&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">lexers&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Get&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;javascript&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
 &lt;span style="color:#000">iterator&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">_&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">lexer&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Tokenise&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#204a87;font-weight:bold">nil&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">input&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
@@ -414,7 +414,7 @@ This is a warning with a title!
 &lt;/code>&lt;/pre>&lt;h2 id="including-images">Including images&lt;/h2>
 &lt;p>Here&amp;rsquo;s an image (&lt;code>featured-sunset-get.png&lt;/code>) that includes a byline and a caption.&lt;/p>
 &lt;div class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 610px">
-&lt;img class="card-img-top" src="/en/blog/sample/sample-post/featured-sunset-get_hu69849a7cdb847c2393a7b3a7f6061c86_387442_600x300_fill_catmullrom_smart1_2.png" width="600" height="300">
+&lt;img class="card-img-top" src="/en/blog/sample/sample-post/featured-sunset-get_hu69849a7cdb847c2393a7b3a7f6061c86_387442_600x300_fill_catmullrom_smart1_3.png" width="600" height="300">
 &lt;div class="card-body px-0 pt-2 pb-0">
 &lt;p class="card-text">
 Fetch and scale an image in the upcoming Hugo 0.43.
@@ -430,7 +430,7 @@ byline: &amp;quot;Photo: Riona MacNamara / CC-BY-CA&amp;quot;
 &lt;/code>&lt;/pre>&lt;p>To include the image in a page, specify its details like this:&lt;/p>
 &lt;pre>&lt;code>
 &lt;div class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 610px">
-&lt;img class="card-img-top" src="/en/blog/sample/sample-post/featured-sunset-get_hu69849a7cdb847c2393a7b3a7f6061c86_387442_600x300_fill_catmullrom_smart1_2.png" width="600" height="300">
+&lt;img class="card-img-top" src="/en/blog/sample/sample-post/featured-sunset-get_hu69849a7cdb847c2393a7b3a7f6061c86_387442_600x300_fill_catmullrom_smart1_3.png" width="600" height="300">
 &lt;div class="card-body px-0 pt-2 pb-0">
 &lt;p class="card-text">
 Fetch and scale an image in the upcoming Hugo 0.43.
@@ -439,7 +439,7 @@ Fetch and scale an image in the upcoming Hugo 0.43.
 &lt;/div>
 &lt;/code>&lt;/pre>&lt;p>The image will be rendered at the size and byline specified in the front matter.&lt;/p>
 &lt;hr></description></item><item><title>Blog: 소스 코드 내 저작권 표시 방법</title><link>/en/blog/2020/20200812-copyright-license/</link><pubDate>Wed, 12 Aug 2020 00:00:00 +0000</pubDate><guid>/en/blog/2020/20200812-copyright-license/</guid><description>
-&lt;img src="/en/blog/2020/20200812-copyright-license/featured_copyright_hu3c20e8f1f30640c88b46434ba146f1f1_89522_640x0_resize_catmullrom_2.png" width="640" height="299"/>
+&lt;img src="/en/blog/2020/20200812-copyright-license/featured_copyright_hu3c20e8f1f30640c88b46434ba146f1f1_89522_640x0_resize_catmullrom_3.png" width="640" height="299"/>
 &lt;h1 id="소스-코드-내-저작권-표시를-해야-하는-이유와-올바른-방법">소스 코드 내 저작권 표시를 해야 하는 이유와 올바른 방법&lt;/h1>
 &lt;p>오픈소스 분야의 저명한 변호사인 Matija Šuklje는 최근 소스 코드 내 저작권 표시가 필요한 이유와 올바르게 작성하는 방법을 소개하였습니다. : &lt;a href="https://matija.suklje.name/how-and-why-to-properly-write-copyright-statements-in-your-code">https://matija.suklje.name/how-and-why-to-properly-write-copyright-statements-in-your-code&lt;/a>​
 &lt;img src="./featured_copyright.png" alt="copyright">&lt;/p>

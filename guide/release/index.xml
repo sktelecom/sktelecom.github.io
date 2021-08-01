@@ -183,7 +183,7 @@
 &lt;li>내부 정보를 삭제하라. (내부 코드 파일 이름 / 경로, 내부 호스트 / IP정보 등)&lt;/li>
 &lt;/ul>
 &lt;p>참고로, 아래의 명령어를 사용하면, 불필요한 주석을 쉽게 찾을 수 있다.&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-perl" data-lang="perl">&lt;span style="color:#8f5902;font-style:italic">### 회사 웹사이트, 이메일, IP 주소 검색&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-perl" data-lang="perl">&lt;span style="color:#8f5902;font-style:italic">### 회사 웹사이트, 이메일, IP 주소 검색&lt;/span>
 &lt;span style="color:#000">$&lt;/span> &lt;span style="color:#000">egrep&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">-&lt;/span>&lt;span style="color:#000">r&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;\.sktelecom\.com|@sk\.com|@sktelecom\.com|([0-9]+\.){3}[0-9]+&amp;#39;&lt;/span> &lt;span style="color:#4e9a06">&amp;lt;path-to-source-directory&amp;gt;&lt;/span>
 &lt;span style="color:#8f5902;font-style:italic">### Java/C/C++/Go/Objective-C/Objective-C++/Swift/Kotlin 주석 검색&lt;/span>
 &lt;span style="color:#000">$&lt;/span> &lt;span style="color:#000">find&lt;/span> &lt;span style="color:#4e9a06">&amp;lt;path-to-source-dir&amp;gt;&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">-&lt;/span>&lt;span style="color:#000">type&lt;/span> &lt;span style="color:#000">f&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">|&lt;/span> &lt;span style="color:#000">egrep&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;\.(c|cc|h|cpp|go|java|kt|m|mm|swift)&amp;#39;&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">|&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">\&lt;/span>
