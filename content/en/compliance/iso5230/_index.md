@@ -20,5 +20,5 @@ In August 2021, SK telecom created an open source policy and established an open
 {{< /imgproc >}}
 
 Hereby, SK telecom affirms the followings:
-* satisfied all requirements of [ISO/IEC 5230:2020 OpenChain Specification](https://www.iso.org/standard/81039.html).
-* review and supplement open source policiy and open source compliance processes at least every 18 months to ensure continuity.
+* satisfies all requirements of [ISO/IEC 5230:2020 OpenChain Specification](https://www.iso.org/standard/81039.html).
+* reviews and supplements open source policiy and open source compliance processes at least every 18 months to ensure continuity.
