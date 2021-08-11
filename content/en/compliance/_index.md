@@ -18,7 +18,8 @@ Open source compliance artifacts for products prior to April 2021 were enclosed 
 
 | Name | OSS Notice | Source Code |
 |---|:---|:---:|
-| Grandview Android 1.2.12 | [grandview_android_1.2.12 OSS_Notice.html](./grandview_android_1.2.12_OSS_Notice.html)  | - |
+| Grandview Android 1.2.12 | [grandview_android_1.2.12_OSS_Notice.html](./grandview_android_1.2.12_OSS_Notice.html)  | - |
+| Grandview iOS 1.6 | [grandview_ios_1.6_OSS_Notice.html](./grandview_ios_1.6_OSS_Notice.html)  | - |
 | T Phone Android 10.3.0 | [Tphone_android_10.3.0_OSS_Notice.html](./tphone_android_10.3.0/Tphone_android_10.3.0_OSS_Notice.html)  | [Tphone_android_10.3.0_sourcecode.zip](./tphone_android_10.3.0/Tphone_android_10.3.0_sourcecode.zip) |
 | ifland Android 2.5 | [ifland_android_2.5.0_OSS_Notice.html](./ifland_android_2.5.0_OSS_Notice.html)  | - |
 | ifland iOS 2.5 | [ifland_ios_2.5.0_OSS_Notice.html](./ifland_ios_2.5.0_OSS_Notice.html)  | - |
