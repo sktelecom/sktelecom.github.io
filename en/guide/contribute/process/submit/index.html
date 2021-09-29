@@ -3,7 +3,7 @@
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
 <script>(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-189808797-2','auto'),ga('send','pageview')</script>
-<meta name=generator content="Hugo 0.87.0">
+<meta name=generator content="Hugo 0.88.1">
 <meta name=ROBOTS content="INDEX, FOLLOW">
 <link rel=alternate type=application/rss+xml href=/en/guide/contribute/process/submit/index.xml>
 <link rel="shortcut icon" href=/favicons/favicon.ico>
@@ -403,35 +403,35 @@ English
 <p>Upstream Repository를 자신의 GitHub 계정으로 Fork 한다.</p>
 <h4 id=step-2-clone>Step 2. Clone</h4>
 <p>Fork한 Repository를 자산의 Local working directory로 Clone 한다.</p>
-<pre><code>$ mkdir -p $working_dir
+<pre tabindex=0><code>$ mkdir -p $working_dir
 $ cd $working_dir
 $ git clone https://github.com/$user/[repository]
 </code></pre><p>Upstream Repository를 Remote에 추가한다.</p>
-<pre><code>$ cd [repository]
+<pre tabindex=0><code>$ cd [repository]
 $ git remote add upstream https://github.com/[upstream]/[repository]
  
 # Confirm that your remotes make sense:
 $ git remote -v
 </code></pre><h4 id=step-3-create-a-branch>Step 3. Create a branch</h4>
 <p>먼저 main branch를 fetch와 rebase하여 최신 상태로 유지한다.</p>
-<pre><code>$ cd $working_dir/[repository]
+<pre tabindex=0><code>$ cd $working_dir/[repository]
 $ git fetch upstream
 $ git checkout main
 $ git rebase upstream/main
 </code></pre><p>그리고 개발용 branch (myfeature)를 생성한다.</p>
-<pre><code>$ git checkout -b myfeature
+<pre tabindex=0><code>$ git checkout -b myfeature
 </code></pre><h4 id=step-4-keep-your-branch-in-sync>Step 4. Keep your branch in sync</h4>
 <p>Branch를 fetch와 rebase하여 최신 상태로 유지한다.</p>
-<pre><code># While on your myfeature branch
+<pre tabindex=0><code># While on your myfeature branch
 $ git fetch upstream
 $ git rebase upstream/main
 </code></pre><p>그 상태에서 code 작업을 한다.</p>
 <h4 id=step-5-commit>Step 5. Commit</h4>
 <p>수정 사항을 commit 한다.</p>
-<pre><code>$ git commit -a -m '[commit message]'
+<pre tabindex=0><code>$ git commit -a -m '[commit message]'
 </code></pre><h4 id=step-6-push>Step 6. Push</h4>
 <p>myfeature branch의 수정 사항을 자신의 GitHub Repository에 Push한다.</p>
-<pre><code>git push -f origin myfeature
+<pre tabindex=0><code>git push -f origin myfeature
 </code></pre><h4 id=step-7-create-a-pull-request>Step 7. Create a pull request</h4>
 <p>GitHub에서 자신의 Repository에 가면 Compare & pull request 버튼이 활성화 된 것을 볼 수 있다. 이를 눌러서 Pull Request를 생성한다.</p>
 <p>이후 Upstream Repository의 관리자는 요청된 Pull Request를 검토하여 Merge 여부를 결정한다.</p>

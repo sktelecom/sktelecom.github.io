@@ -3,7 +3,7 @@
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
 <script>(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-189808797-2','auto'),ga('send','pageview')</script>
-<meta name=generator content="Hugo 0.87.0">
+<meta name=generator content="Hugo 0.88.1">
 <meta name=ROBOTS content="INDEX, FOLLOW">
 <link rel=alternate type=application/rss+xml href=/guide/release/process/index.xml>
 <link rel="shortcut icon" href=/favicons/favicon.ico>
@@ -550,7 +550,7 @@ Korean
 <h4 id=cla-결정>CLA 결정</h4>
 <p>오픈소스로 공개한 프로젝트를 운영하면서 어떤 이유에서든지 기존의 오픈소스 라이선스를 다른 라이선스로 변경해야 할 상황이 발생할 수 있다. 이때는 프로젝트의 Leader라고 해도 임의로 라이선스를 변경할 수 없으며, 프로젝트에 저작물을 기여한 모든 저작권자의 동의를 얻어야 가능하다. 오랜 기간동안 많은 기여자로부터 저작물을 기여 받은 프로젝트의 경우 모든 저작권자에게 동의를 받는 것은 사실상 거의 불가능하고, 따라서 오픈소스 라이선스의 변경 또한 불가능하다.</p>
 <p>이와 같이 다수의 기여자의 저작물을 관리하면서 발생할 수 있는 분쟁을 줄이기 위해 기여자에게 사전에 동의를 구하는 약정서가 CLA (Contributor License Agreement)이며, 주로 기여자로부터 다음 사항의 동의를 구하는 내용을 담고 있다.</p>
-<pre><code>- 나(또는 소속 기업)는 내가 기여하려고 하는 기여물을 프로젝트에 기여할 권리가 있다. (즉, 이 기여물의 저작자이다.)
+<pre tabindex=0><code>- 나(또는 소속 기업)는 내가 기여하려고 하는 기여물을 프로젝트에 기여할 권리가 있다. (즉, 이 기여물의 저작자이다.)
 - 나(또는 소속 기업)는 나의 기여물을 프로젝트가 수정, 배포, 관리할 수 있는 권한을 프로젝트에 부여한다.
 - 나(또는 소속 기업)는 부여한 권한을 철회하지 않는다.
 - 나(또는 소속 기업)는 프로젝트가 향후 필요에 따라 라이선스를 변경할 수 있는 권한을 프로젝트에 부여한다.
@@ -569,7 +569,7 @@ Korean
 </ul>
 <p>SK텔레콤이 재배포할 수 있는 3rd party 코드인 경우, 기존 코드와는 다른 디렉토리(예: third_party)에 위치시킨다. 이는 라이선스 관점에서 프로젝트의 투명성을 증대시키며, 향후 사용자도 3rd party 코드를 쉽게 찾게 찾게 되어 정확한 라이선스 요구사항을 준수할 수 있게 한다.</p>
 <p>3rd party 디렉토리에 있는 모든 디렉토리는 각각 LICENSE 파일 (저작권 정보와 라이선스 전문을 포함하는 텍스트 파일)을 포함해야 한다. 예를 들어, Repository에서 third_party 디렉토리의 구조는 다음과 같다.</p>
-<pre><code>[Root Directory]
+<pre tabindex=0><code>[Root Directory]
 |-- SKT source code
 |-- ....
 `-- third_party

@@ -81,7 +81,7 @@ And while you are at it, check the [other features of the REUSE helper tool][reu
 &lt;/li>
 &lt;/ul>
 &lt;p>예를 들어, 오늘 소스 코드 파일을 작성하였다면 다음과 같이 저작권 표시를 파일 상단 헤더 부분에 추가한다.&lt;/p>
-&lt;pre>&lt;code>© 2020 Matija Šuklje &amp;lt;matija@suklje.name&amp;gt;
+&lt;pre tabindex="0">&lt;code>© 2020 Matija Šuklje &amp;lt;matija@suklje.name&amp;gt;
 &lt;/code>&lt;/pre>&lt;h2 id="라이선스-고지">라이선스 고지&lt;/h2>
 &lt;p>또한, 코드를 공개하면서 라이선스가 무엇인지 알리는 것도 매우 중요한다. &lt;a href="https://spdx.org/ids">SPDX ID&lt;/a>를 사용하면 코드의 라이선스를 명확하게 알릴 수 있다. 라이선스 고지가 명확하지 않으면 이를 보는 사용자에게 혼란을 야기시킬 수 있다.&lt;/p>
 &lt;h2 id="reusesoftware">REUSE.software&lt;/h2>
@@ -106,7 +106,7 @@ And while you are at it, check the [other features of the REUSE helper tool][reu
 &lt;p>이런 사항들을 고려하여 Liferay의 새로운 정책에서는 파일 생성 연도를 작성하고, 연도를 더 변경하지 않다.&lt;/p>
 &lt;h2 id="왜-연도-표시를-변경하지-말아야-하는가">왜 연도 표시를 변경하지 말아야 하는가?&lt;/h2>
 &lt;p>다음과 같은 저작권 표시를 보았을 거다.&lt;/p>
-&lt;pre>&lt;code>Copyright (C) 1992, 1995, 2000, 2001, 2003 CompanyX Inc.
+&lt;pre tabindex="0">&lt;code>Copyright (C) 1992, 1995, 2000, 2001, 2003 CompanyX Inc.
 &lt;/code>&lt;/pre>&lt;p>이렇게 계속해서 연도를 추가하는 건 이렇게 하면 저작권 보호 기간을 연장할 수 있다는 생각이 있기 때문이며, 실제 널리 행해 지고 있다. 하지만, 불행하게도 이런 작업은 쓸모가 없고, 오히려 해가 될 도 있다.&lt;/p>
 &lt;p>게다가 새로운 변경이나 기여를 받을 때마다 이렇게 그 연도를 추가하는 행위를 법적으로 본다면 논란의 여지가 있다. 문제는 모든 기여가 저작권을 주장할 수 있을 정도로 독창적이거나 규모가 있지 않다. 따라서, 문제 소지를 없애려면 모든 기여에 대해 법률에 따라 저작권 보호를 받을 수 있을 만큼 독창적인지 여부를 먼저 판단하고, 그에 따라 저작권 표시에 연도를 추가해야할 것이다.아&lt;/p>
 &lt;p>반면에 저작권은 저자의 사망 이후 (혹은 저작권자가 법인일 경우, 발행 이후) 최소 50년 (보통 70년) 동안 지속된다. 따라서, 굳이 저작권 표시에 연도를 계속해서 추가하지 않아도 보호 기간 만료 때문에 저작권을 주장하지 못하게 될 위험은 매우 낮다.&lt;/p>

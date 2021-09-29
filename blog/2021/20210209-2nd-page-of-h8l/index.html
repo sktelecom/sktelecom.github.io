@@ -3,7 +3,7 @@
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
 <script>(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-189808797-2','auto'),ga('send','pageview')</script>
-<meta name=generator content="Hugo 0.87.0">
+<meta name=generator content="Hugo 0.88.1">
 <meta name=ROBOTS content="INDEX, FOLLOW">
 <link rel="shortcut icon" href=/favicons/favicon.ico>
 <link rel=apple-touch-icon href=/favicons/apple-touch-icon-180x180.png sizes=180x180>
@@ -207,24 +207,24 @@ By <b>Justin Kim (<a href=https://github.com/justinjoy>@justinjoy</a>)</b> |
 <p><img src=./featured-diagram.png alt="System Overview"></p>
 <h2 id=running-h8l>Running H8L</h2>
 <p>Nightly builds are available as binary packages for Ubuntu 20.04.</p>
-<pre><code>$ sudo add-apt-repository ppa:hwangsaeul/nightly
+<pre tabindex=0><code>$ sudo add-apt-repository ppa:hwangsaeul/nightly
 $ sudo apt-get update
 </code></pre><p>Note that the PPA provides important packages; libsrt and gst-plugins-bad. Since Ubuntu 20.04 provides slightly old version of those packages, some features like stream-id and SRT option strings are not supported. SRT(=1.4.2) and gst-plugins-bad with some patches that will be provided by newer version of GStreamer should be installed before using H8L features. Using PPA may be more convenient to test and have experience of H8L than building from scratch. Surely, some enhancement patches of SRT and GStreamer are already submitted to the upstream and most of them are landed onto master branch or ready for landing. If you&rsquo;d like to check the patches, you can refer to our forked repositories; <a href=https://github.com/hwangsaeul/libsrt>libsrt</a> and <a href=https://github.com/hwangsaeul/gst-plugins-bad>gst-plugins-bad</a>.</p>
 <h3 id=source>Source</h3>
 <p>The first agent of <em>Gaeul</em> is <code>gaeul2-source-agent</code> that is nomally simlilar to stream generator(or simply called as encoder).</p>
-<pre><code>$ sudo apt-get install gaeul2-source-agent
+<pre tabindex=0><code>$ sudo apt-get install gaeul2-source-agent
 </code></pre><h4 id=settings>Settings</h4>
 <p>Before running the source agent, we need to set configurations to specify video parameters and SRT options. The settings are consist of two parts; one main configuration and multiple channel configurations.</p>
 <p><strong>Main Configuration</strong></p>
 <p>This configuration file is an entry point that provide capture device informations to the source agent. For the stream authentication, <em>Stream ID</em> is mandatory for H8L&rsquo;s source agent and <code>uid</code> will be used for stream-id prefix for channels.</p>
 <p><code>channel-configs</code> option takes a list of absolute file paths that are channel configurations.</p>
-<pre><code>[org/hwangsaeul/Gaeul2/Source]
+<pre tabindex=0><code>[org/hwangsaeul/Gaeul2/Source]
 uid=&quot;device0&quot;
 channel-configs=[&quot;/etc/gaeul2/conf.d/ch0.ini&quot;, &quot;/etc/gaeul2/conf.d/ch1.ini&quot;]
 </code></pre><p><strong>Channel Configuration</strong></p>
 <p>This sub-configuration describes what type of SRT stream will be sent from which video capture device. In theory, the source agent can have an infinite number of channel configurations, but it will be limited by hardware performance. Normally, it shouldn&rsquo;t exceed 2 channels encoding for 4K 30fps, or equivalent video encoding parameters.</p>
 <p>The below is an example of a channel configuration.</p>
-<pre><code>[org/hwangsaeul/Gaeul2/Source/Channel]
+<pre tabindex=0><code>[org/hwangsaeul/Gaeul2/Source/Channel]
 name=&quot;channel0&quot;
 source=&quot;v4l2src&quot;
 device=&quot;/dev/video0&quot;
@@ -242,10 +242,10 @@ record-location=&quot;/somewhare/recording-location&quot;
 <h4 id=running>Running</h4>
 <p>Now, it&rsquo;s time to run the source agent. If the configurations are provided correctly, user can choose D-Bus mode; <code>session</code>, <code>system</code> and <code>none</code>.</p>
 <p>If <code>none</code> is used, the agent will not try to acquire d-bus name. Regardless <code>--dbus-type</code>, it will send stream or trying to connect to the given <code>target-uri</code> of a channel configuration until SRT stream receiver is ready.</p>
-<pre><code>$ gaeul2-source-agent -c /etc/gaeul2/gaeul.ini --dbus-type=none
+<pre tabindex=0><code>$ gaeul2-source-agent -c /etc/gaeul2/gaeul.ini --dbus-type=none
 </code></pre><h3 id=debugging>Debugging</h3>
 <p>If it is suspicious that the source agent sends a stream or not, the easiest way to check is to get log messages. Since all of H8L components follows GLib and GStreamer conventions, it shows log messages by setting two major environmental variables.</p>
-<pre><code>$ export G_MESSAGES_DEBUG=all
+<pre tabindex=0><code>$ export G_MESSAGES_DEBUG=all
 $ export GST_DEBUG=*:3
 $ gaeul2-source-agent -c /etc/gaeul2/gaeul.ini --dbus-type=none
 </code></pre><p>Then, now user can get log messages on their console.</p>
@@ -253,7 +253,7 @@ $ gaeul2-source-agent -c /etc/gaeul2/gaeul.ini --dbus-type=none
 <p>The relay agent plays a role to distribute SRT stream from source to users. It provides stream authentication option to distinguish SRT session by stream-id. Surely, the authentication option can be disabled when it requires the compatiblity with the legacy SRT equipment or software.</p>
 <h4 id=settings-1>Settings</h4>
 <p>Unlike the source agent, the relay agent has a main configuration only.</p>
-<pre><code>[org/hwangsaeul/Gaeul2/Relay]
+<pre tabindex=0><code>[org/hwangsaeul/Gaeul2/Relay]
 uid=&quot;relay0&quot;
 sink-port=50010
 source-port=60010
@@ -271,19 +271,19 @@ authentication=true
 </ul>
 <h4 id=running-1>Running</h4>
 <p>If a configuration file is ready, it can be run with the below command. In a relay service, D-Bus API should be enabled to use a stream authentication feature. Here, it is assumed to use session-wide D-Bus API.</p>
-<pre><code>$ gaeul2-relay-agent -c /etc/gaeul2/gaeul.ini --dbus-type=session
+<pre tabindex=0><code>$ gaeul2-relay-agent -c /etc/gaeul2/gaeul.ini --dbus-type=session
 </code></pre><h4 id=srt-stream-authentication>SRT Stream authentication</h4>
 <p>The relay is relatively simple because of SRT-nature; content agnostic. However, it plays very important role as a live stream distributor. In current implmentation, the relay agent supports only SRT&rsquo;s live mode.</p>
 <p><img src=./relay-authentication.png alt="Stream Authentication in Relay"></p>
 <p>The relay provides a whitelist-based stream authentication mechanism. That means, the agent should know streamid before attempting to connect. Otherwise, the agent will reject stream connection.</p>
 <p>To allow a connection from source agent, the stream-id of source agent must be registered. Here, it assumed that the source agent uses <code>device0_channel0</code> as its stream-id.</p>
-<pre><code>$ busctl call \
+<pre tabindex=0><code>$ busctl call \
     org.hwangsaeul.Gaeul2.Relay \
     /org/hwangsaeul/Gaeul2/Relay \
     org.hwangsaeul.Gaeul2.Relay \
     AddSinkToken &quot;s&quot; &quot;device0_chanel0&quot;
 </code></pre><p>Then, if a user who has the unique id, <code>admin0</code>, wants to get a video stream of the source agent, <code>device0_channel0</code>, a source token should be registered too.</p>
-<pre><code>$ busctl call \
+<pre tabindex=0><code>$ busctl call \
     org.hwangsaeul.Gaeul2.Relay \
     /org/hwangsaeul/Gaeul2/Relay \
     org.hwangsaeul.Gaeul2.Relay \
@@ -296,7 +296,7 @@ authentication=true
 <li>SRT Play Pro (iOS only)</li>
 </ul>
 <p>If you are using GStreamer, you can test playing with the below command.</p>
-<pre><code>$ gst-launch-1.0 \
+<pre tabindex=0><code>$ gst-launch-1.0 \
     srtsrc uri=&quot;srt://relay.ip:port?mode=caller&quot; streamid=&quot;#\!::u=admin0,r=device0_channel0&quot; ! \
     queue ! decodebin ! autovideosink
 </code></pre><h3 id=see-also>See also</h3>
