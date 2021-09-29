@@ -18,6 +18,8 @@ menu:
 
 | Name | OSS Notice | Source Code |
 |---|:---|:---:|
+| Initial Android 2.1.0 | [notice](initial_android_2_1_0_OSSNotice.html)  | - |
+| Initial iOS 2.1.0 | [notice](initialIOS_2_1_0_OSSNotice.html)  | - |
 | Grandview Android 1.2.12 | [notice](./grandview_android_1.2.12_OSS_Notice.html)  | - |
 | Grandview iOS 1.6 | [notice](./grandview_ios_1.6_OSS_Notice.html)  | - |
 | T Phone Android 10.3.0 | [notice](./tphone_android_10.3.0/Tphone_android_10.3.0_OSS_Notice.html)  | [zip](./tphone_android_10.3.0/Tphone_android_10.3.0_sourcecode.zip) |
