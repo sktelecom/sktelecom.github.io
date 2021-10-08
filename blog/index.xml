@@ -1,4 +1,16 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SKT Open Source – Blog</title><link>/blog/</link><description>Recent content in Blog on SKT Open Source</description><generator>Hugo -- gohugo.io</generator><language>ko-kr</language><atom:link href="/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>Blog: GPLv2도 설치정보를 요구한다고?</title><link>/blog/2021/20210728-gplv2installationinformation/</link><pubDate>Sun, 01 Aug 2021 00:00:00 +0000</pubDate><guid>/blog/2021/20210728-gplv2installationinformation/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SKT Open Source – Blog</title><link>/blog/</link><description>Recent content in Blog on SKT Open Source</description><generator>Hugo -- gohugo.io</generator><language>ko-kr</language><atom:link href="/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>Blog: SKT, 오픈소스 컴플라이언스 분야 ISO 국제인증 획득</title><link>/blog/news/20210909-sktiso/</link><pubDate>Thu, 09 Sep 2021 00:00:00 +0000</pubDate><guid>/blog/news/20210909-sktiso/</guid><description>
+&lt;img src="/blog/news/20210909-sktiso/featured-SKTiso_hu065adfe0227da2c1679217693f1d110a_422461_640x0_resize_q75_catmullrom.jpeg" width="640" height="414"/>
+&lt;p>SK텔레콤이 ‘오픈소스’ 활용을 위한 체계적 관리(컴플라이언스) 시스템을 갖췄음을 국제적으로 인정받았다.&lt;/p>
+&lt;p>SK텔레콤(대표이사 박정호, &lt;a href="http://www.sktelecom.com">www.sktelecom.com&lt;/a>)은 국제표준화기구(ISO, Interna-tional Organization for Standardization)로부터 오픈소스 컴플라이언스 관련 표준인증(ISO/IEC 5230)을 획득했다고 9일 밝혔다.&lt;/p>
+&lt;div class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 910px">
+&lt;img class="card-img-top" src="/blog/news/20210909-sktiso/featured-SKTiso_hu065adfe0227da2c1679217693f1d110a_422461_900x600_fit_q75_catmullrom.jpeg" width="900" height="582">
+&lt;div class="card-body px-0 pt-2 pb-0">
+&lt;p class="card-text">
+&lt;small class="text-muted">&lt;br/>SK텔레콤&lt;/small>&lt;/p>
+&lt;/div>
+&lt;/div>
+&lt;hr>
+&lt;p>자세한 내용은 기사 원문에서 확인하세요. : &lt;a href="https://www.fntimes.com/html/view.php?ud=202106140855478693645ffc9771_18">https://www.fntimes.com/html/view.php?ud=202106140855478693645ffc9771_18&lt;/a>&lt;/p></description></item><item><title>Blog: GPLv2도 설치정보를 요구한다고?</title><link>/blog/2021/20210728-gplv2installationinformation/</link><pubDate>Sun, 01 Aug 2021 00:00:00 +0000</pubDate><guid>/blog/2021/20210728-gplv2installationinformation/</guid><description>
 &lt;img src="/blog/2021/20210728-gplv2installationinformation/featured_gplv3_hu006d62b08de1c17950f31195c01df16f_37653_640x0_resize_catmullrom_3.png" width="640" height="318"/>
 &lt;blockquote>
 &lt;p>&lt;i>안녕하세요.&lt;/p>
