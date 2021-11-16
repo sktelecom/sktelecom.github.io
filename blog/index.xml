@@ -4,7 +4,8 @@
 &lt;p>&lt;i>안녕하세요, 장학성입니다.&lt;/p>
 &lt;p>지난 2021년 9월, 중국내 최초의 GPL 관련 판결이 있었다는 &lt;a href="https://www.oschina.net/news/159435">중국 기사&lt;/a>를 통해 공개되었습니다. 번역기를 활용해 이해한 내용을 정리해보았습니다.&lt;br>
 제가 법률가도 아니고, 중국어도 모르다보니 틀린 내용이 있을 수도 있음을 감안해주시기 바랍니다. :)&lt;br>
-오류를 발견하신 분은 언제든 알려주시면 감사하겠습니다! (&lt;a href="mailto:haksung@sk.com">haksung@sk.com&lt;/a>) &lt;/i>&lt;/p>
+오류를 발견하신 분은 언제든 알려주시면 감사하겠습니다! (&lt;a href="mailto:haksung@sk.com">haksung@sk.com&lt;/a>)&lt;/p>
+&lt;p>(감수에 도움을 주신 한국저작권위원회 &lt;a href="https://www.linkedin.com/in/jin-young-choi-20174b44">최진영 센터장&lt;/a>님께 감사 드립니다. ^^)&lt;/i>&lt;/p>
 &lt;/blockquote>
 &lt;div class="pageinfo pageinfo-primary">
 &lt;p>출처 : &amp;ldquo;首例！违反 GPL 协议致侵权，被判赔偿 50 万元&amp;rdquo; - &lt;a href="https://www.oschina.net/news/159435">https://www.oschina.net/news/159435&lt;/a>&lt;/p>
@@ -89,7 +90,7 @@ VirtualApp의 코드를 상업적 이익, 내부 사용을 위해 자신의 코�
 업로드하는 경우 당사에서 직접 경찰에 신고(저작권 침해)하여 귀하의 회사에 법적 소송 및 형사 책임이 발생합니다.&amp;quot;
 &lt;/code>&lt;/pre>&lt;p>참고로, VirtualApp은 Lody가 주요 기여자이고, 이후 30여 명의 개발자가 추가로 기여하였습니다.&lt;/p>
 &lt;h3 id="2-dim-sum-desktop-피고-측-소프트웨어">2. Dim Sum Desktop (피고 측 소프트웨어)&lt;/h3>
-&lt;p>Dim Sum Desktop은 VirtualApp과 마찬가지로 가상 안드로이드 환경을 제공하는 소프트웨어이며, 피고인 Fujian Fengling Chuangjing Technology Co., Ltd.가 개발하였습니다.&lt;/p>
+&lt;p>Dim Sum Desktop은 VirtualApp과 마찬가지로 가상 안드로이드 환경을 제공하는 소프트웨어이며, 피고 Fujian Fengling Chuangjing Technology Co., Ltd.가 개발하였습니다.&lt;/p>
 &lt;div class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 610px">
 &lt;img class="card-img-top" src="/blog/2021/20211115-virtualapp_gpl/dimsum_hu6d272197161dca7c802de3f115de61eb_572370_600x0_resize_catmullrom_3.png" width="600" height="488">
 &lt;div class="card-body px-0 pt-2 pb-0">
@@ -142,7 +143,7 @@ http://www.appchina.com/app/com.dianxinos.dxhome
 &lt;/li>
 &lt;li>중국 민법 총칙 제158조
 &lt;ul>
-&lt;li>“민사법률행위는 조건이 있을 수 있다…해산조건이 있는 민사법률행위는 조건이 충족되면 무효”라고 규정&lt;/li>
+&lt;li>“민사법률행위는 조건이 있을 수 있다… 해제 조건이 있는 민사법률행위는 조건이 충족되면 무효”라고 규정&lt;/li>
 &lt;/ul>
 &lt;/li>
 &lt;li>오픈소스 소프트웨어의 특성상 GPL-3.0서에 명시된 사용조건(오픈소스코드, 저작권 정보 표시, 수정정보 등)은 라이선스 제공자가 사용자가 이를 사용할 수 있도록 하기 위한 전제조건임
@@ -176,7 +177,7 @@ http://www.appchina.com/app/com.dianxinos.dxhome
 &lt;/li>
 &lt;/ol>
 &lt;p>다만, 법원은 원고가 VirtualApp을 relicense할 권리가 있는지에 관해서는 판단하지 않았습니다. 또한, 다른 기여자의 기여물까지 포함하여 relicense함으로써 GPL-3.0을 오염시킨 부분에 관해서도 판단하지 않았습니다.&lt;/p>
-&lt;h3 id="쟁점-3-피고인의-행위가-원고의-저작권을-침해했는지-여부">쟁점 3. 피고인의 행위가 원고의 저작권을 침해했는지 여부&lt;/h3>
+&lt;h3 id="쟁점-3-피고의-행위가-원고의-저작권을-침해했는지-여부">쟁점 3. 피고의 행위가 원고의 저작권을 침해했는지 여부&lt;/h3>
 &lt;p>법원은 VirtualApp의 &amp;ldquo;상용 사용 금지 문구&amp;quot;가 GPL-3.0 (7조 Additional Terms, 10조 Automatic Licensing of Downstream Recipients)을 위반한다고 지적하며, 여전히 GPL-3.0 라이선스가 우선한다고 판단하였습니다.&lt;/p>
 &lt;ol>
 &lt;li>원고는 VirtualApp을 오픈소스 버전과 상용버전으로 나누고, 후속 오픈소스 버전에서 &amp;ldquo;GPL-3.0&amp;rdquo; 라이선스를 삭제함
@@ -190,7 +191,7 @@ http://www.appchina.com/app/com.dianxinos.dxhome
 &lt;li>따라서, 법원은 원고의 다음 주장을 지지하지 않음 : &amp;ldquo;Dim Sum Desktop을 상용화하는 것은 GPL-3.0 위반임.&amp;rdquo;&lt;/li>
 &lt;/ul>
 &lt;/li>
-&lt;li>피고인이 &amp;ldquo;Dim Sum Desktop&amp;rdquo; 앱(V6.5.8)이 GPL-3.0을 따라 소스 코드를 무료로 공개해야 하지만 피고인 Fujian Fengling Company가 이를 이행하지 않았음
+&lt;li>피고가 &amp;ldquo;Dim Sum Desktop&amp;rdquo; 앱(V6.5.8)이 GPL-3.0을 따라 소스 코드를 무료로 공개해야 하지만 피고 Fujian Fengling Company가 이를 이행하지 않았음
 &lt;ul>
 &lt;li>이에 따라 GPL-3.0 8조 및 중국 민법 일반원칙 제158조에 따라 피고 Fujian Fengling Company가 획득한 권한은 자동 종료됨&lt;/li>
 &lt;li>따라서, 피고 Fujian Fengling Company의 VirtualApp 복사, 수정 및 배포는 권리 출처 상실로 인한 침해에 해당함&lt;/li>
@@ -201,15 +202,15 @@ http://www.appchina.com/app/com.dianxinos.dxhome
 &lt;h3 id="쟁점-4-침해-사실-확인-시-피고의-법적-책임-범위">쟁점 4. 침해 사실 확인 시 피고의 법적 책임 범위&lt;/h3>
 &lt;p>원고는 피고의 이익에 기반한 손해배상액 산정을 요청하였습니다. 하지만 법원은 법정손해배상금(statutory damages)에 근거하여 배상금을 정한 것으로 보입니다.&lt;/p>
 &lt;ul>
-&lt;li>피고인 Fujian Fengling Company는 &amp;ldquo;Dim Sum Desktop&amp;rdquo; 앱(V6.5.8)의 개발자, 운영 및 퍼블리셔로서 법에 따라 VirtualApp의 저작권 침해를 중지할 책임이 있음
+&lt;li>피고 Fujian Fengling Company는 &amp;ldquo;Dim Sum Desktop&amp;rdquo; 앱(V6.5.8)의 개발자, 운영 및 퍼블리셔로서 법에 따라 VirtualApp의 저작권 침해를 중지할 책임이 있음
 &lt;ul>
 &lt;li>피고 Fujian Fengling Company가 피고 Beijing Fengling Company의 전액 출자 자회사라는 사실에 비추어 볼 때, 두 피고가 공동으로 불법 행위 책임을 부담한다는 원고의 주장은 합법적이며 법원의 지지를 받음&lt;/li>
 &lt;/ul>
 &lt;/li>
-&lt;li>피고인 Tencent는 &amp;ldquo;AppBao 공식 웹사이트&amp;quot;에서 침해 가능성에 대한 관련 규칙과 불만 제기 채널을 마련하고 고소된 소프트웨어를 즉시 제거함
+&lt;li>피고 Tencent는 &amp;ldquo;AppBao 공식 웹사이트&amp;quot;에서 침해 가능성에 대한 관련 규칙과 불만 제기 채널을 마련하고 고소된 소프트웨어를 즉시 제거함
 &lt;ul>
-&lt;li>원고는 또한 피고인 Tencent에 대해 구체적인 불만을 제기하지 않았음&lt;/li>
-&lt;li>따라서 피고인 Tencent는 법적 책임을 질 필요가 없음&lt;/li>
+&lt;li>원고는 또한 피고 Tencent에 대해 구체적인 불만을 제기하지 않았음&lt;/li>
+&lt;li>따라서 피고 Tencent는 법적 책임을 질 필요가 없음&lt;/li>
 &lt;/ul>
 &lt;/li>
 &lt;li>보상 문제
@@ -220,7 +221,7 @@ http://www.appchina.com/app/com.dianxinos.dxhome
 &lt;/li>
 &lt;/ul>
 &lt;h2 id="마무리">마무리&lt;/h2>
-&lt;p>그동안 중국은 저작권 위반에 관대하다는 인식이 많았는데, 영문을 기반으로 한 오픈소스 라이선스의 법적 효력을 인정하고, 라이선스 위반을 저작권 침해로 판결한 점이 인상적이었습니다. 기업은 오픈소스 라이선스 의무를 준수하기 위한 정책과 프로세스를 갖추어야 이러한 분쟁에 휘말리는 위험을 최소화 할 수 있을 것입니다.&lt;/p>
+&lt;p>그동안 중국은 저작권법 위반에 관대하다는 인식이 많았는데, 영문을 기반으로 한 오픈소스 라이선스의 법적 효력을 인정하고, 라이선스 위반을 저작권 침해로 판결한 점이 인상적이었습니다. 기업은 오픈소스 라이선스 의무를 준수하기 위한 정책과 프로세스를 갖추어야 이러한 분쟁에 휘말리는 위험을 최소화 할 수 있을 것입니다.&lt;/p>
 &lt;p>피고는 사건을 대법원에 상고한 것으로 알려졌습니다.&lt;/p></description></item><item><title>Blog: SKT, 오픈소스 컴플라이언스 분야 ISO 국제인증 획득</title><link>/blog/news/20210909-sktiso/</link><pubDate>Thu, 09 Sep 2021 00:00:00 +0000</pubDate><guid>/blog/news/20210909-sktiso/</guid><description>
 &lt;img src="/blog/news/20210909-sktiso/featured-SKTiso_hu065adfe0227da2c1679217693f1d110a_422461_640x0_resize_q75_catmullrom.jpeg" width="640" height="414"/>
 &lt;p>SK텔레콤이 ‘오픈소스’ 활용을 위한 체계적 관리(컴플라이언스) 시스템을 갖췄음을 국제적으로 인정받았다.&lt;/p>
