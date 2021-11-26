@@ -18,6 +18,7 @@ menu:
 
 | Name | OSS Notice | Source Code |
 |---|:---|:---:|
+| Alexa on Nugu 0.9.0 | [notice](Alexa_on_Nugu_android_0.9.0_OSS_Notice.html)  | - |
 | Initial Android 2.1.0 | [notice](initial_android_2_1_0_OSSNotice.html)  | - |
 | Initial iOS 2.1.0 | [notice](initialIOS_2_1_0_OSSNotice.html)  | - |
 | Grandview Android 1.2.12 | [notice](./grandview_android_1.2.12_OSS_Notice.html)  | - |
