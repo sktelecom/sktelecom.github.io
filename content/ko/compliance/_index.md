@@ -20,6 +20,7 @@ menu:
 |---|:---|:---:|
 | T membership Android 20.0.0 | [notice](./Tmembership_android_20.0.0_OSS_Notice.htm)  | - |
 | T membership iOS 20.0.0 | [notice](./Tmembership_ios_20.0.0_OSS_Notice.htm)  | - |
+| Albert Linux 2.0.80 | [notice](./Albert_linux_2.0.80/Albert_linux_2.0.80_OSS_Notice.htm)  | [zip](./Albert_linux_2.0.80/Albert_linux_2.0.80_sourcecode.zip) |
 | Alexa on Nugu 0.9.0 | [notice](Alexa_on_Nugu_android_0.9.0_OSS_Notice.html)  | - |
 | Initial Android 2.1.0 | [notice](initial_android_2_1_0_OSSNotice.html)  | - |
 | Initial iOS 2.1.0 | [notice](initialIOS_2_1_0_OSSNotice.html)  | - |
