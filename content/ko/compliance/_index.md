@@ -18,6 +18,7 @@ menu:
 
 | Name | OSS Notice | Source Code |
 |---|:---|:---:|
+| NUGUAuto Android 1.0.29 | [notice](./NUGUAuto_android_1.0.29_OSS_Notice.htm)  | - |
 | T membership Android 20.0.0 | [notice](./Tmembership_android_20.0.0_OSS_Notice.htm)  | - |
 | T membership iOS 20.0.0 | [notice](./Tmembership_ios_20.0.0_OSS_Notice.htm)  | - |
 | Albert Linux 2.0.80 | [notice](./Albert_linux_2.0.80/Albert_linux_2.0.80_OSS_Notice.htm)  | [zip](./Albert_linux_2.0.80/Albert_linux_2.0.80_sourcecode.zip) |
