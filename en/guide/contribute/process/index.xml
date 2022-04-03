@@ -68,7 +68,7 @@ $ git rebase upstream/main
 &lt;/code>&lt;/pre>&lt;p>그 상태에서 code 작업을 한다.&lt;/p>
 &lt;h4 id="step-5-commit">Step 5. Commit&lt;/h4>
 &lt;p>수정 사항을 commit 한다.&lt;/p>
-&lt;pre tabindex="0">&lt;code>$ git commit -a -m '[commit message]'
+&lt;pre tabindex="0">&lt;code>$ git commit -a -m &amp;#39;[commit message]&amp;#39;
 &lt;/code>&lt;/pre>&lt;h4 id="step-6-push">Step 6. Push&lt;/h4>
 &lt;p>myfeature branch의 수정 사항을 자신의 GitHub Repository에 Push한다.&lt;/p>
 &lt;pre tabindex="0">&lt;code>git push -f origin myfeature

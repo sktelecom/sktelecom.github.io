@@ -29,25 +29,25 @@ $ sudo apt-get update
 &lt;p>This configuration file is an entry point that provide capture device informations to the source agent. For the stream authentication, &lt;em>Stream ID&lt;/em> is mandatory for H8L&amp;rsquo;s source agent and &lt;code>uid&lt;/code> will be used for stream-id prefix for channels.&lt;/p>
 &lt;p>&lt;code>channel-configs&lt;/code> option takes a list of absolute file paths that are channel configurations.&lt;/p>
 &lt;pre tabindex="0">&lt;code>[org/hwangsaeul/Gaeul2/Source]
-uid=&amp;quot;device0&amp;quot;
-channel-configs=[&amp;quot;/etc/gaeul2/conf.d/ch0.ini&amp;quot;, &amp;quot;/etc/gaeul2/conf.d/ch1.ini&amp;quot;]
+uid=&amp;#34;device0&amp;#34;
+channel-configs=[&amp;#34;/etc/gaeul2/conf.d/ch0.ini&amp;#34;, &amp;#34;/etc/gaeul2/conf.d/ch1.ini&amp;#34;]
 &lt;/code>&lt;/pre>&lt;p>&lt;strong>Channel Configuration&lt;/strong>&lt;/p>
 &lt;p>This sub-configuration describes what type of SRT stream will be sent from which video capture device. In theory, the source agent can have an infinite number of channel configurations, but it will be limited by hardware performance. Normally, it shouldn&amp;rsquo;t exceed 2 channels encoding for 4K 30fps, or equivalent video encoding parameters.&lt;/p>
 &lt;p>The below is an example of a channel configuration.&lt;/p>
 &lt;pre tabindex="0">&lt;code>[org/hwangsaeul/Gaeul2/Source/Channel]
-name=&amp;quot;channel0&amp;quot;
-source=&amp;quot;v4l2src&amp;quot;
-device=&amp;quot;/dev/video0&amp;quot;
+name=&amp;#34;channel0&amp;#34;
+source=&amp;#34;v4l2src&amp;#34;
+device=&amp;#34;/dev/video0&amp;#34;
 bitrate=2000000
 fps=30
-codec=&amp;quot;x264&amp;quot;
-bitrate-control=&amp;quot;CBR&amp;quot;
-resolution=&amp;quot;1920x1080&amp;quot;
-target-uri=&amp;quot;srt://ip.address:port/?mode=caller&amp;quot;
-passphrase=&amp;quot;&amp;quot;
-pbkeylen=&amp;quot;AES-128&amp;quot;
+codec=&amp;#34;x264&amp;#34;
+bitrate-control=&amp;#34;CBR&amp;#34;
+resolution=&amp;#34;1920x1080&amp;#34;
+target-uri=&amp;#34;srt://ip.address:port/?mode=caller&amp;#34;
+passphrase=&amp;#34;&amp;#34;
+pbkeylen=&amp;#34;AES-128&amp;#34;
 prefer-hw-decoding=false
-record-location=&amp;quot;/somewhare/recording-location&amp;quot;
+record-location=&amp;#34;/somewhare/recording-location&amp;#34;
 &lt;/code>&lt;/pre>&lt;p>With &lt;code>uid&lt;/code> of a main configuration, &lt;code>name&lt;/code> option will be used to compose a stream-id for this channel stream. if &lt;code>device0&lt;/code> is given for the uid and &lt;code>channel0&lt;/code> is for the name, this video channel will have &lt;code>device0_channel0&lt;/code> stream id.&lt;/p>
 &lt;h4 id="running">Running&lt;/h4>
 &lt;p>Now, it&amp;rsquo;s time to run the source agent. If the configurations are provided correctly, user can choose D-Bus mode; &lt;code>session&lt;/code>, &lt;code>system&lt;/code> and &lt;code>none&lt;/code>.&lt;/p>
@@ -64,12 +64,12 @@ $ gaeul2-source-agent -c /etc/gaeul2/gaeul.ini --dbus-type=none
 &lt;h4 id="settings-1">Settings&lt;/h4>
 &lt;p>Unlike the source agent, the relay agent has a main configuration only.&lt;/p>
 &lt;pre tabindex="0">&lt;code>[org/hwangsaeul/Gaeul2/Relay]
-uid=&amp;quot;relay0&amp;quot;
+uid=&amp;#34;relay0&amp;#34;
 sink-port=50010
 source-port=60010
 sink-latency=125
 source-latency=125
-external-ip=&amp;quot;xxx.xxx.xxx.xxx&amp;quot;
+external-ip=&amp;#34;xxx.xxx.xxx.xxx&amp;#34;
 authentication=true
 &lt;/code>&lt;/pre>&lt;ul>
 &lt;li>&lt;code>uid&lt;/code>: a unique id, it is used for identifying each relay service.&lt;/li>
@@ -91,13 +91,13 @@ authentication=true
 org.hwangsaeul.Gaeul2.Relay \
 /org/hwangsaeul/Gaeul2/Relay \
 org.hwangsaeul.Gaeul2.Relay \
-AddSinkToken &amp;quot;s&amp;quot; &amp;quot;device0_chanel0&amp;quot;
+AddSinkToken &amp;#34;s&amp;#34; &amp;#34;device0_chanel0&amp;#34;
 &lt;/code>&lt;/pre>&lt;p>Then, if a user who has the unique id, &lt;code>admin0&lt;/code>, wants to get a video stream of the source agent, &lt;code>device0_channel0&lt;/code>, a source token should be registered too.&lt;/p>
 &lt;pre tabindex="0">&lt;code>$ busctl call \
 org.hwangsaeul.Gaeul2.Relay \
 /org/hwangsaeul/Gaeul2/Relay \
 org.hwangsaeul.Gaeul2.Relay \
-AddSourceToken &amp;quot;ss&amp;quot; &amp;quot;admin0&amp;quot; &amp;quot;device0_channel0&amp;quot;
+AddSourceToken &amp;#34;ss&amp;#34; &amp;#34;admin0&amp;#34; &amp;#34;device0_channel0&amp;#34;
 &lt;/code>&lt;/pre>&lt;h4 id="playing-srt-stream-via-hwangsae">Playing SRT stream via Hwangsae&lt;/h4>
 &lt;p>Currently, there are few video players that support SRT and its streamid.&lt;/p>
 &lt;ul>
@@ -107,7 +107,7 @@ AddSourceToken &amp;quot;ss&amp;quot; &amp;quot;admin0&amp;quot; &amp;quot;devic
 &lt;/ul>
 &lt;p>If you are using GStreamer, you can test playing with the below command.&lt;/p>
 &lt;pre tabindex="0">&lt;code>$ gst-launch-1.0 \
-srtsrc uri=&amp;quot;srt://relay.ip:port?mode=caller&amp;quot; streamid=&amp;quot;#\!::u=admin0,r=device0_channel0&amp;quot; ! \
+srtsrc uri=&amp;#34;srt://relay.ip:port?mode=caller&amp;#34; streamid=&amp;#34;#\!::u=admin0,r=device0_channel0&amp;#34; ! \
 queue ! decodebin ! autovideosink
 &lt;/code>&lt;/pre>&lt;h3 id="see-also">See also&lt;/h3>
 &lt;p>H8L is not all about streaming video over SRT. It is actually designed to overcome unpredictable network in two major concerns. The first is how to stream high-quality video over high bandwidth capable network, and the second is to prevent video stuttering at a discernable level even if the quality is dropped. SRT dealt with the first issue very well by congestion control, but the second issue is complicated. Without media processing and network status prediction, it will be difficult to find solution. Here, we sugguest network adaptive streaming of H8L.&lt;/p>

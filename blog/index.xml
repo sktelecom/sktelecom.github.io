@@ -1,4 +1,105 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SKT Open Source – Blog</title><link>/blog/</link><description>Recent content in Blog on SKT Open Source</description><generator>Hugo -- gohugo.io</generator><language>ko-kr</language><atom:link href="/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>Blog: 상용 AI 서비스에 공개 Dataset을 사용해도 되나요?</title><link>/blog/2022/20220214_ai_dataset_copyright/</link><pubDate>Mon, 14 Feb 2022 00:00:00 +0000</pubDate><guid>/blog/2022/20220214_ai_dataset_copyright/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SKT Open Source – Blog</title><link>/blog/</link><description>Recent content in Blog on SKT Open Source</description><generator>Hugo -- gohugo.io</generator><language>ko-kr</language><atom:link href="/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>Blog: 이너소스 도입을 위한 과제와 효과</title><link>/blog/2022/20220403_innersource/</link><pubDate>Sun, 03 Apr 2022 00:00:00 +0000</pubDate><guid>/blog/2022/20220403_innersource/</guid><description>
+&lt;img src="/blog/2022/20220403_innersource/featured_innersource_hu7b241fcb77f1a51b14fea6a11068a61a_314689_640x0_resize_catmullrom_3.png" width="640" height="415"/>
+&lt;p>안녕하세요, 장학성입니다.&lt;/p>
+&lt;p>이너소스(Inner Source)는 오픈소스 개발방법론을 사내에 도입하여 조직간 공유와 협업을 극대화하고, 빠른 개발 속도와 투명한 커뮤니케이션, 코드 품질 향상 등의 효과를 기대하기 위한 방법입니다.&lt;/p>
+&lt;p>이너소스를 위한 방법은 여러 문서에서 설명하고 있는데요, 오늘은 다음 자료에서 언급하고 있는 이너소스를 시작하는 방법과 기대효과에 대해 간략히 정리하였으니 참고하시기 바랍니다.&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://little-canada.org/tmp/books/oreilly/Programming/getting-started-with-innersource.pdf">Getting Started with InnerSource (Keys to collaboration and productivity inside your company) / Adny Oram&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="./featured_innersource.png" alt="">&lt;/p>
+&lt;h2 id="1-오픈소스-practice-주요-사항">1. 오픈소스 Practice 주요 사항&lt;/h2>
+&lt;p>먼저, 오픈소스 개발방법론에서 강조하는 주요 Practice를 살펴보겠습니다. 어떻게 거대한 오픈소스 프로젝트가 자발적인 참여에 의해 성장해갈 수 있을까요? 왜 오픈소스 프로젝트에 참여하면 개발자 개인의 성장을 이룰 수 있다고 할까요? 오픈소스 프로젝트에는 다음과 같은 주요 Practice가 있기 때문입니다.&lt;/p>
+&lt;h3 id="1-조직간-협업">(1) 조직간 협업&lt;/h3>
+&lt;ul>
+&lt;li>오픈소스 프로젝트에서는 코드를 전 세계에 공유하기 때문에 이를 누구나 자유롭게 보고, 배우고, 개선할 수 있습니다.&lt;/li>
+&lt;li>branch를 자유롭게 만들고, 병합하기 위한 rule이 있고, 이를 가능하게 하는 tool이 있습니다.&lt;/li>
+&lt;li>이로써 근무지와 무관하게 동일한 code에서 작업할 수 있습니다.&lt;/li>
+&lt;/ul>
+&lt;h3 id="2-문서화">(2) 문서화&lt;/h3>
+&lt;ul>
+&lt;li>오픈소스 프로젝트는 Code에 대해서 가능한 자세히 문서화를 합니다.&lt;/li>
+&lt;li>이런 문서화가 소프트웨어 아키텍처 개선으로 이어집니다. 문서로 설명하다 보면 복잡하고 직관적이지 않은 아키텍처의 변경 필요성에 공감하게 됩니다.&lt;/li>
+&lt;li>문서화가 잘 되어 있는 프로젝트는 신규 Contributor의 유입도 수월하게 합니다.&lt;/li>
+&lt;/ul>
+&lt;h3 id="3-continous-test">(3) Continous Test&lt;/h3>
+&lt;ul>
+&lt;li>일반적으로 오픈소스 프로젝트는 각 기여를 객관적으로 test하는 엄격한 시스템을 구축합니다. 이로써 collaborator 간 신뢰를 유지하게 하고, 코드 품질을 보장합니다.&lt;/li>
+&lt;li>즉, 변경사항을 commit 하기 전 quality를 보장하기 위해 확인하는 tool과 절차가 있습니다.
+&lt;ul>
+&lt;li>unit test&lt;/li>
+&lt;li>continuous integration&lt;/li>
+&lt;li>code coverage&lt;/li>
+&lt;li>static analysis 등&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>각 개발자는 자신의 code에 대한 unit test를 작성해야 합니다.&lt;/li>
+&lt;/ul>
+&lt;h3 id="4-모든-communication-및-의사결정이-투명하게-공개됨">(4) 모든 Communication 및 의사결정이 투명하게 공개됨&lt;/h3>
+&lt;ul>
+&lt;li>오픈소스 프로젝트에서의 모든 communication은 공개되고 이력으로 남습니다.&lt;/li>
+&lt;li>주로 mailing list로 토론에 기반하여 의사 결정을 합니다.&lt;/li>
+&lt;li>모든 communication이 문서화 되고, 이력으로 남기 때문에 누구나 문서를 통해 프로젝트를 이해하고 새롭게 참여할 수 있습니다.&lt;/li>
+&lt;/ul>
+&lt;h3 id="5-개발자-실력을-인정-받을-수-있고-다른-개발자-멘토링">(5) 개발자 실력을 인정 받을 수 있고, 다른 개발자 멘토링&lt;/h3>
+&lt;ul>
+&lt;li>많은 commit을 기여한 개발자라면 그 프로젝트에 이해도가 높은 개발자로 간주할 수 있습니다.&lt;/li>
+&lt;li>이러한 개발자는 Trusted Committer로 인정 받게 됩니다.&lt;/li>
+&lt;li>Trusted Committer는 다른 개발자의 작업을 review / 승인하는 자격이 주어집니다.&lt;/li>
+&lt;li>또한, contributor에게 멘토링을 제공함으로 우수 개발자로 성장시키는 역할을 수행합니다.&lt;/li>
+&lt;/ul>
+&lt;h2 id="2-이너소스-도입-효과">2. 이너소스 도입 효과&lt;/h2>
+&lt;p>기업이 1에서 설명한 오픈소스 Practice를 사내에 도입하는 것을 이너소스(Inner Source)라고 부릅니다. 참고로, Inner Source는 &lt;a href="https://innersourcecommons.org/">InnerSource Commons&lt;/a> 등의 커뮤니티에서 보다 체계적으로 기법과 Practice를 발전시키고 있습니다.&lt;/p>
+&lt;p>그럼 기업이 이너소스를 도입하면 어떤 효과를 기대할 수 있을까요?&lt;/p>
+&lt;ol>
+&lt;li>조직 전체적으로 code 재사용이 늘어납니다.
+&lt;ul>
+&lt;li>각 팀의 개발자가 다른 팀이 개발한 모듈 및 아키텍처를 이해하고 활용하거나 기여할 수 있습니다.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Code Quality가 개선됩니다.
+&lt;ul>
+&lt;li>unit test, code coverage, CI (continous integration), static analysis, code review 등을 통해 quality가 개선됩니다.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>개발 속도가 빨라진다.
+&lt;ul>
+&lt;li>개발자가 unit test, code coverage, CI (continous integration)를 배워 감에 따라 bug가 줄고, 개발 속도가 빨라집니다.&lt;/li>
+&lt;li>communication을 written comment로 하는 것이 처음에는 시간이 걸리는 것처럼 보이지만, 새로운 개발자가 시스템을 빨리 배울 수 있게 하여 개발 속도 향상에 더 도움이 됩니다.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>개발자들이 code design, test, 문서화에 대한 새로운 기술을 배우면서 code design에 대해 보다 포괄적으로 고민하게 됩니다.&lt;/li>
+&lt;li>개발자들이 문서화를 더 잘하게 되고, 이는 다른 팀원이 프로젝트를 더 잘 이해해서 더 많은 기여를 할 수 있게 도와줍니다.&lt;/li>
+&lt;li>개발자들에게 권한을 부여함으로써 지적 성장과 직업 만족도를 높일 수 있습니다.&lt;/li>
+&lt;/ol>
+&lt;h2 id="3-이너소스-도입을-위한-과제">3. 이너소스 도입을 위한 과제&lt;/h2>
+&lt;p>이번에는 이너소스를 도입하려는 기업이 고려해야 할 과제에 대해 알아보겠습니다.&lt;/p>
+&lt;p>사내에 source code를 공개하고 공유하는 것만으로 아너소스의 효과를 기대할 수는 없습니다. 반드시 다음의 사항이 함께 수반되어야 합니다.&lt;/p>
+&lt;ol>
+&lt;li>Repository내의 모든 code에 대한 문서화&lt;/li>
+&lt;li>협업을 위해 Github과 같은 협업 환경 및 가이드 제공&lt;/li>
+&lt;li>test 환경 구축 및 rule 수립 : 신규 유입 code의 quality 보장하기 위함
+&lt;ul>
+&lt;li>code가 commit되기 전에 code coverage test를 code의 90% 이상에서 실행&lt;/li>
+&lt;li>commit이 되면 자동 build trigger&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>다른 조직으부터의 기여를 encourage하기 위해 modular architecture와 API 정의&lt;/li>
+&lt;li>참여자들에게 수행한 작업에 대한 자부심을 갖게 하고, Conference에서 발표하거나 Blog에 글을 기고하는 것을 적극 권장&lt;/li>
+&lt;/ol>
+&lt;h2 id="4-개발자는-왜-이너소스-프로젝트에-참여해야-하나">4. 개발자는 왜 이너소스 프로젝트에 참여해야 하나?&lt;/h2>
+&lt;p>사내에 이너소스 환경이 구축되었지만, 개발자 입장에서 당장 팀 내의 과제를 수행하다 보면 다른 팀의 코드를 보거나 기여하는 게 엄두가 나지 않을 수 있습니다. 하지만, 개발자 자신의 성장을 위해서라도 이너소스 프로젝트에 참여하는 것이 도움이 됩니다.&lt;/p>
+&lt;ol>
+&lt;li>외부 오픈소스 프로젝트에 바로 참여하기 전에 사내 이너소스 프로젝트에 참여함으로써 오픈소스 Practice를 배우고 익숙해질 수 있습니다.
+&lt;ul>
+&lt;li>이너소스에서는 code review, commit, test가 오픈소스 방식으로 수행됩니다.&lt;/li>
+&lt;li>문서화에 익숙해집니다.&lt;/li>
+&lt;li>Test, 문서화에 대한 새로운 기술을 배우면서 code design에 대해 보다 포괄적으로 고민하는 우수 개발자가 될 수 있습니다,&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Trusted Committer와 Contributor 간의 communication을 지켜보고 있는 것 자체가 도움이 됩니다.&lt;/li>
+&lt;/ol>
+&lt;p>개발자가 오픈소스에 기여해야 하는 이유에 대해서는 다음 블로그에서도 언급하고 있으니 참고하시기 바랍니다. : &amp;ldquo;&lt;a href="https://devocean.sk.com/opensource/techBoardDetail.do?ID=159274">개발자가 오픈소스에 기여해야 하는 이유&lt;/a>&amp;rdquo;&lt;/p>
+&lt;p>감사합니다.&lt;/p></description></item><item><title>Blog: 상용 AI 서비스에 공개 Dataset을 사용해도 되나요?</title><link>/blog/2022/20220214_ai_dataset_copyright/</link><pubDate>Mon, 14 Feb 2022 00:00:00 +0000</pubDate><guid>/blog/2022/20220214_ai_dataset_copyright/</guid><description>
 &lt;img src="/blog/2022/20220214_ai_dataset_copyright/featured_procedure_hudaab2914c5c3dd86326cd7f91192134e_257378_640x0_resize_catmullrom_3.png" width="640" height="1324"/>
 &lt;p>안녕하세요, 장학성입니다.&lt;/p>
 &lt;p>AI는 사용하지 않는 기업이 없을 정도로 현대 비즈니스에 중요한 기술이 되었습니다. AI 서비스를 만들기 위해서는 많은 양의 data가 필요한데요, 공개 Dataset&lt;sub>publicly available datasets&lt;/sub>도 널리 사용되고 있습니다. 다만 공개 Dataset이라고 하더라도 저작권이 있기 때문에 이를 상용 AI 서비스에 사용하려면 저작권 침해 등 법적 리스크를 최소화하기 위해 라이선스 측면의 확인이 필요합니다.&lt;/p>
@@ -21,7 +122,7 @@
 &lt;ul>
 &lt;li>많은 Dataset은 여러 개의 Data Source를 결합하여 생성한다. 이러한 여러 Data Source는 각각 다른 라이선스가 적용된다.&lt;/li>
 &lt;li>더구나 publicly available dataset의 작성자는 Dataset을 만들면서 사용한 다양한 Data Source의 라이선스를 거의 문서화하지 않는다.&lt;/li>
-&lt;li>예를 들어, &lt;a href="https://www.cs.toronto.edu/~kriz/cifar.html">CIFAR-10&lt;/a> Dataset도 웹사이트에서 요구하는 유일한 라이선스는 ‘인용 요구' 뿐이고 그 외에는 설명하지 않는다.
+&lt;li>예를 들어, &lt;a href="https://www.cs.toronto.edu/~kriz/cifar.html">CIFAR-10&lt;/a> Dataset도 웹사이트에서 요구하는 유일한 라이선스는 ‘인용 요구&amp;rsquo; 뿐이고 그 외에는 설명하지 않는다.
 &lt;ul>
 &lt;li>하지만, &lt;a href="https://www.cs.toronto.edu/~kriz/cifar.html">CIFAR-10&lt;/a>는 상업적 이미지 사용을 제한할 수 있는 라이선스가 적용된 Google Images, Flickr와 같은 다양한 Data Source의 이미지를 크롤링하여 생성되었다.&lt;/li>
 &lt;li>이러한 경우, &lt;a href="https://www.cs.toronto.edu/~kriz/cifar.html">CIFAR-10&lt;/a>의 라이선스만을 고려하는 것은 컴플라이언스 문제가 될 수 있다.&lt;/li>
@@ -380,17 +481,17 @@
 &lt;p>이런 조항을 고려하면, SaaS 시스템 내 별도의 웹페이지에서 라이선스 고지를 하는 방법도 충분하지는 않다는 주장이 있을 수도 있습니다. 물론, 이런 방법이라도 제공하는 것이 안하는 것보다는 훨씬 낫겠지만요. 🙂&lt;/p>
 &lt;h3 id="minified-javascript는-소스-코드-공개-방법으로-적절한가">Minified Javascript는 소스 코드 공개 방법으로 적절한가?&lt;/h3>
 &lt;p>개발자는 Client-side로 전달하는 코드의 로딩 타임을 최소화 하기 위하여 가급적 코드 사이즈를 경량화합니다. 이를 위해 Javascript 코드 내 불필요한 주석을 제거하고, “white space”도 제거하는 등 Minify 처리를 합니다.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-jsx" data-lang="jsx">&lt;span style="color:#000;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#204a87;font-weight:bold">script&lt;/span> &lt;span style="color:#c4a000">id&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#a40000">’&lt;/span>&lt;span style="color:#c4a000">wp&lt;/span>&lt;span style="color:#a40000">-&lt;/span>&lt;span style="color:#c4a000">media&lt;/span>&lt;span style="color:#a40000">-&lt;/span>&lt;span style="color:#c4a000">utils&lt;/span>&lt;span style="color:#a40000">-&lt;/span>&lt;span style="color:#c4a000">js&lt;/span>&lt;span style="color:#a40000">-&lt;/span>&lt;span style="color:#c4a000">translations&lt;/span>&lt;span style="color:#a40000">’&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;gt;&lt;/span>
-&lt;span style="color:#000;font-weight:bold">(&lt;/span> &lt;span style="color:#204a87;font-weight:bold">function&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span> &lt;span style="color:#000">domain&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">translations&lt;/span> &lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">var&lt;/span> &lt;span style="color:#000">localeData&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000">translations&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">locale_data&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span> &lt;span style="color:#000">domain&lt;/span> &lt;span style="color:#000;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">||&lt;/span>
-&lt;span style="color:#000">translations&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">locale_data&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">messages&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>
-&lt;span style="color:#000">localeData&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#a40000">“”&lt;/span>&lt;span style="color:#000;font-weight:bold">].&lt;/span>&lt;span style="color:#000">domain&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000">domain&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>
-&lt;span style="color:#000">wp&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">i18n&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">setLocaleData&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span> &lt;span style="color:#000">localeData&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">domain&lt;/span> &lt;span style="color:#000;font-weight:bold">);&lt;/span>
-&lt;span style="color:#000;font-weight:bold">}&lt;/span> &lt;span style="color:#000;font-weight:bold">)(&lt;/span> &lt;span style="color:#a40000">“&lt;/span>&lt;span style="color:#204a87;font-weight:bold">default&lt;/span>&lt;span style="color:#a40000">”&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span> &lt;span style="color:#a40000">“&lt;/span>&lt;span style="color:#000">locale_data&lt;/span>&lt;span style="color:#a40000">”&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span> &lt;span style="color:#a40000">“&lt;/span>&lt;span style="color:#000">messages&lt;/span>&lt;span style="color:#a40000">”&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span> &lt;span style="color:#a40000">“”&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:&lt;/span> &lt;span style="color:#000;font-weight:bold">{}&lt;/span> &lt;span style="color:#000;font-weight:bold">}&lt;/span> &lt;span style="color:#000;font-weight:bold">}&lt;/span> &lt;span style="color:#000;font-weight:bold">}&lt;/span> &lt;span style="color:#000;font-weight:bold">);&lt;/span>
-&lt;span style="color:#000;font-weight:bold">&amp;lt;/&lt;/span>&lt;span style="color:#204a87;font-weight:bold">script&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;gt;&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>예를 들어, 위의 코드를 Minify하면 다음과 같이 변환되고, 당연히 가독성은 떨어지게 됩니다.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-jsx" data-lang="jsx">&lt;span style="color:#000;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#204a87;font-weight:bold">scriptid&lt;/span>&lt;span style="color:#a40000">=’&lt;/span>&lt;span style="color:#c4a000">wp&lt;/span>&lt;span style="color:#a40000">-&lt;/span>&lt;span style="color:#c4a000">media&lt;/span>&lt;span style="color:#a40000">-&lt;/span>&lt;span style="color:#c4a000">utils&lt;/span>&lt;span style="color:#a40000">-&lt;/span>&lt;span style="color:#c4a000">js&lt;/span>&lt;span style="color:#a40000">-&lt;/span>&lt;span style="color:#c4a000">translations&lt;/span>&lt;span style="color:#a40000">’&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;gt;(&lt;/span>&lt;span style="color:#204a87;font-weight:bold">function&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">domain&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#000">translations&lt;/span>&lt;span style="color:#000;font-weight:bold">){&lt;/span>&lt;span style="color:#000">varlocaleData&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#000">translations&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">locale_data&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#000">domain&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">||&lt;/span>&lt;span style="color:#000">translations&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">locale_data&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">messages&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#000">localeData&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#a40000">“”&lt;/span>&lt;span style="color:#000;font-weight:bold">].&lt;/span>&lt;span style="color:#000">domain&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#000">domain&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#000">wp&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">i18n&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">setLocaleData&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">localeData&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#000">domain&lt;/span>&lt;span style="color:#000;font-weight:bold">);})(&lt;/span>&lt;span style="color:#a40000">“&lt;/span>&lt;span style="color:#204a87;font-weight:bold">default&lt;/span>&lt;span style="color:#a40000">”&lt;/span>&lt;span style="color:#000;font-weight:bold">,{&lt;/span>&lt;span style="color:#a40000">“&lt;/span>&lt;span style="color:#000">locale_data&lt;/span>&lt;span style="color:#a40000">”&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:&lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#a40000">“&lt;/span>&lt;span style="color:#000">messages&lt;/span>&lt;span style="color:#a40000">”&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:&lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#a40000">“”&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:&lt;/span>&lt;span style="color:#000;font-weight:bold">{}}}});&amp;lt;/&lt;/span>&lt;span style="color:#204a87;font-weight:bold">script&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;gt;&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>그런데, 소스 코드 공개를 요구 하는 오픈소스 라이선스에서는 ‘소스 코드&amp;rsquo;를 수정이 용이한 형태여야 한다고 정의하고 있습니다.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-jsx" data-lang="jsx">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#204a87;font-weight:bold">script&lt;/span> &lt;span style="color:#c4a000">id&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#a40000">’&lt;/span>&lt;span style="color:#c4a000">wp&lt;/span>&lt;span style="color:#a40000">-&lt;/span>&lt;span style="color:#c4a000">media&lt;/span>&lt;span style="color:#a40000">-&lt;/span>&lt;span style="color:#c4a000">utils&lt;/span>&lt;span style="color:#a40000">-&lt;/span>&lt;span style="color:#c4a000">js&lt;/span>&lt;span style="color:#a40000">-&lt;/span>&lt;span style="color:#c4a000">translations&lt;/span>&lt;span style="color:#a40000">’&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000;font-weight:bold">(&lt;/span> &lt;span style="color:#204a87;font-weight:bold">function&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span> &lt;span style="color:#000">domain&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">translations&lt;/span> &lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">var&lt;/span> &lt;span style="color:#000">localeData&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000">translations&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">locale_data&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span> &lt;span style="color:#000">domain&lt;/span> &lt;span style="color:#000;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">||&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000">translations&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">locale_data&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">messages&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000">localeData&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#a40000">“”&lt;/span>&lt;span style="color:#000;font-weight:bold">].&lt;/span>&lt;span style="color:#000">domain&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000">domain&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000">wp&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">i18n&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">setLocaleData&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span> &lt;span style="color:#000">localeData&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">domain&lt;/span> &lt;span style="color:#000;font-weight:bold">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000;font-weight:bold">}&lt;/span> &lt;span style="color:#000;font-weight:bold">)(&lt;/span> &lt;span style="color:#a40000">“&lt;/span>&lt;span style="color:#204a87;font-weight:bold">default&lt;/span>&lt;span style="color:#a40000">”&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span> &lt;span style="color:#a40000">“&lt;/span>&lt;span style="color:#000">locale_data&lt;/span>&lt;span style="color:#a40000">”&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span> &lt;span style="color:#a40000">“&lt;/span>&lt;span style="color:#000">messages&lt;/span>&lt;span style="color:#a40000">”&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span> &lt;span style="color:#a40000">“”&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:&lt;/span> &lt;span style="color:#000;font-weight:bold">{}&lt;/span> &lt;span style="color:#000;font-weight:bold">}&lt;/span> &lt;span style="color:#000;font-weight:bold">}&lt;/span> &lt;span style="color:#000;font-weight:bold">}&lt;/span> &lt;span style="color:#000;font-weight:bold">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">&amp;lt;/&lt;/span>&lt;span style="color:#204a87;font-weight:bold">script&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>예를 들어, 위의 코드를 Minify하면 다음과 같이 변환되고, 당연히 가독성은 떨어지게 됩니다.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-jsx" data-lang="jsx">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#204a87;font-weight:bold">scriptid&lt;/span>&lt;span style="color:#a40000">=’&lt;/span>&lt;span style="color:#c4a000">wp&lt;/span>&lt;span style="color:#a40000">-&lt;/span>&lt;span style="color:#c4a000">media&lt;/span>&lt;span style="color:#a40000">-&lt;/span>&lt;span style="color:#c4a000">utils&lt;/span>&lt;span style="color:#a40000">-&lt;/span>&lt;span style="color:#c4a000">js&lt;/span>&lt;span style="color:#a40000">-&lt;/span>&lt;span style="color:#c4a000">translations&lt;/span>&lt;span style="color:#a40000">’&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;gt;(&lt;/span>&lt;span style="color:#204a87;font-weight:bold">function&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">domain&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#000">translations&lt;/span>&lt;span style="color:#000;font-weight:bold">){&lt;/span>&lt;span style="color:#000">varlocaleData&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#000">translations&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">locale_data&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#000">domain&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">||&lt;/span>&lt;span style="color:#000">translations&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">locale_data&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">messages&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#000">localeData&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#a40000">“”&lt;/span>&lt;span style="color:#000;font-weight:bold">].&lt;/span>&lt;span style="color:#000">domain&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#000">domain&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#000">wp&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">i18n&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">setLocaleData&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">localeData&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#000">domain&lt;/span>&lt;span style="color:#000;font-weight:bold">);})(&lt;/span>&lt;span style="color:#a40000">“&lt;/span>&lt;span style="color:#204a87;font-weight:bold">default&lt;/span>&lt;span style="color:#a40000">”&lt;/span>&lt;span style="color:#000;font-weight:bold">,{&lt;/span>&lt;span style="color:#a40000">“&lt;/span>&lt;span style="color:#000">locale_data&lt;/span>&lt;span style="color:#a40000">”&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:&lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#a40000">“&lt;/span>&lt;span style="color:#000">messages&lt;/span>&lt;span style="color:#a40000">”&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:&lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#a40000">“”&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:&lt;/span>&lt;span style="color:#000;font-weight:bold">{}}}});&amp;lt;/&lt;/span>&lt;span style="color:#204a87;font-weight:bold">script&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>그런데, 소스 코드 공개를 요구 하는 오픈소스 라이선스에서는 ‘소스 코드&amp;rsquo;를 수정이 용이한 형태여야 한다고 정의하고 있습니다.&lt;/p>
 &lt;blockquote>
 &lt;p>&lt;a href="https://www.gnu.org/licenses/old-licenses/gpl-2.0.html">GPL-2.0&lt;/a>&lt;/p>
 &lt;p>&lt;em>3. &amp;hellip;
@@ -545,12 +646,12 @@ http://www.downcc.com/soft/359746.html
 &lt;li>2017년 11월 8일, 원고는 VirtualApp v1.0에 대한 소프트웨어 저작권을 등록하여 등록증을 취득하고, 소프트웨어 저작권의 모든 권리를 향유하려고 합니다.&lt;/li>
 &lt;li>2017년 12월 30일, VirtualApp을 상용으로 사용 시, 아래와 같이 &lt;a href="https://github.com/asLody/VirtualApp/commit/8e6d9cd925af55b53a7e93046c469dd69676c38b">반드시 상용라이선스 구매가 필요함&lt;/a>을 알리고, 이후, 더 이상 GitHub Repo에 소스 코드를 업데이트하지 않았습니다.&lt;/li>
 &lt;/ol>
-&lt;pre tabindex="0">&lt;code>&amp;quot;VirtualApp(중국명: Luo box)은 2017년 8월에 정식으로 설립되었습니다.
+&lt;pre tabindex="0">&lt;code>&amp;#34;VirtualApp(중국명: Luo box)은 2017년 8월에 정식으로 설립되었습니다.
 VirtualApp을 상업적 목적으로 사용해야 하는 경우 반드시 QQ: 10890으로
 연락하여 상업용 라이선스를 구매하시기 바랍니다.
 VirtualApp의 코드를 상업적 이익, 내부 사용을 위해 자신의 코드로 사용하거나
 승인 없이 소프트웨어 시장에 업로드하는 경우 당사에서 직접 경찰에 신고(저작권 침해)
-하여 귀하의 회사에 법적 소송 및 형사 책임이 발생합니다.&amp;quot;
+하여 귀하의 회사에 법적 소송 및 형사 책임이 발생합니다.&amp;#34;
 &lt;/code>&lt;/pre>&lt;p>참고로, VirtualApp은 Lody가 주요 기여자이고, 이후 30여 명의 개발자가 추가로 기여하였습니다.&lt;/p>
 &lt;h3 id="2-dim-sum-desktop-피고-측-소프트웨어">2. Dim Sum Desktop (피고 측 소프트웨어)&lt;/h3>
 &lt;p>Dim Sum Desktop은 VirtualApp과 마찬가지로 가상 안드로이드 환경을 제공하는 소프트웨어이며, 피고 Fujian Fengling Chuangjing Technology Co., Ltd.가 개발하였습니다.&lt;/p>
@@ -689,7 +790,7 @@ http://www.appchina.com/app/com.dianxinos.dxhome
 &lt;p>피고는 사건을 대법원에 상고한 것으로 알려졌습니다. 피고가 항소심에서 어떤 주장을 펴나갈지 궁금합니다. :)&lt;/p></description></item><item><title>Blog: SKT, 오픈소스 컴플라이언스 분야 ISO 국제인증 획득</title><link>/blog/news/20210909-sktiso/</link><pubDate>Thu, 09 Sep 2021 00:00:00 +0000</pubDate><guid>/blog/news/20210909-sktiso/</guid><description>
 &lt;img src="/blog/news/20210909-sktiso/featured-SKTiso_hu065adfe0227da2c1679217693f1d110a_422461_640x0_resize_q75_catmullrom.jpeg" width="640" height="414"/>
 &lt;p>SK텔레콤이 ‘오픈소스’ 활용을 위한 체계적 관리(컴플라이언스) 시스템을 갖췄음을 국제적으로 인정받았다.&lt;/p>
-&lt;p>SK텔레콤(대표이사 박정호, &lt;a href="http://www.sktelecom.com">www.sktelecom.com&lt;/a>)은 국제표준화기구(ISO, Interna-tional Organization for Standardization)로부터 오픈소스 컴플라이언스 관련 표준인증(ISO/IEC 5230)을 획득했다고 9일 밝혔다.&lt;/p>
+&lt;p>SK텔레콤(대표이사 박정호, &lt;a href="https://www.sktelecom.com">www.sktelecom.com&lt;/a>)은 국제표준화기구(ISO, Interna-tional Organization for Standardization)로부터 오픈소스 컴플라이언스 관련 표준인증(ISO/IEC 5230)을 획득했다고 9일 밝혔다.&lt;/p>
 &lt;div class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 910px">
 &lt;img class="card-img-top" src="/blog/news/20210909-sktiso/featured-SKTiso_hu065adfe0227da2c1679217693f1d110a_422461_900x600_fit_q75_catmullrom.jpeg" width="900" height="582">
 &lt;div class="card-body px-0 pt-2 pb-0">
@@ -799,7 +900,7 @@ https://www.youtube.com/watch?v=bV3cKq26nKQ
 &lt;/blockquote>
 &lt;p>FSF는 GPLv3를 만들고 공개하는 과정에서 GPLv2와는 달리 GPLv3에서는 &amp;lsquo;Tivoization&amp;rsquo;을 막을 수 있는 내용을 추가하고 있음을 분명히 하였다.&lt;/p>
 &lt;blockquote>
-&lt;p>      &lt;i>“There are several primary areas &lt;b>where version 3 is different from version 2. One is in regard to [T]ivoisation.&lt;/b>&amp;quot;&lt;sup id="fnref:27">&lt;a href="#fn:27" class="footnote-ref" role="doc-noteref">27&lt;/a>&lt;/sup>&lt;/p>
+&lt;p>      &lt;i>“There are several primary areas &lt;b>where version 3 is different from version 2. One is in regard to [T]ivoisation.&lt;/b>&amp;rdquo;&lt;sup id="fnref:27">&lt;a href="#fn:27" class="footnote-ref" role="doc-noteref">27&lt;/a>&lt;/sup>&lt;/p>
 &lt;p>      “The Tivo includes some GPL-covered software. …[Y]ou can get the source code for that, as required by the GPL … and once you get the source code, you can modify it, and there are ways to install the modified software in your Tivo and if you do that, it won&amp;rsquo;t run, period. Because, it does a check sum of the software and it verifies that it&amp;rsquo;s a version from them and if it&amp;rsquo;s your version, it won&amp;rsquo;t run at all. &lt;b>So this is what we are forbidding, with the text we have written for GPL version three&lt;/b>. It says that the &lt;b>source code they must give you includes whatever signature keys, or codes that are necessary to make your modified version run.&lt;/b>”&lt;/i>&lt;sup id="fnref:28">&lt;a href="#fn:28" class="footnote-ref" role="doc-noteref">28&lt;/a>&lt;/sup>&lt;/p>
 &lt;/blockquote>
 &lt;p>FSF는 (GPLv3이 처음 제안되었을 때부터 이 글이 발표되는 날까지 계속해서) 실제로 GPLv3에는 GPLv2에 포함된 어떤 요구 사항보다 광범위한 &amp;lsquo;설치 정보&amp;rsquo; 요구 사항에 대한 정의가 있음을 분명히 하였다.&lt;/p>
@@ -929,7 +1030,7 @@ Installation Information.”
 &lt;p>Free Software Foundation, ‘Rationale for 1st discussion draft,’ &lt;a href="http://gplv3.fsf.org/gpl-rationale-2006-01-16.html">http://gplv3.fsf.org/gpl-rationale-2006-01-16.html&lt;/a> (accessed March 22, 2021).&amp;#160;&lt;a href="#fnref:4" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
 &lt;li id="fn:5" role="doc-endnote">
-&lt;p>One example of a change in the law that the authors of GPLv3 felt needed to be addressed in that license was the adoption in 1996 of the WIPO Copyright Treaty (WCT), and the passage in 1998 of its counterpart in the United States, the Digital Millennium Copyright Action (DMCA), particularly the provisions against circumvention of &amp;lsquo;technological protection measures&amp;rsquo;, See WCT Article 11; 17 U.S.C. § 1201 (1998). GPLv3, § 3 directly addresses these additions to copyright law.&amp;#160;&lt;a href="#fnref:5" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;p>One example of a change in the law that the authors of GPLv3 felt needed to be addressed in that license was the adoption in 1996 of the WIPO Copyright Treaty (WCT), and the passage in 1998 of its counterpart in the United States, the Digital Millennium Copyright Action (DMCA), particularly the provisions against circumvention of &amp;rsquo;technological protection measures&amp;rsquo;, See WCT Article 11; 17 U.S.C. § 1201 (1998). GPLv3, § 3 directly addresses these additions to copyright law.&amp;#160;&lt;a href="#fnref:5" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
 &lt;li id="fn:6" role="doc-endnote">
 &lt;p>The technology in TiVo&amp;rsquo;s devices, preventing reinstallation of modified binaries on devices running GPLv2 software, was one example of technology developed long after the GPLv2 licence was drafted that was of concern to the drafters of GPLv3. Subsequent to the release of GPLv3, millions, if not billions, of devices continue to be distributed with a GPLv2-licensed Linux kernel that prevent the reinstallation of modified binaries. GPLv3 also addressed the outmoded language around distribution of source code in GPLv2, and GPLv3 ‒ in Section 6 ‒ added several additional mechanisms for fulfilling source code obligations more consistent with current mechanisms for software distribution. See GPLv3, § 6(d)-(e).&amp;#160;&lt;a href="#fnref:6" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
@@ -1231,8 +1332,8 @@ SK텔레콤은 SK하이닉스, SK㈜C&amp;C, SK브로드밴드, SK플래닛 등 
 &lt;/ul>
 &lt;div class="alert alert-success" role="alert">
 &lt;h4 class="alert-heading">About the author&lt;/h4>
-&lt;p>&lt;i>&lt;b>Till Jaeger&lt;/b> has been a partner at JBB Rechtsanwälte since 2001 (&lt;a href="http://www.jbb.de">www.jbb.de&lt;/a>). He is a Certified Copyright and Media Law Attorney and advises large and medium-sized IT businesses as well as government authorities and software developers on matters involving contracts, licensing and IP rights.&lt;/p>
-&lt;p>One particular focus of Till Jaeger&amp;rsquo;s work is on the legal issues created by free and open source software (FOSS). He is co-founder of the Institute for Legal Aspects of Free &amp;amp; Open Source Software, ifrOSS (&lt;a href="http://www.ifross.org">www.ifross.org&lt;/a>), contributing to its work with academic publications, lectures and seminars in the fields of software law and copyright law.&lt;/p>
+&lt;p>&lt;i>&lt;b>Till Jaeger&lt;/b> has been a partner at JBB Rechtsanwälte since 2001 (&lt;a href="https://www.jbb.de">www.jbb.de&lt;/a>). He is a Certified Copyright and Media Law Attorney and advises large and medium-sized IT businesses as well as government authorities and software developers on matters involving contracts, licensing and IP rights.&lt;/p>
+&lt;p>One particular focus of Till Jaeger&amp;rsquo;s work is on the legal issues created by free and open source software (FOSS). He is co-founder of the Institute for Legal Aspects of Free &amp;amp; Open Source Software, ifrOSS (&lt;a href="https://www.ifross.org">www.ifross.org&lt;/a>), contributing to its work with academic publications, lectures and seminars in the fields of software law and copyright law.&lt;/p>
 &lt;p>Till Jaeger is a lecturer at the Humboldt University Berlin in the subjects of IT law and IP law and general counsel of Open Source Automation Development Lab (OSADL) eG.&lt;/p>
 &lt;p>He represented the gpl-violations.org project in several lawsuits to enforce the GPL and has published articles and books related to legal questions of Free and Open Source Software (among them Jaeger/Metzger, Open Source Software - Rechtliche Rahmenbedingungen der Freien Software, 5th ed. Munich 2020, and Van den Brande/Coughlan/Jaeger - The International FOSS Law Book, 2nd ed. Munich 2014). He was member of the Committee C in the GPLv3 drafting process.&lt;/i>&lt;/p>
 &lt;/div>
@@ -1254,7 +1355,7 @@ DOI: 10.5033/jolts.v12i1.147&lt;/p>
 &lt;p>Hemel, Armijn, (2020), ‘Docker Containers for Legal Professionals,’ [pdf] Available at: &lt;a href="https://www.linuxfoundation.org/wp-content/uploads/Docker-Containers-for-Legal-Professionals-Whitepaper_042420.pdf">https://www.linuxfoundation.org/wp-content/uploads/Docker-Containers-for-Legal-Professionals-Whitepaper_042420.pdf&lt;/a> [Accessed 16 February 2021]. See also Peterson, Scott, (2020), ‘Making compliance scalable in a container world.’ Available at: &lt;a href="https://opensource.com/article/20/7/compliance-containers">https://opensource.com/article/20/7/compliance-containers&lt;/a> [Accessed 16 February 2021].&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
 &lt;li id="fn:2" role="doc-endnote">
-&lt;p>Sec. 0 GPL-3.0 provides as follows: “To ‘convey'‘ a work means any kind of propagation that enables other parties to make or receive copies.” and “To ’propagate’ a work means to do anything with it that, without permission, would make you directly or secondarily liable for infringement under applicable copyright law, except executing it on a computer or modifying a private copy.”&amp;#160;&lt;a href="#fnref:2" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;p>Sec. 0 GPL-3.0 provides as follows: “To ‘convey&amp;rsquo;‘ a work means any kind of propagation that enables other parties to make or receive copies.” and “To ’propagate’ a work means to do anything with it that, without permission, would make you directly or secondarily liable for infringement under applicable copyright law, except executing it on a computer or modifying a private copy.”&amp;#160;&lt;a href="#fnref:2" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
 &lt;li id="fn:3" role="doc-endnote">
 &lt;p>Meeker, Heather (2012), ‘The Gift that Keeps on Giving – Distribution and Copyleft in Open Source Software Licenses’, JOLTS, 4(1), pp 29 – 40, [DOI: 10.5033/ifosslr.v4i1.66].&amp;#160;&lt;a href="#fnref:3" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
@@ -1542,7 +1643,7 @@ through a computer network, offering a service the value of which
 entirely or primarily derives from the value of the Program or
 modified version, or offering a service that accomplishes for users
 the primary purpose of the Program or modified version.
-&amp;quot;Service Source Code&amp;quot; means the Corresponding Source for the Program
+&amp;#34;Service Source Code&amp;#34; means the Corresponding Source for the Program
 or the modified version, and the Corresponding Source for all programs
 that you use to make the Program or modified version available as a
 service, including, without limitation, management software, user
@@ -1657,25 +1758,25 @@ $ sudo apt-get update
 &lt;p>This configuration file is an entry point that provide capture device informations to the source agent. For the stream authentication, &lt;em>Stream ID&lt;/em> is mandatory for H8L&amp;rsquo;s source agent and &lt;code>uid&lt;/code> will be used for stream-id prefix for channels.&lt;/p>
 &lt;p>&lt;code>channel-configs&lt;/code> option takes a list of absolute file paths that are channel configurations.&lt;/p>
 &lt;pre tabindex="0">&lt;code>[org/hwangsaeul/Gaeul2/Source]
-uid=&amp;quot;device0&amp;quot;
-channel-configs=[&amp;quot;/etc/gaeul2/conf.d/ch0.ini&amp;quot;, &amp;quot;/etc/gaeul2/conf.d/ch1.ini&amp;quot;]
+uid=&amp;#34;device0&amp;#34;
+channel-configs=[&amp;#34;/etc/gaeul2/conf.d/ch0.ini&amp;#34;, &amp;#34;/etc/gaeul2/conf.d/ch1.ini&amp;#34;]
 &lt;/code>&lt;/pre>&lt;p>&lt;strong>Channel Configuration&lt;/strong>&lt;/p>
 &lt;p>This sub-configuration describes what type of SRT stream will be sent from which video capture device. In theory, the source agent can have an infinite number of channel configurations, but it will be limited by hardware performance. Normally, it shouldn&amp;rsquo;t exceed 2 channels encoding for 4K 30fps, or equivalent video encoding parameters.&lt;/p>
 &lt;p>The below is an example of a channel configuration.&lt;/p>
 &lt;pre tabindex="0">&lt;code>[org/hwangsaeul/Gaeul2/Source/Channel]
-name=&amp;quot;channel0&amp;quot;
-source=&amp;quot;v4l2src&amp;quot;
-device=&amp;quot;/dev/video0&amp;quot;
+name=&amp;#34;channel0&amp;#34;
+source=&amp;#34;v4l2src&amp;#34;
+device=&amp;#34;/dev/video0&amp;#34;
 bitrate=2000000
 fps=30
-codec=&amp;quot;x264&amp;quot;
-bitrate-control=&amp;quot;CBR&amp;quot;
-resolution=&amp;quot;1920x1080&amp;quot;
-target-uri=&amp;quot;srt://ip.address:port/?mode=caller&amp;quot;
-passphrase=&amp;quot;&amp;quot;
-pbkeylen=&amp;quot;AES-128&amp;quot;
+codec=&amp;#34;x264&amp;#34;
+bitrate-control=&amp;#34;CBR&amp;#34;
+resolution=&amp;#34;1920x1080&amp;#34;
+target-uri=&amp;#34;srt://ip.address:port/?mode=caller&amp;#34;
+passphrase=&amp;#34;&amp;#34;
+pbkeylen=&amp;#34;AES-128&amp;#34;
 prefer-hw-decoding=false
-record-location=&amp;quot;/somewhare/recording-location&amp;quot;
+record-location=&amp;#34;/somewhare/recording-location&amp;#34;
 &lt;/code>&lt;/pre>&lt;p>With &lt;code>uid&lt;/code> of a main configuration, &lt;code>name&lt;/code> option will be used to compose a stream-id for this channel stream. if &lt;code>device0&lt;/code> is given for the uid and &lt;code>channel0&lt;/code> is for the name, this video channel will have &lt;code>device0_channel0&lt;/code> stream id.&lt;/p>
 &lt;h4 id="running">Running&lt;/h4>
 &lt;p>Now, it&amp;rsquo;s time to run the source agent. If the configurations are provided correctly, user can choose D-Bus mode; &lt;code>session&lt;/code>, &lt;code>system&lt;/code> and &lt;code>none&lt;/code>.&lt;/p>
@@ -1692,12 +1793,12 @@ $ gaeul2-source-agent -c /etc/gaeul2/gaeul.ini --dbus-type=none
 &lt;h4 id="settings-1">Settings&lt;/h4>
 &lt;p>Unlike the source agent, the relay agent has a main configuration only.&lt;/p>
 &lt;pre tabindex="0">&lt;code>[org/hwangsaeul/Gaeul2/Relay]
-uid=&amp;quot;relay0&amp;quot;
+uid=&amp;#34;relay0&amp;#34;
 sink-port=50010
 source-port=60010
 sink-latency=125
 source-latency=125
-external-ip=&amp;quot;xxx.xxx.xxx.xxx&amp;quot;
+external-ip=&amp;#34;xxx.xxx.xxx.xxx&amp;#34;
 authentication=true
 &lt;/code>&lt;/pre>&lt;ul>
 &lt;li>&lt;code>uid&lt;/code>: a unique id, it is used for identifying each relay service.&lt;/li>
@@ -1719,13 +1820,13 @@ authentication=true
 org.hwangsaeul.Gaeul2.Relay \
 /org/hwangsaeul/Gaeul2/Relay \
 org.hwangsaeul.Gaeul2.Relay \
-AddSinkToken &amp;quot;s&amp;quot; &amp;quot;device0_chanel0&amp;quot;
+AddSinkToken &amp;#34;s&amp;#34; &amp;#34;device0_chanel0&amp;#34;
 &lt;/code>&lt;/pre>&lt;p>Then, if a user who has the unique id, &lt;code>admin0&lt;/code>, wants to get a video stream of the source agent, &lt;code>device0_channel0&lt;/code>, a source token should be registered too.&lt;/p>
 &lt;pre tabindex="0">&lt;code>$ busctl call \
 org.hwangsaeul.Gaeul2.Relay \
 /org/hwangsaeul/Gaeul2/Relay \
 org.hwangsaeul.Gaeul2.Relay \
-AddSourceToken &amp;quot;ss&amp;quot; &amp;quot;admin0&amp;quot; &amp;quot;device0_channel0&amp;quot;
+AddSourceToken &amp;#34;ss&amp;#34; &amp;#34;admin0&amp;#34; &amp;#34;device0_channel0&amp;#34;
 &lt;/code>&lt;/pre>&lt;h4 id="playing-srt-stream-via-hwangsae">Playing SRT stream via Hwangsae&lt;/h4>
 &lt;p>Currently, there are few video players that support SRT and its streamid.&lt;/p>
 &lt;ul>
@@ -1735,7 +1836,7 @@ AddSourceToken &amp;quot;ss&amp;quot; &amp;quot;admin0&amp;quot; &amp;quot;devic
 &lt;/ul>
 &lt;p>If you are using GStreamer, you can test playing with the below command.&lt;/p>
 &lt;pre tabindex="0">&lt;code>$ gst-launch-1.0 \
-srtsrc uri=&amp;quot;srt://relay.ip:port?mode=caller&amp;quot; streamid=&amp;quot;#\!::u=admin0,r=device0_channel0&amp;quot; ! \
+srtsrc uri=&amp;#34;srt://relay.ip:port?mode=caller&amp;#34; streamid=&amp;#34;#\!::u=admin0,r=device0_channel0&amp;#34; ! \
 queue ! decodebin ! autovideosink
 &lt;/code>&lt;/pre>&lt;h3 id="see-also">See also&lt;/h3>
 &lt;p>H8L is not all about streaming video over SRT. It is actually designed to overcome unpredictable network in two major concerns. The first is how to stream high-quality video over high bandwidth capable network, and the second is to prevent video stuttering at a discernable level even if the quality is dropped. SRT dealt with the first issue very well by congestion control, but the second issue is complicated. Without media processing and network status prediction, it will be difficult to find solution. Here, we sugguest network adaptive streaming of H8L.&lt;/p>
@@ -1953,7 +2054,7 @@ Dixi ad aestum.&lt;/p>
 &lt;td>1982&lt;/td>
 &lt;td>Epic Records&lt;/td>
 &lt;td>Grammy Award for Album of the Year, American Music Award for Favorite Pop/Rock Album, American Music Award for Favorite Soul/R&amp;amp;B Album, Brit Award for Best Selling Album, Grammy Award for Best Engineered Album, Non-Classical&lt;/td>
-&lt;td>Wanna Be Startin&amp;rsquo; Somethin', Baby Be Mine, The Girl Is Mine, Thriller, Beat It, Billie Jean, Human Nature, P.Y.T. (Pretty Young Thing), The Lady in My Life&lt;/td>
+&lt;td>Wanna Be Startin&amp;rsquo; Somethin&amp;rsquo;, Baby Be Mine, The Girl Is Mine, Thriller, Beat It, Billie Jean, Human Nature, P.Y.T. (Pretty Young Thing), The Lady in My Life&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>Prince&lt;/td>
@@ -1977,20 +2078,23 @@ Dixi ad aestum.&lt;/p>
 &lt;p>Code snippets like &lt;code>var foo = &amp;quot;bar&amp;quot;;&lt;/code> can be shown inline.&lt;/p>
 &lt;p>Also, &lt;code>this should vertically align&lt;/code> &lt;del>&lt;code>with this&lt;/code>&lt;/del> &lt;del>and this&lt;/del>.&lt;/p>
 &lt;p>Code can also be shown in a block element.&lt;/p>
-&lt;pre tabindex="0">&lt;code>foo := &amp;quot;bar&amp;quot;;
-bar := &amp;quot;foo&amp;quot;;
+&lt;pre tabindex="0">&lt;code>foo := &amp;#34;bar&amp;#34;;
+bar := &amp;#34;foo&amp;#34;;
 &lt;/code>&lt;/pre>&lt;p>Code can also use syntax highlighting.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">func&lt;/span> &lt;span style="color:#000">main&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;span style="color:#000">input&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#4e9a06">`var foo = &amp;#34;bar&amp;#34;;`&lt;/span>
-&lt;span style="color:#000">lexer&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">lexers&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Get&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;javascript&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;span style="color:#000">iterator&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">_&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">lexer&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Tokenise&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#204a87;font-weight:bold">nil&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">input&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;span style="color:#000">style&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">styles&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Get&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;github&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;span style="color:#000">formatter&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">html&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">New&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">html&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">WithLineNumbers&lt;/span>&lt;span style="color:#000;font-weight:bold">())&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">var&lt;/span> &lt;span style="color:#000">buff&lt;/span> &lt;span style="color:#000">bytes&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Buffer&lt;/span>
-&lt;span style="color:#000">formatter&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Format&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&lt;/span>&lt;span style="color:#000">buff&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">style&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">iterator&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;span style="color:#000">fmt&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Println&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">buff&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">String&lt;/span>&lt;span style="color:#000;font-weight:bold">())&lt;/span>
-&lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;pre tabindex="0">&lt;code>Long, single-line code blocks should not wrap. They should horizontally scroll if they are too long. This line should be long enough to demonstrate this.
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">func&lt;/span> &lt;span style="color:#000">main&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000">input&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#4e9a06">`var foo = &amp;#34;bar&amp;#34;;`&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000">lexer&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">lexers&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Get&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;javascript&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000">iterator&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">_&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">lexer&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Tokenise&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#204a87;font-weight:bold">nil&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">input&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000">style&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">styles&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Get&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;github&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000">formatter&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">html&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">New&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">html&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">WithLineNumbers&lt;/span>&lt;span style="color:#000;font-weight:bold">())&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">var&lt;/span> &lt;span style="color:#000">buff&lt;/span> &lt;span style="color:#000">bytes&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Buffer&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000">formatter&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Format&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&lt;/span>&lt;span style="color:#000">buff&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">style&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">iterator&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000">fmt&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Println&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">buff&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">String&lt;/span>&lt;span style="color:#000;font-weight:bold">())&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;pre tabindex="0">&lt;code>Long, single-line code blocks should not wrap. They should horizontally scroll if they are too long. This line should be long enough to demonstrate this.
 &lt;/code>&lt;/pre>&lt;p>Inline code inside table cells should still be distinguishable.&lt;/p>
 &lt;table>
 &lt;thead>
@@ -2065,10 +2169,10 @@ Fetch and scale an image in the upcoming Hugo 0.43.
 &lt;/div>
 &lt;p>The front matter of this post specifies properties to be assigned to all image resources:&lt;/p>
 &lt;pre tabindex="0">&lt;code>resources:
-- src: &amp;quot;**.{png,jpg}&amp;quot;
-title: &amp;quot;Image #:counter&amp;quot;
+- src: &amp;#34;**.{png,jpg}&amp;#34;
+title: &amp;#34;Image #:counter&amp;#34;
 params:
-byline: &amp;quot;Photo: Riona MacNamara / CC-BY-CA&amp;quot;
+byline: &amp;#34;Photo: Riona MacNamara / CC-BY-CA&amp;#34;
 &lt;/code>&lt;/pre>&lt;p>To include the image in a page, specify its details like this:&lt;/p>
 &lt;pre tabindex="0">&lt;code>
 &lt;div class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 610px">
@@ -2098,14 +2202,14 @@ Fetch and scale an image in the upcoming Hugo 0.43.
 &lt;p>물론, 20분 정도의 시간이 있다면, 처음부터 끝까지 한번 읽어보는 것이 제일 좋다.&lt;/p>
 &lt;h1 id="tldr">TL;DR&lt;/h1>
 &lt;p>아래 포맷의 저작권 및 라이선스 표시 당신이 작성한 모든 소스 코드 파일에 추가하라.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-yaml" data-lang="yaml">&lt;span style="color:#204a87;font-weight:bold">SPDX-FileCopyrightText&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">© {$year_of_file_creation} {$name_of_copyright_holder} &amp;lt;{$contact}&amp;gt;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">SPDX-License-Identifier&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>{&lt;span style="color:#000">$SPDX_license_name}&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>예를 들어, 내가 오늘 소스 코드 파일을 하나 작성하였고, 이를 [BSD-3-Clause license][bsd-3-clause] 라이선스로 공개하였다면, 다음과 같은 내용을 파일 상단 주석 부분에 추가한다.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-yaml" data-lang="yaml">&lt;span style="color:#204a87;font-weight:bold">SPDX-FileCopyrightText&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">© 2020 Matija Šuklje &amp;lt;matija@suklje.name&amp;gt;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">SPDX-License-Identifier&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">BSD-3-Clause&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>참고로 [REUSE.software][reuse] 프로젝트의 가이드를 따르면 모든 파일에 적절한 표시가 되었는지 확인할 수 있다.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-yaml" data-lang="yaml">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">SPDX-FileCopyrightText&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">© {$year_of_file_creation} {$name_of_copyright_holder} &amp;lt;{$contact}&amp;gt;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">SPDX-License-Identifier&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>{&lt;span style="color:#000">$SPDX_license_name}&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>예를 들어, 내가 오늘 소스 코드 파일을 하나 작성하였고, 이를 [BSD-3-Clause license][bsd-3-clause] 라이선스로 공개하였다면, 다음과 같은 내용을 파일 상단 주석 부분에 추가한다.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-yaml" data-lang="yaml">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">SPDX-FileCopyrightText&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">© 2020 Matija Šuklje &amp;lt;matija@suklje.name&amp;gt;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">SPDX-License-Identifier&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">BSD-3-Clause&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>참고로 [REUSE.software][reuse] 프로젝트의 가이드를 따르면 모든 파일에 적절한 표시가 되었는지 확인할 수 있다.&lt;/p>
 &lt;!--TODO: enable once this style gets implemented in https://github.com/fsfe/reuse-tool/issues/329
 !!! tip "Using the REUSE helper tool"
 If you will be doing this for many files, it makes sense to use tooling. Luckily the [REUSE helper tool][reuse_tool] can help with that as well.
@@ -2177,10 +2281,10 @@ And while you are at it, check the [other features of the REUSE helper tool][reu
 &lt;/li>
 &lt;/ul>
 &lt;p>아래의 예는 위의 모든 사항을 고려하고 SPDX 및 REUSE.software 요구사항을 모두 준수하는 저작권 표시 및 라이선스 고지이다.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-yaml" data-lang="yaml">&lt;span style="color:#204a87;font-weight:bold">SPDX-FileCopyrightText&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">© 2020 Matija Šuklje &amp;lt;matija@suklje.name&amp;gt;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">SPDX-License-Identifier&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">BSD-3-Clause&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>이제 당신이 작성한 모든 소스 코드 파일에 이러한 주석이 포함되었는지 확인하라!&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-yaml" data-lang="yaml">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">SPDX-FileCopyrightText&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">© 2020 Matija Šuklje &amp;lt;matija@suklje.name&amp;gt;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">SPDX-License-Identifier&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">BSD-3-Clause&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>이제 당신이 작성한 모든 소스 코드 파일에 이러한 주석이 포함되었는지 확인하라!&lt;/p>
 &lt;h1 id="faq">FAQ&lt;/h1>
 &lt;h2 id="왜-연도를-표시해야-하는가">왜 연도를 표시해야 하는가?&lt;/h2>
 &lt;p>어떤 사람들은 연도를 생략하고 단순하게 작성하는 게 오히려 저작권 표시를 유지하기 쉬울 것이라고 주장한다. 실제로 이는 Microsoft와 GitHub의 정책이기도 한다.&lt;/p>
