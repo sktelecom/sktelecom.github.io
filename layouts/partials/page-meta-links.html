@@ -15,7 +15,7 @@
 {{ $editURL = printf "%s/edit/%s/%s/content/%s" $gh_repo $gh_branch $gh_subdir $pathFormatted }}
 {{ end }}
 {{/* sktelecom customization to add the page URL to the issue body. */}}
-{{$doc_url := printf "https://sktelecom.github.io%s" .URL }}
+{{$doc_url := printf "https://sktelecom.github.io%s" .Permalink }}
 {{ $issuesURL := printf "%s/issues/new?title=%s&body=%s" $gh_repo (htmlEscape $.Title) (htmlEscape $doc_url) }}
 <a href="{{ $editURL }}" target="_blank"><i class="fa fa-edit fa-fw"></i> {{ T "post_edit_this" }}</a>
 <a href="{{ $issuesURL }}" target="_blank"><i class="fab fa-github fa-fw"></i> {{ T "post_create_issue" }}</a>
