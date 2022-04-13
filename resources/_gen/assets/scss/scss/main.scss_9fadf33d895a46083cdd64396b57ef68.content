@@ -142,6 +142,16 @@ Bootstrap variables overrides for theme.
 See https://github.com/twbs/bootstrap/pull/23260
 */
 @fa-font-path :        "../webfonts";
+.card-list {
+  display: grid;
+  column-gap: 30px;
+  row-gap: 30px; }
+  @media screen and (min-width: 767px) {
+    .card-list {
+      grid-template-columns: repeat(2, 1fr); } }
+  @media screen and (min-width: 991px) {
+    .card-list {
+      grid-template-columns: repeat(3, 1fr); } }
 /*!
  * Bootstrap v4.1.3 (https://getbootstrap.com/)
  * Copyright 2011-2018 The Bootstrap Authors
