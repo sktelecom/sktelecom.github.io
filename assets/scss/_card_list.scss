@@ -1,0 +1,17 @@
+.card-list {
+  display: grid;
+  column-gap: 30px;
+  row-gap: 30px;
+
+  @media screen and (min-width: 767px) {
+    & {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media screen and (min-width: 991px) {
+    & {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}
