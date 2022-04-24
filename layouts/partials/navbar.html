@@ -1,33 +1,145 @@
+{{ define "menu-item" }}
+	{{ $p := .page }}
+	{{ $url := urls.Parse .URL }}
+	{{ $baseurl := urls.Parse $.Site.Params.Baseurl }}
+
+	{{ with .entry }}
+		{{ $active := or ($p.IsMenuCurrent "main" .) ($p.HasMenuCurrent "main" .) }}
+		{{ if .HasChildren }}
+			<li class="nav-item mr-4 d-none d-xl-block has-children">
+				<a class="nav-link{{if $active }} active{{end}}" href="{{ .URL }}" {{ if ne $url.Host $baseurl.Host }}target="_blank" {{ end }} aria-haspopup="true" aria-expanded="false">
+					<span{{if $active }} class="active"{{end}}>{{ .Name }}</span>
+				</a>
+				<ul class="dropdown-menu">
+					{{ range .Children }}
+						{{ template "menu-item" (dict "nested" . "page" $p) }}
+					{{ end }}
+				</ul>
+			</li>
+		{{ else }}
+			<li class="nav-item mr-4 d-none d-xl-block">
+				<a class="nav-link{{if $active }} active{{end}}" href="{{ .URL }}" {{ if ne $url.Host $baseurl.Host }}target="_blank" {{ end }}>
+					<span{{if $active }} class="active"{{end}}>{{ .Name }}</span>
+				</a>
+			</li>
+		{{ end }}
+	{{ end }}
+
+	{{ with .nested }}
+		{{ $active := or ($p.IsMenuCurrent "main" .) ($p.HasMenuCurrent "main" .) }}
+		{{ if .HasChildren }}
+			<li class="nav-item has-children">
+				<a class="nav-link{{if $active }} active{{end}}" href="{{ .URL }}" {{ if ne $url.Host $baseurl.Host }}target="_blank" {{ end }} aria-haspopup="true" aria-expanded="false">
+					<span{{if $active }} class="active"{{end}}>{{ .Name }}</span>
+				</a>
+				<ul class="dropdown-menu">
+					{{ range .Children }}
+						{{ template "menu-item" (dict "nested" . "page" $p) }}
+					{{ end }}
+				</ul>
+			</li>
+		{{ else }}
+			<li class="nav-item">
+				<a class="nav-link{{if $active }} active{{end}}" href="{{ .URL }}" {{ if ne $url.Host $baseurl.Host }}target="_blank" {{ end }}>
+					<span{{if $active }} class="active"{{end}}>{{ .Name }}</span>
+				</a>
+			</li>
+		{{ end }}
+	{{ end }}
+{{ end }}
+
+{{ define "menu-item-mobile" }}
+	{{ $p := .page }}
+	{{ $url := urls.Parse .URL }}
+	{{ $baseurl := urls.Parse $.Site.Params.Baseurl }}
+
+	{{ with .entry }}
+		{{ $active := or ($p.IsMenuCurrent "main" .) ($p.HasMenuCurrent "main" .) }}
+
+		{{ if .HasChildren }}
+			<li class="nav-item has-children">
+				<a class="nav-link{{if $active }} active{{end}}" href="{{ with .Page }}{{ .RelPermalink }}{{ else }}{{ .URL | relLangURL }}{{ end }}" {{ if ne $url.Host $baseurl.Host }}target="_blank" {{ end }}>
+					<span>{{ .Name }}</span>
+					<button class="nav-submenu-btn" aria-haspopup="true" aria-expanded="false">
+						<svg width="29px" height="14px" viewBox="0 0 29 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">    <polyline id="Path" stroke="currentColor" fill="transparent" stroke-width="2" points="1 1 14.5 12.5 28 1"></polyline></svg>
+					</button>
+				</a>
+				<ul class="navbar-submenu">
+					{{ range .Children }}
+						{{ template "menu-item-mobile" (dict "nested" . "page" $p) }}
+					{{ end }}
+				</ul>
+			</li>
+		{{ else }}
+			<li class="nav-item">
+				<a class="nav-link{{if $active }} active{{end}}" href="{{ with .Page }}{{ .RelPermalink }}{{ else }}{{ .URL | relLangURL }}{{ end }}" {{ if ne $url.Host $baseurl.Host }}target="_blank" {{ end }}>
+					<span{{if $active }} class="active"{{end}}>{{ .Name }}</span>
+				</a>
+			</li>
+		{{ end }}
+	{{ end }}
+
+	{{ with .nested }}
+		{{ $active := or ($p.IsMenuCurrent "main" .) ($p.HasMenuCurrent "main" .) }}
+		{{ if .HasChildren }}
+			<li class="nav-item has-children">
+				<a class="nav-link{{if $active }} active{{end}}" href="{{ with .Page }}{{ .RelPermalink }}{{ else }}{{ .URL | relLangURL }}{{ end }}" {{ if ne $url.Host $baseurl.Host }}target="_blank" {{ end }}>
+					<span{{if $active }} class="active"{{end}}>{{ .Name }}</span>
+				</a>
+				<ul class="navbar-submenu">
+					{{ range .Children }}
+						{{ template "menu-item-mobile" (dict "nested" . "page" $p) }}
+					{{ end }}
+				</ul>
+			</li>
+		{{ else }}
+			<li class="nav-item">
+				<a class="nav-link{{if $active }} active{{end}}" href="{{ with .Page }}{{ .RelPermalink }}{{ else }}{{ .URL | relLangURL }}{{ end }}" {{ if ne $url.Host $baseurl.Host }}target="_blank" {{ end }}>
+					<span{{if $active }} class="active"{{end}}>{{ .Name }}</span>
+				</a>
+			</li>
+		{{ end }}
+	{{ end }}
+{{ end }}
+
+
 {{ $cover := .HasShortcode "blocks/cover" }}
-<nav class="js-navbar-scroll navbar navbar-expand navbar-dark {{ if $cover}} td-navbar-cover {{ end }}flex-column flex-md-row td-navbar">
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark {{ if $cover}} td-navbar-cover {{ end }} td-navbar">
 	<a class="navbar-brand" href="{{ .Site.Home.RelPermalink }}">
-		<span class="navbar-logo">{{ with resources.Get "icons/logo.svg" }}{{ ( . | minify).Content | safeHTML }} {{ end }}</span><span class="brand-name text-uppercase font-weight-bold">{{ .Site.Title }}</span>
+		<span class="navbar-logo">{{ with resources.Get "icons/logo.svg" }}{{ ( . | minify).Content | safeHTML }} {{ end }}</span>
+		<span class="brand-name text-uppercase font-weight-bold">{{ .Site.Title }}</span>
 	</a>
-	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
-		<ul class="navbar-nav mt-2 mt-lg-0">
+	<div class="td-navbar-main ml-auto mr-3" id="main_navbar">
+		<ul class="navbar-nav">
 			{{ $p := . }}
 			{{ range .Site.Menus.main }}
-			<li class="nav-item mr-4 mb-2 mb-lg-0">
-				{{ $active := or ($p.IsMenuCurrent "main" .) ($p.HasMenuCurrent "main" .) }}
-				{{ with .Page }}
-				{{ $active = or $active ( $.IsDescendant .)  }}
-				{{ end }}
-				{{ $url := urls.Parse .URL }}
-				{{ $baseurl := urls.Parse $.Site.Params.Baseurl }}
-				<a class="nav-link{{if $active }} active{{end}}" href="{{ with .Page }}{{ .RelPermalink }}{{ else }}{{ .URL | relLangURL }}{{ end }}" {{ if ne $url.Host $baseurl.Host }}target="_blank" {{ end }}><span{{if $active }} class="active"{{end}}>{{ .Name }}</span></a>
-			</li>
+				{{ template "menu-item" (dict "entry" . "page" $p) }}
 			{{ end }}
 			{{ if  .Site.Params.versions }}
-      <li class="nav-item dropdown d-none d-lg-block">
-        {{ partial "navbar-version-selector.html" . }}
+			<li class="nav-item dropdown d-none d-xl-block">
+				{{ partial "navbar-version-selector.html" . }}
 			</li>
 			{{ end }}
 			{{ if  (gt (len .Site.Home.Translations) 0) }}
-			<li class="nav-item dropdown d-none d-lg-block">
+			<li class="nav-item nav-item-translations dropdown">
 				{{ partial "navbar-lang-selector.html" . }}
 			</li>
 			{{ end }}
 		</ul>
 	</div>
-	<div class="navbar-nav d-none d-lg-block">{{ partial "search-input.html" . }}</div>
+	<div class="navbar-nav d-none d-xl-block">{{ partial "search-input.html" . }}</div>
+	<button class="navbar-mobile-button d-xl-none d-block" aria-label="Open mobile menu" aria-haspopup="true" aria-expanded="false">
+		<span></span>
+		<span></span>
+		<span></span>
+	</button>
+</nav>
+<nav class="td-navbar-mobile">
+	<div class="navbar-search">{{ partial "search-input.html" . }}</div>
+	<ul>
+		{{ $p := . }}
+		{{ range .Site.Menus.main }}
+			{{ template "menu-item-mobile" (dict "entry" . "page" $p) }}
+		{{ end }}
+	</ul>
 </nav>
