@@ -12342,8 +12342,8 @@ readers do not read off random characters that represent icons */
       padding: 10px;
       height: 64px;
       width: 130px;
-      /* 
-                background: white; 
+      /*
+                background: white;
                 border: 2px solid #4279f4;
                 border-top: none;*/ }
       @media (max-width: 991.98px) {
