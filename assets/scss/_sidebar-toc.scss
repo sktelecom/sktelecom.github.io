@@ -47,15 +47,12 @@
     }
 
     #TableOfContents {
-        // Hugo's ToC is a mouthful, this can be used to style the top level h2 entries.
-        > ul > li > ul > li > a {}
-
         a {
             color: $gray-600;
+            text-decoration: none;
 
             &:hover {
-                color: $blue;
-                text-decoration: none;
+                color: $skred;
             }
         }
     }
