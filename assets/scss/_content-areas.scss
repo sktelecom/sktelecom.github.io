@@ -1,0 +1,22 @@
+.content-area {
+  padding: 60px 0;
+
+  @include media-breakpoint-up(lg) {
+    padding: 90px 30px;
+}
+
+  &--line-top {
+    position: relative;
+
+    &::before {
+      content: "";
+      display: block;
+      height: 2px;
+      width: 100%;
+      background-color: $skpurple;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  }
+}
