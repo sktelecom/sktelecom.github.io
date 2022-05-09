@@ -1,0 +1,14 @@
+// Breadcrumb
+.breadcrumb-nav {
+	display: none;
+
+	@include media-breakpoint-up(lg) {
+		display: block;
+	}
+}
+
+.breadcrumb {
+	background: none;
+	padding-left: 0;
+	padding-top: 0;
+}

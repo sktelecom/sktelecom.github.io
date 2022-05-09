@@ -34,7 +34,7 @@
     &__item-main {
 
         &--with-image {
-            @include media-breakpoint-up(md) {
+            @include media-breakpoint-up(xl) {
                 display: grid;
                 grid-template-columns: 250px 1fr;
                 column-gap: 24px;
@@ -45,7 +45,7 @@
     &__item-image {
         display: none;
         margin: 0;
-        @include media-breakpoint-up(md) {
+        @include media-breakpoint-up(xl) {
             display: block;
         }
     }

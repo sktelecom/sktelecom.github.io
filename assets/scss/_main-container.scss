@@ -18,11 +18,8 @@
     display: grid;
     margin: 64px 0 0 0;
 
-    @include media-breakpoint-up(md) {
-        grid-template-columns: 260px 1fr;
-    }
-
     @include media-breakpoint-up(lg) {
+        grid-template-columns: 260px 1fr;
         margin: 80px 0 0 0;
     }
 
