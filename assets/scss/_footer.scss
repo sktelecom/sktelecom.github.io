@@ -1,0 +1,252 @@
+.td-footer {
+  background-color: $skdarkgrey;
+  box-sizing: border-box;
+  font-size: 13px;
+  display: grid;
+  grid-template-columns: 1fr;
+  column-gap: 48px;
+
+  @include media-breakpoint-up(md) {
+    & {
+      grid-template-columns: 7fr 3fr;
+      padding: 60px 30px;}}
+
+  @include media-breakpoint-up(xl) {
+    & {
+      grid-template-columns: 1.53fr 5.0fr 1.53fr;}}
+
+  a {
+    text-decoration: none;}
+
+  &__icons {
+    &--mobile {
+      position: relative;
+      padding: 35px 15px;
+
+      @include media-breakpoint-up(md) {
+        display: none;
+      }
+
+      &::after {
+        display: block;
+        content: "";
+        height: 1px;
+        width: 100%;
+        background-color: $skdarkgrey3;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+
+        @include media-breakpoint-up(md) {
+          content: none;}}}
+
+    &--desktop {
+      justify-self: flex-end;
+      display: none;
+
+      @include media-breakpoint-up(md) {
+        grid-row: 1 / span 2;
+        grid-column: 2;
+        align-self: center;
+        display: block;}
+
+      @include media-breakpoint-up(xl) {
+        grid-row: initial;
+        grid-column: initial;}}}
+
+  &__header {
+    display: none;
+    align-self: center;
+    margin: 0 0 32px 0;
+
+    @include media-breakpoint-up(md) {
+      display: block;}
+
+    @include media-breakpoint-up(xl) {
+      margin: 0;}}
+
+  &__brand {
+    &---desktop {
+      display: none;
+
+      @include media-breakpoint-up(md) {
+        display: inline-block;}}
+
+    &--desktop>svg {
+      height: 38px;
+
+      @include media-breakpoint-up(xl) {
+        height: 44px;}}
+
+    &--mobile {
+      margin: 0 0 11px 0;
+      display: inline-block;
+
+      @include media-breakpoint-up(md) {
+        display: none;}}
+
+    &--mobile > svg {
+      height: 20px;}}
+
+  &__nav {
+    padding: 35px 15px 16px 15px;
+    position: relative;
+
+    @include media-breakpoint-up(md) {
+      margin: 0 0 32px 0;
+      padding: 0;}
+
+    &::after {
+      display: block;
+      content: "";
+      height: 1px;
+      width: 100%;
+      background-color: $skdarkgrey3;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+
+      @include media-breakpoint-up(md) {
+        & {
+          content: none;}}}}
+
+  &__nav>ul {
+    list-style-type: none;
+    display: flex;
+    padding: 0;
+    margin: 0;
+    max-width: 280px;
+    flex-wrap: wrap;
+
+    @include media-breakpoint-up(md) {
+      flex-wrap: initial;
+      max-width: initial;}
+
+    @include media-breakpoint-up(xl) {
+      & {
+        justify-content: center;}}}
+
+  &__nav-item {
+    position: relative;
+    margin: 0 0 19px 0;
+    line-height: 1;
+
+    @include media-breakpoint-up(md) {
+      & {
+        margin-bottom: 0;}}
+
+    &:not(:last-child) {
+      margin: 0 20px 19px 0;
+
+      @include media-breakpoint-up(md) {
+        & {
+          margin: 0 20px 0 0;}}}
+
+    &:not(:last-child)::after {
+      content: "";
+      height: 9px;
+      width: 1px;
+      background-color: $skgrey2;
+      position: absolute;
+      right: -10px;
+      top: 50%;
+      transform: translate(-50%, -50%);}}
+
+  &__nav-link {
+    color: $skgrey2;
+    transition: $transition;
+    font-weight: 500;
+
+    &:hover {
+      color: $white;}
+
+    &.active {
+      color: $white;}}
+
+  &__copyright-privacy {
+    color: $skgrey2;
+    padding: 27px 15px;
+
+    @include media-breakpoint-up(md) {
+      grid-column: span 2;
+      padding: 0;}
+
+    @include media-breakpoint-up(xl) {
+      & {
+        grid-column: initial;}}}
+
+  &__copyright-privacy>small {
+    display: block;
+
+    @include media-breakpoint-up(xl) {
+      & {
+        text-align: center;}}
+
+    &:not(:last-of-type) {
+      margin: 0 0 4px 0;}}
+
+  &__copyright-privacy a {
+    font-weight: 600;
+    color: $skgrey2;
+    border-bottom: 1px dotted $skgrey2;
+    transition: $transition;
+
+    &:hover {
+      color: $white;
+      border-bottom: 1px dotted $white;}}
+
+  &__list-inline {
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    padding: 0;
+
+    @include media-breakpoint-up(md) {
+      & {
+        display: flex;
+        justify-content: center;}}}
+
+  &__list-inline-item {
+    justify-self: center;
+
+    @include media-breakpoint-up(md) {
+      &:not(:last-child) {
+        margin: 0 15px 0 0;}}}
+
+  &__list-inline-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: $white !important;}
+
+  &__list-inline-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: $skdarkgrey2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    margin: 0 0 8px 0;
+
+    @include media-breakpoint-up(md) {
+      & {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;}}}
+
+  &__list-inline-label {
+    font-size: 11px;
+    font-weight: 600;
+    color: $skgrey2;
+    transition: $transition;
+    text-align: center;
+
+    @include media-breakpoint-up(xl) {
+      & {
+        font-size: 12px;
+        display: none;}}}
+
+  &__list-inline-link:hover>&__list-inline-label {
+    color: $white;}}
