@@ -4,38 +4,39 @@ title = "Open Source at SK telecom"
 
 <!-- Hero section -->
 {{<blocks/cover title="Welcome to SKT Open Source" image_anchor="center" height="full" color="primary">}}
-<div class="mx-auto">
-  <p class="lead mt-5 ">SK텔레콤은 다양한 혁신 기술을 공개하여 사회문제 해결에 공헌하고 오픈소스 생태계 확산에 기여하고자 합니다.</p>
-  <a
-    class="btn btn-lg btn-primary mr-3 mb-4"
-    href="/blog/"
-  >
-    오픈소스 블로그<i class="fas fa-arrow-alt-circle-right ml-2"></i>
-  </a>
-  <a
-    class="btn btn-lg btn-secondary mr-3 mb-4"
-    href="/about"
-  >
-    <!-- OSPO <i class="fas fa-pencil-alt ml-2"></i> -->
-    소개 <i class="fas fa-building ml-2"></i>
-  </a>
-  <div class="mx-auto mt-5">
+  <div class="td-cover-block__description">
+    <p>SK텔레콤은 다양한 혁신 기술을 공개하여 사회문제 해결에 공헌하고 오픈소스 생태계 확산에 기여하고자 합니다.</p>
+  </div>
+  <div class="td-cover-block__buttons-block">
+    <a
+      class="td-cover-block__button btn btn-lg btn-primary"
+      href="/blog/"
+    >
+      오픈소스 블로그<i class="fas fa-arrow-alt-circle-right ml-2"></i>
+    </a>
+    <a
+      class="td-cover-block__button btn btn-lg btn-secondary"
+      href="/about"
+    >
+      <!-- OSPO <i class="fas fa-pencil-alt ml-2"></i> -->
+      소개 <i class="fas fa-building ml-2"></i>
+    </a>
+  </div>
+  <div class="td-cover-block__down-icon">
     {{<blocks/link-down color="light">}}
   </div>
-</div>
 {{</blocks/cover>}}
 
-<div id="overview">
-  <div class="contain">
-    <h4 class="section-head">Open Source Projects</h4>
-    <p>
-      SK텔레콤은 기술을 공개하여 오픈소스 커뮤니티와 협업함으로 얻을 수 있는 가치를 소중히 여깁니다. SK텔레콤이 공개한 기술은 다음과 같습니다.
-    </p>
-  </div>
-</div>
-
-<section id="pageContent">
+<section class="content-area">
   <div class="container">
+    <div id="overview">
+      <h2 class="section-head">Open Source Projects</h2>
+      <div class="section-description">
+        <p>
+          SK텔레콤은 기술을 공개하여 오픈소스 커뮤니티와 협업함으로 얻을 수 있는 가치를 소중히 여깁니다. SK텔레콤이 공개한 기술은 다음과 같습니다.
+        </p>
+      </div>
+    </div>
     <div class="card-list">
       <div class="card border-primary-dark">
         <img
@@ -46,7 +47,7 @@ title = "Open Source at SK telecom"
           alt="Metatron"
         />
         <div class="card-body bg-primary-dark">
-          <h5 class="card-title text-white section-head">Metatron Discovery</h5>
+          <h3 class="card-title text-white">Metatron Discovery</h3>
           <p class="card-text text-white">
             빅데이터, 머신러닝, 데이터 시각화 기술이 융합된
             <a rel="noopener" href="/project/metatron/">‘메타트론 디스커버리’</a>
@@ -65,9 +66,7 @@ title = "Open Source at SK telecom"
           alt="HANU"
         />
         <div class="card-body bg-primary-dark">
-          <h5 class="card-title text-white section-head">
-            HANU
-          </h5>
+          <h3 class="card-title text-white">HANU</h3>
           <p class="card-text text-white">
             <a rel="noopener" href="/project/hanu/">HANU</a>(하누)는 ‘함께누림’이라는 의미로 클라우드 인프라와 관련된
             다양한 오픈소스 소프트웨어(기술)를 한 곳에 모아서 제공하기 위한 일종의 공간이자 커뮤니티다.
@@ -85,7 +84,7 @@ title = "Open Source at SK telecom"
           alt="SONA"
         />
         <div class="card-body bg-primary-dark">
-          <h5 class="card-title text-white section-head">SONA</h5>
+          <h3 class="card-title text-white">SONA</h3>
           <p class="card-text text-white">
             <a rel="noopener" href="/project/sona/">SONA </a>
             는 가상화 기술인 'SDN(Software Defined Networking·소프트웨어정의네트워크)'을 기반으로 기존 네트워크를 재구축하는 솔루션이다.
@@ -104,7 +103,7 @@ title = "Open Source at SK telecom"
           alt="KoBERT"
         />
         <div class="card-body bg-primary-dark">
-          <h5 class="card-title text-white section-head">KoBERT</h5>
+          <h3 class="card-title text-white">KoBERT</h3>
           <p class="card-text text-white">
             <a rel="noopener" href="/project/kobert/" >KoBERT</a>는
             구글이 공개한 인공지능(AI) 언어모델
@@ -123,7 +122,7 @@ title = "Open Source at SK telecom"
           alt="KoGPT-2"
         />
         <div class="card-body bg-primary-dark">
-          <h5 class="card-title text-white section-head">KoGPT-2</h5>
+          <h3 class="card-title text-white">KoGPT-2</h3>
           <p class="card-text text-white">
             <a rel="noopener" href="/project/kogpt2/" >KoGPT-2</a>는
             한국어로 학습된 오픈소스 기반
@@ -142,7 +141,7 @@ title = "Open Source at SK telecom"
           alt="Hwangsaeul"
         />
         <div class=" card-body bg-primary-dark">
-          <h5 class="card-title text-white section-head">황새울</h5>
+          <h3 class="card-title text-white">황새울</h3>
           <p class="card-text text-white">
             <a rel="noopener" href="/project/h8l" >황새울(Hwangsaeul; H8L)</a>은
             네트워크와 고속 인코딩 기술을 이용하는 오픈 소스 프로젝트로, 고해상도 및 고품질의 영상을 전달하면서도 낮은 지연시간을 달성하는 것을 목표로 한다.
@@ -155,18 +154,23 @@ title = "Open Source at SK telecom"
   </div>
 </section>
 
-<div id="community">
-  <div class="contain">
-    <h4 class="section-head">Open Source Guide</h4>
-    <p>
-      SK텔레콤은 오픈소스의 개방과 공유의 정신에 따라 내부 구성원을 위한 오픈소스 가이드를 누구나 활용할 수 있도록 공개하였습니다.
-    </p>
-
-    <a
-      class="btn btn-lg btn-primary mr-3 mb-4"
-      href="/guide/"
-    >
-      Guide <i class="fas fa-arrow-alt-circle-right ml-2"></i>
-    </a>
+<section class="content-area content-area--line-top">
+  <div class="container">
+    <div id="community">
+      <h2 class="section-head">Open Source Guide</h2>
+      <div class="section-description">
+        <p>
+          SK텔레콤은 오픈소스의 개방과 공유의 정신에 따라 내부 구성원을 위한 오픈소스 가이드를 누구나 활용할 수 있도록 공개하였습니다.
+        </p>
+      </div>
+      <div class="section-buttons">
+        <a
+        class="btn btn-lg btn-primary"
+        href="/guide/"
+      >
+        Guide <i class="fas fa-arrow-alt-circle-right ml-2"></i>
+      </a>
+      </div>
+    </div>
   </div>
-</div>
+</section>

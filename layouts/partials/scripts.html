@@ -3,11 +3,12 @@
 {{ $jsBase := resources.Get "js/base.js" }}
 {{ $jsNav := resources.Get "js/nav.js" }}
 {{ $jsAnchor := resources.Get "js/anchor.js" }}
+{{ $jsLinkDown := resources.Get "js/link-down.js" }}
 {{ $jsSearch := resources.Get "js/search.js" | resources.ExecuteAsTemplate "js/search.js" .Site.Home }}
 {{ if .Site.Params.offlineSearch }}
 {{ $jsSearch = resources.Get "js/offline-search.js" }}
 {{ end }}
-{{ $js := (slice $jsBase $jsNav $jsAnchor $jsSearch) | resources.Concat "js/main.js" }}
+{{ $js := (slice $jsBase $jsNav $jsLinkDown $jsAnchor $jsSearch) | resources.Concat "js/main.js" }}
 {{ if .Site.IsServer }}
 <script src="{{ $js.RelPermalink }}"></script>
 {{ else }}

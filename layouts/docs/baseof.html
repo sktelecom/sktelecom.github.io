@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="{{ .Site.Language.Lang }}" class="no-js">
+  <head>
+    {{ partial "head.html" . }}
+    <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ with .Title }}{{ . }} | {{ end }}{{ .Site.Title }}{{ end }}</title>
+  </head>
+  <body class="td-{{ .Kind }} td-docs">
+    <header>
+      {{ partial "navbar.html" . }}
+    </header>
+    <div class="td-outer">
+      <div class="td-main">
+        <div class="td-sidebar">
+          {{ partial "sidebar.html" . }}
+        </div>
+        <div class="td-toc">
+          {{ partial "toc.html" . }}
+        </div>
+        <main role="main">
+          {{ partial "version-banner.html" . }}
+          {{ if not .Site.Params.ui.breadcrumb_disable }}{{ partial "breadcrumb.html" . }}{{ end }}
+          {{ block "main" . }}{{ end }}
+        </main>
+      </div>
+      {{ partial "footer.html" . }}
+    </div>
+    {{ partial "scripts.html" . }}
+  </body>
+</html>

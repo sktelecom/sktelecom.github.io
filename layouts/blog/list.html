@@ -1,0 +1,41 @@
+{{ define "main" }}
+{{ if .Parent.IsHome }}
+{{ $.Scratch.Set "blog-pages" (where .Site.RegularPages "Section" .Section) }}
+{{ else }}
+{{$.Scratch.Set "blog-pages" .Pages }}
+{{ end }}
+{{ $pag := .Paginate (( $.Scratch.Get "blog-pages").GroupByDate "2006")}}
+{{ $pageGroups := $pag.PageGroups}}
+{{ if eq $pag.PageNumber 1 }}
+{{ end }}
+<div>
+	{{ range $pageGroups }}
+	<h2 class="td-blog-list-title">{{ T "post_posts_in" }} {{ .Key }}</h2>
+	<ul class="td-blog-list list-unstyled">
+		{{ range .Pages }}
+			{{ $image := (.Resources.ByType "image").GetMatch "**featured*" }}
+			<li class="td-blog-list__item media">
+				<div class="media-body">
+					<div class="td-blog-list__item-header">
+						<h5 class="td-blog-list__item-title"><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h5>
+						<p class="td-blog-list__item-date"><small class="text-muted">{{ .Date.Format ($.Param "time_format_blog") }} {{ T "ui_in"}} {{ .CurrentSection.LinkTitle }}</small></p>
+					</div>
+					<div class="td-blog-list__item-main{{ with $image }} td-blog-list__item-main--with-image{{ end }}">
+						{{ partial "featured-image.html" (dict "p" . "w" 250 "h" 125 "class" "td-blog-list__item-image") }}
+						<div class="td-blog-list__item-content">
+							<p class="td-blog-list__item-summary">{{ .Plain | safeHTML | truncate 250 }}</p>
+							<div class="td-blog-list__item-buttons"><a href="{{ .RelPermalink }}">{{ T "ui_read_more"}}</a></div>
+						</div>
+					</div>
+				</div>
+			</li>
+		{{ end }}
+	</ul>
+	{{ end }}
+</div>
+<div class="row pl-2 pt-2">
+	<div class="col">
+		{{ template "_internal/pagination.html" . }}
+	</div>
+</div>
+{{ end }}
