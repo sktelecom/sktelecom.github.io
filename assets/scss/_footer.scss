@@ -24,8 +24,7 @@
       padding: 35px 15px;
 
       @include media-breakpoint-up(md) {
-        display: none;
-      }
+        display: none;}
 
       &::after {
         display: block;

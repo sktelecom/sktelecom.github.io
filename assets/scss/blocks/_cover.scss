@@ -3,8 +3,7 @@
 @include td-box-height-modifiers(".td-cover-block");
 
 .td-cover-logo {
-    margin-right: 0.5em;
-}
+    margin-right: 0.5em;}
 
 .td-cover-block {
     position: relative;
@@ -20,8 +19,7 @@
 
     @include media-breakpoint-up(lg) {
         margin: 80px 0 0 0;
-        height: calc(100vh - 80px);
-    }
+        height: calc(100vh - 80px);}
 
     &::before {
         background-color: rgba(38,38,38,.3);
@@ -31,13 +29,11 @@
         top: 0;
         right: 0;
         bottom: 0;
-        left: 0;
-    }
+        left: 0;}
 
     & > * {
         position: relative;
-        z-index: 1;
-    }
+        z-index: 1;}
 
     &__title {
         margin: 0 auto 40px auto;
@@ -48,62 +44,46 @@
 
         @include media-breakpoint-up(md) {
             max-width: 700px;
-            font-size: 2.75rem;
-        }
+            font-size: 2.75rem;}
 
         @include media-breakpoint-up(lg) {
-            font-size: 3rem;
-        }
-    }
+            font-size: 3rem;}}
 
     &__description {
         margin: 0 auto 40px auto;
-        max-width: 700px;
-    }
+        max-width: 700px;}
+
     &__description p {
         font-weight: 300;
 
         @include media-breakpoint-up(md) {
-            font-size: 1.15rem;
-        }
+            font-size: 1.15rem;}
 
         @include media-breakpoint-up(lg) {
-            font-size: 1.25rem;
-        }
-    }
+            font-size: 1.25rem;}}
 
     &__description > *:last-child {
-        margin: 0;
-    }
+        margin: 0;}
 
     &__buttons-block {
-        margin: 0 0 48px 0;
-    }
+        margin: 0 0 48px 0;}
 
     &__buttons-block > * {
         &:not(:last-child) {
-            margin: 0 16px 0 0;
-        }
-    }
+            margin: 0 16px 0 0;}}
 
     &__button {
         font-size: 1rem;
 
         @include media-breakpoint-up(md) {
-            font-size: 1.25rem;
-        }
-    }
+            font-size: 1.25rem;}}
 
     &__down-icon p {
-        margin: 0;
-    }
+        margin: 0;}
 
     &__down-icon a {
         font-size: 0.75rem;
 
         @include media-breakpoint-up(md) {
-            font-size: 1rem;
-        }
-    }
-}
+            font-size: 1rem;}}}
 

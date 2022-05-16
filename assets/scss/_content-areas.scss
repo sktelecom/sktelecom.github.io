@@ -2,8 +2,7 @@
   padding: 60px 0;
 
   @include media-breakpoint-up(lg) {
-    padding: 90px 30px;
-}
+    padding: 90px 30px;}
 
   &--line-top {
     position: relative;
@@ -16,7 +15,4 @@
       background-color: $skpurple;
       position: absolute;
       top: 0;
-      left: 0;
-    }
-  }
-}
+      left: 0;}}}

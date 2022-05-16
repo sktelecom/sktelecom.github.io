@@ -31,16 +31,13 @@
 @import "pageinfo";
 
 @if $td-enable-google-fonts {
-    @import url('#{$web-font-path}');
-}
+    @import url('#{$web-font-path}');}
 
 footer {
     min-height: 150px;
 
     @include media-breakpoint-down(md) {
-         min-height: 200px;
-    }
-}
+         min-height: 200px;}}
 
 // Adjust anchors vs the fixed menu.
 @include media-breakpoint-up(md) {
@@ -48,16 +45,13 @@ footer {
         display: block;
         position: relative;
         top: -4rem;
-        visibility: hidden;
-    }
+        visibility: hidden;}
 
     h2[id]:before, h3[id]:before, h4[id]:before, h5[id]:before {
         display: block;
         content: " ";
         margin-top: -5rem;
         height: 5rem;
-        visibility: hidden;
-    }
-}
+        visibility: hidden;}}
 
 @import "styles_project";

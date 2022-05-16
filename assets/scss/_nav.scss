@@ -118,6 +118,7 @@ header {
             left: initial;}}
 
     .td-search-input {
+        max-width: 228px;
         border: none;
 
         @include placeholder {

@@ -14,51 +14,37 @@
         display: block !important;
 
         @supports (position: sticky) {
-            overflow-y: auto;
-        }
-    }
+            overflow-y: auto;}}
 
     &__section {
         margin: 0;
+        padding-left: 0;
 
         li {
-            list-style: none;
-        }
+            list-style: none;}
 
         & > ul {
-            padding-left: .5rem;
-        }
+            padding-left: .5rem;}
 
         @include media-breakpoint-up(md) {
             & > ul {
-                padding-left: .5rem;
-            }
-        }
-
-
-        padding-left: 0;
-    }
+                padding-left: .5rem;}}}
 
     & > &__section {
         padding: 15px;
 
         @include media-breakpoint-up(lg) {
-            padding: 0;
-        }
-    }
+            padding: 0;}}
 
     &__section-title {
         display: block;
         font-weight: $font-weight-medium;
 
         .active {
-            font-weight: $font-weight-bold;
-        }
+            font-weight: $font-weight-bold;}
 
         a {
-            color: $gray-900;
-        }
-    }
+            color: $gray-900;}}
 
     .td-sidebar-link {
         display: block;
@@ -66,39 +52,29 @@
 
         &__page {
             color: $gray-700;
-            font-weight: $font-weight-light;
-        }
-    }
+            font-weight: $font-weight-light;}}
 
     a {
         &:hover {
             color: $skred;
-            text-decoration: none;
-        }
+            text-decoration: none;}
 
         &.active {
-            font-weight: $font-weight-bold;
-        }
-    }
+            font-weight: $font-weight-bold;}}
 
     .dropdown {
         a {
-            color: $gray-700;
-        }
+            color: $gray-700;}
 
         .nav-link {
-             padding: 0 0 1rem;
-        }
-    }
-}
+             padding: 0 0 1rem;}}}
 
 .td-sidebar {
     min-width: 260px;
 
     @include media-breakpoint-up(lg) {
         background-color: $td-sidebar-bg-color;
-        border-right: 1px solid $td-sidebar-border-color;
-    }
+        border-right: 1px solid $td-sidebar-border-color;}
 
     &__toggle {
         line-height: 1;
@@ -110,31 +86,24 @@
         transition: $transition;
 
         @include media-breakpoint-up(lg) {
-            display: none;
-        }
+            display: none;}
 
         &.btn {
-            border-radius: 5px;
-        }
+            border-radius: 5px;}
 
         &:not(.collapsed) {
             border-bottom-left-radius: 0;
-            border-bottom-right-radius: 0;
-        }
-    }
+            border-bottom-right-radius: 0;}}
 
     &__search {
         @include media-breakpoint-up(md) {
-            padding: 1rem 15px;
-        }
-    }
+            padding: 1rem 15px;}}
 
     &__inner {
         padding: 32px 15px 4px 15px;
 
         @include media-breakpoint-up(md) {
-            padding: 32px 32px 4px 32px;
-        }
+            padding: 32px 32px 4px 32px;}
 
         @include media-breakpoint-up(lg) {
             padding: 32px 24px;
@@ -144,14 +113,7 @@
                 overflow-y: auto;
                 position: sticky;
                 top: 80px;
-                z-index: 10;
-            }
-        }
+                z-index: 10;}}
 
         .td-search-box {
-            width: 100%;
-        }
-    }
-}
-
-
+            width: 100%;}}}
