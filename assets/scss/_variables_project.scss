@@ -71,12 +71,10 @@ $transition: all 0.3s linear;
 // Front page styling
 
 .card-img-top {
-  object-fit: scale-down;
-}
+  object-fit: scale-down;}
 
 .text-white {
-  font-weight: 400;
-}
+  font-weight: 400;}
 
 .bg-primary-dark {
   background-color: $lighter;
@@ -94,10 +92,7 @@ $transition: all 0.3s linear;
       // border-bottom: 1px dotted #fff;
       // color: #fff !important;
       border-bottom: 1px dotted $skred;
-      color: $skred !important;
-    }
-  }
-}
+      color: $skred !important;}}}
 
 .bg-primary-dark-no-bgcolor {
   // background-color: $lighter;
@@ -115,13 +110,10 @@ $transition: all 0.3s linear;
       // border-bottom: 1px dotted #fff;
       // color: #fff !important;
       border-bottom: 1px dotted $skred;
-      color: $skred !important;
-    }
-  }
-}
+      color: $skred !important;}}}
+
 .border-primary-dark {
-  border-color: $info !important;
-}
+  border-color: $info !important;}
 
 .section-head {
   color: $primary;
@@ -130,18 +122,13 @@ $transition: all 0.3s linear;
 
   @media screen and (max-width: 991px) {
     & {
-      font-size: 1.5em;
-    }
-  }
-}
+      font-size: 1.5em;}}}
 
 .section-description {
-  margin: 0 0 32px 0;
-}
+  margin: 0 0 32px 0;}
 
 .section-description > *:last-child {
-  margin: 0;
-}
+  margin: 0;}
 
 .contain {
   margin: 0 auto;
@@ -181,8 +168,7 @@ $transition: all 0.3s linear;
 #community {
   max-width: 700px;
   margin: 0 auto;
-  text-align: center;
-}
+  text-align: center;}
 
 #pageContent .lead {
   margin: 0 1.5em 3em 1.5em;}
@@ -200,7 +186,7 @@ $transition: all 0.3s linear;
     max-width: 35%;
     margin-bottom: 3em; }
   #pageContent .lead > .text p {
-    font-size: 1em; } }
+    font-size: 1em; }}
 
 @media screen and (min-width: 769px) {
   #pageContent .lead {
@@ -233,4 +219,4 @@ $transition: all 0.3s linear;
           order: 2; }
     #pageContent .lead:nth-child(2n+0) > .text {
       -ms-flex-order: 1;
-          order: 1; } }
+          order: 1; }}
