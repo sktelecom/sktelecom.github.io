@@ -51,7 +51,7 @@ header {
     .navbar-logo svg {
         display: inline-block;
         height: 44px;
-        width: 130px;
+        max-width: 130px;
 
         @include media-breakpoint-down(md) {
             width: 80px;
