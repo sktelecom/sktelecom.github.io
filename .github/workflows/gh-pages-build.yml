@@ -2,11 +2,11 @@
 
 name: build github pages
 
-# Controls when the action will run. 
+# Controls when the action will run.
 on:
   # Triggers the workflow on push or pull request events but only for the master branch
   pull_request:
-    branches: 
+    branches:
       - master
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
@@ -23,6 +23,9 @@ jobs:
         with:
           submodules: true  # Fetch Hugo themes (true OR recursive)
           fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '16'
 
       # Runs a single command using the runners shell
       - name: Setup Hugo
@@ -30,6 +33,9 @@ jobs:
         with:
           hugo-version: 'latest'
           extended: true
+
+      - name: Build package
+        run: npm install
 
       - name: Build
         run: hugo --minify
