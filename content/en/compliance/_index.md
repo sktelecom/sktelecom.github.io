@@ -18,7 +18,7 @@ Open source compliance artifacts for products prior to April 2021 were enclosed 
 
 | Name | OSS Notice | Source Code |
 |---|:---|:---:|
-| A. iOS 0.9.17 | [notice](./A._android_0.9.16_OSS_Notice.html)  | [zip](./A._ios_0.9.17/swift-ical-0.0.8.zip) |
+| A. iOS 0.9.17 | [notice](./A._ios_0.9.17/A._ios_0.9.17_OSS_Notice.htm)  | [zip](./A._ios_0.9.17/swift-ical-0.0.8.zip) |
 | A. Android 0.9.16 | [notice](./A._android_0.9.16_OSS_Notice.html)  | - |
 | NUGUAuto Android 1.0.29 | [notice](./NUGUAuto_android_1.0.29_OSS_Notice.htm)  | - |
 | T membership Android 20.0.0 | [notice](./Tmembership_android_20.0.0_OSS_Notice.htm)  | - |
