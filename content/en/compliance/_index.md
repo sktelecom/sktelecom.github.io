@@ -32,7 +32,8 @@ Open source compliance artifacts for products prior to April 2021 were enclosed 
 | T Phone Android 10.3.0 | [notice](./tphone_android_10.3.0/Tphone_android_10.3.0_OSS_Notice.html)  | [zip](./tphone_android_10.3.0/Tphone_android_10.3.0_sourcecode.zip) |
 | T Phone iOS 7.7.0| [notice](Tphone_ios_7_7_0_OSS_Notice.html)  | - |
 | T Phone iOS 7.6.0| [notice](Tphone_ios_7_6_0_OSS_Notice.html)  | - |
-| ifland Android 2.5 | [notice](./ifland_android_2.5.0_OSS_Notice.html)  | - |
+| ifland Android 2.6.0 | [notice](./ifland_android_2.6.0_OSS_Notice.html)  | - |
+| ifland Android 2.5.0 | [notice](./ifland_android_2.5.0_OSS_Notice.html)  | - |
 | ifland iOS 2.5 | [notice](./ifland_ios_2.5.0_OSS_Notice.html)  | - |
 | Meetus Windows 1.2.4.6 | [notice](./meetus_windows_1.2.4.6/Meetus_windows_1.2.4.6_with_engine_OSS_Notice.htm)  | [zip](./meetus_windows_1.2.4.6/meetus-libhangul-opensource.zip) |
 | T-deal Android 1.2 | [notice](./T-deal_android_1.2_OSS_Notice.htm)  | - |

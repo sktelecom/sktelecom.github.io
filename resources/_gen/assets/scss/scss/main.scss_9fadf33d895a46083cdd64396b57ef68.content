@@ -12612,7 +12612,7 @@ header {
   .td-navbar .navbar-logo svg {
     display: inline-block;
     height: 44px;
-    width: 130px; }
+    max-width: 130px; }
     @media (max-width: 991.98px) {
       .td-navbar .navbar-logo svg {
         width: 80px;
@@ -12663,6 +12663,7 @@ header {
       right: 0;
       left: initial; } }
   .td-navbar .td-search-input {
+    max-width: 228px;
     border: none; }
     .td-navbar .td-search-input::-webkit-input-placeholder {
       color: #000; }
@@ -12916,7 +12917,7 @@ header.mobile-menu-open .td-navbar-mobile {
   .td-toc li li {
     margin-left: 0.5rem; }
   .td-toc .td-page-meta {
-    margin: 0 0 16px 0; }
+    margin: 0; }
     .td-toc .td-page-meta a {
       font-weight: 500; }
   .td-toc #TableOfContents a {
