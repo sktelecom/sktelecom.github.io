@@ -36,6 +36,7 @@ Open source compliance artifacts for products prior to April 2021 were enclosed 
 | ifland Android 2.5.0 | [notice](./ifland_android_2.5.0_OSS_Notice.html)  | - |
 | ifland iOS 2.6.0 | [notice](./ifland_iOS_2.6.0_OSS_Notice.html)  | - |
 | ifland iOS 2.5.0 | [notice](./ifland_ios_2.5.0_OSS_Notice.html)  | - |
+| Meetus Windows 1.5.3.1.4 | [notice](./MeetUs_Windows_1.5.3.1.4_engine.html)  | [zip](./meetus_windows_1.2.4.6/meetus-libhangul-opensource.zip) |
 | Meetus Windows 1.2.4.6 | [notice](./meetus_windows_1.2.4.6/Meetus_windows_1.2.4.6_with_engine_OSS_Notice.htm)  | [zip](./meetus_windows_1.2.4.6/meetus-libhangul-opensource.zip) |
 | T-deal Android 1.2 | [notice](./T-deal_android_1.2_OSS_Notice.htm)  | - |
 | T-deal iOS 1.2 | [notice](./T-deal_ios_1.2_OSS_Notice.htm)  | - |
