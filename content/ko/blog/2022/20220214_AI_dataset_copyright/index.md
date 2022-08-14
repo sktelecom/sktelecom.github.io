@@ -261,7 +261,7 @@ Case Study에서는 인기도와 상업적으로 사용될 가능성이 높은 6
 
 - CIFAR-10, ImageNet 및 CityScapes의 배포는 허용되지 않음
 - 이러한 제한에도 불구하고 많은 플랫폼에서 이들 Dataset을 배포하고 있다. (예: [https://deepai.org/datasets](https://deepai.org/datasets) - ImageNet, CIFAR-10 을 배포함) 이는 문제를 유발할 수 있다. 
-- 다른 3개도 Dataset도 동일한 라이선스로 배포해야 해야 하는 등의 의무를 준수해야 사용할 수 있다. 
+- 다른 3개 Dataset도 동일한 라이선스로 배포해야 해야 하는 등의 의무를 준수해야 사용할 수 있다. 
 
 ### 2. Dataset을 상용 AI software 학습에 사용하는 경우 --> 잠재적 라이선스 컴플라이언스 위반 초래 가능 (6개 중 5개)
 
