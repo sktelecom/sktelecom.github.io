@@ -652,7 +652,7 @@ People who aren’t a party to a GPL agreement, but who would benefit from the
 &lt;ol>
 &lt;li>dataset 자체를 상업적으로 배포 (DD : Distribute Datasets)&lt;/li>
 &lt;li>dataset으로 AI Model을 학습하고, 이 모델을 포함하는 임베디드 제품 출시 (RPEAI : Release Product with Embedded AI Model)&lt;/li>
-&lt;li>dataset으로 AI Model을 학습하고, 모델의 output을 상용화 (CAI : Commercialize the Model)&lt;/li>
+&lt;li>dataset으로 AI Model을 학습하고, 이 모델 산출물을 상용화 (CAI : Commercialize the Model)&lt;/li>
 &lt;/ol>
 &lt;p>이러한 사용 시나리오에 대한 각 Dataset의 연구 결과는 다음과 같다.&lt;/p>
 &lt;p>&lt;img src="./scenario.png" alt="">&lt;/p>
