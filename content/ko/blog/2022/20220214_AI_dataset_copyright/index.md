@@ -246,7 +246,7 @@ Case Study에서는 인기도와 상업적으로 사용될 가능성이 높은 6
 
 1. dataset 자체를 상업적으로 배포 (DD : Distribute Datasets)
 2. dataset으로 AI Model을 학습하고, 이 모델을 포함하는 임베디드 제품 출시 (RPEAI : Release Product with Embedded AI Model)
-3. dataset으로 AI Model을 학습하고, 모델의 output을 상용화 (CAI : Commercialize the Model)
+3. dataset으로 AI Model을 학습하고, 이 모델 산출물을 상용화 (CAI : Commercialize the Model)
 
 이러한 사용 시나리오에 대한 각 Dataset의 연구 결과는 다음과 같다. 
 
