@@ -44,34 +44,34 @@
 &lt;p>Upstream Repository를 자신의 GitHub 계정으로 Fork 한다.&lt;/p>
 &lt;h4 id="step-2-clone">Step 2. Clone&lt;/h4>
 &lt;p>Fork한 Repository를 자산의 Local working directory로 Clone 한다.&lt;/p>
-&lt;pre tabindex="0">&lt;code>$ mkdir -p $working_dir
+&lt;pre>&lt;code>$ mkdir -p $working_dir
 $ cd $working_dir
 $ git clone https://github.com/$user/[repository]
 &lt;/code>&lt;/pre>&lt;p>Upstream Repository를 Remote에 추가한다.&lt;/p>
-&lt;pre tabindex="0">&lt;code>$ cd [repository]
+&lt;pre>&lt;code>$ cd [repository]
 $ git remote add upstream https://github.com/[upstream]/[repository]
 # Confirm that your remotes make sense:
 $ git remote -v
 &lt;/code>&lt;/pre>&lt;h4 id="step-3-create-a-branch">Step 3. Create a branch&lt;/h4>
 &lt;p>먼저 main branch를 fetch와 rebase하여 최신 상태로 유지한다.&lt;/p>
-&lt;pre tabindex="0">&lt;code>$ cd $working_dir/[repository]
+&lt;pre>&lt;code>$ cd $working_dir/[repository]
 $ git fetch upstream
 $ git checkout main
 $ git rebase upstream/main
 &lt;/code>&lt;/pre>&lt;p>그리고 개발용 branch (myfeature)를 생성한다.&lt;/p>
-&lt;pre tabindex="0">&lt;code>$ git checkout -b myfeature
+&lt;pre>&lt;code>$ git checkout -b myfeature
 &lt;/code>&lt;/pre>&lt;h4 id="step-4-keep-your-branch-in-sync">Step 4. Keep your branch in sync&lt;/h4>
 &lt;p>Branch를 fetch와 rebase하여 최신 상태로 유지한다.&lt;/p>
-&lt;pre tabindex="0">&lt;code># While on your myfeature branch
+&lt;pre>&lt;code># While on your myfeature branch
 $ git fetch upstream
 $ git rebase upstream/main
 &lt;/code>&lt;/pre>&lt;p>그 상태에서 code 작업을 한다.&lt;/p>
 &lt;h4 id="step-5-commit">Step 5. Commit&lt;/h4>
 &lt;p>수정 사항을 commit 한다.&lt;/p>
-&lt;pre tabindex="0">&lt;code>$ git commit -a -m &amp;#39;[commit message]&amp;#39;
+&lt;pre>&lt;code>$ git commit -a -m '[commit message]'
 &lt;/code>&lt;/pre>&lt;h4 id="step-6-push">Step 6. Push&lt;/h4>
 &lt;p>myfeature branch의 수정 사항을 자신의 GitHub Repository에 Push한다.&lt;/p>
-&lt;pre tabindex="0">&lt;code>git push -f origin myfeature
+&lt;pre>&lt;code>git push -f origin myfeature
 &lt;/code>&lt;/pre>&lt;h4 id="step-7-create-a-pull-request">Step 7. Create a pull request&lt;/h4>
 &lt;p>GitHub에서 자신의 Repository에 가면 Compare &amp;amp; pull request 버튼이 활성화 된 것을 볼 수 있다. 이를 눌러서 Pull Request를 생성한다.&lt;/p>
 &lt;p>이후 Upstream Repository의 관리자는 요청된 Pull Request를 검토하여 Merge 여부를 결정한다.&lt;/p>

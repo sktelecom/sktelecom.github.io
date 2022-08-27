@@ -2,7 +2,7 @@
 &lt;img src="/en/blog/news/20210909-sktiso/featured-SKTiso_hu065adfe0227da2c1679217693f1d110a_422461_640x0_resize_q75_catmullrom.jpeg" width="640" height="414"/>
 &lt;p>SK Telecom, South Korea’s largest wireless carrier, is the first telecommunications operator to adopt OpenChain ISO 5230. This leap forward in governance builds on their long-term mission to lead in technological capabilities in 5G, AI, big data analysis, IoT and quantum cryptography communications as a global ICT leader.&lt;/p>
 &lt;div class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 910px">
-&lt;img class="card-img-top" src="/en/blog/news/20210909-sktiso/featured_sktlogo_huf164a5478e6b369a40b5565c608d1717_33678_900x600_fit_catmullrom_3.png" width="900" height="355">
+&lt;img class="card-img-top" src="/en/blog/news/20210909-sktiso/featured_sktlogo_huf164a5478e6b369a40b5565c608d1717_33678_900x600_fit_catmullrom_2.png" width="900" height="355">
 &lt;div class="card-body px-0 pt-2 pb-0">
 &lt;p class="card-text">
 &lt;small class="text-muted">&lt;br/>SK telecom&lt;/small>&lt;/p>
@@ -36,7 +36,7 @@ Image credit: SRT Alliance
 &lt;blockquote>
 &lt;p>Origin : &lt;a href="https://www.srtalliance.org/sk-telecom-joins-srt-alliance/">https://www.srtalliance.org/sk-telecom-joins-srt-alliance/&lt;/a>&lt;/p>
 &lt;/blockquote></description></item><item><title>Blog: The 2nd Page Of H8l</title><link>/en/blog/2021/20210209-2nd-page-of-h8l/</link><pubDate>Tue, 09 Feb 2021 00:00:00 +0000</pubDate><guid>/en/blog/2021/20210209-2nd-page-of-h8l/</guid><description>
-&lt;img src="/en/blog/2021/20210209-2nd-page-of-h8l/featured-diagram_hu0ebf613d48f3584022125dc29e10620b_117033_640x0_resize_catmullrom_3.png" width="640" height="426"/>
+&lt;img src="/en/blog/2021/20210209-2nd-page-of-h8l/featured-diagram_hu0ebf613d48f3584022125dc29e10620b_117033_640x0_resize_catmullrom_2.png" width="640" height="426"/>
 &lt;h1 id="the-2nd-page-of-hwangsaeul-project">The 2nd page of Hwangsaeul project&lt;/h1>
 &lt;p>It&amp;rsquo;s been almost a year and half since Jakub posted the &lt;a href="https://www.collabora.com/news-and-blog/news-and-events/low-latency-streaming-of-security-feeds-with-srt-and-gstreamer.html">installation document&lt;/a> of Hwangsaeul (a.k.a H8L) project. The project members are still rush to develop the project for the various use cases. Although the H8L project is originally designed to support the massive deployment of video surveillance cameras which enable SRT transmission, we found that there is much more potential when we switch the domain to UAV(Unmanned Areial Viehicle) and UGV(Unmanned Ground Vehicle). Therefore, we had to change the overall shape of H8L to optimize for the new targets.&lt;/p>
 &lt;h2 id="deprecation-of-messages-queue">Deprecation of Messages Queue&lt;/h2>
@@ -54,45 +54,45 @@ Image credit: SRT Alliance
 &lt;p>&lt;img src="./featured-diagram.png" alt="System Overview">&lt;/p>
 &lt;h2 id="running-h8l">Running H8L&lt;/h2>
 &lt;p>Nightly builds are available as binary packages for Ubuntu 20.04.&lt;/p>
-&lt;pre tabindex="0">&lt;code>$ sudo add-apt-repository ppa:hwangsaeul/nightly
+&lt;pre>&lt;code>$ sudo add-apt-repository ppa:hwangsaeul/nightly
 $ sudo apt-get update
 &lt;/code>&lt;/pre>&lt;p>Note that the PPA provides important packages; libsrt and gst-plugins-bad. Since Ubuntu 20.04 provides slightly old version of those packages, some features like stream-id and SRT option strings are not supported. SRT(=1.4.2) and gst-plugins-bad with some patches that will be provided by newer version of GStreamer should be installed before using H8L features. Using PPA may be more convenient to test and have experience of H8L than building from scratch. Surely, some enhancement patches of SRT and GStreamer are already submitted to the upstream and most of them are landed onto master branch or ready for landing. If you&amp;rsquo;d like to check the patches, you can refer to our forked repositories; &lt;a href="https://github.com/hwangsaeul/libsrt">libsrt&lt;/a> and &lt;a href="https://github.com/hwangsaeul/gst-plugins-bad">gst-plugins-bad&lt;/a>.&lt;/p>
 &lt;h3 id="source">Source&lt;/h3>
 &lt;p>The first agent of &lt;em>Gaeul&lt;/em> is &lt;code>gaeul2-source-agent&lt;/code> that is nomally simlilar to stream generator(or simply called as encoder).&lt;/p>
-&lt;pre tabindex="0">&lt;code>$ sudo apt-get install gaeul2-source-agent
+&lt;pre>&lt;code>$ sudo apt-get install gaeul2-source-agent
 &lt;/code>&lt;/pre>&lt;h4 id="settings">Settings&lt;/h4>
 &lt;p>Before running the source agent, we need to set configurations to specify video parameters and SRT options. The settings are consist of two parts; one main configuration and multiple channel configurations.&lt;/p>
 &lt;p>&lt;strong>Main Configuration&lt;/strong>&lt;/p>
 &lt;p>This configuration file is an entry point that provide capture device informations to the source agent. For the stream authentication, &lt;em>Stream ID&lt;/em> is mandatory for H8L&amp;rsquo;s source agent and &lt;code>uid&lt;/code> will be used for stream-id prefix for channels.&lt;/p>
 &lt;p>&lt;code>channel-configs&lt;/code> option takes a list of absolute file paths that are channel configurations.&lt;/p>
-&lt;pre tabindex="0">&lt;code>[org/hwangsaeul/Gaeul2/Source]
-uid=&amp;#34;device0&amp;#34;
-channel-configs=[&amp;#34;/etc/gaeul2/conf.d/ch0.ini&amp;#34;, &amp;#34;/etc/gaeul2/conf.d/ch1.ini&amp;#34;]
+&lt;pre>&lt;code>[org/hwangsaeul/Gaeul2/Source]
+uid=&amp;quot;device0&amp;quot;
+channel-configs=[&amp;quot;/etc/gaeul2/conf.d/ch0.ini&amp;quot;, &amp;quot;/etc/gaeul2/conf.d/ch1.ini&amp;quot;]
 &lt;/code>&lt;/pre>&lt;p>&lt;strong>Channel Configuration&lt;/strong>&lt;/p>
 &lt;p>This sub-configuration describes what type of SRT stream will be sent from which video capture device. In theory, the source agent can have an infinite number of channel configurations, but it will be limited by hardware performance. Normally, it shouldn&amp;rsquo;t exceed 2 channels encoding for 4K 30fps, or equivalent video encoding parameters.&lt;/p>
 &lt;p>The below is an example of a channel configuration.&lt;/p>
-&lt;pre tabindex="0">&lt;code>[org/hwangsaeul/Gaeul2/Source/Channel]
-name=&amp;#34;channel0&amp;#34;
-source=&amp;#34;v4l2src&amp;#34;
-device=&amp;#34;/dev/video0&amp;#34;
+&lt;pre>&lt;code>[org/hwangsaeul/Gaeul2/Source/Channel]
+name=&amp;quot;channel0&amp;quot;
+source=&amp;quot;v4l2src&amp;quot;
+device=&amp;quot;/dev/video0&amp;quot;
 bitrate=2000000
 fps=30
-codec=&amp;#34;x264&amp;#34;
-bitrate-control=&amp;#34;CBR&amp;#34;
-resolution=&amp;#34;1920x1080&amp;#34;
-target-uri=&amp;#34;srt://ip.address:port/?mode=caller&amp;#34;
-passphrase=&amp;#34;&amp;#34;
-pbkeylen=&amp;#34;AES-128&amp;#34;
+codec=&amp;quot;x264&amp;quot;
+bitrate-control=&amp;quot;CBR&amp;quot;
+resolution=&amp;quot;1920x1080&amp;quot;
+target-uri=&amp;quot;srt://ip.address:port/?mode=caller&amp;quot;
+passphrase=&amp;quot;&amp;quot;
+pbkeylen=&amp;quot;AES-128&amp;quot;
 prefer-hw-decoding=false
-record-location=&amp;#34;/somewhare/recording-location&amp;#34;
+record-location=&amp;quot;/somewhare/recording-location&amp;quot;
 &lt;/code>&lt;/pre>&lt;p>With &lt;code>uid&lt;/code> of a main configuration, &lt;code>name&lt;/code> option will be used to compose a stream-id for this channel stream. if &lt;code>device0&lt;/code> is given for the uid and &lt;code>channel0&lt;/code> is for the name, this video channel will have &lt;code>device0_channel0&lt;/code> stream id.&lt;/p>
 &lt;h4 id="running">Running&lt;/h4>
 &lt;p>Now, it&amp;rsquo;s time to run the source agent. If the configurations are provided correctly, user can choose D-Bus mode; &lt;code>session&lt;/code>, &lt;code>system&lt;/code> and &lt;code>none&lt;/code>.&lt;/p>
 &lt;p>If &lt;code>none&lt;/code> is used, the agent will not try to acquire d-bus name. Regardless &lt;code>--dbus-type&lt;/code>, it will send stream or trying to connect to the given &lt;code>target-uri&lt;/code> of a channel configuration until SRT stream receiver is ready.&lt;/p>
-&lt;pre tabindex="0">&lt;code>$ gaeul2-source-agent -c /etc/gaeul2/gaeul.ini --dbus-type=none
+&lt;pre>&lt;code>$ gaeul2-source-agent -c /etc/gaeul2/gaeul.ini --dbus-type=none
 &lt;/code>&lt;/pre>&lt;h3 id="debugging">Debugging&lt;/h3>
 &lt;p>If it is suspicious that the source agent sends a stream or not, the easiest way to check is to get log messages. Since all of H8L components follows GLib and GStreamer conventions, it shows log messages by setting two major environmental variables.&lt;/p>
-&lt;pre tabindex="0">&lt;code>$ export G_MESSAGES_DEBUG=all
+&lt;pre>&lt;code>$ export G_MESSAGES_DEBUG=all
 $ export GST_DEBUG=*:3
 $ gaeul2-source-agent -c /etc/gaeul2/gaeul.ini --dbus-type=none
 &lt;/code>&lt;/pre>&lt;p>Then, now user can get log messages on their console.&lt;/p>
@@ -100,13 +100,13 @@ $ gaeul2-source-agent -c /etc/gaeul2/gaeul.ini --dbus-type=none
 &lt;p>The relay agent plays a role to distribute SRT stream from source to users. It provides stream authentication option to distinguish SRT session by stream-id. Surely, the authentication option can be disabled when it requires the compatiblity with the legacy SRT equipment or software.&lt;/p>
 &lt;h4 id="settings-1">Settings&lt;/h4>
 &lt;p>Unlike the source agent, the relay agent has a main configuration only.&lt;/p>
-&lt;pre tabindex="0">&lt;code>[org/hwangsaeul/Gaeul2/Relay]
-uid=&amp;#34;relay0&amp;#34;
+&lt;pre>&lt;code>[org/hwangsaeul/Gaeul2/Relay]
+uid=&amp;quot;relay0&amp;quot;
 sink-port=50010
 source-port=60010
 sink-latency=125
 source-latency=125
-external-ip=&amp;#34;xxx.xxx.xxx.xxx&amp;#34;
+external-ip=&amp;quot;xxx.xxx.xxx.xxx&amp;quot;
 authentication=true
 &lt;/code>&lt;/pre>&lt;ul>
 &lt;li>&lt;code>uid&lt;/code>: a unique id, it is used for identifying each relay service.&lt;/li>
@@ -118,23 +118,23 @@ authentication=true
 &lt;/ul>
 &lt;h4 id="running-1">Running&lt;/h4>
 &lt;p>If a configuration file is ready, it can be run with the below command. In a relay service, D-Bus API should be enabled to use a stream authentication feature. Here, it is assumed to use session-wide D-Bus API.&lt;/p>
-&lt;pre tabindex="0">&lt;code>$ gaeul2-relay-agent -c /etc/gaeul2/gaeul.ini --dbus-type=session
+&lt;pre>&lt;code>$ gaeul2-relay-agent -c /etc/gaeul2/gaeul.ini --dbus-type=session
 &lt;/code>&lt;/pre>&lt;h4 id="srt-stream-authentication">SRT Stream authentication&lt;/h4>
 &lt;p>The relay is relatively simple because of SRT-nature; content agnostic. However, it plays very important role as a live stream distributor. In current implmentation, the relay agent supports only SRT&amp;rsquo;s live mode.&lt;/p>
 &lt;p>&lt;img src="./relay-authentication.png" alt="Stream Authentication in Relay">&lt;/p>
 &lt;p>The relay provides a whitelist-based stream authentication mechanism. That means, the agent should know streamid before attempting to connect. Otherwise, the agent will reject stream connection.&lt;/p>
 &lt;p>To allow a connection from source agent, the stream-id of source agent must be registered. Here, it assumed that the source agent uses &lt;code>device0_channel0&lt;/code> as its stream-id.&lt;/p>
-&lt;pre tabindex="0">&lt;code>$ busctl call \
+&lt;pre>&lt;code>$ busctl call \
 org.hwangsaeul.Gaeul2.Relay \
 /org/hwangsaeul/Gaeul2/Relay \
 org.hwangsaeul.Gaeul2.Relay \
-AddSinkToken &amp;#34;s&amp;#34; &amp;#34;device0_chanel0&amp;#34;
+AddSinkToken &amp;quot;s&amp;quot; &amp;quot;device0_chanel0&amp;quot;
 &lt;/code>&lt;/pre>&lt;p>Then, if a user who has the unique id, &lt;code>admin0&lt;/code>, wants to get a video stream of the source agent, &lt;code>device0_channel0&lt;/code>, a source token should be registered too.&lt;/p>
-&lt;pre tabindex="0">&lt;code>$ busctl call \
+&lt;pre>&lt;code>$ busctl call \
 org.hwangsaeul.Gaeul2.Relay \
 /org/hwangsaeul/Gaeul2/Relay \
 org.hwangsaeul.Gaeul2.Relay \
-AddSourceToken &amp;#34;ss&amp;#34; &amp;#34;admin0&amp;#34; &amp;#34;device0_channel0&amp;#34;
+AddSourceToken &amp;quot;ss&amp;quot; &amp;quot;admin0&amp;quot; &amp;quot;device0_channel0&amp;quot;
 &lt;/code>&lt;/pre>&lt;h4 id="playing-srt-stream-via-hwangsae">Playing SRT stream via Hwangsae&lt;/h4>
 &lt;p>Currently, there are few video players that support SRT and its streamid.&lt;/p>
 &lt;ul>
@@ -143,8 +143,8 @@ AddSourceToken &amp;#34;ss&amp;#34; &amp;#34;admin0&amp;#34; &amp;#34;device0_ch
 &lt;li>SRT Play Pro (iOS only)&lt;/li>
 &lt;/ul>
 &lt;p>If you are using GStreamer, you can test playing with the below command.&lt;/p>
-&lt;pre tabindex="0">&lt;code>$ gst-launch-1.0 \
-srtsrc uri=&amp;#34;srt://relay.ip:port?mode=caller&amp;#34; streamid=&amp;#34;#\!::u=admin0,r=device0_channel0&amp;#34; ! \
+&lt;pre>&lt;code>$ gst-launch-1.0 \
+srtsrc uri=&amp;quot;srt://relay.ip:port?mode=caller&amp;quot; streamid=&amp;quot;#\!::u=admin0,r=device0_channel0&amp;quot; ! \
 queue ! decodebin ! autovideosink
 &lt;/code>&lt;/pre>&lt;h3 id="see-also">See also&lt;/h3>
 &lt;p>H8L is not all about streaming video over SRT. It is actually designed to overcome unpredictable network in two major concerns. The first is how to stream high-quality video over high bandwidth capable network, and the second is to prevent video stuttering at a discernable level even if the quality is dropped. SRT dealt with the first issue very well by congestion control, but the second issue is complicated. Without media processing and network status prediction, it will be difficult to find solution. Here, we sugguest network adaptive streaming of H8L.&lt;/p>
@@ -159,7 +159,7 @@ queue ! decodebin ! autovideosink
 &lt;p>Anyone can write.&lt;/p>
 &lt;p>Please refer to the guide on the next page. : &lt;a href="https://github.com/sktelecom/sktelecom.github.io/blob/master/docs/blog.md">How to write a blog&lt;/a>&lt;/p>
 &lt;/div></description></item><item><title>Blog: The sample blog post</title><link>/en/blog/sample/sample-post/</link><pubDate>Sat, 29 Aug 2020 00:00:00 +0000</pubDate><guid>/en/blog/sample/sample-post/</guid><description>
-&lt;img src="/en/blog/sample/sample-post/featured-sunset-get_hu69849a7cdb847c2393a7b3a7f6061c86_387442_640x0_resize_catmullrom_3.png" width="640" height="253"/>
+&lt;img src="/en/blog/sample/sample-post/featured-sunset-get_hu69849a7cdb847c2393a7b3a7f6061c86_387442_640x0_resize_catmullrom_2.png" width="640" height="253"/>
 &lt;p>Text can be &lt;strong>bold&lt;/strong>, &lt;em>italic&lt;/em>, or &lt;del>strikethrough&lt;/del>. &lt;a href="https://github.com">Links&lt;/a> should be blue with no underlines (unless hovered over).&lt;/p>
 &lt;p>There should be whitespace between paragraphs. There should be whitespace between paragraphs. There should be whitespace between paragraphs. There should be whitespace between paragraphs.&lt;/p>
 &lt;p>There should be whitespace between paragraphs. There should be whitespace between paragraphs. There should be whitespace between paragraphs. There should be whitespace between paragraphs.&lt;/p>
@@ -182,7 +182,7 @@ Dixi ad aestum.&lt;/p>
 &lt;p>This is a blockquote following a header. Bacon ipsum dolor sit amet t-bone doner shank drumstick, pork belly porchetta chuck sausage brisket ham hock rump pig. Chuck kielbasa leberkas, pork bresaola ham hock filet mignon cow shoulder short ribs biltong.&lt;/p>
 &lt;/blockquote>
 &lt;h3 id="header-3">Header 3&lt;/h3>
-&lt;pre tabindex="0">&lt;code>This is a code block following a header.
+&lt;pre>&lt;code>This is a code block following a header.
 &lt;/code>&lt;/pre>&lt;h4 id="header-4">Header 4&lt;/h4>
 &lt;ul>
 &lt;li>This is an unordered list following a header.&lt;/li>
@@ -323,7 +323,7 @@ Dixi ad aestum.&lt;/p>
 &lt;td>1982&lt;/td>
 &lt;td>Epic Records&lt;/td>
 &lt;td>Grammy Award for Album of the Year, American Music Award for Favorite Pop/Rock Album, American Music Award for Favorite Soul/R&amp;amp;B Album, Brit Award for Best Selling Album, Grammy Award for Best Engineered Album, Non-Classical&lt;/td>
-&lt;td>Wanna Be Startin&amp;rsquo; Somethin&amp;rsquo;, Baby Be Mine, The Girl Is Mine, Thriller, Beat It, Billie Jean, Human Nature, P.Y.T. (Pretty Young Thing), The Lady in My Life&lt;/td>
+&lt;td>Wanna Be Startin&amp;rsquo; Somethin', Baby Be Mine, The Girl Is Mine, Thriller, Beat It, Billie Jean, Human Nature, P.Y.T. (Pretty Young Thing), The Lady in My Life&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>Prince&lt;/td>
@@ -347,23 +347,20 @@ Dixi ad aestum.&lt;/p>
 &lt;p>Code snippets like &lt;code>var foo = &amp;quot;bar&amp;quot;;&lt;/code> can be shown inline.&lt;/p>
 &lt;p>Also, &lt;code>this should vertically align&lt;/code> &lt;del>&lt;code>with this&lt;/code>&lt;/del> &lt;del>and this&lt;/del>.&lt;/p>
 &lt;p>Code can also be shown in a block element.&lt;/p>
-&lt;pre tabindex="0">&lt;code>foo := &amp;#34;bar&amp;#34;;
-bar := &amp;#34;foo&amp;#34;;
+&lt;pre>&lt;code>foo := &amp;quot;bar&amp;quot;;
+bar := &amp;quot;foo&amp;quot;;
 &lt;/code>&lt;/pre>&lt;p>Code can also use syntax highlighting.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">func&lt;/span> &lt;span style="color:#000">main&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000">input&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#4e9a06">`var foo = &amp;#34;bar&amp;#34;;`&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000">lexer&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">lexers&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Get&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;javascript&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000">iterator&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">_&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">lexer&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Tokenise&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#204a87;font-weight:bold">nil&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">input&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000">style&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">styles&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Get&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;github&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000">formatter&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">html&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">New&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">html&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">WithLineNumbers&lt;/span>&lt;span style="color:#000;font-weight:bold">())&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">var&lt;/span> &lt;span style="color:#000">buff&lt;/span> &lt;span style="color:#000">bytes&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Buffer&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000">formatter&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Format&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&lt;/span>&lt;span style="color:#000">buff&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">style&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">iterator&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000">fmt&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Println&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">buff&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">String&lt;/span>&lt;span style="color:#000;font-weight:bold">())&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;pre tabindex="0">&lt;code>Long, single-line code blocks should not wrap. They should horizontally scroll if they are too long. This line should be long enough to demonstrate this.
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">func&lt;/span> &lt;span style="color:#000">main&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#000">input&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#4e9a06">`var foo = &amp;#34;bar&amp;#34;;`&lt;/span>
+&lt;span style="color:#000">lexer&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">lexers&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Get&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;javascript&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#000">iterator&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">_&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">lexer&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Tokenise&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#204a87;font-weight:bold">nil&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">input&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#000">style&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">styles&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Get&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;github&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#000">formatter&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">html&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">New&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">html&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">WithLineNumbers&lt;/span>&lt;span style="color:#000;font-weight:bold">())&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">var&lt;/span> &lt;span style="color:#000">buff&lt;/span> &lt;span style="color:#000">bytes&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Buffer&lt;/span>
+&lt;span style="color:#000">formatter&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Format&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&lt;/span>&lt;span style="color:#000">buff&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">style&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">iterator&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#000">fmt&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Println&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">buff&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">String&lt;/span>&lt;span style="color:#000;font-weight:bold">())&lt;/span>
+&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;pre>&lt;code>Long, single-line code blocks should not wrap. They should horizontally scroll if they are too long. This line should be long enough to demonstrate this.
 &lt;/code>&lt;/pre>&lt;p>Inline code inside table cells should still be distinguishable.&lt;/p>
 &lt;table>
 &lt;thead>
@@ -425,11 +422,11 @@ This is a warning with a title!
 &lt;p>Bacon ipsum dolor sit amet t-bone doner shank drumstick, pork belly porchetta chuck sausage brisket ham hock rump pig. Chuck kielbasa leberkas, pork bresaola ham hock filet mignon cow shoulder short ribs biltong.&lt;/p>
 &lt;h3 id="used-ram">Used RAM&lt;/h3>
 &lt;p>Bacon ipsum dolor sit amet t-bone doner shank drumstick, pork belly porchetta chuck sausage brisket ham hock rump pig. Chuck kielbasa leberkas, pork bresaola ham hock filet mignon cow shoulder short ribs biltong.&lt;/p>
-&lt;pre tabindex="0">&lt;code>This is the final element on the page and there should be no margin below this.
+&lt;pre>&lt;code>This is the final element on the page and there should be no margin below this.
 &lt;/code>&lt;/pre>&lt;h2 id="including-images">Including images&lt;/h2>
 &lt;p>Here&amp;rsquo;s an image (&lt;code>featured-sunset-get.png&lt;/code>) that includes a byline and a caption.&lt;/p>
 &lt;div class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 610px">
-&lt;img class="card-img-top" src="/en/blog/sample/sample-post/featured-sunset-get_hu69849a7cdb847c2393a7b3a7f6061c86_387442_600x300_fill_catmullrom_smart1_3.png" width="600" height="300">
+&lt;img class="card-img-top" src="/en/blog/sample/sample-post/featured-sunset-get_hu69849a7cdb847c2393a7b3a7f6061c86_387442_600x300_fill_catmullrom_smart1_2.png" width="600" height="300">
 &lt;div class="card-body px-0 pt-2 pb-0">
 &lt;p class="card-text">
 Fetch and scale an image in the upcoming Hugo 0.43.
@@ -437,15 +434,15 @@ Fetch and scale an image in the upcoming Hugo 0.43.
 &lt;/div>
 &lt;/div>
 &lt;p>The front matter of this post specifies properties to be assigned to all image resources:&lt;/p>
-&lt;pre tabindex="0">&lt;code>resources:
-- src: &amp;#34;**.{png,jpg}&amp;#34;
-title: &amp;#34;Image #:counter&amp;#34;
+&lt;pre>&lt;code>resources:
+- src: &amp;quot;**.{png,jpg}&amp;quot;
+title: &amp;quot;Image #:counter&amp;quot;
 params:
-byline: &amp;#34;Photo: Riona MacNamara / CC-BY-CA&amp;#34;
+byline: &amp;quot;Photo: Riona MacNamara / CC-BY-CA&amp;quot;
 &lt;/code>&lt;/pre>&lt;p>To include the image in a page, specify its details like this:&lt;/p>
-&lt;pre tabindex="0">&lt;code>
+&lt;pre>&lt;code>
 &lt;div class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 610px">
-&lt;img class="card-img-top" src="/en/blog/sample/sample-post/featured-sunset-get_hu69849a7cdb847c2393a7b3a7f6061c86_387442_600x300_fill_catmullrom_smart1_3.png" width="600" height="300">
+&lt;img class="card-img-top" src="/en/blog/sample/sample-post/featured-sunset-get_hu69849a7cdb847c2393a7b3a7f6061c86_387442_600x300_fill_catmullrom_smart1_2.png" width="600" height="300">
 &lt;div class="card-body px-0 pt-2 pb-0">
 &lt;p class="card-text">
 Fetch and scale an image in the upcoming Hugo 0.43.
@@ -454,17 +451,17 @@ Fetch and scale an image in the upcoming Hugo 0.43.
 &lt;/div>
 &lt;/code>&lt;/pre>&lt;p>The image will be rendered at the size and byline specified in the front matter.&lt;/p>
 &lt;hr></description></item><item><title>Blog: 소스 코드 내 저작권 표시 방법</title><link>/en/blog/2020/20200812-copyright-license/</link><pubDate>Wed, 12 Aug 2020 00:00:00 +0000</pubDate><guid>/en/blog/2020/20200812-copyright-license/</guid><description>
-&lt;img src="/en/blog/2020/20200812-copyright-license/featured_copyright_hu3c20e8f1f30640c88b46434ba146f1f1_89522_640x0_resize_catmullrom_3.png" width="640" height="299"/>
+&lt;img src="/en/blog/2020/20200812-copyright-license/featured_copyright_hu3c20e8f1f30640c88b46434ba146f1f1_89522_640x0_resize_catmullrom_2.png" width="640" height="299"/>
 &lt;h1 id="소스-코드-내-저작권-표시를-해야-하는-이유와-올바른-방법">소스 코드 내 저작권 표시를 해야 하는 이유와 올바른 방법&lt;/h1>
 &lt;p>오픈소스 분야의 저명한 변호사인 Matija Šuklje는 최근 소스 코드 내 저작권 표시가 필요한 이유와 올바르게 작성하는 방법을 소개하였습니다. : &lt;a href="https://matija.suklje.name/how-and-why-to-properly-write-copyright-statements-in-your-code">https://matija.suklje.name/how-and-why-to-properly-write-copyright-statements-in-your-code&lt;/a>​
 &lt;img src="./featured_copyright.png" alt="copyright">&lt;/p>
 &lt;p>여기서는 이 글의 주요 사항을 정리하였습니다.&lt;/p>
 &lt;h1 id="tldr">TL;DR&lt;/h1>
 &lt;p>아래 포맷의 저작권 및 라이선스 표시 당신이 작성한 모든 소스 코드 파일에 추가하세요.&lt;/p>
-&lt;pre tabindex="0">&lt;code>SPDX-FileCopyrightText: © {$year_of_file_creation} {$name_of_copyright_holder} &amp;lt;{$contact}&amp;gt;
+&lt;pre>&lt;code>SPDX-FileCopyrightText: © {$year_of_file_creation} {$name_of_copyright_holder} &amp;lt;{$contact}&amp;gt;
 SPDX-License-Identifier: {$SPDX_license_name}
 &lt;/code>&lt;/pre>&lt;p>예를 들어, 내가 오늘 소스 코드 파일을 하나 작성하였고, 이를 &lt;a href="https://spdx.org/licenses/BSD-3-Clause.html">BSD-3-Clause&lt;/a> 라이선스로 공개하였다면, 다음과 같은 내용을 파일 상단 주석 부분에 추가합니다.&lt;/p>
-&lt;pre tabindex="0">&lt;code>SPDX-FileCopyrightText: © 2020 Matija Šuklje &amp;lt;matija@suklje.name&amp;gt;
+&lt;pre>&lt;code>SPDX-FileCopyrightText: © 2020 Matija Šuklje &amp;lt;matija@suklje.name&amp;gt;
 SPDX-License-Identifier: BSD-3-Clause
 &lt;/code>&lt;/pre>&lt;p>참고로 &lt;a href="https://reuse.software/">REUSE.software&lt;/a> 프로젝트의 가이드를 따르면 모든 파일에 적절한 표시가 되었는지 확인할 수 있습니다.&lt;/p>
 &lt;h1 id="저작권이란">저작권이란?&lt;/h1>
@@ -515,7 +512,7 @@ SPDX-License-Identifier: BSD-3-Clause
 &lt;/li>
 &lt;/ul>
 &lt;p>예를 들어, 오늘 소스 코드 파일을 작성했다면 다음과 같이 저작권 표시를 파일 상단 헤더 부분에 추가합니다.&lt;/p>
-&lt;pre tabindex="0">&lt;code>© 2020 Matija Šuklje &amp;lt;matija@suklje.name&amp;gt;
+&lt;pre>&lt;code>© 2020 Matija Šuklje &amp;lt;matija@suklje.name&amp;gt;
 &lt;/code>&lt;/pre>&lt;h2 id="라이선스-고지">라이선스 고지&lt;/h2>
 &lt;p>또한, 코드를 공개하면서 라이선스가 무엇인지 알리는 것도 매우 중요합니다. &lt;a href="https://spdx.org/ids">SPDX ID&lt;/a>를 사용하면 코드의 라이선스를 명확하게 알릴 수 있습니다. 라이선스 고지가 명확하지 않으면 이를 보는 사용자에게 혼란을 야기시킬 수 있습니다.&lt;/p>
 &lt;h2 id="reusesoftware">REUSE.software&lt;/h2>
@@ -529,7 +526,7 @@ SPDX-License-Identifier: BSD-3-Clause
 &lt;/li>
 &lt;/ul>
 &lt;p>아래의 예는 위의 모든 사항을 고려하고 SPDX 및 REUSE.software 요구사항을 모두 준수하는 저작권 표시 및 라이선스 고지입니다.&lt;/p>
-&lt;pre tabindex="0">&lt;code>SPDX-FileCopyrightText: © 2020 Matija Šuklje &amp;lt;matija@suklje.name&amp;gt;
+&lt;pre>&lt;code>SPDX-FileCopyrightText: © 2020 Matija Šuklje &amp;lt;matija@suklje.name&amp;gt;
 SPDX-License-Identifier: BSD-3-Clause
 &lt;/code>&lt;/pre>&lt;p>이제 당신이 작성한 모든 소스 코드 파일에 이러한 주석이 포함되었는지 확인하세요!&lt;/p>
 &lt;h1 id="faq">FAQ&lt;/h1>
@@ -539,7 +536,7 @@ SPDX-License-Identifier: BSD-3-Clause
 &lt;p>이런 사항들을 고려하여 Liferay의 새로운 정책에서는 파일 생성 연도를 작성하고, 연도를 더 변경하지 않습니다.&lt;/p>
 &lt;h2 id="왜-연도-표시를-변경하지-말아야-하나요">왜 연도 표시를 변경하지 말아야 하나요?&lt;/h2>
 &lt;p>다음과 같은 저작권 표시를 보았을 겁니다.&lt;/p>
-&lt;pre tabindex="0">&lt;code>Copyright (C) 1992, 1995, 2000, 2001, 2003 CompanyX Inc.
+&lt;pre>&lt;code>Copyright (C) 1992, 1995, 2000, 2001, 2003 CompanyX Inc.
 &lt;/code>&lt;/pre>&lt;p>이렇게 계속해서 연도를 추가하는 건 이렇게 하면 저작권 보호 기간을 연장할 수 있다는 생각이 있기 때문이며, 실제 널리 행해 지고 있습니다. 하지만, 불행하게도 이런 작업은 쓸모가 없고, 오히려 해가 될 도 있습니다.&lt;/p>
 &lt;p>게다가 새로운 변경이나 기여를 받을 때마다 이렇게 그 연도를 추가하는 행위를 법적으로 본다면 논란의 여지가 있습니다. 문제는 모든 기여가 저작권을 주장할 수 있을 정도로 독창적이거나 규모가 있지 않습니다. 따라서, 문제 소지를 없애려면 모든 기여에 대해 법률에 따라 저작권 보호를 받을 수 있을 만큼 독창적인지 여부를 먼저 판단하고, 그에 따라 저작권 표시에 연도를 추가해야할 것입니다.&lt;/p>
 &lt;p>반면에 저작권은 저자의 사망 이후 (혹은 저작권자가 법인일 경우, 발행 이후) 최소 50년 (보통 70년) 동안 지속됩니다. 따라서, 굳이 저작권 표시에 연도를 계속해서 추가하지 않아도 보호 기간 만료 때문에 저작권을 주장하지 못하게 될 위험은 매우 낮습니다.&lt;/p>

@@ -1,7 +1,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SKT Open Source – 오픈소스 라이선스 별 의무사항</title><link>/guide/use/obligation/</link><description>Recent content in 오픈소스 라이선스 별 의무사항 on SKT Open Source</description><generator>Hugo -- gohugo.io</generator><language>ko-kr</language><atom:link href="/guide/use/obligation/index.xml" rel="self" type="application/rss+xml"/><item><title>Guide: AGPL-3.0 가이드</title><link>/guide/use/obligation/agpl-3.0/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/guide/use/obligation/agpl-3.0/</guid><description>
 &lt;h2 id="소스-코드-내-라이선스-문구">소스 코드 내 라이선스 문구&lt;/h2>
 &lt;p>AGPL-3.0하의 오픈소스는 일반적으로 소스 코드 상단에 다음과 같은 문구가 있다.&lt;/p>
-&lt;pre tabindex="0">&lt;code>Copyright (C) &amp;lt;year&amp;gt; &amp;lt;name of author&amp;gt;
+&lt;pre>&lt;code>Copyright (C) &amp;lt;year&amp;gt; &amp;lt;name of author&amp;gt;
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU Affero General Public License as
 published by the Free Software Foundation, either version 3 of the
@@ -122,13 +122,13 @@ along with this program. If not, see &amp;lt;http://www.gnu.org/licenses/&amp;gt
 &lt;/blockquote></description></item><item><title>Guide: Apache-2.0 가이드</title><link>/guide/use/obligation/apache-2.0/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/guide/use/obligation/apache-2.0/</guid><description>
 &lt;h2 id="소스-코드-내-라이선스-문구">소스 코드 내 라이선스 문구&lt;/h2>
 &lt;p>Apache-2.0하의 오픈소스는 일반적으로 소스 코드 상단에 다음과 같은 문구가 있다.&lt;/p>
-&lt;pre tabindex="0">&lt;code>Copyright [yyyy] [name of copyright owner]
-Licensed under the Apache License, Version 2.0 (the &amp;#34;License&amp;#34;);
+&lt;pre>&lt;code>Copyright [yyyy] [name of copyright owner]
+Licensed under the Apache License, Version 2.0 (the &amp;quot;License&amp;quot;);
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
 http://www.apache.org/licenses/LICENSE-2.0
 Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an &amp;#34;AS IS&amp;#34; BASIS,
+distributed under the License is distributed on an &amp;quot;AS IS&amp;quot; BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
@@ -163,7 +163,7 @@ limitations under the License.
 &lt;/blockquote></description></item><item><title>Guide: BSD-2-Clause 가이드</title><link>/guide/use/obligation/bsd-2-clause/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/guide/use/obligation/bsd-2-clause/</guid><description>
 &lt;h2 id="소스-코드-내-라이선스-문구">소스 코드 내 라이선스 문구&lt;/h2>
 &lt;p>BSD-2-Clause하의 오픈소스는 일반적으로 소스 코드 상단에 다음과 같은 문구가 있다.&lt;/p>
-&lt;pre tabindex="0">&lt;code>Copyright (c) &amp;lt;YEAR&amp;gt;, &amp;lt;OWNER&amp;gt;
+&lt;pre>&lt;code>Copyright (c) &amp;lt;YEAR&amp;gt;, &amp;lt;OWNER&amp;gt;
 All rights reserved.
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are met:
@@ -172,7 +172,7 @@ list of conditions and the following disclaimer.
 2. Redistributions in binary form must reproduce the above copyright notice,
 this list of conditions and the following disclaimer in the documentation
 and/or other materials provided with the distribution.
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &amp;#34;AS IS&amp;#34; AND
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &amp;quot;AS IS&amp;quot; AND
 ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
 WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
 DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
@@ -206,7 +206,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 &lt;/blockquote></description></item><item><title>Guide: BSD-3-Clause 가이드</title><link>/guide/use/obligation/bsd-3-clause/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/guide/use/obligation/bsd-3-clause/</guid><description>
 &lt;h2 id="소스-코드-내-라이선스-문구">소스 코드 내 라이선스 문구&lt;/h2>
 &lt;p>BSD-3-Clause하의 오픈소스는 일반적으로 소스 코드 상단에 다음과 같은 문구가 있다.&lt;/p>
-&lt;pre tabindex="0">&lt;code>Copyright (c) &amp;lt;year&amp;gt;, &amp;lt;copyright holder&amp;gt;
+&lt;pre>&lt;code>Copyright (c) &amp;lt;year&amp;gt;, &amp;lt;copyright holder&amp;gt;
 All rights reserved.
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are met:
@@ -218,7 +218,7 @@ documentation and/or other materials provided with the distribution.
 * Neither the name of the &amp;lt;organization&amp;gt; nor the
 names of its contributors may be used to endorse or promote products
 derived from this software without specific prior written permission.
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &amp;#34;AS IS&amp;#34; AND
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &amp;quot;AS IS&amp;quot; AND
 ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
 WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
 DISCLAIMED. IN NO EVENT SHALL &amp;lt;COPYRIGHT HOLDER&amp;gt; BE LIABLE FOR ANY
@@ -252,7 +252,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 &lt;/blockquote></description></item><item><title>Guide: BSD-4-Clause 가이드</title><link>/guide/use/obligation/bsd-4-clause/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/guide/use/obligation/bsd-4-clause/</guid><description>
 &lt;h2 id="소스-코드-내-라이선스-문구">소스 코드 내 라이선스 문구&lt;/h2>
 &lt;p>BSD-4-Clause하의 오픈소스는 일반적으로 소스 코드 상단에 다음과 같은 문구가 있다.&lt;/p>
-&lt;pre tabindex="0">&lt;code>Copyright (c) &amp;lt;year&amp;gt;, &amp;lt;copyright holder&amp;gt;
+&lt;pre>&lt;code>Copyright (c) &amp;lt;year&amp;gt;, &amp;lt;copyright holder&amp;gt;
 All rights reserved.
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are met:
@@ -267,7 +267,7 @@ This product includes software developed by the &amp;lt;organization&amp;gt;.
 4. Neither the name of the &amp;lt;organization&amp;gt; nor the
 names of its contributors may be used to endorse or promote products
 derived from this software without specific prior written permission.
-THIS SOFTWARE IS PROVIDED BY &amp;lt;COPYRIGHT HOLDER&amp;gt; &amp;#39;&amp;#39;AS IS&amp;#39;&amp;#39; AND ANY
+THIS SOFTWARE IS PROVIDED BY &amp;lt;COPYRIGHT HOLDER&amp;gt; ''AS IS'' AND ANY
 EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
 WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
 DISCLAIMED. IN NO EVENT SHALL &amp;lt;COPYRIGHT HOLDER&amp;gt; BE LIABLE FOR ANY
@@ -352,7 +352,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 &lt;/blockquote></description></item><item><title>Guide: EPL-2.0가이드</title><link>/guide/use/obligation/epl-2.0/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/guide/use/obligation/epl-2.0/</guid><description>
 &lt;h2 id="소스-코드-내-라이선스-문구">소스 코드 내 라이선스 문구&lt;/h2>
 &lt;p>EPL-2.0하의 오픈소스는 일반적으로 소스 코드 상단에 다음과 같은 문구가 있다.&lt;/p>
-&lt;pre tabindex="0">&lt;code>This program and the accompanying materials are made available under the
+&lt;pre>&lt;code>This program and the accompanying materials are made available under the
 terms of the Eclipse Public License v. 2.0 which is available at
 http://www.eclipse.org/legal/epl-2.0, or the Eclipse Distribution License
 v. 1.0 which is available at
@@ -399,7 +399,7 @@ http://www.eclipse.org/org/documents/edl-v10.php.
 &lt;/blockquote></description></item><item><title>Guide: GPL-2.0 가이드</title><link>/guide/use/obligation/gpl-2.0/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/guide/use/obligation/gpl-2.0/</guid><description>
 &lt;h2 id="소스-코드-내-라이선스-문구">소스 코드 내 라이선스 문구&lt;/h2>
 &lt;p>GPL-2.0하의 오픈소스는 일반적으로 소스 코드 상단에 다음과 같은 문구가 있다.&lt;/p>
-&lt;pre tabindex="0">&lt;code>Copyright (C) yyyy name of author
+&lt;pre>&lt;code>Copyright (C) yyyy name of author
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
 as published by the Free Software Foundation; either version 2
@@ -498,7 +498,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
 &lt;/blockquote></description></item><item><title>Guide: GPL-3.0 가이드</title><link>/guide/use/obligation/gpl-3.0/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/guide/use/obligation/gpl-3.0/</guid><description>
 &lt;h2 id="소스-코드-내-라이선스-문구">소스 코드 내 라이선스 문구&lt;/h2>
 &lt;p>GPL-3.0하의 오픈소스는 일반적으로 소스 코드 상단에 다음과 같은 문구가 있다.&lt;/p>
-&lt;pre tabindex="0">&lt;code>Copyright (C) &amp;lt;year&amp;gt; &amp;lt;name of author&amp;gt;
+&lt;pre>&lt;code>Copyright (C) &amp;lt;year&amp;gt; &amp;lt;name of author&amp;gt;
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
 the Free Software Foundation, either version 3 of the License, or
@@ -611,7 +611,7 @@ along with this program. If not, see &amp;lt;http://www.gnu.org/licenses/&amp;gt
 &lt;/blockquote></description></item><item><title>Guide: LGPL-2.1 가이드</title><link>/guide/use/obligation/lgpl-2.1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/guide/use/obligation/lgpl-2.1/</guid><description>
 &lt;h2 id="소스-코드-내-라이선스-문구">소스 코드 내 라이선스 문구&lt;/h2>
 &lt;p>LGPL-2.1하의 오픈소스는 일반적으로 소스 코드 상단에 다음과 같은 문구가 있다.&lt;/p>
-&lt;pre tabindex="0">&lt;code>Copyright (C) year name of author
+&lt;pre>&lt;code>Copyright (C) year name of author
 This library is free software; you can redistribute it and/or
 modify it under the terms of the GNU Lesser General Public
 License as published by the Free Software Foundation; either
@@ -712,7 +712,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
 &lt;/blockquote></description></item><item><title>Guide: LGPL-3.0 가이드</title><link>/guide/use/obligation/lgpl-3.0/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/guide/use/obligation/lgpl-3.0/</guid><description>
 &lt;h2 id="소스-코드-내-라이선스-문구">소스 코드 내 라이선스 문구&lt;/h2>
 &lt;p>LGPL-3.0하의 오픈소스는 일반적으로 소스 코드 상단에 다음과 같은 문구가 있다.&lt;/p>
-&lt;pre tabindex="0">&lt;code>Copyright (C) &amp;lt;year&amp;gt; &amp;lt;name of author&amp;gt;
+&lt;pre>&lt;code>Copyright (C) &amp;lt;year&amp;gt; &amp;lt;name of author&amp;gt;
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU Lesser General Public License as
 published by the Free Software Foundation, either version 3 of the
@@ -821,10 +821,10 @@ along with this program. If not, see &amp;lt;http://www.gnu.org/licenses/&amp;gt
 &lt;/blockquote></description></item><item><title>Guide: MIT 가이드</title><link>/guide/use/obligation/mit/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/guide/use/obligation/mit/</guid><description>
 &lt;h2 id="소스-코드-내-라이선스-문구">소스 코드 내 라이선스 문구&lt;/h2>
 &lt;p>MIT하의 오픈소스는 일반적으로 소스 코드 상단에 다음과 같은 문구가 있다.&lt;/p>
-&lt;pre tabindex="0">&lt;code>Copyright (c) &amp;lt;year&amp;gt; &amp;lt;copyright holders&amp;gt;
+&lt;pre>&lt;code>Copyright (c) &amp;lt;year&amp;gt; &amp;lt;copyright holders&amp;gt;
 Permission is hereby granted, free of charge, to any person
 obtaining a copy of this software and associated documentation
-files (the &amp;#34;Software&amp;#34;), to deal in the Software without
+files (the &amp;quot;Software&amp;quot;), to deal in the Software without
 restriction, including without limitation the rights to use,
 copy, modify, merge, publish, distribute, sublicense, and/or sell
 copies of the Software, and to permit persons to whom the
@@ -832,7 +832,7 @@ Software is furnished to do so, subject to the following
 conditions:
 The above copyright notice and this permission notice shall be
 included in all copies or substantial portions of the Software.
-THE SOFTWARE IS PROVIDED &amp;#34;AS IS&amp;#34;, WITHOUT WARRANTY OF ANY KIND,
+THE SOFTWARE IS PROVIDED &amp;quot;AS IS&amp;quot;, WITHOUT WARRANTY OF ANY KIND,
 EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
 OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
 NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
@@ -862,7 +862,7 @@ OTHER DEALINGS IN THE SOFTWARE.
 &lt;/blockquote></description></item><item><title>Guide: MPL-2.0 가이드</title><link>/guide/use/obligation/mpl-2.0/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/guide/use/obligation/mpl-2.0/</guid><description>
 &lt;h2 id="소스-코드-내-라이선스-문구">소스 코드 내 라이선스 문구&lt;/h2>
 &lt;p>MPL-2.0하의 오픈소스는 일반적으로 소스 코드 상단에 다음과 같은 문구가 있다.&lt;/p>
-&lt;pre tabindex="0">&lt;code>This Source Code Form is subject to the terms of the Mozilla Public
+&lt;pre>&lt;code>This Source Code Form is subject to the terms of the Mozilla Public
 License, v.2.0. If a copy of the MPL was not distributed with this file,
 You can obtain one at https://mozilla.org/MPL/2.0/.
 &lt;/code>&lt;/pre>&lt;h2 id="사용-사례-별-의무-사항">사용 사례 별 의무 사항&lt;/h2>
