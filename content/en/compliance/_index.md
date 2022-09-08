@@ -26,6 +26,7 @@ Open source compliance artifacts for products prior to April 2021 were enclosed 
 | T membership iOS 20.0.0 | [notice](./Tmembership_ios_20.0.0_OSS_Notice.htm)  | - |
 | Albert Linux 2.0.80 | [notice](./Albert_linux_2.0.80/Albert_linux_2.0.80_OSS_Notice.htm)  | [zip](./Albert_linux_2.0.80/Albert_linux_2.0.80_sourcecode.zip) |
 | Alexa on Nugu 0.9.0 | [notice](Alexa_on_Nugu_android_0.9.0_OSS_Notice.html)  | - |
+| Initial Android 2.4.0 | [notice](initial_android 2.4.0_OSS_Notice.html)  | - |
 | Initial Android 2.1.0 | [notice](initial_android_2_1_0_OSSNotice.html)  | - |
 | Initial iOS 2.1.0 | [notice](initialIOS_2_1_0_OSSNotice.html)  | - |
 | Grandview Android 1.2.12 | [notice](./grandview_android_1.2.12_OSS_Notice.html)  | - |
