@@ -46,6 +46,7 @@ Open source compliance artifacts for products prior to April 2021 were enclosed 
 | T Phone Android 10.3.0 | [notice](./tphone_android_10.3.0/Tphone_android_10.3.0_OSS_Notice.html)  | [zip](./tphone_android_10.3.0/Tphone_android_10.3.0_sourcecode.zip) |
 | T Phone iOS 7.6.0| [notice](Tphone_ios_7_6_0_OSS_Notice.html)  | - |
 | T Phone iOS 7.7.0| [notice](Tphone_ios_7_7_0_OSS_Notice.html)  | - |
+| T Phone iOS 7.9.0| [notice](./Tphone_ios_7.9.0_OSS_Notice.html)  | - |
 | T-deal Android 1.2 | [notice](./T-deal_android_1.2_OSS_Notice.html)  | - |
 | T-deal iOS 1.2 | [notice](./T-deal_ios_1.2_OSS_Notice.html)  | - |
 | ZEM Parents Android 4.1.0 | [notice](./ZEM_P_android_4.1.0_OSS_Notice.html)  | - |
