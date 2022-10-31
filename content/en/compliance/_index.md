@@ -41,6 +41,7 @@ Open source compliance artifacts for products prior to April 2021 were enclosed 
 | Meetus Windows 1.2.4.6 | [notice](./meetus_windows_1.2.4.6/Meetus_windows_1.2.4.6_with_engine_OSS_Notice.html)  | [zip](./meetus_windows_1.2.4.6/meetus-libhangul-opensource.zip) |
 | NUGUAuto Android 1.0.29 | [notice](./NUGUAuto_android_1.0.29_OSS_Notice.html)  | - |
 | NUGUAuto Android 1.2.3 | [notice](./NUGUAuto_android_1.2.3_OSS_Notice.html)  | - |
+| NUGU NU300 Home App Android 1.0.23 | [notice](./NUGU_HOME_android_1.0.23%20OSS_Notice.html)  | - |
 | T membership Android 20.0.0 | [notice](./Tmembership_android_20.0.0_OSS_Notice.html)  | - |
 | T membership iOS 20.0.0 | [notice](./Tmembership_ios_20.0.0_OSS_Notice.html)  | - |
 | T Phone Android 10.3.0 | [notice](./tphone_android_10.3.0/Tphone_android_10.3.0_OSS_Notice.html)  | [zip](./tphone_android_10.3.0/Tphone_android_10.3.0_sourcecode.zip) |
