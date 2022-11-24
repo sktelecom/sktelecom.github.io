@@ -27,12 +27,14 @@ Open source compliance artifacts for products prior to April 2021 were enclosed 
 | Devocean iOS 1.0.0 | [notice](./Devocean_ios_1.0.0_OSS_Notice.html)  | - |
 | Grandview Android 1.2.12 | [notice](./grandview_android_1.2.12_OSS_Notice.html)  | - |
 | Grandview iOS 1.6 | [notice](./grandview_ios_1.6_OSS_Notice.html)  | - |
-| ifland Android 2.5.0 | [notice](./ifland_android_2.5.0_OSS_Notice.html)  | - |
+| ifland Android 2.8.0 | [notice](./ifland_android_2.8.0_OSS_Notice.html)  | - |
 | ifland Android 2.6.0 | [notice](./ifland_android_2.6.0_OSS_Notice.html)  | - |
-| ifland iOS 2.5.0 | [notice](./ifland_ios_2.5.0_OSS_Notice.html)  | - |
+| ifland Android 2.5.0 | [notice](./ifland_android_2.5.0_OSS_Notice.html)  | - |
+| ifland iOS 2.8.0 | [notice](./ifland_iOS_2.8.0_OSS_Notice.html)  | - |
 | ifland iOS 2.6.0 | [notice](./ifland_iOS_2.6.0_OSS_Notice.html)  | - |
-| Initial Android 2.1.0 | [notice](initial_android_2_1_0_OSSNotice.html)  | - |
+| ifland iOS 2.5.0 | [notice](./ifland_ios_2.5.0_OSS_Notice.html)  | - |
 | Initial Android 2.4.0 | [notice](initial_android_2.4.0_OSS_Notice.html)  | - |
+| Initial Android 2.1.0 | [notice](initial_android_2_1_0_OSSNotice.html)  | - |
 | Initial iOS 2.1.0 | [notice](initialIOS_2_1_0_OSSNotice.html)  | - |
 | Jump Android 2.8.0 | [notice](Jump_android_2.8.0_withVLAMengine_OSS_Notice.html)  | - |
 | Keyboard for NU300 Speaker Android 1.0.2 | [notice](./NUGU_Keyboard_android_1.0.2_OSS_Notice.html)  | - |
