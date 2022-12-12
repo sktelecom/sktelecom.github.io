@@ -20,6 +20,7 @@ Open source compliance artifacts for products prior to April 2021 were enclosed 
 |---|:---|:---:|
 | A. Android 1.2.0 | [notice](A._android_1.2.0_OSS_Notice.html)  | [zip](./A._android_0.9.16/A._android_0.9.16_source_code.zip) |
 | A. Android 0.9.16 | [notice](./A._android_0.9.16/A._android_0.9.16_OSS_Notice.html)  | [zip](./A._android_0.9.16/A._android_0.9.16_source_code.zip) |
+| A. iOS 1.2.0 | [notice](./A._ios_1.2.0_OSS_Notice.html)  | [zip](./A._ios_0.9.17/swift-ical-0.0.8.zip) |
 | A. iOS 0.9.17 | [notice](./A._ios_0.9.17/A._ios_0.9.17_OSS_Notice.html)  | [zip](./A._ios_0.9.17/swift-ical-0.0.8.zip) |
 | Albert Linux 2.0.80 | [notice](./Albert_linux_2.0.80/Albert_linux_2.0.80_OSS_Notice.html)  | [zip](./Albert_linux_2.0.80/Albert_linux_2.0.80_sourcecode.zip) |
 | Alexa on Nugu 0.9.0 | [notice](Alexa_on_Nugu_android_0.9.0_OSS_Notice.html)  | - |
