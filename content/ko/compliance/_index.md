@@ -28,6 +28,7 @@ menu:
 | Devocean iOS 1.0.0 | [notice](./Devocean_ios_1.0.0_OSS_Notice.html)  | - |
 | Grandview Android 1.2.12 | [notice](./grandview_android_1.2.12_OSS_Notice.html)  | - |
 | Grandview iOS 1.6 | [notice](./grandview_ios_1.6_OSS_Notice.html)  | - |
+| HPS Client Android 2.3.0 | [notice](./HPS-Client_android_2.3.0_OSS_Notice.html)  | - |
 | ifland Android 2.8.0 | [notice](./ifland_android_2.8.0_OSS_Notice.html)  | - |
 | ifland Android 2.6.0 | [notice](./ifland_android_2.6.0_OSS_Notice.html)  | - |
 | ifland Android 2.5.0 | [notice](./ifland_android_2.5.0_OSS_Notice.html)  | - |
