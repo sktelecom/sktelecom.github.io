@@ -40,6 +40,7 @@ menu:
 | Initial iOS 2.1.0 | [notice](initialIOS_2_1_0_OSSNotice.html)  | - |
 | Jump Android 2.8.0 | [notice](Jump_android_2.8.0_withVLAMengine_OSS_Notice.html)  | - |
 | Keyboard for NU300 Speaker Android 1.0.2 | [notice](./NUGU_Keyboard_android_1.0.2_OSS_Notice.html)  | - |
+| Meetus Android 1.6.0 | [notice](./Meetus_Android_1.6.0.26 OSS_Notice.html)  | - |
 | Meetus macos 1.5.3 | [notice](./meeus_mac1.5.3_OSS_Notice.html)  | - |
 | Meetus Windows 1.6.0 | [notice](./MeetUs_Windows_1.6.0_engine.html)  | [zip](./meetus_windows_1.2.4.6/meetus-libhangul-opensource.zip) |
 | Meetus Windows 1.5.3.14 | [notice](./MeetUs_Windows_1.5.3.14_engine.html)  | [zip](./meetus_windows_1.2.4.6/meetus-libhangul-opensource.zip) |
