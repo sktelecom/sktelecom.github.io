@@ -59,6 +59,8 @@ Open source compliance artifacts for products prior to April 2021 were enclosed 
 | T share Android 4.0.1 | [notice](./Tshare_Android_4.0.1_OSS_Notice.html)  | - |
 | T share Tizen 4.0.0 | [notice](./Tshare_tizen_4.0.0_OSS_Notice.html)  | - |
 | T share WOS 4.0.1 | [notice](./Tshare_WOS_4.0.1_OSS_Notice.html)  | - |
+| T world Android 6.0.0 | [notice](./Tworld_android_6.0.0_OSS_Notice.html)  | - |
+| T world iOS 6.0.0 | [notice](./Tworld_ios_6.0.0_OSS_Notice.html)  | - |
 | T-deal Android 1.2 | [notice](./T-deal_android_1.2_OSS_Notice.html)  | - |
 | T-deal iOS 1.2 | [notice](./T-deal_ios_1.2_OSS_Notice.html)  | - |
 | ZEM Parents Android 4.1.0 | [notice](./ZEM_P_android_4.1.0_OSS_Notice.html)  | - |
