@@ -57,6 +57,7 @@ Open source compliance artifacts for products prior to April 2021 were enclosed 
 | T Phone iOS 7.7.0| [notice](Tphone_ios_7_7_0_OSS_Notice.html)  | - |
 | T Phone iOS 7.9.0| [notice](./Tphone_ios_7.9.0_OSS_Notice.html)  | - |
 | T share Android 4.0.1 | [notice](./Tshare_Android_4.0.1_OSS_Notice.html)  | - |
+| T share iOS 1.32.0 | [notice](./Tshare_ios_1.32.0_OSS_Notice.html)  | - |
 | T share Tizen 4.0.0 | [notice](./Tshare_tizen_4.0.0_OSS_Notice.html)  | - |
 | T share WOS 4.0.1 | [notice](./Tshare_WOS_4.0.1_OSS_Notice.html)  | - |
 | T world Android 6.0.0 | [notice](./Tworld_android_6.0.0_OSS_Notice.html)  | - |
