@@ -62,6 +62,8 @@ menu:
 | T전화 iOS 7.9.0| [notice](./Tphone_ios_7.9.0_OSS_Notice.html)  | - |
 | T통화매니저 Android 2.6.0| [notice](./Tcallguide_android_2.6.0_OSS_Notice.html)  | - |
 | T통화매니저 iOS 2.7.1| [notice](./Tcallguide_IOS_2.7.1_OSS_Notice.html)  | - |
+| T ID SDK Android 2.1.2| [notice](./Tid_SDK_android_2.1.2_OSS_Notice.html)  | - |
+| T ID SDK iOS 2.0.0| [notice](./Tid_SDK_ios_2.0.0_OSS_Notice.html)  | - |
 | T share Android 4.0.1 | [notice](./Tshare_Android_4.0.1_OSS_Notice.html)  | - |
 | T share iOS 1.32.0 | [notice](./Tshare_ios_1.32.0_OSS_Notice.html)  | - |
 | T share Tizen 4.0.0 | [notice](./Tshare_tizen_4.0.0_OSS_Notice.html)  | - |
