@@ -53,13 +53,14 @@ menu:
 | NUGUAuto Android 1.0.29 | [notice](./NUGUAuto_android_1.0.29_OSS_Notice.html)  | - |
 | NUGUAuto Android 1.2.3 | [notice](./NUGUAuto_android_1.2.3_OSS_Notice.html)  | - |
 | NUGUUpdater Android 1.0.26, 1.0.44 | [notice](./Nuguupdater/Nuguupdater_OSS_Notice.zip)  | [zip](./Nuguupdater/jsr-305.zip) |
-| T membership Android 20.0.0 | [notice](./Tmembership_android_20.0.0_OSS_Notice.html)  | - |
-| T membership iOS 20.0.0 | [notice](./Tmembership_ios_20.0.0_OSS_Notice.html)  | - |
-| T Phone Android 11.6.0 | [notice](./Tphone_android_11.6.0_OSS_Notice.html)  | [zip](./tphone_android_10.3.0/Tphone_android_10.3.0_sourcecode.zip) |
-| T Phone Android 10.3.0 | [notice](./tphone_android_10.3.0/Tphone_android_10.3.0_OSS_Notice.html)  | [zip](./tphone_android_10.3.0/Tphone_android_10.3.0_sourcecode.zip) |
-| T Phone iOS 7.6.0| [notice](Tphone_ios_7_6_0_OSS_Notice.html)  | - |
-| T Phone iOS 7.7.0| [notice](Tphone_ios_7_7_0_OSS_Notice.html)  | - |
-| T Phone iOS 7.9.0| [notice](./Tphone_ios_7.9.0_OSS_Notice.html)  | - |
+| T멤버십 Android 20.0.0 | [notice](./Tmembership_android_20.0.0_OSS_Notice.html)  | - |
+| T멤버십 iOS 20.0.0 | [notice](./Tmembership_ios_20.0.0_OSS_Notice.html)  | - |
+| T전화 Android 11.6.0 | [notice](./Tphone_android_11.6.0_OSS_Notice.html)  | [zip](./tphone_android_10.3.0/Tphone_android_10.3.0_sourcecode.zip) |
+| T전화 Android 10.3.0 | [notice](./tphone_android_10.3.0/Tphone_android_10.3.0_OSS_Notice.html)  | [zip](./tphone_android_10.3.0/Tphone_android_10.3.0_sourcecode.zip) |
+| T전화 iOS 7.6.0| [notice](Tphone_ios_7_6_0_OSS_Notice.html)  | - |
+| T전화 iOS 7.7.0| [notice](Tphone_ios_7_7_0_OSS_Notice.html)  | - |
+| T전화 iOS 7.9.0| [notice](./Tphone_ios_7.9.0_OSS_Notice.html)  | - |
+| T통화매니저 Android 2.6.0| [notice](./Tcallguide_android_2.6.0_OSS_Notice.html)  | - |
 | T share Android 4.0.1 | [notice](./Tshare_Android_4.0.1_OSS_Notice.html)  | - |
 | T share iOS 1.32.0 | [notice](./Tshare_ios_1.32.0_OSS_Notice.html)  | - |
 | T share Tizen 4.0.0 | [notice](./Tshare_tizen_4.0.0_OSS_Notice.html)  | - |
