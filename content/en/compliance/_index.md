@@ -53,6 +53,7 @@ Open source compliance artifacts for products prior to April 2021 were enclosed 
 | NUGUAuto Android 1.0.29 | [notice](./NUGUAuto_android_1.0.29_OSS_Notice.html)  | - |
 | NUGUAuto Android 1.2.3 | [notice](./NUGUAuto_android_1.2.3_OSS_Notice.html)  | - |
 | NUGUUpdater Android 1.0.26, 1.0.44 | [notice](./Nuguupdater/Nuguupdater_OSS_Notice.zip)  | [zip](./Nuguupdater/jsr-305.zip) |
+| Number Plus 2 Android 3.2.4 | [notice](./Numberplus2_android_3.2.4_OSS_Notice.html)  | - |
 | T membership Android 20.0.0 | [notice](./Tmembership_android_20.0.0_OSS_Notice.html)  | - |
 | T membership iOS 20.0.0 | [notice](./Tmembership_ios_20.0.0_OSS_Notice.html)  | - |
 | T Phone Android 11.6.0 | [notice](./Tphone_android_11.6.0_OSS_Notice.html)  | [zip](./tphone_android_10.3.0/Tphone_android_10.3.0_sourcecode.zip) |
