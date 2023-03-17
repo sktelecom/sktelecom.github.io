@@ -24,6 +24,7 @@ menu:
 | A. iOS 1.3.0 | [notice](./A._ios_1.3.0_OSS_Notice.html)  | [zip](./A._ios_0.9.17/swift-ical-0.0.8.zip) |
 | A. iOS 1.2.0 | [notice](./A._ios_1.2.0_OSS_Notice.html)  | [zip](./A._ios_0.9.17/swift-ical-0.0.8.zip) |
 | A. iOS 0.9.17 | [notice](./A._ios_0.9.17/A._ios_0.9.17_OSS_Notice.html)  | [zip](./A._ios_0.9.17/swift-ical-0.0.8.zip) |
+| Alexa AI Music Android 2.7.0 | [notice](./Albert_AI_music_android_2.7.0_OSS_Notice.html)  | - |
 | Albert Linux 2.0.80 | [notice](./Albert_linux_2.0.80/Albert_linux_2.0.80_OSS_Notice.html)  | [zip](./Albert_linux_2.0.80/Albert_linux_2.0.80_sourcecode.zip) |
 | Alexa on Nugu 0.9.0 | [notice](Alexa_on_Nugu_android_0.9.0_OSS_Notice.html)  | - |
 | Devocean Android 1.0.0 | [notice](./Devocean_Android_1.0.0_OSS_Notice.html)  | - |
