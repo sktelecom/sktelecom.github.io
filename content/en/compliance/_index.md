@@ -51,6 +51,8 @@ Open source compliance artifacts for products prior to April 2021 were enclosed 
 | Meetus Windows 1.5.3.14 | [notice](./MeetUs_Windows_1.5.3.14_engine.html)  | [zip](./meetus_windows_1.2.4.6/meetus-libhangul-opensource.zip) |
 | Meetus Windows 1.2.4.6 | [notice](./meetus_windows_1.2.4.6/Meetus_windows_1.2.4.6_with_engine_OSS_Notice.html)  | [zip](./meetus_windows_1.2.4.6/meetus-libhangul-opensource.zip) |
 | NUGU NU300 Home App Android 1.0.23 | [notice](./NUGU_HOME_android_1.0.23%20OSS_Notice.html)  | - |
+| NUGU NU310 Speaker Keyboard Android 0.0.2 | [notice](./NU310_Speaker_keyboard_android_0.0.2_OSS_Notice.html)  | - |
+| NUGU NU310 Speaker Nugunemo Android 2.10.10 | [notice](./NU310_Speaker_nugunemo_android_2.10.10_OSS_Notice.html)  | - |
 | NUGUAuto Android 1.0.29 | [notice](./NUGUAuto_android_1.0.29_OSS_Notice.html)  | - |
 | NUGUAuto Android 1.2.3 | [notice](./NUGUAuto_android_1.2.3_OSS_Notice.html)  | - |
 | NUGUUpdater Android 1.0.26, 1.0.44 | [notice](./Nuguupdater/Nuguupdater_OSS_Notice.zip)  | [zip](./Nuguupdater/jsr-305.zip) |
