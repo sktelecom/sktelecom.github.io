@@ -51,6 +51,7 @@ menu:
 | Meetus Windows 1.6.0 | [notice](./MeetUs_Windows_1.6.0_engine.html)  | [zip](./meetus_windows_1.2.4.6/meetus-libhangul-opensource.zip) |
 | Meetus Windows 1.5.3.14 | [notice](./MeetUs_Windows_1.5.3.14_engine.html)  | [zip](./meetus_windows_1.2.4.6/meetus-libhangul-opensource.zip) |
 | Meetus Windows 1.2.4.6 | [notice](./meetus_windows_1.2.4.6/Meetus_windows_1.2.4.6_with_engine_OSS_Notice.html)  | [zip](./meetus_windows_1.2.4.6/meetus-libhangul-opensource.zip) |
+| 모바일지갑 Android SDK 1.1.0 | [notice](./Mobilewallet_SDK_android_1.1.0_OSS_Notice.html)  | - |
 | NUGU NU300 Home App Android 1.0.23 | [notice](./NUGU_HOME_android_1.0.23%20OSS_Notice.html)  | - |
 | NUGU NU310 Speaker Home Launcher Android 1.0.28 | [notice](./NU310_Speaker_homelauncher_android_1.0.28_OSS_Notice.html)  | - |
 | NUGU NU310 Speaker Keyboard Android 0.0.2 | [notice](./NU310_Speaker_keyboard_android_0.0.2_OSS_Notice.html)  | - |
