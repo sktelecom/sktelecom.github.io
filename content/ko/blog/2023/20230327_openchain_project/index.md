@@ -1,5 +1,5 @@
 ---
-date: 2023-02-27
+date: 2023-03-28
 title: "기업의 효과적인 오픈소스 관리 방안 (1) 글로벌 협력을 위한 OpenChain Project"
 linkTitle: "기업의 효과적인 오픈소스 관리 방안 (1) 글로벌 협력을 위한 OpenChain Project"
 description: 
