@@ -72,8 +72,12 @@ menu:
 | T전화 iOS 7.6.0| [notice](Tphone_ios_7_6_0_OSS_Notice.html)  | - |
 | T전화 iOS 7.7.0| [notice](Tphone_ios_7_7_0_OSS_Notice.html)  | - |
 | T전화 iOS 7.9.0| [notice](./Tphone_ios_7.9.0_OSS_Notice.html)  | - |
+| T전화 iOS 7.9.0| [notice](./Tphone_ios_7.9.0_OSS_Notice.html)  | - |
 | T통화매니저 Android 2.6.0| [notice](./Tcallguide_android_2.6.0_OSS_Notice.html)  | - |
-| T통화매니저 iOS 2.7.1| [notice](./Tcallguide_IOS_2.7.1_OSS_Notice.html)  | - |
+| T청소년안심팩 (자녀용) Android 5.0.0| [notice](./T_Safepack_C_android_5.0.0_OSS_Notice.html)  | - |
+| T청소년안심팩 (부모용) Android 3.0.0| [notice](./T_Safepack_P_android_3.0.0_OSS_Notice.html)  | - |
+| T청소년안심팩 (부모용) iOS 3.0.0| [notice](./T_Safepack_P_iOS_3.0.0_OSS_Notice.html)  | - |
+| T청소년유해차단 Android 2.2.1 | [notice](./T_Hazard_android_2.2.1_OSS_Notice.html)  | - |
 | T ID Android 1.1.0| [notice](./Tid_android_1.1.0_OSS_Notice.html)  | - |
 | T ID iOS 1.1.0| [notice](./Tid_Ios_1.1.0_OSS_Notice.html)  | - |
 | T ID SDK Android 2.1.2| [notice](./Tid_SDK_android_2.1.2_OSS_Notice.html)  | - |

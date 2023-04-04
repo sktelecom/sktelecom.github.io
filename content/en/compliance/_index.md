@@ -74,6 +74,10 @@ Open source compliance artifacts for products prior to April 2021 were enclosed 
 | T Phone iOS 7.9.0| [notice](./Tphone_ios_7.9.0_OSS_Notice.html)  | - |
 | T Call Guide Android 2.6.0| [notice](./Tcallguide_android_2.6.0_OSS_Notice.html)  | - |
 | T Call Guide iOS 2.7.1| [notice](./Tcallguide_IOS_2.7.1_OSS_Notice.html)  | - |
+| T Safepack (Children) Android 5.0.0| [notice](./T_Safepack_C_android_5.0.0_OSS_Notice.html)  | - |
+| T Safepack (Parents) Android 3.0.0| [notice](./T_Safepack_P_android_3.0.0_OSS_Notice.html)  | - |
+| T Safepack (Parents) iOS 3.0.0| [notice](./T_Safepack_P_iOS_3.0.0_OSS_Notice.html)  | - |
+| T Hazard Android 2.2.1 | [notice](./T_Hazard_android_2.2.1_OSS_Notice.html)  | - |
 | T ID Android 1.1.0| [notice](./Tid_android_1.1.0_OSS_Notice.html)  | - |
 | T ID iOS 1.1.0| [notice](./Tid_Ios_1.1.0_OSS_Notice.html)  | - |
 | T ID SDK Android 2.1.2| [notice](./Tid_SDK_android_2.1.2_OSS_Notice.html)  | - |
