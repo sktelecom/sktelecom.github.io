@@ -29,6 +29,8 @@ menu:
 | Alexa AI Music Android 2.7.0 | [notice](./Albert_AI_music_android_2.7.0_OSS_Notice.html)  | - |
 | Albert Linux 2.0.80 | [notice](./Albert_linux_2.0.80/Albert_linux_2.0.80_OSS_Notice.html)  | [zip](./Albert_linux_2.0.80/Albert_linux_2.0.80_sourcecode.zip) |
 | Alexa on Nugu 0.9.0 | [notice](Alexa_on_Nugu_android_0.9.0_OSS_Notice.html)  | - |
+| 쿠키즈워치 준 Android 3.24.9| [notice](./Cookiz_android_3.24.9_OSS_Notice.html)  | [zip](./Cookiz/libvlc-android-2.1.12.zip) |
+| 쿠키즈워치 준 iOS 3.41 | [notice](./Cookiz_iOS_3.41_OSS_Notice.html)  | [zip](./Cookiz/Cookiz_iOS_sourcecode.zip) |
 | Devocean Android 1.0.0 | [notice](./Devocean_Android_1.0.0_OSS_Notice.html)  | - |
 | Devocean iOS 1.0.0 | [notice](./Devocean_ios_1.0.0_OSS_Notice.html)  | - |
 | Grandview Android 1.2.12 | [notice](./grandview_android_1.2.12_OSS_Notice.html)  | - |
