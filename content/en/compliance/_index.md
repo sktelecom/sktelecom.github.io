@@ -64,6 +64,7 @@ Open source compliance artifacts for products prior to April 2021 were enclosed 
 | NUGU Auto Android 1.0.29 | [notice](./NUGUAuto_android_1.0.29_OSS_Notice.html)  | - |
 | NUGU Auto Android 1.2.3 | [notice](./NUGUAuto_android_1.2.3_OSS_Notice.html)  | - |
 | NUGU Mobile Android 4.0.0 | [notice](./NUGUmobile_android_4.0.0_OSS_Notice.html)  | [zip](./nugu_mobile/nugu_mobile_android_opensource.zip) |
+| NUGU Mobile iOS 4.0.0 | [notice](./NUGUmobile_iOS_4.0.0_OSS_Notice.html)  | - |
 | NUGU Updater Android 1.0.26, 1.0.44 | [notice](./Nuguupdater/Nuguupdater_OSS_Notice.zip)  | [zip](./Nuguupdater/jsr-305.zip) |
 | Number Plus 2 Android 3.2.4 | [notice](./Numberplus2_android_3.2.4_OSS_Notice.html)  | - |
 | PASS Android 3.12.0 | [notice](./PASS_android_3.12.0_OSS_Notice.html)  | - |
