@@ -69,6 +69,8 @@ menu:
 | Number Plus 2 Android 3.2.4 | [notice](./Numberplus2_android_3.2.4_OSS_Notice.html)  | - |
 | PASS Android 3.12.0 | [notice](./PASS_android_3.12.0_OSS_Notice.html)  | - |
 | PASS iOS 3.12.0 | [notice](./PASS_IOS_3.12.0_OSS_Notice.html)  | - |
+| T메모링프리미엄 Android 4.0.7 | [notice](./TmemoringP_android_4.0.7_OSS_Notice.html)  | - |
+| T메모링프리미엄 iOS 3.0.0 | [notice](./TmemoringP_iOS_3.0.0_OSS_Notice.html)  | - |
 | T멤버십 Android 20.0.0 | [notice](./Tmembership_android_20.0.0_OSS_Notice.html)  | - |
 | T멤버십 iOS 20.0.0 | [notice](./Tmembership_ios_20.0.0_OSS_Notice.html)  | - |
 | T전화 Android 11.6.0 | [notice](./Tphone_android_11.6.0_OSS_Notice.html)  | [zip](./tphone_android_10.3.0/Tphone_android_10.3.0_sourcecode.zip) |
