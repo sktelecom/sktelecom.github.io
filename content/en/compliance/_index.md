@@ -39,7 +39,7 @@ Open source compliance artifacts for products prior to April 2021 were enclosed 
 | ifland Android 2.8.0 | [notice](./ifland_android_2.8.0_OSS_Notice.html)  | - |
 | ifland Android 2.6.0 | [notice](./ifland_android_2.6.0_OSS_Notice.html)  | - |
 | ifland Android 2.5.0 | [notice](./ifland_android_2.5.0_OSS_Notice.html)  | - |
-| ifland iOS 3.0.0 | [notice](./ifland_iOS_2.8.0_OSS_Notice.html)  | [zip](http://opensource.sktelecom.com/compliance_artifacts/ifland/ios/ffmpeg-kit_apple.zip) |
+| ifland iOS 3.0.0 | [notice](http://opensource.sktelecom.com/compliance_artifacts/ifland/ios/ifland_iOS_3.0.0_OSS_Notice.html)  | [zip](http://opensource.sktelecom.com/compliance_artifacts/ifland/ios/ffmpeg-kit_apple.zip) |
 | ifland iOS 2.8.0 | [notice](./ifland_iOS_2.8.0_OSS_Notice.html)  | - |
 | ifland iOS 2.6.0 | [notice](./ifland_iOS_2.6.0_OSS_Notice.html)  | - |
 | ifland iOS 2.5.0 | [notice](./ifland_ios_2.5.0_OSS_Notice.html)  | - |
