@@ -15,6 +15,6 @@ The Open Source Review Board (OSRB) is an organization composed of managers of o
 
 # OSRB at SK telecom 
 
-SK telecom's OSRB is managed by the Compliance Management Legal Group. In addition, ESG Tech Product Hub, Career Group, Cloud Application Group, and Information Protection Officer will participate.
+SK Telecom's OSRB is led by the IPR team, and the Infra Architect team and Tech HR team participate as members.
 
 <img src="./osrb.png" width="450"/>
