@@ -18,10 +18,12 @@ menu:
 
 | Name | OSS Notice | Source Code |
 |---|:---|:---:|
+| A. Android 1.5.0 | [notice](https://opensource.sktelecom.com/compliance_artifacts/a./android/1.5.0/Adot_android_1.5.0_OSS_Notice.htm)  | [zip](https://opensource.sktelecom.com/compliance_artifacts/a./android/1.3.0/A._android_source_code.zip) |
 | A. Android 1.4.0 | [notice](A._android_1.4.0_OSS_Notice.html)  | [zip](./A._android_1.3.0/A._android_source_code.zip) |
 | A. Android 1.3.0 | [notice](./A._android_1.3.0/A._android_1.3.0_OSS_Notice.html)  | [zip](./A._android_1.3.0/A._android_source_code.zip) |
 | A. Android 1.2.0 | [notice](A._android_1.2.0_OSS_Notice.html)  | [zip](./A._android_0.9.16/A._android_0.9.16_source_code.zip) |
 | A. Android 0.9.16 | [notice](./A._android_0.9.16/A._android_0.9.16_OSS_Notice.html)  | [zip](./A._android_0.9.16/A._android_0.9.16_source_code.zip) |
+| A. iOS 1.5.0 | [notice](https://opensource.sktelecom.com/compliance_artifacts/a./ios/1.5.0/Adot_iOS_1.5.0_OSS_Notice.htm)  | [zip](https://opensource.sktelecom.com/compliance_artifacts/a./ios/1.5.0/libical.zip) |
 | A. iOS 1.4.0 | [notice](./A._ios_1.4.0_OSS_Notice.html)  | [zip](./A._ios_0.9.17/swift-ical-0.0.8.zip) |
 | A. iOS 1.3.0 | [notice](./A._ios_1.3.0_OSS_Notice.html)  | [zip](./A._ios_0.9.17/swift-ical-0.0.8.zip) |
 | A. iOS 1.2.0 | [notice](./A._ios_1.2.0_OSS_Notice.html)  | [zip](./A._ios_0.9.17/swift-ical-0.0.8.zip) |
@@ -36,6 +38,7 @@ menu:
 | Grandview Android 1.2.12 | [notice](./grandview_android_1.2.12_OSS_Notice.html)  | - |
 | Grandview iOS 1.6 | [notice](./grandview_ios_1.6_OSS_Notice.html)  | - |
 | HPS Client Android 2.3.0 | [notice](./HPS-Client_android_2.3.0_OSS_Notice.html)  | - |
+| ifland Android 3.0.0 | [notice](https://opensource.sktelecom.com/compliance_artifacts/ifland/android/3.0.0/ifland_android_3.0.0_OSS_Notice.htm)  | [zip](https://opensource.sktelecom.com/compliance_artifacts/ifland/android/3.0.0/ffmpeg-kit-main.zip) |
 | ifland Android 2.8.0 | [notice](./ifland_android_2.8.0_OSS_Notice.html)  | - |
 | ifland Android 2.6.0 | [notice](./ifland_android_2.6.0_OSS_Notice.html)  | - |
 | ifland Android 2.5.0 | [notice](./ifland_android_2.5.0_OSS_Notice.html)  | - |
@@ -57,6 +60,8 @@ menu:
 | Meetus Windows 1.5.3.14 | [notice](./MeetUs_Windows_1.5.3.14_engine.html)  | [zip](./meetus_windows_1.2.4.6/meetus-libhangul-opensource.zip) |
 | Meetus Windows 1.2.4.6 | [notice](./meetus_windows_1.2.4.6/Meetus_windows_1.2.4.6_with_engine_OSS_Notice.html)  | [zip](./meetus_windows_1.2.4.6/meetus-libhangul-opensource.zip) |
 | 모바일지갑 Android SDK 1.1.0 | [notice](./Mobilewallet_SDK_android_1.1.0_OSS_Notice.html)  | - |
+| NUGU Smarthome Android 5.6.0 | [notice](https://opensource.sktelecom.com/compliance_artifacts/nugu_smarthome/android/5.6.0/Smarthome_android_5.6.0_OSS_Notice.htm)  | - |
+| NUGU Smarthome iOS 5.5.0 | [notice](https://opensource.sktelecom.com/compliance_artifacts/nugu_smarthome/ios/5.5.0/Smarthome_ios_5.5.0_OSS_Notice.html)  | - |
 | NUGU NU300 Home App Android 1.0.23 | [notice](./NUGU_HOME_android_1.0.23%20OSS_Notice.html)  | - |
 | NUGU NU310 Speaker Home Launcher Android 1.0.28 | [notice](./NU310_Speaker_homelauncher_android_1.0.28_OSS_Notice.html)  | - |
 | NUGU NU310 Speaker Keyboard Android 0.0.2 | [notice](./NU310_Speaker_keyboard_android_0.0.2_OSS_Notice.html)  | - |
