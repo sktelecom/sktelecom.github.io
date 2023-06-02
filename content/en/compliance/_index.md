@@ -35,6 +35,7 @@ Open source compliance artifacts for products prior to April 2021 were enclosed 
 | Cookiz iOS 3.41 | [notice](./Cookiz_iOS_3.41_OSS_Notice.html)  | [zip](./Cookiz/Cookiz_iOS_sourcecode.zip) |
 | Devocean Android 1.0.0 | [notice](./Devocean_Android_1.0.0_OSS_Notice.html)  | - |
 | Devocean iOS 1.0.0 | [notice](./Devocean_ios_1.0.0_OSS_Notice.html)  | - |
+| GiveU Android 6.4.4 | [notice](https://opensource.sktelecom.com/compliance_artifacts/giveu/android/6.4.4/GiveU_android_6.4.4_OSS_Notice.htm)  | - |
 | Grandview Android 1.2.12 | [notice](./grandview_android_1.2.12_OSS_Notice.html)  | - |
 | Grandview iOS 1.6 | [notice](./grandview_ios_1.6_OSS_Notice.html)  | - |
 | HPS Client Android 2.3.0 | [notice](./HPS-Client_android_2.3.0_OSS_Notice.html)  | - |
@@ -94,6 +95,7 @@ Open source compliance artifacts for products prior to April 2021 were enclosed 
 | T ID iOS 1.1.0| [notice](./Tid_Ios_1.1.0_OSS_Notice.html)  | - |
 | T ID SDK Android 2.1.2| [notice](./Tid_SDK_android_2.1.2_OSS_Notice.html)  | - |
 | T ID SDK iOS 2.0.0| [notice](./Tid_SDK_ios_2.0.0_OSS_Notice.html)  | - |
+| TLC smart drone plan Android 1.3.77 | [notice](https://opensource.sktelecom.com/compliance_artifacts/tlc_smart_drone_plan/android/1.3.77/TLC_smart_drone_plan_android_1.3.77_OSS_Notice.htm)  | [zip](https://opensource.sktelecom.com/compliance_artifacts/tlc_smart_drone_plan/android/1.3.77/JTS_Topology_Suite-1.8.zip) |
 | T share Android 4.0.1 | [notice](./Tshare_Android_4.0.1_OSS_Notice.html)  | - |
 | T share iOS 1.32.0 | [notice](./Tshare_ios_1.32.0_OSS_Notice.html)  | - |
 | T share Tizen 4.0.0 | [notice](./Tshare_tizen_4.0.0_OSS_Notice.html)  | - |
