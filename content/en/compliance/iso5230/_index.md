@@ -1,7 +1,7 @@
 ---
 title: "ISO5230"
 linkTitle: "ISO5230"
-weight: 1
+weight: 2
 type: docs
 description: >
   ISO/IEC 5230:2020 OpenChain Specification Conformance
