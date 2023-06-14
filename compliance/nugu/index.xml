@@ -1,4 +1,5 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SKT Open Source – NUGU</title><link>/compliance/nugu/</link><description>Recent content in NUGU on SKT Open Source</description><generator>Hugo -- gohugo.io</generator><language>ko-kr</language><atom:link href="/compliance/nugu/index.xml" rel="self" type="application/rss+xml"/><item><title>Compliance: NU110</title><link>/compliance/nugu/nu110/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/compliance/nugu/nu110/</guid><description>
+&lt;p>NU110 오픈소스 컴플라이언스 산출물&lt;/p>
 &lt;h3 id="alexa-android">Alexa Android&lt;/h3>
 &lt;table>
 &lt;thead>
@@ -16,6 +17,7 @@
 &lt;/tr>
 &lt;/tbody>
 &lt;/table></description></item><item><title>Compliance: NU300</title><link>/compliance/nugu/nu300/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/compliance/nugu/nu300/</guid><description>
+&lt;p>NU300 오픈소스 컴플라이언스 산출물&lt;/p>
 &lt;h3 id="home-app-android">Home App Android&lt;/h3>
 &lt;table>
 &lt;thead>
@@ -50,6 +52,7 @@
 &lt;/tr>
 &lt;/tbody>
 &lt;/table></description></item><item><title>Compliance: NU310</title><link>/compliance/nugu/nu310/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/compliance/nugu/nu310/</guid><description>
+&lt;p>NU310 오픈소스 컴플라이언스 산출물&lt;/p>
 &lt;h3 id="speaker-home-launcher-android">Speaker Home Launcher Android&lt;/h3>
 &lt;table>
 &lt;thead>
@@ -118,6 +121,7 @@
 &lt;/tr>
 &lt;/tbody>
 &lt;/table></description></item><item><title>Compliance: NUGU auto</title><link>/compliance/nugu/nugu_auto/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/compliance/nugu/nugu_auto/</guid><description>
+&lt;p>NUGU auto 오픈소스 컴플라이언스 산출물&lt;/p>
 &lt;h3 id="android">Android&lt;/h3>
 &lt;table>
 &lt;thead>
@@ -140,6 +144,7 @@
 &lt;/tr>
 &lt;/tbody>
 &lt;/table></description></item><item><title>Compliance: NUGU Mobile</title><link>/compliance/nugu/nugu_mobile/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/compliance/nugu/nugu_mobile/</guid><description>
+&lt;p>NUGU Mobile 오픈소스 컴플라이언스 산출물&lt;/p>
 &lt;h3 id="android">Android&lt;/h3>
 &lt;table>
 &lt;thead>
@@ -174,6 +179,7 @@
 &lt;/tr>
 &lt;/tbody>
 &lt;/table></description></item><item><title>Compliance: NUGU Smarthome</title><link>/compliance/nugu/nugu_smarthome/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/compliance/nugu/nugu_smarthome/</guid><description>
+&lt;p>NUGU Smarthome 오픈소스 컴플라이언스 산출물&lt;/p>
 &lt;h3 id="android">Android&lt;/h3>
 &lt;table>
 &lt;thead>
@@ -208,6 +214,7 @@
 &lt;/tr>
 &lt;/tbody>
 &lt;/table></description></item><item><title>Compliance: NUGU Updater</title><link>/compliance/nugu/nugu_updater/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/compliance/nugu/nugu_updater/</guid><description>
+&lt;p>NUGU Updater 오픈소스 컴플라이언스 산출물&lt;/p>
 &lt;h3 id="android">Android&lt;/h3>
 &lt;table>
 &lt;thead>
@@ -225,6 +232,7 @@
 &lt;/tr>
 &lt;/tbody>
 &lt;/table></description></item><item><title>Compliance: 알버트AI</title><link>/compliance/nugu/albertai/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/compliance/nugu/albertai/</guid><description>
+&lt;p>알버트AI 오픈소스 컴플라이언스 산출물&lt;/p>
 &lt;h3 id="뮤직-코딩-android">뮤직 코딩 Android&lt;/h3>
 &lt;table>
 &lt;thead>
