@@ -1,0 +1,261 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SKT Open Source – NUGU</title><link>/compliance/nugu/</link><description>Recent content in NUGU on SKT Open Source</description><generator>Hugo -- gohugo.io</generator><language>ko-kr</language><atom:link href="/compliance/nugu/index.xml" rel="self" type="application/rss+xml"/><item><title>Compliance: NU110</title><link>/compliance/nugu/nu110/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/compliance/nugu/nu110/</guid><description>
+&lt;h3 id="alexa-android">Alexa Android&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Version&lt;/th>
+&lt;th style="text-align:center">OSS Notice&lt;/th>
+&lt;th style="text-align:center">Source Code&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>0.9.0&lt;/td>
+&lt;td style="text-align:center">&lt;a href="https://opensource.sktelecom.com/compliance_artifacts/nugu_nu110_alexa/android/0.9.0/Alexa_on_Nugu_android_0.9.0_OSS_Notice.html">notice&lt;/a>&lt;/td>
+&lt;td style="text-align:center">-&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table></description></item><item><title>Compliance: NU300</title><link>/compliance/nugu/nu300/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/compliance/nugu/nu300/</guid><description>
+&lt;h3 id="home-app-android">Home App Android&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Version&lt;/th>
+&lt;th style="text-align:center">OSS Notice&lt;/th>
+&lt;th style="text-align:center">Source Code&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>1.0.23&lt;/td>
+&lt;td style="text-align:center">&lt;a href="https://opensource.sktelecom.com/compliance_artifacts/nugu_nu300_home/android/1.0.23/NUGU_HOME_android_1.0.23_OSS_Notice.html">notice&lt;/a>&lt;/td>
+&lt;td style="text-align:center">-&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="speaker-keyboard-android">Speaker Keyboard Android&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Version&lt;/th>
+&lt;th style="text-align:center">OSS Notice&lt;/th>
+&lt;th style="text-align:center">Source Code&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>1.0.2&lt;/td>
+&lt;td style="text-align:center">&lt;a href="https://opensource.sktelecom.com/compliance_artifacts/nugu_nu300_speaker_keyboard/android/1.0.2/NUGU_Keyboard_android_1.0.2_OSS_Notice.html">notice&lt;/a>&lt;/td>
+&lt;td style="text-align:center">-&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table></description></item><item><title>Compliance: NU310</title><link>/compliance/nugu/nu310/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/compliance/nugu/nu310/</guid><description>
+&lt;h3 id="speaker-home-launcher-android">Speaker Home Launcher Android&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Version&lt;/th>
+&lt;th style="text-align:center">OSS Notice&lt;/th>
+&lt;th style="text-align:center">Source Code&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>1.0.28&lt;/td>
+&lt;td style="text-align:center">&lt;a href="https://opensource.sktelecom.com/compliance_artifacts/nugu_nu310_speaker_home_launcher/android/1.0.28/NU310_Speaker_home_launcher_android_1.0.28_OSS_Notice.html">notice&lt;/a>&lt;/td>
+&lt;td style="text-align:center">-&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="speaker-keyboard-android">Speaker Keyboard Android&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Version&lt;/th>
+&lt;th style="text-align:center">OSS Notice&lt;/th>
+&lt;th style="text-align:center">Source Code&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>0.0.2&lt;/td>
+&lt;td style="text-align:center">&lt;a href="https://opensource.sktelecom.com/compliance_artifacts/nugu_nu310_speaker_keyboard/android/0.0.2/NU310_Speaker_keyboard_android_0.0.2_OSS_Notice.html">notice&lt;/a>&lt;/td>
+&lt;td style="text-align:center">-&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="speaker-nugunemo-android">Speaker Nugunemo Android&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Version&lt;/th>
+&lt;th style="text-align:center">OSS Notice&lt;/th>
+&lt;th style="text-align:center">Source Code&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>2.10.10&lt;/td>
+&lt;td style="text-align:center">&lt;a href="https://opensource.sktelecom.com/compliance_artifacts/nugu_nu310_speaker_nugunemo/android/2.10.10/NU310_Speaker_nugunemo_android_2.10.10_OSS_Notice.html">notice&lt;/a>&lt;/td>
+&lt;td style="text-align:center">-&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="speaker-updater-android">Speaker Updater Android&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Version&lt;/th>
+&lt;th style="text-align:center">OSS Notice&lt;/th>
+&lt;th style="text-align:center">Source Code&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>1.0.45&lt;/td>
+&lt;td style="text-align:center">&lt;a href="https://opensource.sktelecom.com/compliance_artifacts/nugu_nu310_speaker_updater/android/1.0.45/NU310_Speaker_updater_android_1.0.45_OSS_Notice.html">notice&lt;/a>&lt;/td>
+&lt;td style="text-align:center">&lt;a href="https://opensource.sktelecom.com/compliance_artifacts/nugu_nu310_speaker_updater/android/1.0.45/jsr-305.zip">zip&lt;/a>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table></description></item><item><title>Compliance: NUGU auto</title><link>/compliance/nugu/nugu_auto/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/compliance/nugu/nugu_auto/</guid><description>
+&lt;h3 id="android">Android&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Version&lt;/th>
+&lt;th style="text-align:center">OSS Notice&lt;/th>
+&lt;th style="text-align:center">Source Code&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>1.2.3&lt;/td>
+&lt;td style="text-align:center">&lt;a href="https://opensource.sktelecom.com/compliance_artifacts/nugu_auto/android/1.2.3/NUGUAuto_android_1.2.3_OSS_Notice.html">notice&lt;/a>&lt;/td>
+&lt;td style="text-align:center">-&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>1.0.29&lt;/td>
+&lt;td style="text-align:center">&lt;a href="https://opensource.sktelecom.com/compliance_artifacts/nugu_auto/android/1.0.29/NUGUAuto_android_1.0.29_OSS_Notice.html">notice&lt;/a>&lt;/td>
+&lt;td style="text-align:center">-&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table></description></item><item><title>Compliance: NUGU Mobile</title><link>/compliance/nugu/nugu_mobile/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/compliance/nugu/nugu_mobile/</guid><description>
+&lt;h3 id="android">Android&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Version&lt;/th>
+&lt;th style="text-align:center">OSS Notice&lt;/th>
+&lt;th style="text-align:center">Source Code&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>4.0.0&lt;/td>
+&lt;td style="text-align:center">&lt;a href="https://opensource.sktelecom.com/compliance_artifacts/nugu_mobile/android/4.0.0/NUGUmobile_android_4.0.0_OSS_Notice.html">notice&lt;/a>&lt;/td>
+&lt;td style="text-align:center">&lt;a href="https://opensource.sktelecom.com/compliance_artifacts/nugu_mobile/android/4.0.0/nugu_mobile_android_opensource.zip">zip&lt;/a>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="ios">iOS&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Version&lt;/th>
+&lt;th style="text-align:center">OSS Notice&lt;/th>
+&lt;th style="text-align:center">Source Code&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>4.0.0&lt;/td>
+&lt;td style="text-align:center">&lt;a href="https://opensource.sktelecom.com/compliance_artifacts/nugu_mobile/ios/4.0.0/NUGUmobile_iOS_4.0.0_OSS_Notice.html">notice&lt;/a>&lt;/td>
+&lt;td style="text-align:center">-&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table></description></item><item><title>Compliance: NUGU Smarthome</title><link>/compliance/nugu/nugu_smarthome/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/compliance/nugu/nugu_smarthome/</guid><description>
+&lt;h3 id="android">Android&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Version&lt;/th>
+&lt;th style="text-align:center">OSS Notice&lt;/th>
+&lt;th style="text-align:center">Source Code&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>5.6.0&lt;/td>
+&lt;td style="text-align:center">&lt;a href="https://opensource.sktelecom.com/compliance_artifacts/nugu_smarthome/android/5.6.0/Smarthome_android_5.6.0_OSS_Notice.htm">notice&lt;/a>&lt;/td>
+&lt;td style="text-align:center">-&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="ios">iOS&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Version&lt;/th>
+&lt;th style="text-align:center">OSS Notice&lt;/th>
+&lt;th style="text-align:center">Source Code&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>5.5.0&lt;/td>
+&lt;td style="text-align:center">&lt;a href="https://opensource.sktelecom.com/compliance_artifacts/nugu_smarthome/ios/5.5.0/Smarthome_ios_5.5.0_OSS_Notice.html">notice&lt;/a>&lt;/td>
+&lt;td style="text-align:center">-&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table></description></item><item><title>Compliance: NUGU Updater</title><link>/compliance/nugu/nugu_updater/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/compliance/nugu/nugu_updater/</guid><description>
+&lt;h3 id="android">Android&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Version&lt;/th>
+&lt;th style="text-align:center">OSS Notice&lt;/th>
+&lt;th style="text-align:center">Source Code&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>1.0.26, 1.0.44&lt;/td>
+&lt;td style="text-align:center">&lt;a href="https://opensource.sktelecom.com/compliance_artifacts/nugu_updater/android/1.0.26_1.0.44/Nuguupdater_OSS_Notice.zip">notice&lt;/a>&lt;/td>
+&lt;td style="text-align:center">&lt;a href="https://opensource.sktelecom.com/compliance_artifacts/nugu_updater/android/1.0.26_1.0.44/jsr-305.zip">zip&lt;/a>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table></description></item><item><title>Compliance: 알버트AI</title><link>/compliance/nugu/albertai/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/compliance/nugu/albertai/</guid><description>
+&lt;h3 id="뮤직-코딩-android">뮤직 코딩 Android&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Version&lt;/th>
+&lt;th style="text-align:center">OSS Notice&lt;/th>
+&lt;th style="text-align:center">Source Code&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>2.7.0&lt;/td>
+&lt;td style="text-align:center">&lt;a href="https://opensource.sktelecom.com/compliance_artifacts/albert_ai_music/android/2.7.0/Albert_AI_music_android_2.7.0_OSS_Notice.html">notice&lt;/a>&lt;/td>
+&lt;td style="text-align:center">-&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="linux">Linux&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Version&lt;/th>
+&lt;th style="text-align:center">OSS Notice&lt;/th>
+&lt;th style="text-align:center">Source Code&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>2.0.80&lt;/td>
+&lt;td style="text-align:center">&lt;a href="https://opensource.sktelecom.com/compliance_artifacts/albert/linux/2.0.80/Albert_linux_2.0.80_OSS_Notice.html">notice&lt;/a>&lt;/td>
+&lt;td style="text-align:center">&lt;a href="https://opensource.sktelecom.com/compliance_artifacts/albert/linux/2.0.80/Albert_linux_2.0.80_sourcecode.zip">zip&lt;/a>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table></description></item></channel></rss>
