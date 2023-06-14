@@ -4,8 +4,9 @@ linkTitle: "T deal"
 weight: 1
 type: docs
 description: >
-  Open Source Compliance Artifacts for T deal
 ---
+
+Open Source Compliance Artifacts for T deal
 
 ### Android
 

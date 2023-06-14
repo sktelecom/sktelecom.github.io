@@ -4,8 +4,9 @@ linkTitle: "NU310"
 weight: 10
 type: docs
 description: >
-  Open Source Compliance Artifacts for NU310
 ---
+
+Open Source Compliance Artifacts for NU310
 
 ### Speaker Home Launcher Android
 

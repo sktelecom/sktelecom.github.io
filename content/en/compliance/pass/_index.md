@@ -4,8 +4,9 @@ linkTitle: "PASS"
 weight: 1
 type: docs
 description: >
-  Open Source Compliance Artifacts for PASS
 ---
+
+Open Source Compliance Artifacts for PASS
 
 ### Android
 

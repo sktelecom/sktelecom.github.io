@@ -4,8 +4,9 @@ linkTitle: "PASS"
 weight: 1
 type: docs
 description: >
-  PASS 오픈소스 컴플라이언스 산출물
 ---
+
+PASS 오픈소스 컴플라이언스 산출물
 
 ### Android
 

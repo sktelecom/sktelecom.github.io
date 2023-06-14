@@ -4,8 +4,9 @@ linkTitle: "Devocean"
 weight: 1
 type: docs
 description: >
-  Open Source Compliance Artifacts for Devocean
 ---
+
+Open Source Compliance Artifacts for Devocean
 
 ### Android
 

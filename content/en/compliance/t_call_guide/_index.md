@@ -4,8 +4,9 @@ linkTitle: "T Call Guide"
 weight: 1
 type: docs
 description: >
-  Open Source Compliance Artifacts for T Call Guide
 ---
+
+Open Source Compliance Artifacts for T Call Guide
 
 ### Android
 

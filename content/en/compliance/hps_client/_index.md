@@ -4,8 +4,9 @@ linkTitle: "HPS Client"
 weight: 1
 type: docs
 description: >
-  Open Source Compliance Artifacts for HPS Client
 ---
+
+Open Source Compliance Artifacts for HPS Client
 
 ### Android
 

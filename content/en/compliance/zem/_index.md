@@ -4,8 +4,9 @@ linkTitle: "ZEM"
 weight: 1
 type: docs
 description: >
-  Open Source Compliance Artifacts for ZEM
 ---
+
+Open Source Compliance Artifacts for ZEM
 
 ### Android for children
 

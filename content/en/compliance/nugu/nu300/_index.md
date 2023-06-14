@@ -4,8 +4,9 @@ linkTitle: "NU300"
 weight: 10
 type: docs
 description: >
-  Open Source Compliance Artifacts for NU300
 ---
+
+Open Source Compliance Artifacts for NU300
 
 ### Home App Android
 

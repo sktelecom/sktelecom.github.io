@@ -4,8 +4,9 @@ linkTitle: "Grandview"
 weight: 1
 type: docs
 description: >
-  Grandview 오픈소스 컴플라이언스 산출물
 ---
+
+Grandview 오픈소스 컴플라이언스 산출물
 
 ### Android
 

@@ -4,8 +4,9 @@ linkTitle: "Meetus"
 weight: 1
 type: docs
 description: >
-  Open Source Compliance Artifacts for Meetus
 ---
+
+Open Source Compliance Artifacts for Meetus
 
 ### Android
 

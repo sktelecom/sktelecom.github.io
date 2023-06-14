@@ -4,8 +4,9 @@ linkTitle: "Jump"
 weight: 1
 type: docs
 description: >
-  Open Source Compliance Artifacts for Jump
 ---
+
+Open Source Compliance Artifacts for Jump
 
 ### Android
 

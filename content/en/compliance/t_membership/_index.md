@@ -4,8 +4,9 @@ linkTitle: "T membership"
 weight: 1
 type: docs
 description: >
-  Open Source Compliance Artifacts for T membership
 ---
+
+Open Source Compliance Artifacts for T membership
 
 ### Android
 

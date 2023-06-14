@@ -4,8 +4,9 @@ linkTitle: "Initial"
 weight: 1
 type: docs
 description: >
-  Open Source Compliance Artifacts for Initial
 ---
+
+Open Source Compliance Artifacts for Initial
 
 ### Android
 

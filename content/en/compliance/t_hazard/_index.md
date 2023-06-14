@@ -4,8 +4,9 @@ linkTitle: "T Hazard"
 weight: 1
 type: docs
 description: >
-  Open Source Compliance Artifacts for T Hazard
 ---
+
+Open Source Compliance Artifacts for T Hazard
 
 ### Android
 

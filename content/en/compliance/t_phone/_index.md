@@ -4,8 +4,9 @@ linkTitle: "T Phone"
 weight: 1
 type: docs
 description: >
-  Open Source Compliance Artifacts for T Phone
 ---
+
+Open Source Compliance Artifacts for T Phone
 
 ### Android
 

@@ -4,8 +4,9 @@ linkTitle: "GiveU"
 weight: 1
 type: docs
 description: >
-  Open Source Compliance Artifacts for GiveU
 ---
+
+Open Source Compliance Artifacts for GiveU
 
 ### Android
 

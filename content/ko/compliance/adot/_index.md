@@ -4,8 +4,9 @@ linkTitle: "A."
 weight: 1
 type: docs
 description: >
-  A. 오픈소스 컴플라이언스 산출물
 ---
+
+A. 오픈소스 컴플라이언스 산출물
 
 ### Android
 

@@ -4,8 +4,9 @@ linkTitle: "COOKIZ Watch JOON"
 weight: 1
 type: docs
 description: >
-  Open Source Compliance Artifacts for COOKIZ Watch JOON
 ---
+
+Open Source Compliance Artifacts for COOKIZ Watch JOON
 
 ### Android
 

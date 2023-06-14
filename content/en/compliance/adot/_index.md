@@ -4,8 +4,9 @@ linkTitle: "A."
 weight: 1
 type: docs
 description: >
-   Open Source Compliance Artifacts for A.
 ---
+
+Open Source Compliance Artifacts for A.
 
 ### Android
 

@@ -4,8 +4,9 @@ linkTitle: "Number Plus II"
 weight: 1
 type: docs
 description: >
-  Open Source Compliance Artifacts for Number Plus II
 ---
+
+Open Source Compliance Artifacts for Number Plus II
 
 ### Android
 

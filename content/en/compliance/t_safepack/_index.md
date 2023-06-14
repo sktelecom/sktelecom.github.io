@@ -4,8 +4,9 @@ linkTitle: "T kids safe pack"
 weight: 1
 type: docs
 description: >
-  Open Source Compliance Artifacts for T kids safe pack
 ---
+
+Open Source Compliance Artifacts for T kids safe pack
 
 ### Android for children
 

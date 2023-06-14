@@ -4,8 +4,9 @@ linkTitle: "AlbertAI"
 weight: 10
 type: docs
 description: >
-  Open Source Compliance Artifacts for AlbertAI
 ---
+
+Open Source Compliance Artifacts for AlbertAI
 
 ### Music Coding Android
 

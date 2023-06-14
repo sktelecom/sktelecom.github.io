@@ -4,8 +4,9 @@ linkTitle: "T deal"
 weight: 1
 type: docs
 description: >
-  T deal 오픈소스 컴플라이언스 산출물
 ---
+
+T deal 오픈소스 컴플라이언스 산출물
 
 ### Android
 

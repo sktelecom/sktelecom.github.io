@@ -4,8 +4,9 @@ linkTitle: "NUGU Updater"
 weight: 10
 type: docs
 description: >
-  Open Source Compliance Artifacts for NUGU Updater
 ---
+
+Open Source Compliance Artifacts for NUGU Updater
 
 ### Android
 

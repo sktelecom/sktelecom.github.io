@@ -4,8 +4,9 @@ linkTitle: "T memoring premium"
 weight: 1
 type: docs
 description: >
-  Open Source Compliance Artifacts for T memoring premium
 ---
+
+Open Source Compliance Artifacts for T memoring premium
 
 ### Android
 

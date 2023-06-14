@@ -4,8 +4,9 @@ linkTitle: "Initial"
 weight: 1
 type: docs
 description: >
-  Initial 오픈소스 컴플라이언스 산출물
 ---
+
+Initial 오픈소스 컴플라이언스 산출물
 
 ### Android
 

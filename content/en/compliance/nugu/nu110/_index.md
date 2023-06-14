@@ -4,8 +4,9 @@ linkTitle: "NU110"
 weight: 10
 type: docs
 description: >
-  Open Source Compliance Artifacts for NU110
 ---
+
+Open Source Compliance Artifacts for NU110
 
 ### Alexa Android
 

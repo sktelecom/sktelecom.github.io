@@ -4,8 +4,9 @@ linkTitle: "GiveU"
 weight: 1
 type: docs
 description: >
-  GiveU 오픈소스 컴플라이언스 산출물
 ---
+
+GiveU 오픈소스 컴플라이언스 산출물
 
 ### Android
 

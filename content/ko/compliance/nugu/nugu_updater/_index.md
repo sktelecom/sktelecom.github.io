@@ -4,8 +4,9 @@ linkTitle: "NUGU Updater"
 weight: 10
 type: docs
 description: >
-  NUGU Updater 오픈소스 컴플라이언스 산출물
 ---
+
+NUGU Updater 오픈소스 컴플라이언스 산출물
 
 ### Android
 

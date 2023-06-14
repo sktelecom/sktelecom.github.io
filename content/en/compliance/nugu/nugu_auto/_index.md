@@ -4,8 +4,9 @@ linkTitle: "NUGU auto"
 weight: 10
 type: docs
 description: >
-  Open Source Compliance Artifacts for NUGU auto
 ---
+
+Open Source Compliance Artifacts for NUGU auto
 
 ### Android
 

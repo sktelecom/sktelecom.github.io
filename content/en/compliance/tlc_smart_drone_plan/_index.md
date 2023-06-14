@@ -4,8 +4,9 @@ linkTitle: "TLC smart drone plan"
 weight: 1
 type: docs
 description: >
-  Open Source Compliance Artifacts for TLC smart drone plan
 ---
+
+Open Source Compliance Artifacts for TLC smart drone plan
 
 ### Android
 

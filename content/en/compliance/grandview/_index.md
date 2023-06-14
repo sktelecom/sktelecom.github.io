@@ -4,8 +4,9 @@ linkTitle: "Grandview"
 weight: 1
 type: docs
 description: >
-  Open Source Compliance Artifacts for Grandview
 ---
+
+Open Source Compliance Artifacts for Grandview
 
 ### Android
 

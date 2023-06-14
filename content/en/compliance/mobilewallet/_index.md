@@ -4,8 +4,9 @@ linkTitle: "Mobilewallet"
 weight: 1
 type: docs
 description: >
-  Open Source Compliance Artifacts for Mobilewallet
 ---
+
+Open Source Compliance Artifacts for Mobilewallet
 
 ### SDK Android
 

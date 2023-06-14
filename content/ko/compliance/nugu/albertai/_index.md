@@ -4,8 +4,9 @@ linkTitle: "알버트AI"
 weight: 10
 type: docs
 description: >
-  알버트AI 오픈소스 컴플라이언스 산출물
 ---
+
+알버트AI 오픈소스 컴플라이언스 산출물
 
 ### 뮤직 코딩 Android
 

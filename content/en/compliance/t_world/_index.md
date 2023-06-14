@@ -4,8 +4,9 @@ linkTitle: "T world"
 weight: 1
 type: docs
 description: >
-  Open Source Compliance Artifacts for T world
 ---
+
+Open Source Compliance Artifacts for T world
 
 ### Android
 

@@ -4,8 +4,9 @@ linkTitle: "T share"
 weight: 1
 type: docs
 description: >
-  Open Source Compliance Artifacts for T share
 ---
+
+Open Source Compliance Artifacts for T share
 
 ### Android
 

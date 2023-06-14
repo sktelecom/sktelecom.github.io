@@ -4,8 +4,9 @@ linkTitle: "NUGU Smarthome"
 weight: 10
 type: docs
 description: >
-  Open Source Compliance Artifacts for NUGU Smarthome
 ---
+
+Open Source Compliance Artifacts for NUGU Smarthome
 
 ### Android
 

@@ -4,8 +4,9 @@ linkTitle: "NUGU Mobile"
 weight: 10
 type: docs
 description: >
-  Open Source Compliance Artifacts for NUGU Mobile
 ---
+
+Open Source Compliance Artifacts for NUGU Mobile
 
 ### Android
 

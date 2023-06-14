@@ -4,8 +4,9 @@ linkTitle: "Jump"
 weight: 1
 type: docs
 description: >
-  Jump 오픈소스 컴플라이언스 산출물
 ---
+
+Jump 오픈소스 컴플라이언스 산출물
 
 ### Android
 
