@@ -103,7 +103,7 @@ LGPL-3.0하의 오픈소스를 빌드하여 바이너리 형태로만 재배포 
 라이브러리를 User Product와 배포한다면 설치 정보(Installation Information)을 제공한다. 
 
 - User Product : 전자 기기와 같은 Embedded Device
-- 설치 정보(Installation Information) : 사용자가 소소 코드를 빌드하여 다시 제품에 설치하기 위해 필요한 모든 정보 및 방법
+- 설치 정보(Installation Information) : 사용자가 소스 코드를 빌드하여 다시 제품에 설치하기 위해 필요한 모든 정보 및 방법
 
 {{% alert title="사용 제한" color="warning" %}}
 대부분의 User Product는 보안상의 이유로 설치 정보를 제공하는 것이 불가능하다. 따라서, User Product로 배포하는 소프트웨어에는 LGPL-3.0의 오픈소스를 사용하지 않아야 한다. 

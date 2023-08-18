@@ -102,7 +102,7 @@ Copyleft 라이선스 유형으로 분류할 수 있는 오픈소스 라이선�
 {{% alert title="주의 : GPL/LGPL-3.0 설치정보 제공 의무" color="danger" %}}
 GPL-3.0/LGPL-3.0하의 오픈소스가 설치된 사용자 제품(User Product)을 배포하기 위해서는 소스 코드 뿐만 아니라 설치 정보를 함께 제공해야 한다. 이는 기업이 준수하기 어려운 조건이기 때문에 <span style="color:red">일반적으로 GPL-3.0/LGPL-3.0의 오픈소스는 사용자 제품(User Product) 개발 시 사용할 수 없음에 주의</span>하라. 
 * 사용자 제품(User Product) : 전자 기기와 같은 embedded device
-* 설치 정보(Installation Information) : 사용자가 소소 코드를 빌드하여 다시 제품에 설치하기 위해 필요한 모든 정보 및 방법
+* 설치 정보(Installation Information) : 사용자가 소스 코드를 빌드하여 다시 제품에 설치하기 위해 필요한 모든 정보 및 방법
 {{% /alert %}}
 
 

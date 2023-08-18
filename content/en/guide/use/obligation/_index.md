@@ -93,7 +93,7 @@ Copyleft 라이선스 유형으로 분류할 수 있는 오픈소스 라이선�
 * [GNU Classpath’s GPL + exception](http://www.gnu.org/software/classpath/license.html)
 * [GNU GPL v1, v2, v3](http://opensource.org/licenses/gpl-license.php)
 {{% alert title="설치정보" color="danger" %}}
-GPL-3.0, LGPL-3.0하의 오픈소스가 설치된 제품(User Product)을 배포하기 위해서는 소스 코드 뿐만 아니라 설치 정보 (Installation Information : 사용자가 소소 코드를 빌드하여 다시 제품에 설치하기 위해 필요한 모든 정보 및 방법)를 함께 제공해야 한다. 이는 기업이 준수하기 어려운 조건이기 때문에 일반적으로 <span style="color:red">GPL-3.0, LGPL-3.0하의 오픈소스는 제품(User Product) 개발 시 사용할 수 없음</span>에 주의하라. 
+GPL-3.0, LGPL-3.0하의 오픈소스가 설치된 제품(User Product)을 배포하기 위해서는 소스 코드 뿐만 아니라 설치 정보 (Installation Information : 사용자가 소스 코드를 빌드하여 다시 제품에 설치하기 위해 필요한 모든 정보 및 방법)를 함께 제공해야 한다. 이는 기업이 준수하기 어려운 조건이기 때문에 일반적으로 <span style="color:red">GPL-3.0, LGPL-3.0하의 오픈소스는 제품(User Product) 개발 시 사용할 수 없음</span>에 주의하라. 
 {{% /alert %}}
 * Netscape Public License [NPL 1.0](http://www.mozilla.org/MPL/NPL/1.0/) and [NPL 1.1](http://www.mozilla.org/MPL/NPL/1.1/)
 * [OSL](http://opensource.org/licenses/osl-2.1.php)
