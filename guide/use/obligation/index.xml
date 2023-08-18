@@ -89,7 +89,7 @@ along with this program. If not, see &amp;lt;http://www.gnu.org/licenses/&amp;gt
 &lt;p>바이너리를 User Product와 배포한다면 설치 정보(Installation Information)을 제공한다.&lt;/p>
 &lt;ul>
 &lt;li>User Product : 전자 기기와 같은 Embedded Device&lt;/li>
-&lt;li>설치 정보(Installation Information) : 사용자가 소소 코드를 빌드하여 다시 제품에 설치하기 위해 필요한 모든 정보 및 방법&lt;/li>
+&lt;li>설치 정보(Installation Information) : 사용자가 소스 코드를 빌드하여 다시 제품에 설치하기 위해 필요한 모든 정보 및 방법&lt;/li>
 &lt;/ul>
 &lt;div class="alert alert-warning" role="alert">
 &lt;h4 class="alert-heading">사용 제한&lt;/h4>
@@ -588,7 +588,7 @@ along with this program. If not, see &amp;lt;http://www.gnu.org/licenses/&amp;gt
 &lt;p>바이너리를 User Product와 배포한다면 설치 정보(Installation Information)을 제공한다.&lt;/p>
 &lt;ul>
 &lt;li>User Product : 전자 기기와 같은 Embedded Device&lt;/li>
-&lt;li>설치 정보(Installation Information) : 사용자가 소소 코드를 빌드하여 다시 제품에 설치하기 위해 필요한 모든 정보 및 방법&lt;/li>
+&lt;li>설치 정보(Installation Information) : 사용자가 소스 코드를 빌드하여 다시 제품에 설치하기 위해 필요한 모든 정보 및 방법&lt;/li>
 &lt;/ul>
 &lt;div class="alert alert-warning" role="alert">
 &lt;h4 class="alert-heading">사용 제한&lt;/h4>
@@ -798,7 +798,7 @@ along with this program. If not, see &amp;lt;http://www.gnu.org/licenses/&amp;gt
 &lt;p>라이브러리를 User Product와 배포한다면 설치 정보(Installation Information)을 제공한다.&lt;/p>
 &lt;ul>
 &lt;li>User Product : 전자 기기와 같은 Embedded Device&lt;/li>
-&lt;li>설치 정보(Installation Information) : 사용자가 소소 코드를 빌드하여 다시 제품에 설치하기 위해 필요한 모든 정보 및 방법&lt;/li>
+&lt;li>설치 정보(Installation Information) : 사용자가 소스 코드를 빌드하여 다시 제품에 설치하기 위해 필요한 모든 정보 및 방법&lt;/li>
 &lt;/ul>
 &lt;div class="alert alert-warning" role="alert">
 &lt;h4 class="alert-heading">사용 제한&lt;/h4>

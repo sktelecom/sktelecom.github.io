@@ -212,7 +212,7 @@ at no charge to all third parties under the terms of this License.
 &lt;li>&lt;a href="http://opensource.org/licenses/gpl-license.php">GNU GPL v1, v2, v3&lt;/a>
 &lt;div class="alert alert-danger" role="alert">
 &lt;h4 class="alert-heading">설치정보&lt;/h4>
-GPL-3.0, LGPL-3.0하의 오픈소스가 설치된 제품(User Product)을 배포하기 위해서는 소스 코드 뿐만 아니라 설치 정보 (Installation Information : 사용자가 소소 코드를 빌드하여 다시 제품에 설치하기 위해 필요한 모든 정보 및 방법)를 함께 제공해야 한다. 이는 기업이 준수하기 어려운 조건이기 때문에 일반적으로 &lt;span style="color:red">GPL-3.0, LGPL-3.0하의 오픈소스는 제품(User Product) 개발 시 사용할 수 없음&lt;/span>에 주의하라.
+GPL-3.0, LGPL-3.0하의 오픈소스가 설치된 제품(User Product)을 배포하기 위해서는 소스 코드 뿐만 아니라 설치 정보 (Installation Information : 사용자가 소스 코드를 빌드하여 다시 제품에 설치하기 위해 필요한 모든 정보 및 방법)를 함께 제공해야 한다. 이는 기업이 준수하기 어려운 조건이기 때문에 일반적으로 &lt;span style="color:red">GPL-3.0, LGPL-3.0하의 오픈소스는 제품(User Product) 개발 시 사용할 수 없음&lt;/span>에 주의하라.
 &lt;/div>
 &lt;/li>
 &lt;li>Netscape Public License &lt;a href="http://www.mozilla.org/MPL/NPL/1.0/">NPL 1.0&lt;/a> and &lt;a href="http://www.mozilla.org/MPL/NPL/1.1/">NPL 1.1&lt;/a>&lt;/li>
