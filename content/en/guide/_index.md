@@ -13,7 +13,9 @@ aliases:
 ---
 
 {{% alert title="NOTICE" color="success" %}}
-오픈소스의 개방과 공유의 정신에 따라 SK텔레콤은 내부 구성원들을 위한 오픈소스 가이드를 누구나 활용할 수 있도록 공개하였다. (단, 사내 시스템 Link 등 일부 내용은 제외하였다.)
+We, SK telecom, which respects the spirit of openness and sharing, has released open source guide documents for internal members so that anyone can use it. (However, some contents such as the website link of the company system are excluded.)
+
+This guide is only available in Korean.
 {{% /alert %}}
 
 ## 들어가며
