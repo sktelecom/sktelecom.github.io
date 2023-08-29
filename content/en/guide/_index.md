@@ -34,6 +34,8 @@ SK텔레콤 OSPO(Open Source Program Office, 2021년 2월 기준, T3K ESG Tech P
 
 ![ospo](./ospo.png)
 
+(이미지 출처 : https://opensource.com/article/20/5/open-source-program-office)
+
 1. [오픈소스 사용하기](/guide/use) (Consume open source projects)
    * 외부 오픈소스를 가져와서 SK텔레콤의 제품이나 서비스에 사용하는 방법과 주의해야 할 사항들을 설명한다.
 2. [오픈소스 기여하기](/guide/contribute) (Contribute to open source projects)
