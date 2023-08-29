@@ -13,9 +13,7 @@ aliases:
 ---
 
 {{% alert title="NOTICE" color="success" %}}
-We, SK telecom, which respects the spirit of openness and sharing, has released open source guide documents for internal members so that anyone can use it. (However, some contents such as the website link of the company system are excluded.)
-
-This guide is only available in Korean.
+오픈소스의 개방과 공유의 정신에 따라 SK텔레콤은 내부 구성원들을 위한 오픈소스 가이드를 누구나 활용할 수 있도록 공개하였다. (단, 사내 시스템 Link 등 일부 내용은 제외하였다.)
 {{% /alert %}}
 
 ## 들어가며
@@ -33,6 +31,8 @@ SK텔레콤 OSPO(Open Source Program Office, 2021년 2월 기준, T3K ESG Tech P
 이 가이드는 다음 세가지 주제로 구성된다.
 
 ![ospo](./ospo.png)
+
+(이미지 출처 : https://opensource.com/article/20/5/open-source-program-office)
 
 1. [오픈소스 사용하기](/guide/use) (Consume open source projects)
    * 외부 오픈소스를 가져와서 SK텔레콤의 제품이나 서비스에 사용하는 방법과 주의해야 할 사항들을 설명한다.
