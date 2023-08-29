@@ -6,6 +6,17 @@ type: docs
 description:  "[Apache-2.0](http://www.apache.org/licenses/LICENSE-2.0)은 [Apache Software Foundation](https://www.apache.org/)에서 만든 오픈소스 라이선스이며, 소스 코드 공개를 요구하지 않는 Permissive 형태의 라이선스이다. "
 ---
 
+{{% alert title="의무사항 요약" color="primary" %}}
+<div class="-bg-100 p-3">
+
+> - 소스 형태로 재배포    
+>   - 고지 의무 : 소스 코드 내 명시된 저작권/라이선스 정보를 그대로 유지한 상태로 재배포한다.    
+>   - 수정 사항에 대한 고지를 포함한다. (예: 수정일, 수정내용을 주석 형태로 포함)    
+> - 바이너리 형태로 재배포    
+>   - 고지 의무 : 오픈소스 고지문을 생성하여 바이너리 재배포 시 동봉한다.    
+
+</div>
+{{% /alert %}}
 
 ## 소스 코드 내 라이선스 문구
 

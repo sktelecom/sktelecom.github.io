@@ -6,6 +6,26 @@ type: docs
 description: "[Free Software Foundation](http://www.fsf.org/)은 2007년 [LGPL-3.0](https://www.gnu.org/licenses/lgpl-3.0.en.html)을 공개하였다. LGPL-3.0은 LGPL-2.1과 유사한 의무사항을 갖지만, 추가로 User Product 배포 시, 설치 정보(Installation Information) 제공을 요구한다. "
 ---
 
+{{% alert title="의무사항 요약" color="primary" %}}
+<div class="-bg-100 p-3">
+
+> - 소스 형태로 재배포 
+>   - 고지 의무 : 소스 코드 내 명시된 저작권/라이선스 정보를 그대로 유지한 상태로 재배포한다. 
+>     - 수정시 의무사항 
+>       - 추가/수정한 부분에 LGPL-3.0을 적용한다.
+>       - 수정 사항에 대한 고지를 포함한다. (예: 수정일, 수정내용을 주석 형태로 포함)
+> - 바이너리 형태로 재배포 
+>   - 고지 의무 : 오픈소스 고지문을 생성하여 바이너리 재배포 시 동봉한다. 
+>     - 수정시 의무사항
+>       - 추가/수정한 부분에 LGPL-3.0을 적용한다.
+>       - 수정 사항에 대한 고지를 포함한다. (예: 오픈소스 고지문에 수정일, 수정내용을 포함)
+>     - 소스 코드 제공 의무
+>       - <span class="-text-warning">바이너리(라이브러리)에 해당하는 **전체** 소스 코드를 제공한다.</span>
+>       - 사용자가 공개된 LGPL 라이브러리의 소스 코드를 빌드하여 동일한 라이브러리를 만들 수 있는  <span class="-text-warning">빌드 환경</span>을 제공한다.
+>   - **설치 정보 제공 의무 : 라이브러리를 User Product와 배포한다면 설치 정보(Installation Information)을 제공한다.**
+
+</div>
+{{% /alert %}}
 
 ## 소스 코드 내 라이선스 문구
 LGPL-3.0하의 오픈소스는 일반적으로 소스 코드 상단에 다음과 같은 문구가 있다. 

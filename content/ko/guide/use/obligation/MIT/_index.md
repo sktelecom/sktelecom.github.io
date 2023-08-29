@@ -6,6 +6,16 @@ type: docs
 description:  "[MIT](https://opensource.org/licenses/MIT) 라이선스는 Massachusetts Institute of Technology (MIT)에서 만들었으며, 소스 코드 공개를 요구하지 않는 대표적인 Permissive한 라이선스이다. "
 ---
 
+{{% alert title="의무사항 요약" color="primary" %}}
+<div class="-bg-100 p-3">
+
+> - 소스 형태로 재배포    
+>   - 고지 의무 : 소스 코드 내 명시된 저작권/라이선스 정보를 그대로 유지한 상태로 재배포한다.  
+> - 바이너리 형태로 재배포    
+>   - 고지 의무 : 오픈소스 고지문을 생성하여 바이너리 재배포 시 동봉한다.    
+
+</div>
+{{% /alert %}}
 
 ## 소스 코드 내 라이선스 문구
 

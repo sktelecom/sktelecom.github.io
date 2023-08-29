@@ -6,6 +6,16 @@ type: docs
 description:  "[BSD-3-Clause](https://opensource.org/licenses/BSD-3-Clause) 라이선스는 BSD 3-Clause \"New\" or \"Revised\" License 라고도 불리며 소스 코드 공개를 요구하지는 않는 Permissive한 라이선스이다.  BSD-4-Clause에서 문제가 된 \"advertising clause\" 이 삭제되었다."
 ---
 
+{{% alert title="의무사항 요약" color="primary" %}}
+<div class="-bg-100 p-3">
+
+> - 소스 형태로 재배포    
+>   - 고지 의무 : 소스 코드 내 명시된 저작권/라이선스 정보를 그대로 유지한 상태로 재배포한다.  
+> - 바이너리 형태로 재배포    
+>   - 고지 의무 : 오픈소스 고지문을 생성하여 바이너리 재배포 시 동봉한다.    
+
+</div>
+{{% /alert %}}
 
 ## 소스 코드 내 라이선스 문구
 BSD-3-Clause하의 오픈소스는 일반적으로 소스 코드 상단에 다음과 같은 문구가 있다. 

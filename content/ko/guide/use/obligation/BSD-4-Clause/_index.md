@@ -6,6 +6,20 @@ type: docs
 description:  "[BSD-4-Clause](https://directory.fsf.org/wiki/License:BSD-4-Clause) 라이선스는 BSD \"Original\" or \"Old\" License 라고도 불리는 BSD 라이선스의 원형이로써, 소스 코드 공개를 요구하지는 않지만, 광고 조항 (advertising clause)를 포함하고 있어서 사용하는데 문제가 된다. "
 ---
 
+{{% alert title="의무사항 요약" color="primary" %}}
+<div class="-bg-100 p-3">
+
+> - 소스 형태로 재배포    
+>   - 고지 의무 : 소스 코드 내 명시된 저작권/라이선스 정보를 그대로 유지한 상태로 재배포한다.  
+>   - BSD-4-Clause하 오픈소스의 기능 / 활용을 언급하는 모든 광고에 다음 문구 포함  
+      <i>"This product includes software developed by the <organization>."</i>
+> - 바이너리 형태로 재배포    
+>   - 고지 의무 : 오픈소스 고지문을 생성하여 바이너리 재배포 시 동봉한다.  
+>   - BSD-4-Clause하 오픈소스의 기능 / 활용을 언급하는 모든 광고에 다음 문구 포함  
+      <i>"This product includes software developed by the <organization>."</i>
+
+</div>
+{{% /alert %}}
 
 ## 소스 코드 내 라이선스 문구
 BSD-4-Clause하의 오픈소스는 일반적으로 소스 코드 상단에 다음과 같은 문구가 있다. 
