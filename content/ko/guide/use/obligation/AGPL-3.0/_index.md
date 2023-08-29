@@ -3,7 +3,7 @@ title: "AGPL-3.0 가이드"
 linkTitle: "AGPL-3.0"
 weight: 10
 type: docs
-description: "[Free Software Foundation](http://www.fsf.org/)은 2007년 [AGPL-3.0](https://www.gnu.org/licenses/AGPL-3.0.html)을 공개하였다. AGPL-3.0은 GPL-3.0에 네트워크로 상호 작용하는 소프트웨어의 소스 코드도 공개해야 한다는 조항을 추가한 라이선스이다."
+description: "[Free Software Foundation](http://www.fsf.org/)은 2007년 [AGPL-3.0](https://www.gnu.org/licenses/agpl-3.0.html)을 공개하였다. AGPL-3.0은 GPL-3.0에 네트워크로 상호 작용하는 소프트웨어의 소스 코드도 공개해야 한다는 조항을 추가한 라이선스이다."
 ---
 
 {{% alert title="의무사항 요약" color="primary" %}}
@@ -98,14 +98,14 @@ AGPL-3.0하의 오픈소스를 빌드하여 바이너리 형태로만 재배포 
 일반적인 AGPL-3.0의 파생 저작물의 범위는 다음과 같다. 
 
 * 수정 코드
-* GPL 프로그램과 동일한 프로세스에서 동작하는 Module
-* GPL 프로그램과 링크로 연결한 Library
-* GPL 프로그램을 상속한 Class
+* AGPL 프로그램과 동일한 프로세스에서 동작하는 Module
+* AGPL 프로그램과 링크로 연결한 Library
+* AGPL 프로그램을 상속한 Class
 
 다음의 경우 GPL의 파생 저작물로 보지 않는다. 
 
-* CD와 같은 매체에 함께 존재하지만 GPL프로그램과 전혀 연동하지 않는 독립 프로그램 (#[MereAggregation](https://www.gnu.org/licenses/gpl-faq.en.html#MereAggregation))
-* GPL 프로그램과는 별도의 프로그램으로써 Pipe, Socket, IPC, Command Line Arguments로 GPL 프로그램과 통신하는 경우 
+* CD와 같은 매체에 함께 존재하지만 AGPL 프로그램과 전혀 연동하지 않는 독립 프로그램 (#[MereAggregation](https://www.gnu.org/licenses/gpl-faq.en.html#MereAggregation))
+* AGPL 프로그램과는 별도의 프로그램으로써 Pipe, Socket, IPC, Command Line Arguments로 AGPL 프로그램과 통신하는 경우 
 
 
 {{% /alert %}}
