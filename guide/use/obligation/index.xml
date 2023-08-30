@@ -104,14 +104,14 @@ along with this program. If not, see &amp;lt;http://www.gnu.org/licenses/&amp;gt
 &lt;p>일반적인 AGPL-3.0의 파생 저작물의 범위는 다음과 같다.&lt;/p>
 &lt;ul>
 &lt;li>수정 코드&lt;/li>
-&lt;li>GPL 프로그램과 동일한 프로세스에서 동작하는 Module&lt;/li>
-&lt;li>GPL 프로그램과 링크로 연결한 Library&lt;/li>
-&lt;li>GPL 프로그램을 상속한 Class&lt;/li>
+&lt;li>AGPL 프로그램과 동일한 프로세스에서 동작하는 Module&lt;/li>
+&lt;li>AGPL 프로그램과 링크로 연결한 Library&lt;/li>
+&lt;li>AGPL 프로그램을 상속한 Class&lt;/li>
 &lt;/ul>
 &lt;p>다음의 경우 GPL의 파생 저작물로 보지 않는다.&lt;/p>
 &lt;ul>
-&lt;li>CD와 같은 매체에 함께 존재하지만 GPL프로그램과 전혀 연동하지 않는 독립 프로그램 (#&lt;a href="https://www.gnu.org/licenses/gpl-faq.en.html#MereAggregation">MereAggregation&lt;/a>)&lt;/li>
-&lt;li>GPL 프로그램과는 별도의 프로그램으로써 Pipe, Socket, IPC, Command Line Arguments로 GPL 프로그램과 통신하는 경우&lt;/li>
+&lt;li>CD와 같은 매체에 함께 존재하지만 AGPL 프로그램과 전혀 연동하지 않는 독립 프로그램 (#&lt;a href="https://www.gnu.org/licenses/gpl-faq.en.html#MereAggregation">MereAggregation&lt;/a>)&lt;/li>
+&lt;li>AGPL 프로그램과는 별도의 프로그램으로써 Pipe, Socket, IPC, Command Line Arguments로 AGPL 프로그램과 통신하는 경우&lt;/li>
 &lt;/ul>
 &lt;/div>
 &lt;ol>
