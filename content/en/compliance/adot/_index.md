@@ -12,6 +12,7 @@ Open Source Compliance Artifacts for A.
 
 | Version | OSS Notice | Source Code |
 |---|:---:|:---:|
+| 2.5.0 | [notice](https://opensource.sktelecom.com/compliance_artifacts/a./android/2.5.0/Adot_android_2.5.0_OSS_Notice.html)  | - |
 | 2.4.0 | [notice](https://opensource.sktelecom.com/compliance_artifacts/a./android/2.4.0/Adot_android_2.4.0_OSS_Notice.html)  | - |
 | 2.3.0 | [notice](https://opensource.sktelecom.com/compliance_artifacts/a./android/2.3.0/Adot_android_2.3.0_OSS_Notice.html)  | - |
 | 2.2.0 | [notice](https://opensource.sktelecom.com/compliance_artifacts/a./android/2.2.0/Adot_android_2.2.0_OSS_Notice.html)  | - |
@@ -27,6 +28,7 @@ Open Source Compliance Artifacts for A.
 
 | Version | OSS Notice | Source Code |
 |---|:---:|:---:|
+| 2.5.0 | [notice](https://opensource.sktelecom.com/compliance_artifacts/a./ios/2.5.0/Adot_iOS_2.5.0_OSS_Notice.html)  | [zip](https://opensource.sktelecom.com/compliance_artifacts/a./ios/1.5.0/libical.zip) |
 | 2.4.0 | [notice](https://opensource.sktelecom.com/compliance_artifacts/a./ios/2.4.0/Adot_iOS_2.4.0_OSS_Notice.html)  | [zip](https://opensource.sktelecom.com/compliance_artifacts/a./ios/1.5.0/libical.zip) |
 | 2.3.0 | [notice](https://opensource.sktelecom.com/compliance_artifacts/a./ios/2.3.0/Adot_iOS_2.3.0_OSS_Notice.html)  | [zip](https://opensource.sktelecom.com/compliance_artifacts/a./ios/1.5.0/libical.zip) |
 | 2.2.0 | [notice](https://opensource.sktelecom.com/compliance_artifacts/a./ios/2.2.0/Adot_iOS_2.2.0_OSS_Notice.html)  | [zip](https://opensource.sktelecom.com/compliance_artifacts/a./ios/1.5.0/libical.zip) |
