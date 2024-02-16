@@ -12,7 +12,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "autoprefixer": "^10.4.5",
+    "autoprefixer": "^10.4.17",
     "postcss": "^8.4.12",
     "postcss-cli": "^9.1.0"
   }
