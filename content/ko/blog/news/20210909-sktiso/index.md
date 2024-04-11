@@ -21,4 +21,4 @@ SK텔레콤(대표이사 박정호, www.sktelecom.com)은 국제표준화기구(
 
 ---
 
-자세한 내용은 기사 원문에서 확인하세요. : https://www.fntimes.com/html/view.php?ud=202106140855478693645ffc9771_18
+자세한 내용은 기사 원문에서 확인하세요. : https://news.sktelecom.com/147961
