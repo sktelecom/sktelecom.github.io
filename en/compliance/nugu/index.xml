@@ -183,6 +183,24 @@
 &lt;td style="text-align:center">-&lt;/td>
 &lt;/tr>
 &lt;/tbody>
+&lt;/table></description></item><item><title>Compliance: NUGU Btv</title><link>/en/compliance/nugu/nugu_btv/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/en/compliance/nugu/nugu_btv/</guid><description>
+&lt;p>Open Source Compliance Artifacts for NUGU Btv&lt;/p>
+&lt;h3 id="android">Android&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Version&lt;/th>
+&lt;th style="text-align:center">OSS Notice&lt;/th>
+&lt;th style="text-align:center">Source Code&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>3.16.7&lt;/td>
+&lt;td style="text-align:center">&lt;a href="https://opensource.sktelecom.com/compliance_artifacts/nugu_btv/android/3.16.7/Btv_NUGU_3.16.7_OSS_Notice.html">notice&lt;/a>&lt;/td>
+&lt;td style="text-align:center">-&lt;/td>
+&lt;/tr>
+&lt;/tbody>
 &lt;/table></description></item><item><title>Compliance: NUGU Mobile</title><link>/en/compliance/nugu/nugu_mobile/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/en/compliance/nugu/nugu_mobile/</guid><description>
 &lt;p>Open Source Compliance Artifacts for NUGU Mobile&lt;/p>
 &lt;h3 id="android">Android&lt;/h3>
