@@ -6,7 +6,7 @@ type: docs
 description: >
 ---
 
-Open Source Compliance Artifacts for AlbertAI
+Open Source Notice & Source Code for AlbertAI
 
 ### Music Coding Android
 

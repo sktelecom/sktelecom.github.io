@@ -6,7 +6,7 @@ type: docs
 description: >
 ---
 
-NU110 오픈소스 컴플라이언스 산출물
+NU110 오픈소스 고지문 / 소스 코드
 
 ### Alexa Android
 

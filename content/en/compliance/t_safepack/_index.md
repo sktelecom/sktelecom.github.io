@@ -6,7 +6,7 @@ type: docs
 description: >
 ---
 
-Open Source Compliance Artifacts for T kids safe pack
+Open Source Notice & Source Code for T kids safe pack
 
 ### Android for children
 

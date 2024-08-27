@@ -6,4 +6,4 @@ type: docs
 description: >
 ---
 
-Open Source Compliance Artifacts for NUGU
+Open Source Notice & Source Code for NUGU

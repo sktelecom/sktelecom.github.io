@@ -6,7 +6,7 @@ type: docs
 description: >
 ---
 
-Open Source Compliance Artifacts for GiveU
+Open Source Notice & Source Code for GiveU
 
 ### Android
 

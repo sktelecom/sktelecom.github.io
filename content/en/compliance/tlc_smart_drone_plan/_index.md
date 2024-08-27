@@ -6,7 +6,7 @@ type: docs
 description: >
 ---
 
-Open Source Compliance Artifacts for TLC smart drone plan
+Open Source Notice & Source Code for TLC smart drone plan
 
 ### Android
 

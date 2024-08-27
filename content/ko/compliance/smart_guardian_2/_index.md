@@ -6,7 +6,7 @@ type: docs
 description: >
 ---
 
-Smart [지킴이2] 오픈소스 컴플라이언스 산출물
+Smart [지킴이2] 오픈소스 고지문 / 소스 코드
 
 ### Android
 

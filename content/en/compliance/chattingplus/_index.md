@@ -6,7 +6,7 @@ type: docs
 description: >
 ---
 
-Open Source Compliance Artifacts for Chatting+
+Open Source Notice & Source Code for Chatting+
 
 ### Windows
 

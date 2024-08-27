@@ -6,7 +6,7 @@ type: docs
 description: >
 ---
 
-Open Source Compliance Artifacts for NU110
+Open Source Notice & Source Code for NU110
 
 ### Alexa Android
 

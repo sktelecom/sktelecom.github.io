@@ -6,7 +6,7 @@ type: docs
 description: >
 ---
 
-Open Source Compliance Artifacts for Ifland
+Open Source Notice & Source Code for Ifland
 
 ### Android
 

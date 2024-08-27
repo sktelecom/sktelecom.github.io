@@ -6,7 +6,7 @@ type: docs
 description: >
 ---
 
-Open Source Compliance Artifacts for ZEM
+Open Source Notice & Source Code for ZEM
 
 ### Android for children
 

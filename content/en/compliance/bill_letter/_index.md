@@ -6,7 +6,7 @@ type: docs
 description: >
 ---
 
-Open Source Compliance Artifacts for Bill Letter
+Open Source Notice & Source Code for Bill Letter
 
 ### Android
 

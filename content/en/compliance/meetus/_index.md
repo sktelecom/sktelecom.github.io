@@ -6,7 +6,7 @@ type: docs
 description: >
 ---
 
-Open Source Compliance Artifacts for Meetus
+Open Source Notice & Source Code for Meetus
 
 ### Android
 

@@ -6,7 +6,7 @@ type: docs
 description: >
 ---
 
-Open Source Compliance Artifacts for Number Plus II
+Open Source Notice & Source Code for Number Plus II
 
 ### Android
 

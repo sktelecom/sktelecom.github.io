@@ -6,7 +6,7 @@ type: docs
 description: >
 ---
 
-Open Source Compliance Artifacts for T memoring premium
+Open Source Notice & Source Code for T memoring premium
 
 ### Android
 

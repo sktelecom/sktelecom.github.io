@@ -6,7 +6,7 @@ type: docs
 description: >
 ---
 
-Open Source Compliance Artifacts for A.
+Open Source Notice & Source Code for A.
 
 ### Android
 

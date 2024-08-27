@@ -6,7 +6,7 @@ type: docs
 description: >
 ---
 
-Open Source Compliance Artifacts for NU310
+Open Source Notice & Source Code for NU310
 
 ### Speaker Home Launcher Android
 

@@ -6,7 +6,7 @@ type: docs
 description: >
 ---
 
-Open Source Compliance Artifacts for NU300
+Open Source Notice & Source Code for NU300
 
 ### Home App Android
 

@@ -6,7 +6,7 @@ type: docs
 description: >
 ---
 
-Open Source Compliance Artifacts for Jump
+Open Source Notice & Source Code for Jump
 
 ### Android
 

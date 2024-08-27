@@ -6,7 +6,7 @@ type: docs
 description: >
 ---
 
-Open Source Compliance Artifacts for T Call Guide
+Open Source Notice & Source Code for T Call Guide
 
 ### Android
 

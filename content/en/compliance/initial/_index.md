@@ -6,7 +6,7 @@ type: docs
 description: >
 ---
 
-Open Source Compliance Artifacts for Initial
+Open Source Notice & Source Code for Initial
 
 ### Android
 

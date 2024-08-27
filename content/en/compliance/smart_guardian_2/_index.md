@@ -6,7 +6,7 @@ type: docs
 description: >
 ---
 
-Open Source Compliance Artifacts for Smart [Guardian2]
+Open Source Notice & Source Code for Smart [Guardian2]
 
 ### Android
 

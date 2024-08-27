@@ -6,7 +6,7 @@ type: docs
 description: >
 ---
 
-Open Source Compliance Artifacts for PASS
+Open Source Notice & Source Code for PASS
 
 ### Android
 

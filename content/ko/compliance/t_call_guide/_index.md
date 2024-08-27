@@ -5,7 +5,7 @@ weight: 1
 type: docs
 description: >
 ---
-T 통화매니저 오픈소스 컴플라이언스 산출물
+T 통화매니저 오픈소스 고지문 / 소스 코드
 
 ### Android
 

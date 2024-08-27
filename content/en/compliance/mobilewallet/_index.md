@@ -6,7 +6,7 @@ type: docs
 description: >
 ---
 
-Open Source Compliance Artifacts for Mobilewallet
+Open Source Notice & Source Code for Mobilewallet
 
 ### SDK Android
 

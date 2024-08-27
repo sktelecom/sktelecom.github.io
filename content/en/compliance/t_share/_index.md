@@ -6,7 +6,7 @@ type: docs
 description: >
 ---
 
-Open Source Compliance Artifacts for T share
+Open Source Notice & Source Code for T share
 
 ### Android
 

@@ -6,7 +6,7 @@ type: docs
 description: >
 ---
 
-Open Source Compliance Artifacts for HPS Client
+Open Source Notice & Source Code for HPS Client
 
 ### Android
 

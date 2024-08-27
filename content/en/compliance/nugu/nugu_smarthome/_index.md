@@ -6,7 +6,7 @@ type: docs
 description: >
 ---
 
-Open Source Compliance Artifacts for NUGU Smarthome
+Open Source Notice & Source Code for NUGU Smarthome
 
 ### Android
 

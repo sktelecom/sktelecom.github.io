@@ -6,7 +6,7 @@ type: docs
 description: >
 ---
 
-Open Source Compliance Artifacts for NUGU auto
+Open Source Notice & Source Code for NUGU auto
 
 ### Android
 

@@ -6,7 +6,7 @@ type: docs
 description: >
 ---
 
-Open Source Compliance Artifacts for Pettodac
+Open Source Notice & Source Code for Pettodac
 
 ### Android
 

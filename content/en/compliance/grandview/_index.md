@@ -6,7 +6,7 @@ type: docs
 description: >
 ---
 
-Open Source Compliance Artifacts for Grandview
+Open Source Notice & Source Code for Grandview
 
 ### Android
 

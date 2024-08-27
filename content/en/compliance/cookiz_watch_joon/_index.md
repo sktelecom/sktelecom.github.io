@@ -6,7 +6,7 @@ type: docs
 description: >
 ---
 
-Open Source Compliance Artifacts for COOKIZ Watch JOON
+Open Source Notice & Source Code for COOKIZ Watch JOON
 
 ### Android
 

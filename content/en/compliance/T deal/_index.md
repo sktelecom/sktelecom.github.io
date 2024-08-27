@@ -6,7 +6,7 @@ type: docs
 description: >
 ---
 
-Open Source Compliance Artifacts for T deal
+Open Source Notice & Source Code for T deal
 
 ### Android
 

@@ -6,7 +6,7 @@ type: docs
 description: >
 ---
 
-Bill Letter 오픈소스 컴플라이언스 산출물
+Bill Letter 오픈소스 고지문 / 소스 코드
 
 ### Android
 

@@ -6,7 +6,7 @@ type: docs
 description: >
 ---
 
-Open Source Compliance Artifacts for BizRCS Generator
+Open Source Notice & Source Code for BizRCS Generator
 
 ### SDK
 

@@ -6,7 +6,7 @@ type: docs
 description: >
 ---
 
-Open Source Compliance Artifacts for Devocean
+Open Source Notice & Source Code for Devocean
 
 ### Android
 

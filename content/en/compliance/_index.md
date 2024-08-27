@@ -1,10 +1,10 @@
 ---
-title: "Open Source Compliance Artifacts"
+title: "Open Source Notice & Source Code"
 linkTitle: "Compliance"
 weight: 35
 type: docs
 description: >
-  Here, you can see open source compliance artifacts for SK telecom's products/services.
+  Here, you can see Open Source Notice & Source Code for SK telecom's products/services.
 menu:
   main:
     weight: 35
@@ -12,7 +12,7 @@ menu:
 
 {{% alert color="warning" %}}
 
-* Open source compliance artifacts for products prior to April 2021 were enclosed with each product/service.
+* Open Source Notice & Source Code for products prior to April 2021 were enclosed with each product/service.
 * SK Telecom complies with all requirements of ISO/IEC 5230. : [Compliant with ISO/IEC 5230:2020 OpenChain standard](./iso5230)
 
 {{% /alert %}}

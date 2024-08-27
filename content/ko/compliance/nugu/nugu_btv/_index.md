@@ -6,7 +6,7 @@ type: docs
 description: >
 ---
 
-NUGU Btv 오픈소스 컴플라이언스 산출물
+NUGU Btv 오픈소스 고지문 / 소스 코드
 
 ### Android
 
