@@ -1,5 +1,5 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SKT Open Source – NUGU</title><link>/en/compliance/nugu/</link><description>Recent content in NUGU on SKT Open Source</description><generator>Hugo -- gohugo.io</generator><language>ko-kr</language><atom:link href="/en/compliance/nugu/index.xml" rel="self" type="application/rss+xml"/><item><title>Compliance: AlbertAI</title><link>/en/compliance/nugu/albertai/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/en/compliance/nugu/albertai/</guid><description>
-&lt;p>Open Source Compliance Artifacts for AlbertAI&lt;/p>
+&lt;p>Open Source Notice &amp;amp; Source Code for AlbertAI&lt;/p>
 &lt;h3 id="music-coding-android">Music Coding Android&lt;/h3>
 &lt;table>
 &lt;thead>
@@ -34,7 +34,7 @@
 &lt;/tr>
 &lt;/tbody>
 &lt;/table></description></item><item><title>Compliance: NU110</title><link>/en/compliance/nugu/nu110/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/en/compliance/nugu/nu110/</guid><description>
-&lt;p>Open Source Compliance Artifacts for NU110&lt;/p>
+&lt;p>Open Source Notice &amp;amp; Source Code for NU110&lt;/p>
 &lt;h3 id="alexa-android">Alexa Android&lt;/h3>
 &lt;table>
 &lt;thead>
@@ -52,7 +52,7 @@
 &lt;/tr>
 &lt;/tbody>
 &lt;/table></description></item><item><title>Compliance: NU300</title><link>/en/compliance/nugu/nu300/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/en/compliance/nugu/nu300/</guid><description>
-&lt;p>Open Source Compliance Artifacts for NU300&lt;/p>
+&lt;p>Open Source Notice &amp;amp; Source Code for NU300&lt;/p>
 &lt;h3 id="home-app-android">Home App Android&lt;/h3>
 &lt;table>
 &lt;thead>
@@ -87,7 +87,7 @@
 &lt;/tr>
 &lt;/tbody>
 &lt;/table></description></item><item><title>Compliance: NU310</title><link>/en/compliance/nugu/nu310/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/en/compliance/nugu/nu310/</guid><description>
-&lt;p>Open Source Compliance Artifacts for NU310&lt;/p>
+&lt;p>Open Source Notice &amp;amp; Source Code for NU310&lt;/p>
 &lt;h3 id="speaker-home-launcher-android">Speaker Home Launcher Android&lt;/h3>
 &lt;table>
 &lt;thead>
@@ -156,7 +156,7 @@
 &lt;/tr>
 &lt;/tbody>
 &lt;/table></description></item><item><title>Compliance: NUGU auto</title><link>/en/compliance/nugu/nugu_auto/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/en/compliance/nugu/nugu_auto/</guid><description>
-&lt;p>Open Source Compliance Artifacts for NUGU auto&lt;/p>
+&lt;p>Open Source Notice &amp;amp; Source Code for NUGU auto&lt;/p>
 &lt;h3 id="android">Android&lt;/h3>
 &lt;table>
 &lt;thead>
@@ -184,7 +184,7 @@
 &lt;/tr>
 &lt;/tbody>
 &lt;/table></description></item><item><title>Compliance: NUGU Btv</title><link>/en/compliance/nugu/nugu_btv/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/en/compliance/nugu/nugu_btv/</guid><description>
-&lt;p>Open Source Compliance Artifacts for NUGU Btv&lt;/p>
+&lt;p>Open Source Notice &amp;amp; Source Code for NUGU Btv&lt;/p>
 &lt;h3 id="android">Android&lt;/h3>
 &lt;table>
 &lt;thead>
@@ -202,7 +202,7 @@
 &lt;/tr>
 &lt;/tbody>
 &lt;/table></description></item><item><title>Compliance: NUGU Mobile</title><link>/en/compliance/nugu/nugu_mobile/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/en/compliance/nugu/nugu_mobile/</guid><description>
-&lt;p>Open Source Compliance Artifacts for NUGU Mobile&lt;/p>
+&lt;p>Open Source Notice &amp;amp; Source Code for NUGU Mobile&lt;/p>
 &lt;h3 id="android">Android&lt;/h3>
 &lt;table>
 &lt;thead>
@@ -237,7 +237,7 @@
 &lt;/tr>
 &lt;/tbody>
 &lt;/table></description></item><item><title>Compliance: NUGU Smarthome</title><link>/en/compliance/nugu/nugu_smarthome/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/en/compliance/nugu/nugu_smarthome/</guid><description>
-&lt;p>Open Source Compliance Artifacts for NUGU Smarthome&lt;/p>
+&lt;p>Open Source Notice &amp;amp; Source Code for NUGU Smarthome&lt;/p>
 &lt;h3 id="android">Android&lt;/h3>
 &lt;table>
 &lt;thead>
@@ -272,7 +272,7 @@
 &lt;/tr>
 &lt;/tbody>
 &lt;/table></description></item><item><title>Compliance: NUGU Updater</title><link>/en/compliance/nugu/nugu_updater/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/en/compliance/nugu/nugu_updater/</guid><description>
-&lt;p>Open Source Compliance Artifacts for NUGU Updater&lt;/p>
+&lt;p>Open Source Notice &amp;amp; Source Code for NUGU Updater&lt;/p>
 &lt;h3 id="android">Android&lt;/h3>
 &lt;table>
 &lt;thead>
