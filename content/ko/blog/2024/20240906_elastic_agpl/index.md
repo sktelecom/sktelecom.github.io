@@ -13,6 +13,16 @@ resources:
     byline: ""
 ---
 
+{{% pageinfo %}}
+
+*이 글은 Perplexity([https://www.perplexity.ai/](https://www.perplexity.ai/))와 함께 작성하였습니다.*
+
+*SKT고객은 Perplexicy Pro를 1년간 무료로 이용할 수 있습니다.: [https://perplexity.sktadotevent.com/](https://perplexity.sktadotevent.com/)*
+
+![image.png](./image.png)
+
+{{% /pageinfo %}}
+
 ## 서론: Elasticsearch 라이선스 배경
 
 Elasticsearch는 오픈소스 프로젝트로 시작했으며, 그동안 여러 번의 라이선스 정책 변경을 겪었습니다. 처음에는 **Apache 2.0 라이선스** 하에 배포되었지만, 2021년 Elastic은 **Elastic License 2.0**과 **Server Side Public License**로 라이선스를 변경했습니다. 이후 2024년 8월 30일에는 다시 **AGPL-3.0**을 추가하는 발표([Elasticsearch is Open Source, Again](https://www.elastic.co/kr/blog/elasticsearch-is-open-source-again))를 하면서 주목을 받고 있습니다.
@@ -31,7 +41,7 @@ Elasticsearch는 처음에 **Apache 2.0** 라이선스를 사용했으나, 2021�
 
 **Elastic License 2.0**은 소스 코드를 공개하지만 상업적인 클라우드 서비스에서의 사용을 제한하는 라이선스로, Elastic의 기술적 자산을 보호하는 수단으로 활용되었습니다. **AWS**는 이에 대응해 **[OpenSearch](https://opensearch.org/)** 프로젝트를 시작하며 Apache 2.0 라이선스를 계속 유지했습니다. 
 
-이에 대해서는 이전 블로그, "**[Elastic License 2.0 그리고 진화하는 오픈소스 라이선스](https://sktelecom.github.io/blog/2021/20210328-elasticlicense/)**"에서 자세히 다룬 바 있습니다. 
+이에 대해서는 이전 블로그, "**[Elastic License 2.0 그리고 진화하는 오픈소스 라이선스](https://openchain-project.github.io/OpenChain-KWG/blog/2021/03/28/elastic-license-2.0-%EA%B7%B8%EB%A6%AC%EA%B3%A0-%EC%A7%84%ED%99%94%ED%95%98%EB%8A%94-%EC%98%A4%ED%94%88%EC%86%8C%EC%8A%A4-%EB%9D%BC%EC%9D%B4%EC%84%A0%EC%8A%A4/)**"에서 자세히 다룬 바 있습니다. 
 
 ### 1.2 Elastic License 2.0는 오픈소스 라이선스가 아니다
 그러나 Elastic License 2.0은 **Open Source Initiative (OSI)**에서 인정하는 오픈소스 라이선스가 아니었습니다. 이는 오픈소스 커뮤니티에서 논란을 불러일으켜습니다. Elastic의 결정은 오픈소스의 자유로운 사용과 상업적 이익 사이에서 갈등을 불러일으켰고, 기업들이 오픈소스를 도입할 때 라이선스 문제에 대한 경각심을 높이는 계기가 되었습니다.
@@ -75,7 +85,6 @@ Elastic의 이 결정은 커뮤니티와의 관계 회복을 시도하는 동시
 - **전담 팀 구성**: 법무팀과 기술팀이 협력하여 라이선스 변화를 추적하는 전담 팀을 구성합니다.
 - **오픈소스 가버넌스**: 기업 내부적으로 오픈소스 사용에 대한 명확한 정책과 가이드라인을 수립합니다.
 - **자동화 도구 활용**: 소프트웨어 구성 분석(SCA) 도구를 사용하여 사용 중인 오픈소스 컴포넌트와 라이선스를 자동으로 추적합니다.
-
 
 ### 3.2 교육과 내부 가이드라인 마련
 기업 내부에서 오픈소스를 사용하는 개발자들이 라이선스 변경 사항을 이해하고 대응할 수 있도록 **교육**과 **가이드라인**을 마련해야 합니다. 이를 통해 라이선스 위반으로 인한 법적 분쟁을 줄일 수 있습니다.
