@@ -13,12 +13,14 @@ T ID 오픈소스 고지문 / 소스 코드
 | Version | OSS Notice | Source Code |
 |---|:---:|:---:|
 | 1.1.0 | [notice](https://opensource.sktelecom.com/compliance_artifacts/t_id/android/1.1.0/Tid_android_1.1.0_OSS_Notice.html)  | - |
+| 2.0.0 | [notice](https://opensource.sktelecom.com/compliance_artifacts/t_id/android/2.0.0/Tid_android_2.0.0_OSS_Notice.html)  | - |
 
 ### iOS
 
 | Version | OSS Notice | Source Code |
 |---|:---:|:---:|
 | 1.1.0 | [notice](https://opensource.sktelecom.com/compliance_artifacts/t_id/ios/1.1.0/Tid_Ios_1.1.0_OSS_Notice.html)  | - |
+| 2.0.0 | [notice](https://opensource.sktelecom.com/compliance_artifacts/t_id/ios/2.0.0/Tid_iOS_2.0.0_OSS_Notice.html)  | - |
 
 ### SDK Android
 
