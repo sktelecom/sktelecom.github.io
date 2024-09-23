@@ -90,11 +90,6 @@
 &lt;p>&lt;img src="./perplexity.png" alt="">&lt;/p>
 &lt;/div></description></item><item><title>Blog: 또 다시 Elasticsearch 라이선스 변경, 기업의 대응 방안은?</title><link>/blog/2024/20240906_elastic_agpl/</link><pubDate>Fri, 06 Sep 2024 00:00:00 +0000</pubDate><guid>/blog/2024/20240906_elastic_agpl/</guid><description>
 &lt;img src="/blog/2024/20240906_elastic_agpl/featured_original-elastic-logos_hu36e0488bdc3c30af55ee75cb1e6a7ff9_76478_640x0_resize_catmullrom_2.png" width="640" height="239"/>
-&lt;div class="pageinfo pageinfo-primary">
-&lt;p>&lt;em>이 글은 Perplexity(&lt;a href="https://www.perplexity.ai/">https://www.perplexity.ai/&lt;/a>)와 함께 작성하였습니다.&lt;/em>&lt;/p>
-&lt;p>&lt;em>SKT고객은 Perplexicy Pro를 1년간 무료로 이용할 수 있습니다.: &lt;a href="https://perplexity.sktadotevent.com/">https://perplexity.sktadotevent.com/&lt;/a>&lt;/em>&lt;/p>
-&lt;p>&lt;img src="./image.png" alt="image.png">&lt;/p>
-&lt;/div>
 &lt;h2 id="서론-elasticsearch-라이선스-배경">서론: Elasticsearch 라이선스 배경&lt;/h2>
 &lt;p>Elasticsearch는 오픈소스 프로젝트로 시작했으며, 그동안 여러 번의 라이선스 정책 변경을 겪었습니다. 처음에는 &lt;strong>Apache 2.0 라이선스&lt;/strong> 하에 배포되었지만, 2021년 Elastic은 &lt;strong>Elastic License 2.0&lt;/strong>과 &lt;strong>Server Side Public License&lt;/strong>로 라이선스를 변경했습니다. 이후 2024년 8월 30일에는 다시 &lt;strong>AGPL-3.0&lt;/strong>을 추가하는 발표(&lt;a href="https://www.elastic.co/kr/blog/elasticsearch-is-open-source-again">Elasticsearch is Open Source, Again&lt;/a>)를 하면서 주목을 받고 있습니다.&lt;/p>
 &lt;p>&lt;img src="./featured_original-elastic-logos.png" alt="">&lt;/p>
@@ -160,13 +155,13 @@
 &lt;p>Elasticsearch가 다시 AGPL-3.0으로 돌아가는 결정은 오픈소스 생태계 내에서 큰 의미를 지닙니다. 이는 상업적 이익과 오픈소스 정신 간의 균형을 찾으려는 Elastic의 노력일 뿐만 아니라, 오픈소스를 사용하는 모든 기업에게도 중요한 시사점을 제공합니다.&lt;/p>
 &lt;p>기업은 오픈소스 라이선스의 변화에 적극적으로 대응해야 하며, 이를 통해 법적 리스크를 줄이고, 기술적 기회를 극대화할 수 있는 전략을 마련해야 합니다. AGPL-3.0과 같은 강력한 카피레프트 라이선스는 클라우드 시대에서 더욱 주목받을 것이며, 기업은 이에 맞춰 내부 시스템을 강화하고, 오픈소스 관리 체계를 발전시켜야 할 것입니다.&lt;/p>
 &lt;p>오픈소스 라이선스의 변화는 피할 수 없는 현실이지만, 이를 기회로 삼아 적절히 대응하는 기업은 경쟁 우위를 확보할 수 있습니다. 체계적인 오픈소스 관리 전략을 통해 법적 리스크를 최소화하고 기술적 이점을 극대화함으로써, 기업은 오픈소스 생태계 내에서 지속 가능한 성장을 이룰 수 있을 것입니다.&lt;/p>
-&lt;hr></description></item><item><title>Blog: SPDX 3.0 소개와 기업 도입 전략</title><link>/blog/2024/20240906_spdx_30/</link><pubDate>Fri, 06 Sep 2024 00:00:00 +0000</pubDate><guid>/blog/2024/20240906_spdx_30/</guid><description>
-&lt;img src="/blog/2024/20240906_spdx_30/featured_SPDX30_hub7b7c8ee75d62f837b6290fa14d325ee_84057_640x0_resize_catmullrom_2.png" width="640" height="360"/>
+&lt;hr>
 &lt;div class="pageinfo pageinfo-primary">
-&lt;p>&lt;em>이 글은 Perplexity (&lt;a href="https://www.perplexity.ai/">https://www.perplexity.ai/&lt;/a>)와 함께 작성하였습니다.&lt;/em>&lt;/p>
+&lt;p>&lt;em>이 글은 Perplexity(&lt;a href="https://www.perplexity.ai/">https://www.perplexity.ai/&lt;/a>)와 함께 작성하였습니다.&lt;/em>&lt;/p>
 &lt;p>&lt;em>SKT고객은 Perplexicy Pro를 1년간 무료로 이용할 수 있습니다.: &lt;a href="https://perplexity.sktadotevent.com/">https://perplexity.sktadotevent.com/&lt;/a>&lt;/em>&lt;/p>
 &lt;p>&lt;img src="./image.png" alt="image.png">&lt;/p>
-&lt;/div>
+&lt;/div></description></item><item><title>Blog: SPDX 3.0 소개와 기업 도입 전략</title><link>/blog/2024/20240906_spdx_30/</link><pubDate>Fri, 06 Sep 2024 00:00:00 +0000</pubDate><guid>/blog/2024/20240906_spdx_30/</guid><description>
+&lt;img src="/blog/2024/20240906_spdx_30/featured_SPDX30_hub7b7c8ee75d62f837b6290fa14d325ee_84057_640x0_resize_catmullrom_2.png" width="640" height="360"/>
 &lt;h2 id="1-spdx-30-소개">1. SPDX 3.0 소개&lt;/h2>
 &lt;p>SPDX(Software Package Data Exchange)는 소프트웨어 구성 요소, 라이선스, 저작권 및 보안 정보를 표준화된 방식으로 전달하기 위한 오픈 표준입니다. SPDX 3.0은 이 표준의 최신 버전으로, 2024년 4월에 출시되었으며 소프트웨어 공급망의 투명성과 보안을 크게 향상시키는 중요한 업데이트입니다[2].&lt;/p>
 &lt;p>&lt;img src="./featured_SPDX30.png" alt="">&lt;/p>
@@ -1367,7 +1362,12 @@
 &lt;/ul>
 &lt;/li>
 &lt;/ol>
-&lt;p>결론적으로, SPDX 3.0은 기업의 오픈소스 관리자에게 오픈소스 생태계를 효과적으로 관리하고 활용할 수 있는 강력한 도구를 제공합니다. 전략적이고 체계적인 접근을 통해 SPDX 3.0을 활용한다면, 조직은 오픈소스의 이점을 최대화하면서 관련 리스크를 최소화할 수 있을 것입니다. 오픈소스 관리자는 이러한 도구를 통해 조직의 디지털 혁신과 경쟁력 강화에 핵심적인 역할을 수행할 수 있을 것입니다.&lt;/p></description></item><item><title>Blog: 프랑스 법원, 대형 통신사 Orange에게 GPL 위반으로 손해배상 판결</title><link>/blog/2024/20240219_orange_lasso/</link><pubDate>Mon, 19 Feb 2024 00:00:00 +0000</pubDate><guid>/blog/2024/20240219_orange_lasso/</guid><description>
+&lt;p>결론적으로, SPDX 3.0은 기업의 오픈소스 관리자에게 오픈소스 생태계를 효과적으로 관리하고 활용할 수 있는 강력한 도구를 제공합니다. 전략적이고 체계적인 접근을 통해 SPDX 3.0을 활용한다면, 조직은 오픈소스의 이점을 최대화하면서 관련 리스크를 최소화할 수 있을 것입니다. 오픈소스 관리자는 이러한 도구를 통해 조직의 디지털 혁신과 경쟁력 강화에 핵심적인 역할을 수행할 수 있을 것입니다.&lt;/p>
+&lt;div class="pageinfo pageinfo-primary">
+&lt;p>&lt;em>이 글은 Perplexity (&lt;a href="https://www.perplexity.ai/">https://www.perplexity.ai/&lt;/a>)와 함께 작성하였습니다.&lt;/em>&lt;/p>
+&lt;p>&lt;em>SKT고객은 Perplexicy Pro를 1년간 무료로 이용할 수 있습니다.: &lt;a href="https://perplexity.sktadotevent.com/">https://perplexity.sktadotevent.com/&lt;/a>&lt;/em>&lt;/p>
+&lt;p>&lt;img src="./image.png" alt="image.png">&lt;/p>
+&lt;/div></description></item><item><title>Blog: 프랑스 법원, 대형 통신사 Orange에게 GPL 위반으로 손해배상 판결</title><link>/blog/2024/20240219_orange_lasso/</link><pubDate>Mon, 19 Feb 2024 00:00:00 +0000</pubDate><guid>/blog/2024/20240219_orange_lasso/</guid><description>
 &lt;img src="/blog/2024/20240219_orange_lasso/featured_lasso_hu2be1628cf2eec4d7efae0b7b34a4e256_61950_640x0_resize_catmullrom_2.png" width="640" height="142"/>
 &lt;p>안녕하세요.&lt;/p>
 &lt;p>오늘은 프랑스 법원이 GPL 위반으로 통신사인 Orange에게 손해배상을 판결한 사건에 대해 살펴보려 합니다. 이 사건은 두 가지 주요 측면에서 특별히 주목할 만한 점이 있어 보였습니다.&lt;/p>
