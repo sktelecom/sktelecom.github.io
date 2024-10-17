@@ -50,8 +50,8 @@ Permissive License라고 분류할 수 있는 아래의 오픈소스 라이선�
 | [`BSD-2-Clause Plus Patent License`](https://opensource.org/licenses/BSDplusPatent) | [`BSD-2-Clause-Patent`](https://spdx.org/licenses/BSD-2-Clause-Patent.html)|  |
 | [`Creative Commons Attribution 4.0 International`](https://creativecommons.org/licenses/by/4.0/) | [`CC-BY-4.0`](https://spdx.org/licenses/CC-BY-4.0.html)|  |
 | [`JSON License`](https://www.json.org/license.html) | [`JSON`](https://spdx.org/licenses/JSON.html) |  |
-| [`Freetype Project License`](http://freetype.sourceforge.net/FTL.TXT)) | [`FTL` ](https://spdx.org/licenses/FTL.html)|  |
-| [`ISC License`](http://opensource.org/licenses/ISC)) | [`ISC`](https://spdx.org/licenses/ISC.html) |  |
+| [`Freetype Project License`](http://freetype.sourceforge.net/FTL.TXT) | [`FTL` ](https://spdx.org/licenses/FTL.html)|  |
+| [`ISC License`](http://opensource.org/licenses/ISC) | [`ISC`](https://spdx.org/licenses/ISC.html) |  |
 | [`Independent JPEG Group License`](http://dev.w3.org/cvsweb/Amaya/libjpeg/Attic/README?rev=1.2) | [`IJG`](https://spdx.org/licenses/IJG.html) |  |
 | [`libtiff License`](http://www.remotesensing.org/libtiff/misc.html) | [`libtiff`](https://spdx.org/licenses/libtiff.html) |  |
 | [`Lucent Public License v1.02`](http://cm.bell-labs.com/plan9/license.html) | [`LPL-1.02`](https://spdx.org/licenses/LPL-1.02.html) |  |
@@ -66,7 +66,7 @@ Permissive License라고 분류할 수 있는 아래의 오픈소스 라이선�
 | [`TCP Wrappers License`](http://www.blackberry.com/support/blackberrypresenter/opensourcefiles/LICENSE-BSD-LIBWRAP.TXT)| [`TCP-wrappers`](https://spdx.org/licenses/TCP-wrappers.html) |  | 
 | [`Python Software Foundation License 2.0`](http://www.python.org/download/releases/2.3.2/license/) | [`PSF-2.0`](https://spdx.org/licenses/PSF-2.0.html) |  | 
 | [`Unicode License Agreement - Data Files and Software (2016)`](http://www.unicode.org/copyright.html#Exhibit1) | [`Unicode-DFS-2016`](https://spdx.org/licenses/Unicode-DFS-2016.html) |  | 
-| [`Universal Permissive License v1.0`](http://opensource.org/licenses/UPL)) | [`UPL-1.0`](https://spdx.org/licenses/UPL-1.0.html) |  | 
+| [`Universal Permissive License v1.0`](http://opensource.org/licenses/UPL) | [`UPL-1.0`](https://spdx.org/licenses/UPL-1.0.html) |  | 
 | [`W3C Software Notice and License (2002-12-31)`](http://opensource.org/licenses/W3C.php) | [`W3C`](https://spdx.org/licenses/W3C.html) |  | 
 | [`X.Net License`](http://opensource.org/licenses/xnet.php) | [`Xnet`](https://spdx.org/licenses/Xnet.html) |  | 
 | [`Zend License v2.0`](http://www.zend.com/license/2_00.txt) | [`Zend-2.0`](https://spdx.org/licenses/Zend-2.0.html) |  | 
