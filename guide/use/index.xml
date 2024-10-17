@@ -244,12 +244,12 @@ at no charge to all third parties under the terms of this License.
 &lt;td style="text-align:center">&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td>&lt;a href="http://freetype.sourceforge.net/FTL.TXT">&lt;code>Freetype Project License&lt;/code>&lt;/a>)&lt;/td>
+&lt;td>&lt;a href="http://freetype.sourceforge.net/FTL.TXT">&lt;code>Freetype Project License&lt;/code>&lt;/a>&lt;/td>
 &lt;td style="text-align:left">&lt;a href="https://spdx.org/licenses/FTL.html">&lt;code>FTL&lt;/code> &lt;/a>&lt;/td>
 &lt;td style="text-align:center">&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td>&lt;a href="http://opensource.org/licenses/ISC">&lt;code>ISC License&lt;/code>&lt;/a>)&lt;/td>
+&lt;td>&lt;a href="http://opensource.org/licenses/ISC">&lt;code>ISC License&lt;/code>&lt;/a>&lt;/td>
 &lt;td style="text-align:left">&lt;a href="https://spdx.org/licenses/ISC.html">&lt;code>ISC&lt;/code>&lt;/a>&lt;/td>
 &lt;td style="text-align:center">&lt;/td>
 &lt;/tr>
@@ -324,7 +324,7 @@ at no charge to all third parties under the terms of this License.
 &lt;td style="text-align:center">&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td>&lt;a href="http://opensource.org/licenses/UPL">&lt;code>Universal Permissive License v1.0&lt;/code>&lt;/a>)&lt;/td>
+&lt;td>&lt;a href="http://opensource.org/licenses/UPL">&lt;code>Universal Permissive License v1.0&lt;/code>&lt;/a>&lt;/td>
 &lt;td style="text-align:left">&lt;a href="https://spdx.org/licenses/UPL-1.0.html">&lt;code>UPL-1.0&lt;/code>&lt;/a>&lt;/td>
 &lt;td style="text-align:center">&lt;/td>
 &lt;/tr>
