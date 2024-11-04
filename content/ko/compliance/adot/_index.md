@@ -32,6 +32,7 @@ A. 오픈소스 고지문 / 소스 코드
 
 | Version | OSS Notice | Source Code |
 |---|:---:|:---:|
+| 3.1.2 | [notice](https://opensource.sktelecom.com/compliance_artifacts/a./ios/3.1.2/Adot_iOS_3.1.2._OSS_Notice.html)  | [zip](https://opensource.sktelecom.com/compliance_artifacts/a./ios/3.1.2/A_ios_source_code.zip) |
 | 3.0.0 | [notice](https://opensource.sktelecom.com/compliance_artifacts/a./ios/3.0.0/Adot_iOS_3.0.0_OSS_Notice.html)  | [zip](https://opensource.sktelecom.com/compliance_artifacts/a./ios/1.5.0/libical.zip) |
 | 2.8.0 | [notice](https://opensource.sktelecom.com/compliance_artifacts/a./ios/2.8.0/Adot_iOS_2.8.0_OSS_Notice.html)  | [zip](https://opensource.sktelecom.com/compliance_artifacts/a./ios/1.5.0/libical.zip) |
 | 2.7.0 | [notice](https://opensource.sktelecom.com/compliance_artifacts/a./ios/2.7.0/Adot_iOS_2.7.0_OSS_Notice.html)  | [zip](https://opensource.sktelecom.com/compliance_artifacts/a./ios/1.5.0/libical.zip) |
