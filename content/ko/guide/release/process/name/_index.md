@@ -13,7 +13,7 @@ description: >
 기억하기 쉽고, 프로젝트가 무엇을 하는지에 대해 알릴 수 있는 이름으로 선택하라. 예를 들면 다음과 같다.
 
 * [Sentry](https://github.com/getsentry/sentry) (보초, 감시) : Crash Reporting을 모니터하는 앱이다.
-* [Thin](https://github.com/macournoyer/thin) : 빠르고 간단한 Ruby web server 이다.
+* [Thin](https://github.com/macournoyer/thin) (얇은, 간단한) : 빠르고 간단한 Ruby web server 이다.
 
 만약 기존의 어떤 프로젝트를 기반으로 한다면 그 프로젝트 이름을 앞에 붙여서 사용할 수도 있다. 예를 들어, [node-fetch](https://github.com/node-fetch/node-fetch)는 Node.js에 window.fetch를 제공하는 모듈이다.
 
