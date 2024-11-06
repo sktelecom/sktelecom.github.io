@@ -4,7 +4,7 @@
 &lt;p>기억하기 쉽고, 프로젝트가 무엇을 하는지에 대해 알릴 수 있는 이름으로 선택하라. 예를 들면 다음과 같다.&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://github.com/getsentry/sentry">Sentry&lt;/a> (보초, 감시) : Crash Reporting을 모니터하는 앱이다.&lt;/li>
-&lt;li>&lt;a href="https://github.com/macournoyer/thin">Thin&lt;/a> : 빠르고 간단한 Ruby web server 이다.&lt;/li>
+&lt;li>&lt;a href="https://github.com/macournoyer/thin">Thin&lt;/a> (얇은, 간단한) : 빠르고 간단한 Ruby web server 이다.&lt;/li>
 &lt;/ul>
 &lt;p>만약 기존의 어떤 프로젝트를 기반으로 한다면 그 프로젝트 이름을 앞에 붙여서 사용할 수도 있다. 예를 들어, &lt;a href="https://github.com/node-fetch/node-fetch">node-fetch&lt;/a>는 Node.js에 window.fetch를 제공하는 모듈이다.&lt;/p>
 &lt;p>무엇보다도 명확성을 고려하라. 조크가 가미된 이름이 재미있으나 다른 문화나 언어를 가진 사람에게는 이해되지 않을 수 있다.&lt;/p>
