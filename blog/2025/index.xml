@@ -30,17 +30,23 @@
 &lt;li>소송 제기 수개월 후: AVM이 Steck에게 요청받은 모든 소스 코드를 제공. &amp;ldquo;라이브러리 설치를 제어하는 스크립트&amp;quot;도 포함&lt;/li>
 &lt;li>2025년 1월 9일: 독일 법원이 AVM에게 Steck의 변호사 비용을 지불하도록 결정. 이 결정은 소송 비용에 대한 결정을 포함하며, AVM은 이 결정에 대해 항소하지 않기로 함&lt;/li>
 &lt;/ol>
-&lt;h3 id="소송의-쟁점">소송의 쟁점&lt;/h3>
-&lt;p>이 소송에서 주요하게 다뤄진 쟁점들은 다음과 같습니다:&lt;/p>
+&lt;h3 id="원고의-주장">원고의 주장&lt;/h3>
+&lt;p>Sebastian Steck이 소장에서 제기한 AVM의 LGPL-2.1 위반 사항들은 다음과 같습니다:&lt;/p>
 &lt;ol>
-&lt;li>컴파일 및 설치 스크립트 제공: AVM이 처음에 제공한 소스 코드에는 LGPL-2.1에서 요구하는 컴파일 및 설치 스크립트가 빠져 있었습니다. 이 스크립트는 소스 코드를 실행 가능한 프로그램으로 변환하고, 그 프로그램을 기기에 설치하는 데 필요한 중요한 요소입니다.&lt;/li>
-&lt;li>환경 변수 정보: 컴파일 과정에 필수적인 KERNEL_LAYOUT 등의 환경 변수 설정 정보가 제공되지 않았습니다. 환경 변수는 프로그램이 실행되는 환경을 설정하는 중요한 정보로, 이것이 없으면 소스 코드를 제대로 컴파일할 수 없습니다.&lt;/li>
-&lt;li>영구 설치 가능성: AVM이 제공한 정보로는 수정된 라이브러리를 Fritz!Box에 영구적으로 설치할 수 없었습니다. 이는 사용자가 자신의 기기에 수정된 소프트웨어를 지속적으로 사용할 수 있어야 한다는 LGPL-2.1의 핵심 요구사항을 위반하는 것입니다.&lt;/li>
-&lt;li>펌웨어 이미지 생성: 제공된 소스 코드로는 Fritz!Box에 설치 가능한 펌웨어 이미지를 만들 수 없었습니다. 펌웨어 이미지는 라우터의 운영 체제와 기능을 담고 있는 파일로, 이를 생성할 수 없다는 것은 사실상 소프트웨어를 수정하고 재설치할 수 없다는 것을 의미합니다.&lt;/li>
-&lt;li>사용자의 소송 제기 권리 인정:
-이번 결정은 오픈소스 소프트웨어의 저작권자가 아닌 일반 사용자도 LGPL-2.1 라이선스 위반에 대해 소송을 제기할 수 있음을 인정했습니다. 이는 오픈소스 소프트웨어 사용자의 권리를 크게 강화하는 결과를 가져왔습니다.&lt;/li>
+&lt;li>
+&lt;p>컴파일 및 설치 스크립트 미제공: AVM이 처음에 제공한 소스 코드에는 LGPL-2.1에서 요구하는 컴파일 및 설치 스크립트가 빠져 있었습니다. 이 스크립트는 소스 코드를 실행 가능한 프로그램으로 변환하고, 그 프로그램을 기기에 설치하는 데 필요한 중요한 요소입니다.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>환경 변수 정보 미제공: 컴파일 과정에 필수적인 KERNEL_LAYOUT 등의 환경 변수 설정 정보가 제공되지 않았습니다. 환경 변수는 프로그램이 실행되는 환경을 설정하는 중요한 정보로, 이것이 없으면 소스 코드를 제대로 컴파일할 수 없습니다.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>영구 설치 불가능: AVM이 제공한 정보로는 수정된 라이브러리를 Fritz!Box에 영구적으로 설치할 수 없었습니다. Steck은 이것이 사용자가 자신의 기기에 수정된 소프트웨어를 지속적으로 사용할 수 있어야 한다는 LGPL-2.1의 핵심 요구사항을 위반하는 것이라고 주장했습니다.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>펌웨어 이미지 생성 불가능: 제공된 소스 코드로는 Fritz!Box에 설치 가능한 펌웨어 이미지를 만들 수 없었습니다. 펌웨어 이미지는 라우터의 운영 체제와 기능을 담고 있는 파일로, 이를 생성할 수 없다는 것은 사실상 소프트웨어를 수정하고 재설치할 수 없다는 것을 의미합니다.&lt;/p>
+&lt;/li>
 &lt;/ol>
-&lt;p>이러한 쟁점들은 모두 LGPL-2.1 라이선스의 핵심 원칙인 &amp;lsquo;사용자의 소프트웨어 자유&amp;rsquo;와 직결됩니다. 소스 코드를 제공하는 것만으로는 충분하지 않고, 사용자가 그 코드를 실제로 수정하고 기기에 다시 설치할 수 있어야 한다는 것이 이 소송의 핵심 주장이었습니다.&lt;/p>
+&lt;p>Steck은 이러한 사항들이 LGPL-2.1 라이선스의 핵심 원칙인 &amp;lsquo;사용자의 소프트웨어 자유&amp;rsquo;를 침해한다고 주장했습니다. 그의 주장에 따르면, 소스 코드를 제공하는 것만으로는 충분하지 않고, 사용자가 그 코드를 실제로 수정하고 기기에 다시 설치할 수 있어야 합니다.&lt;/p>
 &lt;blockquote>
 &lt;p>[참고] SFC가 공개한 &lt;a href="https://sfconservancy.org/static/docs/avm-Complaint_Klageschrift_EN.pdf">소장(Complaint)&lt;/a> 중 일부:&lt;/p>
 &lt;p>&amp;ldquo;The information required for the reinstallation of the compiled program libraries on the Fritz!Box (&amp;ldquo;installation script&amp;rdquo;) was also deliberately withheld from the plaintiff. Upon request, the plaintiff only received information that could be used to load the libraries in dispute into the working memory (RAM). However, this is not a sufficient installation on the Fritz!Box because the copy is only created temporarily, meaning &amp;ldquo;fleetingly [volatile].&amp;rdquo; When the Fritz!Box is switched off and restarted, the modified versions of the LGPL 2.1 libraries would no longer be present on the device, and the versions created by the defendant would be used instead. This is diametrically opposed to the purpose of the LGPL-2.1, namely, to be able to customize and reinstall the software.”&lt;/p>
