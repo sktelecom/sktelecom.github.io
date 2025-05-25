@@ -15,6 +15,6 @@ OSRB(Open Source Review Board)는 일반적으로 기업의 오픈소스 관리�
 
 # SK텔레콤 OSRB
 
-SK텔레콤의 OSRB는 IPR팀에서 주관하고 Infra Architect팀, Tech HR팀에서 참여한다. 
+SK텔레콤의 OSRB는 IPR팀에서 주관하고 AT Infra Architect팀, 역량혁신팀, IT보안팀에서 참여한다. 
 
 <img src="./osrb.png" width="450"/>
