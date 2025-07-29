@@ -12,6 +12,7 @@ Open Source Notice & Source Code for A.
 
 | Version | OSS Notice | Source Code |
 |---|:---:|:---:|
+| 4.0.0 | [notice](https://opensource.sktelecom.com/compliance_artifacts/a./android/4.0.0/A._Android_4.0.0_OSS_Notice.html)  | [zip](https://opensource.sktelecom.com/compliance_artifacts/a./android/3.3.0/sources.zip) |
 | 3.3.0 | [notice](https://opensource.sktelecom.com/compliance_artifacts/a./android/3.3.0/A._Android_3.3.0_OSS_Notice.html)  | [zip](https://opensource.sktelecom.com/compliance_artifacts/a./android/3.3.0/sources.zip) |
 | 3.2.0 | [notice](https://opensource.sktelecom.com/compliance_artifacts/a./android/3.2.0/Adot_android_3.2.0_OSS_Notice.html)  | - |
 | 3.1.8 | [notice](https://opensource.sktelecom.com/compliance_artifacts/a./android/3.1.8/Adot_android_3.1.8_OSS_Notice.html)  | [zip](https://opensource.sktelecom.com/compliance_artifacts/a./android/3.1.8/Adot_android_3.1.8_source_code.zip) |
