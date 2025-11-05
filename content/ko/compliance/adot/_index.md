@@ -1,12 +1,12 @@
 ---
-title: "A."
-linkTitle: "A."
+title: "에이닷"
+linkTitle: "에이닷"
 weight: 1
 type: docs
 description: >
 ---
 
-A. 오픈소스 고지문 / 소스 코드
+에이닷 오픈소스 고지문 / 소스 코드
 
 ### Android
 
