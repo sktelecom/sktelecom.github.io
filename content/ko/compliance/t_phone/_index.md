@@ -1,12 +1,12 @@
 ---
-title: "A. 전화"
-linkTitle: "A. 전화"
+title: "에이닷 전화"
+linkTitle: "에이닷 전화"
 weight: 1
 type: docs
 description: >
 ---
 
-A. 전화 오픈소스 고지문 / 소스 코드
+에이닷 전화 오픈소스 고지문 / 소스 코드
 
 ### Android
 
