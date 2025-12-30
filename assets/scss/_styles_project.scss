@@ -48,3 +48,30 @@ https://www.docsy.dev/docs/content/lookandfeel/#project-style-files
     --bs-navbar-hover-color: #EA002C;
     --bs-navbar-active-color: #EA002C;
 }
+
+/* assets/scss/_styles_project.scss */
+
+/* 1. 로고 크기 조정 */
+.td-navbar .navbar-brand svg, 
+.td-navbar .navbar-brand img {
+    /* 기본 높이(32px)보다 크게 설정 */
+    height: 40px !important; 
+    width: auto;
+    
+    /* 로고가 커졌으므로 상하 여백 조정이 필요할 수 있음 */
+    margin-right: 12px;
+}
+
+/* 2. 타이틀 폰트 크기 축소 및 스타일 조정 */
+.td-navbar .navbar-brand .navbar-brand__name {
+    /* 기본값(20px/1.25rem)보다 작게 설정 */
+    font-size: 1.1rem !important; 
+    
+    /* (옵션) 폰트 두께 조절: 너무 작으면 굵게 하는 게 가독성에 좋음 */
+    font-weight: 500;
+    
+    /* (옵션) 텍스트 수직 정렬 보정 */
+    position: relative;
+    top: 1px;
+}
+

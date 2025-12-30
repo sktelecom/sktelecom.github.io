@@ -1,5 +1,8 @@
 /public
-resources/
-node_modules/
-package-lock.json
-.hugo_build.lock
+/resources/
+/node_modules/
+/package-lock.json
+/.hugo_build.lock
+/.codesight/
+.vscode/
+.DS_Store

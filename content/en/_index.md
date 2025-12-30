@@ -8,62 +8,61 @@ title: Open Source
   }
 </style>
 
-{{< blocks/cover title="Welcome to Goldydocs: A Docsy Example Project!" image_anchor="top" height="full" >}}
+{{< blocks/cover title="Welcome to SKT Open Source" image_anchor="top" height="full" >}}
 
-<a class="btn btn-lg btn-primary me-3 mb-4" href="/docs/">
-  Learn More <i class="fas fa-arrow-alt-circle-right ms-2"></i>
+<!-- 영어 문구 및 버튼 수정 -->
+<a class="btn btn-lg btn-primary me-3 mb-4" href="/en/guide/">
+  Read the Guide <i class="fas fa-arrow-alt-circle-right ms-2"></i>
 </a>
-<a class="btn btn-lg btn-secondary me-3 mb-4" href="https://github.com/google/docsy-example">
-  Download <i class="fab fa-github ms-2 "></i>
+<a class="btn btn-lg btn-secondary me-3 mb-4" href="/en/project/">
+  View Projects <i class="fab fa-github ms-2 "></i>
 </a>
-<p class="lead mt-5">Porridge temperature assessment &mdash; in the cloud!</p>
+<p class="lead mt-5">Sharing Technology, Growing Together!</p>
 
-{{< blocks/link-down color="info" >}} {{< /blocks/cover >}}
+{{< blocks/link-down color="info" >}} 
+{{< /blocks/cover >}}
 
 {{% blocks/lead color="primary" %}}
 
-Goldydocs provides a single web UI providing visibility into porridge
-temperature, chair size, and bed softness metrics! You can even find out who's
-been eating **your** porridge.
-
-(Sadly, Goldydocs isn't a real project, but you can use this site as an example
-to create your own real websites with [Docsy](https://docsy.dev))
+SK Telecom shares innovative technologies in AI, Big Data, and Cloud as open source.
+We welcome your participation and contribution to our ecosystem.
 
 {{% /blocks/lead %}}
 
-{{% blocks/section color="white" type="row" %}}
+{{% blocks/section color="light" type="row" %}}
 
-{{% blocks/feature icon="fa-lightbulb" title="New chair metrics!" %}}
-
-The Goldydocs UI now shows chair size metrics by default.
-
-Please follow this space for updates!
-
+{{% blocks/feature icon="fa-layer-group" title="Technology" url="/en/project/" %}}
+We share proven technologies such as Metatron and KoBERT, applied in SKT's actual services.
 {{% /blocks/feature %}}
 
-{{% blocks/feature icon="fab fa-github" title="Contributions welcome!" url="https://github.com/google/docsy-example" %}}
-
-We do a [Pull Request](https://github.com/google/docsy-example/pulls)
-contributions workflow on **GitHub**. New users are always welcome!
-
+{{% blocks/feature icon="fas fa-book-open" title="Guide" url="/en/guide/" %}}
+We provide an open source guide for everyone to use, improve, and grow together.
 {{% /blocks/feature %}}
 
-{{% blocks/feature icon="fab fa-x-twitter" title="Follow us on X!" url="https://x.com/docsydocs" %}}
-
-For announcement of latest features etc.
-
+{{% blocks/feature icon="fas fa-balance-scale" title="Compliance" url="/en/compliance/" %}}
+We support checking license notices and downloading source codes for distributed software.
 {{% /blocks/feature %}}
 
 {{% /blocks/section %}}
 
-{{% blocks/section type="row text-center" %}}
+{{< blocks/section color="white" >}}
+<div class="container">
+    <div class="text-center mb-5">
+        <h2 class="section-title">Latest News</h2>
+        <p class="lead text-muted">Check out the latest updates from SKT Open Source.</p>
+    </div>
+    <div class="text-center">
+        <!-- 블로그 경로도 영어(/en/blog/)로 수정 -->
+        <a class="btn btn-outline-primary btn-lg" href="/en/blog/">View All Posts</a>
+    </div>
+</div>
+{{< /blocks/section >}}
 
-# This is the second section
-
-{{% /blocks/section %}}
-
-{{% blocks/section type="row text-center" %}}
-
-# This is the another section with center alignment
-
-{{% /blocks/section %}}
+{{< blocks/section color="primary" >}}
+<div class="text-center text-white">
+    <h2 class="mb-4">Explore more projects on GitHub</h2>
+    <a class="btn btn-lg btn-light text-primary" href="https://github.com/sktelecom" target="_blank">
+        Go to SKT GitHub <i class="fab fa-github ml-2"></i>
+    </a>
+</div>
+{{< /blocks/section >}}
