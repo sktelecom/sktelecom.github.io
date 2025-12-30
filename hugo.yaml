@@ -4,8 +4,8 @@ title: Open Source
 # cSpell:ignore goldmark github hugo readingtime docsy subdir lastmod pygments linenos catmullrom norsk gu
 
 # Language settings
-contentDir: content/en
-defaultContentLanguage: en
+contentDir: content/ko
+defaultContentLanguage: ko
 defaultContentLanguageInSubdir: false
 # Useful when translating.
 enableMissingTranslationPlaceholders: true
@@ -44,30 +44,21 @@ imaging:
 
 # Language configuration
 languages:
-  en:
-    languageName: English
+  ko:
+    languageName: 한국어
     title: Open Source
     params:
-      description: A Docsy example site
-  # cSpell:disable
-  'no':
-    languageName: Norsk
-    contentDir: content/no
-    title: Gulldoks
-    params:
-      description: Docsy er operativsystem for skyen
-      time_format_default: 02.01.2006
-      time_format_blog: 02.01.2006
-  fa:
-    languageDirection: rtl
-    languageName: 'فارسی (Persian)'
-    contentDir: content/fa
-    title: 'اسناد گلدی'
-    params:
-      description: 'یک نمونه برای پوسته داکسی'
+      description: Open Source Software at SK telecom
       time_format_default: 2006.01.02
       time_format_blog: 2006.01.02
   # cSpell:enable
+  en:
+    languageName: English
+    contentDir: content/en
+    title: Open Source
+    params:
+      description: Open Source Software at SK telecom
+  # cSpell:disable
 
 markup:
   goldmark:
@@ -225,11 +216,3 @@ module:
   imports:
     - path: github.com/google/docsy
       disable: false
-  mounts:
-    # 1. 테마의 static 폴더를 먼저 마운트 (기본 레이어)
-    - source: themes/docsy/static
-      target: static
-    
-    # 2. 프로젝트의 로컬 static 폴더를 나중에 마운트 (이게 덮어씀)
-    - source: static
-      target: static
