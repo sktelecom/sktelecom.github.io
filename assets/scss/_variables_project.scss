@@ -2,3 +2,59 @@
 Projects can override this file. For details, see:
 https://www.docsy.dev/docs/content/lookandfeel/#project-style-files
 */
+
+/*
+ * SK텔레콤 공식 브랜드 색상
+ * 출처: https://www.sktelecom.com/view/introduce/brand.do
+ */
+
+// ============================================
+// SK 공식 브랜드 컬러
+// ============================================
+
+// SK 로고 색상 (로고 전용)
+$skt-red: #EA002C;           // SK Red (PANTONE 186C)
+$skt-orange: #F47725;        // SK Orange (PANTONE 158C)
+
+// T 브랜드 색상 (웹사이트 UI용)
+$skt-t-blue: #3c46c5;        // T Blue - 메인 인터랙티브 색상
+$skt-t-red: #EA002C;         // T Red - 강조 색상
+
+// 보조 색상
+$skt-purple: #68127A;        // SK Purple
+$skt-yellow: #FBBC05;        // SK Yellow
+$skt-green: #00A651;         // SK Green
+
+// ============================================
+// Bootstrap 변수 오버라이드
+// ============================================
+
+// Primary: 링크와 버튼에 Blue 사용 (SK텔레콤 웹사이트 방식)
+$primary: $skt-t-blue !default;
+
+// Secondary: Red 계열
+$secondary: $skt-red !default;
+
+// 기타 색상
+$success: $skt-green !default;
+$info: lighten($skt-t-blue, 10%) !default;
+$warning: $skt-orange !default;
+$danger: $skt-red !default;
+
+// ============================================
+// 링크 색상 (Blue 계열)
+// ============================================
+
+$link-color: $skt-t-blue !default;
+$link-decoration: none !default;
+$link-hover-color: darken($skt-t-blue, 15%) !default;
+$link-hover-decoration: underline !default;
+
+// ============================================
+// 버튼 색상
+// ============================================
+
+$btn-link-color: $skt-t-blue !default;
+$btn-link-hover-color: darken($skt-t-blue, 15%) !default;
+
+
