@@ -3,47 +3,35 @@ name: Deploy Hugo Site to GitHub Pages
 on:
   push:
     branches:
-      - master  # 소스 코드가 저장된 기본 브랜치 이름 (main 또는 master)
+      - master
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     permissions:
-      contents: write  # gh-pages 브랜치에 빌드 파일을 기록할 권한
+      contents: write
 
     steps:
-      # 1. 소스 코드 체크아웃 (서브모듈 포함)
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          submodules: recursive  # Docsy 테마 등 서브모듈 가져오기
-          fetch-depth: 0         # Git 히스토리 전체 가져오기 (LastMod 등에 필요)
+          submodules: recursive
+          fetch-depth: 0
 
-      # 2. 최신 버전 Hugo 설치
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
         with:
-          hugo-version: 'latest' # 항상 최신 버전 사용
-          extended: true         # Docsy 테마는 Extended 버전 필수
+          hugo-version: 'latest'
+          extended: true
 
-      # 3. Node.js 설치 (Docsy 테마의 의존성 관리용)
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-
-      # 4. 의존성 설치 (npm)
-      - name: Install dependencies
-        run: npm install  # package-lock.json이 있다면 npm ci 권장
-
-      # 5. Hugo 빌드
       - name: Build
-        run: hugo --minify
+        run: hugo --minify --baseURL "https://sktelecom.github.io/"
 
-      # 6. gh-pages 브랜치로 배포 (기존 설정 유지)
-      - name: Deploy
+      - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public    # 빌드된 정적 파일이 있는 폴더
-          publish_branch: gh-pages # 첨부 이미지 설정에 맞춘 배포 브랜치
+          publish_dir: ./public
+          publish_branch: gh-pages
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'
