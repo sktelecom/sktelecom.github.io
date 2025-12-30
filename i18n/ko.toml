@@ -35,16 +35,16 @@ other = "By"
 other = "작성"
 [post_last_mod]
 other = "최종 수정"
-[post_view_this]
-other = "페이지 보기"
 [post_edit_this]
 other = "페이지 편집"
+[post_view_this]
+other = "페이지 보기"
 [post_create_child_page]
-other = "하부 페이지 생성"
+other = "Create child page"
 [post_create_issue]
-other = "문서에 이슈 생성"
+other = "Create documentation issue"
 [post_create_project_issue]
-other = "프로젝트에 이슈 생성"
+other = "Create project issue"
 [post_posts_in]
 other = "Posts in"
 [post_reading_time]
@@ -79,3 +79,19 @@ other = "If you want to get more involved by contributing to {{ .Site.Title }}, 
 other = "You can find out how to contribute to {{ .Site.Title }} in our"
 [community_guideline]
 other = "Contribution Guidelines"
+
+# Feedback
+[feedback_title]
+other = "Feedback"
+[feedback_question]
+other = "Was this page helpful?"
+[feedback_positive]
+other = "Yes"
+[feedback_negative]
+other = "No"
+
+# Table of contents
+[toc_on_this_page]
+other = "On this page"
+[toc_top_of_page]
+other = "Top of page"
