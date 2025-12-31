@@ -32,7 +32,7 @@ We welcome your participation and contribution to our ecosystem.
 {{% blocks/section color="light" type="row" %}}
 
 {{% blocks/feature icon="fa-layer-group" title="Technology" url="/en/project/" %}}
-We share proven technologies such as Metatron and KoBERT, applied in SKT's actual services.
+We share proven technologies such as A.X and KoBERT, applied in SKT's actual services.
 {{% /blocks/feature %}}
 
 {{% blocks/feature icon="fas fa-book-open" title="Guide" url="/en/guide/" %}}

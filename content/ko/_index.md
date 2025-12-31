@@ -38,7 +38,7 @@ SK텔레콤은 AI, Big Data, Cloud 등 다양한 분야의 기술을 오픈소�
 {{% blocks/section color="light" type="row" %}}
 
 {{% blocks/feature icon="fa-layer-group" title="Technology"  url="/project/" %}}
-Metatron, KoBERT 등 SKT의 실제 서비스에 적용된 검증된 기술을 공유합니다.
+A.X, KoBERT 등 SKT의 실제 서비스에 적용된 검증된 기술을 공유합니다.
 {{% /blocks/feature %}}
 
 {{% blocks/feature icon="fas fa-book-open" title="Guide" url="/guide/" %}}

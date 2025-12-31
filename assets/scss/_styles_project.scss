@@ -22,7 +22,7 @@ https://www.docsy.dev/docs/content/lookandfeel/#project-style-files
     }
 }
 
-/* 2. 스크롤 후 상태 - 기존 코드 유지 */
+/* 2. 스크롤 후 상태 */
 .navbar.js-navbar-scroll {
     background-color: #ffffff !important;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
@@ -30,11 +30,19 @@ https://www.docsy.dev/docs/content/lookandfeel/#project-style-files
     .nav-link,
     .navbar-brand {
         color: #000000 !important;
-        text-shadow: none !important; /* 스크롤 후에도 그림자 제거 */
+        text-shadow: none !important;
+        transition: color 0.2s ease; /* 부드러운 색상 전환 효과 추가 */
+    }
+
+    /* 마우스 올렸을 때 (Hover) 색상 변경 추가 */
+    .nav-link:hover,
+    .navbar-brand:hover {
+        /* 원래 Blue보다 15% 밝게 하여 가벼운 느낌 */
+        color: lighten($skt-t-blue, 15%) !important; 
     }
     
     .nav-link.active {
-        color: #EA002C !important;
+        color: $skt-t-blue !important;
     }
     
     .navbar-toggler-icon {
@@ -42,11 +50,11 @@ https://www.docsy.dev/docs/content/lookandfeel/#project-style-files
     }
 }
 
-/* 3. navbar-dark 클래스 강제 제거 (Bootstrap의 어두운 테마 효과 비활성화) */
+/* 3. navbar-dark 변수 오버라이드 */
 .navbar-dark {
     --bs-navbar-color: #000000;
-    --bs-navbar-hover-color: #EA002C;
-    --bs-navbar-active-color: #EA002C;
+    --bs-navbar-hover-color: #{$skt-t-blue}; 
+    --bs-navbar-active-color: #{$skt-t-blue};
 }
 
 /* assets/scss/_styles_project.scss */
