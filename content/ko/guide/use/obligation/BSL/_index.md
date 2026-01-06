@@ -34,7 +34,7 @@ BSL은 프로젝트마다 다른 조건을 가질 수 있습니다:
 
 BSL(Business Source License)은 MariaDB Corporation이 2013년 만든 라이선스입니다. 핵심 특징은 시간 제한부 라이선스라는 점입니다.
 
-### 핵심 메커니즘
+### 동작 원리
 
 1. **초기 기간** (Change Date 이전)
    - 특정 상업적 용도 제한
@@ -46,7 +46,7 @@ BSL(Business Source License)은 MariaDB Corporation이 2013년 만든 라이선�
    - 보통 Apache-2.0, GPL-2.0, MIT 등으로 전환
    - 모든 제한 해제
 
-## BSL의 세 가지 핵심 파라미터
+## BSL의 세 가지 주요 파라미터
 
 ### 1. Additional Use Grant
 허용되는 특정 용도를 명시합니다.
@@ -120,38 +120,6 @@ Change Date가 지나면 자동으로 Change License로 전환됩니다.
 - Change License: Apache-2.0
 - **2023년 5월 19일부터는 Apache-2.0로 자유롭게 사용 가능**
 
-## SK텔레콤에서의 사용 가이드
-
-### 허용 (OSPO 확인 불필요)
-- 개발/테스트 환경
-- Change Date 이후 버전 사용
-
-### 검토 필요 (OSPO 문의)
-- 프로덕션 서비스에 포함
-- 고객에게 제공
-- Additional Use Grant 해석 필요
-
-### 금지
-- 명확히 제한된 용도 (Additional Use Grant 위반)
-
-## BSL vs 다른 라이선스
-
-| 구분 | BSL | SSPL | Elastic-2.0 |
-|-----|-----|------|-------------|
-| OSI 승인 | 없음 | 없음 | 없음 |
-| 오픈소스 전환 | 있음 (시간 경과 시) | 없음 | 없음 |
-| SaaS 제공 | 조건부 | 사실상 불가 | 제한적 |
-| 내부 사용 | 허용 | 허용 | 허용 |
-
-## 실무 체크리스트
-
-BSL 프로젝트 사용 전:
-
-- [ ] LICENSE 파일에서 Additional Use Grant 확인
-- [ ] Change Date 확인
-- [ ] Change License 확인
-- [ ] 사용 목적이 Additional Use Grant에 해당하는지 확인
-- [ ] OSPO에 사용 가능 여부 문의
 
 ## 참고 자료
 
