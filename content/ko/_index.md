@@ -20,7 +20,7 @@ title: Open Source
   가이드 보러가기 <i class="fas fa-arrow-alt-circle-right ms-2"></i>
 </a>
 <a class="btn btn-lg btn-secondary me-3 mb-4" href="/project/">
-  전체 프로젝트 <i class="fab fa-github ms-2 "></i>
+  공개 프로젝트 <i class="fab fa-github ms-2 "></i>
 </a>
 <p class="lead mt-5">Sharing Technology, Growing Together!</p>
 
