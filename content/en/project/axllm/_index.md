@@ -22,6 +22,11 @@ A.X LLM is a series of Korean-specialized large language models independently de
 
 ## Key Features
 
+### A.X K1 Series
+* 519B Sovereign Model: The model with the largest parameter scale in Korea, released in January 2026.
+* National AI Foundation: Korea's flagship AI developed through a project led by the Ministry of Science and ICT.
+* Superior Performance: Built on a proprietary architecture trained on massive-scale Korean datasets.
+
 ### A.X 4.0 Series
 * 72B Standard Model: Optimized for large-scale Korean language processing
 * 7B Light Model: Efficient lightweight model
