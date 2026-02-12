@@ -66,11 +66,11 @@ See [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) for workflow 
 ## Contact & Support
 
 **Questions or Inquiries?**
-- 📌 [Create an issue](https://github.com/sktelecom/sktelecom.github.io/issues/new) on GitHub
+- [Create an issue](https://github.com/sktelecom/sktelecom.github.io/issues/new) on GitHub
 - Email OSPO (Open Source Program Office): [opensource@sktelecom.com](mailto:opensource@sktelecom.com)
 - Visit our [About Page](https://sktelecom.github.io/about/) to learn more about SK Telecom's open source initiatives
 
-## 📄 License
+## License
 
 - **Website Code**: [Apache License 2.0](LICENSE-CODE)
 - **Content**: [Creative Commons Attribution 4.0 International (CC-BY-4.0)](LICENSE)
