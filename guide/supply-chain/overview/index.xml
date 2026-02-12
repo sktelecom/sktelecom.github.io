@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>개요 on Open Source</title><link>https://sktelecom.github.io/guide/supply-chain/overview/</link><description>Recent content in 개요 on Open Source</description><generator>Hugo</generator><language>ko</language><atom:link href="https://sktelecom.github.io/guide/supply-chain/overview/index.xml" rel="self" type="application/rss+xml"/><item><title>규제 동향</title><link>https://sktelecom.github.io/guide/supply-chain/overview/regulations/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://sktelecom.github.io/guide/supply-chain/overview/regulations/</guid><description>&lt;h2 id="1-미국-행정명령-14028-eo-14028"&gt;1. 미국: 행정명령 14028 (EO 14028)&lt;a class="td-heading-self-link" href="#1-%eb%af%b8%ea%b5%ad-%ed%96%89%ec%a0%95%eb%aa%85%eb%a0%b9-14028-eo-14028" aria-label="Heading self-link"&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;2021년 5월, 바이든 행정부는 &amp;lsquo;국가의 사이버 보안 개선에 관한 행정명령(Executive Order 14028)&amp;lsquo;을 발표했습니다. 이는 SolarWinds 사태 이후 공급망 보안을 국가 안보 차원에서 다루기 시작한 결정적 계기입니다.&lt;/p&gt;
+&lt;h3 id="핵심-내용"&gt;핵심 내용&lt;a class="td-heading-self-link" href="#%ed%95%b5%ec%8b%ac-%eb%82%b4%ec%9a%a9" aria-label="Heading self-link"&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;SBOM 제출 의무화: 연방 정부에 소프트웨어를 납품하는 기업은 반드시 SBOM을 제출해야 합니다.&lt;/li&gt;
+&lt;li&gt;NIST 가이드라인 준수: NIST(미국 국립표준기술연구소)가 정의한 &amp;lsquo;보안 소프트웨어 개발 프레임워크(SSDF)&amp;lsquo;를 준수해야 합니다.&lt;/li&gt;
+&lt;li&gt;최소 기준 제시: 미 행정부는 SBOM의 최소 요소(데이터 필드, 자동화 지원 등)를 정의하여 표준화를 주도했습니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;&amp;ldquo;연방 정부의 구매력을 활용하여 소프트웨어 시장 전체의 보안 수준을 상향 평준화하겠다.&amp;rdquo;&lt;/em&gt;&lt;/p&gt;</description></item><item><title>SK텔레콤 공급망 보안 정책</title><link>https://sktelecom.github.io/guide/supply-chain/overview/policy/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://sktelecom.github.io/guide/supply-chain/overview/policy/</guid><description>&lt;blockquote&gt;
+&lt;hr&gt;
+&lt;p&gt;NOTICE.&lt;/p&gt;
+&lt;p&gt;본 문서는 사내 보안 및 문서 관리 정책에 따라 대외비 내용을 제외한 요약본입니다. 전체 내용이 아닌 개략적인 핵심 사항 위주로 작성되었음을 참고해 주시기 바랍니다.&lt;/p&gt;
+&lt;hr&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="1-정책-목적"&gt;1. 정책 목적&lt;a class="td-heading-self-link" href="#1-%ec%a0%95%ec%b1%85-%eb%aa%a9%ec%a0%81" aria-label="Heading self-link"&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;본 정책은 SK텔레콤이 도입하는 모든 소프트웨어의 투명성을 확보하고, 알려진 취약점(Known Vulnerabilities) 및 라이선스 위반 리스크를 사전에 식별하여 제거하는 것을 목적으로 합니다.&lt;/p&gt;
+&lt;h2 id="2-적용-대상"&gt;2. 적용 대상&lt;a class="td-heading-self-link" href="#2-%ec%a0%81%ec%9a%a9-%eb%8c%80%ec%83%81" aria-label="Heading self-link"&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;SK텔레콤과 소프트웨어 공급 계약을 체결하는 모든 공급사는 본 정책의 적용을 받습니다.&lt;/p&gt;
+&lt;h2 id="3-주요-요구사항"&gt;3. 주요 요구사항&lt;a class="td-heading-self-link" href="#3-%ec%a3%bc%ec%9a%94-%ec%9a%94%ea%b5%ac%ec%82%ac%ed%95%ad" aria-label="Heading self-link"&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;공급사는 다음 3가지 원칙을 준수해야 합니다.&lt;/p&gt;</description></item></channel></rss>

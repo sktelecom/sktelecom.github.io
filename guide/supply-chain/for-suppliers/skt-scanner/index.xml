@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SK텔레콤 제공 도구 on Open Source</title><link>https://sktelecom.github.io/guide/supply-chain/for-suppliers/skt-scanner/</link><description>Recent content in SK텔레콤 제공 도구 on Open Source</description><generator>Hugo</generator><language>ko</language><atom:link href="https://sktelecom.github.io/guide/supply-chain/for-suppliers/skt-scanner/index.xml" rel="self" type="application/rss+xml"/><item><title>언어별 세부 사용 가이드</title><link>https://sktelecom.github.io/guide/supply-chain/for-suppliers/skt-scanner/skt-language/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://sktelecom.github.io/guide/supply-chain/for-suppliers/skt-scanner/skt-language/</guid><description>&lt;h2 id="지원-언어-및-도구"&gt;지원 언어 및 도구&lt;a class="td-heading-self-link" href="#%ec%a7%80%ec%9b%90-%ec%96%b8%ec%96%b4-%eb%b0%8f-%eb%8f%84%ea%b5%ac" aria-label="Heading self-link"&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Java: Maven, Gradle (Java 7, 8, 11, 17, 21)&lt;/li&gt;
+&lt;li&gt;Python: pip, Poetry (Python 2.7, 3.x)&lt;/li&gt;
+&lt;li&gt;Node.js: npm, Yarn, pnpm&lt;/li&gt;
+&lt;li&gt;Ruby: Bundler, Gemfile&lt;/li&gt;
+&lt;li&gt;PHP: Composer&lt;/li&gt;
+&lt;li&gt;Rust: Cargo&lt;/li&gt;
+&lt;li&gt;C/C++: Conan, vcpkg (제한적)&lt;/li&gt;
+&lt;li&gt;Go: go.mod&lt;/li&gt;
+&lt;li&gt;.NET: NuGet, project files&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="언어별-사용-가이드"&gt;언어별 사용 가이드&lt;a class="td-heading-self-link" href="#%ec%96%b8%ec%96%b4%eb%b3%84-%ec%82%ac%ec%9a%a9-%ea%b0%80%ec%9d%b4%eb%93%9c" aria-label="Heading self-link"&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="1-java-maven"&gt;1. Java (Maven)&lt;a class="td-heading-self-link" href="#1-java-maven" aria-label="Heading self-link"&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;h4 id="필수-파일"&gt;필수 파일&lt;a class="td-heading-self-link" href="#%ed%95%84%ec%88%98-%ed%8c%8c%ec%9d%bc" aria-label="Heading self-link"&gt;&lt;/a&gt;&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;pom.xml&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id="예시"&gt;예시&lt;a class="td-heading-self-link" href="#%ec%98%88%ec%8b%9c" aria-label="Heading self-link"&gt;&lt;/a&gt;&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#204a87"&gt;cd&lt;/span&gt; /path/to/maven-project
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;./scan-sbom.sh --project &lt;span style="color:#4e9a06"&gt;&amp;#34;MyJavaApp&amp;#34;&lt;/span&gt; --version &lt;span style="color:#4e9a06"&gt;&amp;#34;1.0.0&amp;#34;&lt;/span&gt; --generate-only
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id="레거시-java-7-프로젝트"&gt;레거시 Java 7 프로젝트&lt;a class="td-heading-self-link" href="#%eb%a0%88%ea%b1%b0%ec%8b%9c-java-7-%ed%94%84%eb%a1%9c%ec%a0%9d%ed%8a%b8" aria-label="Heading self-link"&gt;&lt;/a&gt;&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-xml" data-lang="xml"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8f5902;font-style:italic"&gt;&amp;lt;!-- pom.xml에서 Java 버전 명시 --&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#204a87;font-weight:bold"&gt;&amp;lt;properties&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#204a87;font-weight:bold"&gt;&amp;lt;maven.compiler.source&amp;gt;&lt;/span&gt;1.7&lt;span style="color:#204a87;font-weight:bold"&gt;&amp;lt;/maven.compiler.source&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#204a87;font-weight:bold"&gt;&amp;lt;maven.compiler.target&amp;gt;&lt;/span&gt;1.7&lt;span style="color:#204a87;font-weight:bold"&gt;&amp;lt;/maven.compiler.target&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#204a87;font-weight:bold"&gt;&amp;lt;/properties&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;스캔 시 Docker 컨테이너 내부에서 적절한 JDK를 자동 선택합니다.&lt;/p&gt;</description></item></channel></rss>

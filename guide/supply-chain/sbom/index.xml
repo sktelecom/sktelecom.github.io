@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SBOM 관리 on Open Source</title><link>https://sktelecom.github.io/guide/supply-chain/sbom/</link><description>Recent content in SBOM 관리 on Open Source</description><generator>Hugo</generator><language>ko</language><atom:link href="https://sktelecom.github.io/guide/supply-chain/sbom/index.xml" rel="self" type="application/rss+xml"/><item><title>SBOM이란?</title><link>https://sktelecom.github.io/guide/supply-chain/sbom/what-is-sbom/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://sktelecom.github.io/guide/supply-chain/sbom/what-is-sbom/</guid><description>&lt;h2 id="sbom의-정의"&gt;SBOM의 정의&lt;a class="td-heading-self-link" href="#sbom%ec%9d%98-%ec%a0%95%ec%9d%98" aria-label="Heading self-link"&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;SBOM (Software Bill of Materials)은 소프트웨어를 구성하는 모든 컴포넌트, 라이브러리, 모듈 등의 목록과 그들 간의 의존성 관계를 기술한 정형화된 명세서입니다. 제조업에서 제품의 부품 목록을 관리하는 BOM(Bill of Materials) 개념을 소프트웨어 공학에 적용한 것입니다.&lt;/p&gt;
+&lt;pre class="mermaid"&gt;graph TD
+ A[소프트웨어 제품] --&amp;gt; B[직접 의존성]
+ B --&amp;gt; C[라이브러리 A v1.2.3]
+ B --&amp;gt; D[라이브러리 B v2.0.1]
+ B --&amp;gt; E[라이브러리 C v3.1.0]
+ C --&amp;gt; F[전이적 의존성]
+ F --&amp;gt; G[라이브러리 D v1.0.0]
+ F --&amp;gt; H[라이브러리 E v2.5.0]
+ D --&amp;gt; F&lt;/pre&gt;
+&lt;h2 id="sbom의-주요-구성-요소"&gt;SBOM의 주요 구성 요소&lt;a class="td-heading-self-link" href="#sbom%ec%9d%98-%ec%a3%bc%ec%9a%94-%ea%b5%ac%ec%84%b1-%ec%9a%94%ec%86%8c" aria-label="Heading self-link"&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="컴포넌트-정보"&gt;컴포넌트 정보&lt;a class="td-heading-self-link" href="#%ec%bb%b4%ed%8f%ac%eb%84%8c%ed%8a%b8-%ec%a0%95%eb%b3%b4" aria-label="Heading self-link"&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;각 소프트웨어 컴포넌트에 대한 기본 정보를 포함합니다.&lt;/p&gt;</description></item><item><title>SBOM 표준</title><link>https://sktelecom.github.io/guide/supply-chain/sbom/standards/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://sktelecom.github.io/guide/supply-chain/sbom/standards/</guid><description>&lt;h2 id="주요-sbom-표준"&gt;주요 SBOM 표준&lt;a class="td-heading-self-link" href="#%ec%a3%bc%ec%9a%94-sbom-%ed%91%9c%ec%a4%80" aria-label="Heading self-link"&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;현재 시장을 양분하고 있는 두 가지 주요 표준 형식이 있습니다. 두 형식 모두 널리 사용되지만, 탄생 배경과 주력 분야에 차이가 있습니다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;SPDX: Software Package Data Exchange&lt;/li&gt;
+&lt;li&gt;CycloneDX: OWASP 주관의 보안 중심 SBOM 표준&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="spdx-software-package-data-exchange"&gt;SPDX (Software Package Data Exchange)&lt;a class="td-heading-self-link" href="#spdx-software-package-data-exchange" aria-label="Heading self-link"&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="개요"&gt;개요&lt;a class="td-heading-self-link" href="#%ea%b0%9c%ec%9a%94" aria-label="Heading self-link"&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;SPDX는 Linux Foundation이 주관하는 오픈소스 프로젝트로, 소프트웨어 패키지의 라이선스 및 저작권 정보를 표준화된 방식으로 표현하기 위해 개발되었습니다. (ISO/IEC 5962:2021)&lt;/p&gt;
+&lt;h3 id="주요-특징"&gt;주요 특징&lt;a class="td-heading-self-link" href="#%ec%a3%bc%ec%9a%94-%ed%8a%b9%ec%a7%95" aria-label="Heading self-link"&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;SPDX는 원래 오픈소스 라이선스 정보 교환을 위해 개발되어, 라이선스 관련 정보가 매우 상세합니다.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;표준화된 라이선스 식별자 (SPDX License List)&lt;/li&gt;
+&lt;li&gt;라이선스 표현식 (예: Apache-2.0 OR MIT)&lt;/li&gt;
+&lt;li&gt;저작권 정보 및 파일별 라이선스&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start="2"&gt;
+&lt;li&gt;패키지뿐만 아니라 개별 파일 레벨의 정보도 포함할 수 있습니다.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;파일별 해시값&lt;/li&gt;
+&lt;li&gt;파일별 라이선스&lt;/li&gt;
+&lt;li&gt;파일별 저작권 정보&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="spdx-문서-구조"&gt;SPDX 문서 구조&lt;a class="td-heading-self-link" href="#spdx-%eb%ac%b8%ec%84%9c-%ea%b5%ac%ec%a1%b0" aria-label="Heading self-link"&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-json" data-lang="json"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#000;font-weight:bold"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#204a87;font-weight:bold"&gt;&amp;#34;SPDXID&amp;#34;&lt;/span&gt;&lt;span style="color:#000;font-weight:bold"&gt;:&lt;/span&gt; &lt;span style="color:#4e9a06"&gt;&amp;#34;SPDXRef-DOCUMENT&amp;#34;&lt;/span&gt;&lt;span style="color:#000;font-weight:bold"&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#204a87;font-weight:bold"&gt;&amp;#34;spdxVersion&amp;#34;&lt;/span&gt;&lt;span style="color:#000;font-weight:bold"&gt;:&lt;/span&gt; &lt;span style="color:#4e9a06"&gt;&amp;#34;SPDX-2.3&amp;#34;&lt;/span&gt;&lt;span style="color:#000;font-weight:bold"&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#204a87;font-weight:bold"&gt;&amp;#34;name&amp;#34;&lt;/span&gt;&lt;span style="color:#000;font-weight:bold"&gt;:&lt;/span&gt; &lt;span style="color:#4e9a06"&gt;&amp;#34;Example-SBOM&amp;#34;&lt;/span&gt;&lt;span style="color:#000;font-weight:bold"&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#204a87;font-weight:bold"&gt;&amp;#34;documentNamespace&amp;#34;&lt;/span&gt;&lt;span style="color:#000;font-weight:bold"&gt;:&lt;/span&gt; &lt;span style="color:#4e9a06"&gt;&amp;#34;https://example.com/sbom-2023-001&amp;#34;&lt;/span&gt;&lt;span style="color:#000;font-weight:bold"&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#204a87;font-weight:bold"&gt;&amp;#34;creationInfo&amp;#34;&lt;/span&gt;&lt;span style="color:#000;font-weight:bold"&gt;:&lt;/span&gt; &lt;span style="color:#000;font-weight:bold"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#204a87;font-weight:bold"&gt;&amp;#34;created&amp;#34;&lt;/span&gt;&lt;span style="color:#000;font-weight:bold"&gt;:&lt;/span&gt; &lt;span style="color:#4e9a06"&gt;&amp;#34;2023-01-15T10:30:00Z&amp;#34;&lt;/span&gt;&lt;span style="color:#000;font-weight:bold"&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#204a87;font-weight:bold"&gt;&amp;#34;creators&amp;#34;&lt;/span&gt;&lt;span style="color:#000;font-weight:bold"&gt;:&lt;/span&gt; &lt;span style="color:#000;font-weight:bold"&gt;[&lt;/span&gt;&lt;span style="color:#4e9a06"&gt;&amp;#34;Tool: SPDX-Tools-2.3&amp;#34;&lt;/span&gt;&lt;span style="color:#000;font-weight:bold"&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#000;font-weight:bold"&gt;},&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#204a87;font-weight:bold"&gt;&amp;#34;packages&amp;#34;&lt;/span&gt;&lt;span style="color:#000;font-weight:bold"&gt;:&lt;/span&gt; &lt;span style="color:#000;font-weight:bold"&gt;[&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#000;font-weight:bold"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#204a87;font-weight:bold"&gt;&amp;#34;SPDXID&amp;#34;&lt;/span&gt;&lt;span style="color:#000;font-weight:bold"&gt;:&lt;/span&gt; &lt;span style="color:#4e9a06"&gt;&amp;#34;SPDXRef-Package-1&amp;#34;&lt;/span&gt;&lt;span style="color:#000;font-weight:bold"&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#204a87;font-weight:bold"&gt;&amp;#34;name&amp;#34;&lt;/span&gt;&lt;span style="color:#000;font-weight:bold"&gt;:&lt;/span&gt; &lt;span style="color:#4e9a06"&gt;&amp;#34;spring-core&amp;#34;&lt;/span&gt;&lt;span style="color:#000;font-weight:bold"&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#204a87;font-weight:bold"&gt;&amp;#34;versionInfo&amp;#34;&lt;/span&gt;&lt;span style="color:#000;font-weight:bold"&gt;:&lt;/span&gt; &lt;span style="color:#4e9a06"&gt;&amp;#34;5.3.20&amp;#34;&lt;/span&gt;&lt;span style="color:#000;font-weight:bold"&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#204a87;font-weight:bold"&gt;&amp;#34;licenseDeclared&amp;#34;&lt;/span&gt;&lt;span style="color:#000;font-weight:bold"&gt;:&lt;/span&gt; &lt;span style="color:#4e9a06"&gt;&amp;#34;Apache-2.0&amp;#34;&lt;/span&gt;&lt;span style="color:#000;font-weight:bold"&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#204a87;font-weight:bold"&gt;&amp;#34;externalRefs&amp;#34;&lt;/span&gt;&lt;span style="color:#000;font-weight:bold"&gt;:&lt;/span&gt; &lt;span style="color:#000;font-weight:bold"&gt;[&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#000;font-weight:bold"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#204a87;font-weight:bold"&gt;&amp;#34;referenceType&amp;#34;&lt;/span&gt;&lt;span style="color:#000;font-weight:bold"&gt;:&lt;/span&gt; &lt;span style="color:#4e9a06"&gt;&amp;#34;purl&amp;#34;&lt;/span&gt;&lt;span style="color:#000;font-weight:bold"&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#204a87;font-weight:bold"&gt;&amp;#34;referenceLocator&amp;#34;&lt;/span&gt;&lt;span style="color:#000;font-weight:bold"&gt;:&lt;/span&gt; &lt;span style="color:#4e9a06"&gt;&amp;#34;pkg:maven/org.springframework/spring-core@5.3.20&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#000;font-weight:bold"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#000;font-weight:bold"&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#000;font-weight:bold"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#000;font-weight:bold"&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#000;font-weight:bold"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="장점"&gt;장점&lt;a class="td-heading-self-link" href="#%ec%9e%a5%ec%a0%90" aria-label="Heading self-link"&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;ISO 국제 표준으로 공식 인정&lt;/li&gt;
+&lt;li&gt;라이선스 정보가 매우 상세&lt;/li&gt;
+&lt;li&gt;파일 레벨까지 추적 가능&lt;/li&gt;
+&lt;li&gt;성숙한 도구 생태계&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="단점"&gt;단점&lt;a class="td-heading-self-link" href="#%eb%8b%a8%ec%a0%90" aria-label="Heading self-link"&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;보안 취약점 정보가 선택사항&lt;/li&gt;
+&lt;li&gt;구조가 다소 복잡&lt;/li&gt;
+&lt;li&gt;보안 중심 프로젝트에는 부족할 수 있음&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="cyclonedx"&gt;CycloneDX&lt;a class="td-heading-self-link" href="#cyclonedx" aria-label="Heading self-link"&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="개요-1"&gt;개요&lt;a class="td-heading-self-link" href="#%ea%b0%9c%ec%9a%94-1" aria-label="Heading self-link"&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;CycloneDX는 OWASP(Open Web Application Security Project)에서 개발한 SBOM 표준으로, 애플리케이션 보안에 중점을 둡니다.&lt;/p&gt;</description></item></channel></rss>
