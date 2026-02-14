@@ -81,7 +81,6 @@ scan-sbom.bat --help
 다운받은 `scan-sbom.sh` 파일을 프로젝트 루트 디렉토리에 위치시키고 실행합니다.
 
 ```bash
-chmod +x scan-sbom.sh
 ./scan-sbom.sh --project "프로젝트명" --version "버전" --generate-only
 ```
 
