@@ -22,8 +22,8 @@ SKT SBOM Scanner는 공급사가 별도의 도구 학습이나 환경 설정 없
 
 | 언어 | 패키지 매니저 | 필수 파일 | 비고 |
 |------|--------------|-----------|------|
-| Java | Maven, Gradle | pom.xml, build.gradle | Java 7-21 지원 |
-| Python | pip, Poetry | requirements.txt, pyproject.toml | Python 2.x, 3.x 지원 |
+| Java | Maven, Gradle | pom.xml, build.gradle | Java 7-17 지원 (JDK 17) |
+| Python | pip, Poetry | requirements.txt, pyproject.toml | Python 3.6+ 지원 |
 | Node.js | npm, Yarn, pnpm | package.json, package-lock.json | - |
 | Ruby | Bundler | Gemfile, Gemfile.lock | - |
 | PHP | Composer | composer.json, composer.lock | - |
@@ -32,6 +32,8 @@ SKT SBOM Scanner는 공급사가 별도의 도구 학습이나 환경 설정 없
 | .NET | NuGet | *.csproj, packages.config | - |
 | C/C++ | Conan, vcpkg | conanfile.txt, vcpkg.json | 제한적 지원 |
 
+> - Java 21: 대부분 JDK 17에서 분석 가능하나, Java 21 전용 기능 사용 시 제한이 있을 수 있습니다.
+> - Python 2: 2020년 공식 지원 종료로 더 이상 지원하지 않습니다. Python 3로 마이그레이션을 권장합니다.
 
 ### 참고사항:
 - C/C++ 프로젝트: 패키지 매니저(Conan, vcpkg) 사용 시에만 의존성 분석 가능. 헤더 파일 직접 관리 방식은 분석 제한적.
@@ -42,13 +44,41 @@ SKT SBOM Scanner는 공급사가 별도의 도구 학습이나 환경 설정 없
 
 ## 사전 준비사항
 
-*   운영체제: Linux, macOS
-*   Docker: v20.10 이상 설치 및 실행 중일 것
+* 운영체제: 
+  - Linux (권장)
+  - macOS
+  - Windows 10/11 (scan-sbom.bat 사용)
+* Docker: v20.10 이상 설치 및 실행 중일 것
+* 디스크 공간: 약 4-5 GB (Docker 이미지)
+
+> 첫 실행 시 주의: Docker 이미지 다운로드로 5-10분 소요될 수 있습니다.
+> 이후 실행부터는 캐시된 이미지를 사용하여 빠르게 실행됩니다.
+
+## 도구 설치
+
+### Linux / macOS
+```bash
+# 스크립트 다운로드
+curl -O https://raw.githubusercontent.com/sktelecom/sbom-tools/main/scripts/scan-sbom.sh
+chmod +x scan-sbom.sh
+
+# 설치 확인
+./scan-sbom.sh --help
+```
+
+### Windows
+```cmd
+# 스크립트 다운로드
+curl -O https://raw.githubusercontent.com/sktelecom/sbom-tools/main/scripts/scan-sbom.bat
+
+# 설치 확인
+scan-sbom.bat --help
+```
 
 ## 사용 방법
 
 ### 1. 스크립트 실행
-제공받은 `scan-sbom.sh` 파일을 프로젝트 루트 디렉토리에 위치시키고 실행합니다.
+다운받은 `scan-sbom.sh` 파일을 프로젝트 루트 디렉토리에 위치시키고 실행합니다.
 
 ```bash
 chmod +x scan-sbom.sh
@@ -135,3 +165,17 @@ DEFAULT_API_KEY="YOUR_API_KEY_HERE"
 export API_KEY="YOUR_API_KEY_HERE"
 ./scan-sbom.sh --project "MyApp" --version "1.0.0"
 ```
+
+## 다음 단계
+
+SBOM 파일 생성 완료 후:
+
+1. [검증 체크리스트](/guide/supply-chain/for-suppliers/checklist/)로 파일 확인
+2. [제출 절차](/guide/supply-chain/for-suppliers/submission/)에 따라 SK텔레콤에 제출
+3. 문제 발생 시 담당자에게 문의
+
+
+### 관련 문서
+- [SBOM 제출 요구사항](/guide/supply-chain/for-suppliers/requirements/)
+- [언어별 세부 가이드](/guide/supply-chain/for-suppliers/skt-scanner/skt-language/)
+- [검증 체크리스트](/guide/supply-chain/for-suppliers/checklist/)
