@@ -34,6 +34,41 @@ SK텔레콤은 글로벌 표준으로 자리 잡은 두 가지 형식을 모두 
 *   Version: 컴포넌트 버전 (예: `3.12.0`)
 *   PURL (Package URL): [필수] 패키지 식별자
 
+### 2.3 의존성 범위 (Dependency Scope)
+
+> **중요: 전이적 의존성(Transitive Dependencies)을 반드시 포함해야 합니다.**
+
+SK텔레콤은 제출된 SBOM을 기반으로 취약점을 분석합니다. **직접 의존성만 포함된 SBOM은 숨겨진 취약점을 놓칠 수 있으므로 반려될 수 있습니다.**
+
+| 의존성 종류 | 설명 | 포함 여부 |
+|---|---|---|
+| 직접 의존성 (Direct) | 프로젝트가 직접 선언한 라이브러리 | 필수 |
+| 전이적 의존성 (Transitive) | 직접 의존성이 다시 의존하는 라이브러리 | 필수 |
+| 개발 전용 의존성 (Dev-only) | 테스트, 빌드 도구 등 런타임 미포함 라이브러리 | 권장 포함 |
+
+**전이적 의존성이란?**
+
+예를 들어 프로젝트가 `library-A`를 직접 사용하고, `library-A`가 내부적으로 `library-B`를 사용하는 경우, `library-B`가 전이적 의존성입니다. `library-B`에 취약점이 있어도 SBOM에 포함되지 않으면 탐지할 수 없습니다.
+
+```
+MyApp
+  └─ library-A v1.0 (직접 의존성)  ← 공급사가 명시적으로 선언
+       └─ library-B v2.3 (전이적 의존성)  ← SBOM에 반드시 포함되어야 함
+            └─ library-C v0.9 (전이적 의존성)  ← SBOM에 반드시 포함되어야 함
+```
+
+**올바른 SBOM 생성을 위한 전제 조건**
+
+전이적 의존성이 정확하게 포함되려면 **빌드(또는 패키지 설치)가 완료된 상태**에서 SBOM을 생성해야 합니다. 소스코드만 있는 상태에서는 전이적 의존성이 누락될 수 있습니다.
+
+- Java (Maven): `mvn package` 또는 `mvn dependency:resolve` 실행 후 생성
+- Java (Gradle): `./gradlew dependencies` 실행 후 생성
+- Python: `pip install -r requirements.txt` (가상환경 활성화) 후 생성
+- Node.js: `npm install` 또는 `yarn install` 실행 후 생성
+- Go: `go mod download` 실행 후 생성
+
+> 각 도구별 전이적 의존성 포함 방법은 [오픈소스 도구 활용](../creation-guide/) 가이드를 참고하십시오.
+
 ## 3. Package URL (PURL) 준수
 
 PURL(Package URL)은 소프트웨어 패키지를 고유하게 식별하기 위한 표준 URL 형식입니다. SK텔레콤의 취약점 분석 시스템은 PURL을 기준으로 동작하므로, 모든 컴포넌트에 유효한 PURL이 포함되어야 합니다.
