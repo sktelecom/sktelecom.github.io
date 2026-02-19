@@ -1,6 +1,6 @@
 ---
-title: "SBOM 관리"
-linkTitle: "SBOM 관리"
+title: "SBOM 이란?"
+linkTitle: "SBOM 이란?"
 weight: 2
 type: docs
 description: >

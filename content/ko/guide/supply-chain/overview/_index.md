@@ -1,6 +1,6 @@
 ---
-title: "개요"
-linkTitle: "개요"
+title: "소프트웨어 공급망 공격과 보안 필요성"
+linkTitle: "공급망 보안이란?"
 weight: 1
 type: docs
 description: >
@@ -51,3 +51,9 @@ graph LR
 3.  탐지의 어려움: 개발 및 빌드 단계에서 오염된 코드는 전통적인 보안 검사(방화벽, 백신 등)를 우회하기 쉽습니다.
 
 이에 따라 SK텔레콤은 공급망의 투명성을 확보하고 리스크를 관리하기 위해 SBOM 도입과 철저한 공급망 보안 정책을 수립하여 시행하고 있습니다.
+
+## 관련 문서
+
+- [글로벌 규제 동향](regulations/): 미국 EO 14028, EU CRA 등 주요 규제 현황
+- [SK텔레콤 공급망 보안 정책](policy/): SK텔레콤의 구체적인 요구사항
+- [공급사 가이드](/guide/supply-chain/for-suppliers/): 공급사를 위한 SBOM 생성 및 제출 안내

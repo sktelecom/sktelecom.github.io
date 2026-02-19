@@ -12,7 +12,7 @@ description: >
 SK텔레콤은 글로벌 표준으로 자리 잡은 두 가지 형식을 모두 지원합니다. 공급사는 사용하는 도구가 지원하는 형식을 선택하여 제출할 수 있습니다.
 
 | 형식 | 버전 | 권장 용도 | 파일 형식 |
-|------|------|----------|-----------|
+|------|------|----------|-----------| 
 | CycloneDX | v1.3, v1.4, v1.5 | 애플리케이션 보안, 취약점 관리 중심 | JSON (권장), XML |
 | SPDX | v2.2, v2.3 | 라이선스 컴플라이언스 중심 | JSON, Tag-Value |
 
@@ -95,3 +95,11 @@ PURL(Package URL)은 소프트웨어 패키지를 고유하게 식별하기 위�
 - [CycloneDX Specification](https://cyclonedx.org/specification/overview/)
 - [SPDX Specification](https://spdx.github.io/spdx-spec/)
 - [Package URL Specification](https://github.com/package-url/purl-spec)
+
+## 관련 문서
+
+- [공급사 가이드 홈](../)
+- [SKT 제공 도구 활용](../skt-scanner/): 간편하게 SBOM을 생성하는 SKT 표준 도구
+- [오픈소스 도구 활용](../creation-guide/): cdxgen, Syft 등 오픈소스 도구 안내
+- [검증 체크리스트](../checklist/): 제출 전 확인 사항
+- [제출 절차](../submission/): 제출 방법 및 이메일 양식

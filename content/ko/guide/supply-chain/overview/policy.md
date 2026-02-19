@@ -45,9 +45,9 @@ SK텔레콤과 소프트웨어 공급 계약을 체결하는 모든 공급사는
 - 계약 기간 중 소프트웨어의 구성 요소가 변경(업데이트, 패치 등)되는 경우, 갱신된 SBOM을 즉시 제출해야 합니다.
 - 오픈소스 라이선스 의무 사항(고지 의무, 소스코드 공개 의무 등)을 준수했음을 보증해야 합니다.
 
-## 참고 문서
+## 관련 문서
 
-상세한 SBOM 생성 방법과 기술적 가이드는 다음 문서를 참고하시기 바랍니다.
-
-- [공급사 가이드 (For Suppliers)](../../for-suppliers/)
-- [SBOM 생성 방법](../../for-suppliers/sbom-generation/)
+- [공급망 보안 개요](../) : 소프트웨어 공급망 공격의 개념과 주요 사례
+- [글로벌 규제 동향](../regulations/): SBOM 관련 국내외 규제 현황
+- [공급사 가이드](/guide/supply-chain/for-suppliers/): SBOM 생성 및 제출 방법 상세 안내
+- [제출 요구사항](/guide/supply-chain/for-suppliers/requirements/): SBOM 포맷 및 필수 데이터 필드 정의

@@ -1,5 +1,5 @@
 ---
-title: "SK텔레콤 제공 도구"
+title: "SKT 제공 도구 활용 (Easy Mode)"
 linkTitle: "SKT 제공 도구"
 weight: 4
 type: docs
@@ -40,7 +40,7 @@ SKT SBOM Scanner는 공급사가 별도의 도구 학습이나 환경 설정 없
 - 바이너리/펌웨어 파일: 기본 메타데이터만 추출 가능. 컴파일된 바이너리의 내부 의존성 분석에는 한계가 있음.
 - RootFS 분석: 파일 시스템 구조 분석은 가능하나, 정적 링크된 라이브러리는 감지 불가능.
 
-자세한 언어별 가이드는 [언어별 세부 사용 가이드](skt-language.md)를 참조하세요.
+자세한 언어별 가이드는 [언어별 세부 사용 가이드](skt-language/)를 참조하세요.
 
 ## 사전 준비사항
 
@@ -169,12 +169,13 @@ export API_KEY="YOUR_API_KEY_HERE"
 
 SBOM 파일 생성 완료 후:
 
-1. [검증 체크리스트](/guide/supply-chain/for-suppliers/checklist/)로 파일 확인
-2. [제출 절차](/guide/supply-chain/for-suppliers/submission/)에 따라 SK텔레콤에 제출
+1. [검증 체크리스트](../checklist/)로 파일 확인
+2. [제출 절차](../submission/)에 따라 SK텔레콤에 제출
 3. 문제 발생 시 담당자에게 문의
 
+## 관련 문서
 
-### 관련 문서
-- [SBOM 제출 요구사항](/guide/supply-chain/for-suppliers/requirements/)
-- [언어별 세부 가이드](/guide/supply-chain/for-suppliers/skt-scanner/skt-language/)
-- [검증 체크리스트](/guide/supply-chain/for-suppliers/checklist/)
+- [제출 요구사항](../requirements/): SBOM에 포함되어야 할 필수 데이터 필드
+- [언어별 세부 가이드](skt-language/): 언어/프레임워크별 상세 실행 예시
+- [검증 체크리스트](../checklist/): 제출 전 확인 사항
+- [오픈소스 도구 활용](../creation-guide/): SKT 도구 대신 오픈소스 도구를 직접 사용하는 경우

@@ -5,3 +5,7 @@
 /.codesight/
 .vscode/
 .DS_Store
+*.zip
+*.log
+*.tmp
+*.bak

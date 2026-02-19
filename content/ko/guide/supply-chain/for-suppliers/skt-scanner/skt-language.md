@@ -1,6 +1,6 @@
 ---
 title: "언어별 세부 사용 가이드"
-linkTitle: "세부 사용 가이드"
+linkTitle: "언어별 세부 사용 가이드"
 weight: 1
 type: docs
 description: >
@@ -23,6 +23,12 @@ description: >
 
 ## 언어별 사용 가이드
 
+### 스크립트 다운로드
+```bash
+curl -O https://raw.githubusercontent.com/sktelecom/sbom-tools/main/scripts/scan-sbom.sh
+chmod +x scan-sbom.sh
+```
+
 ### 1. Java (Maven)
 
 #### 필수 파일
@@ -30,6 +36,7 @@ description: >
 
 #### 예시
 ```bash
+# 스크립트 다운로드
 cd /path/to/maven-project
 ./scan-sbom.sh --project "MyJavaApp" --version "1.0.0" --generate-only
 ```

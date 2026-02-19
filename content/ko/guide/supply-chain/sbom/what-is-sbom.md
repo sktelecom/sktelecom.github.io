@@ -1,6 +1,6 @@
 ---
-title: "SBOM이란?"
-linkTitle: "SBOM이란?"
+title: "SBOM 개념 및 필요성"
+linkTitle: "SBOM 개념"
 weight: 1
 type: docs
 description: >
@@ -92,13 +92,10 @@ SBOM은 단순한 문서가 아니라 소프트웨어 투명성을 위한 핵심
 - EU Cyber Resilience Act
 - 의료기기 FDA 승인
 
+## 관련 문서
 
-## SBOM 생성
-
-상세한 SBOM 생성 방법과 기술적 가이드는 다음 문서를 참고하시기 바랍니다.
-
-- [공급사 가이드 (For Suppliers)](../../for-suppliers/)
-- [SBOM 생성 방법](../../for-suppliers/sbom-generation/)
+- [SBOM 표준 비교 (SPDX vs CycloneDX)](../standards/)
+- [공급사 가이드](/guide/supply-chain/for-suppliers/): SBOM 생성 및 제출 방법
 
 ## 참고 자료
 

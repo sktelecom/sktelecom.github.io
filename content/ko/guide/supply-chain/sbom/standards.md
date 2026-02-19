@@ -161,7 +161,7 @@ CycloneDX는 OWASP(Open Web Application Security Project)에서 개발한 SBOM �
 ## SPDX vs CycloneDX 비교
 
 | 구분 | SPDX | CycloneDX |
-|------|------|-----------|
+|------|------|-----------| 
 | 관리 기관 | Linux Foundation | OWASP |
 | 표준 인증 | ISO/IEC 5962 | 사실상 표준 |
 | 주요 목적 | 라이선스 컴플라이언스 | 보안 취약점 관리 |
@@ -219,17 +219,13 @@ java -jar tools-java-1.1.0-jar-with-dependencies.jar \
   Convert bom.cdx.json bom.spdx.json
 ```
 
+## 관련 문서
 
-## SBOM 생성
-
-상세한 SBOM 생성 방법과 기술적 가이드는 다음 문서를 참고하시기 바랍니다.
-
-- [공급사 가이드 (For Suppliers)](../../for-suppliers/)
-- [SBOM 생성 방법](../../for-suppliers/sbom-generation/)
+- [SBOM이란?](../what-is-sbom/): SBOM의 개념과 필요성
+- [공급사 제출 요구사항](/guide/supply-chain/for-suppliers/requirements/): SK텔레콤이 허용하는 포맷 및 버전
 
 ## 참고 자료
 
 - [SPDX Specification](https://spdx.github.io/spdx-spec/)
 - [CycloneDX Specification](https://cyclonedx.org/specification/overview/)
 - [NTIA SBOM Formats Comparison](https://www.ntia.gov/files/ntia/publications/sbom_formats_survey-version-2021_0.pdf)
-
