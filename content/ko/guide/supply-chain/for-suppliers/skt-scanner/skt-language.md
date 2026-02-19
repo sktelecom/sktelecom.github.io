@@ -1,6 +1,6 @@
 ---
 title: "언어별 세부 사용 가이드"
-linkTitle: "언어별 세부 사용 가이드"
+linkTitle: "언어별 사용 가이드"
 weight: 1
 type: docs
 description: >
