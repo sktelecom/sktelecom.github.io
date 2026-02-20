@@ -15,17 +15,13 @@ SK텔레콤은 소프트웨어 공급망의 투명성과 보안성을 강화하�
 
 ## 가이드 구성
 
-### 개요
+### 공급망 보안 개요
 
 공급망 보안이 왜 중요한지, 글로벌 규제 동향은 어떠한지, 그리고 SK텔레콤의 공급망 보안 정책을 설명합니다.
 
 ### SBOM 관리
 
-SBOM이란 무엇이며, 어떻게 생성하고 관리하는지에 대한 내부 구성원을 위한 기술 가이드를 제공합니다.
-
-### 취약점 관리
-
-취약점 관리 프로세스, 지속적 모니터링 및 사고 대응 절차를 설명합니다.
+SBOM이란 무엇이며, 어떻게 생성하고 관리하는지에 대한 내부 구성원 및 공급사 모두를 위한 기술 가이드를 제공합니다.
 
 ### 공급사 가이드
 
@@ -33,13 +29,16 @@ SK텔레콤에 소프트웨어를 납품하는 공급사를 위한 SBOM 제출 �
 
 ## 주요 표준 및 규격
 
-- ISO/IEC 18974: OpenChain Security Assurance 규격
-- SPDX (ISO/IEC 5962): 소프트웨어 패키지 데이터 교환 표준
-- CycloneDX: 보안 중심의 SBOM 표준
-- NIST SSDF: 소프트웨어 공급망 보안 프레임워크
+* ISO/IEC 18974: OpenChain Security Assurance 규격
+* SPDX (ISO/IEC 5962): 소프트웨어 패키지 데이터 교환 표준
+* CycloneDX: 보안 중심의 SBOM 표준
+* NIST SSDF: 소프트웨어 공급망 보안 프레임워크
+
+관련 규제 동향(미국 EO 14028, EU Cyber Resilience Act 등)은 [규제 동향](/guide/supply-chain/overview/regulations/) 페이지를 참고하세요.
 
 ## 문의
 
-공급망 보안과 관련하여 문의사항이 있으시면 SK텔레콤 오픈소스 관리조직에 연락 주시기 바랍니다.
+공급망 보안과 관련하여 문의사항이 있으시면 아래를 참고하세요.
 
-- Email: opensource@sktelecom.com
+* 공급망 보안 정책 문의: [opensource@sktelecom.com](mailto:opensource@sktelecom.com)
+* SBOM 제출: 담당 계약 담당자(PL)에게 문의 ([제출 절차](/guide/supply-chain/for-suppliers/submission/) 참고)
