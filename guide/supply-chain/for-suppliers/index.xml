@@ -50,19 +50,11 @@
 &lt;li&gt;계약서에 명시된 정기 제출 일정 도래 시&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id="2-제출-방법"&gt;2. 제출 방법&lt;a class="td-heading-self-link" href="#2-%ec%a0%9c%ec%b6%9c-%eb%b0%a9%eb%b2%95" aria-label="Heading self-link"&gt;&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;현재 SK텔레콤은 이메일 제출을 원칙으로 하고 있습니다. (추후 공급사 포털 오픈 예정)&lt;/p&gt;
-&lt;h3 id="이메일-양식"&gt;이메일 양식&lt;a class="td-heading-self-link" href="#%ec%9d%b4%eb%a9%94%ec%9d%bc-%ec%96%91%ec%8b%9d" aria-label="Heading self-link"&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;SBOM 파일은 SK텔레콤 계약 담당자(PL)에게 이메일 혹은 지정된 시스템을 통해 제출합니다.&lt;/p&gt;
+&lt;h3 id="제출-방법"&gt;제출 방법&lt;a class="td-heading-self-link" href="#%ec%a0%9c%ec%b6%9c-%eb%b0%a9%eb%b2%95" aria-label="Heading self-link"&gt;&lt;/a&gt;&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;수신처: &lt;code&gt;opensource@sk.com&lt;/code&gt; 및 계약 담당자(PL)&lt;/li&gt;
-&lt;li&gt;제목: &lt;code&gt;[SBOM 제출] 공급사명_프로젝트명_버전&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;계약 담당자에게 이메일 또는 담당자가 지정한 채널로 SBOM 파일을 전달합니다.&lt;/li&gt;
+&lt;li&gt;이메일 제목: &lt;code&gt;[SBOM 제출] 공급사명_프로젝트명_버전&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;첨부파일: 생성된 SBOM 파일 (비밀번호 걸린 압축 파일 금지)&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;본문 필수 기재 사항:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;납품 계약 번호&lt;/li&gt;
-&lt;li&gt;담당자 정보 (성명, 부서, 연락처)&lt;/li&gt;
-&lt;li&gt;프로젝트 정보 (시스템명, 상세 버전)&lt;/li&gt;
-&lt;li&gt;사용 도구 (예: SKT SBOM Scanner v1.0)&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id="3-제출-후-검증-및-조치"&gt;3. 제출 후 검증 및 조치&lt;a class="td-heading-self-link" href="#3-%ec%a0%9c%ec%b6%9c-%ed%9b%84-%ea%b2%80%ec%a6%9d-%eb%b0%8f-%ec%a1%b0%ec%b9%98" aria-label="Heading self-link"&gt;&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;제출된 SBOM은 SK텔레콤 내부 SBOM 관리 시스템에 등록되어 분석됩니다.&lt;/p&gt;</description></item></channel></rss>
+&lt;p&gt;본문 필수 기재 사항:&lt;/p&gt;</description></item></channel></rss>
