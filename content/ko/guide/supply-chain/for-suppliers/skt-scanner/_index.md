@@ -11,6 +11,14 @@ description: >
 
 SKT SBOM Scanner는 공급사가 별도의 도구 학습이나 환경 설정 없이도 즉시 표준 준수 SBOM을 생성할 수 있도록 제공되는 도구입니다.
 
+> SKT SBOM Scanner는 오픈소스로 개발·운영되고 있습니다.
+> 소스 코드, 이슈 트래커, 기여 방법 등 자세한 내용은 GitHub 저장소를 참고하세요.
+>
+> [github.com/sktelecom/sbom-tools](https://github.com/sktelecom/sbom-tools)
+>
+> 버그 제보, 기능 제안, Pull Request를 통한 기여를 환영합니다.
+
+
 ### 주요 장점
 *   환경 독립성: Docker 컨테이너 기반으로 동작하여 로컬에 Java, Python 등을 설치할 필요가 없습니다.
 *   다중 언어 지원: 프로젝트 내의 여러 언어(Java, JS, Python 등)를 한 번에 분석합니다.
