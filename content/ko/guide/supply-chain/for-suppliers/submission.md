@@ -36,7 +36,8 @@ SBOM 파일은 SK텔레콤 계약 담당자(PL)에게 이메일 혹은 지정된
 > TOSCA (SK텔레콤 오픈소스 & SBOM 관리 시스템)
 > [https://tosca.sktelecom.com](https://tosca.sktelecom.com)
 >
-> TOSCA는 SK텔레콤 내부 시스템으로, 사내 임직원만 접근 가능합니다.
+> - TOSCA는 SK텔레콤 내부 시스템으로, 사내 임직원만 접근 가능합니다.
+> - [SKT 구성원용] 공급사 SBOM 등록 및 리포트 출력 가이드: https://confluence.tde.sktelecom.com/x/bYNULw
 
 ## 3. 제출 후 검증 및 조치
 
