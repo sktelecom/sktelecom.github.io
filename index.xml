@@ -180,10 +180,10 @@
 &lt;li&gt;계약서에 명시된 정기 제출 일정 도래 시&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id="2-제출-방법"&gt;2. 제출 방법&lt;a class="td-heading-self-link" href="#2-%ec%a0%9c%ec%b6%9c-%eb%b0%a9%eb%b2%95" aria-label="Heading self-link"&gt;&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;SBOM 파일은 SK텔레콤 계약 담당자(PL)에게 이메일 혹은 지정된 시스템을 통해 제출합니다.&lt;/p&gt;
+&lt;p&gt;SBOM 파일은 SK텔레콤 사업부서 및 보안부서 담당자에게 이메일 혹은 지정된 시스템을 통해 제출합니다.&lt;/p&gt;
 &lt;h3 id="제출-방법"&gt;제출 방법&lt;a class="td-heading-self-link" href="#%ec%a0%9c%ec%b6%9c-%eb%b0%a9%eb%b2%95" aria-label="Heading self-link"&gt;&lt;/a&gt;&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;계약 담당자에게 이메일 또는 담당자가 지정한 채널로 SBOM 파일을 전달합니다.&lt;/li&gt;
+&lt;li&gt;사업부서 및 보안부서 담당자에게 이메일 또는 담당자가 지정한 채널로 SBOM 파일을 전달합니다.&lt;/li&gt;
 &lt;li&gt;이메일 제목: &lt;code&gt;[SBOM 제출] 공급사명_프로젝트명_버전&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;첨부파일: 생성된 SBOM 파일 (비밀번호 걸린 압축 파일 금지)&lt;/li&gt;
 &lt;/ul&gt;
