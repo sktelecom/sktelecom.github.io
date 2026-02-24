@@ -51,7 +51,7 @@
     "rtlcss": "^4.3.0"
   },
   "optionalDependencies": {
-    "npm-check-updates": "^19.4.1"
+    "npm-check-updates": "^19.5.0"
   },
   "engines": {
     "node": ">=22"
