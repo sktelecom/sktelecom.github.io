@@ -44,7 +44,7 @@
     "update:packages": "npx npm-check-updates -u"
   },
   "devDependencies": {
-    "autoprefixer": "^10.4.24",
+    "autoprefixer": "^10.4.27",
     "cross-env": "^10.1.0",
     "hugo-extended": "0.157.0",
     "postcss-cli": "^11.0.1",
