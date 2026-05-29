@@ -1,5 +1,5 @@
 {{ define "main" }}
-<div class="container py-5 skt-section-page">
+<div class="container skt-section-page">
   <header class="mb-4">
     <h1 class="fw-bold">{{ .Title }}</h1>
     {{ with .Params.description }}<p class="lead" style="color:var(--skt-text-muted)">{{ . | markdownify }}</p>{{ end }}

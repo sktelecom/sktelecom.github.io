@@ -1,9 +1,6 @@
-{{/* 홈 히어로 — 그라데이션 배경 위 featured-background 이미지 오버레이 */}}
-{{ $bg := (.Resources.ByType "image").GetMatch "*background*" }}
+{{/* 홈 히어로 — Vercel풍: 단색 배경 + 미세 그리드(다크는 상단 글로우) */}}
 <section class="skt-hero">
-  {{ with $bg }}
-    <div class="skt-hero__bg" style="background-image:url({{ .RelPermalink }});"></div>
-  {{ end }}
+  <div class="skt-hero__bg" aria-hidden="true"></div>
   <div class="skt-hero__inner">
     <h1 class="skt-hero__title">{{ .Params.hero_title | default .Title }}</h1>
     {{ with .Params.hero_subtitle }}
@@ -11,12 +8,12 @@
     {{ end }}
     <div class="skt-hero__actions">
       {{ with .Params.hero_cta_primary_text }}
-        <a class="btn btn-lg btn-light fw-semibold px-4" href="{{ $.Params.hero_cta_primary_url }}">
+        <a class="btn btn-lg btn-primary fw-semibold px-4" href="{{ $.Params.hero_cta_primary_url }}">
           {{ . }} <i class="fas fa-arrow-right ms-2"></i>
         </a>
       {{ end }}
       {{ with .Params.hero_cta_secondary_text }}
-        <a class="btn btn-lg btn-outline-light fw-semibold px-4" href="{{ $.Params.hero_cta_secondary_url }}">
+        <a class="btn btn-lg btn-outline-secondary fw-semibold px-4" href="{{ $.Params.hero_cta_secondary_url }}">
           {{ . }} <i class="fab fa-github ms-2"></i>
         </a>
       {{ end }}

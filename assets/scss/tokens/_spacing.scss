@@ -1,20 +1,19 @@
 /*
- * 반경 · 그림자 토큰 — 모던 SaaS 카드/박스의 부드러운 elevation.
- * Bootstrap 변수 오버라이드(!default)로 alert/card/dropdown 등에 일괄 반영.
+ * 반경 · 그림자 토큰 — Vercel풍.
+ * 깊이는 그림자 대신 1px 헤어라인 보더로 표현 → 그림자는 극미하게만.
  */
 
-// ── Border radius ──
-$border-radius:     .5rem !default;
-$border-radius-sm:  .375rem !default;
-$border-radius-lg:  .75rem !default;
-$border-radius-xl:  1rem !default;
-$border-radius-xxl: 1.5rem !default;
+// ── Border radius (6px 기조) ──
+$border-radius:     .375rem !default;  // 6px
+$border-radius-sm:  .25rem !default;   // 4px
+$border-radius-lg:  .5rem !default;    // 8px
+$border-radius-xl:  .625rem !default;  // 10px
+$border-radius-xxl: .75rem !default;   // 12px
 
-// ── Box shadow (다층, 은은한 깊이) ──
-$box-shadow-sm: 0 1px 2px rgba(15, 23, 42, .06), 0 1px 3px rgba(15, 23, 42, .08) !default;
-$box-shadow:    0 4px 6px -1px rgba(15, 23, 42, .08), 0 2px 4px -2px rgba(15, 23, 42, .06) !default;
-$box-shadow-lg: 0 12px 24px -6px rgba(15, 23, 42, .12), 0 8px 16px -8px rgba(15, 23, 42, .08) !default;
+// ── Box shadow: 거의 제거(헤어라인 수준) ──
+$box-shadow-sm: 0 1px 0 rgba(0, 0, 0, .04) !default;
+$box-shadow:    0 1px 2px rgba(0, 0, 0, .06) !default;
+$box-shadow-lg: 0 4px 12px rgba(0, 0, 0, .08) !default;  // 드롭다운/모달 최소
 
-// 카드: 라운드 키워 모던하게
 $card-border-radius: $border-radius-lg !default;
-$card-border-color:  rgba(15, 23, 42, .08) !default;
+$card-border-color:  $skt-gray-200 !default;  // #ebebeb 1px 보더
