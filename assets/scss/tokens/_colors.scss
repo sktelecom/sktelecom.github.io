@@ -1,32 +1,33 @@
 /*
- * 색상 토큰 — SK Blue 명도 스케일 + 중립(neutral) 스케일
- * _variables_project.scss 상단에서 가장 먼저 import 된다.
- * 여기서는 순수 hex만 정의하고, Bootstrap 변수 매핑은 _variables_project.scss에서 수행.
+ * 색상 토큰 — Vercel풍 완전 모노크롬.
+ * 변수명($skt-blue-*, $skt-gray-*)은 유지하고 값만 무채색으로 교체한다
+ * (여러 곳에서 참조하므로 이름을 바꾸면 깨짐).
  */
 
-// ── Brand: SK Blue 스케일 (500 = $skt-t-blue #3c46c5) ──
-$skt-blue-50:  #eef0fb;
-$skt-blue-100: #dde0f7;
-$skt-blue-200: #bcc3ef;
-$skt-blue-300: #97a1e6;
-$skt-blue-400: #6a76d8;
-$skt-blue-500: #3c46c5;
-$skt-blue-600: #3139ad;
-$skt-blue-700: #282e8c;
-$skt-blue-800: #21266f;
-$skt-blue-900: #1b1f54;
+// ── "brand" = 모노크롬 강조 스케일 (변수명 유지) ──
+// 500 = 라이트 모드 강조(near-black), 300 = 다크 모드 강조(밝은 회색)
+$skt-blue-50:  #f5f5f5;
+$skt-blue-100: #ededed;
+$skt-blue-200: #e0e0e0;
+$skt-blue-300: #a0a0a0;   // 다크모드 --skt-brand 대비용
+$skt-blue-400: #707070;
+$skt-blue-500: #171717;   // 라이트 --skt-brand = near-black
+$skt-blue-600: #0a0a0a;
+$skt-blue-700: #000000;   // brand-strong
+$skt-blue-800: #000000;
+$skt-blue-900: #000000;
 
-// ── Neutral 스케일 (surface/text/border 토큰의 기반) ──
-$skt-gray-50:  #f8fafc;
-$skt-gray-100: #f1f5f9;
-$skt-gray-200: #e2e8f0;
-$skt-gray-300: #cbd5e1;
-$skt-gray-400: #94a3b8;
-$skt-gray-500: #64748b;
-$skt-gray-600: #475569;
-$skt-gray-700: #334155;
-$skt-gray-800: #1e293b;
-$skt-gray-900: #0f172a;
+// ── Neutral 스케일 (Vercel Geist gray 근사) ──
+$skt-gray-50:  #fafafa;
+$skt-gray-100: #f5f5f5;
+$skt-gray-200: #ebebeb;   // 라이트 1px 헤어라인 보더
+$skt-gray-300: #e0e0e0;
+$skt-gray-400: #a3a3a3;
+$skt-gray-500: #737373;   // text-muted (라이트)
+$skt-gray-600: #525252;
+$skt-gray-700: #2e2e2e;
+$skt-gray-800: #1a1a1a;
+$skt-gray-900: #0a0a0a;   // text (라이트)
 
-// ── 브랜드 그라데이션 (히어로/CTA 등) ──
-$skt-gradient: linear-gradient(135deg, #{$skt-blue-500} 0%, #68127a 100%);
+// ── 그라데이션: 삭제 대신 무채색화 (참조처 안전) ──
+$skt-gradient: linear-gradient(135deg, #{$skt-gray-900} 0%, #{$skt-gray-700} 100%);

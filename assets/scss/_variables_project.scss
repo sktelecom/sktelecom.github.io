@@ -38,32 +38,36 @@ $skt-green: #00A651;         // SK Green
 // Bootstrap 변수 오버라이드
 // ============================================
 
-// Primary: 링크와 버튼에 Blue 사용 (SK텔레콤 웹사이트 방식)
+// Primary: 모노크롬 강조 (라이트=near-black #171717). 다크는 _styles_project에서 반전.
 $primary: $skt-t-blue !default;
 
-// Secondary: Red 계열
-$secondary: $skt-red !default;
+// Secondary: 무채색 회색 (모노크롬)
+$secondary: $skt-gray-600 !default;
 
-// 기타 색상
+// 기타 색상 — success/warning/danger 는 의미색이라 유지(경고/성공 접근성)
 $success: $skt-green !default;
-$info: lighten($skt-t-blue, 10%) !default;
+$info: $skt-gray-500 !default;
 $warning: $skt-orange !default;
 $danger: $skt-red !default;
 
 // ============================================
-// 링크 색상 (Blue 계열)
+// 링크 색상 (모노크롬)
 // ============================================
 
-$link-color: $skt-t-blue !default;
+$link-color: $skt-gray-900 !default;
 $link-decoration: none !default;
-$link-hover-color: darken($skt-t-blue, 15%) !default;
+$link-hover-color: $skt-gray-600 !default;
 $link-hover-decoration: underline !default;
 
 // ============================================
-// 버튼 색상
+// 버튼 (Vercel 미니멀)
 // ============================================
 
-$btn-link-color: $skt-t-blue !default;
-$btn-link-hover-color: darken($skt-t-blue, 15%) !default;
+$btn-link-color: $skt-gray-900 !default;
+$btn-link-hover-color: $skt-gray-600 !default;
+$btn-font-weight: 500 !default;
+$btn-border-radius:    $border-radius !default;     // 6px
+$btn-border-radius-sm: $border-radius-sm !default;
+$btn-border-radius-lg: $border-radius !default;     // lg도 6px (Vercel은 안 키움)
 
 

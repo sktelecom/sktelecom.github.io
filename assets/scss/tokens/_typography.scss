@@ -1,31 +1,34 @@
 /*
- * 타이포그래피 토큰 — Pretendard(한글+라틴) self-host 기반.
- * @font-face 정의는 _styles_project.scss 상단에 있다.
- * Bootstrap 변수는 !default 로 선언(Docsy/Bootstrap 기본값보다 먼저 로드되어 우선 적용).
+ * 타이포그래피 토큰 — Geist(라틴) + Pretendard(한글) self-host.
+ * @font-face 정의는 _styles_project.scss 상단.
  */
 
-$pretendard:
+// 라틴=Geist, 한글=Pretendard 폴백 (같은 스택 내에서 글리프별 자동 폴백)
+$geist:
+  "Geist Variable", "Geist",
   "Pretendard Variable", "Pretendard",
   -apple-system, BlinkMacSystemFont, system-ui,
   "Apple SD Gothic Neo", "Malgun Gothic", "Segoe UI", Roboto, sans-serif !default;
 
-$font-family-sans-serif: $pretendard !default;
-$font-family-base:       $pretendard !default;
-$headings-font-family:   $pretendard !default;
+// 기존 $pretendard 참조 안전을 위해 별칭 유지
+$pretendard: $geist !default;
 
-// 본문: 한글 가독성을 위해 줄간격을 영문 기본(1.5)보다 높임
+$font-family-sans-serif: $geist !default;
+$font-family-base:       $geist !default;
+$headings-font-family:   $geist !default;
+
 $font-size-base:    1rem !default;
-$line-height-base:  1.7 !default;
+$line-height-base:  1.65 !default;   // Vercel은 약간 타이트
 
-// 제목: 또렷한 위계 (modular scale ~1.25)
-$headings-font-weight: 600 !default;
-$headings-line-height: 1.3 !default;
-$h1-font-size: $font-size-base * 2.5 !default;
-$h2-font-size: $font-size-base * 2 !default;
+// 제목: 크고 타이트하게 (Vercel 헤드라인)
+$headings-font-weight:    600 !default;
+$headings-line-height:    1.2 !default;
+$headings-letter-spacing: -0.02em !default;
+$h1-font-size: $font-size-base * 2.75 !default;
+$h2-font-size: $font-size-base * 2.1 !default;
 $h3-font-size: $font-size-base * 1.6 !default;
 $h4-font-size: $font-size-base * 1.3 !default;
 $h5-font-size: $font-size-base * 1.12 !default;
 $h6-font-size: $font-size-base !default;
 
-// display(히어로 등) 더 굵게
 $display-font-weight: 700 !default;

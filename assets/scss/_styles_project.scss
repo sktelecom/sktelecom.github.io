@@ -3,7 +3,14 @@ Project-specific styles. For details, see:
 https://www.docsy.dev/docs/content/lookandfeel/#project-style-files
 */
 
-/* ===== Pretendard Variable (self-host) ===== */
+/* ===== Web fonts (self-host) — 라틴 Geist + 한글 Pretendard ===== */
+@font-face {
+  font-family: "Geist Variable";
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+  src: url("/fonts/GeistVariable.woff2") format("woff2-variations");
+}
 @font-face {
   font-family: "Pretendard Variable";
   font-weight: 45 920;
@@ -18,15 +25,16 @@ https://www.docsy.dev/docs/content/lookandfeel/#project-style-files
 @import 'td/gcs-search-dark';
 
 /* ===================================================================
-   1. 디자인 토큰 → CSS 커스텀 프로퍼티 (컴포넌트는 이 토큰만 참조)
+   1. 디자인 토큰 → CSS 커스텀 프로퍼티 (모노크롬)
    =================================================================== */
 :root {
-  --skt-brand:        #{$skt-blue-500};
-  --skt-brand-strong: #{$skt-blue-700};
+  --skt-brand:        #{$skt-blue-500};   // near-black #171717
+  --skt-brand-strong: #{$skt-blue-700};   // #000
   --skt-surface:        #ffffff;
   --skt-surface-subtle: #{$skt-gray-50};
   --skt-surface-muted:  #{$skt-gray-100};
-  --skt-border:     #{$skt-gray-200};
+  --skt-border:        #{$skt-gray-200};  // #ebebeb 헤어라인
+  --skt-border-strong: #{$skt-gray-300};  // hover 보더 강조
   --skt-text:       #{$skt-gray-900};
   --skt-text-muted: #{$skt-gray-500};
   --skt-shadow-sm: #{$box-shadow-sm};
@@ -34,33 +42,60 @@ https://www.docsy.dev/docs/content/lookandfeel/#project-style-files
   --skt-shadow-lg: #{$box-shadow-lg};
   --skt-transition: #{$skt-transition} #{$skt-ease};
   --skt-gradient:   #{$skt-gradient};
+  --skt-focus:    rgba(0, 0, 0, .6);
+  --skt-hero-bg:  #ffffff;
 }
 
+/* 다크 = Vercel 시그니처: 순검정 배경 / 흰 강조 / 불투명 헤어라인 */
 [data-bs-theme='dark'] {
-  --skt-brand:        #{$skt-blue-300};   // 어두운 배경 대비 확보 (WCAG AA)
-  --skt-brand-strong: #{$skt-blue-200};
-  --skt-surface:        #{$skt-gray-800};
-  --skt-surface-subtle: #{$skt-gray-900};
-  --skt-surface-muted:  #{$skt-gray-700};
-  --skt-border:     rgba(255, 255, 255, .12);
-  --skt-text:       #{$skt-gray-100};
-  --skt-text-muted: #{$skt-gray-400};
-  // 다크에서는 그림자 대신 border 로 깊이 표현
+  --skt-brand:        #{$skt-gray-50};    // 흰색 강조
+  --skt-brand-strong: #ffffff;
+  --skt-surface:        #0a0a0a;          // 카드(순검정과 미세 대비)
+  --skt-surface-subtle: #000000;          // 페이지 배경 = 순검정
+  --skt-surface-muted:  #1a1a1a;
+  --skt-border:        #1f1f1f;           // 불투명 헤어라인
+  --skt-border-strong: #2e2e2e;
+  --skt-text:       #ededed;
+  --skt-text-muted: #8f8f8f;
   --skt-shadow-sm: none;
   --skt-shadow:    none;
-  --skt-shadow-lg: 0 8px 24px rgba(0, 0, 0, .45);
+  --skt-shadow-lg: 0 8px 30px rgba(0, 0, 0, .6);
+  --skt-focus:    rgba(255, 255, 255, .7);
+  --skt-gradient: linear-gradient(135deg, #1a1a1a 0%, #000 100%);
+  --skt-hero-bg:  #000000;
 }
 
-/* 한글 본문 자간 미세 조정 (Pretendard 음수 자간이 또렷) */
+/* 다크 페이지 배경을 순검정으로 (Docsy 기본 회색 덮기) */
+[data-bs-theme='dark'] body {
+  background-color: var(--skt-surface-subtle);
+}
+
+/* 다크 버튼 반전 (흰 솔리드) */
+[data-bs-theme='dark'] .btn-primary {
+  --bs-btn-bg: #ffffff;
+  --bs-btn-color: #000000;
+  --bs-btn-border-color: #ffffff;
+  --bs-btn-hover-bg: #ededed;
+  --bs-btn-hover-color: #000000;
+  --bs-btn-hover-border-color: #ededed;
+  --bs-btn-active-bg: #d4d4d4;
+  --bs-btn-active-color: #000000;
+}
+
+/* 타이포 자간 — 본문은 약하게, 헤딩/히어로는 타이트하게 */
 body {
-  letter-spacing: -0.003em;
+  letter-spacing: -0.011em;
+}
+h1, h2, h3, h4, h5, h6,
+.skt-hero__title, .skt-section__title {
+  letter-spacing: -0.03em;
 }
 
 /* ===================================================================
-   2. 접근성 — 포커스 가시성 + 모션 줄이기
+   2. 접근성 — 포커스 가시성(무채색) + 모션 줄이기
    =================================================================== */
 :focus-visible {
-  outline: $focus-ring-width solid $focus-ring-color;
+  outline: $focus-ring-width solid var(--skt-focus);
   outline-offset: 2px;
 }
 
@@ -74,9 +109,8 @@ body {
 }
 
 /* ===================================================================
-   3. Navbar (토큰 기반으로 리팩터 — 라이트 흰배경/다크 대응 모두 처리)
+   3. Navbar (토큰 기반 — 라이트/다크 모두 처리)
    =================================================================== */
-/* 초기 상태(스크롤 전) */
 .navbar:not(.js-navbar-scroll) {
   background-color: var(--skt-surface) !important;
 
@@ -87,10 +121,10 @@ body {
   }
 }
 
-/* 스크롤 후 상태 */
 .navbar.js-navbar-scroll {
   background-color: var(--skt-surface) !important;
   box-shadow: var(--skt-shadow-sm);
+  border-bottom: 1px solid var(--skt-border);
 
   .nav-link,
   .navbar-brand {
@@ -117,14 +151,13 @@ body {
   }
 }
 
-/* navbar-dark 변수 오버라이드 */
 .navbar-dark {
   --bs-navbar-color: var(--skt-text);
-  --bs-navbar-hover-color: #{$skt-blue-500};
-  --bs-navbar-active-color: #{$skt-blue-500};
+  --bs-navbar-hover-color: var(--skt-brand);
+  --bs-navbar-active-color: var(--skt-brand);
 }
 
-/* 로고 크기 조정 */
+/* 로고 크기 */
 .td-navbar .navbar-brand svg,
 .td-navbar .navbar-brand img {
   height: 40px !important;
@@ -132,7 +165,6 @@ body {
   margin-right: 12px;
 }
 
-/* 타이틀 폰트 */
 .td-navbar .navbar-brand .navbar-brand__name {
   font-size: 1.1rem !important;
   font-weight: 600;
@@ -141,18 +173,17 @@ body {
 }
 
 /* ===================================================================
-   4. 재사용 컴포넌트 (skt- 네임스페이스로 Docsy 클래스 충돌 방지)
+   4. 재사용 컴포넌트 (skt- 네임스페이스)
    =================================================================== */
 
 /* 반응형 카드 그리드 */
 .skt-grid {
   display: grid;
-  // interpolation 으로 CSS 네이티브 min() 을 그대로 출력 (dart-sass 단위검사 회피)
   grid-template-columns: repeat(auto-fill, minmax(#{"min(100%, 320px)"}, 1fr));
-  gap: 1.5rem;
+  gap: 1rem;
 }
 
-/* 카드 */
+/* 카드 — 그림자 없이 1px 보더, hover 시 보더 강조(lift 없음) */
 .skt-card {
   display: flex;
   flex-direction: column;
@@ -160,16 +191,14 @@ body {
   background: var(--skt-surface);
   border: 1px solid var(--skt-border);
   border-radius: $border-radius-lg;
-  box-shadow: var(--skt-shadow-sm);
   overflow: hidden;
-  transition: transform var(--skt-transition), box-shadow var(--skt-transition);
+  transition: border-color var(--skt-transition), background var(--skt-transition);
   color: inherit;
   text-decoration: none;
 }
 a.skt-card:hover,
 .skt-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--skt-shadow-lg);
+  border-color: var(--skt-border-strong);
   text-decoration: none;
 }
 .skt-card__media {
@@ -179,6 +208,7 @@ a.skt-card:hover,
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  border-bottom: 1px solid var(--skt-border);
 }
 .skt-card__media img {
   width: 100%;
@@ -186,15 +216,15 @@ a.skt-card:hover,
   object-fit: contain;
   padding: 1.25rem;
 }
-/* 이미지 없는 카드의 그라데이션 플레이스홀더 */
+/* 이미지 없는 카드 — 무채색 플레이스홀더 */
 .skt-card__placeholder {
   width: 100%;
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--skt-gradient);
-  color: #fff;
+  background: var(--skt-surface-muted);
+  color: var(--skt-text-muted);
   font-size: 2.5rem;
   font-weight: 700;
 }
@@ -206,13 +236,13 @@ a.skt-card:hover,
   flex: 1 1 auto;
 }
 .skt-card__title {
-  font-size: 1.15rem;
+  font-size: 1.12rem;
   font-weight: 600;
   margin: 0;
   color: var(--skt-text);
 }
 .skt-card__desc {
-  font-size: .94rem;
+  font-size: .92rem;
   line-height: 1.6;
   color: var(--skt-text-muted);
   margin: 0;
@@ -226,30 +256,25 @@ a.skt-card:hover,
   margin-top: .25rem;
 }
 
-/* 배지/태그 칩 */
+/* 배지 — 전부 무채색 (모노크롬) */
 .skt-badge {
   display: inline-flex;
   align-items: center;
   gap: .3rem;
-  padding: .2rem .6rem;
-  font-size: .78rem;
+  padding: .2rem .55rem;
+  font-size: .76rem;
   font-weight: 500;
   line-height: 1;
-  border-radius: 999px;
+  border-radius: $border-radius-sm;
   background: var(--skt-surface-muted);
   color: var(--skt-text-muted);
   border: 1px solid var(--skt-border);
   text-decoration: none;
 }
 .skt-badge--brand {
-  background: #{$skt-blue-50};
-  color: #{$skt-blue-700};
-  border-color: #{$skt-blue-100};
-}
-[data-bs-theme='dark'] .skt-badge--brand {
-  background: rgba(60, 70, 197, .25);
-  color: #{$skt-blue-200};
-  border-color: rgba(60, 70, 197, .4);
+  background: var(--skt-surface-muted);
+  color: var(--skt-text);
+  border-color: var(--skt-border-strong);
 }
 
 /* 통계 바 */
@@ -263,58 +288,70 @@ a.skt-card:hover,
   padding: 1rem;
 }
 .skt-stat__num {
-  font-size: 2.4rem;
+  font-size: 2.5rem;
   font-weight: 700;
   line-height: 1.1;
-  color: var(--skt-brand);
+  letter-spacing: -0.03em;
+  color: var(--skt-text);
 }
 .skt-stat__label {
-  font-size: .92rem;
+  font-size: .9rem;
   color: var(--skt-text-muted);
   margin-top: .25rem;
 }
 
 /* ===================================================================
-   5. 홈 히어로
+   5. 홈 히어로 (Vercel풍: 단색 배경 + 미세 그리드 + 다크 글로우)
    =================================================================== */
 .skt-hero {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 78vh;
-  padding: 6rem 1rem 5rem;
+  min-height: 70vh;
+  padding: 7rem 1rem 6rem;
   text-align: center;
-  color: #fff;
-  background: var(--skt-gradient);
+  color: var(--skt-text);
+  background: var(--skt-hero-bg);
   overflow: hidden;
 }
 .skt-hero__bg {
   position: absolute;
   inset: 0;
-  background-size: cover;
-  background-position: center;
-  opacity: .22;
   z-index: 0;
+  background-image:
+    linear-gradient(to right, var(--skt-border) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--skt-border) 1px, transparent 1px);
+  background-size: 56px 56px;
+  -webkit-mask-image: radial-gradient(ellipse 60% 50% at 50% 45%, #000 30%, transparent 75%);
+          mask-image: radial-gradient(ellipse 60% 50% at 50% 45%, #000 30%, transparent 75%);
+  opacity: .7;
+}
+[data-bs-theme='dark'] .skt-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(ellipse 50% 40% at 50% 0%, rgba(255, 255, 255, .08), transparent 70%);
 }
 .skt-hero__inner {
   position: relative;
   z-index: 1;
-  max-width: 820px;
+  max-width: 860px;
 }
 .skt-hero__title {
-  font-size: clamp(2.4rem, 6vw, 4rem);
+  font-size: clamp(2.6rem, 7vw, 4.5rem);
   font-weight: 700;
-  line-height: 1.15;
-  letter-spacing: -0.02em;
-  margin-bottom: 1rem;
-  text-shadow: 0 2px 12px rgba(0, 0, 0, .2);
+  line-height: 1.05;
+  margin-bottom: 1.1rem;
+  color: var(--skt-text);
 }
 .skt-hero__subtitle {
-  font-size: clamp(1.05rem, 2.4vw, 1.35rem);
+  font-size: clamp(1.05rem, 2.4vw, 1.3rem);
   font-weight: 400;
-  opacity: .95;
-  margin-bottom: 2rem;
+  color: var(--skt-text-muted);
+  margin-bottom: 2.25rem;
 }
 .skt-hero__actions {
   display: flex;
@@ -323,12 +360,14 @@ a.skt-card:hover,
   flex-wrap: wrap;
 }
 
-/* 섹션 헤더 공통 */
+/* 섹션 공통 */
 .skt-section {
   padding: 4.5rem 0;
 }
 .skt-section--subtle {
   background: var(--skt-surface-subtle);
+  border-top: 1px solid var(--skt-border);
+  border-bottom: 1px solid var(--skt-border);
 }
 .skt-section__head {
   text-align: center;
@@ -346,32 +385,30 @@ a.skt-card:hover,
   margin: 0;
 }
 
-/* 피처 카드 (아이콘 원형 배경 + hover lift) */
+/* 피처 카드 — 보더 사각 아이콘, hover 시 보더/배경 (lift 없음) */
 .skt-feature {
   text-align: center;
   padding: 2rem 1.25rem;
   border-radius: $border-radius-lg;
-  transition: transform var(--skt-transition), box-shadow var(--skt-transition);
+  border: 1px solid transparent;
+  transition: border-color var(--skt-transition), background var(--skt-transition);
 }
 .skt-feature:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--skt-shadow);
-  background: var(--skt-surface);
+  background: var(--skt-surface-subtle);
+  border-color: var(--skt-border);
 }
 .skt-feature__icon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 64px;
-  height: 64px;
-  border-radius: 50%;
-  background: #{$skt-blue-50};
-  color: var(--skt-brand);
-  font-size: 1.6rem;
+  width: 56px;
+  height: 56px;
+  border-radius: $border-radius-lg;
+  background: var(--skt-surface-muted);
+  color: var(--skt-text);
+  border: 1px solid var(--skt-border);
+  font-size: 1.5rem;
   margin-bottom: 1.1rem;
-}
-[data-bs-theme='dark'] .skt-feature__icon {
-  background: rgba(60, 70, 197, .2);
 }
 
 /* ===================================================================
@@ -386,7 +423,7 @@ a.skt-card:hover,
   width: 100%;
   padding: .7rem 1rem .7rem 2.6rem;
   border: 1px solid var(--skt-border);
-  border-radius: $border-radius-lg;
+  border-radius: $border-radius;
   background: var(--skt-surface);
   color: var(--skt-text);
   font-size: 1rem;
@@ -394,8 +431,8 @@ a.skt-card:hover,
 }
 .skt-search input:focus {
   outline: none;
-  border-color: var(--skt-brand);
-  box-shadow: 0 0 0 $focus-ring-width $focus-ring-color;
+  border-color: var(--skt-border-strong);
+  box-shadow: 0 0 0 $focus-ring-width var(--skt-focus);
 }
 .skt-search i {
   position: absolute;
@@ -422,12 +459,11 @@ a.skt-card:hover,
   border-radius: $border-radius;
   color: var(--skt-text);
   text-decoration: none;
-  transition: border-color var(--skt-transition), box-shadow var(--skt-transition), transform var(--skt-transition);
+  transition: border-color var(--skt-transition), background var(--skt-transition);
 }
 .skt-compliance-item:hover {
-  border-color: var(--skt-brand);
-  box-shadow: var(--skt-shadow-sm);
-  transform: translateY(-2px);
+  border-color: var(--skt-border-strong);
+  background: var(--skt-surface-subtle);
   text-decoration: none;
   color: var(--skt-text);
 }
