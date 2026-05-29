@@ -12,3 +12,11 @@ updates:
       interval: daily
       time: '20:00'
     open-pull-requests-limit: 10
+  # Docsy 테마(Hugo/Go 모듈) 업데이트 PR을 자동 생성한다.
+  # 테마 변경은 빈도가 낮으므로 주간 주기로 둔다.
+  - package-ecosystem: gomod
+    directory: '/'
+    schedule:
+      interval: weekly
+      time: '20:00'
+    open-pull-requests-limit: 5
