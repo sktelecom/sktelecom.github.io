@@ -622,10 +622,18 @@ a.skt-card:hover,
 .td-footer {
   background: var(--skt-surface-subtle);
   border-top: 1px solid var(--skt-border);
-  color: var(--skt-text-muted);
+  color: var(--skt-text);
 }
-.td-footer a { color: var(--skt-text-muted); }
-.td-footer a:hover { color: var(--skt-text); }
+.td-footer a {
+  color: var(--skt-text);
+  text-decoration: underline;
+  text-decoration-color: var(--skt-border-strong);
+  text-underline-offset: .15em;
+}
+.td-footer a:hover {
+  color: var(--skt-brand);
+  text-decoration-color: currentColor;
+}
 
 /* 페이지네이션(블로그 등) */
 .page-link {
