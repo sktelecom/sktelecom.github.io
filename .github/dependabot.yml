@@ -20,3 +20,11 @@ updates:
       interval: weekly
       time: '20:00'
     open-pull-requests-limit: 5
+  # GitHub Actions(워크플로에서 사용하는 액션) 버전을 자동 추적한다.
+  # 예: actions/checkout, actions/setup-node, peaceiris/actions-gh-pages 등
+  - package-ecosystem: github-actions
+    directory: '/'
+    schedule:
+      interval: weekly
+      time: '20:00'
+    open-pull-requests-limit: 5
