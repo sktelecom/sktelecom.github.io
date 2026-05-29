@@ -180,7 +180,7 @@ h1, h2, h3, h4, h5, h6,
 .skt-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(#{"min(100%, 320px)"}, 1fr));
-  gap: 1rem;
+  gap: 1.5rem;
 }
 
 /* 카드 — 그림자 없이 1px 보더, hover 시 보더 강조(lift 없음) */
@@ -232,7 +232,7 @@ a.skt-card:hover,
   display: flex;
   flex-direction: column;
   gap: .5rem;
-  padding: 1.25rem 1.4rem 1.4rem;
+  padding: 1.5rem;
   flex: 1 1 auto;
 }
 .skt-card__title {
@@ -242,7 +242,7 @@ a.skt-card:hover,
   color: var(--skt-text);
 }
 .skt-card__desc {
-  font-size: .92rem;
+  font-size: .9375rem;
   line-height: 1.6;
   color: var(--skt-text-muted);
   margin: 0;
@@ -285,7 +285,7 @@ a.skt-card:hover,
 }
 .skt-stat {
   text-align: center;
-  padding: 1rem;
+  padding: 1.5rem 1rem;
 }
 .skt-stat__num {
   font-size: 2.5rem;
@@ -362,7 +362,7 @@ a.skt-card:hover,
 
 /* 섹션 공통 */
 .skt-section {
-  padding: 4.5rem 0;
+  padding: 5rem 0;
 }
 .skt-section--subtle {
   background: var(--skt-surface-subtle);
@@ -372,7 +372,7 @@ a.skt-card:hover,
 .skt-section__head {
   text-align: center;
   max-width: 680px;
-  margin: 0 auto 2.75rem;
+  margin: 0 auto 3rem;
 }
 .skt-section__title {
   font-size: clamp(1.6rem, 3.5vw, 2.2rem);
@@ -388,7 +388,7 @@ a.skt-card:hover,
 /* 피처 카드 — 보더 사각 아이콘, hover 시 보더/배경 (lift 없음) */
 .skt-feature {
   text-align: center;
-  padding: 2rem 1.25rem;
+  padding: 2rem 1.5rem;
   border-radius: $border-radius-lg;
   border: 1px solid transparent;
   transition: border-color var(--skt-transition), background var(--skt-transition);
@@ -470,4 +470,199 @@ a.skt-card:hover,
 .skt-compliance-item i {
   color: var(--skt-text-muted);
   font-size: .75rem;
+}
+
+/* ===================================================================
+   7. 본문(.td-content) — 측정폭·타이포 리듬·요소 디테일 (절제된 고급화)
+      .td-content 는 홈(index)에 없으므로 본문 페이지에만 적용된다.
+   =================================================================== */
+.td-content {
+  /* 본문 폭은 Docsy 컬럼(col-xl-8)이 제어 — 별도 max-width 제한 없음
+     (제한 시 넓은 컬럼 안에서 우측 공백이 과도해짐) */
+
+  /* 수직 리듬 — 행간은 토큰($line-height-base) 유지, 간격만 명시 */
+  p { margin-bottom: 1.25rem; }
+  > h2:not(:first-child) { margin-top: 3.5rem; }
+  > h3 { margin-top: 2.5rem; }
+  > h4, > h5, > h6 { margin-top: 2rem; }
+  ul, ol { margin-bottom: 1.25rem; }
+  li { margin-bottom: .375rem; }
+  li > ul, li > ol { margin-top: .375rem; }
+
+  /* 부제 */
+  .lead {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    font-weight: 400;
+    color: var(--skt-text-muted);
+    margin-bottom: 1.75rem;
+  }
+
+  /* 인라인 코드 */
+  :not(pre) > code {
+    background: var(--skt-surface-muted);
+    border: 1px solid var(--skt-border);
+    border-radius: $border-radius-sm;
+    padding: .15em .4em;
+    font-size: .875em;
+  }
+  /* 코드블록 */
+  pre {
+    background: var(--skt-surface-subtle);
+    border: 1px solid var(--skt-border);
+    border-radius: $border-radius-lg;
+    padding: 1rem 1.15rem;
+  }
+  .highlight { border-radius: $border-radius-lg; }
+
+  /* 인용 — 절제(2px 보더 + subtle 배경) */
+  blockquote {
+    border-left: 2px solid var(--skt-border-strong);
+    background: var(--skt-surface-subtle);
+    color: var(--skt-text-muted);
+    padding: .75rem 1.15rem;
+    border-radius: 0 $border-radius $border-radius 0;
+    margin: 1.5rem 0;
+  }
+  blockquote p:last-child { margin-bottom: 0; }
+
+  /* 표 — 헤더 배경 + 행 구분선 */
+  table {
+    th, td { padding: .65rem .85rem; }
+    thead th {
+      background: var(--skt-surface-subtle);
+      border-bottom: 1px solid var(--skt-border-strong);
+      font-weight: 600;
+    }
+    td { border-color: var(--skt-border); }
+  }
+
+  /* 본문 링크 — 읽는 중 식별 위해 옅은 밑줄 */
+  p a, li a {
+    text-decoration: underline;
+    text-decoration-color: var(--skt-border-strong);
+    text-underline-offset: .15em;
+  }
+  p a:hover, li a:hover { text-decoration-color: currentColor; }
+
+  /* hr / 이미지 */
+  hr {
+    border: 0;
+    border-top: 1px solid var(--skt-border);
+    margin: 2.5rem 0;
+    opacity: 1;
+  }
+  img {
+    max-width: 100%;
+    height: auto;
+    border-radius: $border-radius-lg;
+    border: 1px solid var(--skt-border);
+  }
+}
+
+/* 커스텀 섹션 페이지(프로젝트·컴플라이언스 목록) — 고정 navbar 높이만큼 상단 오프셋 */
+.skt-section-page {
+  padding-top: 5.5rem;
+  padding-bottom: 4rem;
+}
+
+/* alert/callout — 전역 무채색 통일 (본문·인트로 공통, 의미색/노랑·초록 제거) */
+.alert {
+  background: var(--skt-surface-subtle);
+  border: 1px solid var(--skt-border);
+  border-left: 3px solid var(--skt-border-strong);
+  border-radius: $border-radius;
+  color: var(--skt-text);
+}
+.alert .alert-heading { color: var(--skt-text); }
+[data-bs-theme='dark'] .alert {
+  background: var(--skt-surface-muted);
+  border-color: var(--skt-border-strong);
+}
+
+/* 메타·내비 — 본문보다 조용하게 (위계만) */
+.td-breadcrumbs .breadcrumb {
+  font-size: .85rem;
+  --bs-breadcrumb-divider-color: var(--skt-text-muted);
+}
+.td-breadcrumbs .breadcrumb a { color: var(--skt-text-muted); }
+.td-breadcrumbs .breadcrumb a:hover { color: var(--skt-text); }
+.td-content .article-meta,
+.td-byline { color: var(--skt-text-muted); font-size: .9rem; }
+
+.td-toc { font-size: .85rem; }
+.td-toc #TableOfContents a { color: var(--skt-text-muted); }
+.td-toc #TableOfContents a:hover { color: var(--skt-text); }
+.td-toc #TableOfContents a.active { color: var(--skt-text); font-weight: 600; }
+
+/* ===================================================================
+   8. 좌측 사이드바 — 위계·액티브를 모노크롬으로 정교화
+   =================================================================== */
+.td-sidebar {
+  border-right: 1px solid var(--skt-border);
+}
+.td-sidebar-nav { font-size: .92rem; }
+.td-sidebar-nav .td-sidebar-link {
+  color: var(--skt-text-muted);
+  border-radius: $border-radius-sm;
+  transition: color var(--skt-transition);
+}
+.td-sidebar-nav .td-sidebar-link:hover {
+  color: var(--skt-text);
+}
+.td-sidebar-nav .td-sidebar-link.active,
+.td-sidebar-nav .td-sidebar-nav__section-title.active-path > a {
+  color: var(--skt-text);
+  font-weight: 600;
+}
+
+/* ===================================================================
+   9. footer · 페이지네이션 · 폼 — 모노크롬 마감
+   =================================================================== */
+.td-footer {
+  background: var(--skt-surface-subtle);
+  border-top: 1px solid var(--skt-border);
+  color: var(--skt-text-muted);
+}
+.td-footer a { color: var(--skt-text-muted); }
+.td-footer a:hover { color: var(--skt-text); }
+
+/* 페이지네이션(블로그 등) */
+.page-link {
+  color: var(--skt-text);
+  border-color: var(--skt-border);
+  background: var(--skt-surface);
+}
+.page-link:hover {
+  color: var(--skt-text);
+  background: var(--skt-surface-subtle);
+  border-color: var(--skt-border-strong);
+}
+.page-item.active .page-link {
+  background: var(--skt-brand);
+  border-color: var(--skt-brand);
+  color: var(--skt-surface);
+}
+.page-item.disabled .page-link { color: var(--skt-text-muted); }
+
+/* 폼 컨트롤(사이드바 검색 등) — 포커스 무채색 */
+.form-control,
+.td-sidebar__search .form-control {
+  border-radius: $border-radius;
+  border-color: var(--skt-border);
+}
+.form-control:focus {
+  border-color: var(--skt-border-strong);
+  box-shadow: 0 0 0 $focus-ring-width var(--skt-focus);
+}
+
+/* 다크모드 본문 가독성 — 순검정 위 코드/표가 묻히지 않게 */
+[data-bs-theme='dark'] .td-content {
+  pre,
+  :not(pre) > code { background: var(--skt-surface-muted); border-color: var(--skt-border); }
+  blockquote { background: var(--skt-surface-muted); }
+  table thead th { background: var(--skt-surface-muted); }
+  table th,
+  table td { border-color: var(--skt-border-strong); }
+  img { border-color: var(--skt-border-strong); }
 }
