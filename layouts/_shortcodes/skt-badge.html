@@ -1,0 +1,3 @@
+{{- /* 사용: {{< skt-badge variant="brand" >}}텍스트{{< /skt-badge >}} */ -}}
+{{- $variant := .Get "variant" | default "" -}}
+<span class="skt-badge{{ if eq $variant "brand" }} skt-badge--brand{{ end }}">{{ .Inner }}</span>

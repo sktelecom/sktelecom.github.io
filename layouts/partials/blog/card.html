@@ -1,0 +1,11 @@
+{{/* 블로그 카드 — 컨텍스트(.)는 블로그 글 페이지 */}}
+<a class="skt-card" href="{{ .RelPermalink }}">
+  <div class="skt-card__body">
+    <div class="skt-card__meta">
+      <time class="skt-badge" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006.01.02" }}</time>
+      {{ with .Params.tags }}{{ range first 2 . }}<span class="skt-badge skt-badge--brand">{{ . }}</span>{{ end }}{{ end }}
+    </div>
+    <h3 class="skt-card__title">{{ .Title }}</h3>
+    <p class="skt-card__desc">{{ with .Params.description }}{{ . }}{{ else }}{{ .Summary | plainify | truncate 110 }}{{ end }}</p>
+  </div>
+</a>

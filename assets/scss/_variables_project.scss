@@ -9,6 +9,15 @@ https://www.docsy.dev/docs/content/lookandfeel/#project-style-files
  */
 
 // ============================================
+// 디자인 토큰 (Bootstrap 기본값보다 먼저 로드)
+//  - 순서 주의: colors → motion(focus-ring이 color 참조) 등
+// ============================================
+@import 'tokens/colors';
+@import 'tokens/typography';
+@import 'tokens/spacing';
+@import 'tokens/motion';
+
+// ============================================
 // SK 공식 브랜드 컬러
 // ============================================
 
@@ -17,7 +26,7 @@ $skt-red: #EA002C;           // SK Red (PANTONE 186C)
 $skt-orange: #F47725;        // SK Orange (PANTONE 158C)
 
 // T 브랜드 색상 (웹사이트 UI용)
-$skt-t-blue: #3c46c5;        // T Blue - 메인 인터랙티브 색상
+$skt-t-blue: $skt-blue-500;  // T Blue - 메인 인터랙티브 색상 (스케일 500)
 $skt-t-red: #EA002C;         // T Red - 강조 색상
 
 // 보조 색상

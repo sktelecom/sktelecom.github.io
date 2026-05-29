@@ -1,0 +1,16 @@
+/*
+ * 모션 · 포커스 토큰 — 일관된 transition/easing + 접근성 포커스 링.
+ * colors 토큰 이후에 import 되어 $skt-blue-500 을 참조할 수 있다.
+ */
+
+$skt-ease:            cubic-bezier(.4, 0, .2, 1) !default;
+$skt-transition-fast: .15s !default;
+$skt-transition:      .2s !default;
+
+// Bootstrap transition 변수
+$transition-base: all $skt-transition ease-in-out !default;
+
+// 포커스 링 (키보드 접근성)
+$focus-ring-width:   .25rem !default;
+$focus-ring-color:   rgba($skt-blue-500, .35) !default;
+$focus-ring-opacity: .35 !default;

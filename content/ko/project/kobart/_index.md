@@ -3,6 +3,8 @@ title: "KoBART"
 linkTitle: "KoBART"
 weight: 4
 type: docs
+github: "https://github.com/SKT-AI/KoBART"
+techs: ["NLP", "AI"]
 description: >
   한국어 BART 모델 (Korean BART)
 ---

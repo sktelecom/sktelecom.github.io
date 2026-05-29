@@ -3,6 +3,8 @@ title: "A.X LLM Series"
 linkTitle: "A.X LLM"
 weight: 1
 type: docs
+github: "https://github.com/SKT-AI"
+techs: ["LLM", "AI"]
 description: >
   SK Telecom's proprietary Korean-specialized large language models
 ---

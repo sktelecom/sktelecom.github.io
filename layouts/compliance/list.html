@@ -1,0 +1,31 @@
+{{ define "main" }}
+<div class="container py-5 skt-section-page">
+  <header class="mb-4">
+    <h1 class="fw-bold">{{ .Title }}</h1>
+    {{ with .Params.description }}<p class="lead" style="color:var(--skt-text-muted)">{{ . | markdownify }}</p>{{ end }}
+  </header>
+  {{ with .Content }}<div class="mb-4">{{ . }}</div>{{ end }}
+
+  <div class="skt-search">
+    <i class="fas fa-search" aria-hidden="true"></i>
+    <input type="search" id="complianceSearch" autocomplete="off"
+           placeholder="{{ T "compliance_search_placeholder" }}"
+           aria-label="{{ T "compliance_search_placeholder" }}">
+  </div>
+
+  <div class="skt-compliance-list" id="complianceList">
+    {{ range .Pages.ByTitle }}
+      <a class="skt-compliance-item" href="{{ .RelPermalink }}" data-name="{{ lower .Title }}">
+        <span>{{ .Title }}</span>
+        <i class="fas fa-chevron-right" aria-hidden="true"></i>
+      </a>
+    {{ end }}
+  </div>
+  <p id="complianceNoResult" class="text-center py-5" style="color:var(--skt-text-muted)" hidden>
+    {{ T "compliance_no_results" }}
+  </p>
+</div>
+
+{{ $js := resources.Get "js/compliance-search.js" | minify | fingerprint }}
+<script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}" defer></script>
+{{ end }}

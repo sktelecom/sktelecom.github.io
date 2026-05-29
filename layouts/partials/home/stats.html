@@ -1,0 +1,29 @@
+{{/* 통계 바 — 빌드타임 집계 */}}
+{{ $projectSection := .Site.GetPage "/project" }}
+{{ $complianceSection := .Site.GetPage "/compliance" }}
+{{ $projects := 0 }}{{ with $projectSection }}{{ $projects = len .Pages }}{{ end }}
+{{ $compliance := 0 }}{{ with $complianceSection }}{{ $compliance = len .Pages }}{{ end }}
+{{ $posts := len (where .Site.RegularPages "Section" "blog") }}
+{{ $years := sub now.Year 2019 }}
+<section class="skt-section skt-section--subtle py-5">
+  <div class="container">
+    <div class="skt-stats">
+      <div class="skt-stat">
+        <div class="skt-stat__num">{{ $projects }}</div>
+        <div class="skt-stat__label">{{ T "home_stat_projects" }}</div>
+      </div>
+      <div class="skt-stat">
+        <div class="skt-stat__num">{{ $compliance }}</div>
+        <div class="skt-stat__label">{{ T "home_stat_compliance" }}</div>
+      </div>
+      <div class="skt-stat">
+        <div class="skt-stat__num">{{ $posts }}</div>
+        <div class="skt-stat__label">{{ T "home_stat_posts" }}</div>
+      </div>
+      <div class="skt-stat">
+        <div class="skt-stat__num">{{ $years }}</div>
+        <div class="skt-stat__label">{{ T "home_stat_years" }}</div>
+      </div>
+    </div>
+  </div>
+</section>

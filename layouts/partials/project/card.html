@@ -1,0 +1,26 @@
+{{/* 프로젝트 카드 — 컨텍스트(.)는 프로젝트 페이지. 홈/갤러리에서 공유 */}}
+{{ $imgs := .Resources.ByType "image" }}
+{{ $img := $imgs.GetMatch "*logo*" }}
+{{ if and (not $img) $imgs }}{{ $img = index $imgs 0 }}{{ end }}
+<a class="skt-card" href="{{ .RelPermalink }}">
+  <div class="skt-card__media">
+    {{ with $img }}
+      {{ if eq .MediaType.SubType "svg" }}
+        <img src="{{ .RelPermalink }}" alt="{{ $.Title }}" loading="lazy">
+      {{ else }}
+        {{ $t := .Fit "640x360 smart" }}
+        <img src="{{ $t.RelPermalink }}" width="{{ $t.Width }}" height="{{ $t.Height }}" alt="{{ $.Title }}" loading="lazy">
+      {{ end }}
+    {{ else }}
+      <div class="skt-card__placeholder">{{ substr .Title 0 1 | upper }}</div>
+    {{ end }}
+  </div>
+  <div class="skt-card__body">
+    <h3 class="skt-card__title">{{ .Title }}</h3>
+    {{ with .Params.description }}<p class="skt-card__desc">{{ . }}</p>{{ end }}
+    <div class="skt-card__meta">
+      {{ with .Params.techs }}{{ range first 3 . }}<span class="skt-badge skt-badge--brand">{{ . }}</span>{{ end }}{{ end }}
+      {{ with .Params.github }}<span class="skt-badge"><i class="fab fa-github"></i> {{ T "project_view_github" }}</span>{{ end }}
+    </div>
+  </div>
+</a>

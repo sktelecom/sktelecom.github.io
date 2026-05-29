@@ -1,0 +1,9 @@
+{{- /* 사용: {{< skt-card title="제목" href="/link/" >}}본문{{< /skt-card >}} */ -}}
+{{- $href := .Get "href" -}}
+{{- $tag := cond (ne $href nil) "a" "div" -}}
+<{{ $tag }} class="skt-card"{{ with $href }} href="{{ . }}"{{ end }}>
+  <div class="skt-card__body">
+    {{ with .Get "title" }}<h3 class="skt-card__title">{{ . }}</h3>{{ end }}
+    <div class="skt-card__desc">{{ .Inner | .Page.RenderString }}</div>
+  </div>
+</{{ $tag }}>

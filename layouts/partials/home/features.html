@@ -1,0 +1,22 @@
+{{/* 피처 카드 3개 — 텍스트는 _index.md front matter(features)에서 */}}
+<section class="skt-section">
+  <div class="container">
+    <div class="skt-section__head">
+      <h2 class="skt-section__title">{{ T "home_features_title" }}</h2>
+      <p class="skt-section__lead">{{ T "home_features_lead" }}</p>
+    </div>
+    <div class="row g-4 justify-content-center">
+      {{ range .Params.features }}
+        <div class="col-md-4">
+          <a href="{{ .url }}" class="skt-feature d-block text-decoration-none h-100">
+            <span class="skt-feature__icon">
+              <i class="{{ if not (or (hasPrefix .icon "fas ") (hasPrefix .icon "fab ")) }}fas {{ end }}{{ .icon }}"></i>
+            </span>
+            <h3 class="h5 fw-semibold" style="color:var(--skt-text)">{{ .title }}</h3>
+            <p class="mb-0" style="color:var(--skt-text-muted)">{{ .desc }}</p>
+          </a>
+        </div>
+      {{ end }}
+    </div>
+  </div>
+</section>

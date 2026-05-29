@@ -2,7 +2,6 @@
 title: "Open Source Notice & Source Code"
 linkTitle: "Compliance"
 weight: 35
-type: docs
 description: >
   Here, you can see Open Source Notice & Source Code for SK telecom's products/services.
 menu:

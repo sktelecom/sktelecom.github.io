@@ -3,6 +3,8 @@ title: "KoGPT2"
 linkTitle: "KoGPT2"
 weight: 3
 type: docs
+github: "https://github.com/SKT-AI/KoGPT2"
+techs: ["NLP", "AI"]
 description: >
   한국어 GPT-2 사전 학습 모델 (Korean GPT-2 pretrained cased)
 ---
