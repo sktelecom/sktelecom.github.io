@@ -1,21 +1,20 @@
-name: Deploy Hugo Site to GitHub Pages
+name: PR Build Check
 
+# PR 단계에서 Hugo/Docsy 업데이트가 사이트 빌드를 깨뜨리지 않는지 검증한다.
+# 배포(gh-pages)는 하지 않고 빌드 성공 여부만 확인한다.
 on:
-  push:
+  pull_request:
     branches: ["master"]
-  workflow_dispatch:
 
 permissions:
-  contents: write
-  pages: write
-  id-token: write
+  contents: read
 
 concurrency:
-  group: "pages"
-  cancel-in-progress: false
+  group: pr-build-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -44,11 +43,3 @@ jobs:
       # → Dependabot(npm)이 Hugo 버전을 자동 추적/업데이트한다.
       - name: Build with Hugo
         run: npx hugo --minify --baseURL "https://sktelecom.github.io/"
-
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
-        if: ${{ github.ref == 'refs/heads/master' }}
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public
-          publish_branch: gh-pages
