@@ -624,13 +624,18 @@ a.skt-card:hover,
   border-top: 1px solid var(--skt-border);
   color: var(--skt-text);
 }
-.td-footer a {
+/* Docsy의 .td-footer p>a / span>a (어두운 배경용 밝은 색)을 같은 구체성으로 덮음 */
+.td-footer a,
+.td-footer p > a,
+.td-footer span > a {
   color: var(--skt-text);
   text-decoration: underline;
   text-decoration-color: var(--skt-border-strong);
   text-underline-offset: .15em;
 }
-.td-footer a:hover {
+.td-footer a:hover,
+.td-footer p > a:hover,
+.td-footer span > a:hover {
   color: var(--skt-brand);
   text-decoration-color: currentColor;
 }
