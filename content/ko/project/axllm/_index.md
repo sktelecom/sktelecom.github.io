@@ -3,6 +3,8 @@ title: "A.X LLM Series"
 linkTitle: "A.X LLM"
 weight: 1
 type: docs
+github: "https://github.com/SKT-AI"
+techs: ["LLM", "AI"]
 description: >
   SK텔레콤의 독자 개발 한국어 특화 대규모 언어 모델
 ---

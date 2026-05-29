@@ -3,6 +3,8 @@ title: "onot"
 linkTitle: "onot"
 weight: 5
 type: docs
+github: "https://github.com/sktelecom/onot"
+techs: ["Compliance", "Tool"]
 description: >
   SPDX 기반 오픈소스 고지문 생성 도구
 ---

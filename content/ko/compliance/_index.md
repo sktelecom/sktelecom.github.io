@@ -2,7 +2,6 @@
 title: "오픈소스 고지문 / 소스코드"
 linkTitle: "Compliance"
 weight: 35
-type: docs
 description: >
   여기에서는 SK텔레콤 제품 내 포함된 오픈소스 고지문과 소스 코드를 다운로드 받으실 수 있습니다. 소스 코드는 오픈소스 고지문에 명시된 라이선스 조건에 따라 제공됩니다. 
 menu:

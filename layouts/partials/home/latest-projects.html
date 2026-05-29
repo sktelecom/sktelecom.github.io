@@ -1,0 +1,25 @@
+{{/* 주요 프로젝트 카드 그리드 (첫 3개) */}}
+{{ $section := .Site.GetPage "/project" }}
+{{ with $section }}
+  {{ $items := first 3 .Pages.ByWeight }}
+  {{ with $items }}
+    <section class="skt-section skt-section--subtle">
+      <div class="container">
+        <div class="skt-section__head">
+          <h2 class="skt-section__title">{{ T "home_projects_title" }}</h2>
+          <p class="skt-section__lead">{{ T "home_projects_lead" }}</p>
+        </div>
+        <div class="skt-grid">
+          {{ range . }}
+            {{ partial "project/card.html" . }}
+          {{ end }}
+        </div>
+        <div class="text-center mt-5">
+          <a class="btn btn-outline-primary" href="{{ $section.RelPermalink }}">
+            {{ T "home_view_all_projects" }} <i class="fas fa-arrow-right ms-1"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+  {{ end }}
+{{ end }}

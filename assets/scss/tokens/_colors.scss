@@ -1,0 +1,32 @@
+/*
+ * 색상 토큰 — SK Blue 명도 스케일 + 중립(neutral) 스케일
+ * _variables_project.scss 상단에서 가장 먼저 import 된다.
+ * 여기서는 순수 hex만 정의하고, Bootstrap 변수 매핑은 _variables_project.scss에서 수행.
+ */
+
+// ── Brand: SK Blue 스케일 (500 = $skt-t-blue #3c46c5) ──
+$skt-blue-50:  #eef0fb;
+$skt-blue-100: #dde0f7;
+$skt-blue-200: #bcc3ef;
+$skt-blue-300: #97a1e6;
+$skt-blue-400: #6a76d8;
+$skt-blue-500: #3c46c5;
+$skt-blue-600: #3139ad;
+$skt-blue-700: #282e8c;
+$skt-blue-800: #21266f;
+$skt-blue-900: #1b1f54;
+
+// ── Neutral 스케일 (surface/text/border 토큰의 기반) ──
+$skt-gray-50:  #f8fafc;
+$skt-gray-100: #f1f5f9;
+$skt-gray-200: #e2e8f0;
+$skt-gray-300: #cbd5e1;
+$skt-gray-400: #94a3b8;
+$skt-gray-500: #64748b;
+$skt-gray-600: #475569;
+$skt-gray-700: #334155;
+$skt-gray-800: #1e293b;
+$skt-gray-900: #0f172a;
+
+// ── 브랜드 그라데이션 (히어로/CTA 등) ──
+$skt-gradient: linear-gradient(135deg, #{$skt-blue-500} 0%, #68127a 100%);

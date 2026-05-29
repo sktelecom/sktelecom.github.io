@@ -3,6 +3,8 @@ title: "SKT Passkey"
 linkTitle: "SKT Passkey"
 weight: 6
 type: docs
+github: "https://github.com/skt-passkey"
+techs: ["Security", "FIDO2"]
 description: >
   WebAuthn/FIDO2-based passwordless authentication platform
 ---

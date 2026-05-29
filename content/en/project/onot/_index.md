@@ -3,6 +3,8 @@ title: "onot"
 linkTitle: "onot"
 weight: 5
 type: docs
+github: "https://github.com/sktelecom/onot"
+techs: ["Compliance", "Tool"]
 description: >
   SPDX-based open source license notice generation tool
 ---

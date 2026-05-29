@@ -1,16 +1,16 @@
 # UI strings. Buttons and similar.
 
 [ui_pager_prev]
-other = "이전"
+other = "Previous"
 
 [ui_pager_next]
-other = "다음"
+other = "Next"
 
 [ui_read_more]
-other = "더 읽기"
+other = "Read more"
 
 [ui_search]
-other = "사이트에서 검색…"
+other = "Search this site…"
 
 # Used in sentences such as "Posted in News"
 [ui_in]
@@ -25,20 +25,20 @@ other = "all"
 other = "All Rights Reserved"
 
 [footer_privacy_policy]
-other = "개인정보 보호 정책"
+other = "Privacy Policy"
 
 
 # Post (blog, articles etc.)
 [post_byline_by]
 other = "By"
 [post_created]
-other = "작성"
+other = "Created"
 [post_last_mod]
-other = "최종 수정"
+other = "Last modified"
 [post_edit_this]
-other = "페이지 편집"
+other = "Edit this page"
 [post_view_this]
-other = "페이지 보기"
+other = "View page source"
 [post_create_child_page]
 other = "Create child page"
 [post_create_issue]
@@ -54,13 +54,13 @@ other = "less than a minute"
 
 # Print support
 [print_printable_section]
-other = "이 섹션의 다중 페이지 출력 화면임."
+other = "This is the multi-page printable view of this section."
 [print_click_to_print]
-other = "여기를 클릭하여 프린트"
+other = "Click here to print"
 [print_show_regular]
-other = "이 페이지의 일반 화면으로 돌아가기"
+other = "Return to the regular view of this page"
 [print_entire_section]
-other = "전체 섹션 프린트"
+other = "Print entire section"
 
 # Community
 [community_join]
@@ -102,46 +102,46 @@ other = "Top of page"
 
 # Home — stats bar labels
 [home_stat_projects]
-other = "공개 프로젝트"
+other = "Open Source Projects"
 [home_stat_compliance]
-other = "오픈소스 고지"
+other = "OSS Notices"
 [home_stat_posts]
-other = "블로그 글"
+other = "Blog Posts"
 [home_stat_years]
-other = "년간의 활동"
+other = "Years of Activity"
 
 # Home — section headings
 [home_features_title]
-other = "SKT 오픈소스 둘러보기"
+other = "Explore SKT Open Source"
 [home_features_lead]
-other = "검증된 기술부터 가이드, 라이선스 컴플라이언스까지 한 곳에서."
+other = "From proven technology to guides and license compliance — all in one place."
 [home_projects_title]
-other = "주요 프로젝트"
+other = "Featured Projects"
 [home_projects_lead]
-other = "SK텔레콤의 실제 서비스를 움직이는 검증된 기술."
+other = "Battle-tested technology powering SK Telecom's real services."
 [home_blog_title]
-other = "최신 소식"
+other = "Latest News"
 [home_blog_lead]
-other = "SKT 오픈소스의 최신 소식을 확인하세요."
+other = "Catch up on the latest from SKT Open Source."
 [home_view_all_projects]
-other = "프로젝트 전체보기"
+other = "View all projects"
 [home_view_all_blog]
-other = "블로그 전체보기"
+other = "View all posts"
 [home_github_title]
-other = "GitHub에서 더 많은 프로젝트를 만나보세요"
+other = "Discover more projects on GitHub"
 [home_github_cta]
-other = "SKT GitHub 바로가기"
+other = "Go to SKT GitHub"
 
 # Project card
 [project_view_github]
 other = "GitHub"
 [project_view_details]
-other = "자세히 보기"
+other = "Learn more"
 
 # Compliance search
 [compliance_search_placeholder]
-other = "제품·서비스 검색…"
+other = "Search products & services…"
 [compliance_no_results]
-other = "검색 결과가 없습니다."
+other = "No matching products found."
 [compliance_count_label]
-other = "개 제품"
+other = "products"

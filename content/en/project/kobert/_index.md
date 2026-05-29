@@ -3,6 +3,8 @@ title: "KoBERT"
 linkTitle: "KoBERT"
 weight: 2
 type: docs
+github: "https://github.com/SKTBrain/KoBERT"
+techs: ["NLP", "AI"]
 description: >
   Korean BERT pre-trained model (Korean BERT pre-trained cased)
 ---

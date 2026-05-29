@@ -1,0 +1,23 @@
+{{/* 최신 블로그 카드 그리드 (최신 3개) */}}
+{{ $posts := where .Site.RegularPages "Section" "blog" }}
+{{ $latest := first 3 $posts.ByDate.Reverse }}
+{{ with $latest }}
+  <section class="skt-section">
+    <div class="container">
+      <div class="skt-section__head">
+        <h2 class="skt-section__title">{{ T "home_blog_title" }}</h2>
+        <p class="skt-section__lead">{{ T "home_blog_lead" }}</p>
+      </div>
+      <div class="skt-grid">
+        {{ range . }}
+          {{ partial "blog/card.html" . }}
+        {{ end }}
+      </div>
+      <div class="text-center mt-5">
+        <a class="btn btn-outline-primary" href="{{ (site.GetPage "/blog").RelPermalink }}">
+          {{ T "home_view_all_blog" }} <i class="fas fa-arrow-right ms-1"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+{{ end }}

@@ -1,0 +1,14 @@
+{{ define "main" }}
+<div class="container py-5 skt-section-page">
+  <header class="mb-4">
+    <h1 class="fw-bold">{{ .Title }}</h1>
+    {{ with .Params.description }}<p class="lead" style="color:var(--skt-text-muted)">{{ . | markdownify }}</p>{{ end }}
+  </header>
+  {{ with .Content }}<div class="mb-5">{{ . }}</div>{{ end }}
+  <div class="skt-grid">
+    {{ range .Pages.ByWeight }}
+      {{ partial "project/card.html" . }}
+    {{ end }}
+  </div>
+</div>
+{{ end }}
