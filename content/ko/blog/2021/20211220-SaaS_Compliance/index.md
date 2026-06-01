@@ -49,7 +49,7 @@ MIT의 경우도 다음과 같이 요구합니다.
 > *The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.*
 > 
 
-이런 조항을 고려하면, SaaS 시스템 내 별도의 웹페이지에서 라이선스 고지를 하는 방법도 충분하지는 않다는 주장이 있을 수도 있습니다. 물론, 이런 방법이라도 제공하는 것이 안하는 것보다는 훨씬 낫겠지만요. 🙂
+이런 조항을 고려하면, SaaS 시스템 내 별도의 웹페이지에서 라이선스 고지를 하는 방법도 충분하지는 않다는 주장이 있을 수도 있습니다. 물론, 이런 방법이라도 제공하는 것이 안하는 것보다는 훨씬 낫겠지만요.
 
 ### Minified Javascript는 소스 코드 공개 방법으로 적절한가?
 
@@ -66,7 +66,7 @@ MIT의 경우도 다음과 같이 요구합니다.
 </script>
 ```
 
-예를 들어, 위의 코드를 Minify하면 다음과 같이 변환되고, 당연히 가독성은 떨어지게 됩니다. 
+예를 들어, 위의 코드를 Minify하면 다음과 같이 변환되고, 당연히 가독성은 떨어집니다. 
 
 ```jsx
 <scriptid=’wp-media-utils-js-translations’>(function(domain,translations){varlocaleData=translations.locale_data[domain]||translations.locale_data.messages;localeData[“”].domain=domain;wp.i18n.setLocaleData(localeData,domain);})(“default”,{“locale_data”:{“messages”:{“”:{}}}});</script>
@@ -130,7 +130,7 @@ Google은 다음과 같은 이유료 AGPL Policy를 만들었다고 설명합니
 - Honest Public License
 - Academic Free License ***[Note: this license is permissive. The others are copyleft.]***
 
-Heather는 대부분의 회사는 이러한 네트워크 Copyleft 라이선스를 위험도가 높은 라이선스로 분류하고 SaaS 개발에 사용하지 않는 정책을 갖고 있다고 말하였습니다. 
+Heather는 대부분의 회사는 이러한 네트워크 Copyleft 라이선스를 위험도가 높은 라이선스로 분류하고 SaaS 개발에 사용하지 않는 정책이 있다고 말하였습니다. 
 
 사실, 저도 예전에는 AGPL-3.0은 수정한 경우에만 소스 공개 의무를 부여하기 때문에 수정하지 않고 사용하는건 문제가 없다고 생각했습니다. 그래서 굳이 회사에서 정책적으로 AGPL-3.0의 사용을 막을 필요까지는 없는 것 아닌가라는 입장이었습니다. 그런데, AGPL-3.0 오픈소스를 도입하는 시기에는 수정하지 않고 사용한다고 하더라도, 수년이 지나면서도 수정하지 않도록 보장할 수 있는 체계가 회사 내부에 갖춰져 있냐를 봤을때에는 수정하지 않겠다는 것을 장담할 수 없게 됩니다. 따라서, Google과 같이 기본 정책으로는 AGPL-3.0 오픈소스는 사용을 제한하는 정책을 가져가는 것이 라이선스 관리 측면에서 합리적이라고 생각합니다. 
 
