@@ -36,4 +36,4 @@ graph TD
 상세한 SBOM 생성 방법과 기술적 가이드는 다음 문서를 참고하시기 바랍니다.
 
 - [공급사 가이드 (For Suppliers)](../../for-suppliers/)
-- [SBOM 생성 방법](../../for-suppliers/sbom-generation/)
+- [SBOM 생성 방법](../../for-suppliers/creation-guide/)
