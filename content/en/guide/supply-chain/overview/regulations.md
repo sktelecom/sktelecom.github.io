@@ -1,0 +1,48 @@
+---
+title: "Regulatory Trends"
+linkTitle: "Regulatory Trends"
+weight: 2
+type: docs
+description: >
+  Examines the state of software supply chain security regulations that are being strengthened worldwide, such as U.S. EO 14028 and the EU CRA.
+---
+
+
+## 1. United States: Executive Order 14028 (EO 14028)
+
+In May 2021, the Biden administration issued the "Executive Order on Improving the Nation's Cybersecurity (Executive Order 14028)." This was a decisive turning point at which supply chain security began to be addressed at the level of national security in the aftermath of the SolarWinds incident.
+
+### Key Provisions
+- Mandatory SBOM submission: Companies that supply software to the federal government must submit an SBOM.
+- NIST guideline compliance: Companies must comply with the Secure Software Development Framework (SSDF) defined by NIST (the U.S. National Institute of Standards and Technology).
+- Minimum standards: The U.S. administration led standardization by defining the minimum elements of an SBOM (data fields, automation support, etc.).
+
+## 2. European Union (EU): Cyber Resilience Act (CRA)
+
+Through the Cyber Resilience Act (CRA), the EU has enacted into law security requirements spanning the entire lifecycle of digital products.
+
+### Key Provisions
+- CE marking certification: All products with digital elements can only be sold within the EU if they meet the cybersecurity requirements and bear the CE mark.
+- Defined security support period: Manufacturers must provide security updates throughout the expected product use period (up to 5 years).
+- Vulnerability reporting obligation: Critical vulnerabilities must be reported to ENISA (the European Union Agency for Cybersecurity) within 24 hours of discovery.
+- SBOM management: Manufacturers must identify and document (via an SBOM) the software components of their products.
+
+## 3. South Korea: SW Supply Chain Security Guidelines
+
+In step with the global trend, the South Korean government (the Ministry of Science and ICT, KISA, and the National Intelligence Service) has also released the "SW Supply Chain Security Guidelines" and is pursuing proof-of-concept initiatives.
+
+### Key Contents (based on v1.0)
+- Recommendation to adopt SBOM: It is recommended that an SBOM be generated and utilized when developing and delivering software in both the public and private sectors.
+- Definition of security activities by role:
+    - Supplier (developer): Build a secure development environment, generate and provide an SBOM, and inspect for security vulnerabilities.
+    - Consumer (operator): Require and verify the SBOM of delivered software, and continuously monitor for vulnerabilities.
+
+### SK Telecom's Response
+
+To proactively respond to these domestic and international regulatory trends, SK Telecom has established its own supply chain security policy and requires all partners to submit SBOMs that conform to global standards (SPDX, CycloneDX).
+
+## Related Documents
+
+- [Supply Chain Security Overview](../): Concepts and notable cases of software supply chain attacks
+- [SK Telecom Supply Chain Security Policy](../policy/): The specific policy that SK Telecom requires of suppliers
+- [Supplier Guide](/en/guide/supply-chain/for-suppliers/): Guidance on SBOM generation and submission for suppliers

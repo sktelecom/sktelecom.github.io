@@ -1,27 +1,27 @@
 ---
-title: "오픈소스 프로젝트 주요 문서"
-linkTitle: "주요 문서"
+title: "Key Documents in an Open Source Project"
+linkTitle: "Key Documents"
 weight: 40
 type: docs
 description: >
-  오픈소스 프로젝트에는 어떤 문서가 있나?
+  What documents exist in an open source project?
 ---
 
-올바르게 기여하기 위해서는 각 오픈소스 프로젝트의 동작 방식을 이해하고 프로젝트에서 원하는 대로 활동하는 것이 중요하다. 대부분의 오픈소스 프로젝트는 README, CONTRIBUTING 등의 문서를 통해 이러한 요구 사항을 사용자에게 제공한다. 오픈소스 프로젝트에서는 다음과 같이 몇 가지 공통으로 사용되는 문서가 있으며, 대개 저장소의 최상위 레벨에 위치한다. 기여하기 전에 이러한 문서를 통해 프로젝트의 문화와 행동 강령, 기여 방법을 익혀야 한다.
+To contribute properly, it is important to understand how each open source project works and to act as the project expects. Most open source projects communicate these requirements through documents such as the README and CONTRIBUTING. Open source projects commonly include several such documents, usually located at the top level of the repository. Before contributing, you should use these documents to familiarize yourself with the project's culture, code of conduct, and contribution methods.
 
 ## README
-README 파일은 프로젝트에 처음 접근했을 때 보이는 파일로써 프로젝트 소개, 왜 이 프로젝트를 사용해야 하는지, 사용 방법 등을 설명하는 문서이다. 어떤 프로젝트인지 파악하기 위해서는 반드시 봐야 할 문서이다.
+The README is the file you see when you first approach a project. It introduces the project, explains why you should use it, how to use it, and more. It is a must-read document for understanding what the project is.
 
-## LICENSE (혹은 COPYING)
-LICENSE는 프로젝트를 누구나 사용할 수 있다고 명시하고 있는 오픈소스 라이선스를 담고 있는 파일이다. 모든 오픈소스 프로젝트는 오픈소스 라이선스가 있어야 한다. 오픈소스 라이선스가 없다면 오픈소스가 아니다. 소스 코드는 공개되었지만, 사용이나 배포할 수 있는 권리가 부여되지 않은 상태이다. 이런 소스 코드를 제품이나 서비스에 포함한다면 저작권 침해 이슈가 발생할 리스크가 있음에 주의해야 한다.
+## LICENSE (or COPYING)
+The LICENSE is the file containing the open source license, which states that anyone may use the project. Every open source project must have an open source license. Without an open source license, it is not open source. In that case, the source code has been disclosed, but the right to use or distribute it has not been granted. Be aware that including such source code in a product or service carries the risk of copyright infringement.
 
 ## CONTRIBUTING
-README 는 프로젝트를 사용하는 사람들에게 도움이 된다면, CONTRIBUTING은 프로젝트에 기여하는 사람들을 위한 문서이다. 어떤 유형의 기여가 필요한지와 기여하는 방법을 설명하기 때문에 오픈소스에 기여하고자 할 때는 이 문서를 자세히 살펴보아야 한다. 기여자는 이 문서에서 설명하는 기여 방법을 따라야 한다.
+If the README is a document for people who use the project, CONTRIBUTING is a document for people who contribute to the project. Because it explains what types of contributions are needed and how to contribute, you should examine this document carefully when you want to contribute to open source. Contributors must follow the contribution methods described in this document.
 
-기여하고자 하는 프로젝트에 CONTRIBUTING 파일이 없다면 커뮤니티에 기여 방법을 문의하라. 만약 적절한 답변을 받지 못한다면, 기여할 가치가 없는 프로젝트로 간주하고 다른 프로젝트를 찾아도 된다.
+If the project you want to contribute to has no CONTRIBUTING file, ask the community how to contribute. If you do not receive an appropriate response, you may regard it as a project not worth contributing to and look for another project.
 
 ## CODE OF CONDUCT
-CODE OF CONDUCT는 행동수칙, 행동강령이라고도 불리며 프로젝트가 건강하게 유지되기 위한 참가자의 행동 규칙을 정의한다. 예를 들어 성별, 인종, 종교, 나이 등의 차별이 있어서는 안 되고 누구나 따뜻하게 환영받고, 안전한 활동을 보장하기 위해 행동해야 함을 강조한다. 그리고 누군가 그 규칙을 어길 경우, 신고할 방법을 안내하고 있다.
+The CODE OF CONDUCT, also called a code of conduct or behavioral guidelines, defines the rules of conduct for participants so that the project stays healthy. For example, it emphasizes that there must be no discrimination based on gender, race, religion, age, and so on, that everyone is warmly welcomed, and that participants must act to ensure safe activity. It also explains how to report someone who breaks those rules.
 
-## 기타 문서
-(규모가 큰 오픈소스 프로젝트의 경우) 튜터리얼, 거버넌스 정책과 같은 문서도 제공한다.
+## Other Documents
+(For large open source projects) documents such as tutorials and governance policies may also be provided.

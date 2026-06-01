@@ -1,33 +1,40 @@
 ---
-title: "LGPL-2.1 가이드"
+title: "LGPL-2.1 Guide"
 linkTitle: "LGPL-2.1"
 weight: 10
 type: docs
-description: "[Free Software Foundation](http://www.fsf.org/)에서 만든 대표적인 Weak Copyleft 라이선스인 [LGPL-2.1](https://www.gnu.org/licenses/old-licenses/lgpl-2.1.html)은 재배포 시 소스 코드 공개를 요구하지만, LGPL Library를 Dynamic Link하여 사용하면 자사의 코드는 공개 대상에 포함되지 않는다. "
+description: "[LGPL-2.1](https://www.gnu.org/licenses/old-licenses/lgpl-2.1.html), the representative Weak Copyleft license created by the [Free Software Foundation](http://www.fsf.org/), requires disclosure of source code upon redistribution, but if you use an LGPL Library via Dynamic Link, your own code is not included in the disclosure scope."
 ---
 
-{{% alert title="의무사항 요약" color="primary" %}}
+SPDX Identifier: `LGPL-2.1-only` or `LGPL-2.1-or-later`
+
+{{% alert title="Summary of Obligations" color="primary" %}}
 <div class="-bg-100 p-3">
 
-> - 소스 형태로 재배포 
->   - 고지 의무 : 소스 코드 내 명시된 저작권/라이선스 정보를 그대로 유지한 상태로 재배포한다. 
->     - 수정시 의무사항 
->       - 추가/수정한 부분에 LGPL-2.1을 적용한다.
->       - 수정 사항에 대한 고지를 포함한다. (예: 수정일, 수정내용을 주석 형태로 포함)
-> - 바이너리 형태로 재배포 
->   - 고지 의무 : 오픈소스 고지문을 생성하여 바이너리 재배포 시 동봉한다. 
->     - 수정시 의무사항
->       - 추가/수정한 부분에 LGPL-2.1을 적용한다.
->       - 수정 사항에 대한 고지를 포함한다. (예: 오픈소스 고지문에 수정일, 수정내용을 포함)
->     - 소스 코드 제공 의무
->       - <span class="-text-warning">바이너리(라이브러리)에 해당하는 **전체** 소스 코드를 제공한다.</span>
->       - 사용자가 공개된 LGPL 라이브러리의 소스 코드를 빌드하여 동일한 라이브러리를 만들 수 있는  <span class="-text-warning">빌드 환경</span>을 제공한다.
+> - Redistribution in source form 
+>   - Notice obligation: Redistribute while keeping the copyright/license information stated in the source code intact. 
+>     - Obligations when modifying 
+>       - Apply LGPL-2.1 to the added/modified portions.
+>       - Include a notice of the modifications. (e.g., include the modification date and content in comment form)
+> - Redistribution in binary form 
+>   - Notice obligation: Generate an open source notice and include it when redistributing the binary. 
+>     - Obligations when modifying
+>       - Apply LGPL-2.1 to the added/modified portions.
+>       - Include a notice of the modifications. (e.g., include the modification date and content in the open source notice)
+>     - Obligation to provide source code
+>       - <span class="-text-warning">Provide the **complete** source code corresponding to the binary (library).</span>
+>       - Provide a <span class="-text-warning">build environment</span> that allows users to build an identical library from the disclosed source code of the LGPL library.
 
 </div>
 {{% /alert %}}
 
-## 소스 코드 내 라이선스 문구
-LGPL-2.1하의 오픈소스는 일반적으로 소스 코드 상단에 다음과 같은 문구가 있다. 
+{{% alert title="Weak Copyleft Characteristics" color="info" %}}
+LGPL-2.1 is a Weak Copyleft license. The obligation to disclose source code arises only when the LGPL library itself is modified, and applications that use it via dynamic linking (Dynamic Link) do not need to be disclosed. Therefore, it can also be used in commercial software.
+{{% /alert %}}
+
+## License Text in the Source Code
+
+Open source under the LGPL-2.1 license generally includes the following text at the top of the source code.
 
 ~~~
 Copyright (C) year name of author
@@ -47,86 +54,108 @@ License along with this library; if not, write to the Free Software
 Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
 ~~~
 
-## 사용 사례 별 의무 사항
-### Case 1. 소스 형태로 재배포 
-LGPL-2.1하의 오픈소스를 소스 형태로 재배포 시 다음 사항을 준수한다.
+## Obligations by Use Case
 
-#### 1-1 고지 의무
-* 저작권 고지 제공
-* 보증 부인 제공
-* 라이선스 사본 제공
+### Case 1. Redistribution in Source Form
 
-즉, 소스 코드 내 명시된 저작권/라이선스 정보를 그대로 유지한 상태로 재배포한다. 
+When redistributing open source under the LGPL-2.1 license in source form, observe the following.
 
+#### 1-1 Notice Obligation
+* Provide a copyright notice
+* Provide a warranty disclaimer
+* Provide a copy of the license
 
-{{% alert title="수정 시 의무 사항" color="success" %}}
-오픈소스의 소스 코드를 일부 추가/수정하였을 경우, 다음 사항을 준수한다. 
+That is, redistribute while keeping the copyright/license information stated in the source code intact.
 
-1. 추가/수정한 부분에 LGPL-2.1을 적용한다. 
-2. 수정 사항에 대한 고지를 포함한다. (예: 수정일, 수정내용을 주석 형태로 포함)
+{{% alert title="Obligations When Modifying" color="success" %}}
+If you add to or modify part of the source code of the open source, observe the following.
 
-{{% /alert %}}
-
-### Case 2. 바이너리(라이브러리) 형태로 재배포
-
-LGPL-2.1하의 오픈소스를 빌드하여 바이너리 형태로만 재배포 시 다음 사항을 준수한다. 
-
-#### 2-1 고지 의무
-* 저작권 고지 제공
-* 보증 부인 제공
-* 라이선스 사본 제공
-
-이상의 내용을 포함하는 오픈소스 고지문을 생성하여 라이브러리 재배포 시 동봉한다. 
-
-{{% alert title="수정 시 의무 사항" color="success" %}}
-오픈소스의 소스 코드를 일부 추가/수정하였을 경우, 다음 사항을 준수한다. 
-
-1. 추가/수정한 부분에 LGPL-2.1을 적용한다. 
-2. 수정 사항에 대한 고지를 포함한다. (예: 오픈소스 고지문에 수정일, 수정내용을 포함)
+1. Apply LGPL-2.1 to the added/modified portions.
+2. Include a notice of the modifications. (e.g., include the modification date and content in comment form)
 
 {{% /alert %}}
 
-#### 2-2 소스 코드 제공 의무
-바이너리(라이브러리)에 해당하는 소스 코드를 제공한다. 이때 다음 사항을 준수한다. 
+### Case 2. Redistribution in Binary (Library) Form
 
-1. LGPL-2.1은 파생저작물에 대해서도 LGPL-2.1을 적용하여 소스 코드를 공개할 것을 요구한다. 아래 내용을 참고하여 LGPL-2.1하의 오픈소스와 파생저작물의 소스 코드를 공개한다.
-{{% alert title="LGPL-2.1 파생 저작물의 범위" color="warning" %}}
-일반적인 LGPL-2.1의 파생 저작물의 범위는 다음과 같다. 
+When building open source under the LGPL-2.1 license and redistributing it only in binary form, observe the following.
 
-* 라이브러리 내 수정/추가 파일
+#### 2-1 Notice Obligation
+* Provide a copyright notice
+* Provide a warranty disclaimer
+* Provide a copy of the license
 
-다음의 경우 LGPL-2.1의 파생 저작물로 보지 않는다. 
+Generate an open source notice that includes the above and include it when redistributing the library.
 
-* LGPL-2.1 라이브러리를 Dynamic Link하여 사용하는 프로그램
-* 참고로, Java에서 LGPL-2.1인 JAR 파일을 import하는 프로그램도 LGPL-2.1의 파생저작물로 간주하지 않는다. (http://www.gnu.org/licenses/lgpl-java.html) 
+{{% alert title="Obligations When Modifying" color="success" %}}
+If you add to or modify part of the source code of the open source, observe the following.
+
+1. Apply LGPL-2.1 to the added/modified portions.
+2. Include a notice of the modifications. (e.g., include the modification date and content in the open source notice)
+
 {{% /alert %}}
-2. 사용자가 공개된 LGPL 라이브러리의 소스 코드를 빌드하여 동일한 라이브러리를 만들 수 있는 빌드 환경을 제공한다. 여기에는 다음 사항이 포함된다. 
-   * Tool chain 정보
-   * 빌드 스크립트
-   * 빌드 방법 (README)
-3. LGPL 라이브러리를 Static Link하여 생성한 실행파일(Executable)을 배포하는 경우, 사용자가 LGPL 라이브러리를 수정하고 다시 실행파일을 생성할 수 있도록 실행파일을 구성하는 오브젝트 코드를 제공한다. ([#LGPLStaticVsDynamic](https://www.gnu.org/licenses/gpl-faq.en.html#LGPLStaticVsDynamic))
 
+#### 2-2 Obligation to Provide Source Code
 
-소스 코드 대신 서면 약정서 (Written Offer)를 제공할 수 있다. 여기에는 다음 진술이 포함되어야 한다. 
+Provide the source code corresponding to the binary (library). In doing so, observe the following.
 
-1. 서면 약정서는 제품 판매 후 3년간 유효하다.
-2. 누구에게나 제공한다.
-3. 비용 청구를 하지 않는다. (소스 전달을 위해 발생하는 비용 제외)
+1. LGPL-2.1 requires that derivative works also apply LGPL-2.1 and disclose their source code. Referring to the content below, disclose the source code of both the LGPL-2.1 open source and the derivative work.
+
+{{% alert title="Scope of LGPL-2.1 Derivative Works" color="warning" %}}
+The general scope of LGPL-2.1 derivative works is as follows.
+
+* Files modified/added within the library
+
+The following are not considered derivative works of LGPL-2.1.
+
+* A program that uses the LGPL-2.1 library via Dynamic Link
+* In Java, a program that imports an LGPL-2.1 JAR file is also not considered a derivative work of LGPL-2.1. (http://www.gnu.org/licenses/lgpl-java.html)
+{{% /alert %}}
+
+2. Provide a build environment that allows users to build an identical library from the disclosed source code of the LGPL library. This includes the following.
+   * Tool chain information
+   * Build scripts
+   * Build instructions (README)
+
+3. When distributing an Executable created by Static Linking the LGPL library, provide the object code that makes up the executable so that users can modify the LGPL library and regenerate the executable. ([#LGPLStaticVsDynamic](https://www.gnu.org/licenses/gpl-faq.en.html#LGPLStaticVsDynamic))
+
+Instead of the source code, you may provide a Written Offer. It must include the following statements.
+
+1. The written offer is valid for 3 years after the product is sold.
+2. It is provided to anyone.
+3. No charge is made. (excluding costs incurred for delivering the source)
+
 {{% alert color="warning" %}}
-이후 외부로부터 서면 약정서를 근거로 소스 코드 제공을 요청 받을 경우, 위에서 언급한 바이너리에 해당하는 소스 코드를 제공해야 한다. 따라서 회사는 제품 판매 후 최소 3년간 소스 코드를 보관해야 한다.
+If you later receive a request for source code based on the written offer, you must provide the source code corresponding to the binary mentioned above. Therefore, the company must retain the source code for at least 3 years after the product is sold.
 {{% /alert %}}
 
-## 라이선스 호환성
-서로 요구하는 의무사항이 상충되는 오픈소스 라이선스는 하나의 프로그램에 동시에 존재해서는 안된다. 다음은 LGPL-2.1과 충돌하는 라이선스 목록이다. LGPL-2.1 프로그램 내에 다음 라이선스 하의 오픈소스를 포함해서는 안된다.
+## Dynamic Linking vs Static Linking
 
-* Apache-1.1
-* Apache-2.0
-* BSD-4-Clause
-* FTL
-* IJG
-* OpenSSL
-* Python-2.0
-* zlib-acknowledgement
-* XFree86-1.1
+The key point of LGPL-2.1 is that the scope of source code disclosure differs depending on the linking method.
 
-> 참고 : https://www.osadl.org/fileadmin/checklists/unreflicenses/LGPL-2.1-only.txt
+* **Dynamic Link**: Only the LGPL library is disclosed; the application code does not need to be disclosed
+* **Static Link**: The LGPL library + object code must be provided
+
+For commercial software development, the use of dynamic linking is recommended.
+
+## License Compatibility
+
+### Compatibility with Major Licenses
+
+| Combining License | Compatible | Notes |
+|-------------------|------------|-------|
+| MIT | Compatible | Usable in commercial software with dynamic linking |
+| Apache-2.0 | Incompatible | Patent clause conflict |
+| GPL-2.0 | Compatible | The GPL portion remains GPL |
+| LGPL-3.0 | Conditional | Compatible only if LGPL-2.1-or-later |
+| Proprietary | Conditional | Usable with dynamic linking |
+
+{{% alert title="Conditions for Use in Commercial Software" color="info" %}}
+If you use an LGPL-2.1 library via dynamic linking, it can also be used in commercial software. However, if you modify the LGPL library itself, you must disclose the source code of the modified portion.
+{{% /alert %}}
+
+## References
+
+* [LGPL-2.1 License Full Text](https://www.gnu.org/licenses/old-licenses/lgpl-2.1.html)
+* [SPDX License List - LGPL-2.1](https://spdx.org/licenses/LGPL-2.1-only.html)
+* [GNU LGPL FAQ](https://www.gnu.org/licenses/gpl-faq.html#LGPL)
+* [OSADL License Checklist](https://www.osadl.org/fileadmin/checklists/unreflicenses/LGPL-2.1-only.txt)

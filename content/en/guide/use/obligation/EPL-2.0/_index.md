@@ -1,31 +1,37 @@
 ---
-title: "EPL-2.0가이드"
+title: "EPL-2.0 Guide"
 linkTitle: "EPL-2.0"
 weight: 10
 type: docs
-description: "[EPL-2.0](https://www.eclipse.org/legal/epl-2.0)은 Eclipse Public License 2.0이라고도 불리며, 모듈 단위의 소스 코드 공개를 요구하는 Weak Copyleft 성격의 라이선스이다. " 
+description: "[EPL-2.0](https://www.eclipse.org/legal/epl-2.0), also called the Eclipse Public License 2.0, is a Weak Copyleft license that requires disclosure of source code on a per-module basis."
 ---
 
-{{% alert title="의무사항 요약" color="primary" %}}
+SPDX Identifier: `EPL-2.0`
+
+{{% alert title="Summary of Obligations" color="primary" %}}
 <div class="-bg-100 p-3">
 
-> - 소스 형태로 재배포 
->   - 고지 의무 : 소스 코드 내 명시된 저작권/라이선스 정보를 그대로 유지한 상태로 재배포한다. 
->    - 수정시 의무사항 
->      - 수정한 모듈에 EPL-2.0을 적용한다.
-> - 바이너리 형태로 재배포 
->   -  고지 의무 : 오픈소스 고지문을 생성하여 바이너리 재배포 시 동봉한다. 
->   - 수정시 의무사항
->     - 수정한 모듈에 EPL-2.0을 적용한다.
->   - 소스 코드 제공 의무 
->     - <span class="-text-warning">바이너리 내 EPL-2.0에 해당하는 **모듈**의 소스 코드 파일을 제공한다.</span>
+> - Redistribution in source form 
+>   - Notice obligation: Redistribute while keeping the copyright/license information stated in the source code intact. 
+>    - Obligations upon modification 
+>      - Apply EPL-2.0 to the modified modules.
+> - Redistribution in binary form 
+>   - Notice obligation: Generate an open source notice and enclose it when redistributing the binary. 
+>   - Obligations upon modification
+>     - Apply EPL-2.0 to the modified modules.
+>   - Source code provision obligation 
+>     - <span class="-text-warning">Provide the source code files of the **modules** that fall under EPL-2.0 within the binary.</span>
 
 </div>
 {{% /alert %}}
 
-## 소스 코드 내 라이선스 문구
-EPL-2.0하의 오픈소스는 일반적으로 소스 코드 상단에 다음과 같은 문구가 있다. 
+{{% alert title="Weak Copyleft Characteristics" color="info" %}}
+EPL-2.0 is a per-module Weak Copyleft license. The source code disclosure obligation arises only when an EPL-2.0 module itself is modified, and separately added modules do not need to be disclosed. Therefore, it can also be used in commercial software.
+{{% /alert %}}
 
+## License Statement in Source Code
+
+Open source under the EPL-2.0 license generally carries the following statement at the top of the source code.
 ```
 This program and the accompanying materials are made available under the
 terms of the Eclipse Public License v. 2.0 which is available at
@@ -34,46 +40,79 @@ v. 1.0 which is available at
 http://www.eclipse.org/org/documents/edl-v10.php.
 ```
 
-## 사용 사례 별 의무 사항
-### Case 1. 소스 형태로 재배포 
-EPL-2.0하의 오픈소스를 소스 형태로 재배포 시 다음 사항을 준수한다.
+## Obligations by Use Case
 
-#### 1-1 고지 의무
-* 라이선스 사본 제공
-* 저작권, 특허, 상표권, 보증부인, 면책 등 법적 고지 수정 금지
+### Case 1. Redistribution in Source Form
 
-즉, 소스 코드 내 명시된 라이선스 정보를 그대로 유지한 상태로 재배포한다. 
+When redistributing open source under the EPL-2.0 license in source form, observe the following.
 
+#### 1-1 Notice Obligation
+* Provide a copy of the license
+* Do not modify legal notices such as copyright, patent, trademark, warranty disclaimer, and indemnification notices
 
-{{% alert title="수정 시 의무 사항" color="success" %}}
-오픈소스의 소스 코드를 일부 추가/수정하였을 경우, 다음 사항을 준수한다. 
+In other words, redistribute while keeping the license information stated in the source code intact.
 
-* 수정한 모듈에 EPL-2.0을 적용한다.
+{{% alert title="Obligations upon Modification" color="success" %}}
+If you add to or modify part of the open source code, observe the following.
 
-{{% /alert %}}
-
-### Case 2. 바이너리 형태로 재배포
-
-EPL-2.0하의 오픈소스를 빌드하여 바이너리 형태로만 재배포 시 다음 사항을 준수한다. 
-
-#### 2-1 고지 의무
-* 라이선스 사본 제공
-* 저작권, 특허, 상표권, 보증부인, 면책 등 법적 고지 수정 금지
-
-이상의 내용을 포함하는 오픈소스 고지문을 생성하여 바이너리 재배포 시 동봉한다. 
-
-{{% alert title="수정 시 의무 사항" color="success" %}}
-오픈소스의 소스 코드를 일부 추가/수정하였을 경우, 다음 사항을 준수한다. 
-
-* 수정한 모듈에 EPL-2.0을 적용한다.
+* Apply EPL-2.0 to the modified modules.
 
 {{% /alert %}}
 
-#### 2-2 소스 코드 제공 의무
-바이너리 내 EPL-2.0에 해당하는 모듈의 소스 코드 파일을 제공한다. 이때 다음 사항을 준수한다. 
+### Case 2. Redistribution in Binary Form
 
-* EPL-2.0은 모듈 내 추가한 내용에 대해서도 EPL-2.0을 적용하여 소스 코드를 공개할 것을 요구한다. 따라서, 원 모듈과 더불어 모듈 내 추가/수정한 내용도 EPL-2.0을 적용하여 공개한다.
+When building open source under the EPL-2.0 license and redistributing it in binary form only, observe the following.
 
-오픈소스 고지문에 사용자가 소스 코드를 수령할 수 있는 방법을 안내함으로써 소스 코드 제공 의무를 준수할 수 있다. 
+#### 2-1 Notice Obligation
+* Provide a copy of the license
+* Do not modify legal notices such as copyright, patent, trademark, warranty disclaimer, and indemnification notices
 
-> 참고 : https://www.osadl.org/fileadmin/checklists/unreflicenses/EPL-2.0.txt
+Generate an open source notice containing the above and enclose it when redistributing the binary.
+
+{{% alert title="Obligations upon Modification" color="success" %}}
+If you add to or modify part of the open source code, observe the following.
+
+* Apply EPL-2.0 to the modified modules.
+
+{{% /alert %}}
+
+#### 2-2 Source Code Provision Obligation
+
+Provide the source code files of the modules that fall under EPL-2.0 within the binary. In doing so, observe the following.
+
+* EPL-2.0 requires that content added within a module also be licensed under EPL-2.0 and have its source code disclosed. Therefore, disclose the original module as well as the content added/modified within the module under EPL-2.0.
+
+You can fulfill the source code provision obligation by informing users in the open source notice of how they can obtain the source code.
+
+## Per-Module Copyleft
+
+The key characteristic of EPL-2.0 is that Copyleft applies on a per-module basis.
+
+* **When modifying an EPL-2.0 module**: Disclose only that module under EPL-2.0
+* **When adding a separate module**: The added module does not need to be disclosed
+* **When combining with another license**: Combination is possible if the modules are separated
+
+Because of these characteristics, Eclipse Foundation projects and commercial software can be developed together.
+
+## License Compatibility
+
+### Compatibility with Major Licenses
+
+| License to Combine | Compatible | Remarks |
+|-------------------|----------|------|
+| MIT | Compatible | Only the EPL modules are disclosed |
+| Apache-2.0 | Compatible | Only the EPL modules are disclosed |
+| GPL-2.0 | Incompatible | Incompatible by default |
+| GPL-3.0 | Conditional | Compatible when a Secondary License is designated |
+| Proprietary | Compatible | Can be used as long as only the EPL modules are disclosed |
+
+{{% alert title="Secondary License Clause" color="info" %}}
+EPL-2.0 allows GPL-2.0 or GPL-3.0 to be designated as a Secondary License. In that case, it can also be used in GPL projects.
+{{% /alert %}}
+
+## References
+
+* [EPL-2.0 License Full Text](https://www.eclipse.org/legal/epl-2.0)
+* [SPDX License List - EPL-2.0](https://spdx.org/licenses/EPL-2.0.html)
+* [Eclipse Foundation FAQ](https://www.eclipse.org/legal/eplfaq.php)
+* [OSADL License Checklist](https://www.osadl.org/fileadmin/checklists/unreflicenses/EPL-2.0.txt)

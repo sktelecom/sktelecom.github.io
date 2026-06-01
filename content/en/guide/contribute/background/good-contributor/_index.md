@@ -1,32 +1,32 @@
 ---
-title: "좋은 기여자가 되기 위해"
-linkTitle: "좋은 기여자"
+title: "How to Become a Good Contributor"
+linkTitle: "Good Contributor"
 weight: 50
 type: docs
 description: >
-  어떻게 좋은 기여자가 될 수 있나?
+  How can you become a good contributor?
 ---
 
 {{% alert title="Reference" color="info" %}}
-이 페이지는 [GitHub의 Open Source Guide](https://opensource.guide/)의 내용을 참고로 작성하였다. 
+This page was written with reference to [GitHub's Open Source Guide](https://opensource.guide/).
 {{% /alert %}}
 
-본격적으로 기여 제출을 설명하기 전에 어떻게 하면 좋은 기여자가 될 수 있을지에 대해 간단히 알아보자. 물론 프로젝트마다 운영되는 방식이 다르므로 하나의 정답은 없다. 새로운 프로젝트에 참여할 때마다 운영 방식을 습득하기 위한 시간을 투자해야 한다. 그런데도 다음 사항들은 좋은 기여자가 되기 위해 공통으로 도움이 될 수 있는 내용이다.
+Before getting into how to submit contributions in earnest, let's briefly look at how to become a good contributor. Of course, since every project operates differently, there is no single right answer. Each time you join a new project, you need to invest time in learning how it operates. Even so, the following points are commonly helpful in becoming a good contributor.
 
-## 1. 커뮤니티에 참여하라
-오픈소스 프로젝트에는 사용자/개발자들이 모인 커뮤니티가 있다. 각 커뮤니티는 참여 방식이 조금씩 다르다. 커뮤니티에서 제공하는 문서를 읽고, 메일링 리스트, 포럼, IRC, Slack, Bug tracker 등 주요 커뮤니케이션 채널에 가입하라.
+## 1. Join the Community
+Open source projects have a community of users and developers. Each community participates in slightly different ways. Read the documentation the community provides, and join its main communication channels such as the mailing list, forums, IRC, Slack, and bug tracker.
 
-## 2. 잠시 살펴봐라
-커뮤니티에 가입한 후에는 기여하기 전에 잠시 커뮤니티의 문화를 흡수하라. 지난 커뮤니케이션을 살펴보는 것도 좋은 방법이다. 이런 과정을 거칠수록 첫 번째 기여가 수락될 가능성이 커진다.
+## 2. Observe for a While
+After joining the community, take some time to get familiar with its culture before contributing. Reviewing past communications is a good approach. The more you go through this process, the more likely your first contribution is to be accepted.
 
-## 3. 거버넌스를 이해하라
-기여하기 전에 프로젝트 관리 및 거버넌스 문서를 통해 프로젝트의 거버넌스 방식을 이해하라. 누가, 어떤 방법으로 결정을 내리는지 알 수 있다.
+## 3. Understand the Governance
+Before contributing, use the project's management and governance documents to understand how the project is governed. You can learn who makes decisions and how.
 
-## 4. 작은 것부터 시작하라
-간단한 버그나 문서 수정으로 시작하라. 중요도가 크지 않은 작은 기여를 해보면서 프로세스를 배우고, 실수를 수정해가는 것이 좋다. 이러한 경험을 바탕으로 더 크게 기여하면서 점차 프로젝트에 영향을 미칠 수 있다.
+## 4. Start Small
+Start with a simple bug fix or documentation change. It is good to learn the process and correct mistakes by making small, low-stakes contributions. Building on this experience, you can contribute more substantially and gradually have an impact on the project.
 
-## 5. 이벤트에 참가하라
-오픈소스 커뮤니티의 다른 참여자와 지속적인 관계를 구축하는 것은 중요하다. 가장 좋은 방법은 콘퍼런스 등의 이벤트에 참석하는 것이다. 직접 만나는 것만큼 관계 형성에 좋은 것은 없다.
+## 5. Attend Events
+Building lasting relationships with other participants in the open source community is important. The best way to do this is to attend events such as conferences. Nothing builds relationships like meeting in person.
 
-## 6. 초기 단계의 코드부터 기여하라
-어떤 이는 코드의 양이 상당히 커질 때까지 개발을 완료한 다음 이를 한 번에 기여하려고 한다. 이러한 기여는 오픈소스 프로젝트로부터 수락되기가 쉽지 않다. 프로젝트에서 많은 양의 코드를 한꺼번에 리뷰하기도 어렵고, 기여한 코드가 프로젝트가 원하는 방향과 다를 수도 있다. 아이디어 단계에서부터 커뮤니티와 논의하고, 개발 초기부터, 그리고 자주 기여하라.
+## 6. Contribute from the Early Stages of the Code
+Some people finish developing until the amount of code becomes quite large and then try to contribute it all at once. Such contributions are not easily accepted by open source projects. It is difficult for a project to review a large amount of code at once, and the contributed code may differ from the direction the project wants. Discuss with the community starting from the idea stage, and contribute early in development and often.

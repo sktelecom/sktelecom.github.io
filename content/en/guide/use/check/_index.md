@@ -1,33 +1,66 @@
 ---
-title: "오픈소스 라이선스 확인하기"
-linkTitle: "라이선스 확인하기"
+title: "Checking an Open Source License"
+linkTitle: "Checking the License"
 weight: 20
 type: docs
 description: >
-  오픈소스 라이선스를 확인하는 방법
+  How to check an open source license
 ---
 
-여러가지 방법으로 오픈소스 라이선스를 확인할 수 있다. 분석도구를 사용하지 않고도 확인할 수 있다. 
+An open source license can be checked in several ways. You can check it manually without using analysis tools, or you can check it efficiently using automation tools.
 
-## 방법 1. 소스 코드 파일 상단 주석 확인
-일반적인 오픈소스는 소스 코드 파일 상단에 저작권과 라이선스 정보가 표시한다. 
+## Manual Methods
+
+### Method 1. Check the Comments at the Top of the Source Code File
+
+Typical open source displays copyright and license information in the comments at the top of the source code file.
+
 ![01](./01.png)
-(https://github.com/SKTBrain/KoBERT/blob/master/kobert/pytorch_kobert.py) 
+(https://github.com/SKTBrain/KoBERT/blob/master/kobert/pytorch_kobert.py)
 
-이 내용으로 오픈소스 라이선스를 확인할 수 있다. 
+You can identify the open source license from this content.
 
-SK텔레콤은 [fossology](https://www.fossology.org/)라는 도구를 제공하여 누구나 소스 코드 파일 상단의 오픈소스 라이선스를 쉽게 확인할 수 있게 하였다.
+SK Telecom provides a tool called [FOSSology](https://www.fossology.org/) so that anyone can easily check the open source license at the top of a source code file.
 
-## 방법 2. Root 폴더 내 LICENSE (혹은 COPYING) 파일 확인
-일반적인 오픈소스는 Root 폴더 내 LICENSE 혹은 COPYING 파일로 라이선스 정보를 표시한다. 
+### Method 2. Check the LICENSE (or COPYING) File in the Root Folder
+
+Typical open source displays license information in a LICENSE or COPYING file in the root folder.
+
 ![02](./02.png)
 (https://github.com/openinfradev/tacoplay)
 
-## 방법 3. README 또는 웹사이트에서 라이선스 정보 확인
-어떤 오픈소스는 오픈소스를 설명하는 README나 웹사이트 문서에서 라이선스 정보를 제공한다. 
+### Method 3. Check the License Information in the README or on the Website
+
+Some open source provides license information in the README that describes the project or in documentation on the website.
+
 ![03](./03.png)
 (https://github.com/metatron-app/metatron-discovery)
 
-이상의 정보를 통해 오픈소스의 라이선스 정보를 확인할 수 있다.
+## Checking with Automation Tools
 
-만약, 방법 1-3에서 명시한 정보가 서로 상이하다면, 방법 1, 즉, 파일 내 표시된 라이선스 정보에 우선순위를 두고 판단하라. 
+For large-scale projects or those with many dependencies, you can use automation tools to check licenses efficiently.
+
+### Syft
+
+Syft is a tool that generates an SBOM from container images and file systems and extracts license information.
+```bash
+syft dir:. -o json
+```
+
+### Trivy
+
+Trivy is a tool that can check license information alongside vulnerability scanning.
+```bash
+trivy fs --scanners license .
+```
+
+> **Caution**: Trivy was the victim of a supply chain attack in 2025 through release tag tampering.
+> When installing the CLI, use the official release channels, and in GitHub Actions, use a verified pinned version
+> such as `@0.35.0` instead of mutable tags (`@latest`, `@master`, etc.).
+> For details, refer to the [SBOM Generation Guide](/en/guide/supply-chain/for-suppliers/creation-guide/).
+
+For detailed usage of automation tools, refer to the [Automation](/en/guide/use/automation/) section.
+
+## Priority of License Information
+
+If the information indicated by Methods 1-3 differs from one another, base your judgment on Method 1 — that is, give priority to the license information shown within the file.

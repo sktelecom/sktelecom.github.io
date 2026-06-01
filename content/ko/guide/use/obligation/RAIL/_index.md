@@ -210,8 +210,7 @@ BigScience RAIL은 모델 카드(Model Card) 제공을 권장합니다.
 - 모델 카드 제공 (권장)
 
 ### 라이선스 전파
-BLOOM → 파인튜닝 → 커스텀 모델  
-→ 커스텀 모델도 BigScience RAIL 또는 동등한 제한 적용
+BLOOM을 파인튜닝하여 커스텀 모델을 만든 경우, 커스텀 모델에도 BigScience RAIL 또는 이와 동등한 제한을 적용해야 합니다.
 
 ## AI 생성물의 책임
 

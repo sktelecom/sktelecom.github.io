@@ -1,28 +1,31 @@
 ---
-title: "BSD-4-Clause 가이드"
+title: "BSD-4-Clause Guide"
 linkTitle: "BSD-4-Clause"
 weight: 10
 type: docs
-description:  "[BSD-4-Clause](https://directory.fsf.org/wiki/License:BSD-4-Clause) 라이선스는 BSD \"Original\" or \"Old\" License 라고도 불리는 BSD 라이선스의 원형이로써, 소스 코드 공개를 요구하지는 않지만, 광고 조항 (advertising clause)를 포함하고 있어서 사용하는데 문제가 된다. "
+description: "The [BSD-4-Clause](https://directory.fsf.org/wiki/License:BSD-4-Clause) license, also called the BSD \"Original\" or \"Old\" License, is the original form of the BSD license. Although it does not require disclosure of source code, it includes an advertising clause that makes its use problematic."
 ---
 
-{{% alert title="의무사항 요약" color="primary" %}}
+SPDX Identifier: `BSD-4-Clause`
+
+{{% alert title="Summary of Obligations" color="primary" %}}
 <div class="-bg-100 p-3">
 
-> - 소스 형태로 재배포    
->   - 고지 의무 : 소스 코드 내 명시된 저작권/라이선스 정보를 그대로 유지한 상태로 재배포한다.  
->   - BSD-4-Clause하 오픈소스의 기능 / 활용을 언급하는 모든 광고에 다음 문구 포함  
-      <i>"This product includes software developed by the <organization>."</i>
-> - 바이너리 형태로 재배포    
->   - 고지 의무 : 오픈소스 고지문을 생성하여 바이너리 재배포 시 동봉한다.  
->   - BSD-4-Clause하 오픈소스의 기능 / 활용을 언급하는 모든 광고에 다음 문구 포함  
-      <i>"This product includes software developed by the <organization>."</i>
+> - Redistribution in source form    
+>   - Notice obligation: Redistribute while keeping the copyright/license information stated in the source code intact.  
+>   - Include the following statement in all advertising that mentions features or use of the BSD-4-Clause open source  
+      <i>"This product includes software developed by the &lt;organization&gt;."</i>
+> - Redistribution in binary form    
+>   - Notice obligation: Generate an open source notice and enclose it when redistributing the binary.  
+>   - Include the following statement in all advertising that mentions features or use of the BSD-4-Clause open source  
+      <i>"This product includes software developed by the &lt;organization&gt;."</i>
 
 </div>
 {{% /alert %}}
 
-## 소스 코드 내 라이선스 문구
-BSD-4-Clause하의 오픈소스는 일반적으로 소스 코드 상단에 다음과 같은 문구가 있다. 
+## License Statement in Source Code
+
+Open source under the BSD-4-Clause license generally carries the following statement at the top of the source code.
 
 ~~~
 Copyright (c) <year>, <copyright holder>
@@ -55,39 +58,59 @@ ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 ~~~
 
-## 사용 사례 별 의무 사항
-### Case 1. 소스 형태로 재배포 
-BSD-4-Clause하의 오픈소스를 소스 형태로 재배포 시 다음 사항을 준수한다.
+## Obligations by Use Case
 
-#### 1-1 고지 의무
-* 저작권 고지
-* 라이선스 사본 제공
-* 보증 부인 고지
-* BSD-4-Clause하 오픈소스의 기능 / 활용을 언급하는 모든 광고에 다음 문구 포함   
-<b><i>"This product includes software developed by the <organization>." </i></b>
+### Case 1. Redistribution in Source Form
 
-즉, 소스 코드 내 저작권, 라이선스 등을 그대로 유지한다. 
+When redistributing open source under the BSD-4-Clause license in source form, observe the following.
 
-### Case 2. 바이너리 형태로 재배포
+#### 1-1 Notice Obligation
+* Copyright notice
+* Provide a copy of the license
+* Warranty disclaimer notice
+* Include the following statement in all advertising that mentions features or use of the BSD-4-Clause open source   
+<i>"This product includes software developed by the &lt;organization&gt;."</i>
 
-BSD-4-Clause하의 오픈소스를 빌드하여 바이너리 형태로만 재배포 시 다음 사항을 준수한다. 
+In other words, keep the copyright, license, and so on within the source code intact.
 
-#### 2-1 고지 의무
-* 저작권 고지
-* 라이선스 사본 제공
-* 보증 부인 고지BSD-4-Clause하 오픈소스의 기능 / 활용을 언급하는 모든 광고에 다음 문구 포함   
-<b><i>"This product includes software developed by the <organization>." </i></b>
+### Case 2. Redistribution in Binary Form
 
-이를 포함하는 오픈소스 고지문을 생성하여 바이너리 재배포 시 동봉한다. 
+When building open source under the BSD-4-Clause license and redistributing it in binary form only, observe the following.
+
+#### 2-1 Notice Obligation
+* Copyright notice
+* Provide a copy of the license
+* Warranty disclaimer notice
+* Include the following statement in all advertising that mentions features or use of the BSD-4-Clause open source   
+<i>"This product includes software developed by the &lt;organization&gt;."</i>
+
+Generate an open source notice containing the above and enclose it when redistributing the binary.
+
+## License Compatibility
+
+Due to the advertising clause, BSD-4-Clause has compatibility issues with other licenses.
+
+### Compatibility with Major Licenses
+
+| License to Combine | Compatible | Remarks |
+|-------------------|----------|------|
+| MIT | Compatible | The advertising clause must be retained |
+| Apache-2.0 | Compatible | The advertising clause must be retained |
+| GPL-2.0/3.0 | Incompatible | The advertising clause conflicts with GPL |
+| Proprietary | Compatible | The advertising clause must be complied with |
 
 {{% alert color="warning" %}}
 
-FreeBSD, NetBSD, BSD 등의 오픈소스는 원래 BSD-4-Clause를 적용하였으나, "advertising clause" 조항의 문제를 인식하여 BSD-3-Clause, BSD-2-Clauese 등으로 라이선스를 변경하였다. 
+Open source projects such as FreeBSD, NetBSD, and BSD originally applied BSD-4-Clause, but after recognizing the problem with the "advertising clause" they changed their license to BSD-3-Clause, BSD-2-Clause, and so on.
 
-* FreeBSD : BSD-2-Clause로 변경함 - http://www.gnu.org/licenses/bsd.html
-* NetBSD : BSD-2-Clause로 변경함 - http://www.netbsd.org/about/redistribution.html#why2clause
-* BSD : BSD-3-Clause로 변경함 - ftp://ftp.cs.berkeley.edu/pub/4bsd/README.Impt.License.Change
+* FreeBSD: changed to BSD-2-Clause - http://www.gnu.org/licenses/bsd.html
+* NetBSD: changed to BSD-2-Clause - http://www.netbsd.org/about/redistribution.html#why2clause
+* BSD: changed to BSD-3-Clause - ftp://ftp.cs.berkeley.edu/pub/4bsd/README.Impt.License.Change
 
 {{% /alert %}}
 
-> 참고 : https://www.osadl.org/fileadmin/checklists/unreflicenses/BSD-4-Clause.txt
+## References
+
+* [BSD-4-Clause License Full Text](https://directory.fsf.org/wiki/License:BSD-4-Clause)
+* [SPDX License List - BSD-4-Clause](https://spdx.org/licenses/BSD-4-Clause.html)
+* [OSADL License Checklist](https://www.osadl.org/fileadmin/checklists/unreflicenses/BSD-4-Clause.txt)

@@ -1,37 +1,44 @@
 ---
-title: "AGPL-3.0 가이드"
+title: "AGPL-3.0 Guide"
 linkTitle: "AGPL-3.0"
 weight: 10
 type: docs
-description: "[Free Software Foundation](http://www.fsf.org/)은 2007년 [AGPL-3.0](https://www.gnu.org/licenses/AGPL-3.0.html)을 공개하였다. AGPL-3.0은 GPL-3.0에 네트워크로 상호 작용하는 소프트웨어의 소스 코드도 공개해야 한다는 조항을 추가한 라이선스이다."
+description: "The [Free Software Foundation](http://www.fsf.org/) released [AGPL-3.0](https://www.gnu.org/licenses/agpl-3.0.html) in 2007. AGPL-3.0 is a license that adds a clause to GPL-3.0 requiring the source code of software that interacts over a network to be disclosed as well."
 ---
 
-{{% alert title="의무사항 요약" color="primary" %}}
+SPDX Identifier: `AGPL-3.0-only` or `AGPL-3.0-or-later`
+
+{{% alert title="Summary of Obligations" color="primary" %}}
 <div class="-bg-100 p-3">
 
-> - 소스 형태로 재배포  
->   - 고지 의무 : 소스 코드 내 명시된 저작권/라이선스 정보를 그대로 유지한 상태로 재배포한다.  
->   - 수정시 의무사항  
->     - 추가/수정한 부분에 AGPL-3.0을 적용한다.  
->     - 수정 사항에 대한 고지를 포함한다. (예: 수정일, 수정내용을 주석 형태로 포함)  
-> - 바이너리 형태로 재배포  
->   - 고지 의무 : 오픈소스 고지문을 생성하여 바이너리 재배포 시 동봉한다.  
->   - 수정시 의무사항  
->     - 추가/수정한 부분에 AGPL-3.0을 적용한다.  
->     - 수정 사항에 대한 고지를 포함한다. (예: 오픈소스 고지문에 수정일, 수정내용을 포함)   
->   - 소스 코드 제공 의무  
->     - <span class="-text-warning">바이너리에 해당하는 **전체** 소스 코드를 제공한다.</span>
->       - AGPL-3.0은 파생저작물에 대해서도 AGPL-3.0을 적용하여 소스 코드를 공개할 것을 요구한다.
->     - 바이너리 사용자가 공개된 소스 코드로 동일한 바이너리를 만들 수 있는 <span class="-text-warning">빌드 환경</span>을 제공한다.  
->   - <b>설치 정보 제공 의무 : 바이너리를 User Product와 배포한다면 설치 정보(Installation Information)을 제공한다.</b>  
-> - <span class="-text-warning">**원격 네트워크 상호 작용**</span>
->   - 원격 사용자가 수정된 버전의 소스 코드를 다운 받을 수 있도록 네트워크 서버를 제공해야 한다.  
+> - Redistribution in source form  
+>   - Notice obligation: Redistribute while keeping the copyright/license information stated in the source code intact.  
+>   - Obligations upon modification  
+>     - Apply AGPL-3.0 to the added/modified portions.  
+>     - Include a notice of the modifications. (e.g., include the modification date and modified content as comments)  
+> - Redistribution in binary form  
+>   - Notice obligation: Generate an open source notice and enclose it when redistributing the binary.  
+>   - Obligations upon modification  
+>     - Apply AGPL-3.0 to the added/modified portions.  
+>     - Include a notice of the modifications. (e.g., include the modification date and modified content in the open source notice)   
+>   - Source code provision obligation  
+>     - <span class="-text-warning">Provide the **entire** source code corresponding to the binary.</span>
+>       - AGPL-3.0 requires that derivative works also be licensed under AGPL-3.0 and have their source code disclosed.
+>     - Provide a <span class="-text-warning">build environment</span> that allows binary users to build an identical binary from the disclosed source code.  
+>   - **Installation information obligation: If the binary is distributed together with a User Product, provide the Installation Information.**  
+> - <span class="-text-warning">**Remote network interaction**</span>
+>   - If a modified version is used to interact with remote users over a network, the source code of the modified version must be made available to those remote users.  
 
 </div>
 {{% /alert %}}
 
-## 소스 코드 내 라이선스 문구
-AGPL-3.0하의 오픈소스는 일반적으로 소스 코드 상단에 다음과 같은 문구가 있다. 
+{{% alert title="Copyleft Caution" color="warning" %}}
+AGPL-3.0 is the strongest Copyleft license. The obligation to disclose source code arises not only when distributing binaries but also when providing SaaS over a network. Particular caution is required when developing commercial software and cloud services.
+{{% /alert %}}
+
+## License Statement in Source Code
+
+Open source under the AGPL-3.0 license generally carries the following statement at the top of the source code.
 
 ~~~
 Copyright (C) <year> <name of author>
@@ -50,111 +57,132 @@ You should have received a copy of the GNU Affero General Public License
 along with this program. If not, see <http://www.gnu.org/licenses/>.
 ~~~
 
-## 사용 사례 별 의무 사항
-### Case 1. 소스 형태로 재배포 
-AGPL-3.0하의 오픈소스를 소스 형태로 재배포 시 다음 사항을 준수한다.
+## Obligations by Use Case
 
-#### 1-1 고지 의무
-* 저작권 고지 제공
-* 보증 부인 제공
-* 라이선스 사본 제공
+### Case 1. Redistribution in Source Form
 
-즉, 소스 코드 내 명시된 저작권/라이선스 정보를 그대로 유지한 상태로 재배포한다. 
+When redistributing open source under the AGPL-3.0 license in source form, observe the following.
 
-{{% alert title="수정 시 의무 사항" color="success" %}}
-오픈소스의 소스 코드를 일부 추가/수정하였을 경우, 다음 사항을 준수한다. 
+#### 1-1 Notice Obligation
+* Provide the copyright notice
+* Provide the warranty disclaimer
+* Provide a copy of the license
 
-1. 추가/수정한 부분에 AGPL-3.0을 적용한다. 
-2. 수정 사항에 대한 고지를 포함한다. (예: 수정일, 수정내용을 주석 형태로 포함)
+In other words, redistribute while keeping the copyright/license information stated in the source code intact.
 
-{{% /alert %}}
+{{% alert title="Obligations upon Modification" color="success" %}}
+If you add to or modify part of the open source code, observe the following.
 
-### Case 2. 바이너리 형태로 재배포
-
-AGPL-3.0하의 오픈소스를 빌드하여 바이너리 형태로만 재배포 시 다음 사항을 준수한다. 
-
-#### 2-1 고지 의무
-* 저작권 고지 제공
-* 보증 부인 제공
-* 라이선스 사본 제공
-
-이상의 내용을 포함하는 오픈소스 고지문을 생성하여 바이너리 재배포 시 동봉한다. 
-
-{{% alert title="수정 시 의무 사항" color="success" %}}
-오픈소스의 소스 코드를 일부 추가/수정하였을 경우, 다음 사항을 준수한다. 
-
-1. 추가/수정한 부분에 AGPL-3.0을 적용한다. 
-2. 수정 사항에 대한 고지를 포함한다. (예: 오픈소스 고지문에 수정일, 수정내용을 포함)
+1. Apply AGPL-3.0 to the added/modified portions.
+2. Include a notice of the modifications. (e.g., include the modification date and modified content as comments)
 
 {{% /alert %}}
 
-#### 2-2 소스 코드 제공 의무
-바이너리에 해당하는 소스 코드를 제공한다. 이때 다음 사항을 준수한다. 
+### Case 2. Redistribution in Binary Form
 
-1. AGPL-3.0은 파생저작물에 대해서도 AGPL-3.0을 적용하여 소스 코드를 공개할 것을 요구한다. 아래 내용을 참고하여 AGPL-3.0하의 오픈소스와 파생저작물의 소스 코드를 공개한다.
+When building open source under the AGPL-3.0 license and redistributing it in binary form only, observe the following.
 
+#### 2-1 Notice Obligation
+* Provide the copyright notice
+* Provide the warranty disclaimer
+* Provide a copy of the license
 
-{{% alert title="AGPL-3.0 파생 저작물의 범위" color="warning" %}}
-일반적인 AGPL-3.0의 파생 저작물의 범위는 다음과 같다. 
+Generate an open source notice containing the above and enclose it when redistributing the binary.
 
-* 수정 코드
-* GPL 프로그램과 동일한 프로세스에서 동작하는 Module
-* GPL 프로그램과 링크로 연결한 Library
-* GPL 프로그램을 상속한 Class
+{{% alert title="Obligations upon Modification" color="success" %}}
+If you add to or modify part of the open source code, observe the following.
 
-다음의 경우 GPL의 파생 저작물로 보지 않는다. 
-
-* CD와 같은 매체에 함께 존재하지만 GPL프로그램과 전혀 연동하지 않는 독립 프로그램 (#[MereAggregation](https://www.gnu.org/licenses/gpl-faq.en.html#MereAggregation))
-* GPL 프로그램과는 별도의 프로그램으로써 Pipe, Socket, IPC, Command Line Arguments로 GPL 프로그램과 통신하는 경우 
-
+1. Apply AGPL-3.0 to the added/modified portions.
+2. Include a notice of the modifications. (e.g., include the modification date and modified content in the open source notice)
 
 {{% /alert %}}
-1. 바이너리 사용자가 공개된 소스 코드로 동일한 바이너리를 만들 수 있는 빌드 환경을 제공한다. 여기에는 다음 사항이 포함된다. 
-   * Tool chain 정보
-   * 빌드 스크립트
-   * 빌드 방법 (README)
 
-소스 코드 대신 서면 약정서 (Written Offer)를 제공할 수 있다. 여기에는 다음 진술이 포함되어야 한다. 
+#### 2-2 Source Code Provision Obligation
 
-1. 서면 약정서는 제품 판매 후 3년간 유효하다.
-2. 누구에게나 제공한다.
-3. 비용 청구를 하지 않는다. (소스 전달을 위해 발생하는 비용 제외)
+Provide the source code corresponding to the binary. In doing so, observe the following.
+
+1. AGPL-3.0 requires that derivative works also be licensed under AGPL-3.0 and have their source code disclosed. Referring to the content below, disclose the source code of the AGPL-3.0 open source and its derivative works.
+
+{{% alert title="Scope of AGPL-3.0 Derivative Works" color="warning" %}}
+The general scope of AGPL-3.0 derivative works is as follows.
+
+* Modified code
+* A Module running in the same process as the AGPL program
+* A Library linked with the AGPL program
+* A Class that inherits from the AGPL program
+
+The following are not regarded as GPL derivative works.
+
+* An independent program that resides together on a medium such as a CD but does not interoperate with the AGPL program at all (#[MereAggregation](https://www.gnu.org/licenses/gpl-faq.en.html#MereAggregation))
+* A program separate from the AGPL program that communicates with it via Pipe, Socket, IPC, or Command Line Arguments
+
+{{% /alert %}}
+
+2. Provide a build environment that allows binary users to build an identical binary from the disclosed source code. This includes the following.
+   * Tool chain information
+   * Build scripts
+   * Build instructions (README)
+
+Instead of the source code, you may provide a Written Offer. It must include the following statements.
+
+1. The Written Offer is valid for three years after the product is sold.
+2. It is offered to anyone.
+3. No fee is charged. (excluding the cost incurred for delivering the source)
 
 {{% alert color="warning" %}}
-이후 외부로부터 서면 약정서를 근거로 소스 코드 제공을 요청 받을 경우, 위에서 언급한 바이너리에 해당하는 소스 코드를 제공해야 한다. 따라서 회사는 제품 판매 후 최소 3년간 소스 코드를 보관해야 한다.
+If you later receive a request, based on the Written Offer, to provide source code, you must provide the source code corresponding to the binary mentioned above. Therefore, the company must retain the source code for at least three years after the product is sold.
 {{% /alert %}}
 
-#### 2-3 설치 정보 제공 의무
-바이너리를 User Product와 배포한다면 설치 정보(Installation Information)을 제공한다. 
+#### 2-3 Installation Information Obligation
 
-- User Product : 전자 기기와 같은 Embedded Device
-- 설치 정보(Installation Information) : 사용자가 소스 코드를 빌드하여 다시 제품에 설치하기 위해 필요한 모든 정보 및 방법
+If the binary is distributed together with a User Product, provide the Installation Information.
 
-{{% alert title="사용 제한" color="warning" %}}
-대부분의 User Product는 보안상의 이유로 설치 정보를 제공하는 것이 불가능하다. 따라서, User Product로 배포하는 소프트웨어에는 AGPL-3.0의 오픈소스를 사용하지 않아야 한다. 
+- User Product: An embedded device such as an electronic device
+- Installation Information: All information and methods the user needs to build the source code and reinstall it on the product
+
+{{% alert title="Usage Restriction" color="warning" %}}
+For most User Products, providing Installation Information is impossible for security reasons. Therefore, software distributed as a User Product should not use AGPL-3.0 open source.
 {{% /alert %}}
 
+### Case 3. Remote Network Interaction
 
-### Case 3. 원격 네트워크 상호 작용
-AGPL-3.0하의 오픈소스를 (1) 수정하고, (2) 수정한 버전이 네트워크를 통해 원격의 사용자와 상호 작용하는 경우, 
+If you (1) modify open source under the AGPL-3.0 license and (2) the modified version interacts with remote users over a network:
 
-- 원격 사용자가 통해 수정된 버전의 소스 코드를 다운 받을 수 있도록 네트워크 서버를 제공해야 한다. 
-- 여기서의 소스 코드는 위의 "2-2. 소스 코드 제공 의무"에서 요구하는 범위와 동일하다. 
+- You must provide a network server from which remote users can download the source code of the modified version.
+- The source code here is the same in scope as that required in "2-2. Source Code Provision Obligation" above.
 
-{{% alert title="사용 제한" color="warning" %}}
-따라서, 바이너리를 배포하지 않는 네트워크 서버 개발 시에도 AGPL-3.0하의 오픈소스를 사용할 경우에는 소스 코드 공개가 필요할 수 있기 때문에 가능한 사용하지 않아야 한다. 
+{{% alert title="Caution When Providing SaaS" color="warning" %}}
+Even when developing a network server (SaaS, cloud service) that does not distribute binaries, using AGPL-3.0 open source requires disclosure of the source code, so it should be avoided whenever possible.
 {{% /alert %}}
 
-## 라이선스 호환성
-서로 요구하는 의무사항이 상충되는 오픈소스 라이선스는 하나의 프로그램에 동시에 존재해서는 안된다. 다음은 AGPL-3.0과 충돌하는 라이선스 목록이다. AGPL-3.0 프로그램 내에 다음 라이선스 하의 오픈소스를 포함해서는 안된다. (참고 : https://www.gnu.org/licenses/license-list.html#GPLIncompatibleLicenses)
+## Differences from GPL-3.0
 
-* Apache-1.1
-* BSD-4-Clause
-* FTL
-* IJG
-* OpenSSL
-* Python-2.0
-* zlib-acknowledgement
-* XFree86-1.1
+AGPL-3.0 is a license that adds a network use clause to GPL-3.0.
 
-> 참고 : https://www.osadl.org/fileadmin/checklists/unreflicenses/AGPL-3.0-only.txt
+* **GPL-3.0**: Source code disclosure obligation only when distributing binaries
+* **AGPL-3.0**: Source code disclosure obligation when distributing binaries AND when providing a service over a network
+
+This clause is intended to prevent circumvention of GPL's source code disclosure obligation by providing software as SaaS or a cloud service.
+
+## License Compatibility
+
+### Compatibility with Major Licenses
+
+| License to Combine | Compatible | Remarks |
+|-------------------|----------|------|
+| MIT | Compatible | The entire project becomes AGPL-3.0 |
+| Apache-2.0 | Compatible | The entire project becomes AGPL-3.0 |
+| GPL-3.0 | Compatible | The entire project becomes AGPL-3.0 |
+| LGPL-3.0 | Compatible | The LGPL portion can remain LGPL |
+| Proprietary | Incompatible | Cannot be used in commercial software/SaaS |
+
+{{% alert title="The Strongest Copyleft" color="info" %}}
+AGPL-3.0 has the strongest Copyleft clause. When combined with other GPL-family licenses, the entire project must follow AGPL-3.0.
+{{% /alert %}}
+
+## References
+
+* [AGPL-3.0 License Full Text](https://www.gnu.org/licenses/agpl-3.0.html)
+* [SPDX License List - AGPL-3.0](https://spdx.org/licenses/AGPL-3.0-only.html)
+* [GNU AGPL FAQ](https://www.gnu.org/licenses/agpl-3.0.html#faq)
+* [OSADL License Checklist](https://www.osadl.org/fileadmin/checklists/unreflicenses/AGPL-3.0-only.txt)

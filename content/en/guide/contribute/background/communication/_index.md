@@ -1,62 +1,62 @@
 ---
-title: "커뮤니케이션 방법"
-linkTitle: "커뮤니케이션"
+title: "How to Communicate"
+linkTitle: "Communication"
 weight: 80
 type: docs
 description: >
-  오픈소스 커뮤니티에서의 커뮤니테이션 방법 
+  How to communicate in the open source community
 ---
 
 {{% alert title="Reference" color="info" %}}
-이 페이지는 [GitHub의 Open Source Guide](https://opensource.guide/)의 내용을 참고하였다. 
+This page draws on content from [GitHub's Open Source Guide](https://opensource.guide/).
 {{% /alert %}}
 
-오픈소스에 기여하는 모든 과정은 커뮤니티 멤버들과 커뮤니케이션의 연속이다. 먼저 효과적인 커뮤니케이션을 위해 다음 사항을 기억하라.
+Every part of the open source contribution process is a continuous series of communications with community members. First, keep the following points in mind for effective communication.
 
-## 정확한 의사를 전달하라
-오류 보고라면 어떤 작업에서 발생했는지, 재현 경로는 어떻게 되는지 정확히 설명하라. 새로운 아이디어 제안이라면 아이디어가 프로젝트에 유용하다고 생각하는 이유를 설명하라.
+## Communicate Your Intent Precisely
+If you are reporting an error, explain precisely what task it occurred during and how to reproduce it. If you are proposing a new idea, explain why you think it would be useful to the project.
 
-| 좋은 예 | 나쁜 예  |
+| Good Example | Bad Example |
 |:-------------| :-----|
-| "Y를 하는 과정에서 X가 동작하지 않습니다." | "X가 안 돼요. 고쳐주세요." |
+| "X does not work when I try to do Y." | "X doesn't work. Please fix it." |
 
-## 무조건 물어보지 말고, 먼저 스스로 해볼 수 있는 걸 하라
-도움을 요청하기 전에 프로젝트의 README 등의 문서, 이슈, 메일링 리스트 또는 검색을 통해 답을 찾아보라. 이런 노력을 보여주는 게 좋다.
+## Do Not Just Ask; First Try What You Can Do Yourself
+Before asking for help, look for the answer in the project's documentation such as the README, in issues, in the mailing list, or through a search. It is good to show this kind of effort.
 
 
-| 좋은 예 | 나쁜 예  |
+| Good Example | Bad Example |
 |:-------------| :-----|
-| "X를 구현하는 방법을 잘 모르겠습니다. </br>README 와 메일링 리스트 이력을 확인했지만, 내용을 찾지 못하였습니다." | "X는 어떻게 하는 거죠?"|
+| "I'm not sure how to implement X. </br>I checked the README and the mailing list history but couldn't find anything about it." | "How do I do X?"|
 
-## 대화는 가능한 간결하게 하라
-내가 생성한 모든 기여는 누군가는 검토해야 한다. 어떤 프로젝트는 검토하기 어려울 정도로 많은 기여나 요청이 발생한다. 따라서 가능한 한 간결하게 요청해야 접수될 가능성이 커진다.
+## Keep Conversations as Concise as Possible
+Every contribution you submit has to be reviewed by someone. Some projects accumulate so many contributions and requests that they are difficult to review. Therefore, the more concise your request, the more likely it is to be accepted.
 
-| 좋은 예 | 나쁜 예  |
+| Good Example | Bad Example |
 |:-------------| :-----|
-| "API 튜토리얼 작성하는 일을 지원하겠습니다." | "얼마 전에 고속도로를 운전하다가 주유소에 들렀습니다. </br>그때 우리가 해야 할 일에 대한 놀라운 아이디어가 떠올랐습니다. 아이디어를 설명하기 전에 한 가지 보여드릴 게 있습니다."|
+| "I'd like to help with writing the API tutorial." | "The other day I was driving on the highway and stopped at a gas station. </br>That's when an amazing idea about what we should do came to me. Before I explain the idea, there's one thing I want to show you."|
 
-## 모든 커뮤니케이션은 공개하라
-메인테이너에게 개인적으로 연락하는 것은 좋지 않다. 모든 대화를 공개하라. 이를 통해 더 많은 사람이 배우고 혜택을 받을 수 있다.
+## Make All Communication Public
+Contacting maintainers privately is not a good practice. Keep all conversations public. This allows more people to learn and benefit.
 
-| 좋은 예 | 나쁜 예  |
+| Good Example | Bad Example |
 |:-------------| :-----|
-| (Comment로) "@maintainer 안녕하세요, 이 PR을 어떻게 진행해야 할까요?" | "(이메일로) “안녕하세요, 나의 PR을 언제 확인해줄 건가요?" |
+| (As a comment) "@maintainer Hello, how should I proceed with this PR?" | "(By email) Hello, when will you review my PR?" |
 
-## 문의하였으면 기다려라
-메인테이너라도 모든 부분을 완벽히 대응할 수 없다. 그들에게도 확인해야 할 시간이 필요하다.
+## Once You've Asked, Be Patient
+Even maintainers cannot handle everything perfectly. They also need time to review.
 
 
-| 좋은 예 | 나쁜 예  |
+| Good Example | Bad Example |
 |:-------------| :-----|
-| "이 오류를 검토해주셔서 감사합니다. </br>당신의 제안을 따랐지만, 이번에는 이러한 오류가 나타났습니다." | "왜 내 문제를 해결할 수 없나요? </br>당신이 메인테이너 아닌가요?” |
+| "Thank you for reviewing this error. </br>I followed your suggestion, but this time these errors appeared." | "Why can't you solve my problem? </br>Aren't you the maintainer?" |
 
-## 커뮤니티의 결정을 존중하라
-여러분의 아이디어가 프로젝트의 우선순위나 비전과 다를 수 있다. 커뮤니티에서 우리의 아이디어를 채택하지 않기로 할 수 있다. 이를 받아들여야 한다. 만약, 이에 대해 타협점을 찾지 못하거나, 결코 동의할 수 없다면 Fork 하여 여러분 자신의 프로젝트를 새롭게 시작하는 것을 고려해야 한다.
+## Respect the Community's Decisions
+Your ideas may differ from the project's priorities or vision. The community may decide not to adopt your idea. You must accept this. If you cannot find a compromise, or can never agree, you should consider forking and starting your own new project.
 
 
-| 좋은 예 | 나쁜 예  |
+| Good Example | Bad Example |
 |:-------------| :-----|
-| "내게 제출한 Use Case가 채택되지 않아서 유감이지만, 그 이유를 자세히 설명해주셔서 고맙습니다. </br>잘 이해했습니다." | "왜 내 Use Case를 지원하지 않나요? 용납할 수 없습니다." |
+| "I'm sorry the use case I submitted wasn't adopted, but thank you for explaining the reasons in detail. </br>I understand." | "Why won't you support my use case? This is unacceptable." |
 
-## 무엇보다도 품위를 유지하라
-오픈소스 프로젝트에서는 전 세계의 구성원과 협업을 한다. 언어, 문화, 지역 및 시간대에 따라 소통 방법에 온도 차이가 있다. 또한, 직접 대면해서 대화하는 게 아니라 글로써 의사소통하기 때문에 어조나 분위기를 정확히 전달하기가 어려울 수 있다. 이런 어려움을 극복하는 좋은 방법으로는 항상 상대방의 글은 좋은 의도라고 가정하는 것이다. 상대의 제안을 거절할 때도 정중히 하고, 자신의 입장은 명확히 표현하는 것이 좋다. 오픈소스라는 인터넷 공간에서 자신을 품위 있게 유지하라.
+## Above All, Maintain Your Dignity
+In open source projects, you collaborate with members from all over the world. Depending on language, culture, region, and time zone, there are differences in communication styles. Also, because you communicate through writing rather than face to face, it can be difficult to convey tone and mood accurately. A good way to overcome these difficulties is to always interpret others' writing in good faith. When declining someone's proposal, be polite, and express your own position clearly. Conduct yourself with dignity in the online space that is open source.

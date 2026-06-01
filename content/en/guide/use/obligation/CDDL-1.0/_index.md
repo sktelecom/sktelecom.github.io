@@ -1,68 +1,104 @@
 ---
-title: "CDDL-1.0 가이드"
+title: "CDDL-1.0 Guide"
 linkTitle: "CDDL-1.0"
 weight: 10
 type: docs
-description: "[CDDL-1.0](https://opensource.org/licenses/cddl1)은 Common Development and Distribution License 1.0이라고도 불리며, 파일 단위의 소스 코드 공개를 요구하는 Weak Copyleft 성격의 라이선스이다. " 
+description: "[CDDL-1.0](https://opensource.org/licenses/cddl1), also called the Common Development and Distribution License 1.0, is a Weak Copyleft license that requires disclosure of source code on a per-file basis."
 ---
 
-{{% alert title="의무사항 요약" color="primary" %}}
+SPDX Identifier: `CDDL-1.0`
+
+{{% alert title="Summary of Obligations" color="primary" %}}
 <div class="-bg-100 p-3">
 
-> - 소스 형태로 재배포    
->   - 고지 의무 : 소스 코드 내 명시된 저작권/라이선스 정보를 그대로 유지한 상태로 재배포한다.  
->   - 수정시 의무사항
->     - 수정한 파일에 CDDL-1.0을 적용한다. (별도로 추가한 파일에는 CDDL-1.0 적용 의무 없음)
-> - 바이너리 형태로 재배포    
->   - 고지 의무 : 오픈소스 고지문을 생성하여 바이너리 재배포 시 동봉한다.    
->   - 수정시 의무사항  
->     - 수정한 파일에 CDDL-1.0을 적용한다. (별도로 추가한 파일에는 CDDL-1.0 적용 의무 없음)  
->     - 소스 코드 제공 의무  
->       - <span class="-text-warning">바이너리 내 CDDL-1.0에 해당하는 **파일**의 소스 코드를 제공한다.</span>  
+> - Redistribution in source form    
+>   - Notice obligation: Redistribute while keeping the copyright/license information stated in the source code intact.  
+>   - Obligations upon modification
+>     - Apply CDDL-1.0 to the modified files. (There is no obligation to apply CDDL-1.0 to separately added files.)
+> - Redistribution in binary form    
+>   - Notice obligation: Generate an open source notice and enclose it when redistributing the binary.    
+>   - Obligations upon modification  
+>     - Apply CDDL-1.0 to the modified files. (There is no obligation to apply CDDL-1.0 to separately added files.)  
+>     - Source code provision obligation  
+>       - <span class="-text-warning">Provide the source code of the **files** that fall under CDDL-1.0 within the binary.</span>  
 
 </div>
 {{% /alert %}}
 
-## 사용 사례 별 의무 사항
-### Case 1. 소스 형태로 재배포 
-CDDL-1.0하의 오픈소스를 소스 형태로 재배포 시 다음 사항을 준수한다.
+{{% alert title="Weak Copyleft Characteristics" color="info" %}}
+CDDL-1.0 is a per-file Weak Copyleft license. It is based on MPL, and the source code disclosure obligation arises only when a CDDL-1.0 file itself is modified. Separately added files do not need to be disclosed, so it can also be used in commercial software.
+{{% /alert %}}
 
-#### 1-1 고지 의무
-* 라이선스 사본
-* 저작권, 특허, 상표권 등 법적 고지 유지
+## Obligations by Use Case
 
-즉, 소스 코드 내 명시된 저작권/라이선스 정보를 그대로 유지한 상태로 재배포한다. 
+### Case 1. Redistribution in Source Form
 
+When redistributing open source under the CDDL-1.0 license in source form, observe the following.
 
-{{% alert title="수정 시 의무 사항" color="success" %}}
-오픈소스의 소스 코드를 일부 추가/수정하였을 경우, 다음 사항을 준수한다. 
+#### 1-1 Notice Obligation
+* A copy of the license
+* Retain legal notices such as copyright, patent, and trademark notices
 
-* 수정한 파일에 CDDL-1.0을 적용한다. (별도로 추가한 파일에는 CDDL-1.0 적용 의무 없음)
+In other words, redistribute while keeping the copyright/license information stated in the source code intact.
+
+{{% alert title="Obligations upon Modification" color="success" %}}
+If you add to or modify part of the open source code, observe the following.
+
+* Apply CDDL-1.0 to the modified files. (There is no obligation to apply CDDL-1.0 to separately added files.)
 
 {{% /alert %}}
 
-### Case 2. 바이너리 형태로 재배포
+### Case 2. Redistribution in Binary Form
 
-CDDL-1.0하의 오픈소스를 빌드하여 바이너리 형태로만 재배포 시 다음 사항을 준수한다. 
+When building open source under the CDDL-1.0 license and redistributing it in binary form only, observe the following.
 
-#### 2-1 고지 의무
-* 라이선스 사본 제공
-* 저작권, 특허, 상표권 등 법적 고지 유지
+#### 2-1 Notice Obligation
+* Provide a copy of the license
+* Retain legal notices such as copyright, patent, and trademark notices
 
-이상의 내용을 포함하는 오픈소스 고지문을 생성하여 바이너리 재배포 시 동봉한다. 
+Generate an open source notice containing the above and enclose it when redistributing the binary.
 
-{{% alert title="수정 시 의무 사항" color="success" %}}
-오픈소스의 소스 코드를 일부 추가/수정하였을 경우, 다음 사항을 준수한다. 
+{{% alert title="Obligations upon Modification" color="success" %}}
+If you add to or modify part of the open source code, observe the following.
 
-* 수정한 파일에 CDDL-1.0을 적용한다. (별도로 추가한 파일에는 CDDL-1.0 적용 의무 없음)
+* Apply CDDL-1.0 to the modified files. (There is no obligation to apply CDDL-1.0 to separately added files.)
 
 {{% /alert %}}
 
-#### 2-2 소스 코드 제공 의무
-바이너리 내 CDDL-1.0에 해당하는 소스 코드 파일을 제공한다. 이때 다음 사항을 준수한다. 
+#### 2-2 Source Code Provision Obligation
 
-* CDDL-1.0은 파일 내 추가한 내용에 대해서도 CDDL-1.0을 적용하여 소스 코드를 공개할 것을 요구한다. 따라서, 원본 파일과 더불어 수정한 파일도 CDDL-1.0을 적용하여 공개한다.
+Provide the source code files that fall under CDDL-1.0 within the binary. In doing so, observe the following.
 
-오픈소스 고지문에 사용자가 소스 코드를 수령할 수 있는 방법을 안내함으로써 소스 코드 제공 의무를 준수할 수 있다. 
+* CDDL-1.0 requires that content added within a file also be licensed under CDDL-1.0 and have its source code disclosed. Therefore, disclose the modified files as well as the original files under CDDL-1.0.
 
-> 참고 : https://www.osadl.org/fileadmin/checklists/unreflicenses/CDDL-1.0.txt
+You can fulfill the source code provision obligation by informing users in the open source notice of how they can obtain the source code.
+
+## MPL-Based License
+
+CDDL-1.0 is a license created by Sun Microsystems (now Oracle) based on the Mozilla Public License (MPL).
+
+* **MPL similarity**: Per-file Copyleft applies
+* **Main usage**: Sun/Oracle projects (OpenSolaris, GlassFish, etc.)
+* **Current status**: The use of CDDL is currently in decline
+
+## License Compatibility
+
+### Compatibility with Major Licenses
+
+| License to Combine | Compatible | Remarks |
+|-------------------|----------|------|
+| MIT | Compatible | Only the CDDL files are disclosed |
+| Apache-2.0 | Compatible | Only the CDDL files are disclosed |
+| GPL-2.0/3.0 | Incompatible | Copyleft conflict |
+| MPL-2.0 | Compatible | Similar per-file Copyleft |
+| Proprietary | Compatible | Can be used as long as only the CDDL files are disclosed |
+
+{{% alert title="Incompatibility with GPL" color="warning" %}}
+CDDL-1.0 is not compatible with GPL-family licenses, because the Copyleft clauses of CDDL and GPL conflict with each other.
+{{% /alert %}}
+
+## References
+
+* [CDDL-1.0 License Full Text](https://opensource.org/licenses/cddl1)
+* [SPDX License List - CDDL-1.0](https://spdx.org/licenses/CDDL-1.0.html)
+* [OSADL License Checklist](https://www.osadl.org/fileadmin/checklists/unreflicenses/CDDL-1.0.txt)
