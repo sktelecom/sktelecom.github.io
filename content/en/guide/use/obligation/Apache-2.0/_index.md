@@ -1,26 +1,28 @@
 ---
-title: "Apache-2.0 가이드"
+title: "Apache-2.0 Guide"
 linkTitle: "Apache-2.0"
 weight: 10
 type: docs
-description:  "[Apache-2.0](http://www.apache.org/licenses/LICENSE-2.0)은 [Apache Software Foundation](https://www.apache.org/)에서 만든 오픈소스 라이선스이며, 소스 코드 공개를 요구하지 않는 Permissive 형태의 라이선스이다. "
+description: "[Apache-2.0](http://www.apache.org/licenses/LICENSE-2.0) is an open source license created by the [Apache Software Foundation](https://www.apache.org/). It is a Permissive license that does not require disclosure of source code."
 ---
 
-{{% alert title="의무사항 요약" color="primary" %}}
+SPDX Identifier: `Apache-2.0`
+
+{{% alert title="Summary of Obligations" color="primary" %}}
 <div class="-bg-100 p-3">
 
-> - 소스 형태로 재배포    
->   - 고지 의무 : 소스 코드 내 명시된 저작권/라이선스 정보를 그대로 유지한 상태로 재배포한다.    
->   - 수정 사항에 대한 고지를 포함한다. (예: 수정일, 수정내용을 주석 형태로 포함)    
-> - 바이너리 형태로 재배포    
->   - 고지 의무 : 오픈소스 고지문을 생성하여 바이너리 재배포 시 동봉한다.    
+> - Redistribution in source form    
+>   - Notice obligation: Redistribute while keeping the copyright/license information stated in the source code intact.    
+>   - Include a notice of the modifications. (e.g., include the modification date and modified content as comments)    
+> - Redistribution in binary form    
+>   - Notice obligation: Generate an open source notice and enclose it when redistributing the binary.    
 
 </div>
 {{% /alert %}}
 
-## 소스 코드 내 라이선스 문구
+## License Statement in Source Code
 
-Apache-2.0하의 오픈소스는 일반적으로 소스 코드 상단에 다음과 같은 문구가 있다. 
+Open source under the Apache-2.0 license generally carries the following statement at the top of the source code.
 
 ~~~
 Copyright [yyyy] [name of copyright owner]
@@ -38,34 +40,57 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ~~~
 
-## 사용 사례 별 의무 사항
-### Case 1. 소스 형태로 재배포 
-Apache-2.0하의 오픈소스를 소스 형태로 재배포 시 다음 사항을 준수한다.
+## Obligations by Use Case
 
-#### 1-1 고지 의무
-* 라이선스 사본 제공
-* 저작권, 특허, 상표권 등 정보를 유지한다. 
-* NOTICE 파일이 포함되어 있을 경우 이를 유지한다. 
+### Case 1. Redistribution in Source Form
 
-즉, 소스 코드 내 명시된 저작권/라이선스 정보를 그대로 유지한 상태로 재배포한다. 
+When redistributing open source under the Apache-2.0 license in source form, observe the following.
 
+#### 1-1 Notice Obligation
+* Provide a copy of the license
+* Retain information such as copyright, patent, and trademark notices.
+* If a NOTICE file is included, retain it.
 
-{{% alert title="수정 시 의무 사항" color="success" %}}
-오픈소스의 소스 코드를 일부 추가/수정하였을 경우, 다음 사항을 준수한다. 
+In other words, redistribute while keeping the copyright/license information stated in the source code intact.
 
-* 수정 사항에 대한 고지를 포함한다. (예: 수정일, 수정내용을 주석 형태로 포함)
+{{% alert title="Obligations upon Modification" color="success" %}}
+If you add to or modify part of the open source code, observe the following.
+
+* Include a notice of the modifications. (e.g., include the modification date and modified content as comments)
 
 {{% /alert %}}
 
-### Case 2. 바이너리 형태로 재배포
+### Case 2. Redistribution in Binary Form
 
-Apache-2.0하의 오픈소스를 빌드하여 바이너리 형태로만 재배포 시 다음 사항을 준수한다. 
+When building open source under the Apache-2.0 license and redistributing it in binary form only, observe the following.
 
-#### 2-1 고지 의무
-* 라이선스 사본 제공
-* 저작권, 특허, 상표권 등 정보를 유지한다. 
-* NOTICE 파일이 포함되어 있을 경우 이를 유지한다. 
+#### 2-1 Notice Obligation
+* Provide a copy of the license
+* Retain information such as copyright, patent, and trademark notices.
+* If a NOTICE file is included, retain it.
 
-이를 포함하는 오픈소스 고지문을 생성하여 바이너리 재배포 시 동봉한다. 
+Generate an open source notice containing the above and enclose it when redistributing the binary.
 
-> 참고 : https://www.osadl.org/fileadmin/checklists/unreflicenses/Apache-2.0.txt
+## License Compatibility
+
+The Apache-2.0 license includes an explicit patent grant clause, making it compatible with most licenses.
+
+### Compatibility with Major Licenses
+
+| License to Combine | Compatible | Remarks |
+|-------------------|----------|------|
+| MIT | Compatible | Keeping Apache-2.0 is recommended |
+| GPL-3.0 | Compatible | The entire project becomes GPL-3.0 |
+| GPL-2.0 | Incompatible | Patent clause conflict |
+| LGPL-3.0 | Compatible | Recommended for dynamic linking |
+| Proprietary | Compatible | Can be used in commercial software |
+
+{{% alert title="Caution" color="warning" %}}
+Apache-2.0 is not compatible with GPL-2.0, because the patent grant clause of Apache-2.0 conflicts with GPL-2.0. It is compatible with GPL-3.0.
+{{% /alert %}}
+
+## References
+
+* [Apache License 2.0 Full Text](http://www.apache.org/licenses/LICENSE-2.0)
+* [SPDX License List - Apache-2.0](https://spdx.org/licenses/Apache-2.0.html)
+* [OSADL License Checklist](https://www.osadl.org/fileadmin/checklists/unreflicenses/Apache-2.0.txt)

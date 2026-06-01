@@ -1,25 +1,27 @@
 ---
-title: "MIT 가이드"
+title: "MIT Guide"
 linkTitle: "MIT"
 weight: 10
 type: docs
-description:  "[MIT](https://opensource.org/licenses/MIT) 라이선스는 Massachusetts Institute of Technology (MIT)에서 만들었으며, 소스 코드 공개를 요구하지 않는 대표적인 Permissive한 라이선스이다. "
+description: "The [MIT](https://opensource.org/licenses/MIT) license was created by the Massachusetts Institute of Technology (MIT) and is a representative Permissive license that does not require disclosure of source code."
 ---
 
-{{% alert title="의무사항 요약" color="primary" %}}
+SPDX Identifier: `MIT`
+
+{{% alert title="Summary of Obligations" color="primary" %}}
 <div class="-bg-100 p-3">
 
-> - 소스 형태로 재배포    
->   - 고지 의무 : 소스 코드 내 명시된 저작권/라이선스 정보를 그대로 유지한 상태로 재배포한다.  
-> - 바이너리 형태로 재배포    
->   - 고지 의무 : 오픈소스 고지문을 생성하여 바이너리 재배포 시 동봉한다.    
+> - Redistribution in source form
+>   - Notice obligation: Redistribute while keeping the copyright/license information stated in the source code intact.
+> - Redistribution in binary form
+>   - Notice obligation: Generate an open source notice and include it when redistributing the binary.
 
 </div>
 {{% /alert %}}
 
-## 소스 코드 내 라이선스 문구
+## License Text in the Source Code
 
-MIT하의 오픈소스는 일반적으로 소스 코드 상단에 다음과 같은 문구가 있다. 
+Open source under the MIT license generally includes the following text at the top of the source code.
 
 ~~~
 Copyright (c) <year> <copyright holders>
@@ -46,24 +48,47 @@ FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 OTHER DEALINGS IN THE SOFTWARE.
 ~~~
 
-## 사용 사례 별 의무 사항
-### Case 1. 소스 형태로 재배포 
-MIT하의 오픈소스를 소스 형태로 재배포 시 다음 사항을 준수한다.
+## Obligations by Use Case
 
-#### 1-1 고지 의무
-* 저작권 고지
-* 라이선스 사본 제공
+### Case 1. Redistribution in Source Form
 
-즉, 소스 코드 내 저작권, 라이선스 등을 그대로 유지한다. 
+When redistributing open source under the MIT license in source form, observe the following.
 
-### Case 2. 바이너리 형태로 재배포
+#### 1-1 Notice Obligation
+* Copyright notice
+* Provide a copy of the license
 
-MIT하의 오픈소스를 빌드하여 바이너리 형태로만 재배포 시 다음 사항을 준수한다. 
+That is, keep the copyright, license, and so on within the source code intact.
 
-#### 2-1 고지 의무
-* 저작권 고지
-* 라이선스 사본 제공
+### Case 2. Redistribution in Binary Form
 
-이를 포함하는 오픈소스 고지문을 생성하여 바이너리 재배포 시 동봉한다. 
+When building open source under the MIT license and redistributing it only in binary form, observe the following.
 
-> 참고 : https://www.osadl.org/fileadmin/checklists/unreflicenses/MIT.txt
+#### 2-1 Notice Obligation
+* Copyright notice
+* Provide a copy of the license
+
+Generate an open source notice that includes these items and include it when redistributing the binary.
+
+## License Compatibility
+
+The MIT license is compatible with most other licenses.
+
+### Compatibility with Major Licenses
+
+| Combining License | Compatible | Notes |
+|-------------------|------------|-------|
+| Apache-2.0 | Compatible | Retaining the Apache-2.0 patent clause is recommended |
+| GPL-2.0/3.0 | Compatible | The entire project becomes GPL |
+| LGPL-2.1/3.0 | Compatible | Recommended with dynamic linking |
+| Proprietary | Compatible | Can be used in commercial software |
+
+{{% alert title="Caution" color="warning" %}}
+If MIT-licensed code is included in a GPL project, the entire project must follow the GPL license. This is because the Copyleft conditions of the GPL impose stronger constraints than MIT.
+{{% /alert %}}
+
+## References
+
+* [MIT License Full Text](https://opensource.org/licenses/MIT)
+* [SPDX License List - MIT](https://spdx.org/licenses/MIT.html)
+* [OSADL License Checklist](https://www.osadl.org/fileadmin/checklists/unreflicenses/MIT.txt)

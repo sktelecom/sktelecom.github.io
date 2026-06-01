@@ -1,34 +1,41 @@
 ---
-title: "LGPL-3.0 가이드"
+title: "LGPL-3.0 Guide"
 linkTitle: "LGPL-3.0"
 weight: 10
 type: docs
-description: "[Free Software Foundation](http://www.fsf.org/)은 2007년 [LGPL-3.0](https://www.gnu.org/licenses/lgpl-3.0.en.html)을 공개하였다. LGPL-3.0은 LGPL-2.1과 유사한 의무사항을 갖지만, 추가로 User Product 배포 시, 설치 정보(Installation Information) 제공을 요구한다. "
+description: "The [Free Software Foundation](http://www.fsf.org/) released [LGPL-3.0](https://www.gnu.org/licenses/lgpl-3.0.en.html) in 2007. LGPL-3.0 has obligations similar to LGPL-2.1, but additionally requires the provision of Installation Information when distributing with a User Product."
 ---
 
-{{% alert title="의무사항 요약" color="primary" %}}
+SPDX Identifier: `LGPL-3.0-only` or `LGPL-3.0-or-later`
+
+{{% alert title="Summary of Obligations" color="primary" %}}
 <div class="-bg-100 p-3">
 
-> - 소스 형태로 재배포 
->   - 고지 의무 : 소스 코드 내 명시된 저작권/라이선스 정보를 그대로 유지한 상태로 재배포한다. 
->     - 수정시 의무사항 
->       - 추가/수정한 부분에 LGPL-3.0을 적용한다.
->       - 수정 사항에 대한 고지를 포함한다. (예: 수정일, 수정내용을 주석 형태로 포함)
-> - 바이너리 형태로 재배포 
->   - 고지 의무 : 오픈소스 고지문을 생성하여 바이너리 재배포 시 동봉한다. 
->     - 수정시 의무사항
->       - 추가/수정한 부분에 LGPL-3.0을 적용한다.
->       - 수정 사항에 대한 고지를 포함한다. (예: 오픈소스 고지문에 수정일, 수정내용을 포함)
->     - 소스 코드 제공 의무
->       - <span class="-text-warning">바이너리(라이브러리)에 해당하는 **전체** 소스 코드를 제공한다.</span>
->       - 사용자가 공개된 LGPL 라이브러리의 소스 코드를 빌드하여 동일한 라이브러리를 만들 수 있는  <span class="-text-warning">빌드 환경</span>을 제공한다.
->   - **설치 정보 제공 의무 : 라이브러리를 User Product와 배포한다면 설치 정보(Installation Information)을 제공한다.**
+> - Redistribution in source form 
+>   - Notice obligation: Redistribute while keeping the copyright/license information stated in the source code intact. 
+>     - Obligations when modifying 
+>       - Apply LGPL-3.0 to the added/modified portions.
+>       - Include a notice of the modifications. (e.g., include the modification date and content in comment form)
+> - Redistribution in binary form 
+>   - Notice obligation: Generate an open source notice and include it when redistributing the binary. 
+>     - Obligations when modifying
+>       - Apply LGPL-3.0 to the added/modified portions.
+>       - Include a notice of the modifications. (e.g., include the modification date and content in the open source notice)
+>     - Obligation to provide source code
+>       - <span class="-text-warning">Provide the **complete** source code corresponding to the binary (library).</span>
+>       - Provide a <span class="-text-warning">build environment</span> that allows users to build an identical library from the disclosed source code of the LGPL library.
+>   - **Obligation to provide installation information: If you distribute the library with a User Product, provide Installation Information.**
 
 </div>
 {{% /alert %}}
 
-## 소스 코드 내 라이선스 문구
-LGPL-3.0하의 오픈소스는 일반적으로 소스 코드 상단에 다음과 같은 문구가 있다. 
+{{% alert title="Weak Copyleft Characteristics" color="info" %}}
+LGPL-3.0 is a Weak Copyleft license. The obligation to disclose source code arises only when the LGPL library itself is modified, and applications that use it via dynamic linking (Dynamic Link) do not need to be disclosed. Therefore, it can also be used in commercial software.
+{{% /alert %}}
+
+## License Text in the Source Code
+
+Open source under the LGPL-3.0 license generally includes the following text at the top of the source code.
 
 ~~~
 Copyright (C) <year> <name of author>
@@ -47,98 +54,118 @@ You should have received a copy of the GNU Lesser General Public License
 along with this program. If not, see <http://www.gnu.org/licenses/>.
 ~~~
 
-## 사용 사례 별 의무 사항
-### Case 1. 소스 형태로 재배포 
-LGPL-3.0하의 오픈소스를 소스 형태로 재배포 시 다음 사항을 준수한다.
+## Obligations by Use Case
 
-#### 1-1 고지 의무
-* 저작권 고지 제공
-* 보증 부인 제공
-* 라이선스 사본 제공
+### Case 1. Redistribution in Source Form
 
-즉, 소스 코드 내 명시된 저작권/라이선스 정보를 그대로 유지한 상태로 재배포한다. 
+When redistributing open source under the LGPL-3.0 license in source form, observe the following.
 
+#### 1-1 Notice Obligation
+* Provide a copyright notice
+* Provide a warranty disclaimer
+* Provide a copy of the license
 
-{{% alert title="수정 시 의무 사항" color="success" %}}
-오픈소스의 소스 코드를 일부 추가/수정하였을 경우, 다음 사항을 준수한다. 
+That is, redistribute while keeping the copyright/license information stated in the source code intact.
 
-1. 추가/수정한 부분에 LGPL-3.0을 적용한다. 
-2. 수정 사항에 대한 고지를 포함한다. (예: 수정일, 수정내용을 주석 형태로 포함)
+{{% alert title="Obligations When Modifying" color="success" %}}
+If you add to or modify part of the source code of the open source, observe the following.
 
-{{% /alert %}}
-
-### Case 2. 바이너리(라이브러리) 형태로 재배포
-
-LGPL-3.0하의 오픈소스를 빌드하여 바이너리 형태로만 재배포 시 다음 사항을 준수한다. 
-
-#### 2-1 고지 의무
-* 저작권 고지 제공
-* 보증 부인 제공
-* 라이선스 사본 제공
-
-이상의 내용을 포함하는 오픈소스 고지문을 생성하여 라이브러리 재배포 시 동봉한다. 
-
-{{% alert title="수정 시 의무 사항" color="success" %}}
-오픈소스의 소스 코드를 일부 추가/수정하였을 경우, 다음 사항을 준수한다. 
-
-1. 추가/수정한 부분에 LGPL-3.0을 적용한다. 
-2. 수정 사항에 대한 고지를 포함한다. (예: 오픈소스 고지문에 수정일, 수정내용을 포함)
+1. Apply LGPL-3.0 to the added/modified portions.
+2. Include a notice of the modifications. (e.g., include the modification date and content in comment form)
 
 {{% /alert %}}
 
-#### 2-2 소스 코드 제공 의무
-바이너리(라이브러리)에 해당하는 소스 코드를 제공한다. 이때 다음 사항을 준수한다. 
+### Case 2. Redistribution in Binary (Library) Form
 
-1. LGPL-3.0은 파생저작물에 대해서도 LGPL-3.0을 적용하여 소스 코드를 공개할 것을 요구한다. 아래 내용을 참고하여 LGPL-3.0하의 오픈소스와 파생저작물의 소스 코드를 공개한다.
+When building open source under the LGPL-3.0 license and redistributing it only in binary form, observe the following.
 
-{{% alert title="LGPL-3.0 파생 저작물의 범위" color="warning" %}}
-일반적인 LGPL-3.0의 파생 저작물의 범위는 다음과 같다. 
+#### 2-1 Notice Obligation
+* Provide a copyright notice
+* Provide a warranty disclaimer
+* Provide a copy of the license
 
-* 라이브러리 내 수정/추가 파일
+Generate an open source notice that includes the above and include it when redistributing the library.
 
-다음의 경우 LGPL-3.0의 파생 저작물로 보지 않는다. 
+{{% alert title="Obligations When Modifying" color="success" %}}
+If you add to or modify part of the source code of the open source, observe the following.
 
-* LGPL-3.0 라이브러리를 Dynamic Link하여 사용하는 프로그램
-* 참고로, Java에서 LGPL-3.0인 JAR 파일을 import하는 프로그램도 LGPL-3.0의 파생저작물로 간주하지 않는다. (http://www.gnu.org/licenses/lgpl-java.html) 
+1. Apply LGPL-3.0 to the added/modified portions.
+2. Include a notice of the modifications. (e.g., include the modification date and content in the open source notice)
+
 {{% /alert %}}
 
-2. 사용자가 공개된 LGPL 라이브러리의 소스 코드를 빌드하여 동일한 라이브러리를 만들 수 있는 빌드 환경을 제공한다. 여기에는 다음 사항이 포함된다. 
-   * Tool chain 정보
-   * 빌드 스크립트
-   * 빌드 방법 (README)
-3. LGPL 라이브러리를 Static Link하여 생성한 실행파일(Executable)을 배포하는 경우, 사용자가 LGPL 라이브러리를 수정하고 다시 실행파일을 생성할 수 있도록 실행파일을 구성하는 오브젝트 코드를 제공한다. ([#LGPLStaticVsDynamic](https://www.gnu.org/licenses/gpl-faq.en.html#LGPLStaticVsDynamic))
+#### 2-2 Obligation to Provide Source Code
 
+Provide the source code corresponding to the binary (library). In doing so, observe the following.
 
-소스 코드 대신 서면 약정서 (Written Offer)를 제공할 수 있다. 여기에는 다음 진술이 포함되어야 한다. 
+1. LGPL-3.0 requires that derivative works also apply LGPL-3.0 and disclose their source code. Referring to the content below, disclose the source code of both the LGPL-3.0 open source and the derivative work.
 
-1. 서면 약정서는 제품 판매 후 3년간 유효하다.
-2. 누구에게나 제공한다.
-3. 비용 청구를 하지 않는다. (소스 전달을 위해 발생하는 비용 제외)
+{{% alert title="Scope of LGPL-3.0 Derivative Works" color="warning" %}}
+The general scope of LGPL-3.0 derivative works is as follows.
+
+* Files modified/added within the library
+
+The following are not considered derivative works of LGPL-3.0.
+
+* A program that uses the LGPL-3.0 library via Dynamic Link
+* In Java, a program that imports an LGPL-3.0 JAR file is also not considered a derivative work of LGPL-3.0. (http://www.gnu.org/licenses/lgpl-java.html)
+{{% /alert %}}
+
+2. Provide a build environment that allows users to build an identical library from the disclosed source code of the LGPL library. This includes the following.
+   * Tool chain information
+   * Build scripts
+   * Build instructions (README)
+
+3. When distributing an Executable created by Static Linking the LGPL library, provide the object code that makes up the executable so that users can modify the LGPL library and regenerate the executable. ([#LGPLStaticVsDynamic](https://www.gnu.org/licenses/gpl-faq.en.html#LGPLStaticVsDynamic))
+
+Instead of the source code, you may provide a Written Offer. It must include the following statements.
+
+1. The written offer is valid for 3 years after the product is sold.
+2. It is provided to anyone.
+3. No charge is made. (excluding costs incurred for delivering the source)
 
 {{% alert color="warning" %}}
-이후 외부로부터 서면 약정서를 근거로 소스 코드 제공을 요청 받을 경우, 위에서 언급한 바이너리에 해당하는 소스 코드를 제공해야 한다. 따라서 회사는 제품 판매 후 최소 3년간 소스 코드를 보관해야 한다.
+If you later receive a request for source code based on the written offer, you must provide the source code corresponding to the binary mentioned above. Therefore, the company must retain the source code for at least 3 years after the product is sold.
 {{% /alert %}}
 
-#### 2-3 설치 정보 제공 의무
-라이브러리를 User Product와 배포한다면 설치 정보(Installation Information)을 제공한다. 
+#### 2-3 Obligation to Provide Installation Information
 
-- User Product : 전자 기기와 같은 Embedded Device
-- 설치 정보(Installation Information) : 사용자가 소스 코드를 빌드하여 다시 제품에 설치하기 위해 필요한 모든 정보 및 방법
+If you distribute the library with a User Product, provide Installation Information.
 
-{{% alert title="사용 제한" color="warning" %}}
-대부분의 User Product는 보안상의 이유로 설치 정보를 제공하는 것이 불가능하다. 따라서, User Product로 배포하는 소프트웨어에는 LGPL-3.0의 오픈소스를 사용하지 않아야 한다. 
+- User Product: An embedded device such as an electronic appliance
+- Installation Information: All the information and methods that a user needs to build the source code and reinstall it on the product
+
+{{% alert title="Usage Restriction" color="warning" %}}
+For most User Products, it is impossible to provide Installation Information for security reasons. Therefore, LGPL-3.0 open source should not be used in software distributed as a User Product.
 {{% /alert %}}
 
-## 라이선스 호환성
-서로 요구하는 의무사항이 상충되는 오픈소스 라이선스는 하나의 프로그램에 동시에 존재해서는 안된다. 다음은 LGPL-3.0과 충돌하는 라이선스 목록이다. LGPL-3.0 프로그램 내에 다음 라이선스 하의 오픈소스를 포함해서는 안된다.
+## Major Improvements over LGPL-2.1
 
-* Apache-1.1
-* BSD-4-Clause
-* FTL
-* IJG
-* OpenSSL
-* Python-2.0
-* zlib-acknowledgement
-* XFree86-1.1
+LGPL-3.0 retains the core principles of LGPL-2.1 while improving the following.
 
-> 참고 : https://www.osadl.org/fileadmin/checklists/unreflicenses/LGPL-3.0-only.txt
+* **Explicit patent grant**: Explicitly stipulates the grant of contributors' patent licenses
+* **Apache-2.0 compatibility**: Resolves the compatibility issue with Apache-2.0
+* **Anti-Tivoization**: Adds the obligation to provide Installation Information for User Products
+
+## License Compatibility
+
+### Compatibility with Major Licenses
+
+| Combining License | Compatible | Notes |
+|-------------------|------------|-------|
+| MIT | Compatible | Usable in commercial software with dynamic linking |
+| Apache-2.0 | Compatible | Compatible, unlike LGPL-2.1 |
+| GPL-3.0 | Compatible | The GPL portion remains GPL |
+| LGPL-2.1 | Conditional | Compatible only if LGPL-2.1-or-later |
+| Proprietary | Conditional | Usable with dynamic linking |
+
+{{% alert title="Apache-2.0 Compatibility" color="info" %}}
+Unlike LGPL-2.1, LGPL-3.0 is compatible with Apache-2.0. This is because a patent grant clause has been explicitly added.
+{{% /alert %}}
+
+## References
+
+* [LGPL-3.0 License Full Text](https://www.gnu.org/licenses/lgpl-3.0.en.html)
+* [SPDX License List - LGPL-3.0](https://spdx.org/licenses/LGPL-3.0-only.html)
+* [GNU LGPL FAQ](https://www.gnu.org/licenses/gpl-faq.html#LGPL)
+* [OSADL License Checklist](https://www.osadl.org/fileadmin/checklists/unreflicenses/LGPL-3.0-only.txt)

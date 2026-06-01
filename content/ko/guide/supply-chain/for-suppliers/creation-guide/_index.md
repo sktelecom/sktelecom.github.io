@@ -47,7 +47,7 @@ Docker 이미지, 파일시스템, 바이너리 파일을 분석하여 OS 패키
 - 공식 문서: [https://aquasecurity.github.io/trivy/](https://aquasecurity.github.io/trivy/)
 - GitHub: [https://github.com/aquasecurity/trivy](https://github.com/aquasecurity/trivy)
 
-> **⚠️ 보안 경고 — Trivy 공급망 공격 사례 (2026년)**
+> **보안 경고 — Trivy 공급망 공격 사례 (2026년)**
 >
 > 2026년 3월, 공격자가 `aquasecurity/trivy`의 기존 릴리즈 태그를 재지정하여 악성코드를 삽입하는
 > 공급망 공격이 발생하였습니다. **GitHub 릴리즈 v0.69.4(3/19) 및 DockerHub 이미지

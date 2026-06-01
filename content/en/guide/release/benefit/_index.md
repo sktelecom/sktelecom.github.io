@@ -1,44 +1,44 @@
 ---
-title: "오픈소스 공개의 혜택"
-linkTitle: "공개 혜택"
+title: "Benefits of Releasing Open Source"
+linkTitle: "Release Benefits"
 weight: 10
 type: docs
 description: >
-  오픈소스로 공개하면 어떤 혜택이 있는가? 
+  What benefits do you gain by releasing open source?
 ---
 
-기업이 소프트웨어를 오픈소스로 공개하는 데에는 다음과 같은 목적을 위해서이다.
+Companies release their software as open source for the following purposes.
 
-## 경제적으로 이득이 될 수 있다.
-오픈소스는 자선 행위가 아니다. 기업이 자신의 소프트웨어를 오픈소스로 공개하거나 오픈소스에 기여할 때는 보다 높은 투자수익을 기대하기 때문이다.
+## It Can Be Economically Beneficial
+Open source is not an act of charity. When a company releases its software as open source or contributes to open source, it does so because it expects a higher return on investment.
 
-‌유명한 수학자로서 "협력 게임" 이론으로 노벨 경제학상을 수상한 존 내쉬는 협력은 제로섬 게임이 아니며 모든 참가자가 협력함으로써 자신들이 투자한 것보다 더 높은 수익을 낼 수 있다는 것을 증명했다. 오픈소스는 이 이론의 가장 실제적인 사례이다.
+John Nash, a renowned mathematician who won the Nobel Prize in Economics for his "cooperative game" theory, proved that cooperation is not a zero-sum game and that, by cooperating, all participants can earn a higher return than what they invested. Open source is the most practical example of this theory.
 
-‌한 예로 구글은 내부에서만 사용하던 [Angular](https://angular.io/)(web application framework)를 오픈소스로 공개하였고, Angular는 웹 개발자들에게 빠르게 확산되었다. 개발자들은 Angular를 사용하여 많은 확장 프로그램과 도구를 개발하고, 구글은 다시 그러한 확장 프로그램과 도구를 활용하는 이득을 취할 수 있었다. Angluar가 구글에 가져다 준 직접적인 매출을 산정하는 것은 쉽지 않겠지만, 링크드인의 [Job Tag 분석](https://www.codeinwp.com/blog/angular-vs-vue-vs-react/)에 따르면 약 70만개 이상의 일자리가 창출되었는데, 이러한 고용 시장을 고려할 때 Angluar를 이용한 상품 시장 역시 상당히 클 것으로 예상할 수 있다.
+For instance, Google released [Angular](https://angular.io/) (a web application framework), which it had used only internally, as open source, and Angular quickly spread among web developers. Developers used Angular to build many extensions and tools, and Google in turn was able to benefit from those extensions and tools. Although it is not easy to quantify the direct revenue Angular brought to Google, according to LinkedIn's [Job Tag analysis](https://www.codeinwp.com/blog/angular-vs-vue-vs-react/) more than 700,000 jobs were created. Considering this job market, we can expect that the product market built on Angular is also quite large.
 
-‌여러분의 프로젝트가 이와 같이 높은 투자 수익을 기대할 수 있나? 그렇다면 오픈소스 공개 준비를 시작하라.
+Can your project expect such a high return on investment as well? If so, start preparing to release it as open source.
 
-## 표준이 될 수 있다
-오픈소스로 프로젝트를 공개하면 표준으로 채택될 가능성이 커진다.
+## It Can Become a Standard
+Releasing a project as open source increases the likelihood that it will be adopted as a standard.
 
-프로젝트가 해당 기술 분야의 사실상의 표준이 되면 참여하는 외부 기여자가 많아지고, 프로젝트와 그 주변 생태계가 더 빠르게 진화한다. 이는 산업 전반의 혁신을 가속화하고 프로젝트를 이용하여 구축한 서비스 및 제품의 채택을 용이하게 한다.
+When a project becomes the de facto standard in its technical field, more external contributors participate, and the project and its surrounding ecosystem evolve more quickly. This accelerates innovation across the industry and makes it easier to adopt the services and products built using the project.
 
-GNU와 Linux를 예로 들어보겠다. GNU와 Linux는 Unix 운영체제를 표방하며 오픈소스로 공개되면서 빠르게 확산되었다. Linux는 이제 서버, 라우터, 커넥티드 디바이스에서는 사실상의 표준이며, 소비자 전자 제품에서도 점점 활용도가 증가하고 있다. 이로 인해 소프트웨어 공급 업체가 Linux를 지원하고 Linux 사용자에게 익숙한 도구도 제공한다(예: Microsoft Windows에서 Bash 지원).
+Take GNU and Linux as an example. GNU and Linux spread rapidly as they were released as open source modeled on the Unix operating system. Linux is now the de facto standard for servers, routers, and connected devices, and its use in consumer electronics is also steadily increasing. As a result, software vendors support Linux and provide tools that are familiar to Linux users (for example, Bash support on Microsoft Windows).
 
-여러분의 프로젝트를 오픈소스로 공개하면 업계의 표준이 되어 많은 외부 기여자를 기대할 수 있나? 그렇다면 오픈소스 공개 준비를 시작하라.
+If you release your project as open source, can you expect it to become an industry standard and attract many external contributors? If so, start preparing to release it as open source.
 
-## 생태계를 성장시킬 수 있다
-‌오픈소스로 프로젝트를 공개하면 다른 사람들이 프로젝트를 채택하고 이를 이용하여 자신의 프로그램을 개발한다. 그렇게 되면 그들은 자신의 프로그램뿐만 아니라 프로젝트의 성공을 위해 투자한다. 오픈소스 커뮤니티에는 각자의 소속 회사와 상관없이 프로젝트 내에서 서로 협력하는 우수한 개발자들이 있다. 이러한 개발자는 프로젝트에 다양한 관점을 제공할 뿐만 아니라 생태계가 성장될 수 있게 한다.
+## It Can Grow an Ecosystem
+When you release a project as open source, others adopt the project and use it to develop their own programs. As a result, they invest not only in their own programs but also in the success of the project. Open source communities include excellent developers who collaborate with one another within a project regardless of the company they belong to. Such developers not only bring diverse perspectives to the project but also allow the ecosystem to grow.
 
-이는 WordPress와 같이 확장 메커니즘이 있는 프로젝트의 경우 특히 효과적인 전략이다. WordPress는 플러그인 및 테마 API를 공개하여 개발자, 디자이너 및 컨설턴트 등 기여자들이 다양한 추가 기능을 제공하도록 생태계를 구성하였다. 이렇게 커뮤니티가 플러그인과 테마를 무료 혹은 유료로 제공함으로써 WordPress가 모든 플러그인이나 디자인을 다룰 필요가 없게 되었다. 이러한 생태계 환경은 WordPress 뿐만 아니라 커뮤니티 구성원 및 최종 사용자에게도 혜택을 줍니다.
+This is an especially effective strategy for projects with an extension mechanism, such as WordPress. WordPress opened up its plugin and theme APIs, forming an ecosystem in which contributors such as developers, designers, and consultants provide a wide variety of add-on features. Because the community provides plugins and themes free of charge or for a fee, WordPress does not have to handle every plugin or design itself. This kind of ecosystem benefits not only WordPress but also community members and end users.
 
-또 하나의 예로 2008년, JavaScript는 너무 느려서 이를 많이 쓰는 웹사이트는 거의 사용할 수 없었다. 구글은 Chromium을 오픈소스로 발표하면서 V8 JavaScript 엔진도 공개하였다. V8은 JavaScript를 실행하기 전에 기계 코드로 컴파일하고 다양한 최적화 기술을 사용하는 엔진이다. 이로 인해 브라우저의 성능이 크게 향상되어 웹사이트의 사용자 환경이 개선되었고 웹 응용 프로그램 개발이 길이 열렸으며, JavaScript가 Node.js와 같은 서버 소프트웨어와 함께 사용될 수 있게 되었다. V8이 오픈소스로 공개되었기 때문에 단순히 크롬뿐만 아니라 전체 생태계가 함께 발전할 수 있었다.
+As another example, in 2008 JavaScript was so slow that websites that relied heavily on it were almost unusable. When Google released Chromium as open source, it also released the V8 JavaScript engine. V8 is an engine that compiles JavaScript into machine code before execution and uses a variety of optimization techniques. This greatly improved browser performance, enhancing the user experience of websites, opening the door to web application development, and enabling JavaScript to be used together with server software such as Node.js. Because V8 was released as open source, not only Chrome but the entire ecosystem was able to advance together.
 
-여러분의 프로젝트를 오픈소스로 공개하였을때 이와 유사하게 프로젝트와 생태계의 성장을 기대할 수 있나? 그렇다면 오픈소스 공개 준비를 시작하라.
+When you release your project as open source, can you expect similar growth of the project and its ecosystem? If so, start preparing to release it as open source.
 
-## 우수한 개발자를 채용할 수 있다
-‌채용이 오픈소스의 주요 목적은 아니다. 그러나 기업이 내부에서 널리 사용되는 소프트웨어를 오픈소스로 공개할 때 주로 나타나는 효과 중 하나이다.‌
+## It Can Help Recruit Excellent Developers
+Recruiting is not the primary purpose of open source. However, it is one of the effects that often appears when a company releases software that is widely used internally as open source.
 
-예를 들어, 구글의 내부 빌드 시스템인 Bazel을 오픈소스로 공개하면서 이를 외부 개발자도 사용하게 되었다. 이렇게 도구가 오픈소스가 되면서 외부 인원들도 이 도구에 익숙해지고, 기업은 이미 이 도구를 잘 알고 있는 외부 기여자 중에서 채용할 인력을 선택할 수 있다는 장점이 생깁니다. 이러한 인력은 이미 기술, 커뮤니티 구축, 지원 등에 익숙하기 때문에 실무에 투입하기 위한 교육 프로세스가 훨씬 간소화될 수 있다.
+For example, when Google released Bazel, its internal build system, as open source, external developers began to use it as well. As the tool became open source, external people became familiar with it, and the company gained the advantage of being able to choose hires from among external contributors who already know the tool well. Because such people are already familiar with the technology, community building, support, and so on, the training process for putting them to work can be greatly simplified.
 
-기업은 이러한 오픈소스 활동으로 커뮤니티에서 명성이 높아지고, 오픈소스 개발자에게는 매력적인 일터로 비치게 되면서 인재를 확보할 수 있다.
+Through such open source activities, a company builds a stronger reputation in the community and becomes an attractive workplace for open source developers, enabling it to secure talent.

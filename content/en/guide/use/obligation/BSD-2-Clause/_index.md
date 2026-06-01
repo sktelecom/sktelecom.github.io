@@ -1,24 +1,27 @@
 ---
-title: "BSD-2-Clause 가이드"
+title: "BSD-2-Clause Guide"
 linkTitle: "BSD-2-Clause"
 weight: 10
 type: docs
-description:  "[BSD-2-Clause](https://opensource.org/licenses/BSD-3-Clause) 라이선스는 BSD 2-Clause \"Simplified\" License 라고도 불리며 소스 코드 공개를 요구하지는 않는 Permissive한 라이선스이다. BSD-3-Clause보다 간략해졌다."
+description: "The [BSD-2-Clause](https://opensource.org/licenses/BSD-2-Clause) license, also called the BSD 2-Clause \"Simplified\" License, is a Permissive license that does not require disclosure of source code. It is more concise than BSD-3-Clause."
 ---
 
-{{% alert title="의무사항 요약" color="primary" %}}
+SPDX Identifier: `BSD-2-Clause`
+
+{{% alert title="Summary of Obligations" color="primary" %}}
 <div class="-bg-100 p-3">
 
-> - 소스 형태로 재배포    
->   - 고지 의무 : 소스 코드 내 명시된 저작권/라이선스 정보를 그대로 유지한 상태로 재배포한다.  
-> - 바이너리 형태로 재배포    
->   - 고지 의무 : 오픈소스 고지문을 생성하여 바이너리 재배포 시 동봉한다.    
+> - Redistribution in source form    
+>   - Notice obligation: Redistribute while keeping the copyright/license information stated in the source code intact.  
+> - Redistribution in binary form    
+>   - Notice obligation: Generate an open source notice and enclose it when redistributing the binary.    
 
 </div>
 {{% /alert %}}
 
-## 소스 코드 내 라이선스 문구
-BSD-2-Clause하의 오픈소스는 일반적으로 소스 코드 상단에 다음과 같은 문구가 있다. 
+## License Statement in Source Code
+
+Open source under the BSD-2-Clause license generally carries the following statement at the top of the source code.
 
 ~~~
 Copyright (c) <YEAR>, <OWNER>
@@ -45,26 +48,45 @@ ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 ~~~
 
-## 사용 사례 별 의무 사항
-### Case 1. 소스 형태로 재배포 
-BSD-2-Clause하의 오픈소스를 소스 형태로 재배포 시 다음 사항을 준수한다.
+## Obligations by Use Case
 
-#### 1-1 고지 의무
-* 저작권 고지
-* 라이선스 사본 제공
-* 보증 부인 고지
+### Case 1. Redistribution in Source Form
 
-즉, 소스 코드 내 저작권, 라이선스 등을 그대로 유지한다. 
+When redistributing open source under the BSD-2-Clause license in source form, observe the following.
 
-### Case 2. 바이너리 형태로 재배포
+#### 1-1 Notice Obligation
+* Copyright notice
+* Provide a copy of the license
+* Warranty disclaimer notice
 
-BSD-2-Clause하의 오픈소스를 빌드하여 바이너리 형태로만 재배포 시 다음 사항을 준수한다. 
+In other words, keep the copyright, license, and so on within the source code intact.
 
-#### 2-1 고지 의무
-* 저작권 고지
-* 라이선스 사본 제공
-* 보증 부인 고지
+### Case 2. Redistribution in Binary Form
 
-이를 포함하는 오픈소스 고지문을 생성하여 바이너리 재배포 시 동봉한다. 
+When building open source under the BSD-2-Clause license and redistributing it in binary form only, observe the following.
 
-> 참고 : https://www.osadl.org/fileadmin/checklists/unreflicenses/BSD-2-Clause.txt
+#### 2-1 Notice Obligation
+* Copyright notice
+* Provide a copy of the license
+* Warranty disclaimer notice
+
+Generate an open source notice containing the above and enclose it when redistributing the binary.
+
+## License Compatibility
+
+The BSD-2-Clause license is the most concise among the BSD licenses and is compatible with most licenses.
+
+### Compatibility with Major Licenses
+
+| License to Combine | Compatible | Remarks |
+|-------------------|----------|------|
+| MIT | Compatible | A similar license |
+| Apache-2.0 | Compatible | Keeping the Apache-2.0 patent clause is recommended |
+| GPL-2.0/3.0 | Compatible | The entire project becomes GPL |
+| Proprietary | Compatible | Can be used in commercial software |
+
+## References
+
+* [BSD-2-Clause License Full Text](https://opensource.org/licenses/BSD-2-Clause)
+* [SPDX License List - BSD-2-Clause](https://spdx.org/licenses/BSD-2-Clause.html)
+* [OSADL License Checklist](https://www.osadl.org/fileadmin/checklists/unreflicenses/BSD-2-Clause.txt)

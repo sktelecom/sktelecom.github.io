@@ -1,33 +1,40 @@
 ---
-title: "GPL-2.0 가이드"
+title: "GPL-2.0 Guide"
 linkTitle: "GPL-2.0"
 weight: 10
 type: docs
-description: 1991년 [Free Software Foundation](http://www.fsf.org/)에서 만든 대표적인 Copyleft 라이선스인 [GPL-2.0](https://www.gnu.org/licenses/old-licenses/gpl-2.0.html)은 재배포 시 소스 코드 공개를 요구하기 때문에 사용에 주의가 필요하다. 
+description: "[GPL-2.0](https://www.gnu.org/licenses/old-licenses/gpl-2.0.html), the representative Copyleft license created by the [Free Software Foundation](http://www.fsf.org/) in 1991, requires disclosure of source code upon redistribution, so caution is needed when using it."
 ---
 
-{{% alert title="의무사항 요약" color="primary" %}}
+SPDX Identifier: `GPL-2.0-only` or `GPL-2.0-or-later`
+
+{{% alert title="Summary of Obligations" color="primary" %}}
 <div class="-bg-100 p-3">
 
-> - 소스 형태로 재배포<br>
->   - 고지 의무 : 소스 코드 내 명시된 저작권/라이선스 정보를 그대로 유지한 상태로 재배포한다.
->     - 수정시 의무사항<br>
->       - 추가/수정한 부분에 GPL-2.0을 적용한다.
->       - 수정 사항에 대한 고지를 포함한다. (예: 수정일, 수정내용을 주석 형태로 포함)
-> - 바이너리 형태로 재배포<br>
->   - 고지 의무 : 오픈소스 고지문을 생성하여 바이너리 재배포 시 동봉한다.<br>
->     - 수정시 의무사항
->       - 추가/수정한 부분에 GPL-2.0을 적용한다.
->       - 수정 사항에 대한 고지를 포함한다. (예: 오픈소스 고지문에 수정일, 수정내용을 포함)
->     - 소스 코드 제공 의무
->       - <span class="-text-warning">바이너리에 해당하는 **전체** 소스 코드를 제공한다.</span>
->       - 바이너리 사용자가 공개된 소스 코드로 동일한 바이너리를 만들 수 있는 <span class="-text-warning">빌드 환경</span>을 제공한다.
+> - Redistribution in source form<br>
+>   - Notice obligation: Redistribute while keeping the copyright/license information stated in the source code intact.
+>     - Obligations when modifying<br>
+>       - Apply GPL-2.0 to the added/modified portions.
+>       - Include a notice of the modifications. (e.g., include the modification date and content in comment form)
+> - Redistribution in binary form<br>
+>   - Notice obligation: Generate an open source notice and include it when redistributing the binary.<br>
+>     - Obligations when modifying
+>       - Apply GPL-2.0 to the added/modified portions.
+>       - Include a notice of the modifications. (e.g., include the modification date and content in the open source notice)
+>     - Obligation to provide source code
+>       - <span class="-text-warning">Provide the **complete** source code corresponding to the binary.</span>
+>       - Provide a <span class="-text-warning">build environment</span> that allows binary users to build an identical binary from the disclosed source code.
 
 </div>
 {{% /alert %}}
 
-## 소스 코드 내 라이선스 문구
-GPL-2.0하의 오픈소스는 일반적으로 소스 코드 상단에 다음과 같은 문구가 있다. 
+{{% alert title="Copyleft Caution" color="warning" %}}
+GPL-2.0 is a strong Copyleft license. A derivative work that includes GPL-2.0 code must, in its entirety, follow GPL-2.0 and must disclose its source code. Caution is needed when using it in commercial software development.
+{{% /alert %}}
+
+## License Text in the Source Code
+
+Open source under the GPL-2.0 license generally includes the following text at the top of the source code.
 
 ~~~
 Copyright (C) yyyy name of author
@@ -47,88 +54,101 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
 ~~~
 
-## 사용 사례 별 의무 사항
-### Case 1. 소스 형태로 재배포 
-GPL-2.0하의 오픈소스를 소스 형태로 재배포 시 다음 사항을 준수한다.
+## Obligations by Use Case
 
-#### 1-1 고지 의무
-* 저작권 고지 제공
-* 보증 부인 제공
-* 라이선스 사본 제공
+### Case 1. Redistribution in Source Form
 
-즉, 소스 코드 내 명시된 저작권/라이선스 정보를 그대로 유지한 상태로 재배포한다. 
+When redistributing open source under the GPL-2.0 license in source form, observe the following.
 
+#### 1-1 Notice Obligation
+* Provide a copyright notice
+* Provide a warranty disclaimer
+* Provide a copy of the license
 
-{{% alert title="수정 시 의무 사항" color="success" %}}
-오픈소스의 소스 코드를 일부 추가/수정하였을 경우, 다음 사항을 준수한다. 
+That is, redistribute while keeping the copyright/license information stated in the source code intact.
 
-1. 추가/수정한 부분에 GPL-2.0을 적용한다. 
-2. 수정 사항에 대한 고지를 포함한다. (예: 수정일, 수정내용을 주석 형태로 포함)
+{{% alert title="Obligations When Modifying" color="success" %}}
+If you add to or modify part of the source code of the open source, observe the following.
 
-{{% /alert %}}
-
-### Case 2. 바이너리 형태로 재배포
-
-GPL-2.0하의 오픈소스를 빌드하여 바이너리 형태로만 재배포 시 다음 사항을 준수한다. 
-
-#### 2-1 고지 의무
-* 저작권 고지 제공
-* 보증 부인 제공
-* 라이선스 사본 제공
-
-이상의 내용을 포함하는 오픈소스 고지문을 생성하여 바이너리 재배포 시 동봉한다. 
-
-{{% alert title="수정 시 의무 사항" color="success" %}}
-오픈소스의 소스 코드를 일부 추가/수정하였을 경우, 다음 사항을 준수한다. 
-
-1. 추가/수정한 부분에 GPL-2.0을 적용한다. 
-2. 수정 사항에 대한 고지를 포함한다. (예: 오픈소스 고지문에 수정일, 수정내용을 포함)
+1. Apply GPL-2.0 to the added/modified portions.
+2. Include a notice of the modifications. (e.g., include the modification date and content in comment form)
 
 {{% /alert %}}
 
-#### 2-2 소스 코드 제공 의무
-바이너리에 해당하는 소스 코드를 제공한다. 이때 다음 사항을 준수한다. 
+### Case 2. Redistribution in Binary Form
 
-1. GPL-2.0은 파생저작물에 대해서도 GPL-2.0을 적용하여 소스 코드를 공개할 것을 요구한다. 아래 내용을 참고하여 GPL-2.0하의 오픈소스와 파생저작물의 소스 코드를 공개한다.
+When building open source under the GPL-2.0 license and redistributing it only in binary form, observe the following.
 
-{{% alert title="GPL-2.0 파생 저작물의 범위" color="warning" %}}
-일반적인 GPL-2.0의 파생 저작물의 범위는 다음과 같다. 
+#### 2-1 Notice Obligation
+* Provide a copyright notice
+* Provide a warranty disclaimer
+* Provide a copy of the license
 
-* 수정 코드
-* GPL 프로그램과 동일한 프로세스에서 동작하는 Module
-* GPL 프로그램과 링크로 연결한 Library
-* GPL 프로그램을 상속한 Class
+Generate an open source notice that includes the above and include it when redistributing the binary.
 
-다음의 경우 GPL의 파생 저작물로 보지 않는다. 
+{{% alert title="Obligations When Modifying" color="success" %}}
+If you add to or modify part of the source code of the open source, observe the following.
 
-* CD와 같은 매체에 함께 존재하지만 GPL프로그램과 전혀 연동하지 않는 독립 프로그램 (#[MereAggregation](https://www.gnu.org/licenses/gpl-faq.en.html#MereAggregation))
-* GPL 프로그램과는 별도의 프로그램으로써 Pipe, Socket, IPC, Command Line Arguments로 GPL 프로그램과 통신하는 경우 
+1. Apply GPL-2.0 to the added/modified portions.
+2. Include a notice of the modifications. (e.g., include the modification date and content in the open source notice)
 
 {{% /alert %}}
-2. 바이너리 사용자가 공개된 소스 코드로 동일한 바이너리를 만들 수 있는 빌드 환경을 제공한다. 여기에는 다음 사항이 포함된다. 
-   * Tool chain 정보
-   * 빌드 스크립트
-   * 빌드 방법 (README)
 
-소스 코드 대신 서면 약정서 (Written Offer)를 제공할 수 있다. 여기에는 다음 진술이 포함되어야 한다. 
+#### 2-2 Obligation to Provide Source Code
 
-1. 서면 약정서는 제품 판매 후 3년간 유효하다.
-2. 누구에게나 제공한다.
-3. 비용 청구를 하지 않는다. (소스 전달을 위해 발생하는 비용 제외)
+Provide the source code corresponding to the binary. In doing so, observe the following.
+
+1. GPL-2.0 requires that derivative works also apply GPL-2.0 and disclose their source code. Referring to the content below, disclose the source code of both the GPL-2.0 open source and the derivative work.
+
+{{% alert title="Scope of GPL-2.0 Derivative Works" color="warning" %}}
+The general scope of GPL-2.0 derivative works is as follows.
+
+* Modified code
+* A Module that runs in the same process as the GPL program
+* A Library linked with the GPL program
+* A Class that inherits from the GPL program
+
+The following are not considered derivative works of the GPL.
+
+* An independent program that merely coexists on the same medium, such as a CD, but does not interact with the GPL program at all ([#MereAggregation](https://www.gnu.org/licenses/gpl-faq.en.html#MereAggregation))
+* A program that is separate from the GPL program and communicates with it via Pipe, Socket, IPC, or Command Line Arguments
+
+{{% /alert %}}
+
+2. Provide a build environment that allows binary users to build an identical binary from the disclosed source code. This includes the following.
+   * Tool chain information
+   * Build scripts
+   * Build instructions (README)
+
+Instead of the source code, you may provide a Written Offer. It must include the following statements.
+
+1. The written offer is valid for 3 years after the product is sold.
+2. It is provided to anyone.
+3. No charge is made. (excluding costs incurred for delivering the source)
 
 {{% alert color="warning" %}}
-이후 외부로부터 서면 약정서를 근거로 소스 코드 제공을 요청 받을 경우, 위에서 언급한 바이너리에 해당하는 소스 코드를 제공해야 한다. 따라서 회사는 제품 판매 후 최소 3년간 소스 코드를 보관해야 한다.
+If you later receive a request for source code based on the written offer, you must provide the source code corresponding to the binary mentioned above. Therefore, the company must retain the source code for at least 3 years after the product is sold.
 {{% /alert %}}
 
-## 라이선스 호환성
-서로 요구하는 의무사항이 상충되는 오픈소스 라이선스는 하나의 프로그램에 동시에 존재해서는 안된다. 다음은 GPL-2.0과 충돌하는 라이선스 목록이다. GPL-2.0 프로그램 내에 다음 라이선스 하의 오픈소스를 포함해서는 안된다. (참고 : https://www.gnu.org/licenses/license-list.html#GPLIncompatibleLicenses)
+## License Compatibility
 
-* Apache-1.1
-* Apache-2.0
-* BSD-4-Clause
-* FTL
-* IJG
-* OpenSSL
-* Python-2.0
+### Compatibility with Major Licenses
 
-> 참고 : https://www.osadl.org/fileadmin/checklists/unreflicenses/GPL-2.0-only.txt
+| Combining License | Compatible | Notes |
+|-------------------|------------|-------|
+| MIT | Compatible | The entire project becomes GPL-2.0 |
+| Apache-2.0 | Incompatible | Patent clause conflict |
+| GPL-3.0 | Conditional | Compatible only if GPL-2.0-or-later |
+| LGPL-2.1 | Compatible | The LGPL portion can remain LGPL |
+| Proprietary | Incompatible | Cannot be used in commercial software |
+
+{{% alert title="Incompatibility with Apache-2.0" color="warning" %}}
+GPL-2.0 is not compatible with Apache-2.0. This is because Apache-2.0's patent grant clause conflicts with GPL-2.0. If you need Apache-2.0 code, consider using GPL-3.0.
+{{% /alert %}}
+
+## References
+
+* [GPL-2.0 License Full Text](https://www.gnu.org/licenses/old-licenses/gpl-2.0.html)
+* [SPDX License List - GPL-2.0](https://spdx.org/licenses/GPL-2.0-only.html)
+* [GNU GPL FAQ](https://www.gnu.org/licenses/gpl-faq.html)
+* [OSADL License Checklist](https://www.osadl.org/fileadmin/checklists/unreflicenses/GPL-2.0-only.txt)

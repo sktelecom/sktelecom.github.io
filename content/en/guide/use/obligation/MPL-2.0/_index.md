@@ -1,31 +1,37 @@
 ---
-title: "MPL-2.0 가이드"
+title: "MPL-2.0 Guide"
 linkTitle: "MPL-2.0"
 weight: 10
 type: docs
-description: "[MPL-2.0](http://www.mozilla.org/MPL/2.0/)은 Mozilla Public License 2.0이라고도 불리며, 파일 단위의 소스 코드 공개를 요구하는 Weak Copyleft 성격의 라이선스이다. " 
+description: "[MPL-2.0](http://www.mozilla.org/MPL/2.0/), also called the Mozilla Public License 2.0, is a Weak Copyleft license that requires disclosure of source code on a per-file basis."
 ---
 
-{{% alert title="의무사항 요약" color="primary" %}}
+SPDX Identifier: `MPL-2.0`
+
+{{% alert title="Summary of Obligations" color="primary" %}}
 <div class="-bg-100 p-3">
 
-> - 소스 형태로 재배포 
->   - 고지 의무 : 소스 코드 내 명시된 저작권/라이선스 정보를 그대로 유지한 상태로 재배포한다. 
->     - 수정시 의무사항
->       - 수정한 파일에 MPL-2.0을 적용한다.
-> - 바이너리 형태로 재배포
->   - 고지 의무 : 오픈소스 고지문을 생성하여 바이너리 재배포 시 동봉한다.
->     - 수정시 의무사항
->       - 추가/수정한 **파일**에 MPL-2.0을 적용한다.
->     - 소스 코드 제공 의무
->       - <span class="-text-warning">바이너리 내 MPL-2.0에 해당하는 **파일**의 소스 코드를 제공한다.</span>
+> - Redistribution in source form 
+>   - Notice obligation: Redistribute while keeping the copyright/license information stated in the source code intact. 
+>     - Obligations when modifying
+>       - Apply MPL-2.0 to the modified file.
+> - Redistribution in binary form
+>   - Notice obligation: Generate an open source notice and include it when redistributing the binary.
+>     - Obligations when modifying
+>       - Apply MPL-2.0 to the added/modified **file**.
+>     - Obligation to provide source code
+>       - <span class="-text-warning">Provide the source code of the **files** under MPL-2.0 within the binary.</span>
 
 </div>
 {{% /alert %}}
 
-## 소스 코드 내 라이선스 문구
+{{% alert title="Weak Copyleft Characteristics" color="info" %}}
+MPL-2.0 is a per-file Weak Copyleft license. The obligation to disclose source code arises only when an MPL-2.0 file itself is modified, and separately added files do not need to be disclosed. Therefore, it can also be used in commercial software.
+{{% /alert %}}
 
-MPL-2.0하의 오픈소스는 일반적으로 소스 코드 상단에 다음과 같은 문구가 있다. 
+## License Text in the Source Code
+
+Open source under the MPL-2.0 license generally includes the following text at the top of the source code.
 
 ~~~
 This Source Code Form is subject to the terms of the Mozilla Public
@@ -33,45 +39,78 @@ License, v.2.0. If a copy of the MPL was not distributed with this file,
 You can obtain one at https://mozilla.org/MPL/2.0/.
 ~~~
 
-## 사용 사례 별 의무 사항
-### Case 1. 소스 형태로 재배포 
-MPL-2.0하의 오픈소스를 소스 형태로 재배포 시 다음 사항을 준수한다.
+## Obligations by Use Case
 
-#### 1-1 고지 의무
-* 라이선스 사본 제공 혹은 참조
-* 법적 고지 수정 금지
+### Case 1. Redistribution in Source Form
 
-즉, 소스 코드 내 명시된 라이선스 정보를 그대로 유지한 상태로 재배포한다. 
+When redistributing open source under the MPL-2.0 license in source form, observe the following.
 
+#### 1-1 Notice Obligation
+* Provide or reference a copy of the license
+* Do not modify legal notices
 
-{{% alert title="수정 시 의무 사항" color="success" %}}
-오픈소스의 소스 코드를 일부 추가/수정하였을 경우, 다음 사항을 준수한다. 
+That is, redistribute while keeping the license information stated in the source code intact.
 
-* 수정한 파일에 MPL-2.0을 적용한다. (별도로 추가한 파일에는 MPL-2.0 적용 의무 없음)
+{{% alert title="Obligations When Modifying" color="success" %}}
+If you add to or modify part of the source code of the open source, observe the following.
 
-{{% /alert %}}
-
-### Case 2. 바이너리 형태로 재배포
-
-MPL-2.0하의 오픈소스를 빌드하여 바이너리 형태로만 재배포 시 다음 사항을 준수한다. 
-
-#### 2-1 고지 의무
-* 라이선스 사본 제공
-
-이상의 내용을 포함하는 오픈소스 고지문을 생성하여 바이너리 재배포 시 동봉한다. 
-
-{{% alert title="수정 시 의무 사항" color="success" %}}
-오픈소스의 소스 코드를 일부 추가/수정하였을 경우, 다음 사항을 준수한다. 
-
-* 수정한 파일에 MPL-2.0을 적용한다. (별도로 추가한 파일에는 MPL-2.0 적용 의무 없음)
+* Apply MPL-2.0 to the modified file. (Separately added files are not obligated to apply MPL-2.0)
 
 {{% /alert %}}
 
-#### 2-2 소스 코드 제공 의무
-바이너리 내 MPL-2.0에 해당하는 소스 코드 파일을 제공한다. 이때 다음 사항을 준수한다. 
+### Case 2. Redistribution in Binary Form
 
-* MPL-2.0은 파일 내 추가한 내용에 대해서도 MPL-2.0을 적용하여 소스 코드를 공개할 것을 요구한다. 따라서, 원본 파일과 더불어 수정한 파일도 MPL-2.0을 적용하여 공개한다.
+When building open source under the MPL-2.0 license and redistributing it only in binary form, observe the following.
 
-오픈소스 고지문에 사용자가 소스 코드를 수령할 수 있는 방법을 안내함으로써 소스 코드 제공 의무를 준수할 수 있다. 
+#### 2-1 Notice Obligation
+* Provide a copy of the license
 
-> 참고 : https://www.osadl.org/fileadmin/checklists/unreflicenses/MPL-2.0.txt
+Generate an open source notice that includes the above and include it when redistributing the binary.
+
+{{% alert title="Obligations When Modifying" color="success" %}}
+If you add to or modify part of the source code of the open source, observe the following.
+
+* Apply MPL-2.0 to the modified file. (Separately added files are not obligated to apply MPL-2.0)
+
+{{% /alert %}}
+
+#### 2-2 Obligation to Provide Source Code
+
+Provide the source code files under MPL-2.0 within the binary. In doing so, observe the following.
+
+* MPL-2.0 requires that content added within a file also apply MPL-2.0 and disclose its source code. Therefore, disclose both the original file and the modified file by applying MPL-2.0.
+
+You can fulfill the obligation to provide source code by indicating in the open source notice how users can obtain the source code.
+
+## Per-File Copyleft
+
+The key characteristic of MPL-2.0 is that Copyleft is applied on a per-file basis.
+
+* **When modifying an MPL-2.0 file**: Disclose only that file under MPL-2.0
+* **When adding a separate file**: The added file does not need to be disclosed
+* **When combining with other licenses**: Combination is possible if the files are separated
+
+Because of these characteristics, it can be used flexibly in commercial software development.
+
+## License Compatibility
+
+### Compatibility with Major Licenses
+
+| Combining License | Compatible | Notes |
+|-------------------|------------|-------|
+| MIT | Compatible | Disclose only MPL files |
+| Apache-2.0 | Compatible | Disclose only MPL files |
+| GPL-2.0/3.0 | Compatible | Leverage the Secondary License clause |
+| LGPL-2.1/3.0 | Compatible | Disclose only MPL files |
+| Proprietary | Compatible | Usable as long as only MPL files are disclosed |
+
+{{% alert title="Secondary License Clause" color="info" %}}
+MPL-2.0 provides compatibility with GPL-2.0/3.0 through the Secondary License clause. If MPL-2.0 code is included in a GPL project, it can be relicensed under the GPL.
+{{% /alert %}}
+
+## References
+
+* [MPL-2.0 License Full Text](http://www.mozilla.org/MPL/2.0/)
+* [SPDX License List - MPL-2.0](https://spdx.org/licenses/MPL-2.0.html)
+* [Mozilla MPL FAQ](https://www.mozilla.org/en-US/MPL/2.0/FAQ/)
+* [OSADL License Checklist](https://www.osadl.org/fileadmin/checklists/unreflicenses/MPL-2.0.txt)
