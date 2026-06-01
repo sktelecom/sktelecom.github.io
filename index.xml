@@ -41,7 +41,7 @@
 &lt;p&gt;참고: 두 형식 모두 동등하게 인정되나, 내부 시스템 연동성을 위해 CycloneDX (JSON) 형식을 권장합니다.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id="2-필수-포함-정보"&gt;2. 필수 포함 정보&lt;a class="td-heading-self-link" href="#2-%ed%95%84%ec%88%98-%ed%8f%ac%ed%95%a8-%ec%a0%95%eb%b3%b4" aria-label="Heading self-link"&gt;&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;제출되는 SBOM 문서는 다음의 정보들을 반드시 포함하고 있어야 합니다. 정보가 누락된 경우 반려될 수 있습니다.&lt;/p&gt;</description></item><item><title>SBOM 표준</title><link>https://sktelecom.github.io/guide/supply-chain/sbom/standards/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://sktelecom.github.io/guide/supply-chain/sbom/standards/</guid><description>&lt;h2 id="주요-sbom-표준"&gt;주요 SBOM 표준&lt;a class="td-heading-self-link" href="#%ec%a3%bc%ec%9a%94-sbom-%ed%91%9c%ec%a4%80" aria-label="Heading self-link"&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;제출하는 SBOM 문서에는 다음 정보가 반드시 포함되어야 합니다. 정보가 누락되면 반려될 수 있습니다.&lt;/p&gt;</description></item><item><title>SBOM 표준</title><link>https://sktelecom.github.io/guide/supply-chain/sbom/standards/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://sktelecom.github.io/guide/supply-chain/sbom/standards/</guid><description>&lt;h2 id="주요-sbom-표준"&gt;주요 SBOM 표준&lt;a class="td-heading-self-link" href="#%ec%a3%bc%ec%9a%94-sbom-%ed%91%9c%ec%a4%80" aria-label="Heading self-link"&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;현재 시장을 양분하고 있는 두 가지 주요 표준 형식이 있습니다. 두 형식 모두 널리 사용되지만, 탄생 배경과 주력 분야에 차이가 있습니다.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;SPDX: Software Package Data Exchange&lt;/li&gt;
@@ -52,7 +52,7 @@
 &lt;p&gt;SPDX는 Linux Foundation이 주관하는 오픈소스 프로젝트로, 소프트웨어 패키지의 라이선스 및 저작권 정보를 표준화된 방식으로 표현하기 위해 개발되었습니다. (ISO/IEC 5962:2021)&lt;/p&gt;
 &lt;h3 id="주요-특징"&gt;주요 특징&lt;a class="td-heading-self-link" href="#%ec%a3%bc%ec%9a%94-%ed%8a%b9%ec%a7%95" aria-label="Heading self-link"&gt;&lt;/a&gt;&lt;/h3&gt;
 &lt;ol&gt;
-&lt;li&gt;SPDX는 원래 오픈소스 라이선스 정보 교환을 위해 개발되어, 라이선스 관련 정보가 매우 상세합니다.&lt;/li&gt;
+&lt;li&gt;SPDX는 원래 오픈소스 라이선스 정보 교환을 위해 개발되어, 라이선스 관련 정보를 상세하게 표현합니다.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;ul&gt;
 &lt;li&gt;표준화된 라이선스 식별자 (SPDX License List)&lt;/li&gt;
@@ -95,7 +95,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="장점"&gt;장점&lt;a class="td-heading-self-link" href="#%ec%9e%a5%ec%a0%90" aria-label="Heading self-link"&gt;&lt;/a&gt;&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;ISO 국제 표준으로 공식 인정&lt;/li&gt;
-&lt;li&gt;라이선스 정보가 매우 상세&lt;/li&gt;
+&lt;li&gt;라이선스 정보가 상세함&lt;/li&gt;
 &lt;li&gt;파일 레벨까지 추적 가능&lt;/li&gt;
 &lt;li&gt;성숙한 도구 생태계&lt;/li&gt;
 &lt;/ul&gt;

@@ -28,7 +28,7 @@
 &lt;p&gt;참고: 두 형식 모두 동등하게 인정되나, 내부 시스템 연동성을 위해 CycloneDX (JSON) 형식을 권장합니다.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id="2-필수-포함-정보"&gt;2. 필수 포함 정보&lt;a class="td-heading-self-link" href="#2-%ed%95%84%ec%88%98-%ed%8f%ac%ed%95%a8-%ec%a0%95%eb%b3%b4" aria-label="Heading self-link"&gt;&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;제출되는 SBOM 문서는 다음의 정보들을 반드시 포함하고 있어야 합니다. 정보가 누락된 경우 반려될 수 있습니다.&lt;/p&gt;</description></item><item><title>SBOM 제출 전 검증 체크리스트</title><link>https://sktelecom.github.io/guide/supply-chain/for-suppliers/checklist/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://sktelecom.github.io/guide/supply-chain/for-suppliers/checklist/</guid><description>&lt;h2 id="필수-점검-항목"&gt;필수 점검 항목&lt;a class="td-heading-self-link" href="#%ed%95%84%ec%88%98-%ec%a0%90%ea%b2%80-%ed%95%ad%eb%aa%a9" aria-label="Heading self-link"&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;제출하는 SBOM 문서에는 다음 정보가 반드시 포함되어야 합니다. 정보가 누락되면 반려될 수 있습니다.&lt;/p&gt;</description></item><item><title>SBOM 제출 전 검증 체크리스트</title><link>https://sktelecom.github.io/guide/supply-chain/for-suppliers/checklist/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://sktelecom.github.io/guide/supply-chain/for-suppliers/checklist/</guid><description>&lt;h2 id="필수-점검-항목"&gt;필수 점검 항목&lt;a class="td-heading-self-link" href="#%ed%95%84%ec%88%98-%ec%a0%90%ea%b2%80-%ed%95%ad%eb%aa%a9" aria-label="Heading self-link"&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;아래 체크리스트를 통과하지 못한 SBOM은 시스템에서 자동으로 반려될 수 있습니다.&lt;/p&gt;
 &lt;h3 id="1-파일-무결성"&gt;1. 파일 무결성&lt;a class="td-heading-self-link" href="#1-%ed%8c%8c%ec%9d%bc-%eb%ac%b4%ea%b2%b0%ec%84%b1" aria-label="Heading self-link"&gt;&lt;/a&gt;&lt;/h3&gt;
 &lt;ul&gt;
