@@ -132,6 +132,19 @@ other = "Discover more projects on GitHub"
 [home_github_cta]
 other = "Go to SKT GitHub"
 
+# Home — Supply chain security / SBOM Generator spotlight
+[home_supplychain_title]
+other = "Software Supply Chain Security"
+[home_supplychain_lead]
+other = "Guides for SBOM mandates and global regulations (US EO 14028, EU CRA), plus our open-source SBOM Generator."
+[home_supplychain_cta_guide]
+other = "Supply Chain Guide"
+[home_supplychain_cta_tool]
+other = "SBOM Generator"
+# NOTE: English supply-chain guide is not translated yet → points to the Korean guide for now.
+[home_supplychain_guide_url]
+other = "/guide/supply-chain/"
+
 # Project card
 [project_view_github]
 other = "GitHub"
