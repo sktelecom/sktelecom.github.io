@@ -165,11 +165,18 @@ h1, h2, h3, h4, h5, h6,
   margin-right: 12px;
 }
 
+/* 브랜드명: 로고(SK telecom 워드마크)가 곧 브랜드이므로 시각적으로는 숨기고
+   스크린리더/SEO를 위해 접근성 텍스트로만 유지(sr-only) */
 .td-navbar .navbar-brand .navbar-brand__name {
-  font-size: 1.1rem !important;
-  font-weight: 600;
-  position: relative;
-  top: 1px;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 /* ===================================================================
@@ -537,13 +544,13 @@ a.skt-card:hover,
     td { border-color: var(--skt-border); }
   }
 
-  /* 본문 링크 — 읽는 중 식별 위해 옅은 밑줄 */
-  p a, li a {
+  /* 본문 링크 — 읽는 중 식별 위해 옅은 밑줄 (표 셀 안 링크 포함) */
+  p a, li a, td a, th a {
     text-decoration: underline;
     text-decoration-color: var(--skt-border-strong);
     text-underline-offset: .15em;
   }
-  p a:hover, li a:hover { text-decoration-color: currentColor; }
+  p a:hover, li a:hover, td a:hover, th a:hover { text-decoration-color: currentColor; }
 
   /* hr / 이미지 */
   hr {

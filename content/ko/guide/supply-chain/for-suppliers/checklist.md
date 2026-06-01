@@ -1,7 +1,7 @@
 ---
 title: "SBOM 제출 전 검증 체크리스트"
 linkTitle: "검증 체크리스트"
-weight: 3
+weight: 4
 type: docs
 description: >
   SBOM 제출 전 필수 확인 사항을 점검하여 반려를 방지합니다.
@@ -43,4 +43,4 @@ SK텔레콤 시스템은 PURL을 통해 취약점을 매핑합니다. 가장 중
 
 - [제출 요구사항](../requirements/): 필수 데이터 필드 및 PURL 형식 상세 안내
 - [제출 절차](../submission/): 체크리스트 통과 후 제출 방법
-- [SKT 제공 도구](../skt-scanner/): 체크리스트 항목을 자동으로 준수하는 도구
+- [SKT SBOM Generator](../skt-scanner/): 체크리스트 항목을 자동으로 준수하는 도구

@@ -46,18 +46,18 @@ imaging:
 languages:
   ko:
     languageName: 한국어
-    title: Open Source
+    title: SK텔레콤 오픈소스
     params:
-      description: Open Source Software at SK telecom
+      description: SK텔레콤이 AI·빅데이터·클라우드 기술을 오픈소스로 공개하고, 오픈소스 가이드·라이선스 컴플라이언스·소프트웨어 공급망 보안(SBOM)을 제공하는 공식 포털입니다.
       time_format_default: 2006.01.02
       time_format_blog: 2006.01.02
   # cSpell:enable
   en:
     languageName: English
     contentDir: content/en
-    title: Open Source
+    title: SK telecom Open Source
     params:
-      description: Open Source Software at SK telecom
+      description: SK telecom's official open source portal — sharing AI, Big Data, and Cloud technologies, with open source guides, license compliance, and software supply chain security (SBOM).
   # cSpell:disable
 
 markup:
@@ -92,8 +92,8 @@ params:
 
   privacy_policy: https://privacy.sktelecom.com/
 
-  # First one is picked as the Twitter card image if not set on page.
-  # images: [images/project-illustration.png]
+  # First one is picked as the Open Graph / Twitter card image if not set on page.
+  images: [og-default.png]
 
   # Menu title if your navbar has a versions selector to access old versions of your site.
   # This menu appears only if you have at least one [params.versions] set.

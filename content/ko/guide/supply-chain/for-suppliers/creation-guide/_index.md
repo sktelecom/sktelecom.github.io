@@ -1,7 +1,7 @@
 ---
 title: "오픈소스 도구를 활용한 SBOM 생성"
 linkTitle: "SBOM 생성 방법"
-weight: 2
+weight: 3
 type: docs
 description: >
   범용 오픈소스 도구를 활용하여 환경별로 SBOM을 생성하는 방법을 안내합니다.
@@ -9,7 +9,7 @@ description: >
 
 SKT 제공 도구를 사용할 수 없거나, 이미 자체적인 빌드 파이프라인을 보유한 경우 오픈소스 도구를 직접 활용할 수 있습니다. 아래는 SK텔레콤이 검증한 주요 오픈소스 도구 목록과 공식 사용법 링크입니다.
 
-> 도구 환경 구축에 익숙하지 않은 경우, Docker가 설치되어 있다면 [SKT 제공 도구](../skt-scanner/)를 먼저 검토해 보시기 바랍니다.
+> 도구 환경 구축에 익숙하지 않은 경우, Docker가 설치되어 있다면 [SKT SBOM Generator](../skt-scanner/)를 먼저 검토해 보시기 바랍니다.
 
 ## 도구 선택 가이드
 
@@ -47,11 +47,11 @@ Docker 이미지, 파일시스템, 바이너리 파일을 분석하여 OS 패키
 - 공식 문서: [https://aquasecurity.github.io/trivy/](https://aquasecurity.github.io/trivy/)
 - GitHub: [https://github.com/aquasecurity/trivy](https://github.com/aquasecurity/trivy)
 
-> **⚠️ 보안 경고 — Trivy 공급망 공격 사례 (2025년)**
+> **⚠️ 보안 경고 — Trivy 공급망 공격 사례 (2026년)**
 >
-> 2025년, 공격자가 `aquasecurity/trivy`의 기존 릴리즈 태그를 재지정하여 악성코드를 삽입하는
-> 공급망 공격이 발생하였습니다. **Docker 이미지 0.69.4, 0.69.5, 0.69.6은 오염된 것으로
-> 확인되었으므로 사용을 즉시 중단하십시오.**
+> 2026년 3월, 공격자가 `aquasecurity/trivy`의 기존 릴리즈 태그를 재지정하여 악성코드를 삽입하는
+> 공급망 공격이 발생하였습니다. **GitHub 릴리즈 v0.69.4(3/19) 및 DockerHub 이미지
+> v0.69.5·v0.69.6(3/22)이 오염된 것으로 확인되었으므로 사용을 즉시 중단하십시오.**
 >
 > Trivy를 안전하게 사용하려면 다음 원칙을 따르십시오.
 >
@@ -125,4 +125,4 @@ Docker 이미지, 파일시스템, 바이너리 파일을 분석하여 OS 패키
 
 - [제출 요구사항](../requirements/): SBOM에 포함되어야 할 필수 데이터 필드
 - [검증 체크리스트](../checklist/): 제출 전 확인 사항
-- [SKT 제공 도구](../skt-scanner/): 설정 없이 바로 사용 가능한 SKT 표준 도구
+- [SKT SBOM Generator](../skt-scanner/): 설정 없이 바로 사용 가능한 SKT 표준 도구

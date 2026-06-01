@@ -2,13 +2,8 @@
 <link rel="preload" as="font" type="font/woff2" href="/fonts/GeistVariable.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="/fonts/PretendardVariable.woff2" crossorigin>
 
-{{/* Open Graph / Twitter 카드 이미지 (SNS 공유 시 미리보기) — 페이지 이미지 우선, 없으면 사이트 기본 */}}
-{{ $ogimg := "" -}}
-{{ with .Params.images -}}{{ $ogimg = index . 0 | absURL -}}{{ end -}}
-{{ if not $ogimg -}}{{ with .Resources.GetMatch "{*feature*,*cover*,*background*}" -}}{{ $ogimg = .Permalink -}}{{ end -}}{{ end -}}
-{{ if not $ogimg -}}{{ $ogimg = "favicons/android-192x192.png" | absURL -}}{{ end -}}
-<meta property="og:image" content="{{ $ogimg }}">
-<meta name="twitter:card" content="summary_large_image">
+{{/* Open Graph / Twitter 카드는 Docsy 내장 템플릿(opengraph·twitter_cards)이 생성하므로
+     여기서 중복 출력하지 않는다. 사이트 기본 OG 이미지는 hugo.yaml params.images로 지정. */}}
 
 {{/* Canonical URL: 중복 URL 문제를 방지하기 위해 각 페이지의 표준 URL을 명시 */}}
 <link rel="canonical" href="{{ .Permalink }}">
