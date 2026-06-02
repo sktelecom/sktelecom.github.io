@@ -767,6 +767,27 @@ a.skt-card:hover,
 .td-toc #TableOfContents a:hover { color: var(--skt-text); }
 .td-toc #TableOfContents a.active { color: var(--skt-text); font-weight: 600; }
 
+/* 우측 사이드바 전반 — 페이지 메타·택소노미 폰트가 과하게 굵고 커서 절제 */
+.td-sidebar-toc { font-size: .85rem; }
+/* 페이지 메타 링크(페이지 보기/편집, Create … 등) */
+.td-page-meta a {
+  font-size: .85rem;
+  font-weight: 500;
+  color: var(--skt-text-muted);
+}
+.td-page-meta a:hover { color: var(--skt-text); }
+/* 섹션 헤더(On this page / Tag Cloud / Categories) — 작고 조용한 라벨 */
+.td-toc .td-toc-title__text,
+.taxonomy-title {
+  font-size: .8rem;
+  font-weight: 600;
+  letter-spacing: .02em;
+  color: var(--skt-text-muted);
+  margin-bottom: .5rem;
+}
+/* 택소노미 배지(태그/카테고리) */
+.td-sidebar-toc .taxonomy-term { font-size: .8rem; }
+
 /* ===================================================================
    8. 좌측 사이드바 — 위계·액티브를 모노크롬으로 정교화
    =================================================================== */
