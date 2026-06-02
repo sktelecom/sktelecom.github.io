@@ -424,6 +424,51 @@ a.skt-card:hover,
 .js-reveal .skt-grid > .skt-reveal:nth-child(3n),
 .js-reveal .row > .skt-reveal:nth-child(3n) { --skt-reveal-delay: .12s; }
 
+/* 스크롤 진행 바 — 상단 고정(navbar 위), 절제된 액센트 */
+.skt-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  background: var(--skt-accent);
+  z-index: 1040;
+  pointer-events: none;
+  will-change: transform;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .skt-progress { transition: transform .1s linear; }
+}
+
+/* 맨 위로 버튼 — 무채색 원형, 우하단(스크롤 시 노출) */
+.skt-to-top {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  width: 42px;
+  height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--skt-surface);
+  color: var(--skt-text);
+  border: 1px solid var(--skt-border);
+  box-shadow: var(--skt-shadow-lg);
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: opacity var(--skt-transition), transform var(--skt-transition),
+              visibility var(--skt-transition), border-color var(--skt-transition),
+              background var(--skt-transition);
+  z-index: 1030;
+}
+.skt-to-top.is-visible { opacity: 1; visibility: visible; transform: none; }
+.skt-to-top:hover { border-color: var(--skt-border-strong); background: var(--skt-surface-subtle); }
+
 /* 섹션 공통 */
 .skt-section {
   padding: 5rem 0;
@@ -577,7 +622,19 @@ a.skt-card:hover,
     border-radius: $border-radius-lg;
     padding: 1rem 1.15rem;
   }
-  .highlight { border-radius: $border-radius-lg; }
+  .highlight { border-radius: $border-radius-lg; position: relative; }
+  /* 코드 복사 버튼(Docsy click-to-copy) — 무채색 톤 정비, hover 시 또렷 */
+  .highlight button.td-click-to-copy {
+    color: var(--skt-text-muted);
+    border: 1px solid transparent;
+    border-radius: $border-radius-sm;
+    transition: color var(--skt-transition), background var(--skt-transition), border-color var(--skt-transition);
+  }
+  .highlight button.td-click-to-copy:hover {
+    color: var(--skt-text);
+    background: var(--skt-surface-muted);
+    border-color: var(--skt-border);
+  }
 
   /* 인용 — 절제(2px 보더 + subtle 배경) */
   blockquote {
