@@ -1,0 +1,15 @@
+{{- /* 이미지 렌더 훅 — 본문 마크다운 이미지에 치수·디코딩·로딩 힌트를 부여해
+       CLS/LCP를 개선한다. 첫 이미지(.Ordinal 0)는 LCP 후보로 보고 eager+high,
+       나머지는 lazy. 내부 번들 이미지면 width/height 추출, 외부 URL은 생략. */ -}}
+{{- $dest := .Destination -}}
+{{- $img := "" -}}
+{{- if not (strings.HasPrefix $dest "http") -}}
+  {{- $path := strings.TrimPrefix "./" $dest -}}
+  {{- with .Page.Resources.GetMatch $path -}}{{- $img = . -}}{{- end -}}
+  {{- if not $img -}}{{- with resources.Get $path -}}{{- $img = . -}}{{- end -}}{{- end -}}
+{{- end -}}
+{{- $eager := eq .Ordinal 0 -}}
+<img src="{{ $dest | safeURL }}" alt="{{ .Text }}"
+  {{- with $img }}{{ if and .Width .Height (ne .MediaType.SubType "svg") }} width="{{ .Width }}" height="{{ .Height }}"{{ end }}{{ end }}
+  {{- with .Title }} title="{{ . }}"{{ end }}
+  {{- if $eager }} loading="eager" fetchpriority="high"{{ else }} loading="lazy"{{ end }} decoding="async">
