@@ -1,0 +1,28 @@
+{{- /* 표 렌더 훅 — 마크다운 표를 .skt-table 컨테이너로 감싸 외곽 테두리·라운드·
+       모바일 가로 스크롤을 부여한다. Docsy/Hugo 기본 출력과 동일한 구조 유지. */ -}}
+<div class="skt-table">
+  <table>
+    {{- with .THead -}}
+    <thead>
+      {{- range . -}}
+      <tr>
+        {{- range . -}}
+        <th{{- with .Alignment }} style="text-align: {{ . }}"{{- end -}}>{{ .Text }}</th>
+        {{- end -}}
+      </tr>
+      {{- end -}}
+    </thead>
+    {{- end -}}
+    {{- with .TBody -}}
+    <tbody>
+      {{- range . -}}
+      <tr>
+        {{- range . -}}
+        <td{{- with .Alignment }} style="text-align: {{ . }}"{{- end -}}>{{ .Text }}</td>
+        {{- end -}}
+      </tr>
+      {{- end -}}
+    </tbody>
+    {{- end -}}
+  </table>
+</div>

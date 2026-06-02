@@ -1,0 +1,14 @@
+{{ define "main" }}
+{{ $en := eq .Site.Language.Lang "en" }}
+<section class="skt-section" style="min-height:62vh;display:flex;align-items:center">
+  <div class="container text-center" style="max-width:600px">
+    <div style="font-size:clamp(3.5rem,12vw,6rem);font-weight:700;letter-spacing:-.04em;line-height:1;color:var(--skt-text)">404</div>
+    <h1 class="skt-section__title" style="margin-top:1rem">{{ if $en }}Page not found{{ else }}페이지를 찾을 수 없습니다{{ end }}</h1>
+    <p class="skt-section__lead">{{ if $en }}The page you're looking for doesn't exist or may have moved.{{ else }}찾으시는 페이지가 없거나 이동되었을 수 있습니다.{{ end }}</p>
+    <div class="skt-hero__actions" style="margin-top:1.75rem">
+      <a class="btn btn-lg btn-primary fw-semibold px-4" href="{{ "/" | relLangURL }}">{{ if $en }}Back to home{{ else }}홈으로{{ end }} <i class="fas fa-arrow-right ms-2"></i></a>
+      <a class="btn btn-lg btn-outline-secondary fw-semibold px-4" href="{{ "/guide/" | relLangURL }}">{{ if $en }}Browse the guide{{ else }}가이드 보기{{ end }}</a>
+    </div>
+  </div>
+</section>
+{{ end }}

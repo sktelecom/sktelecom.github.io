@@ -2,6 +2,17 @@
 <link rel="preload" as="font" type="font/woff2" href="/fonts/GeistVariable.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="/fonts/PretendardVariable.woff2" crossorigin>
 
+{{/* 스크롤 리빌 게이트 — paint 전에 html.js-reveal 을 부여해 FOUC 방지.
+     동작 줄이기 사용자에겐 부여하지 않아 모션 없이 콘텐츠가 즉시 보인다. */}}
+<script>
+  (function () {
+    try {
+      var mq = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)');
+      if (!mq || !mq.matches) document.documentElement.classList.add('js-reveal');
+    } catch (e) {}
+  })();
+</script>
+
 {{/* Open Graph / Twitter 카드는 Docsy 내장 템플릿(opengraph·twitter_cards)이 생성하므로
      여기서 중복 출력하지 않는다. 사이트 기본 OG 이미지는 hugo.yaml params.images로 지정. */}}
 
@@ -19,4 +30,54 @@
 <link rel="alternate" hreflang="x-default" href="{{ .Permalink }}">
 {{ end -}}
 {{ end -}}
+{{ end -}}
+
+{{/* ===== JSON-LD 구조화 데이터 (검색 엔진 리치 결과) ===== */}}
+{{/* Organization — 전 페이지 공통 (조직 식별) */}}
+<script type="application/ld+json">
+{{ dict
+  "@context" "https://schema.org"
+  "@type" "Organization"
+  "name" .Site.Title
+  "url" .Site.BaseURL
+  "logo" (absURL "favicons/icon-512.png")
+  "sameAs" (slice "https://github.com/sktelecom")
+  | jsonify (dict "indent" "  ") | safeJS }}
+</script>
+
+{{/* BlogPosting — 블로그 글 */}}
+{{ if and (eq .Kind "page") (eq .Section "blog") -}}
+{{ $img := absURL (index (.Site.Params.images | default (slice "og-default.png")) 0) -}}
+{{ with .Params.images }}{{ $img = absURL (index . 0) }}{{ end -}}
+<script type="application/ld+json">
+{{ dict
+  "@context" "https://schema.org"
+  "@type" "BlogPosting"
+  "headline" .Title
+  "datePublished" (.Date.Format "2006-01-02T15:04:05Z07:00")
+  "dateModified" (.Lastmod.Format "2006-01-02T15:04:05Z07:00")
+  "author" (dict "@type" "Organization" "name" .Site.Title "url" .Site.BaseURL)
+  "publisher" (dict "@type" "Organization" "name" .Site.Title "logo" (dict "@type" "ImageObject" "url" (absURL "favicons/icon-512.png")))
+  "image" $img
+  "mainEntityOfPage" .Permalink
+  "inLanguage" .Site.Language.Lang
+  | jsonify (dict "indent" "  ") | safeJS }}
+</script>
+{{ end -}}
+
+{{/* BreadcrumbList — 조상이 있는 하위 페이지/섹션(가이드/컴플라이언스 등) */}}
+{{ if and (or (eq .Kind "page") (eq .Kind "section")) .Ancestors -}}
+{{ $items := slice -}}
+{{ $crumbs := .Ancestors.Reverse -}}
+{{ range $i, $a := $crumbs -}}
+  {{ $items = $items | append (dict "@type" "ListItem" "position" (add $i 1) "name" $a.LinkTitle "item" $a.Permalink) -}}
+{{ end -}}
+{{ $items = $items | append (dict "@type" "ListItem" "position" (add (len $crumbs) 1) "name" .LinkTitle "item" .Permalink) -}}
+<script type="application/ld+json">
+{{ dict
+  "@context" "https://schema.org"
+  "@type" "BreadcrumbList"
+  "itemListElement" $items
+  | jsonify (dict "indent" "  ") | safeJS }}
+</script>
 {{ end -}}

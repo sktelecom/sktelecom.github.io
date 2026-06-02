@@ -1,0 +1,13 @@
+{{/* 전역 스크립트 번들 (Docsy hooks/body-end). 프로덕션은 minify+fingerprint+SRI. */}}
+{{ $scripts := slice }}
+{{ with resources.Get "js/scroll-reveal.js" }}{{ $scripts = $scripts | append . }}{{ end }}
+{{ with resources.Get "js/ui-enhancements.js" }}{{ $scripts = $scripts | append . }}{{ end }}
+{{ with $scripts }}
+  {{ $js := . | resources.Concat "js/skt-bundle.js" }}
+  {{ if hugo.IsProduction }}
+    {{ $js = $js | minify | fingerprint }}
+    <script defer src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}" crossorigin="anonymous"></script>
+  {{ else }}
+    <script defer src="{{ $js.RelPermalink }}"></script>
+  {{ end }}
+{{ end }}

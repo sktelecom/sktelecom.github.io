@@ -44,6 +44,10 @@ https://www.docsy.dev/docs/content/lookandfeel/#project-style-files
   --skt-gradient:   #{$skt-gradient};
   --skt-focus:    rgba(0, 0, 0, .6);
   --skt-hero-bg:  #ffffff;
+  /* 액센트(SK Red) — 핵심 지점에만 절제 사용. 히어로 글로우는 저채도 */
+  --skt-accent:      #{$skt-accent};
+  --skt-accent-glow: #{rgba($skt-accent, .14)};
+  --skt-hero-glow:   var(--skt-accent-glow);
 }
 
 /* 다크 = Vercel 시그니처: 순검정 배경 / 흰 강조 / 불투명 헤어라인 */
@@ -63,6 +67,10 @@ https://www.docsy.dev/docs/content/lookandfeel/#project-style-files
   --skt-focus:    rgba(255, 255, 255, .7);
   --skt-gradient: linear-gradient(135deg, #1a1a1a 0%, #000 100%);
   --skt-hero-bg:  #000000;
+  /* 다크: 액센트는 밝게 보정, 히어로 글로우는 Vercel 시그니처 흰색 유지 */
+  --skt-accent:      #{$skt-accent-dark};
+  --skt-accent-glow: #{rgba($skt-accent-dark, .14)};
+  --skt-hero-glow:   rgba(255, 255, 255, .14);
 }
 
 /* 다크 페이지 배경을 순검정으로 (Docsy 기본 회색 덮기) */
@@ -190,6 +198,16 @@ h1, h2, h3, h4, h5, h6,
   gap: 1.5rem;
 }
 
+/* 블로그 목록 — 연도 그룹 헤더 + 카드 그리드(홈과 통일) */
+.td-blog-posts .skt-blog-year {
+  margin: 2.75rem 0 1.25rem;
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+.td-blog-posts .skt-blog-year:first-child { margin-top: 1.5rem; }
+.td-blog-posts .skt-grid { margin-bottom: 1rem; }
+
 /* 카드 — 그림자 없이 1px 보더, hover 시 보더 강조(lift 없음) */
 .skt-card {
   display: flex;
@@ -199,13 +217,16 @@ h1, h2, h3, h4, h5, h6,
   border: 1px solid var(--skt-border);
   border-radius: $border-radius-lg;
   overflow: hidden;
-  transition: border-color var(--skt-transition), background var(--skt-transition);
+  transition: border-color var(--skt-transition), background var(--skt-transition),
+              transform var(--skt-transition), box-shadow var(--skt-transition);
   color: inherit;
   text-decoration: none;
 }
 a.skt-card:hover,
 .skt-card:hover {
   border-color: var(--skt-border-strong);
+  transform: translateY(-4px);
+  box-shadow: var(--skt-shadow-lg);
   text-decoration: none;
 }
 .skt-card__media {
@@ -334,13 +355,14 @@ a.skt-card:hover,
           mask-image: radial-gradient(ellipse 60% 50% at 50% 45%, #000 30%, transparent 75%);
   opacity: .7;
 }
-[data-bs-theme='dark'] .skt-hero::before {
+/* 히어로 상단 글로우 — 라이트는 저채도 SK Red 액센트, 다크는 흰색(토큰) */
+.skt-hero::before {
   content: "";
   position: absolute;
   inset: 0;
   z-index: 0;
   pointer-events: none;
-  background: radial-gradient(ellipse 50% 40% at 50% 0%, rgba(255, 255, 255, .08), transparent 70%);
+  background: radial-gradient(ellipse 75% 55% at 50% -8%, var(--skt-hero-glow), transparent 72%);
 }
 .skt-hero__inner {
   position: relative;
@@ -365,6 +387,109 @@ a.skt-card:hover,
   gap: .8rem;
   justify-content: center;
   flex-wrap: wrap;
+}
+
+/* 히어로 진입 애니메이션 — 제목→부제→CTA 순차(최초 1회).
+   no-preference로 감싸 동작 줄이기 사용자에겐 적용되지 않음 */
+@media (prefers-reduced-motion: no-preference) {
+  .skt-hero__title    { animation: skt-fade-up .7s var(--skt-ease) both; }
+  .skt-hero__subtitle { animation: skt-fade-up .7s var(--skt-ease) .12s both; }
+  .skt-hero__actions  { animation: skt-fade-up .7s var(--skt-ease) .24s both; }
+}
+@keyframes skt-fade-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* CTA 화살표 — hover 시 살짝 전진 */
+.btn .fa-arrow-right { transition: transform var(--skt-transition) var(--skt-ease); }
+.btn:hover .fa-arrow-right { transform: translateX(3px); }
+
+/* 스크롤 리빌 — html.js-reveal 일 때만 초기 숨김 적용(JS 비활성/실패 시 항상 표시).
+   js-reveal 클래스는 동작 줄이기가 아닐 때만 head 인라인 스크립트가 부여한다. */
+.js-reveal .skt-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity .65s var(--skt-ease), transform .65s var(--skt-ease);
+  transition-delay: var(--skt-reveal-delay, 0s);
+  will-change: opacity, transform;
+}
+.js-reveal .skt-reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+/* 카드 stagger — 3열 기준 행마다 좌→우 미세 지연 */
+.js-reveal .skt-grid > .skt-reveal:nth-child(3n+2),
+.js-reveal .row > .skt-reveal:nth-child(3n+2) { --skt-reveal-delay: .06s; }
+.js-reveal .skt-grid > .skt-reveal:nth-child(3n),
+.js-reveal .row > .skt-reveal:nth-child(3n) { --skt-reveal-delay: .12s; }
+
+/* 스크롤 진행 바 — 상단 고정(navbar 위), 절제된 액센트 */
+.skt-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  background: var(--skt-accent);
+  z-index: 1040;
+  pointer-events: none;
+  will-change: transform;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .skt-progress { transition: transform .1s linear; }
+}
+
+/* 맨 위로 버튼 — 무채색 원형, 우하단(스크롤 시 노출) */
+.skt-to-top {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  width: 42px;
+  height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--skt-surface);
+  color: var(--skt-text);
+  border: 1px solid var(--skt-border);
+  box-shadow: var(--skt-shadow-lg);
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: opacity var(--skt-transition), transform var(--skt-transition),
+              visibility var(--skt-transition), border-color var(--skt-transition),
+              background var(--skt-transition);
+  z-index: 1030;
+}
+.skt-to-top.is-visible { opacity: 1; visibility: visible; transform: none; }
+.skt-to-top:hover { border-color: var(--skt-border-strong); background: var(--skt-surface-subtle); }
+
+/* 스킵 링크 — 평소 숨김, 키보드 포커스 시 좌상단에 노출(접근성) */
+.skt-skip-link {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1100;
+  padding: .65rem 1rem;
+  background: var(--skt-surface);
+  color: var(--skt-text);
+  border: 1px solid var(--skt-border);
+  border-radius: 0 0 $border-radius 0;
+  font-size: .9rem;
+  font-weight: 500;
+  text-decoration: none;
+  transform: translateY(-150%);
+  transition: transform var(--skt-transition);
+}
+.skt-skip-link:focus {
+  transform: none;
+  color: var(--skt-text);
+  text-decoration: none;
 }
 
 /* 섹션 공통 */
@@ -520,7 +645,19 @@ a.skt-card:hover,
     border-radius: $border-radius-lg;
     padding: 1rem 1.15rem;
   }
-  .highlight { border-radius: $border-radius-lg; }
+  .highlight { border-radius: $border-radius-lg; position: relative; }
+  /* 코드 복사 버튼(Docsy click-to-copy) — 무채색 톤 정비, hover 시 또렷 */
+  .highlight button.td-click-to-copy {
+    color: var(--skt-text-muted);
+    border: 1px solid transparent;
+    border-radius: $border-radius-sm;
+    transition: color var(--skt-transition), background var(--skt-transition), border-color var(--skt-transition);
+  }
+  .highlight button.td-click-to-copy:hover {
+    color: var(--skt-text);
+    background: var(--skt-surface-muted);
+    border-color: var(--skt-border);
+  }
 
   /* 인용 — 절제(2px 보더 + subtle 배경) */
   blockquote {
@@ -533,16 +670,33 @@ a.skt-card:hover,
   }
   blockquote p:last-child { margin-bottom: 0; }
 
-  /* 표 — 헤더 배경 + 행 구분선 */
-  table {
-    th, td { padding: .65rem .85rem; }
-    thead th {
-      background: var(--skt-surface-subtle);
-      border-bottom: 1px solid var(--skt-border-strong);
-      font-weight: 600;
-    }
-    td { border-color: var(--skt-border); }
+  /* 표 — .skt-table 컨테이너로 카드화(외곽 테두리 + radius + 모바일 가로 스크롤).
+     render-table 훅이 모든 마크다운 표를 .skt-table 로 감싼다. */
+  .skt-table {
+    margin: 1.5rem 0;
+    border: 1px solid var(--skt-border);
+    border-radius: $border-radius-lg;
+    overflow: auto;                 /* 모바일 가로 스크롤 + radius 클립 */
   }
+  .skt-table > table {
+    margin: 0;
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .skt-table th,
+  .skt-table td {
+    padding: .7rem 1rem;
+    border-bottom: 1px solid var(--skt-border);
+  }
+  .skt-table thead th {
+    background: var(--skt-surface-subtle);
+    border-bottom: 1px solid var(--skt-border-strong);
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .skt-table tbody tr:last-child > * { border-bottom: 0; }
+  .skt-table tbody tr { transition: background var(--skt-transition); }
+  .skt-table tbody tr:hover > * { background: var(--skt-surface-subtle); }
 
   /* 본문 링크 — 읽는 중 식별 위해 옅은 밑줄 (표 셀 안 링크 포함) */
   p a, li a, td a, th a {
@@ -573,15 +727,49 @@ a.skt-card:hover,
   padding-bottom: 4rem;
 }
 
-/* alert/callout — 전역 무채색 통일 (본문·인트로 공통, 의미색/노랑·초록 제거) */
+/* alert/callout — 좌측 아이콘 callout. 박스·본문은 무채색, 아이콘만 절제된 의미색.
+   HTML 구조: .alert > .alert-heading(.h4) + p/ul  (Docsy alert 숏코드) */
 .alert {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: .8rem;
+  align-items: start;
+  padding: 1.1rem 1.25rem;
   background: var(--skt-surface-subtle);
   border: 1px solid var(--skt-border);
-  border-left: 3px solid var(--skt-border-strong);
-  border-radius: $border-radius;
+  border-radius: $border-radius-lg;
   color: var(--skt-text);
 }
-.alert .alert-heading { color: var(--skt-text); }
+/* 좌측 아이콘 — color별 글리프(Font Awesome 6 Free), 절제된 의미색 */
+.alert::before {
+  grid-column: 1;
+  grid-row: 1;
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  content: "\f05a";              /* circle-info (기본) */
+  font-size: 1.05rem;
+  line-height: 1.55;
+  color: var(--skt-text-muted);
+}
+.alert-warning::before { content: "\f071"; color: #{$skt-orange}; }  /* triangle-exclamation */
+.alert-danger::before  { content: "\f06a"; color: #{$skt-red}; }     /* circle-exclamation */
+.alert-success::before { content: "\f058"; color: #{$skt-green}; }   /* circle-check */
+.alert-info::before,
+.alert-primary::before { content: "\f05a"; color: var(--skt-text-muted); }
+/* 콘텐츠는 모두 우측 컬럼 */
+.alert > * { grid-column: 2; min-width: 0; }
+.alert .alert-heading {
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--skt-text);
+  margin: 0 0 .35rem;
+}
+.alert p { margin-bottom: .5rem; color: var(--skt-text-muted); }
+.alert ul, .alert ol { margin-bottom: 0; padding-left: 1.15rem; color: var(--skt-text-muted); }
+.alert > :last-child { margin-bottom: 0; }
+.alert a { color: var(--skt-text); text-decoration: underline; text-decoration-color: var(--skt-border-strong); text-underline-offset: .15em; }
+.alert a:hover { text-decoration-color: currentColor; }
 [data-bs-theme='dark'] .alert {
   background: var(--skt-surface-muted);
   border-color: var(--skt-border-strong);
@@ -601,6 +789,27 @@ a.skt-card:hover,
 .td-toc #TableOfContents a { color: var(--skt-text-muted); }
 .td-toc #TableOfContents a:hover { color: var(--skt-text); }
 .td-toc #TableOfContents a.active { color: var(--skt-text); font-weight: 600; }
+
+/* 우측 사이드바 전반 — 페이지 메타·택소노미 폰트가 과하게 굵고 커서 절제 */
+.td-sidebar-toc { font-size: .85rem; }
+/* 페이지 메타 링크(페이지 보기/편집, Create … 등) */
+.td-page-meta a {
+  font-size: .85rem;
+  font-weight: 500;
+  color: var(--skt-text-muted);
+}
+.td-page-meta a:hover { color: var(--skt-text); }
+/* 섹션 헤더(On this page / Tag Cloud / Categories) — 작고 조용한 라벨 */
+.td-toc .td-toc-title__text,
+.taxonomy-title {
+  font-size: .8rem;
+  font-weight: 600;
+  letter-spacing: .02em;
+  color: var(--skt-text-muted);
+  margin-bottom: .5rem;
+}
+/* 택소노미 배지(태그/카테고리) */
+.td-sidebar-toc .taxonomy-term { font-size: .8rem; }
 
 /* ===================================================================
    8. 좌측 사이드바 — 위계·액티브를 모노크롬으로 정교화
@@ -681,8 +890,10 @@ a.skt-card:hover,
   pre,
   :not(pre) > code { background: var(--skt-surface-muted); border-color: var(--skt-border); }
   blockquote { background: var(--skt-surface-muted); }
-  table thead th { background: var(--skt-surface-muted); }
-  table th,
-  table td { border-color: var(--skt-border-strong); }
+  .skt-table { border-color: var(--skt-border-strong); }
+  .skt-table thead th { background: var(--skt-surface-muted); }
+  .skt-table th,
+  .skt-table td { border-color: var(--skt-border-strong); }
+  .skt-table tbody tr:hover > * { background: var(--skt-surface-muted); }
   img { border-color: var(--skt-border-strong); }
 }
