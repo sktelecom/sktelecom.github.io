@@ -38,36 +38,40 @@ $skt-green: #00A651;         // SK Green
 // Bootstrap 변수 오버라이드
 // ============================================
 
+// 주의: 이 파일은 Bootstrap 변수 이후에 로드되므로 !default 를 붙이면
+// Bootstrap 기본값(예: $primary=#0d6efd 파랑)을 덮지 못한다. 오버라이드를
+// 실제로 적용하려면 !default 없이 강제 할당해야 한다.
+
 // Primary: 모노크롬 강조 (라이트=near-black #171717). 다크는 _styles_project에서 반전.
-$primary: $skt-t-blue !default;
+$primary: $skt-t-blue;
 
 // Secondary: 무채색 회색 (모노크롬)
-$secondary: $skt-gray-600 !default;
+$secondary: $skt-gray-600;
 
 // 기타 색상 — success/warning/danger 는 의미색이라 유지(경고/성공 접근성)
-$success: $skt-green !default;
-$info: $skt-gray-500 !default;
-$warning: $skt-orange !default;
-$danger: $skt-red !default;
+$success: $skt-green;
+$info: $skt-gray-500;
+$warning: $skt-orange;
+$danger: $skt-red;
 
 // ============================================
 // 링크 색상 (모노크롬)
 // ============================================
 
-$link-color: $skt-gray-900 !default;
-$link-decoration: none !default;
-$link-hover-color: $skt-gray-600 !default;
-$link-hover-decoration: underline !default;
+$link-color: $skt-gray-900;
+$link-decoration: none;
+$link-hover-color: $skt-gray-600;
+$link-hover-decoration: underline;
 
 // ============================================
 // 버튼 (Vercel 미니멀)
 // ============================================
 
-$btn-link-color: $skt-gray-900 !default;
-$btn-link-hover-color: $skt-gray-600 !default;
-$btn-font-weight: 500 !default;
-$btn-border-radius:    $border-radius !default;     // 6px
-$btn-border-radius-sm: $border-radius-sm !default;
-$btn-border-radius-lg: $border-radius !default;     // lg도 6px (Vercel은 안 키움)
+$btn-link-color: $skt-gray-900;
+$btn-link-hover-color: $skt-gray-600;
+$btn-font-weight: 500;
+$btn-border-radius:    $border-radius;     // 6px
+$btn-border-radius-sm: $border-radius-sm;
+$btn-border-radius-lg: $border-radius;     // lg도 6px (Vercel은 안 키움)
 
 

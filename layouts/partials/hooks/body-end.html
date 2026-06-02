@@ -1,0 +1,9 @@
+{{/* 전역 스크립트 로드 (Docsy hooks/body-end). 프로덕션은 minify+fingerprint+SRI. */}}
+{{ with resources.Get "js/scroll-reveal.js" }}
+  {{ if hugo.IsProduction }}
+    {{ $js := . | minify | fingerprint }}
+    <script defer src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}" crossorigin="anonymous"></script>
+  {{ else }}
+    <script defer src="{{ .RelPermalink }}"></script>
+  {{ end }}
+{{ end }}

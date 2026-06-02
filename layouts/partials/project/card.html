@@ -2,7 +2,7 @@
 {{ $imgs := .Resources.ByType "image" }}
 {{ $img := $imgs.GetMatch "*logo*" }}
 {{ if and (not $img) $imgs }}{{ $img = index $imgs 0 }}{{ end }}
-<a class="skt-card" href="{{ .RelPermalink }}">
+<a class="skt-card skt-reveal" href="{{ .RelPermalink }}">
   <div class="skt-card__media">
     {{ with $img }}
       {{ if eq .MediaType.SubType "svg" }}

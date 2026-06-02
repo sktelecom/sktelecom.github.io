@@ -2,6 +2,17 @@
 <link rel="preload" as="font" type="font/woff2" href="/fonts/GeistVariable.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="/fonts/PretendardVariable.woff2" crossorigin>
 
+{{/* 스크롤 리빌 게이트 — paint 전에 html.js-reveal 을 부여해 FOUC 방지.
+     동작 줄이기 사용자에겐 부여하지 않아 모션 없이 콘텐츠가 즉시 보인다. */}}
+<script>
+  (function () {
+    try {
+      var mq = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)');
+      if (!mq || !mq.matches) document.documentElement.classList.add('js-reveal');
+    } catch (e) {}
+  })();
+</script>
+
 {{/* Open Graph / Twitter 카드는 Docsy 내장 템플릿(opengraph·twitter_cards)이 생성하므로
      여기서 중복 출력하지 않는다. 사이트 기본 OG 이미지는 hugo.yaml params.images로 지정. */}}
 
