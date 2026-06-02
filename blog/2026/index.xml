@@ -7,7 +7,8 @@ EU 사이버 복원력법(Cyber Resilience Act, CRA — Regulation (EU) 2024/284
 &lt;p&gt;최근 임베디드 리눅스 업계에서 화제가 된 Rockchip과 FFmpeg의 라이선스 분쟁(2025-2026) 사례를
 정리해 보았습니다. 이 사례는 단순히 한 기업의 실수가 아니라, 하드웨어 벤더(SoC Vendor)가
 제공하는 SDK/BSP를 그대로 사용할 때 발생할 수 있는 공급망 리스크를 보여줍니다.&lt;/p&gt;
-&lt;p&gt;&lt;img src="https://sktelecom.github.io/blog/2026/02/20/rockchip%EA%B3%BC-ffmpeg%EC%9D%98-%EB%9D%BC%EC%9D%B4%EC%84%A0%EC%8A%A4-%EB%B6%84%EC%9F%81-%EC%82%AC%EB%A1%80/featured-image.jpg" alt=""&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="./featured-image.jpg" alt="" width="1200" height="600" loading="eager" fetchpriority="high" decoding="async"&gt;
+&lt;/p&gt;
 &lt;h2 id="1-사건-개요-2025년-github-리포지토리-강제-중단"&gt;1. 사건 개요: 2025년 GitHub 리포지토리 강제 중단&lt;a class="td-heading-self-link" href="#1-%ec%82%ac%ea%b1%b4-%ea%b0%9c%ec%9a%94-2025%eb%85%84-github-%eb%a6%ac%ed%8f%ac%ec%a7%80%ed%86%a0%eb%a6%ac-%ea%b0%95%ec%a0%9c-%ec%a4%91%eb%8b%a8" aria-label="Heading self-link"&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;2025년 12월, 중국의 대표적인 반도체 기업 Rockchip의 GitHub 리포지토리 중 하나인
 &lt;code&gt;rockchip-linux/mpp&lt;/code&gt; (Media Process Platform)를 GitHub가 비활성화(disabled)하는
