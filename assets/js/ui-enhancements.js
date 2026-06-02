@@ -9,6 +9,17 @@
     window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var isEn = (document.documentElement.lang || "").slice(0, 2) === "en";
 
+  // 0) 스킵 링크 — 키보드 사용자가 반복되는 내비를 건너뛰고 본문으로 (접근성)
+  var main = document.querySelector("main");
+  if (main) {
+    if (!main.id) main.id = "main-content";
+    var skip = document.createElement("a");
+    skip.className = "skt-skip-link";
+    skip.href = "#" + main.id;
+    skip.textContent = isEn ? "Skip to content" : "본문 바로가기";
+    document.body.insertBefore(skip, document.body.firstChild);
+  }
+
   // 1) 스크롤 진행 바 (상단 고정, 액센트색)
   var bar = document.createElement("div");
   bar.className = "skt-progress";

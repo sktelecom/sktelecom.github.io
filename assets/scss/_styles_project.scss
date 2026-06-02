@@ -469,6 +469,29 @@ a.skt-card:hover,
 .skt-to-top.is-visible { opacity: 1; visibility: visible; transform: none; }
 .skt-to-top:hover { border-color: var(--skt-border-strong); background: var(--skt-surface-subtle); }
 
+/* 스킵 링크 — 평소 숨김, 키보드 포커스 시 좌상단에 노출(접근성) */
+.skt-skip-link {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1100;
+  padding: .65rem 1rem;
+  background: var(--skt-surface);
+  color: var(--skt-text);
+  border: 1px solid var(--skt-border);
+  border-radius: 0 0 $border-radius 0;
+  font-size: .9rem;
+  font-weight: 500;
+  text-decoration: none;
+  transform: translateY(-150%);
+  transition: transform var(--skt-transition);
+}
+.skt-skip-link:focus {
+  transform: none;
+  color: var(--skt-text);
+  text-decoration: none;
+}
+
 /* 섹션 공통 */
 .skt-section {
   padding: 5rem 0;
