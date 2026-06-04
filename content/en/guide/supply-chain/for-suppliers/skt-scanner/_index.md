@@ -33,9 +33,32 @@ A single run generates the following **three deliverables** together (the `--all
 | **Open Source Notice** | `{project}_{version}_NOTICE.{txt,html}` | Notice document for fulfilling license obligations |
 | **Open Source Risk Analysis Report** | `{project}_{version}_risk-report.{md,html}` | Aggregation of license and vulnerability risks (response deadlines: Critical 7 days, High 30 days) |
 
+## Prerequisites
+
+The SBOM Generator runs on Docker. Install and run Docker Engine 20.10 or later. On Windows without Docker, we recommend Rancher Desktop, which is free. The first run downloads a scanner image (about 3–4 GB), so it takes roughly 5–15 minutes depending on your network.
+
+## Getting Started on Windows (No Command Line)
+
+If you are not comfortable with the command line, you can generate an SBOM on Windows using only your mouse. Choose one of the two methods below; for full details, see the [Windows quick start guide](https://github.com/sktelecom/sbom-tools/blob/main/docs/notice-quickstart.md).
+
+The simplest method is to download the executable and double-click it.
+
+1. Download `SBOM-Generator-*.exe` from the [latest release](https://github.com/sktelecom/sbom-tools/releases/latest).
+2. Double-click the downloaded file to run it.
+
+This executable is not yet code-signed, so Windows SmartScreen may show a protection warning when you run it. If it does, click "More info" and then select "Run anyway".
+
+Alternatively, you can download the whole repository and use it.
+
+1. From the repository's green `Code` button, choose `Download ZIP`, then unzip it.
+2. In the unzipped folder, double-click `scripts\sbom-ui.bat`.
+3. Once preparation is complete, the browser opens `http://localhost:8080` automatically.
+
+The generated deliverables are saved to the `C:\Users\[username]\sbom-output` folder.
+
 ## Quick Start (CLI)
 
-Prerequisite: Install and run **Docker 20.10 or later**. (The first run takes 5–10 minutes to download the image)
+On macOS and Linux, download and run the script from a shell.
 
 ```bash
 # 1) Download the script
@@ -50,6 +73,7 @@ cd /path/to/my-project
 - Result: `MyApp_1.0.0_bom.json`, `MyApp_1.0.0_NOTICE.{txt,html}`, `MyApp_1.0.0_risk-report.{md,html}`
 - For other input forms—such as a GitHub URL, source ZIP, Docker image, existing SBOM, firmware, binary/RootFS—and
   the full set of options, refer to the [Usage Guide](https://github.com/sktelecom/sbom-tools/blob/main/docs/usage-guide.md).
+- On Windows, run the same commands through `scripts\scan-sbom.bat`, which forwards them via Git Bash, so Git for Windows must be installed.
 
 > `--generate-only` creates files only locally, without uploading them automatically to the portal. This is recommended until submission.
 
@@ -61,7 +85,7 @@ If the command line feels daunting, you can use the browser-based web UI. Run it
 ./scan-sbom.sh --ui     # http://localhost:8080 opens automatically
 ```
 
-On Windows, double-click `scripts\sbom-ui.bat`.
+To run without the command line on Windows, see [Getting Started on Windows (No Command Line)](#getting-started-on-windows-no-command-line) above.
 
 On the screen, select the **scan target** (current folder / GitHub URL / ZIP / SBOM / firmware / Docker image),
 enter the project name and version, then run; the progress log is displayed in real time.
