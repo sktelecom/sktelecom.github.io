@@ -9,118 +9,62 @@ description: >
 
 ## SKT SBOM Generator
 
-SKT SBOM Generator는 공급사가 Docker 환경에서
-SK텔레콤 정책에 부합하는 산출물을 생성할 수 있는 오픈소스 도구입니다.
+SKT SBOM Generator는 공급사가 Docker 환경에서 SK텔레콤 정책에 맞는 산출물을 생성할 수 있는 오픈소스 도구입니다. 로컬에 언어별 도구를 따로 설치하지 않아도 여러 언어를 분석해 CycloneDX(JSON) 산출물을 만듭니다.
 
-- **환경 독립성**: Docker 컨테이너 기반으로 동작하여 로컬에 Java, Python 등을 설치할 필요가 없습니다.
-- **다중 언어 지원**: Java, Python, Node.js, Go, Swift/iOS, Android 등 다양한 언어를 분석합니다.
-- **표준 준수**: SK텔레콤 정책에 맞는 CycloneDX (JSON) 산출물을 생성합니다.
+이 페이지는 빠른 시작만 다룹니다. 설치, 전체 옵션, 언어별 가이드, 입력 시나리오, 웹 UI 등 자세한 내용은 공식 저장소 문서를 참고하세요.
 
-> 이 페이지는 **빠른 시작**만 다룹니다. 설치, 전체 옵션, 언어별 가이드, 입력 시나리오, 웹 UI 등
-> **상세 사용법은 공식 저장소 문서**를 정본으로 참고하세요.
->
 > [github.com/sktelecom/sbom-tools](https://github.com/sktelecom/sbom-tools)
 >
-> 버그 제보, 기능 제안, Pull Request를 통한 기여를 환영합니다.
+> 버그 제보, 기능 제안, Pull Request 기여를 환영합니다.
 
-## 납품 산출물 3종
+## 생성되는 산출물
 
-한 번의 실행으로 다음 **3종 산출물**이 함께 생성됩니다(`--all` 옵션).
+한 번의 실행으로 다음 세 가지가 함께 생성됩니다(`--all` 옵션).
 
 | 산출물 | 파일 | 용도 |
 |--------|------|------|
-| **SBOM** | `{프로젝트}_{버전}_bom.json` | CycloneDX 1.6 구성요소 명세 (납품 기준 산출물) |
-| **오픈소스 고지문** | `{프로젝트}_{버전}_NOTICE.{txt,html}` | 라이선스 의무 이행을 위한 고지문 |
-| **오픈소스위험분석보고서** | `{프로젝트}_{버전}_risk-report.{md,html}` | 라이선스+취약점 위험 집계 (대응 기한: Critical 7일·High 30일) |
+| SBOM | `{프로젝트}_{버전}_bom.json` | CycloneDX 1.6 구성요소 명세 (납품 기준 산출물) |
+| 오픈소스 고지문 | `{프로젝트}_{버전}_NOTICE.{txt,html}` | 라이선스 의무 이행을 위한 고지문 |
+| 오픈소스위험분석보고서 | `{프로젝트}_{버전}_risk-report.{md,html}` | 라이선스와 취약점 위험 집계 |
 
 ## 사전 준비
 
-SBOM Generator는 Docker 위에서 동작합니다. Docker 엔진 20.10 이상을 설치하고 실행해 두세요. Docker가 설치되어 있지 않은 Windows에서는 무료로 쓸 수 있는 Rancher Desktop을 권장합니다. 첫 실행 때는 스캐너 이미지(약 3~4GB)를 내려받으므로 네트워크 상태에 따라 5~15분 정도 걸립니다.
+SBOM Generator는 Docker 위에서 동작합니다. Docker 엔진 20.10 이상을 설치하고 실행해 두세요. Docker가 없는 Windows에서는 무료인 Rancher Desktop을 권장합니다. 첫 실행 때 스캐너 이미지(약 3–4GB)를 내려받느라 5–15분쯤 걸립니다.
 
 ## Windows에서 명령줄 없이 시작
 
-명령줄이 익숙하지 않다면 Windows에서 마우스 조작만으로 SBOM을 생성할 수 있습니다. 아래 두 방법 중 하나를 고르면 되며, 자세한 설명은 [Windows 빠른 시작 문서](https://github.com/sktelecom/sbom-tools/blob/main/docs/notice-quickstart.md)를 참고하세요.
+명령줄이 익숙하지 않다면 두 가지 방법 중 하나로 SBOM을 생성할 수 있습니다. 자세한 절차는 [Windows 빠른 시작 문서](https://github.com/sktelecom/sbom-tools/blob/main/docs/notice-quickstart.md)를 참고하세요.
 
-가장 간단한 방법은 실행 파일을 내려받아 더블클릭하는 것입니다.
-
-1. [최신 릴리스](https://github.com/sktelecom/sbom-tools/releases/latest)에서 `SBOM-Generator-*.exe` 파일을 내려받습니다.
-2. 내려받은 파일을 더블클릭해 실행합니다.
-
-이 실행 파일은 아직 코드 서명이 되어 있지 않아, 실행할 때 Windows SmartScreen 보호 경고가 나타날 수 있습니다. 이때 "추가 정보"를 누른 뒤 "실행"을 선택하면 됩니다.
-
-실행 파일 대신 저장소를 통째로 내려받아 쓰는 방법도 있습니다.
-
-1. 저장소의 녹색 `Code` 버튼에서 `Download ZIP`을 눌러 내려받고 압축을 풉니다.
-2. 압축을 푼 폴더에서 `scripts\sbom-ui.bat`를 더블클릭합니다.
-3. 준비가 끝나면 브라우저에서 `http://localhost:8080`이 자동으로 열립니다.
-
-생성된 산출물은 `C:\Users\[사용자명]\sbom-output` 폴더에 저장됩니다.
+- 실행 파일: [최신 릴리스](https://github.com/sktelecom/sbom-tools/releases/latest)에서 `SBOM-Generator-*.exe`를 내려받아 더블클릭합니다. 이 파일은 아직 코드 서명이 되어 있지 않아 Windows SmartScreen 경고가 나타나면 "추가 정보"를 누른 뒤 "실행"을 선택합니다.
+- 저장소 ZIP: 저장소의 `Code` 버튼에서 `Download ZIP`을 받아 압축을 풀고 `scripts\sbom-ui.bat`를 더블클릭하면 브라우저에서 `http://localhost:8080`이 열립니다.
 
 ## 빠른 시작 (CLI)
 
 macOS와 Linux에서는 셸에서 스크립트를 내려받아 실행합니다.
 
 ```bash
-# 1) 스크립트 다운로드
 curl -O https://raw.githubusercontent.com/sktelecom/sbom-tools/main/scripts/scan-sbom.sh
 chmod +x scan-sbom.sh
-
-# 2) 소스 디렉터리에서 3종 산출물 생성
 cd /path/to/my-project
 /path/to/scan-sbom.sh --project "MyApp" --version "1.0.0" --all --generate-only
 ```
 
-- 결과: `MyApp_1.0.0_bom.json`, `MyApp_1.0.0_NOTICE.{txt,html}`, `MyApp_1.0.0_risk-report.{md,html}`
-- GitHub URL, 소스 ZIP, Docker 이미지, 기존 SBOM, 펌웨어, 바이너리/RootFS 등 다른 입력 형태와
-  전체 옵션은 [사용 가이드](https://github.com/sktelecom/sbom-tools/blob/main/docs/usage-guide.md)를 참고하세요.
-- Windows에서 명령줄을 쓰는 경우 같은 명령을 `scripts\scan-sbom.bat`로 실행합니다. 이 배치 파일은 내부적으로 Git Bash를 거치므로 Git for Windows가 설치되어 있어야 합니다.
+- `--generate-only`는 포털 업로드 없이 로컬에 파일만 생성합니다(제출 전까지 권장).
+- 웹 UI로 쓰려면 `./scan-sbom.sh --ui`를 실행합니다(브라우저에서 `http://localhost:8080`).
+- Windows에서 명령줄을 쓸 때는 같은 명령을 `scripts\scan-sbom.bat`로 실행합니다(Git Bash를 거치므로 Git for Windows 필요).
+- GitHub URL, 소스 ZIP, Docker 이미지, 펌웨어, 바이너리 등 다른 입력 형태와 전체 옵션은 [사용 가이드](https://github.com/sktelecom/sbom-tools/blob/main/docs/usage-guide.md)를 참고하세요.
 
-> `--generate-only`는 포털 자동 업로드 없이 로컬에 파일만 생성합니다. 제출 전까지 권장합니다.
+## 더 알아보기
 
-## 웹 UI로 생성 (CLI가 익숙하지 않은 경우)
-
-명령줄이 부담스럽다면 브라우저 기반 웹 UI를 사용할 수 있습니다. 산출물을 저장할 폴더에서 한 줄로 실행합니다.
-
-```bash
-./scan-sbom.sh --ui     # http://localhost:8080 자동 열림
-```
-
-Windows에서 명령줄 없이 실행하는 방법은 위의 [Windows에서 명령줄 없이 시작](#windows에서-명령줄-없이-시작)을 참고하세요.
-
-화면에서 **스캔 대상**(현재 폴더 / GitHub URL / ZIP / SBOM / 펌웨어 / Docker 이미지)을 선택하고
-프로젝트명·버전을 입력한 뒤 실행하면, 진행 로그가 실시간으로 표시됩니다.
-
-![SBOM Generator 웹 UI — 스캔 대상 선택 화면](web-ui.png)
-
-완료 후 **SBOM·고지문·오픈소스위험분석보고서**를 화면에서 보거나 내려받을 수 있습니다.
-
-![SBOM Generator 웹 UI — 실시간 로그와 산출물 다운로드](web-ui-scan.png)
-
-> 웹 UI의 입력별 상세와 산출물 설명은
-> [고지문·보안·UI 가이드](https://github.com/sktelecom/sbom-tools/blob/main/docs/notice-security-ui-guide.md)를 참고하세요.
-
-## 더 알아보기 (공식 저장소 문서)
-
-도구 사용법의 정본은 저장소 문서입니다. 아래에서 필요한 주제를 확인하세요.
+도구 사용법의 정본은 저장소 문서입니다.
 
 | 주제 | 문서 |
 |------|------|
-| 설치 · 첫 SBOM (웹 UI 포함) | [getting-started](https://github.com/sktelecom/sbom-tools/blob/main/docs/getting-started.md) |
-| 전체 옵션 · 언어별 · 분석 모드 · CI/CD | [usage-guide](https://github.com/sktelecom/sbom-tools/blob/main/docs/usage-guide.md) |
+| 설치, 첫 SBOM, 웹 UI | [getting-started](https://github.com/sktelecom/sbom-tools/blob/main/docs/getting-started.md) |
+| 전체 옵션, 언어별, CI/CD | [usage-guide](https://github.com/sktelecom/sbom-tools/blob/main/docs/usage-guide.md) |
 | 입력 형태별 시나리오 | [scenarios-guide](https://github.com/sktelecom/sbom-tools/blob/main/docs/scenarios-guide.md) |
-| 고지문 · 보안 · 웹 UI | [notice-security-ui-guide](https://github.com/sktelecom/sbom-tools/blob/main/docs/notice-security-ui-guide.md) |
-| 공급사 SBOM 분석 (`--analyze`) | [supplier-sbom-analysis](https://github.com/sktelecom/sbom-tools/blob/main/docs/supplier-sbom-analysis.md) |
+| 고지문, 보안, 웹 UI | [notice-security-ui-guide](https://github.com/sktelecom/sbom-tools/blob/main/docs/notice-security-ui-guide.md) |
 
 ## 다음 단계
 
-SBOM 파일 생성 완료 후:
-
-1. [검증 체크리스트](../checklist/)로 파일 확인
-2. [제출 절차](../submission/)에 따라 SK텔레콤에 제출
-
-## 관련 문서
-
-- [제출 요구사항](../requirements/): SBOM에 포함되어야 할 필수 데이터 필드
-- [오픈소스 도구 활용](../creation-guide/): SKT 도구 대신 cdxgen·Syft 등 오픈소스 도구를 직접 사용하는 경우
-- [검증 체크리스트](../checklist/): 제출 전 확인 사항
-- [제출 절차](../submission/): 제출 방법 및 이메일 양식
+SBOM을 생성한 뒤 [검증 체크리스트](../checklist/)로 파일을 확인하고 [제출 절차](../submission/)에 따라 제출합니다. 필수 데이터 필드는 [제출 요구사항](../requirements/), SKT 도구 대신 cdxgen, Syft 등을 직접 쓰는 방법은 [오픈소스 도구 활용](../creation-guide/)을 참고하세요.
