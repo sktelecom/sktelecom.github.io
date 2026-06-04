@@ -1,20 +1,20 @@
 ---
-title: "SKT SBOM Generator (Easy Mode)"
+title: "SKT SBOM Generator"
 linkTitle: "SKT SBOM Generator"
 weight: 2
 type: docs
 description: >
-  Generate the three SK Telecom standard-compliant deliverables instantly with the SKT SBOM Generator, without complex configuration.
+  Explains how to generate an SBOM that meets SK Telecom policy using the SKT SBOM Generator.
 ---
 
 ## SKT SBOM Generator
 
-The SKT SBOM Generator is an open source tool that lets suppliers instantly generate
-standard-compliant deliverables that meet SK Telecom policy, using just Docker, without learning a separate tool or configuring an environment.
+The SKT SBOM Generator is an open source tool that lets suppliers generate
+deliverables that meet SK Telecom policy in a Docker environment.
 
 - **Environment independence**: It runs on a Docker container, so there is no need to install Java, Python, etc. locally.
-- **Multi-language support**: It analyzes various languages such as Java, Python, Node.js, Go, Swift/iOS, and Android in a single run.
-- **Automatic standard compliance**: It automatically generates a CycloneDX (JSON) deliverable that meets SK Telecom policy.
+- **Multi-language support**: It analyzes various languages such as Java, Python, Node.js, Go, Swift/iOS, and Android.
+- **Standard compliance**: It generates a CycloneDX (JSON) deliverable that meets SK Telecom policy.
 
 > This page covers only the **quick start**. For installation, the full set of options, language-specific guides, input scenarios, the web UI, and other topics,
 > refer to the **official repository documentation** as the authoritative source.

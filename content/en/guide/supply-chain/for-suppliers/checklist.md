@@ -43,5 +43,5 @@ SK Telecom's system maps vulnerabilities by PURL. This is the most important ite
 
 - [Submission Requirements](../requirements/): Detailed guidance on required data fields and PURL format
 - [Submission Process](../submission/): How to submit after passing the checklist
-- [SKT SBOM Generator](../skt-scanner/): A tool that automatically satisfies the checklist items
+- [SKT SBOM Generator](../skt-scanner/): A tool that generates an SBOM meeting the checklist items
 </content>

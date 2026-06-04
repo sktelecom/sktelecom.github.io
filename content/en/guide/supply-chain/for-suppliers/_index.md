@@ -7,7 +7,7 @@ description: >
   An SBOM generation and submission guide for partner companies that supply software to SK Telecom.
 ---
 
-To strengthen the transparency and security of its software supply chain, SK Telecom requires the submission of an SBOM (Software Bill of Materials) for all software components and dependencies delivered by suppliers. This guide explains in detail how suppliers can generate and submit a properly formatted SBOM in compliance with SK Telecom's security policy.
+To strengthen the transparency and security of its software supply chain, SK Telecom asks suppliers to submit an SBOM (Software Bill of Materials) for all software components and dependencies they deliver. This guide explains how suppliers can generate and submit an SBOM in a format that meets SK Telecom's security policy.
 
 ## Scope of Application
 
@@ -21,7 +21,7 @@ All suppliers (including developers and resellers) that deliver the following ty
 
 ## SBOM Submission Process
 
-Suppliers must follow the procedure below, from the time of contract through final delivery.
+We ask suppliers to follow the procedure below, from the time of contract through final delivery.
 
 ```mermaid
 flowchart TD
@@ -45,7 +45,7 @@ flowchart TD
 This section is organized as follows.
 
 1. [Submission Requirements](requirements/): Defines the required formats (CycloneDX, SPDX) and data fields that SK Telecom requires.
-2. [SKT SBOM Generator (Easy Mode)](skt-scanner/): Explains how to use the standard generation tool, which is ready to use without complex configuration.
+2. [SKT SBOM Generator](skt-scanner/): Explains how to use SK Telecom's SBOM generation tool.
 3. [Using Open Source Tools](creation-guide/): Explains how to generate an SBOM using general-purpose open source tools (cdxgen, Syft, etc.).
 4. [Validation Checklist](checklist/): Provides a checklist of essential items to verify before submission.
 5. [Submission Process](submission/): Explains the naming conventions and submission channels for the generated SBOM file.

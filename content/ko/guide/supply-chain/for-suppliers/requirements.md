@@ -88,7 +88,7 @@ MyApp
 - Node.js: `npm install` 또는 `yarn install` 실행 후 생성
 - Go: `go mod download` 실행 후 생성
 
-> 각 도구별 전이적 의존성 포함 방법은 [오픈소스 도구 활용](../creation-guide/) 가이드를 참고하십시오.
+> 각 도구별 전이적 의존성 포함 방법은 [오픈소스 도구 활용](../creation-guide/) 가이드를 참고하시기 바랍니다.
 
 ## 3. Package URL (PURL) 준수
 
@@ -127,7 +127,7 @@ purl은 생태계를 특정할 수 있는 타입이어야 합니다.
 | `lodash@4.17.21` | `pkg:npm/lodash@4.17.21` |
 | `pkg:generic/foo@1.0` | (생태계에 맞는 타입으로 변경) |
 
-> PURL에 대한 자세한 사양은 [Package URL 공식 스펙](https://github.com/package-url/purl-spec)을 참고하십시오.
+> PURL에 대한 자세한 사양은 [Package URL 공식 스펙](https://github.com/package-url/purl-spec)을 참고하시기 바랍니다.
 
 ## 4. 샘플 문서
 
@@ -177,7 +177,7 @@ purl은 생태계를 특정할 수 있는 타입이어야 합니다.
 ## 관련 문서
 
 - [공급사 가이드 홈](../)
-- [SKT SBOM Generator](../skt-scanner/): 간편하게 SBOM을 생성하는 SKT 표준 도구
+- [SKT SBOM Generator](../skt-scanner/): SK텔레콤이 제공하는 SBOM 생성 도구
 - [오픈소스 도구 활용](../creation-guide/): cdxgen, Syft 등 오픈소스 도구 안내
 - [검증 체크리스트](../checklist/): 제출 전 확인 사항
 - [제출 절차](../submission/): 제출 방법 및 이메일 양식
