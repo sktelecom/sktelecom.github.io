@@ -6,31 +6,43 @@ type: docs
 github: "https://github.com/sktelecom/onot"
 techs: ["Compliance", "Tool"]
 description: >
-  SPDX-based open source license notice generation tool
+  SBOM-based open source license notice (OSS Notice) generation tool
 ---
 
-onot is a compliance tool that automatically generates open source license notices based on SPDX (Software Package Data Exchange) documents. It was jointly developed by SK Telecom and Kakao and released as open source.
+onot is a compliance tool that automatically generates open source license notices from SBOM (Software Bill of Materials) documents. It reads SPDX, CycloneDX, and Excel SBOMs and produces HTML, Text, Markdown, and PDF notices. License texts are bundled, so it runs fully offline (air-gapped) and your SBOM never leaves the machine. It was jointly developed by SK Telecom and Kakao and released as open source.
+
+![onot desktop app preview](onot-app-preview.png)
 
 ## Project Information
 
-* Developer: SK Telecom & Kakao (Joint Development)
+* Developer: SK Telecom, Kakao (Joint Development)
 * License: Apache License 2.0
 * GitHub: [https://github.com/sktelecom/onot](https://github.com/sktelecom/onot)
 
 ## Key Features
 
-### 1. SPDX-based Automation
-* SPDX 2.3 standard support
-* Support for JSON, RDF, YAML, Tag-Value formats
-* Automatic parsing and validation
+### Multiple SBOM Inputs
 
-### 2. Multiple Output Formats
-* HTML license notices
-* Markdown license notices
-* Excel format
-* Custom template support
+* SPDX 2.x support (JSON, YAML, Tag-Value, RDF)
+* CycloneDX support (JSON, XML)
+* Excel support
+* Automatic input-format detection by extension and content
 
-### 3. Compliance Support
+### Multiple Output Formats
+
+* HTML, Text, Markdown, and PDF notices
+* Korean and English notices (`--lang`)
+* User configuration such as company info (`onot.yaml`)
+
+### Fully Offline Operation and Multiple Form Factors
+
+* Bundled license texts run in air-gapped environments (SBOM never leaves the machine)
+* Command-line interface (CLI)
+* Desktop app (Windows, macOS)
+* Local API sidecar
+
+### Compliance Support
+
 * Automatic organization of license obligations
 * Copyright information aggregation
 * Indication of source code availability
@@ -38,11 +50,11 @@ onot is a compliance tool that automatically generates open source license notic
 
 ## Installation and Usage
 
-### Installation
+### CLI Installation
 
 ```bash
-# Install from PyPI
-pip install onot
+# Install from PyPI (add ,pdf for PDF output)
+pip install "onot[spdx,cyclonedx,excel,api]"
 
 # Or install from source
 git clone https://github.com/sktelecom/onot.git
@@ -50,20 +62,34 @@ cd onot
 pip install -e .
 ```
 
+### Desktop App
+
+No setup required. Download the Windows or macOS installer from [Releases](https://github.com/sktelecom/onot/releases), open the app, and drop in an SBOM file to preview and download a notice.
+
 ### Basic Usage
 
 ```bash
-# Generate HTML license notice from SPDX file
-onot -i sbom.spdx.json -o notice.html
+# Generate HTML and Markdown notices from an SBOM file (input format auto-detected)
+onot generate -i sbom.spdx.json -f html -f markdown --output-dir ./output
 
-# Generate in Markdown format
-onot -i sbom.spdx.json -o notice.md -f markdown
+# List supported output formats
+onot formats
 
-# Generate in Excel format
-onot -i sbom.spdx.json -o notice.xlsx -f excel
+# Check the version
+onot version
 ```
 
-## SPDX Document Example
+Main options
+
+* `-f, --format`: html, text, markdown, pdf (repeatable)
+* `--lang`: ko, en
+* `--config`: onot.yaml (company info, etc.)
+* `--online`: fetch missing license texts remotely (offline by default)
+* `--stdout`: write a single text format to standard output
+
+## SBOM Document Example
+
+The following is an SPDX 2.3 JSON example. CycloneDX (JSON, XML) and Excel formats can be supplied the same way, and the input format is detected automatically.
 
 ```json
 {
@@ -91,4 +117,6 @@ Apache License 2.0 - Commercial use allowed
 ## Resources
 
 * GitHub: [https://github.com/sktelecom/onot](https://github.com/sktelecom/onot)
+* User Guide: [USER_GUIDE.md](https://github.com/sktelecom/onot/blob/main/docs/USER_GUIDE.md)
+* Desktop App Download: [Releases](https://github.com/sktelecom/onot/releases)
 * Issues: [GitHub Issues](https://github.com/sktelecom/onot/issues)
