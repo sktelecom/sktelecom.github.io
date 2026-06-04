@@ -51,7 +51,7 @@ An all-in-one tool that can perform container image analysis and vulnerability s
 >
 > In March 2026, a supply chain attack occurred in which an attacker re-pointed existing release tags
 > of `aquasecurity/trivy` to inject malware. **The GitHub release v0.69.4 (3/19) and the DockerHub images
-> v0.69.5 and v0.69.6 (3/22) have been confirmed as compromised, so stop using them immediately.**
+> v0.69.5 and v0.69.6 (3/22) have been confirmed as compromised, so please stop using them.**
 >
 > To use Trivy safely, follow these principles.
 >
@@ -125,5 +125,5 @@ Verify the following before using a tool.
 
 - [Submission Requirements](../requirements/): The required data fields that must be included in the SBOM
 - [Validation Checklist](../checklist/): Items to verify before submission
-- [SKT SBOM Generator](../skt-scanner/): The SKT standard tool, ready to use without configuration
+- [SKT SBOM Generator](../skt-scanner/): SK Telecom's SBOM generation tool
 </content>

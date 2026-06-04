@@ -1,20 +1,20 @@
 ---
-title: "SKT SBOM Generator (Easy Mode)"
+title: "SKT SBOM Generator"
 linkTitle: "SKT SBOM Generator"
 weight: 2
 type: docs
 description: >
-  복잡한 설정 없이 SKT SBOM Generator로 SK텔레콤 표준에 맞는 산출물 3종을 즉시 생성합니다.
+  SKT SBOM Generator로 SK텔레콤 정책에 맞는 SBOM을 생성하는 방법을 안내합니다.
 ---
 
 ## SKT SBOM Generator
 
-SKT SBOM Generator는 공급사가 별도의 도구 학습이나 환경 설정 없이도 Docker 하나로
-SK텔레콤 정책에 부합하는 표준 준수 산출물을 즉시 생성할 수 있는 오픈소스 도구입니다.
+SKT SBOM Generator는 공급사가 Docker 환경에서
+SK텔레콤 정책에 부합하는 산출물을 생성할 수 있는 오픈소스 도구입니다.
 
 - **환경 독립성**: Docker 컨테이너 기반으로 동작하여 로컬에 Java, Python 등을 설치할 필요가 없습니다.
-- **다중 언어 지원**: Java, Python, Node.js, Go, Swift/iOS, Android 등 다양한 언어를 한 번에 분석합니다.
-- **자동 표준 준수**: SK텔레콤 정책에 맞는 CycloneDX (JSON) 산출물을 자동으로 생성합니다.
+- **다중 언어 지원**: Java, Python, Node.js, Go, Swift/iOS, Android 등 다양한 언어를 분석합니다.
+- **표준 준수**: SK텔레콤 정책에 맞는 CycloneDX (JSON) 산출물을 생성합니다.
 
 > 이 페이지는 **빠른 시작**만 다룹니다. 설치, 전체 옵션, 언어별 가이드, 입력 시나리오, 웹 UI 등
 > **상세 사용법은 공식 저장소 문서**를 정본으로 참고하세요.
