@@ -627,6 +627,33 @@ a.skt-card:hover,
    7. 본문(.td-content) — 측정폭·타이포 리듬·요소 디테일 (절제된 고급화)
       .td-content 는 홈(index)에 없으므로 본문 페이지에만 적용된다.
    =================================================================== */
+
+/* 본문 줄 길이 80% 제한 해제 — 아래 "본문 폭" 주석의 의도 완성.
+   Docsy td/_content.scss가 .td-content 직계 자식(문단·alert·목록 등)에
+   .td-max-width-on-larger-screens(lg 이상 max-width:80%)를 걸어 우측 공백이 생기므로,
+   같은 선택자 목록을 미러링해 동일 특이도로 뒤에서 덮는다.
+   (유틸리티 클래스 자체는 tabbed-pane 등 다른 쇼트코드가 쓰므로 건드리지 않는다) */
+@include media-breakpoint-up(lg) {
+  .td-content {
+    .footnotes,
+    > .alert,
+    > .highlight,
+    > .katex-display,
+    > .lead,
+    > .td-table,
+    > blockquote,
+    > dl dd,
+    > h1,
+    > h2,
+    > ol,
+    > p,
+    > pre,
+    > ul {
+      max-width: none;
+    }
+  }
+}
+
 .td-content {
   /* 본문 폭은 Docsy 컬럼(col-xl-8)이 제어 — 별도 max-width 제한 없음
      (제한 시 넓은 컬럼 안에서 우측 공백이 과도해짐) */
