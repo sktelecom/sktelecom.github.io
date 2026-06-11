@@ -17,9 +17,11 @@ All content is written in Markdown, automatically built by Hugo, and deployed to
 ## Getting Started
 
 ### Prerequisites
-- [Hugo v0.146.0+](https://gohugo.io/installation/) (Extended version required)
+- Node.js 22+ (Hugo Extended and PostCSS are installed locally via npm)
 - Git with submodules support
-- Node.js 18+ (optional, for asset compilation)
+
+> The exact Hugo Extended version is pinned in `package.json` and installed by `npm ci`,
+> so you do not need a system-wide Hugo install. Run the project through the npm scripts below.
 
 ### Local Development
 
@@ -28,8 +30,11 @@ All content is written in Markdown, automatically built by Hugo, and deployed to
 git clone --recurse-submodules https://github.com/sktelecom/sktelecom.github.io.git
 cd sktelecom.github.io
 
-# Start Hugo development server
-hugo server
+# Install pinned dependencies (Hugo Extended + PostCSS)
+npm ci
+
+# Start the development server
+npm run serve
 
 # Open your browser to http://localhost:1313/
 ```
@@ -38,7 +43,7 @@ hugo server
 
 ```bash
 # Build production-ready site
-hugo --minify
+npm run build
 
 # Output will be generated in ./public directory
 ```
