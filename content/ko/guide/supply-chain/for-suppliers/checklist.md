@@ -33,8 +33,22 @@ description: >
 ### 4. 식별자 (PURL) 확인
 SK텔레콤 시스템은 PURL로 취약점을 매핑합니다. 가장 중요한 항목입니다.
 - [ ] 모든 컴포넌트(`components`) 객체 안에 `purl` 필드가 존재하는가?
+- [ ] purl 보유 컴포넌트 수가 전체 컴포넌트 수와 일치(또는 근접)하는가?
 - [ ] PURL 형식이 표준(`pkg:type/namespace/name@version`)을 따르는가?
 - [ ] PURL 내에 특수문자 등이 올바르게 인코딩되었는가?
+
+아래 명령으로 purl 개수를 직접 확인하시기 바랍니다. 전체 컴포넌트 수와 purl 보유 수가 같아야 합니다.
+
+```bash
+# CycloneDX — 두 값이 같아야 한다
+jq '.components | length' sbom.json                      # 전체 컴포넌트 수
+jq '[.components[] | select(.purl)] | length' sbom.json  # purl 보유 수
+
+# SPDX — purl(externalRef) 보유 패키지 수
+jq '[.packages[] | select(.externalRefs[]?.referenceType == "purl")] | length' sbom.json
+```
+
+> purl 보유 수가 0이거나 전체 컴포넌트 수보다 현저히 적으면 제출하지 마십시오. 이는 패키지 매니저 메타데이터가 없는 설치 디렉터리나 원시 파일을 스캔했을 때 주로 발생합니다. 스캔 대상을 빌드된 이미지나 패키지 매니저 컨텍스트가 있는 위치로 바꾸거나 도구를 바꿔 재생성하시기 바랍니다. 자세한 내용은 [SBOM 생성 방법](../creation-guide/)을 참고하십시오.
 
 ## 온라인 검증 도구
 *   CycloneDX Validator: [https://cyclonedx.github.io/cyclonedx-web-tool/validate](https://cyclonedx.github.io/cyclonedx-web-tool/validate)

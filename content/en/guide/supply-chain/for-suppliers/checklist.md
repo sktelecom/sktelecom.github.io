@@ -33,8 +33,22 @@ Missing transitive dependencies are the most common reason for rejection. Be sur
 ### 4. Identifier (PURL) Check
 SK Telecom's system maps vulnerabilities by PURL. This is the most important item.
 - [ ] Does every component (`components`) object contain a `purl` field?
+- [ ] Does the number of components with a PURL match (or come close to) the total component count?
 - [ ] Does the PURL format follow the standard (`pkg:type/namespace/name@version`)?
 - [ ] Are special characters within the PURL correctly encoded?
+
+Use the commands below to check the PURL count directly. The total component count and the PURL-bearing count should be equal.
+
+```bash
+# CycloneDX — the two values should be equal
+jq '.components | length' sbom.json                      # total component count
+jq '[.components[] | select(.purl)] | length' sbom.json  # count with a PURL
+
+# SPDX — number of packages that have a PURL (externalRef)
+jq '[.packages[] | select(.externalRefs[]?.referenceType == "purl")] | length' sbom.json
+```
+
+> If the PURL-bearing count is 0 or significantly lower than the total component count, do not submit. This usually happens when you scan an installation directory or raw files that have no package manager metadata. Change the scan target to a built image or a location with a package manager context, or switch tools and regenerate. For details, see [How to Generate an SBOM](../creation-guide/).
 
 ## Online Validation Tool
 *   CycloneDX Validator: [https://cyclonedx.github.io/cyclonedx-web-tool/validate](https://cyclonedx.github.io/cyclonedx-web-tool/validate)

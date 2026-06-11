@@ -35,10 +35,32 @@ Automatically analyzes projects in various languages such as Java, Python, Node.
 
 ### Syft (recommended for container image and binary analysis)
 
-Analyzes Docker images, file systems, and binary files to identify both OS packages and application libraries. Supports CycloneDX and SPDX formats.
+Analyzes built container images and build artifacts that include package manager metadata to identify both OS packages and application libraries. Supports CycloneDX and SPDX formats.
 
 - Official documentation: [https://github.com/anchore/syft](https://github.com/anchore/syft)
-- Supported targets: Docker images, OCI images, tar files, file system directories
+- Recommended analysis targets: built Docker images, OCI images, tar files
+
+> **Warning — Do not scan installation directories or collections of raw files (PURL omission causes full rejection)**
+>
+> If you use `syft dir:` mode to scan an installation directory or a collection of binaries that has no
+> package manager metadata (`package.json`, `go.mod`, `*.jar`, RPM/DEB package DB, etc.), Syft cannot
+> identify the ecosystem and produces an **SBOM with empty PURLs**. Because SK Telecom's system maps
+> vulnerabilities by PURL, such an SBOM fails matching entirely and is rejected.
+>
+> In one real case, a supplier scanned an installation directory with `syft dir:/root/nag_pkg`, and the
+> submitted SBOM had no PURL on any of its 261 components, so all 251 vulnerability matches failed.
+>
+> Run Syft against the following targets.
+>
+> ```bash
+> # Recommended: scan a built image (PURL and ecosystem identified automatically)
+> syft <image-name>:<tag> -o cyclonedx-json=sbom.json
+>
+> # Not recommended: scan an installation directory or raw files (rejected due to missing PURL)
+> syft dir:/root/nag_pkg   # without package manager metadata, PURL count becomes 0
+> ```
+>
+> Immediately after generation, be sure to check the PURL count. See the [Validation Checklist](../checklist/) for how to verify.
 
 ### Trivy (container image analysis)
 
@@ -106,7 +128,7 @@ When only source code is present, transitive dependencies may be omitted. Refer 
 | cdxgen (Python) | Conditional | Activate the virtual environment, then run `pip install -r requirements.txt` first |
 | cdxgen (Node.js) | Conditional | Run `npm install` or `yarn install` first |
 | Syft (Docker image) | Included automatically | Scan after the image build is complete (includes both OS and app packages) |
-| Syft (file system/RootFS) | Included automatically | Scan based on the deployment artifact |
+| Syft (file system) | Conditional | Only deployment artifacts that include package manager metadata work; an installation directory or collection of raw files results in missing PURLs |
 | Maven plugin | Included automatically | Generated automatically during the `mvn package` phase |
 | Gradle plugin | Included automatically | Run `./gradlew cyclonedxBom` |
 
@@ -117,7 +139,7 @@ When only source code is present, transitive dependencies may be omitted. Refer 
 Verify the following before using a tool.
 
 - Transitive dependency inclusion: Refer to the table above and complete the prerequisite steps before generating the SBOM. Missing dependencies are grounds for rejection.
-- PURL inclusion: Verify that the generated SBOM includes a `purl` field for every component. SK Telecom's system maps vulnerabilities based on PURL.
+- PURL inclusion: Verify that the generated SBOM includes a `purl` field for every component. SK Telecom's system maps vulnerabilities based on PURL. Before submission, count the components that have a PURL with `jq '[.components[] | select(.purl)] | length' sbom.json` and confirm it matches the total component count; if it is 0 or significantly lower, regenerate following the procedure in the [Validation Checklist](../checklist/).
 - Output format: CycloneDX JSON format is recommended. (Use `-o cyclonedx-json` or an equivalent option)
 - Project information: Verify that the metadata accurately records the name and version of the delivered project.
 
