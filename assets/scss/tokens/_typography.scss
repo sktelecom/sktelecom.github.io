@@ -1,14 +1,15 @@
 /*
- * 타이포그래피 토큰 — Geist(라틴) + Pretendard(한글) self-host.
- * @font-face 정의는 _styles_project.scss 상단.
+ * 타이포그래피 토큰 — 영문 Roboto + 한글 Pretendard (KWG 정렬).
+ * 웹폰트는 CDN으로 로드한다(layouts/partials/hooks/head-end.html).
  */
 
-// 라틴=Geist, 한글=Pretendard 폴백 (같은 스택 내에서 글리프별 자동 폴백)
+// 영문=Roboto, 한글=Pretendard 폴백 (같은 스택 내에서 글리프별 자동 폴백)
 $geist:
-  "Geist Variable", "Geist",
-  "Pretendard Variable", "Pretendard",
-  -apple-system, BlinkMacSystemFont, system-ui,
-  "Apple SD Gothic Neo", "Malgun Gothic", "Segoe UI", Roboto, sans-serif !default;
+  "Roboto", "Pretendard Variable", Pretendard,
+  -apple-system, BlinkMacSystemFont,
+  "Apple SD Gothic Neo", "Segoe UI", "Helvetica Neue",
+  Arial, sans-serif,
+  "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
 
 // 기존 $pretendard 참조 안전을 위해 별칭 유지
 $pretendard: $geist !default;
@@ -16,19 +17,22 @@ $pretendard: $geist !default;
 $font-family-sans-serif: $geist !default;
 $font-family-base:       $geist !default;
 $headings-font-family:   $geist !default;
+$font-family-monospace:
+  "JetBrains Mono", SFMono-Regular, Menlo, Monaco,
+  Consolas, "Liberation Mono", "Courier New", monospace !default;
 
 $font-size-base:    1rem !default;
-$line-height-base:  1.65 !default;   // Vercel은 약간 타이트
+$line-height-base:  1.65 !default;
 
-// 제목: 크고 타이트하게 (Vercel 헤드라인)
-$headings-font-weight:    600 !default;
+// 제목 — KWG(Google devsite) 크기·굵기. 개별 자간은 .td-content 스코프에서 세분.
+$headings-font-weight:    500 !default;
 $headings-line-height:    1.2 !default;
-$headings-letter-spacing: -0.02em !default;
-$h1-font-size: $font-size-base * 2.75 !default;
-$h2-font-size: $font-size-base * 2.1 !default;
-$h3-font-size: $font-size-base * 1.6 !default;
-$h4-font-size: $font-size-base * 1.3 !default;
-$h5-font-size: $font-size-base * 1.12 !default;
+$headings-letter-spacing: -0.022em !default;
+$h1-font-size: $font-size-base * 1.75 !default;   // 28px
+$h2-font-size: $font-size-base * 1.375 !default;  // 22px
+$h3-font-size: $font-size-base * 1.0 !default;    // 16px
+$h4-font-size: $font-size-base * 0.875 !default;  // 14px
+$h5-font-size: $font-size-base * 0.875 !default;  // 14px
 $h6-font-size: $font-size-base !default;
 
 $display-font-weight: 700 !default;
