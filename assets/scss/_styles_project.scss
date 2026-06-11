@@ -704,9 +704,9 @@ a.skt-card:hover,
     border-color: var(--skt-border);
   }
 
-  /* 인용 — 절제(2px 보더 + subtle 배경) */
+  /* 인용 — 좌측 SK Red 액센트 + subtle 배경 */
   blockquote {
-    border-left: 3px solid var(--skt-border-strong);
+    border-left: 3px solid var(--skt-accent);
     background: var(--skt-surface-subtle);
     color: var(--skt-text-muted);
     padding: .75rem 1.15rem;
@@ -778,7 +778,7 @@ a.skt-card:hover,
   padding: 1rem 1.25rem;
   background: var(--skt-surface-subtle);
   border: 1px solid var(--skt-border);
-  border-left: 3px solid var(--skt-border-strong);   /* 좌측 보더(기본 무채색) */
+  border-left: 3px solid var(--skt-accent);   /* 좌측 보더 = SK Red 액센트(다크 자동 보정) */
   border-radius: $border-radius-lg;
   color: var(--skt-text);
 }
