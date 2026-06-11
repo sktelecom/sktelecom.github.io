@@ -49,8 +49,8 @@ languages:
     title: SK텔레콤 오픈소스
     params:
       description: SK텔레콤이 AI·빅데이터·클라우드 기술을 오픈소스로 공개하고, 오픈소스 가이드·라이선스 컴플라이언스·소프트웨어 공급망 보안(SBOM)을 제공하는 공식 포털입니다.
-      time_format_default: 2006.01.02
-      time_format_blog: 2006.01.02
+      time_format_default: 2006년 1월 2일
+      time_format_blog: 2006년 1월 2일
   # cSpell:enable
   en:
     languageName: English
