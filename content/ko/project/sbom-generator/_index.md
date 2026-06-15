@@ -1,6 +1,6 @@
 ---
-title: "SBOM Generator"
-linkTitle: "SBOM Generator"
+title: "BomLens"
+linkTitle: "BomLens"
 weight: 7
 type: docs
 github: "https://github.com/sktelecom/sbom-tools"
@@ -10,9 +10,9 @@ description: >
 ---
 
 
-SBOM Generator는 소프트웨어의 구성 요소를 분석해 CycloneDX 1.6 형식의 SBOM(소프트웨어 구성 명세)을 자동으로 만들어 주는 공급망 보안 도구입니다. 소스 코드나 컨테이너 이미지, 바이너리를 검사해 SBOM과 오픈소스 고지문, 보안 리포트를 생성하고, 거꾸로 공급사에게 받은 SBOM이나 펌웨어를 분석해 오픈소스 리스크 리포트도 만들어 줍니다. SK텔레콤이 공급망 보안을 위해 개발해 오픈소스로 공개했습니다.
+BomLens는 소프트웨어의 구성 요소를 분석해 CycloneDX 1.6 형식의 SBOM(소프트웨어 구성 명세)을 자동으로 만들어 주는 공급망 보안 도구입니다. 소스 코드나 컨테이너 이미지, 바이너리를 검사해 SBOM과 오픈소스 고지문, 보안 리포트를 생성하고, 거꾸로 공급사에게 받은 SBOM이나 펌웨어를 분석해 오픈소스 리스크 리포트도 만들어 줍니다. SK텔레콤이 공급망 보안을 위해 개발해 오픈소스로 공개했습니다.
 
-![SBOM Generator 웹 UI](sbom-web-ui.png)
+![BomLens 웹 UI](sbom-web-ui.png)
 
 ## 프로젝트 정보
 

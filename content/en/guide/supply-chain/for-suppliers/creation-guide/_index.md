@@ -9,7 +9,7 @@ description: >
 
 If you cannot use the SKT-provided tool, or you already have your own build pipeline, you can use open source tools directly. Below is a list of the major open source tools validated by SK Telecom, along with links to their official documentation.
 
-> If you are not comfortable setting up a tool environment and you have Docker installed, consider reviewing the [SKT SBOM Generator](../skt-scanner/) first.
+> If you are not comfortable setting up a tool environment and you have Docker installed, consider reviewing [BomLens](../skt-scanner/) first.
 
 ## Tool Selection Guide
 
@@ -147,5 +147,5 @@ Verify the following before using a tool.
 
 - [Submission Requirements](../requirements/): The required data fields that must be included in the SBOM
 - [Validation Checklist](../checklist/): Items to verify before submission
-- [SKT SBOM Generator](../skt-scanner/): SK Telecom's SBOM generation tool
+- [BomLens](../skt-scanner/): SK Telecom's SBOM generation tool
 </content>

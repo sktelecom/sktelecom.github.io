@@ -1,15 +1,15 @@
 ---
-title: "SKT SBOM Generator"
-linkTitle: "SKT SBOM Generator"
+title: "BomLens"
+linkTitle: "BomLens"
 weight: 2
 type: docs
 description: >
-  Explains how to generate an SBOM that meets SK Telecom policy using the SKT SBOM Generator.
+  Explains how to generate an SBOM that meets SK Telecom policy using BomLens.
 ---
 
-## SKT SBOM Generator
+## BomLens
 
-The SKT SBOM Generator is an open source tool that lets suppliers generate deliverables that meet SK Telecom policy in a Docker environment. You do not need to install per-language tools locally; it analyzes multiple languages and produces a CycloneDX (JSON) deliverable.
+BomLens is an open source tool that lets suppliers generate deliverables that meet SK Telecom policy in a Docker environment. You do not need to install per-language tools locally; it analyzes multiple languages and produces a CycloneDX (JSON) deliverable.
 
 This page covers only the quick start. For installation, the full set of options, language-specific guides, input scenarios, the web UI, and other details, see the official repository documentation.
 
@@ -29,7 +29,7 @@ A single run generates the following three deliverables together (the `--all` op
 
 ## Prerequisites
 
-The SBOM Generator runs on Docker. Install and run Docker Engine 20.10 or later. On Windows without Docker, we recommend Rancher Desktop, which is free. The first run downloads a scanner image (about 3–4 GB), so it takes roughly 5–15 minutes.
+BomLens runs on Docker. Install and run Docker Engine 20.10 or later. On Windows without Docker, we recommend Rancher Desktop, which is free. The first run downloads a scanner image (about 3–4 GB), so it takes roughly 5–15 minutes.
 
 ## Getting Started on Windows (No Command Line)
 
@@ -40,7 +40,7 @@ If you are not comfortable with the command line, you can generate an SBOM in on
 
 In the web UI, the progress log is shown in real time on the right, and you can download the deliverables when it finishes.
 
-![SBOM Generator web UI — the progress log is shown in real time on the right](web-ui-scan.png)
+![BomLens web UI — the progress log is shown in real time on the right](web-ui-scan.png)
 
 ## Quick Start (CLI)
 

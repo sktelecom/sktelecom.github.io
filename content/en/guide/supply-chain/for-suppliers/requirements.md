@@ -177,7 +177,7 @@ The purl must be of a type that can identify the ecosystem.
 ## Related Documents
 
 - [Supplier Guide Home](../)
-- [SKT SBOM Generator](../skt-scanner/): SK Telecom's SBOM generation tool
+- [BomLens](../skt-scanner/): SK Telecom's SBOM generation tool
 - [Using Open Source Tools](../creation-guide/): Guidance on open source tools such as cdxgen and Syft
 - [Validation Checklist](../checklist/): Items to verify before submission
 - [Submission Process](../submission/): Submission method and email template

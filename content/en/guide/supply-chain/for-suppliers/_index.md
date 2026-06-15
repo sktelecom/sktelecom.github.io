@@ -27,7 +27,7 @@ We ask suppliers to follow the procedure below, from the time of contract throug
 flowchart TD
     A[Contract Review] --> B["Software Development/Build"]
     B --> C{Generate SBOM}
-    C -->|Use SKT-provided tool| D[Use SKT SBOM Generator]
+    C -->|Use SKT-provided tool| D[Use BomLens]
     C -->|Use your own tool| E["Use open source tools<br>(cdxgen, Syft, etc.)"]
     D --> F["Data Validation (PURL Check)"]
     E --> F
@@ -45,7 +45,7 @@ flowchart TD
 This section is organized as follows.
 
 1. [Submission Requirements](requirements/): Defines the required formats (CycloneDX, SPDX) and data fields that SK Telecom requires.
-2. [SKT SBOM Generator](skt-scanner/): Explains how to use SK Telecom's SBOM generation tool.
+2. [BomLens](skt-scanner/): Explains how to use SK Telecom's SBOM generation tool.
 3. [Using Open Source Tools](creation-guide/): Explains how to generate an SBOM using general-purpose open source tools (cdxgen, Syft, etc.).
 4. [Validation Checklist](checklist/): Provides a checklist of essential items to verify before submission.
 5. [Submission Process](submission/): Explains the naming conventions and submission channels for the generated SBOM file.

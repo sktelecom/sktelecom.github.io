@@ -27,7 +27,7 @@ Required information in the body:
 1. Delivery contract number
 2. Representative information (name, department, contact)
 3. Project information (system name, detailed version)
-4. Tool used (e.g., SKT SBOM Generator v1.0)
+4. Tool used (e.g., BomLens v1.0)
 
 ### TOSCA Registration Obligation of the Business Unit Representative
 

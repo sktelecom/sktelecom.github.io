@@ -177,7 +177,7 @@ purl은 생태계를 특정할 수 있는 타입이어야 합니다.
 ## 관련 문서
 
 - [공급사 가이드 홈](../)
-- [SKT SBOM Generator](../skt-scanner/): SK텔레콤이 제공하는 SBOM 생성 도구
+- [BomLens](../skt-scanner/): SK텔레콤이 제공하는 SBOM 생성 도구
 - [오픈소스 도구 활용](../creation-guide/): cdxgen, Syft 등 오픈소스 도구 안내
 - [검증 체크리스트](../checklist/): 제출 전 확인 사항
 - [제출 절차](../submission/): 제출 방법 및 이메일 양식

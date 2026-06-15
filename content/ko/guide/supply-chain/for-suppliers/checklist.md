@@ -57,4 +57,4 @@ jq '[.packages[] | select(.externalRefs[]?.referenceType == "purl")] | length' s
 
 - [제출 요구사항](../requirements/): 필수 데이터 필드 및 PURL 형식 상세 안내
 - [제출 절차](../submission/): 체크리스트 통과 후 제출 방법
-- [SKT SBOM Generator](../skt-scanner/): 체크리스트 항목을 충족하는 SBOM을 생성하는 도구
+- [BomLens](../skt-scanner/): 체크리스트 항목을 충족하는 SBOM을 생성하는 도구
