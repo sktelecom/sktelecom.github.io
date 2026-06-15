@@ -132,15 +132,15 @@ other = "GitHub에서 더 많은 프로젝트를 만나보세요"
 [home_github_cta]
 other = "SKT GitHub 바로가기"
 
-# Home — 공급망 보안 / SBOM Generator 스포트라이트
+# Home — 공급망 보안 / BomLens 스포트라이트
 [home_supplychain_title]
 other = "소프트웨어 공급망 보안"
 [home_supplychain_lead]
-other = "SBOM 의무화와 글로벌 규제(미국 EO 14028·EU CRA)에 대응하는 가이드와 오픈소스 SBOM Generator를 제공합니다."
+other = "SBOM 의무화와 글로벌 규제(미국 EO 14028·EU CRA)에 대응하는 가이드와 오픈소스 BomLens를 제공합니다."
 [home_supplychain_cta_guide]
 other = "공급망 보안 가이드"
 [home_supplychain_cta_tool]
-other = "SBOM Generator"
+other = "BomLens"
 [home_supplychain_guide_url]
 other = "/guide/supply-chain/"
 

@@ -57,5 +57,5 @@ jq '[.packages[] | select(.externalRefs[]?.referenceType == "purl")] | length' s
 
 - [Submission Requirements](../requirements/): Detailed guidance on required data fields and PURL format
 - [Submission Process](../submission/): How to submit after passing the checklist
-- [SKT SBOM Generator](../skt-scanner/): A tool that generates an SBOM meeting the checklist items
+- [BomLens](../skt-scanner/): A tool that generates an SBOM meeting the checklist items
 </content>

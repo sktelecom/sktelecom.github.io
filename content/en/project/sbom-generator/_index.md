@@ -1,6 +1,6 @@
 ---
-title: "SBOM Generator"
-linkTitle: "SBOM Generator"
+title: "BomLens"
+linkTitle: "BomLens"
 weight: 7
 type: docs
 github: "https://github.com/sktelecom/sbom-tools"
@@ -10,9 +10,9 @@ description: >
 ---
 
 
-SBOM Generator is a supply chain security tool that analyzes the components of your software and automatically produces a CycloneDX 1.6 SBOM (Software Bill of Materials). It scans source code, container images, or binaries to generate an SBOM along with an open-source notice and a security report, and it can also analyze an SBOM or firmware you receive from a supplier to produce an open-source risk report. It was developed by SK Telecom for supply chain security and released as open source.
+BomLens is a supply chain security tool that analyzes the components of your software and automatically produces a CycloneDX 1.6 SBOM (Software Bill of Materials). It scans source code, container images, or binaries to generate an SBOM along with an open-source notice and a security report, and it can also analyze an SBOM or firmware you receive from a supplier to produce an open-source risk report. It was developed by SK Telecom for supply chain security and released as open source.
 
-![SBOM Generator web UI](sbom-web-ui.png)
+![BomLens web UI](sbom-web-ui.png)
 
 ## Project Information
 
