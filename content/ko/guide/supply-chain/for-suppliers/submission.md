@@ -1,7 +1,7 @@
 ---
 title: "SBOM 제출 절차"
 linkTitle: "제출 절차"
-weight: 5
+weight: 6
 type: docs
 description: >
   작성된 SBOM 파일의 제출 채널과 이메일 양식, 제출 후 프로세스를 안내합니다.

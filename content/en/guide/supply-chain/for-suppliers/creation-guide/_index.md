@@ -145,6 +145,7 @@ Verify the following before using a tool.
 
 ## Related Documents
 
+- [Server SBOM](../server-delivery/): How to generate and merge the layers of a server that combines an OS, an application, and static-link libraries
 - [Submission Requirements](../requirements/): The required data fields that must be included in the SBOM
 - [Validation Checklist](../checklist/): Items to verify before submission
 - [BomLens](../skt-scanner/): SK Telecom's SBOM generation tool

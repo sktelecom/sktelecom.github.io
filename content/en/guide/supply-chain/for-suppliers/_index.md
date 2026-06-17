@@ -17,6 +17,7 @@ All suppliers (including developers and resellers) that deliver the following ty
 *   Container images: Docker images or OCI-compliant containers
 *   Executables: Compiled binaries (.jar, .dll, .so) and libraries
 *   Embedded systems: Firmware images, RootFS, device drivers
+*   Servers: A system combining an OS (rootfs and installed packages) with an application and statically linked libraries
 
 
 ## SBOM Submission Process
@@ -47,8 +48,9 @@ This section is organized as follows.
 1. [Submission Requirements](requirements/): Defines the required formats (CycloneDX, SPDX) and data fields that SK Telecom requires.
 2. [BomLens](skt-scanner/): Explains how to use SK Telecom's SBOM generation tool.
 3. [Using Open Source Tools](creation-guide/): Explains how to generate an SBOM using general-purpose open source tools (cdxgen, Syft, etc.).
-4. [Validation Checklist](checklist/): Provides a checklist of essential items to verify before submission.
-5. [Submission Process](submission/): Explains the naming conventions and submission channels for the generated SBOM file.
+4. [Server SBOM](server-delivery/): Explains how to generate the OS, application, and static-link layers separately and merge them into one.
+5. [Validation Checklist](checklist/): Provides a checklist of essential items to verify before submission.
+6. [Submission Process](submission/): Explains the naming conventions and submission channels for the generated SBOM file.
 
 ## Related Documents
 

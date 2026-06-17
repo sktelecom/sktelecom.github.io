@@ -1,7 +1,7 @@
 ---
 title: "Pre-Submission SBOM Validation Checklist"
 linkTitle: "Validation Checklist"
-weight: 4
+weight: 5
 type: docs
 description: >
   Check the essential items before submitting an SBOM to prevent rejection.
