@@ -144,6 +144,7 @@ Trivy를 안전하게 사용하려면 다음 원칙을 따르시기 바랍니다
 
 ## 관련 문서
 
+- [서버 SBOM 생성](../server-delivery/): OS·애플리케이션·정적 링크가 결합된 서버를 층별로 생성하고 합치는 방법
 - [제출 요구사항](../requirements/): SBOM에 포함되어야 할 필수 데이터 필드
 - [검증 체크리스트](../checklist/): 제출 전 확인 사항
 - [BomLens](../skt-scanner/): SK텔레콤이 제공하는 SBOM 생성 도구
