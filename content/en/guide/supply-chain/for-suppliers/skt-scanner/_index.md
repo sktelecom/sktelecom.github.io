@@ -33,7 +33,7 @@ BomLens runs on Docker. Install and run Docker Engine 20.10 or later. On Windows
 
 ## Getting Started on Windows (No Command Line)
 
-If you are not comfortable with the command line, you can generate an SBOM in one of two ways. For the full procedure, see the [Windows quick start guide](https://github.com/sktelecom/sbom-tools/blob/main/docs/notice-quickstart.md).
+If you are not comfortable with the command line, you can generate an SBOM in one of two ways. For the full procedure, see the [no command line quick start](https://sktelecom.github.io/sbom-tools/start/no-cli/).
 
 - Executable: Download `SBOM-Generator-*.exe` from the [latest release](https://github.com/sktelecom/sbom-tools/releases/latest) and double-click it. The file is not yet code-signed, so if Windows SmartScreen warns, click "More info" and then "Run anyway".
 - Repository ZIP: From the repository's `Code` button, choose `Download ZIP`, unzip it, and double-click `scripts\sbom-ui.bat`; the browser opens `http://localhost:8080`.
@@ -56,7 +56,7 @@ cd /path/to/my-project
 - `--generate-only` creates files only locally, without uploading them to the portal (recommended until submission).
 - For the web UI, run `./scan-sbom.sh --ui` (the browser opens `http://localhost:8080`).
 - On Windows, run the same commands through `scripts\scan-sbom.bat` (it forwards them via Git Bash, so Git for Windows is required).
-- For other input forms such as a GitHub URL, source ZIP, Docker image, firmware, or binary, and the full set of options, see the [Usage Guide](https://github.com/sktelecom/sbom-tools/blob/main/docs/usage-guide.md).
+- For other input forms such as a GitHub URL, source ZIP, Docker image, firmware, or binary, and the full set of options, see the [CLI reference](https://sktelecom.github.io/sbom-tools/reference/cli/).
 
 ## Learn More
 
@@ -64,10 +64,10 @@ The authoritative source for using the tool is the repository documentation.
 
 | Topic | Document |
 |------|------|
-| Installation, first SBOM, web UI | [getting-started](https://github.com/sktelecom/sbom-tools/blob/main/docs/getting-started.md) |
-| Full options, by language, CI/CD | [usage-guide](https://github.com/sktelecom/sbom-tools/blob/main/docs/usage-guide.md) |
-| Scenarios by input form | [scenarios-guide](https://github.com/sktelecom/sbom-tools/blob/main/docs/scenarios-guide.md) |
-| Notice, security, web UI | [notice-security-ui-guide](https://github.com/sktelecom/sbom-tools/blob/main/docs/notice-security-ui-guide.md) |
+| Installation, first SBOM, web UI | [Getting started](https://sktelecom.github.io/sbom-tools/start/first-scan/) |
+| Full options, by language, CI/CD | [CLI reference](https://sktelecom.github.io/sbom-tools/reference/cli/) |
+| Scenarios by input form | [Input scenarios](https://sktelecom.github.io/sbom-tools/guides/by-input/) |
+| Notice & security reports | [Reports guide](https://sktelecom.github.io/sbom-tools/guides/reports/) |
 
 ## Next Steps
 
