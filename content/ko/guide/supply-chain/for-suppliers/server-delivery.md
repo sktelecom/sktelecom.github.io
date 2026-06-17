@@ -21,7 +21,7 @@ description: >
 
 ## 층별 생성
 
-아래는 BomLens(`scan-sbom.sh`) 기준입니다. cdxgen·Syft를 직접 쓰는 경우는 [오픈소스 도구 활용](../creation-guide/)을 참고하세요.
+아래 명령은 BomLens의 실행 스크립트 `scan-sbom.sh`를 사용합니다. BomLens 설치와 기본 사용법(스크립트 내려받기, 옵션, 웹 UI 등)은 [BomLens](../skt-scanner/)를 먼저 참고하세요. cdxgen·Syft를 직접 쓰려면 [오픈소스 도구 활용](../creation-guide/)을 참고합니다.
 
 ### OS 층
 
