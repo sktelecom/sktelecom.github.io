@@ -21,7 +21,7 @@ Treat the server as three layers, generate each one separately, then merge them.
 
 ## Generating each layer
 
-The commands below use BomLens (`scan-sbom.sh`). To use cdxgen/Syft directly, see [Using Open Source Tools](../creation-guide/).
+The commands below use BomLens's `scan-sbom.sh` script. For installing BomLens and its basics (downloading the script, the options, the web UI, and so on), see [BomLens](../skt-scanner/) first. To use cdxgen/Syft directly, see [Using Open Source Tools](../creation-guide/).
 
 ### OS layer
 
