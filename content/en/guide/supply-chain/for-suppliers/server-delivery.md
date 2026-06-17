@@ -4,20 +4,21 @@ linkTitle: "Server SBOM"
 weight: 4
 type: docs
 description: >
-  How to build the SBOM for a delivered server — scan the OS, the application, and the static-link dependencies as three layers, then merge them into one BOM for submission.
+  How to build the SBOM for a delivered server — scan the OS and the application as two layers, cover statically linked libraries separately as a blind spot, then merge them into one BOM for submission.
 ---
 
 A delivered server is not a single source tree. It is an operating system, the application installed on top of it, and libraries statically linked into the binaries during the build. Scanning only one of these misses the others, which is a common reason a server SBOM is rejected.
 
-Treat the server as three layers, generate each one separately, then merge them. All three are produced with [BomLens](../skt-scanner/); only the input changes per layer.
+Treat the server as two layers — the OS and the application — generate each separately, then merge them. Both are produced with [BomLens](../skt-scanner/); only the input changes. Statically linked libraries, which neither layer's scan catches, are handled separately as a blind spot.
 
-## The three layers of a server
+## The two layers of a server
 
 | Layer | What it covers | Symptom if omitted |
 |-------|----------------|--------------------|
 | OS | The OS and its installed packages (e.g. CentOS plus everything in the rpm database) | OS vulnerabilities missing |
 | Application | The delivered application and its package-manager dependencies, direct and transitive | Application dependencies missing |
-| Static-link | Libraries statically linked or built by hand (e.g. a statically linked openssl, liblfds) | The most common rejection cause |
+
+Beyond the two layers, **statically linked libraries** (for example an openssl or liblfds built into the binary) are a blind spot: a package manager does not declare them and the OS package database does not list them, so neither layer's scan finds them. They must be detected and recorded separately, and missing them is the most common rejection cause.
 
 ## Generating each layer
 
@@ -48,9 +49,9 @@ scan-sbom.sh --project myserver-app --version 2.0.0 --all --generate-only
 
 A pure CMake/Make application with no manifest produces a sparse component list; add `--deep-license` to record the first-party source licenses.
 
-### Static-link layer
+### Static-link libraries (a blind spot)
 
-Source scanners do not see libraries statically linked into a binary. There is no fully automatic path, so combine two approaches. Analyze the delivered binary for what tooling can find, and for what it still misses, record the source and version by hand from the build script (for example `openssl 1.1.1za`).
+Source scanners do not see libraries statically linked into a binary, and the OS package database does not list them either — the blind spot the two layers leave. There is no fully automatic path, so combine two approaches. Analyze the delivered binary for what tooling can find, and for what it still misses, record the source and version by hand from the build script (for example `openssl 1.1.1za`).
 
 ```bash
 scan-sbom.sh --project myserver-bin --version 2.0.0 --target /path/to/delivered-binary --all --generate-only

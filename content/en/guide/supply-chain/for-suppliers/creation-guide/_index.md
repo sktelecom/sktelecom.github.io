@@ -15,13 +15,17 @@ If you cannot use the SKT-provided tool, or you already have your own build pipe
 
 ```mermaid
 graph TD
-    A[Identify analysis target] --> B{Is it source code?}
+    A[Identify analysis target] --> S{A server combining an OS and an app?}
+    S -- Yes --> T[Generate per layer<br>see the Server SBOM guide]
+    S -- No --> B{Is it source code?}
     B -- Yes --> C[cdxgen recommended]
     B -- No --> D{Is it a Docker image?}
     D -- Yes --> E[Syft or Trivy recommended]
     D -- No --> F[Binary/Firmware]
     F --> G[Syft recommended]
 ```
+
+A server that combines an OS and an application is not done in one scan. For the full per-layer procedure, see [Server SBOM](../server-delivery/).
 
 ## Major Tools
 
@@ -62,7 +66,7 @@ syft dir:/root/nag_pkg   # without package manager metadata, PURL count becomes 
 Immediately after generation, be sure to check the PURL count. See the [Validation Checklist](../checklist/) for how to verify.
 {{% /alert %}}
 
-A server that delivers an application on top of an OS (such as CentOS) is generated as separate OS (rootfs/image), application, and static-link layers and then merged. As the warning above notes, the OS layer must target a rootfs or image that has a package database. For the full procedure, see [Server SBOM](../server-delivery/).
+A server that delivers an application on top of an OS (such as CentOS) is generated as two layers — OS (rootfs/image) and application — with statically linked libraries covered separately, then merged. As the warning above notes, the OS layer must target a rootfs or image that has a package database. For the full procedure, see [Server SBOM](../server-delivery/).
 
 ### Trivy (container image analysis)
 
