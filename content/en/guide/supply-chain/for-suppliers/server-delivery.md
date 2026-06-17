@@ -72,7 +72,7 @@ scan-sbom.sh --project myserver --version 1.0.0 \
 If the whole server is delivered as a single container image, you can scan that image with `--target` to capture the OS and application layers together.
 
 {{% alert title="Keep the per-layer SBOMs for review" color="info" %}}
-The official submission is the merged single BOM, but the per-layer SBOMs show at a glance which layer is missing or vulnerable and preserve each layer's transitive-dependency graph. Keep them for your own review and for responding to rejections. The merged BOM also records each component's source layer, so you can still filter by layer.
+The official submission is the merged single BOM, but the per-layer SBOMs show at a glance which layer is missing or vulnerable, so they are useful for your own review and for responding to rejections. Keep them. The merged BOM unions each layer's dependency graph (so it keeps transitive-dependency information) and records each component's source layer, so you can still filter by layer.
 {{% /alert %}}
 
 ## Verify before submitting
