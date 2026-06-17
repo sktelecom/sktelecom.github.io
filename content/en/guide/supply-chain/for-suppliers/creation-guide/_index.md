@@ -62,6 +62,8 @@ syft dir:/root/nag_pkg   # without package manager metadata, PURL count becomes 
 Immediately after generation, be sure to check the PURL count. See the [Validation Checklist](../checklist/) for how to verify.
 {{% /alert %}}
 
+A server that delivers an application on top of an OS (such as CentOS) is generated as separate OS (rootfs/image), application, and static-link layers and then merged. As the warning above notes, the OS layer must target a rootfs or image that has a package database. For the full procedure, see [Server SBOM](../server-delivery/).
+
 ### Trivy (container image analysis)
 
 An all-in-one tool that can perform container image analysis and vulnerability scanning together.
