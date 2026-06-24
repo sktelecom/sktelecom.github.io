@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="720" viewBox="0 0 1000 720" font-family="'Helvetica Neue',Arial,sans-serif">
+  <defs>
+    <marker id="arr" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#333"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="1000" height="720" fill="#ffffff"/>
+
+  <g>
+    <rect x="100" y="60" width="800" height="110" rx="12" fill="#cfe8c2" stroke="#7bbf6a"/>
+    <text x="500" y="108" text-anchor="middle" font-size="25" font-weight="bold" fill="#1f3d18">A. Release Approval</text>
+    <text x="500" y="143" text-anchor="middle" font-size="17" fill="#3c5a32">internal approval, OSRB review</text>
+
+    <rect x="100" y="230" width="800" height="110" rx="12" fill="#cfe8c2" stroke="#7bbf6a"/>
+    <text x="500" y="278" text-anchor="middle" font-size="25" font-weight="bold" fill="#1f3d18">B. Release Preparation</text>
+    <text x="500" y="313" text-anchor="middle" font-size="17" fill="#3c5a32">license, third-party split, notices, code scrubbing, security &amp; ECCN</text>
+
+    <rect x="100" y="400" width="800" height="110" rx="12" fill="#cfe8c2" stroke="#7bbf6a"/>
+    <text x="500" y="448" text-anchor="middle" font-size="25" font-weight="bold" fill="#1f3d18">C. Project Setup</text>
+    <text x="500" y="483" text-anchor="middle" font-size="17" fill="#3c5a32">name, repo &amp; infra, governance, SECURITY.md, docs</text>
+
+    <rect x="100" y="570" width="800" height="110" rx="12" fill="#cfe8c2" stroke="#7bbf6a"/>
+    <text x="500" y="618" text-anchor="middle" font-size="25" font-weight="bold" fill="#1f3d18">D. Release &amp; Operation</text>
+    <text x="500" y="653" text-anchor="middle" font-size="17" fill="#3c5a32">release, marketing, community, lifecycle (EOL)</text>
+  </g>
+
+  <g stroke="#333" stroke-width="2.5" marker-end="url(#arr)">
+    <line x1="500" y1="170" x2="500" y2="228"/>
+    <line x1="500" y1="340" x2="500" y2="398"/>
+    <line x1="500" y1="510" x2="500" y2="568"/>
+  </g>
+</svg>

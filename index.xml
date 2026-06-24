@@ -111,7 +111,7 @@
 &lt;p&gt;2021년 5월, 바이든 행정부는 &amp;lsquo;국가의 사이버 보안 개선에 관한 행정명령(Executive Order 14028)&amp;lsquo;을 발표했습니다. 이는 SolarWinds 사태 이후 공급망 보안을 국가 안보 차원에서 다루기 시작한 결정적 계기입니다.&lt;/p&gt;
 &lt;h3 id="핵심-내용"&gt;핵심 내용&lt;a class="td-heading-self-link" href="#%ed%95%b5%ec%8b%ac-%eb%82%b4%ec%9a%a9" aria-label="Heading self-link"&gt;&lt;/a&gt;&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;SBOM 제출 의무화: 연방 정부에 소프트웨어를 납품하는 기업은 반드시 SBOM을 제출해야 합니다.&lt;/li&gt;
+&lt;li&gt;SBOM 요구 추진: EO 14028은 SBOM의 최소 요소 정의와 안전한 소프트웨어 개발 관행을 지시했고, 연방 납품 기업의 SBOM 제출과 자기증명 의무는 후속 OMB 지침으로 구체화됐습니다.&lt;/li&gt;
 &lt;li&gt;NIST 가이드라인 준수: NIST(미국 국립표준기술연구소)가 정의한 &amp;lsquo;보안 소프트웨어 개발 프레임워크(SSDF)&amp;lsquo;를 준수해야 합니다.&lt;/li&gt;
 &lt;li&gt;최소 기준 제시: 미 행정부는 SBOM의 최소 요소(데이터 필드, 자동화 지원 등)를 정의하여 표준화를 주도했습니다.&lt;/li&gt;
 &lt;/ul&gt;

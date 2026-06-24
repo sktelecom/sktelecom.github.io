@@ -2,7 +2,7 @@
 &lt;p&gt;In May 2021, the Biden administration issued the &amp;ldquo;Executive Order on Improving the Nation&amp;rsquo;s Cybersecurity (Executive Order 14028).&amp;rdquo; This was a decisive turning point at which supply chain security began to be addressed at the level of national security in the aftermath of the SolarWinds incident.&lt;/p&gt;
 &lt;h3 id="key-provisions"&gt;Key Provisions&lt;a class="td-heading-self-link" href="#key-provisions" aria-label="Heading self-link"&gt;&lt;/a&gt;&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;Mandatory SBOM submission: Companies that supply software to the federal government must submit an SBOM.&lt;/li&gt;
+&lt;li&gt;Push toward SBOM requirements: EO 14028 directed defining the minimum elements of an SBOM and secure software development practices; the SBOM submission and self-attestation requirements for federal suppliers were detailed in subsequent OMB guidance.&lt;/li&gt;
 &lt;li&gt;NIST guideline compliance: Companies must comply with the Secure Software Development Framework (SSDF) defined by NIST (the U.S. National Institute of Standards and Technology).&lt;/li&gt;
 &lt;li&gt;Minimum standards: The U.S. administration led standardization by defining the minimum elements of an SBOM (data fields, automation support, etc.).&lt;/li&gt;
 &lt;/ul&gt;
