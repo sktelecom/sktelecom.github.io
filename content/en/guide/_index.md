@@ -26,7 +26,7 @@ SK Telecom already uses a great deal of open source across most of its services.
 
 In recent years, alongside license compliance, security vulnerability management and software supply chain security have emerged as critical challenges in the open source ecosystem. As regulations in the United States and Europe have tightened, managing the SBOM (Software Bill of Materials) and responding systematically to vulnerabilities have become essential.
 
-The SK Telecom OSPO (Open Source Program Office) provides guides to help members not only use and contribute to open source correctly, but also release SK Telecom's software as open source.
+The SK Telecom OSRB (Open Source Review Board) provides guides to help members not only use and contribute to open source correctly, but also release SK Telecom's software as open source.
 
 ## Structure of This Guide
 
@@ -59,6 +59,6 @@ This document was written with reference to the following materials.
 
 
 {{% alert title="Contacts" color="success" %}}
-If you have any questions or requests regarding the open source guide, please contact the SK Telecom OSPO.
+If you have any questions or requests regarding the open source guide, please contact the SK Telecom OSRB.
 * [Support (opensource@sktelecom.com)](https://sktelecom.github.io/about/contact/)
 {{% /alert %}}

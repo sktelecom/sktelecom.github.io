@@ -154,7 +154,7 @@ CycloneDX is an SBOM standard developed by OWASP (Open Web Application Security 
 
 ### Disadvantages
 
-- Not an ISO standard (a de facto standard)
+- Not an ISO standard, but standardized as ECMA-424 by Ecma International
 - File-level information is limited
 - License expression is simpler than in SPDX
 
@@ -163,7 +163,7 @@ CycloneDX is an SBOM standard developed by OWASP (Open Web Application Security 
 | Category | SPDX | CycloneDX |
 |------|------|-----------| 
 | Governing body | Linux Foundation | OWASP |
-| Standard certification | ISO/IEC 5962 | De facto standard |
+| Standard certification | ISO/IEC 5962 | ECMA-424 |
 | Primary purpose | License compliance | Security vulnerability management |
 | Structural complexity | High (detailed) | Low (concise) |
 | File-level tracking | Supported | Limited |

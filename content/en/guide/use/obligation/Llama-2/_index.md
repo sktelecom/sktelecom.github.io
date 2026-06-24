@@ -29,7 +29,7 @@ To use Llama 2 in a product/service with 700 million or more monthly active user
 
 Most companies and services have fewer than 700 million users, so they can use it freely.
 
-When developing a Llama 2-based service, please consult the OSPO.
+When developing a Llama 2-based service, please consult the OSRB.
 {{% /alert %}}
 
 ## What Is the Llama 2 Community License?

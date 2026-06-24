@@ -4,31 +4,37 @@ linkTitle: "Releasing"
 weight: 30
 type: docs
 description: >
-  Releasing internal projects as open source
+  Releasing SK Telecom software as open source
 ---
 
-SK Telecom not only participates in open source communities but also actively supports collaborating with them by releasing its own software as open source. This is because we recognize how valuable collaboration with open source communities truly is.
+SK Telecom not only participates in the open source community but also actively supports releasing its own software as open source to collaborate with the community. This guide helps you capture the benefits of open source collaboration without creating legal, ethical, or technical problems.
 
-* [Benefits of Releasing Open Source](/en/guide/release/benefit)
+This page is the starting point. Before you begin, use it to decide whether to release and what you will need.
 
-This document provides a guide for making the most of the advantages of open source collaboration when releasing SK Telecom's software as open source, while avoiding legal, ethical, and technical problems.
+## Summary
 
-## SK Telecom Open Source Release Rules
+1. Decide whether the project is worth releasing (see [Benefits of Releasing](background/benefit/)).
+2. Get internal approval and request a review (stage A of the [Release Process](process/)).
+3. Prepare your code following the SK Telecom [Release Rules](rule/) (stage B).
+4. Set up the project (stage C), then release and operate it (stage D).
 
-SK Telecom respects the value of collaboration with open source communities and encourages releasing internal software as open source projects.
+## Decision Flow
 
-However, there are several rules that must be observed in order to protect SK Telecom's intellectual property and to prevent unintended copyright infringement.
+| Question | Next step |
+|---|---|
+| Is this code, used in a real product or service, worth releasing? | If so, start preparing for release |
+| Do you have the right to release it (check third-party code, patents, sensitive info)? | If unclear, request a review first |
+| Do you have the people and resources to support it after release? | If not, plan for them first |
 
-* [Open Source Release Rules](/en/guide/release/rule)
+## The Full Process at a Glance
 
-## SK Telecom Open Source Release Process
+The [Release Process](process/) runs in four stages.
 
-In accordance with SK Telecom's Open Source Release Rules, the main steps for releasing open source are as follows.
+- A. Release Approval
+- B. Release Preparation
+- C. Project Setup
+- D. Release and Operation
 
-* [Open Source Release Process](/en/guide/release/process)
+## Inquiries
 
----
-
-{{% alert title="Contact" color="success" %}}
-For inquiries or requests regarding open source releases, contact the OSPO: [Support (opensource@sktelecom.com)](https://sktelecom.github.io/about/contact/)
-{{% /alert %}}
+For inquiries or requests regarding open source release, contact OSRB: [Support (opensource@sktelecom.com)](https://sktelecom.github.io/about/contact/)

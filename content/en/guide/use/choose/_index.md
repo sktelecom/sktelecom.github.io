@@ -19,7 +19,7 @@ Whether the community is active — how many users the open source has, whether 
 To properly adopt and maintain open source, you should also check how thoroughly the project provides documentation. The deliverables of a well-documented project are easier for a company to adopt. It also makes it easier to contribute the company's improvements back to the project as patches.
 
 ## Security Vulnerabilities
-Open source with known security vulnerabilities should not be used. Versions of open source in which security vulnerabilities have been found are tracked in databases such as CVE. You should check whether the version of the open source you intend to use has security vulnerabilities before using it.
+Avoid versions of open source that have known, unpatched vulnerabilities. Versions in which security vulnerabilities have been found are tracked in databases such as CVE. Check whether the version you intend to use has known vulnerabilities, and if so, use a patched, newer version.
 
 ## License
 An open source license is a permit that grants everyone the right to use the software freely. However, most open source licenses impose obligations that must be observed when redistributing the open source — for example, notice obligations and source code disclosure obligations. GPL-2.0, a representative open source license, requires that even the source code of software combined with it be disclosed. Therefore, when choosing open source, you must check in advance what its license is and whether you can operate in an environment that complies with that license. The open source compliance activities for this are explained below.

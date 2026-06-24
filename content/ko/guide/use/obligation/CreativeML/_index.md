@@ -27,7 +27,7 @@ CreativeML Open RAIL-M은 일반 소프트웨어 라이선스와 다릅니다:
 - **Responsible AI**: 특정 용도는 명시적으로 금지
 - **생성물과 분리**: AI가 생성한 이미지는 별도 저작권
 
-AI 서비스 개발 시 OSPO에 문의하시기 바랍니다.
+AI 서비스 개발 시 OSRB에 문의하시기 바랍니다.
 {{% /alert %}}
 
 ## CreativeML Open RAIL-M이란?

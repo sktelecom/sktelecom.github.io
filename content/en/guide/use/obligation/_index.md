@@ -25,7 +25,7 @@ There are licenses, such as CC0 and Public Domain, that can be used for free wit
 | [`The Unlicense`](http://unlicense.org/) | [`Unlicense`](https://spdx.org/licenses/Unlicense.html) |  |
 
 {{% alert title="Public Domain" color="warning" %}}
-Note that even software declared to be Public Domain may have complex underlying issues that require case-by-case legal review. If you need to confirm whether the code you intend to use is Public Domain, please contact the OSPO.
+Note that even software declared to be Public Domain may have complex underlying issues that require case-by-case legal review. If you need to confirm whether the code you intend to use is Public Domain, please contact the OSRB.
 * [Support (opensource@sktelecom.com)](https://sktelecom.github.io/about/contact/)
 {{% /alert %}}
 
@@ -91,6 +91,8 @@ Weak Copyleft type licenses require source code disclosure, but have the charact
 The LGPL (Lesser GPL) also requires the same conditions as the GPL, such as source code disclosure upon redistribution. However, it differs from the GPL in that, when combining LGPL open source in library form via linking, you only need to disclose the source code of the LGPL library portion, and the code that links to it has no disclosure obligation.
 
 If you use an LGPL-licensed component in a [dynamically-linked](https://opensource.google/docs/thirdparty/licenses/#LinkingRequirements) form, you can use it without disclosing your own code.
+
+This dynamic-linking exception is specific to the LGPL. Even within Weak Copyleft, others such as MPL (per file), EPL, and CDDL define their disclosure scope differently, so check each license's guide.
 {{% /alert %}}
 
 The open source licenses that can be classified as Weak Copyleft type licenses are as follows.
@@ -142,14 +144,14 @@ The AGPL (GNU Affero General Public License) extends the "distribution" concept 
 If you run AGPL-licensed open source on a server to provide a network service (SaaS, API, etc.), the following obligations arise even if you do not distribute a binary:
 
 1. Disclose the source code of the AGPL open source
-2. Disclose, under the AGPL, the source code of all software that is linked and operates together with it
+2. Disclose the source code of software that combines with the AGPL code to form a single work (the scope follows the same derivative- and combined-work boundary as the GPL; independent processes that communicate via pipe, socket, or IPC are not subject to disclosure)
 3. Provide a means for service users to download the source code
 
 This carries the risk of having to disclose even SK Telecom's core server programs.
 
 Therefore, AGPL open source cannot be used when developing SK Telecom's network services.
 
-If you exceptionally need to use it, please contact the OSPO.
+If you exceptionally need to use it, please contact the OSRB.
 * [Support (opensource@sktelecom.com)](https://sktelecom.github.io/about/contact/)
 {{% /alert %}}
 
@@ -166,7 +168,7 @@ SSPL, BSL, and Elastic License 2.0 are not OSI-approved open source.
 
 These are "Source Available" licenses; their source code is publicly available, but there are restrictions on things like commercial SaaS offerings. Some convert to true open source after a certain period.
 
-Be sure to contact the OSPO before using them in a product/service.
+Be sure to contact the OSRB before using them in a product/service.
 * [Support (opensource@sktelecom.com)](https://sktelecom.github.io/about/contact/)
 {{% /alert %}}
 
@@ -188,7 +190,7 @@ AI Model licenses have characteristics different from ordinary software licenses
 - **Data provenance**: Require checking the license of the training data as well
 - **Commercial restrictions**: Some licenses restrict large-scale commercial use
 
-Be sure to contact the OSPO when developing AI services.
+Be sure to contact the OSRB when developing AI services.
 * [Support (opensource@sktelecom.com)](https://sktelecom.github.io/about/contact/)
 {{% /alert %}}
 
@@ -218,7 +220,7 @@ The BSD-4-Clause license requires that a specific phrase ("This product includes
 |---|:---|:---:|
 | [`BSD 4-Clause "Original" or "Old" License`](http://directory.fsf.org/wiki/License:BSD_4Clause) | [`BSD-4-Clause`](https://spdx.org/licenses/BSD-4-Clause.html) | [BSD-4-Clause Guide](./bsd-4-clause/) |
 
-If you absolutely must include open source under such a license, please ask the OSPO how it can be included.
+If you absolutely must include open source under such a license, please ask the OSRB how it can be included.
 * [Support (opensource@sktelecom.com)](https://sktelecom.github.io/about/contact/)
 
 ## 9. Document/Content Licenses
@@ -237,5 +239,5 @@ Creative Commons licenses are used mainly for documents, images, datasets, and c
 
 ## 10. Other Licenses Not Mentioned
 
-To use open source under a license not classified above in an SK Telecom product, prior review is required. Please ask the OSPO whether it can be used.
+To use open source under a license not classified above in an SK Telecom product, prior review is required. Please ask the OSRB whether it can be used.
 * [Support (opensource@sktelecom.com)](https://sktelecom.github.io/about/contact/)

@@ -104,8 +104,10 @@ Because of these characteristics, it can be used flexibly in commercial software
 | LGPL-2.1/3.0 | Compatible | Disclose only MPL files |
 | Proprietary | Compatible | Usable as long as only MPL files are disclosed |
 
+Here, "Compatible" means the files can be combined or distributed together while the MPL files keep their source-disclosure obligation. It does not mean MPL is a permissive license.
+
 {{% alert title="Secondary License Clause" color="info" %}}
-MPL-2.0 provides compatibility with GPL-2.0/3.0 through the Secondary License clause. If MPL-2.0 code is included in a GPL project, it can be relicensed under the GPL.
+MPL-2.0 provides compatibility with GPL-2.0/3.0 through the Secondary License clause. This means MPL-2.0 files may also be distributed under the GPL (dual distribution); it does not relicense (convert) them to the GPL. This compatibility does not apply if a file is marked "Incompatible With Secondary Licenses".
 {{% /alert %}}
 
 ## References
