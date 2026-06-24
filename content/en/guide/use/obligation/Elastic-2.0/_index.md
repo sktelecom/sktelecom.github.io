@@ -30,7 +30,7 @@ Elastic License 2.0 has three Limitations:
 2. **Prohibition on circumventing the license**: You may not remove the software's protection mechanisms
 3. **Trademark use restriction**: You may not use the Elastic trademark in a misleading way
 
-Be sure to consult the OSPO before including it in a product/service.
+Be sure to consult the OSRB before including it in a product/service.
 {{% /alert %}}
 
 ## What Is Elastic License 2.0?

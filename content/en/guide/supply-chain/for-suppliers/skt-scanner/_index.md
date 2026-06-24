@@ -35,7 +35,7 @@ BomLens runs on Docker. Install and run Docker Engine 20.10 or later. On Windows
 
 If you are not comfortable with the command line, you can generate an SBOM in one of two ways. For the full procedure, see the [no command line quick start](https://sktelecom.github.io/sbom-tools/start/no-cli/).
 
-- Executable: Download `SBOM-Generator-*.exe` from the [latest release](https://github.com/sktelecom/sbom-tools/releases/latest) and double-click it. The file is not yet code-signed, so if Windows SmartScreen warns, click "More info" and then "Run anyway".
+- Executable: Download `SBOM-Generator-*.exe` (the BomLens executable) from the [latest release](https://github.com/sktelecom/sbom-tools/releases/latest) and double-click it. The file is not yet code-signed, so if Windows SmartScreen warns, click "More info" and then "Run anyway".
 - Repository ZIP: From the repository's `Code` button, choose `Download ZIP`, unzip it, and double-click `scripts\sbom-ui.bat`; the browser opens `http://localhost:8080`.
 
 In the web UI, the progress log is shown in real time on the right, and you can download the deliverables when it finishes.

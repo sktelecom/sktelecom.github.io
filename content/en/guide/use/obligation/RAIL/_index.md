@@ -27,7 +27,7 @@ BigScience RAIL is similar to CreativeML Open RAIL-M but is specialized for lang
 - More specific prohibited uses are stated (especially discrimination and disinformation)
 - Obligation to provide a Model Card
 
-When developing an LLM-based service, please consult the OSPO.
+When developing an LLM-based service, please consult the OSRB.
 {{% /alert %}}
 
 ## What Is BigScience RAIL?
@@ -175,7 +175,7 @@ Judgment: At the boundary of medical/psychological advice, expert review require
 #### 2. Hiring Assistance Tool
 Scenario: Resume screening assistance  
 Method of use: A human makes the final decision, but the AI recommends  
-Judgment: Depends on the method of use, OSPO review
+Judgment: Depends on the method of use, OSRB review
 
 ## Model Card Obligation
 

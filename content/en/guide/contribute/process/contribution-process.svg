@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="700" viewBox="0 0 1180 700" font-family="'Helvetica Neue',Arial,sans-serif">
+  <defs>
+    <marker id="arr" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#333"/>
+    </marker>
+    <marker id="arrS" markerWidth="10" markerHeight="10" refX="0" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M8,0 L0,3 L8,6 Z" fill="#333"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="1180" height="700" fill="#ffffff"/>
+
+  <rect x="20" y="50" width="320" height="610" rx="12" fill="#e9eff7" stroke="#c7d3e6"/>
+  <rect x="370" y="50" width="380" height="610" rx="12" fill="#f7efe8" stroke="#e6d6c7"/>
+  <rect x="800" y="50" width="360" height="610" rx="12" fill="#e9f5ec" stroke="#cfe6d6"/>
+  <text x="180" y="88" text-anchor="middle" font-size="24" font-weight="bold" fill="#2f4b7c">OSRB</text>
+  <text x="560" y="88" text-anchor="middle" font-size="24" font-weight="bold" fill="#7a5b2f">Dev Team</text>
+  <text x="980" y="88" text-anchor="middle" font-size="24" font-weight="bold" fill="#2f7a4b">Open Source Project</text>
+
+  <g>
+    <rect x="420" y="120" width="280" height="80" rx="10" fill="#cfe8c2" stroke="#7bbf6a"/>
+    <text x="560" y="167" text-anchor="middle" font-size="22" fill="#1f3d18">1. Internal approval</text>
+    <rect x="420" y="240" width="280" height="80" rx="10" fill="#cfe8c2" stroke="#7bbf6a"/>
+    <text x="560" y="287" text-anchor="middle" font-size="22" fill="#1f3d18">2. Request a review</text>
+    <rect x="420" y="360" width="280" height="80" rx="10" fill="#cfe8c2" stroke="#7bbf6a"/>
+    <text x="560" y="407" text-anchor="middle" font-size="22" fill="#1f3d18">3. Scope after approval</text>
+    <rect x="420" y="480" width="280" height="80" rx="10" fill="#cfe8c2" stroke="#7bbf6a"/>
+    <text x="560" y="527" text-anchor="middle" font-size="22" fill="#1f3d18">4. Review project docs</text>
+    <rect x="420" y="580" width="280" height="80" rx="10" fill="#cfe8c2" stroke="#7bbf6a"/>
+    <text x="560" y="627" text-anchor="middle" font-size="22" fill="#1f3d18">5. Submit contribution</text>
+  </g>
+  <g stroke="#333" stroke-width="2" marker-end="url(#arr)">
+    <line x1="560" y1="200" x2="560" y2="238"/>
+    <line x1="560" y1="320" x2="560" y2="358"/>
+    <line x1="560" y1="440" x2="560" y2="478"/>
+    <line x1="560" y1="560" x2="560" y2="578"/>
+  </g>
+
+  <rect x="60" y="240" width="240" height="80" rx="10" fill="#b9c6db" stroke="#7f93b5"/>
+  <text x="180" y="287" text-anchor="middle" font-size="22" fill="#1f2d4b">Review / Approval</text>
+  <line x1="300" y1="280" x2="420" y2="280" stroke="#333" stroke-width="2" marker-end="url(#arr)" marker-start="url(#arrS)"/>
+
+  <rect x="830" y="468" width="300" height="84" rx="10" fill="#f5e9a8" stroke="#d9c45f"/>
+  <text x="980" y="500" text-anchor="middle" font-size="21" fill="#4b3f10">Contribution guides</text>
+  <text x="980" y="528" text-anchor="middle" font-size="19" fill="#6b5d20">README, CONTRIBUTING</text>
+  <line x1="700" y1="510" x2="830" y2="510" stroke="#333" stroke-width="2"/>
+
+  <rect x="880" y="580" width="200" height="80" rx="10" fill="#e9f5ec" stroke="#9bbf8a"/>
+  <text x="980" y="627" text-anchor="middle" font-size="22" fill="#1f3d2a">GitHub</text>
+  <line x1="700" y1="620" x2="880" y2="620" stroke="#333" stroke-width="2" marker-end="url(#arr)"/>
+</svg>

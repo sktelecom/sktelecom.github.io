@@ -1,70 +1,69 @@
 ---
 title: "SK Telecom Open Source Contribution Rules"
 linkTitle: "Contribution Rules"
-weight: 11
+weight: 10
 type: docs
 description: >
-  Explains SK Telecom's open source contribution rules.
+  The rules to follow when contributing to external open source projects.
 ---
-SK Telecom respects the value of collaborating with the open source community and, to that end, encourages its members to contribute to external open source projects. However, there are several rules that must be followed to protect SK Telecom's intellectual property and to prevent unintentional copyright infringement.
 
-{{% alert title="Inquiries" color="success" %}} If any situation seems somehow undesirable, do not hesitate to contact the OSPO: [Support (opensource@sktelecom.com)](https://sktelecom.github.io/about/contact/) {{% /alert %}}
+SK Telecom respects the value of collaborating with the open source community and encourages its members to contribute to external open source projects. However, there are several rules to follow in order to protect SK Telecom's intellectual property and to prevent unintentional copyright infringement.
 
 ## Obtain Approval
-From a copyright perspective, open source contribution grants the open source project the right to modify, use, and distribute the author's work. In some cases, you may even have to assign your copyright to the open source project. Generally, however, the copyright of works created during employment is owned by the employer. That is, works created by SK Telecom members are owned by SK Telecom. A member contributing a work to open source at their own discretion can create unnecessary copyright infringement issues.
 
-Therefore, if there is an open source project you want to contribute to, follow the review request and approval process before your first contribution, in accordance with SK Telecom's open source contribution policy.
+From a copyright perspective, an open source contribution grants the project the right to modify, use, and distribute the author's work. In some cases you may even have to assign your copyright to the project. Generally, the copyright of works created during employment is owned by the employer, so works created by SK Telecom members are owned by SK Telecom. Contributing at your own discretion can create unnecessary copyright-infringement issues.
 
-* [Open Source Contribution Process](/en/guide/release/process)
+Therefore, if there is a project you want to contribute to, follow the review request and approval steps in the [Contribution Process](../process/) before your first contribution.
 
 ## Contribute Only Code You Have the Right to Contribute
-Contribute only code you have the right to contribute. That is, contribute code you wrote yourself. You must not contribute third-party code at your own discretion.
+
+Contribute only code you wrote yourself. Do not contribute third-party code at your own discretion.
 
 ## Be Careful About Disclosing Intellectual Property
-Do not contribute code or documents where there is a concern about disclosing the company's intellectual property, such as sensitive information or patents.
 
-If the code you want to contribute contains a company patent, confirm whether it is permissible to contribute this patent to the project under an open source license. If anything is unclear, contact the OSPO.
+Do not contribute code or documents that risk disclosing the company's intellectual property, such as sensitive information or patents. If the code contains a company patent, confirm whether the patent may be contributed under the project's open source license. If anything is unclear, contact OSRB.
+
+Note that when you contribute under a license with an explicit patent grant, such as Apache-2.0 or GPL-3.0, you may also grant a license to the company patents needed to implement the contributed code. If patents are involved, request an OSRB review before contributing.
 
 ## Do Not Contribute Substandard Code
-Do not contribute substandard code. This can affect the company's reputation.
+
+Do not contribute substandard code. It can affect the company's reputation.
 
 ## Be Careful When Signing a CLA
-Some open source projects require all contributors to sign a CLA (Contributor License Agreement). This is an agreement that seeks contributors' consent in order to reduce copyright disputes that may arise as the project manages works from many contributors. Projects led by large companies typically require signing a CLA.
 
-CLAs differ from project to project, but they mainly contain agreement to the following.
+Some projects require all contributors to sign a CLA (Contributor License Agreement). This agreement reduces copyright disputes that may arise as a project manages works from many contributors. Projects led by large companies typically require one.
 
-~~~
-- I (or my company) have the right to contribute the contribution I am about to contribute to the project. (That is, I am the author of this contribution.)
+CLAs differ from project to project, but they mainly ask you to agree to the following.
+
+- I (or my company) have the right to contribute this contribution (that is, I am its author).
 - I (or my company) grant the project the authority to modify, distribute, and manage my contribution.
 - I (or my company) will not revoke the authority I have granted.
-- I (or my company) grant the project the authority to change the license in the future as needed.
-~~~
+- I (or my company) grant the project the authority to change the license in the future.
+- I (or my company) grant the project and its users a license to any patents embodied in the contribution.
 
-In addition, although it is rare, some CLAs require agreement to the following condition.
+In rare cases, some CLAs also require agreement to the following.
 
-~~~
-- I (or my company), upon contributing my contribution, assign my copyright to the project or the project's managing organization.
-~~~
+- I (or my company) assign my copyright to the project or its managing organization upon contributing.
 
-To protect its intellectual property, SK Telecom does not permit contributions to open source projects that require copyright assignment. To make this determination, if an open source project you want to contribute to requires signing a CLA, you must request an OSPO review before signing: Open Source Contribution Process.
+To protect its intellectual property, SK Telecom does not permit contributions to projects that require copyright assignment. Therefore, if a project requires a CLA, request an OSRB review before signing. Most CLAs are fine to sign, so approval does not take long.
 
-Most CLAs are not problematic to sign, so the approval process does not take long.
+Many projects require a DCO (Developer Certificate of Origin) instead of a CLA. A DCO does not assign or separately grant copyright or patent rights; it certifies, through a Signed-off-by line in the commit, that the contribution is yours and that you have the right to contribute it. See [Submitting Contributions](../submit/) for how to sign off.
 
 ## Indicate Copyright
-The intellectual property of works created by a member during their employment is, by default, owned by the company. Therefore, when contributing code to an external open source project, members must indicate SK Telecom's copyright.
 
-When contributing one or more files, indicate the copyright and license at the top of the file as follows.
+The intellectual property of works a member creates during employment is, by default, owned by the company. So when contributing code to an external project, indicate SK Telecom's copyright. When contributing one or more files, add the copyright and license at the top of the file as follows.
 
-~~~
-Copyright 2021 SK TELECOM CO., LTD.
-SPDX-License-Identifier: {$SPDX_license_name}
-~~~
+```
+SPDX-FileCopyrightText: Copyright {year} SK TELECOM CO., LTD.
+SPDX-License-Identifier: {SPDX_license_id}
+```
 
-* Here, $SPDX_license_name is written according to the license policy of the relevant open source project.
-* However, if you are merely modifying existing code for purposes such as bug fixes, there is no need to indicate copyright for that code modification.
-* For detailed copyright and license notation rules, refer to the following page: [Copyright and License Notice Within Files](/en/guide/release/process/copyright)
+- Use the file's creation year for `{year}`.
+- Set `{SPDX_license_id}` according to the project's license policy.
+- If you are only modifying existing code (for example, a bug fix), you do not need to add a copyright notice for that change.
+
+This notation follows the REUSE standard and matches the format used in [Copyright and License Notice](../../release/process/copyright/).
 
 ## Use Your Company Email
-When contributing to open source projects, do not use your personal email; use your SK Telecom email. Through this, (1) members gain a sense of responsibility that they are communicating with the community on behalf of the company, and (2) SK Telecom can improve its recognition as a company that actively contributes to the open source community.
 
-* For how to set up your email on GitHub, refer to the following [Link](https://docs.github.com/en/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address).
+When contributing, use your SK Telecom email rather than a personal one. This gives members a sense of responsibility for representing the company in the community, and it improves SK Telecom's recognition as an active open source contributor.

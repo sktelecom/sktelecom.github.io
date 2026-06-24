@@ -27,7 +27,7 @@ BSL can have different terms for each project:
 - **Change Date**: When it converts to open source
 - **Change License**: Which open source license it converts to
 
-Be sure to check the LICENSE file of each BSL project and consult the OSPO.
+Be sure to check the LICENSE file of each BSL project and consult the OSRB.
 {{% /alert %}}
 
 ## What Is BSL?

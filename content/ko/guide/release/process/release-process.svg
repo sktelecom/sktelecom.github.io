@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="720" viewBox="0 0 1000 720" font-family="'Apple SD Gothic Neo','Noto Sans CJK KR','Malgun Gothic',sans-serif">
+  <defs>
+    <marker id="arr" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#333"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="1000" height="720" fill="#ffffff"/>
+
+  <g>
+    <rect x="120" y="60" width="760" height="110" rx="12" fill="#cfe8c2" stroke="#7bbf6a"/>
+    <text x="500" y="108" text-anchor="middle" font-size="25" font-weight="bold" fill="#1f3d18">A. 공개 승인</text>
+    <text x="500" y="143" text-anchor="middle" font-size="18" fill="#3c5a32">내부 승인, OSRB 검토 요청</text>
+
+    <rect x="120" y="230" width="760" height="110" rx="12" fill="#cfe8c2" stroke="#7bbf6a"/>
+    <text x="500" y="278" text-anchor="middle" font-size="25" font-weight="bold" fill="#1f3d18">B. 공개 준비</text>
+    <text x="500" y="313" text-anchor="middle" font-size="18" fill="#3c5a32">라이선스, 3rd party 분리, 저작권 표기, 코드 정화, 보안·ECCN</text>
+
+    <rect x="120" y="400" width="760" height="110" rx="12" fill="#cfe8c2" stroke="#7bbf6a"/>
+    <text x="500" y="448" text-anchor="middle" font-size="25" font-weight="bold" fill="#1f3d18">C. 프로젝트 셋업</text>
+    <text x="500" y="483" text-anchor="middle" font-size="18" fill="#3c5a32">이름, 저장소·인프라, 거버넌스, SECURITY.md, 문서화</text>
+
+    <rect x="120" y="570" width="760" height="110" rx="12" fill="#cfe8c2" stroke="#7bbf6a"/>
+    <text x="500" y="618" text-anchor="middle" font-size="25" font-weight="bold" fill="#1f3d18">D. 공개와 운영</text>
+    <text x="500" y="653" text-anchor="middle" font-size="18" fill="#3c5a32">공개, 마케팅, 커뮤니티, 생명주기(EOL)</text>
+  </g>
+
+  <g stroke="#333" stroke-width="2.5" marker-end="url(#arr)">
+    <line x1="500" y1="170" x2="500" y2="228"/>
+    <line x1="500" y1="340" x2="500" y2="398"/>
+    <line x1="500" y1="510" x2="500" y2="568"/>
+  </g>
+</svg>

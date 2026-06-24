@@ -54,12 +54,12 @@ Trivy is a tool that can check license information alongside vulnerability scann
 trivy fs --scanners license .
 ```
 
-> **Caution**: Trivy was the victim of a supply chain attack in 2025 through release tag tampering.
+> **Caution**: Tools such as Trivy can be exposed to supply chain attacks through release tag tampering.
 > When installing the CLI, use the official release channels, and in GitHub Actions, use a verified pinned version
-> such as `@0.35.0` instead of mutable tags (`@latest`, `@master`, etc.).
-> For details, refer to the [SBOM Generation Guide](/en/guide/supply-chain/for-suppliers/creation-guide/).
+> or a commit SHA instead of mutable tags (`@latest`, `@master`, etc.).
+> For reported cases and safe usage, refer to the [SBOM Generation Guide](/en/guide/supply-chain/for-suppliers/creation-guide/).
 
-For detailed usage of automation tools, refer to the [Automation](/en/guide/use/automation/) section.
+For automated SBOM generation, refer to the [SBOM Generation Guide](/en/guide/supply-chain/for-suppliers/creation-guide/).
 
 ## Priority of License Information
 
