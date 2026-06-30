@@ -7,33 +7,43 @@ description: >
   Contributing to external open source projects
 ---
 
-SK Telecom actively encourages its members to contribute to external open source projects, for example by submitting patches. If you find a bug or improve some code, contribute it back to the open source project. Doing so benefits not only individuals but the company as well.
-* [Benefits of Open Source Contribution](/en/guide/contribute/benefit)
+SK Telecom actively encourages its members to contribute to external open source projects, for example by submitting patches. If you find a bug or improve some code, contribute it back to the project. Contributing benefits not only individuals but the company as well.
 
-That said, there are a few things to keep in mind. Although it is not common, jumping in without an understanding of, and a strategy for, the open source project and its community can lead to disappointment. In particular, it can not only damage the company's reputation within the community but also create legal risk. This guide was written to help prevent such legal issues and to enable effective collaboration with the open source community. It explains several requirements that SK Telecom members must follow before contributing to an open source project, along with the right way to contribute.
+This page is the starting point. Before you begin, use it to decide what you need to do.
 
-## Useful Knowledge for Open Source Contribution
-First, here is some information that may help with open source contribution. (If you are already familiar with general open source contribution, feel free to skip this section.)
+## Summary
 
-* [Types of Open Source Contribution](/en/guide/contribute/background/type)
-* [Open Source Project Membership](/en/guide/contribute/background/membership)
-* [Key Documents in an Open Source Project](/en/guide/contribute/background/document)
-* [How to Become a Good Contributor](/en/guide/contribute/background/good-contributor)
-* [How to Identify a Good Project to Contribute To](/en/guide/contribute/background/good-project)
-* [How to Communicate](/en/guide/contribute/background/communication)
+1. First, check whether your contribution needs approval (see the decision flow below).
+2. If approval is needed, get internal approval from your organization and then request a review ([Contribution Process](process/)).
+3. Prepare your code following the SK Telecom [Contribution Rules](rule/).
+4. [Submit your contribution](submit/) in the way the project requires.
 
-## SK Telecom Open Source Contribution Rules
-SK Telecom respects the value of collaborating with the open source community and, to that end, encourages its members to contribute to external open source projects. However, there are several rules that must be followed to protect SK Telecom's intellectual property and to prevent unintentional copyright infringement.
+## Decision Flow
 
-* [Open Source Contribution Rules](/en/guide/contribute/rule)
+Find where your contribution fits and choose the process accordingly.
 
-## SK Telecom Open Source Contribution Process
-In accordance with SK Telecom's open source contribution rules, members follow the contribution process below when contributing to external open source projects.
+| Situation | What you need |
+|---|---|
+| Small fixes of 10 lines or fewer, typos, documentation improvements | Contribute directly, no approval |
+| Stack Overflow Q&A, creating GitHub issues, reviewing or approving Pull Requests | Contribute directly, no approval |
+| Other code contributions (new features, bug fixes, etc.) | Internal approval, then request a review |
+| A project requires a CLA that demands copyright assignment | Request a review before contributing (it may not be permitted) |
 
-* [Open Source Contribution Process](/en/guide/contribute/process)
+## When You Can Contribute Without Approval
 
----
+The following carry little risk of copyright infringement, so members may contribute at their own discretion.
 
-{{% alert title="Inquiries" color="success" %}}
-For inquiries or requests regarding open source contribution, contact the OSPO: [Support (opensource@sktelecom.com)](https://sktelecom.github.io/about/contact/)
-{{% /alert %}}
+- Small code snippets of 10 lines or fewer
+- Questions and answers on Stack Overflow
+- Management activities on GitHub (creating issues, reviewing and approving Pull Requests, etc.)
+
+## The Full Process at a Glance
+
+- [Contribution Rules](rule/): the rules to follow when contributing
+- [Contribution Process](process/): how to get approval and proceed
+- [Submitting Contributions](submit/): how to submit a contribution to a project
+- [Background](background/): learning material to understand contribution
+
+## Inquiries
+
+For inquiries or requests regarding open source contribution, contact OSRB: [Support (opensource@sktelecom.com)](https://sktelecom.github.io/about/contact/)

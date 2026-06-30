@@ -75,5 +75,5 @@ For the SK Telecom open source policy, departmental R&R, and verification proces
 ---
 
 {{% alert title="Inquiries" color="success" %}}
-For inquiries/requests when using open source, contact the OSPO: [Support (opensource@sktelecom.com)](https://sktelecom.github.io/about/contact/)
+For inquiries/requests when using open source, contact the OSRB: [Support (opensource@sktelecom.com)](https://sktelecom.github.io/about/contact/)
 {{% /alert %}}

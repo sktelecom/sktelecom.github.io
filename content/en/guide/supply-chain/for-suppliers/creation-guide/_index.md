@@ -15,13 +15,17 @@ If you cannot use the SKT-provided tool, or you already have your own build pipe
 
 ```mermaid
 graph TD
-    A[Identify analysis target] --> B{Is it source code?}
+    A[Identify analysis target] --> S{A server combining an OS and an app?}
+    S -- Yes --> T[Generate per layer<br>see the Server SBOM guide]
+    S -- No --> B{Is it source code?}
     B -- Yes --> C[cdxgen recommended]
     B -- No --> D{Is it a Docker image?}
     D -- Yes --> E[Syft or Trivy recommended]
     D -- No --> F[Binary/Firmware]
     F --> G[Syft recommended]
 ```
+
+A server that combines an OS and an application is not done in one scan. For the full per-layer procedure, see [Server SBOM](../server-delivery/).
 
 ## Major Tools
 
@@ -32,6 +36,8 @@ Automatically analyzes projects in various languages such as Java, Python, Node.
 - Official documentation: [https://cdxgen.github.io/cdxgen](https://cdxgen.github.io/cdxgen)
 - GitHub: [https://github.com/CycloneDX/cdxgen](https://github.com/CycloneDX/cdxgen)
 - Supported languages: Java (Maven/Gradle), Python, Node.js, Go, Ruby, PHP, Rust, .NET, C/C++, etc.
+
+> cdxgen statically parses lockfiles and manifests. For accurate results, run it when dependencies are installed or resolved (a lockfile is present, or after a build). Scanning pure source without resolved dependencies may omit some components or purls.
 
 ### Syft (recommended for container image and binary analysis)
 
@@ -61,6 +67,8 @@ syft dir:/root/nag_pkg   # without package manager metadata, PURL count becomes 
 
 Immediately after generation, be sure to check the PURL count. See the [Validation Checklist](../checklist/) for how to verify.
 {{% /alert %}}
+
+A server that delivers an application on top of an OS (such as CentOS) is generated as two layers — OS (rootfs/image) and application — with statically linked libraries covered separately, then merged. As the warning above notes, the OS layer must target a rootfs or image that has a package database. For the full procedure, see [Server SBOM](../server-delivery/).
 
 ### Trivy (container image analysis)
 
@@ -145,6 +153,7 @@ Verify the following before using a tool.
 
 ## Related Documents
 
+- [Server SBOM](../server-delivery/): How to generate and merge the layers of a server that combines an OS, an application, and static-link libraries
 - [Submission Requirements](../requirements/): The required data fields that must be included in the SBOM
 - [Validation Checklist](../checklist/): Items to verify before submission
 - [BomLens](../skt-scanner/): SK Telecom's SBOM generation tool

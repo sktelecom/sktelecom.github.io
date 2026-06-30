@@ -44,14 +44,14 @@
     "update:packages": "npx npm-check-updates -u"
   },
   "devDependencies": {
-    "autoprefixer": "^10.5.0",
+    "autoprefixer": "^10.5.2",
     "cross-env": "^10.1.0",
-    "hugo-extended": "0.162.1",
+    "hugo-extended": "0.163.3",
     "postcss-cli": "^11.0.1",
     "rtlcss": "^4.3.0"
   },
   "optionalDependencies": {
-    "npm-check-updates": "^22.2.1"
+    "npm-check-updates": "^22.2.9"
   },
   "engines": {
     "node": ">=22"

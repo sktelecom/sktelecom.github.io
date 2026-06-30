@@ -1,58 +1,68 @@
 ---
 title: "SK Telecom Open Source Contribution Process"
 linkTitle: "Contribution Process"
-weight: 12
+weight: 20
 type: docs
 description: >
-  Explains SK Telecom's open source contribution process.
+  How to get a contribution approved and proceed.
 ---
 
-In accordance with SK Telecom's open source contribution rules, members follow the contribution process below when contributing to external open source projects.
-
-{{% alert title="Contribution Process May Be Skipped" color="warning" %}}
-However, for simple matters such as the following, the risk of copyright infringement is not significant, so members may contribute at their own discretion without the review process.
-
-* Small code snippets of 10 lines or fewer
-* Questions / answers on Stack Overflow
-* Management activities on GitHub: creating issues, reviewing / approving Pull Requests, etc.
-{{% /alert %}}
+In accordance with the SK Telecom [Contribution Rules](../rule/), members follow the process below when contributing to external open source projects. If your contribution falls under the cases that need no approval (see the [overview](../) decision flow), you may skip this process.
 
 ![process](./contribution-process.png)
 
 ## 1. Internal Approval Within Your Organization
+
 Before starting to contribute to an open source project, obtain approval from the responsible executive or leader of your organization.
 
-## 2. Request an OSPO Review
-After obtaining approval within your organization, request a review from the OSPO<sub>Open Source Program Office</sub>: [Support (opensource@sktelecom.com)](https://sktelecom.github.io/about/contact/)
+## 2. Request a Review
 
-* When requesting a review, include the following: [Template]
-  * Open source project name
-  * Repository
-  * License
-  * Purpose of contribution
-  * Details of contribution
-* The OSPO reviews the open source project's License / CLA and approves it if there are no issues.
-* The OSPO compiles the status of open source projects to which SK Telecom members are contributing. The compiled data is used as an expert pool for each open source project.
+After internal approval, request a review from OSRB (opensource@sktelecom.com). Filling in the checklist below speeds up the review.
 
-{{% alert title="Approved Projects" color="success" %}}
-Once you have received an OSPO review and approval for an open source project you want to contribute to, you may contribute to that open source project at the member's discretion thereafter.
-{{% /alert %}}
+### Submission Checklist
 
-## 3. Review the Project's Contribution Documents
+- [ ] Open source project name
+- [ ] Repository URL
+- [ ] Project license
+- [ ] Purpose of the contribution
+- [ ] Summary of the contribution
+- [ ] Internal approval status
+- [ ] Whether the project requires a CLA or DCO
 
-The required process differs slightly from one open source project to another.
+### GitHub Issue Template
 
-* Each project has various guidelines on coding style, language, formatting, bug/ticket management, release timing, and so on.
-* Some projects require signing a CLA, while others require a DCO Signed-off-by.
-* As for how patches are accepted, most projects now use GitHub Pull Requests, but some still use a mailing list.
+Accepting requests through an internal issue tracker or GitHub organization with the template below lets contributors provide everything just by filling in the blanks.
 
-For this reason, to properly understand the process of the project you want to contribute to, you must first carefully review the documents the project provides. Most projects provide these documents as a CONTRIBUTING or README file. For example, Kubernetes provides a detailed guide for contributors. ([contributing.md](https://github.com/kubernetes/community/blob/master/contributors/guide/contributing.md): a guide for contributing to Kubernetes) The better you comply with the requirements in the documents, the more likely your contribution is to be accepted.
+```markdown
+### Open Source Contribution Review Request
 
-## 4. Comply with the Open Source Contribution Rules
-Review the [SK Telecom Open Source Contribution Rules](/en/guide/contribute/rule) and improve the code you will contribute accordingly.
+- Project name:
+- Repository:
+- License:
+- Purpose:
+- Summary of contribution:
+- Internal approval (executive/leader):
+- CLA/DCO required:
+```
+
+### Expected Turnaround
+
+The review covers the license and any CLA. Simple checks finish quickly; cases that need further review take longer.
+
+OSRB reviews the project's license and CLA and approves the request if there are no issues.
+
+## 3. Scope After Approval
+
+Once a project is approved, members may contribute to it at their own discretion thereafter. Request a new review when contributing to a different project.
+
+## 4. Review the Project's Contribution Documents
+
+The required process differs slightly between projects. Before contributing, check the project's CONTRIBUTING or README to understand the following.
+
+- Guidelines on coding style, language, formatting, issue/ticket management, release timing, and so on
+- Whether a CLA signature or a DCO Signed-off-by is required
+- How patches are submitted (GitHub Pull Request or mailing list)
 
 ## 5. Submit Your Contribution
-Now submit your contribution according to the process required by the project's documentation. For how to contribute to a typical open source project, refer to the following pages.
 
-* [Detailed Contribution Submission Process](/en/guide/contribute/process/submit)
-* [How to Communicate](/en/guide/contribute/background/communication)
+After improving your code per the [Contribution Rules](../rule/), [submit it](../submit/) in the way the project requires.

@@ -26,7 +26,7 @@ SK텔레콤은 대부분의 서비스에서 이미 많은 오픈소스를 사용
 
 최근 오픈소스 생태계에서는 라이선스 컴플라이언스와 함께 보안 취약점 관리와 소프트웨어 공급망 보안이 중요한 과제로 부상하였습니다. 미국과 유럽의 규제 강화에 따라 SBOM(Software Bill of Materials) 관리와 체계적인 취약점 대응이 필수가 되었습니다.
 
-SK텔레콤 OSPO(Open Source Program Office)는 구성원들이 올바르게 오픈소스를 사용하고, 기여할 뿐만 아니라 SK텔레콤의 소프트웨어를 오픈소스로 공개하기 위한 가이드를 제공합니다.
+SK텔레콤 OSRB(Open Source Review Board)는 구성원들이 올바르게 오픈소스를 사용하고, 기여할 뿐만 아니라 SK텔레콤의 소프트웨어를 오픈소스로 공개하기 위한 가이드를 제공합니다.
 
 ## 가이드 구성
 
@@ -59,6 +59,6 @@ SK텔레콤 OSPO(Open Source Program Office)는 구성원들이 올바르게 오
 
 
 {{% alert title="Contacts" color="success" %}}
-오픈소스 가이드와 관련하여 문의나 요청이 있는 분은 SK텔레콤 OSPO에 연락 주시기 바랍니다.
+오픈소스 가이드와 관련하여 문의나 요청이 있는 분은 SK텔레콤 OSRB에 연락 주시기 바랍니다.
 * [Support (opensource@sktelecom.com)](https://sktelecom.github.io/about/contact/)
 {{% /alert %}}

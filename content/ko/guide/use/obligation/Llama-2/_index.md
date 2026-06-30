@@ -29,7 +29,7 @@ SPDX Identifier: `Llama-2` (비공식)
 
 대부분의 기업과 서비스는 7억 명 미만이므로 자유롭게 사용 가능합니다.
 
-Llama 2 기반 서비스 개발 시 OSPO에 문의하시기 바랍니다.
+Llama 2 기반 서비스 개발 시 OSRB에 문의하시기 바랍니다.
 {{% /alert %}}
 
 ## Llama 2 Community License란?

@@ -27,7 +27,7 @@ BSL은 프로젝트마다 다른 조건을 가질 수 있습니다:
 - **Change Date**: 언제 오픈소스로 전환되는지
 - **Change License**: 어떤 오픈소스 라이선스로 전환되는지
 
-각 BSL 프로젝트의 LICENSE 파일을 반드시 확인하고 OSPO에 문의하시기 바랍니다.
+각 BSL 프로젝트의 LICENSE 파일을 반드시 확인하고 OSRB에 문의하시기 바랍니다.
 {{% /alert %}}
 
 ## BSL이란?

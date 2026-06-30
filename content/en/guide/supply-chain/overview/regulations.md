@@ -13,7 +13,7 @@ description: >
 In May 2021, the Biden administration issued the "Executive Order on Improving the Nation's Cybersecurity (Executive Order 14028)." This was a decisive turning point at which supply chain security began to be addressed at the level of national security in the aftermath of the SolarWinds incident.
 
 ### Key Provisions
-- Mandatory SBOM submission: Companies that supply software to the federal government must submit an SBOM.
+- Push toward SBOM requirements: EO 14028 directed defining the minimum elements of an SBOM and secure software development practices; the SBOM submission and self-attestation requirements for federal suppliers were detailed in subsequent OMB guidance.
 - NIST guideline compliance: Companies must comply with the Secure Software Development Framework (SSDF) defined by NIST (the U.S. National Institute of Standards and Technology).
 - Minimum standards: The U.S. administration led standardization by defining the minimum elements of an SBOM (data fields, automation support, etc.).
 
@@ -23,8 +23,8 @@ Through the Cyber Resilience Act (CRA), the EU has enacted into law security req
 
 ### Key Provisions
 - CE marking certification: All products with digital elements can only be sold within the EU if they meet the cybersecurity requirements and bear the CE mark.
-- Defined security support period: Manufacturers must provide security updates throughout the expected product use period (up to 5 years).
-- Vulnerability reporting obligation: Critical vulnerabilities must be reported to ENISA (the European Union Agency for Cybersecurity) within 24 hours of discovery.
+- Defined security support period: Manufacturers must provide security updates throughout the expected product use period, which is, in principle, at least five years. If the expected use period is shorter than five years, the support period matches it (Regulation (EU) 2024/2847, Article 13 and Recital 60). In other words, five years is a baseline, not a cap.
+- Vulnerability reporting obligation: On becoming aware of an actively exploited vulnerability or a severe security incident, the manufacturer must submit an early warning to the coordinating CSIRT and ENISA within 24 hours, followed within 72 hours by a notification and, later, a final report (Regulation (EU) 2024/2847, Article 14).
 - SBOM management: Manufacturers must identify and document (via an SBOM) the software components of their products.
 
 ## 3. South Korea: SW Supply Chain Security Guidelines

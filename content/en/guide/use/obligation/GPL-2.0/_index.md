@@ -137,13 +137,13 @@ If you later receive a request for source code based on the written offer, you m
 | Combining License | Compatible | Notes |
 |-------------------|------------|-------|
 | MIT | Compatible | The entire project becomes GPL-2.0 |
-| Apache-2.0 | Incompatible | Patent clause conflict |
+| Apache-2.0 | Incompatible | Additional restrictions (patent retaliation, etc.) conflict |
 | GPL-3.0 | Conditional | Compatible only if GPL-2.0-or-later |
 | LGPL-2.1 | Compatible | The LGPL portion can remain LGPL |
 | Proprietary | Incompatible | Cannot be used in commercial software |
 
 {{% alert title="Incompatibility with Apache-2.0" color="warning" %}}
-GPL-2.0 is not compatible with Apache-2.0. This is because Apache-2.0's patent grant clause conflicts with GPL-2.0. If you need Apache-2.0 code, consider using GPL-3.0.
+GPL-2.0 is not compatible with Apache-2.0. This is because Apache-2.0 imposes additional restrictions (such as a patent retaliation clause) that GPL-2.0 does not allow, conflicting with GPL-2.0 section 6 ("no further restrictions"). GPL-2.0 itself has no patent clause. If you need Apache-2.0 code, consider using GPL-3.0.
 {{% /alert %}}
 
 ## References
