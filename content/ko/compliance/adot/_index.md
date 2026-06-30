@@ -38,6 +38,7 @@ description: >
 
 | Version | OSS Notice | Source Code |
 |---|:---:|:---:|
+| 4.4.0 | [notice](https://opensource.sktelecom.com/compliance_artifacts/a./ios/4.4.0/A._iOS_4.4.0_OSS_Notice.html)  | [zip](https://opensource.sktelecom.com/compliance_artifacts/a./ios/4.4.0/openSource_license.zip) |
 | 4.3.4 | [notice](https://opensource.sktelecom.com/compliance_artifacts/a./ios/4.3.4/A._iOS_4.3.4_OSS_Notice.html)  | [zip](https://opensource.sktelecom.com/compliance_artifacts/a./ios/4.3.4/openSource_license.zip) |
 | 4.2.0 | [notice](https://opensource.sktelecom.com/compliance_artifacts/a./ios/4.2.0/A._iOS_4.2.0_OSS_Notice.html)  | [zip](https://opensource.sktelecom.com/compliance_artifacts/a./ios/4.2.0/openSource_license.zip) |
 | 4.0.3 | [notice](https://opensource.sktelecom.com/compliance_artifacts/a./ios/4.0.3/A._iOS_4.0.3_OSS_Notice.html)  | [zip](https://opensource.sktelecom.com/compliance_artifacts/a./ios/4.0.3/openSource_license.zip) |
