@@ -13,7 +13,7 @@
 
     <rect x="120" y="230" width="760" height="110" rx="12" fill="#cfe8c2" stroke="#7bbf6a"/>
     <text x="500" y="278" text-anchor="middle" font-size="25" font-weight="bold" fill="#1f3d18">B. 공개 준비</text>
-    <text x="500" y="313" text-anchor="middle" font-size="18" fill="#3c5a32">라이선스, 3rd party 분리, 저작권 표기, 코드 정화, 보안·ECCN</text>
+    <text x="500" y="313" text-anchor="middle" font-size="18" fill="#3c5a32">라이선스, 3rd party 분리, 저작권 표기, 민감정보 제거, 보안·ECCN</text>
 
     <rect x="120" y="400" width="760" height="110" rx="12" fill="#cfe8c2" stroke="#7bbf6a"/>
     <text x="500" y="448" text-anchor="middle" font-size="25" font-weight="bold" fill="#1f3d18">C. 프로젝트 셋업</text>

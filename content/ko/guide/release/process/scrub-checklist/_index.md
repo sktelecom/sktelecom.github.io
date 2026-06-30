@@ -1,6 +1,6 @@
 ---
-title: "코드 정화 체크리스트"
-linkTitle: "코드 정화 체크리스트"
+title: "민감정보 제거 체크리스트"
+linkTitle: "민감정보 제거 체크리스트"
 weight: 30
 type: docs
 description: >
@@ -27,7 +27,7 @@ description: >
 $ gitleaks detect --source . --redact
 ```
 
-## 커밋 이력 정화
+## 커밋 이력 정리
 
 민감정보가 한 번이라도 커밋됐다면, 현재 파일에서 지워도 이력에는 남습니다. git filter-repo로
 이력에서 제거합니다.
