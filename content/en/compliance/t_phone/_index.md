@@ -12,6 +12,7 @@ Open Source Notice & Source Code for A. Phone
 
 | Version | OSS Notice | Source Code |
 |---|:---:|:---:|
+| 14.0.0 | [notice](https://opensource.sktelecom.com/compliance_artifacts/t_phone/android/14.0.0/A._Phone_Android_14.0.0_OSS_Notice.html)  | [zip](https://opensource.sktelecom.com/compliance_artifacts/t_phone/android/14.0.0/sources.zip) |
 | 13.9.0 | [notice](https://opensource.sktelecom.com/compliance_artifacts/t_phone/android/13.9.0/A._Phone_Android_13.9.0_OSS_Notice.html)  | [zip](https://opensource.sktelecom.com/compliance_artifacts/t_phone/android/13.9.0/sources.zip) |
 | 13.7.0 | [notice](https://opensource.sktelecom.com/compliance_artifacts/t_phone/android/13.7.0/A._Phone_Android_13.7.0_OSS_Notice.html)  | [zip](https://opensource.sktelecom.com/compliance_artifacts/t_phone/android/13.7.0/sources.zip) |
 | 13.5.0 | [notice](https://opensource.sktelecom.com/compliance_artifacts/t_phone/android/13.5.0/A._Phone_Android_13.5.0_OSS_Notice.html)  | [zip](https://opensource.sktelecom.com/compliance_artifacts/t_phone/android/13.4.0/sources.zip) |
