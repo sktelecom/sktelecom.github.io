@@ -13,16 +13,21 @@ description: >
 
 ```mermaid
 graph TD
-    A[Identify analysis target] --> S{A server combining an OS and an app?}
-    S -- Yes --> T[Generate per layer<br>see the Server SBOM guide]
-    S -- No --> D{Is it a Docker image?}
-    D -- Yes --> E[Syft or Trivy recommended]
-    D -- No --> C[Scan the source code with cdxgen<br>firmware/binary deliveries scan source too]
+    A[Compose the SBOM] --> B[Your source code<br>scan with cdxgen or BomLens<br>always, includes transitive deps]
+    A --> C{Built on an external OS or base image?}
+    C -->|Yes| D[The OS layer as shipped<br>scan with Syft or Trivy]
+    C -->|No| F[Merge each layer's SBOM and submit]
+    B --> F
+    D --> F
 ```
 
-A server that combines an OS and an application is not done in one scan. For the full per-layer procedure, see [Server SBOM](../server-delivery/).
+An SBOM is not about picking a single tool; it is about scanning each layer of the delivery and merging the results.
 
-Even when you deliver firmware or a binary, do not scan the finished artifact directly — generate the SBOM from the source code it was built from. Scanning firmware or a binary as-is yields no package manager metadata, so PURLs are omitted, vulnerability matching fails, and the SBOM is rejected.
+Whatever the delivery form, the baseline for capturing transitive dependencies accurately is to scan the source code the supplier developed with cdxgen or [BomLens](../skt-scanner/). Even when you deliver firmware or a binary, do not scan the finished artifact as-is: it has no package manager metadata, so PURLs are omitted, vulnerability matching fails entirely, and the SBOM is rejected.
+
+If you developed on top of an external OS or base image, also scan the OS layer as shipped with Syft or Trivy, produce a separate SBOM, and submit the two layers merged. The scan target is not the original base image you received but the image or rootfs actually delivered after the build, because it must include the OS packages installed during the build. For the full procedure, see [Server SBOM](../server-delivery/).
+
+Statically linked libraries and manually vendored binaries are a blind spot that neither the source scan nor the OS scan catches. For how to handle this case, see the statically linked libraries section of [Server SBOM](../server-delivery/).
 
 ## Major Tools
 
