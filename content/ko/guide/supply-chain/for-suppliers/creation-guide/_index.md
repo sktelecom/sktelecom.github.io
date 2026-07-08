@@ -13,20 +13,43 @@ description: >
 
 ```mermaid
 graph TD
-    A[공급 소프트웨어 분류] --> T1[소스코드]
-    A --> T2[실행 파일/바이너리]
-    A --> T3[OS 없는 펌웨어]
-    A --> T4[컨테이너 이미지]
-    A --> T5[서버]
-    A --> T6[OS 내장 펌웨어]
-    T1 --> M1[공급사 소스코드 스캔<br>cdxgen 또는 BomLens]
-    T2 --> M1
-    T3 --> M1
-    T4 --> M2[앱 층: 소스코드 스캔 cdxgen 또는 BomLens<br>OS 층: 납품 이미지나 rootfs 스캔 Syft 또는 Trivy<br>두 층을 합쳐 제출]
-    T5 --> M2
-    T6 --> M2
-    M1 --> P[SBOM 제출]
+    A{{"공급 소프트웨어 분류"}}
+
+    subgraph G1["소프트웨어 공급"]
+      direction LR
+      T1["소스코드·앱<br>(예: OSS/BSS, 관리 포털, 미들웨어)"]
+      T2["실행 파일·라이브러리<br>(예: .jar, .dll, .so)"]
+      T3["OS 없는 펌웨어<br>(예: 베어메탈·RTOS 단말)"]
+    end
+
+    subgraph G2["OS(예: Linux) 포함 공급"]
+      direction LR
+      T4["컨테이너 이미지<br>(예: CNF, 컨테이너형 네트워크 기능)"]
+      T5["서버·VM 이미지<br>(예: VNF, 서버 어플라이언스)"]
+      T6["OS 내장 펌웨어<br>(예: 기지국, 라우터, OLT/ONT, 셋톱박스)"]
+    end
+
+    A --> G1
+    A --> G2
+    G1 --> M1(["소스코드 스캔<br>cdxgen 또는 BomLens"])
+    G2 --> M2(["소스코드 + OS 이미지 스캔<br>cdxgen/BomLens + Syft/Trivy"])
+    M1 --> P(["SBOM 제출"])
     M2 --> P
+
+    classDef start fill:#F2F2F2,stroke:#171717,color:#171717,stroke-width:1.5px
+    classDef typebox fill:#ffffff,stroke:#c8c8c8,color:#171717,stroke-width:1px
+    classDef source fill:#D9F0E4,stroke:#00A651,color:#0A5A32,stroke-width:1.5px
+    classDef osmerge fill:#EEDCF3,stroke:#68127A,color:#4A0D57,stroke-width:1.5px
+    classDef submit fill:#F2F2F2,stroke:#171717,color:#171717,stroke-width:1.5px
+
+    class A start
+    class T1,T2,T3,T4,T5,T6 typebox
+    class M1 source
+    class M2 osmerge
+    class P submit
+
+    style G1 fill:#F1FAF5,stroke:#00A651,stroke-width:1px,color:#0A5A32
+    style G2 fill:#FAF4FB,stroke:#68127A,stroke-width:1px,color:#4A0D57
 ```
 
 납품 형태와 무관하게, 공급사는 자기가 개발한 소스코드를 스캔해 SBOM을 만듭니다. 실행 파일이나 바이너리, 펌웨어로 납품하더라도 완성된 산출물이 아니라 그것을 만든 소스코드를 스캔합니다. 완성된 바이너리를 그대로 스캔하면 패키지 매니저 메타데이터가 없어 purl이 누락되고, 취약점 매칭이 전량 실패해 반려됩니다.
