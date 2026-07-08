@@ -1,7 +1,7 @@
 ---
 title: "Software Supply Chain Attacks and the Need for Security"
 linkTitle: "What Is Supply Chain Security?"
-weight: 1
+weight: 2
 type: docs
 description: >
   Introduces the importance of software supply chain security, recent threat trends, and the essential strategies for defending against them.

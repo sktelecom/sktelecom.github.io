@@ -1,7 +1,7 @@
 ---
 title: "소프트웨어 공급망 공격과 보안 필요성"
 linkTitle: "공급망 보안이란?"
-weight: 1
+weight: 2
 type: docs
 description: >
   소프트웨어 공급망 보안의 중요성과 최근 위협 동향, 그리고 이를 방어하기 위한 필수 전략을 소개합니다.

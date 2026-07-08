@@ -7,38 +7,29 @@ description: >
   소프트웨어 공급망 보안 관리를 위한 SBOM 및 취약점 관리 가이드
 ---
 
-## 소프트웨어 공급망 보안
+## SBOM을 제출하러 오셨나요?
+
+SK텔레콤에 소프트웨어를 납품하는 공급사라면 [공급사 가이드](for-suppliers/)에서 바로 시작하세요. 제출까지는 네 단계입니다.
+
+1. [공급사 가이드](for-suppliers/)에서 요구사항을 확인합니다.
+2. [BomLens](for-suppliers/skt-scanner/) 또는 [오픈소스 도구](for-suppliers/creation-guide/)로 SBOM을 생성합니다.
+3. [검증 체크리스트](for-suppliers/checklist/)로 제출 전에 점검합니다.
+4. [제출 절차](for-suppliers/submission/)에 따라 제출합니다.
+
+## 공급망 보안이 처음이라면
 
 최근 오픈소스 생태계에서는 라이선스 컴플라이언스와 함께 보안 취약점 관리와 소프트웨어 공급망 보안이 중요한 과제로 부상하였습니다. 미국과 유럽의 규제 강화에 따라 SBOM(Software Bill of Materials) 관리와 체계적인 취약점 대응이 필수가 되었습니다.
 
-SK텔레콤은 소프트웨어 공급망의 투명성과 보안성을 강화하기 위해 체계적인 관리 프로세스를 수립하고, 내부 구성원과 공급사 모두가 준수해야 할 가이드라인을 제공합니다.
+배경부터 차근차근 배우려면 다음 순서를 권합니다.
 
-## 가이드 구성
+1. [공급망 보안이란?](overview/): 공급망 공격 사례와 보안의 필요성, 글로벌 규제 동향, SK텔레콤의 정책을 설명합니다.
+2. [SBOM 이란?](sbom/): SBOM의 개념과 표준(SPDX, CycloneDX)을 다룹니다.
 
-### 공급망 보안 개요
-
-공급망 보안이 왜 중요한지, 글로벌 규제 동향은 어떠한지, 그리고 SK텔레콤의 공급망 보안 정책을 설명합니다.
-
-### SBOM 관리
-
-SBOM이란 무엇이며, 어떻게 생성하고 관리하는지에 대한 내부 구성원 및 공급사 모두를 위한 기술 가이드를 제공합니다.
-
-### 공급사 가이드
-
-SK텔레콤에 소프트웨어를 납품하는 공급사를 위한 SBOM 제출 요구사항 및 생성 가이드를 제공합니다.
-
-## 주요 표준 및 규격
-
-* ISO/IEC 18974: OpenChain Security Assurance 규격
-* SPDX (ISO/IEC 5962): 소프트웨어 패키지 데이터 교환 표준
-* CycloneDX: 보안 중심의 SBOM 표준
-* NIST SSDF: 소프트웨어 공급망 보안 프레임워크
-
-관련 규제 동향(미국 EO 14028, EU Cyber Resilience Act 등)은 [규제 동향](/guide/supply-chain/overview/regulations/) 페이지를 참고하세요.
+ISO/IEC 18974(OpenChain Security Assurance), SPDX(ISO/IEC 5962), CycloneDX(ECMA-424), NIST SSDF 등 관련 표준과 미국 EO 14028, EU Cyber Resilience Act 등 규제 동향은 [규제 동향](overview/regulations/) 페이지에서 소개합니다.
 
 ## 문의
 
 공급망 보안과 관련하여 문의사항이 있으시면 아래를 참고하세요.
 
 * 공급망 보안 정책 문의: [opensource@sktelecom.com](mailto:opensource@sktelecom.com)
-* SBOM 제출: 사업부서 및 보안부서 담당자에게 문의 ([제출 절차](/guide/supply-chain/for-suppliers/submission/) 참고)
+* SBOM 제출: 사업부서 및 보안부서 담당자에게 문의 ([제출 절차](for-suppliers/submission/) 참고)
