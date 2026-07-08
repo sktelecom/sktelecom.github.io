@@ -77,14 +77,7 @@ The official submission is the merged single BOM, but the per-layer SBOMs show a
 
 ## Verify before submitting
 
-Check that components carry real purls in both the per-layer SBOMs and the merged one. The total component count and the PURL-bearing count should be close.
-
-```bash
-jq '.components | length' myserver_1.0.0_bom.json
-jq '[.components[] | select(.purl)] | length' myserver_1.0.0_bom.json
-```
-
-A large gap means many components lack a purl, usually from a raw-directory scan. For the full check, follow the [Validation Checklist](../checklist/).
+Check that components carry real purls in both the per-layer SBOMs and the merged one. A large gap between the total component count and the PURL-bearing count means many components lack a purl, usually from a raw-directory scan. For the verification commands and the full check, follow the [Validation Checklist](../checklist/).
 
 ## Learn more
 

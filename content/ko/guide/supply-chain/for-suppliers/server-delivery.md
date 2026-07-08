@@ -77,14 +77,7 @@ scan-sbom.sh --project myserver --version 1.0.0 \
 
 ## 제출 전 검증
 
-층별 SBOM과 병합본 모두에 대해 컴포넌트가 실제 purl을 갖는지 확인합니다. 전체 컴포넌트 수와 purl 보유 수가 비슷해야 합니다.
-
-```bash
-jq '.components | length' myserver_1.0.0_bom.json
-jq '[.components[] | select(.purl)] | length' myserver_1.0.0_bom.json
-```
-
-차이가 크면 purl 없는 컴포넌트가 많다는 뜻이고, 보통 원시 디렉터리 스캔이 원인입니다. 자세한 점검은 [검증 체크리스트](../checklist/)를 따르십시오.
+층별 SBOM과 병합본 모두 컴포넌트가 실제 purl을 갖는지 확인해야 합니다. 전체 컴포넌트 수와 purl 보유 수의 차이가 크면 purl 없는 컴포넌트가 많다는 뜻이고, 보통 원시 디렉터리 스캔이 원인입니다. 확인 명령과 점검 항목은 [검증 체크리스트](../checklist/)를 따르십시오.
 
 ## 더 알아보기
 
