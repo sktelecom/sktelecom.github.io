@@ -1,13 +1,21 @@
 ---
 title: "공급사 SBOM 제출 가이드"
 linkTitle: "공급사 가이드"
-weight: 4
+weight: 1
 type: docs
 description: >
   SK텔레콤에 소프트웨어를 공급하는 파트너사를 위한 SBOM 생성 및 제출 가이드입니다.
 ---
 
 SK텔레콤은 소프트웨어 공급망의 투명성과 보안성을 강화하기 위해, 공급사로부터 납품받는 모든 소프트웨어 구성 요소 및 의존성에 대한 SBOM(Software Bill of Materials) 제출을 요청드리고 있습니다. 본 가이드는 공급사가 SK텔레콤의 보안 정책에 맞는 형식으로 SBOM을 생성하고 제출하는 방법을 안내합니다.
+
+## 빠른 시작: 제출까지 5단계
+
+1. [제출 요구사항](requirements/)에서 허용 포맷(CycloneDX JSON 권장)과 필수 데이터 필드를 확인합니다.
+2. [BomLens](skt-scanner/)로 SBOM을 생성합니다. 자체 빌드 파이프라인이 있다면 [오픈소스 도구](creation-guide/)를 활용합니다.
+3. OS 위에 애플리케이션을 얹어 납품하는 서버라면 [서버 SBOM 생성](server-delivery/)에 따라 층별로 생성해 합칩니다.
+4. [검증 체크리스트](checklist/)로 PURL과 전이 의존성 포함 여부를 점검합니다.
+5. [제출 절차](submission/)에 따라 파일명을 정하고 제출합니다.
 
 ## 적용 대상
 
