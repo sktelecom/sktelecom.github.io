@@ -8,7 +8,17 @@
  C --&amp;gt; F[전이적 의존성]
  F --&amp;gt; G[라이브러리 D v1.0.0]
  F --&amp;gt; H[라이브러리 E v2.5.0]
- D --&amp;gt; F&lt;/pre&gt;
+ D --&amp;gt; F
+
+ classDef root fill:#F2F2F2,stroke:#171717,color:#171717,stroke-width:1.5px
+ classDef direct fill:#D9F0E4,stroke:#00A651,color:#0A5A32,stroke-width:1.5px
+ classDef trans fill:#EEDCF3,stroke:#68127A,color:#4A0D57,stroke-width:1.5px
+ classDef lib fill:#ffffff,stroke:#c8c8c8,color:#171717,stroke-width:1px
+
+ class A root
+ class B direct
+ class F trans
+ class C,D,E,G,H lib&lt;/pre&gt;
 &lt;h2 id="sbom의-주요-구성-요소"&gt;SBOM의 주요 구성 요소&lt;a class="td-heading-self-link" href="#sbom%ec%9d%98-%ec%a3%bc%ec%9a%94-%ea%b5%ac%ec%84%b1-%ec%9a%94%ec%86%8c" aria-label="Heading self-link"&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;h3 id="컴포넌트-정보"&gt;컴포넌트 정보&lt;a class="td-heading-self-link" href="#%ec%bb%b4%ed%8f%ac%eb%84%8c%ed%8a%b8-%ec%a0%95%eb%b3%b4" aria-label="Heading self-link"&gt;&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;각 소프트웨어 컴포넌트에 대한 기본 정보를 포함합니다.&lt;/p&gt;</description></item><item><title>SBOM 제출 요구사항</title><link>https://sktelecom.github.io/guide/supply-chain/for-suppliers/requirements/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://sktelecom.github.io/guide/supply-chain/for-suppliers/requirements/</guid><description>&lt;h2 id="1-표준-데이터-형식"&gt;1. 표준 데이터 형식&lt;a class="td-heading-self-link" href="#1-%ed%91%9c%ec%a4%80-%eb%8d%b0%ec%9d%b4%ed%84%b0-%ed%98%95%ec%8b%9d" aria-label="Heading self-link"&gt;&lt;/a&gt;&lt;/h2&gt;
