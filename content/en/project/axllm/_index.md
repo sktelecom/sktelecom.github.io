@@ -11,32 +11,37 @@ description: >
 
 ![A.X LLM](A.X_logo.png)
 
-A.X LLM is a series of Korean-specialized large language models independently developed by SK Telecom. The A.X 3.1 and A.X 4.0 series are publicly available as open source and can be freely used for academic research and commercial purposes.
+A.X LLM is a series of Korean-specialized large language models independently developed by SK Telecom. A.X K1, A.X 4.0, and A.X 3.1 are publicly available as open source and can be freely used for academic research and commercial purposes.
 
 ## Project Information
 
 * Developer: SK Telecom
 * License: Apache-2.0
 * GitHub: 
+  - [A.X K1](https://github.com/SKT-AI/A.X-K1)
   - [A.X 4.0](https://github.com/SKT-AI/A.X-4.0)
   - [A.X 3.1](https://github.com/SKT-AI/A.X-3)
   - [A.X 4.0-VL-Light](https://github.com/SKT-AI/A.X-4.0-VL-Light)
+* Hugging Face:
+  - [A.X K1](https://huggingface.co/skt/A.X-K1)
+  - [SKT-AI Organization](https://huggingface.co/skt)
 
 ## Key Features
 
 ### A.X K1 Series
-* 519B Sovereign Model: The model with the largest parameter scale in Korea, released in January 2026.
-* National AI Foundation: Korea's flagship AI developed through a project led by the Ministry of Science and ICT.
-* Superior Performance: Built on a proprietary architecture trained on massive-scale Korean datasets.
+* 519B-A33B Sparse MoE: A large-scale Mixture-of-Experts model with 519B total parameters and 33B active parameters per token
+* Hybrid Reasoning Control: Think / Non-Think modes allow users to choose between deeper reasoning and lower latency
+* Long-context support: Supports a 131,072-token context length
+* Multilingual and code tokenizer: BBPE-based tokenizer optimized for Korean, English, Chinese, Japanese, Spanish, and code data
 
 ### A.X 4.0 Series
-* 72B Standard Model: Optimized for large-scale Korean language processing
+* 72B model: Optimized for large-scale Korean language processing
 * 7B Light Model: Efficient lightweight model
 * Korean token efficiency: ~33% improvement over GPT-4o
 * Real-world deployment: Used in SK Telecom's A. call summary service
 
 ### A.X 3.1 Series
-* 34B Standard Model: Independently developed sovereign AI model
+* 34B model: Independently developed sovereign AI model
 * Light Model: Lightweight version
 * Significantly enhanced coding and mathematical reasoning capabilities
 * KMMLU benchmark: 69.20 points (~88% of A.X 4.0 performance)
@@ -53,6 +58,7 @@ A.X LLM is a series of Korean-specialized large language models independently de
 - Optimized for Korean business environments
 
 ### Model Architecture
+- A.X K1: A from-scratch 519B-A33B proprietary Sparse MoE model
 - A.X 3 series: Sovereign AI developed from scratch
 - A.X 4 series: Open-source models enhanced with CPT (Continual Pre-Training) using large-scale Korean data
 
@@ -74,30 +80,16 @@ A.X LLM is a series of Korean-specialized large language models independently de
 
 | Model | Parameters | KMMLU Score | Features |
 |-------|-----------|-------------|----------|
-| A.X 4.0 Standard | 72B | 78.3 | Highest performance |
-| A.X 3.1 Standard | 34B | 69.2 | Independently developed |
+| A.X K1 | 519B-A33B | 80.2 (Thinking Mode) | Sparse MoE, long context |
+| A.X 4.0 | 72B | 78.3 | High performance |
+| A.X 3.1 | 34B | 69.2 | Independently developed |
 | A.X 4.0 Light | 7B | - | Efficiency |
 | A.X 3.1 Light | - | - | Lightweight |
 
-## Using on Hugging Face
-
-```python
-from transformers import AutoModelForCausalLM, AutoTokenizer
-
-# Load A.X 4.0 Standard model
-model_name = "SKT-AI/A.X-4.0-Standard"
-tokenizer = AutoTokenizer.from_pretrained(model_name)
-model = AutoModelForCausalLM.from_pretrained(model_name)
-
-# Generate text
-input_text = "The advancement of Korean language models"
-inputs = tokenizer(input_text, return_tensors="pt")
-outputs = model.generate(inputs, max_length=100)
-print(tokenizer.decode(outputs[0]))
-```
-
 ## Resources
 
+* A.X K1: [GitHub](https://github.com/SKT-AI/A.X-K1) / [Hugging Face](https://huggingface.co/skt/A.X-K1)
+* A.X K1 Technical Report: [arXiv:2601.09200](https://arxiv.org/abs/2601.09200)
 * Hugging Face: [SKT-AI Organization](https://huggingface.co/skt)
 * GitHub: [SKT-AI](https://github.com/SKT-AI)
 * Official News: [SK Telecom Newsroom](https://news.sktelecom.com/217916)
