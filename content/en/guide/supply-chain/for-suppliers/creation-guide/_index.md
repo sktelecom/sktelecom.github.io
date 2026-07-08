@@ -7,8 +7,6 @@ description: >
   Explains how to generate an SBOM for each environment using general-purpose open source tools.
 ---
 
-If you cannot use the SKT-provided tool, or you already have your own build pipeline, you can use open source tools directly. Below is a list of the major open source tools validated by SK Telecom, along with links to their official documentation.
-
 > If you are not comfortable setting up a tool environment and you have Docker installed, consider reviewing [BomLens](../skt-scanner/) first.
 
 ## Tool Selection Guide

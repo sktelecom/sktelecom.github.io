@@ -40,7 +40,7 @@ scan-sbom.sh --project myserver-os --version 7 --target myserver:7 --all --gener
 
 ### 애플리케이션 층
 
-빌드를 마친 뒤 애플리케이션 소스를 스캔합니다. 패키지 매니저(Maven·npm·pip·Go modules·Conan 등)를 쓰면 전이 의존성까지 자동으로 해석됩니다.
+빌드를 마친 뒤 애플리케이션 소스를 스캔합니다. 패키지 매니저(Maven, npm, pip, Go modules, Conan 등)를 쓰면 전이 의존성까지 자동으로 해석됩니다.
 
 ```bash
 cd /path/to/app-source
