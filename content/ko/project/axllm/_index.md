@@ -12,7 +12,7 @@ description: >
 
 ![A.X LLM](A.X_logo.png)
 
-A.X LLM은 SK텔레콤이 독자 개발한 한국어 특화 대규모 언어 모델(Large Language Model)입니다. A.X 3.1 시리즈와 A.X 4.0 시리즈가 오픈소스로 공개되어 있으며, 학술 연구 및 상업적 용도로 자유롭게 사용할 수 있습니다.
+A.X LLM은 SK텔레콤이 독자 개발한 한국어 특화 대규모 언어 모델(Large Language Model)입니다. A.X K1, A.X 4.0, A.X 3.1 시리즈가 오픈소스로 공개되어 있으며, 학술 연구 및 상업적 용도로 자유롭게 사용할 수 있습니다.
 
 
 ## 프로젝트 정보
@@ -20,25 +20,30 @@ A.X LLM은 SK텔레콤이 독자 개발한 한국어 특화 대규모 언어 모
 * 개발: SK텔레콤
 * 라이선스: Apache-2.0
 * GitHub: 
+  - [A.X K1](https://github.com/SKT-AI/A.X-K1)
   - [A.X 4.0](https://github.com/SKT-AI/A.X-4.0)
   - [A.X 3.1](https://github.com/SKT-AI/A.X-3)
   - [A.X 4.0-VL-Light](https://github.com/SKT-AI/A.X-4.0-VL-Light)
+* Hugging Face:
+  - [A.X K1](https://huggingface.co/skt/A.X-K1)
+  - [SKT-AI Organization](https://huggingface.co/skt)
 
 ## 주요 특징
 
 ### A.X K1 시리즈
-- 519B Sovereign Model: 2026년 1월 공개된 국내 최대 규모 파라미터 모델
-- 국가 AI 파운데이션: 과학기술정보통신부 주관 사업으로 개발된 한국형 대표 AI
-- 압도적 성능: 대규모 한국어 데이터를 기반으로 한 독자적 아키텍처 적용
+* 519B-A33B Sparse MoE: 총 519B 파라미터 중 토큰당 33B 파라미터가 활성화되는 대규모 Mixture-of-Experts 모델
+* Hybrid Reasoning Control: Think / Non-Think 모드를 통해 작업 성격에 따라 깊은 추론과 낮은 지연 시간을 선택
+* 긴 컨텍스트 처리: 131,072 토큰 컨텍스트 길이를 지원
+* 다국어 및 코드 토크나이저: 한국어, 영어, 중국어, 일본어, 스페인어와 코드 데이터를 고려한 BBPE 기반 토크나이저 적용
 
 ### A.X 4.0 시리즈
-* 72B Standard Model: 대규모 한국어 처리 최적화
+* 72B 모델: 대규모 한국어 처리 최적화
 * 7B Light Model: 효율적인 경량 모델
 * 한국어 토큰 효율성: GPT-4o 대비 약 33% 향상
 * 실제 서비스 적용: SK텔레콤 A. 통화 요약 서비스에 사용 중
 
 ### A.X 3.1 시리즈
-* 34B Standard Model: 독자 개발 sovereign AI 모델
+* 34B 모델: 독자 개발 sovereign AI 모델
 * Light Model: 경량화 버전
 * 코딩 및 수학적 추론 능력 대폭 향상
 * KMMLU 벤치마크: 69.20점 (A.X 4.0 대비 약 88% 성능)
@@ -55,6 +60,7 @@ A.X LLM은 SK텔레콤이 독자 개발한 한국어 특화 대규모 언어 모
 - 한국 비즈니스 환경에 최적화
 
 ### 모델 아키텍처
+- A.X K1: from-scratch 학습한 519B-A33B 독자 구조 Sparse MoE 모델
 - A.X 3 시리즈: 처음부터 독자 개발한 sovereign AI
 - A.X 4 시리즈: 오픈소스 모델에 대규모 한국어 데이터로 CPT(Continual Pre-Training) 적용
 
@@ -76,33 +82,17 @@ A.X LLM은 SK텔레콤이 독자 개발한 한국어 특화 대규모 언어 모
 
 | 모델 | 파라미터 수 | KMMLU 점수 | 특징 |
 |------|------------|-----------|------|
-| A.X 4.0 Standard | 72B | 78.3 | 최고 성능 |
-| A.X 3.1 Standard | 34B | 69.2 | 독자 개발 |
+| A.X K1 | 519B-A33B | 80.2 (Thinking Mode) | Sparse MoE, 긴 컨텍스트 |
+| A.X 4.0 | 72B | 78.3 | 우수 성능 |
+| A.X 3.1 | 34B | 69.2 | 독자 개발 |
 | A.X 4.0 Light | 7B | - | 효율성 |
 | A.X 3.1 Light | - | - | 경량화 |
 
-## Hugging Face에서 사용하기
-
-```python
-from transformers import AutoModelForCausalLM, AutoTokenizer
-
-# A.X 4.0 Standard 모델 로드
-model_name = "SKT-AI/A.X-4.0-Standard"
-tokenizer = AutoTokenizer.from_pretrained(model_name)
-model = AutoModelForCausalLM.from_pretrained(model_name)
-
-# 텍스트 생성
-input_text = "한국어 언어 모델의 발전은"
-inputs = tokenizer(input_text, return_tensors="pt")
-outputs = model.generate(inputs, max_length=100)
-print(tokenizer.decode(outputs[0]))
-```
-
-
 ## 리소스
 
+* A.X K1: [GitHub](https://github.com/SKT-AI/A.X-K1) / [Hugging Face](https://huggingface.co/skt/A.X-K1)
+* A.X K1 Technical Report: [arXiv:2601.09200](https://arxiv.org/abs/2601.09200)
 * Hugging Face: [SKT-AI Organization](https://huggingface.co/skt)
 * GitHub: [SKT-AI](https://github.com/SKT-AI)
 * 공식 뉴스: [SK텔레콤 뉴스룸](https://news.sktelecom.com/217916)
 * 문의: a.x@sk.com
-
