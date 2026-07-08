@@ -13,21 +13,24 @@ description: >
 
 ```mermaid
 graph TD
-    A[Compose the SBOM] --> B[Your source code<br>scan with cdxgen or BomLens<br>always, includes transitive deps]
-    A --> C{Built on an external OS or base image?}
-    C -->|Yes| D[The OS layer as shipped<br>scan with Syft or Trivy]
-    C -->|No| F[Merge each layer's SBOM and submit]
-    B --> F
-    D --> F
+    A[Classify the supplied software] --> Q{Which type?}
+    Q -->|Application| S1[Scan the source code<br>cdxgen or BomLens]
+    Q -->|Includes an OS| S2[App layer: scan source with cdxgen or BomLens<br>OS layer: scan the shipped image or rootfs with Syft or Trivy<br>merge the two layers]
+    Q -->|Third-party binary, no source| S3[Analyze the binary + request an upstream SBOM or record manually<br>backstopped by SK Telecom BDBA]
+    S1 --> P[Submit the SBOM]
+    S2 --> P
+    S3 --> P
 ```
 
-An SBOM is not about picking a single tool; it is about scanning each layer of the delivery and merging the results.
+The scan target and tool depend on the delivery type, but one principle is constant: scan the source code the supplier developed, not the finished artifact. If you leave the source aside and scan firmware or a binary directly, it has no package manager metadata, so PURLs are omitted, vulnerability matching fails entirely, and the SBOM is rejected.
 
-Whatever the delivery form, the baseline for capturing transitive dependencies accurately is to scan the source code the supplier developed with cdxgen or [BomLens](../skt-scanner/). Even when you deliver firmware or a binary, do not scan the finished artifact as-is: it has no package manager metadata, so PURLs are omitted, vulnerability matching fails entirely, and the SBOM is rejected.
+For an application (an app built from source, an executable you compiled yourself, or firmware with no OS), scan the source code with cdxgen or [BomLens](../skt-scanner/). This is the baseline for capturing transitive dependencies accurately.
 
-If you developed on top of an external OS or base image, also scan the OS layer as shipped with Syft or Trivy, produce a separate SBOM, and submit the two layers merged. The scan target is not the original base image you received but the image or rootfs actually delivered after the build, because it must include the OS packages installed during the build. For the full procedure, see [Server SBOM](../server-delivery/).
+When you ship an OS or base image as part of the delivery (a container image, a server, or firmware with an embedded OS), split it into two layers. Scan the source for the app layer, scan the image or rootfs as shipped with Syft or Trivy for the OS layer, then merge and submit. The OS-layer scan target is not the original base image you received but the image or rootfs actually delivered after the build, because it must include the OS packages installed during the build. For the full procedure, see [Server SBOM](../server-delivery/).
 
-Statically linked libraries and manually vendored binaries are a blind spot that neither the source scan nor the OS scan catches. For how to handle this case, see the statically linked libraries section of [Server SBOM](../server-delivery/).
+A third-party or resold binary for which you have no source cannot be source-scanned. Analyze the binary as far as tools can identify, then request an SBOM from the upstream or record the components you know by hand. SK Telecom supplements precise identification with binary composition analysis (BDBA).
+
+Statically linked libraries and manually vendored binaries are a blind spot that none of the scans above catch. For how to handle this case, see the statically linked libraries section of [Server SBOM](../server-delivery/).
 
 ## Major Tools
 
