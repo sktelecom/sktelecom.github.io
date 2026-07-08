@@ -15,15 +15,14 @@ description: >
 graph TD
     A[Identify analysis target] --> S{A server combining an OS and an app?}
     S -- Yes --> T[Generate per layer<br>see the Server SBOM guide]
-    S -- No --> B{Is it source code?}
-    B -- Yes --> C[cdxgen recommended]
-    B -- No --> D{Is it a Docker image?}
+    S -- No --> D{Is it a Docker image?}
     D -- Yes --> E[Syft or Trivy recommended]
-    D -- No --> F[Binary/Firmware]
-    F --> G[Syft recommended]
+    D -- No --> C[Scan the source code with cdxgen<br>firmware/binary deliveries scan source too]
 ```
 
 A server that combines an OS and an application is not done in one scan. For the full per-layer procedure, see [Server SBOM](../server-delivery/).
+
+Even when you deliver firmware or a binary, do not scan the finished artifact directly — generate the SBOM from the source code it was built from. Scanning firmware or a binary as-is yields no package manager metadata, so PURLs are omitted, vulnerability matching fails, and the SBOM is rejected.
 
 ## Major Tools
 
