@@ -33,8 +33,7 @@ Suppliers must comply with the following three principles.
 
 ### Principle 1: Mandatory SBOM Submission
 - For every software delivery, the supplier must submit an SBOM (Software Bill of Materials) corresponding to that version.
-- Accepted formats: CycloneDX (v1.3 or later) or SPDX (v2.2 or later)
-- Required information: supplier name, component name, version, dependency relationships, and Package URL (PURL)
+- The accepted formats and required data fields are defined in the [Submission Requirements](/en/guide/supply-chain/for-suppliers/requirements/).
 
 ### Principle 2: Vulnerability Inspection and Remediation
 - Before delivery, the supplier must independently check for the latest security vulnerabilities (CVEs).

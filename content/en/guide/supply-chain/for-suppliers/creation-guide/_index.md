@@ -151,36 +151,16 @@ Using a build tool plugin lets you extract more accurate dependency information.
 
 ## Verifying Transitive Dependency Inclusion
 
-> An SBOM submitted to SK Telecom must include transitive dependencies.
+Whichever tool you use, one principle holds: generate the SBOM after the build (package installation) is complete so that transitive dependencies are included. Generating from source code alone can omit transitive dependencies and lead to rejection. When delivering as a Docker image, scanning the built image with Syft can include more complete transitive dependencies than source code analysis.
 
-Transitive dependencies are libraries that the project does not declare directly, but on which the libraries it uses depend internally. If these are omitted, hidden vulnerabilities cannot be detected and the SBOM may be rejected.
-
-Key principle: Generate the SBOM after the build (package installation) is complete.
-
-When only source code is present, transitive dependencies may be omitted. Refer to the table below and complete the prerequisite steps before generating the SBOM.
-
-### Transitive Dependency Support by Tool
-
-| Tool / Method | Transitive Dependencies Included | Prerequisite Before SBOM Generation |
-|---|:---:|---|
-| cdxgen (source code) | Included automatically | No separate build required (auto-detected) |
-| cdxgen (Java/Maven) | Conditional | Run `mvn package` or `mvn dependency:resolve` first |
-| cdxgen (Java/Gradle) | Conditional | Run `./gradlew dependencies` first |
-| cdxgen (Python) | Conditional | Activate the virtual environment, then run `pip install -r requirements.txt` first |
-| cdxgen (Node.js) | Conditional | Run `npm install` or `yarn install` first |
-| Syft (Docker image) | Included automatically | Scan after the image build is complete (includes both OS and app packages) |
-| Syft (file system) | Conditional | Only deployment artifacts that include package manager metadata work; an installation directory or collection of raw files results in missing PURLs |
-| Maven plugin | Included automatically | Generated automatically during the `mvn package` phase |
-| Gradle plugin | Included automatically | Run `./gradlew cyclonedxBom` |
-
-> Recommendation: When delivering as a Docker image, scanning the built image with Syft can include more complete transitive dependencies than source code analysis.
+For the dependency-scope requirements and the per-language build commands to run first, see the dependency scope section of the [Submission Requirements](../requirements/).
 
 ## Common Precautions
 
 Verify the following before using a tool.
 
-- Transitive dependency inclusion: Refer to the table above and complete the prerequisite steps before generating the SBOM. Missing dependencies are grounds for rejection.
-- PURL inclusion: Verify that the generated SBOM includes a `purl` field for every component. SK Telecom's system maps vulnerabilities based on PURL. Before submission, count the components that have a PURL with `jq '[.components[] | select(.purl)] | length' sbom.json` and confirm it matches the total component count; if it is 0 or significantly lower, regenerate following the procedure in the [Validation Checklist](../checklist/).
+- Transitive dependency inclusion: Follow the build-first principle above. Missing dependencies are grounds for rejection.
+- PURL inclusion: Verify that the generated SBOM includes a `purl` field for every component. SK Telecom's system maps vulnerabilities based on PURL. For the verification commands and the regeneration procedure, see the [Validation Checklist](../checklist/).
 - Output format: CycloneDX JSON format is recommended. (Use `-o cyclonedx-json` or an equivalent option)
 - Project information: Verify that the metadata accurately records the name and version of the delivered project.
 

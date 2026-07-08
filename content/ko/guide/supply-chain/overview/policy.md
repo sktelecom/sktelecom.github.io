@@ -33,8 +33,7 @@ SK텔레콤과 소프트웨어 공급 계약을 체결하는 모든 공급사는
 
 ### 원칙 1: SBOM 제출 의무화
 - 모든 소프트웨어 납품 시, 해당 버전에 부합하는 SBOM(Software Bill of Materials)을 제출해야 합니다.
-- 허용 포맷: CycloneDX (v1.3 이상) 또는 SPDX (v2.2 이상)
-- 필수 포함 정보: 공급사명, 컴포넌트명, 버전, 의존성 관계, Package URL (PURL)
+- 허용 포맷과 필수 데이터 필드의 정의는 [제출 요구사항](/guide/supply-chain/for-suppliers/requirements/)을 따릅니다.
 
 ### 원칙 2: 취약점 점검 및 조치
 - 공급사는 납품 전 자체적으로 최신 보안 취약점(CVE)을 점검해야 합니다.
