@@ -21,6 +21,16 @@ graph TD
     F --> G[라이브러리 D v1.0.0]
     F --> H[라이브러리 E v2.5.0]
     D --> F
+
+    classDef root fill:#F2F2F2,stroke:#171717,color:#171717,stroke-width:1.5px
+    classDef direct fill:#D9F0E4,stroke:#00A651,color:#0A5A32,stroke-width:1.5px
+    classDef trans fill:#EEDCF3,stroke:#68127A,color:#4A0D57,stroke-width:1.5px
+    classDef lib fill:#ffffff,stroke:#c8c8c8,color:#171717,stroke-width:1px
+
+    class A root
+    class B direct
+    class F trans
+    class C,D,E,G,H lib
 ```
 
 ## SBOM의 주요 구성 요소

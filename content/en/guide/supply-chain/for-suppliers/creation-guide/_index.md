@@ -13,20 +13,43 @@ description: >
 
 ```mermaid
 graph TD
-    A[Classify the supplied software] --> T1[Source code]
-    A --> T2[Executable/binary]
-    A --> T3[Firmware with no OS]
-    A --> T4[Container image]
-    A --> T5[Server]
-    A --> T6[Firmware with an embedded OS]
-    T1 --> M1[Scan the supplier's source code<br>cdxgen or BomLens]
-    T2 --> M1
-    T3 --> M1
-    T4 --> M2[App layer: scan source with cdxgen or BomLens<br>OS layer: scan the shipped image or rootfs with Syft or Trivy<br>merge the two layers]
-    T5 --> M2
-    T6 --> M2
-    M1 --> P[Submit the SBOM]
+    A{{"Classify the supplied software"}}
+
+    subgraph G1["Software delivery"]
+      direction LR
+      T1["Source code / app<br>(e.g., OSS/BSS, portals, middleware)"]
+      T2["Executable / library<br>(e.g., .jar, .dll, .so)"]
+      T3["Firmware with no OS<br>(e.g., bare-metal / RTOS devices)"]
+    end
+
+    subgraph G2["Delivery including an OS (e.g., Linux)"]
+      direction LR
+      T4["Container image<br>(e.g., CNF, containerized network function)"]
+      T5["Server / VM image<br>(e.g., VNF, server appliance)"]
+      T6["Firmware with an embedded OS<br>(e.g., base stations, routers, OLT/ONT, set-top boxes)"]
+    end
+
+    A --> G1
+    A --> G2
+    G1 --> M1(["Scan the source code<br>cdxgen or BomLens"])
+    G2 --> M2(["Scan source + OS image<br>cdxgen/BomLens + Syft/Trivy"])
+    M1 --> P(["Submit the SBOM"])
     M2 --> P
+
+    classDef start fill:#F2F2F2,stroke:#171717,color:#171717,stroke-width:1.5px
+    classDef typebox fill:#ffffff,stroke:#c8c8c8,color:#171717,stroke-width:1px
+    classDef source fill:#D9F0E4,stroke:#00A651,color:#0A5A32,stroke-width:1.5px
+    classDef osmerge fill:#EEDCF3,stroke:#68127A,color:#4A0D57,stroke-width:1.5px
+    classDef submit fill:#F2F2F2,stroke:#171717,color:#171717,stroke-width:1.5px
+
+    class A start
+    class T1,T2,T3,T4,T5,T6 typebox
+    class M1 source
+    class M2 osmerge
+    class P submit
+
+    style G1 fill:#F1FAF5,stroke:#00A651,stroke-width:1px,color:#0A5A32
+    style G2 fill:#FAF4FB,stroke:#68127A,stroke-width:1px,color:#4A0D57
 ```
 
 Regardless of the delivery form, the supplier scans the source code it developed to produce the SBOM. Even when you deliver an executable, a binary, or firmware, scan the source code that produced it, not the finished artifact. Scanning a finished binary directly yields no package manager metadata, so PURLs are omitted, vulnerability matching fails entirely, and the SBOM is rejected.

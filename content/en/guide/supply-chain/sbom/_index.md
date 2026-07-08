@@ -29,6 +29,16 @@ graph TD
     D --> E[Upload to Repository]
     E --> F[Vulnerability Analysis]
     F --> G[Security Remediation]
+
+    classDef start fill:#F2F2F2,stroke:#171717,color:#171717,stroke-width:1.5px
+    classDef proc fill:#ffffff,stroke:#c8c8c8,color:#171717,stroke-width:1px
+    classDef decision fill:#FFF3CD,stroke:#E0A800,color:#5A4100,stroke-width:1.5px
+    classDef good fill:#D9F0E4,stroke:#00A651,color:#0A5A32,stroke-width:1.5px
+
+    class A start
+    class B,E,F proc
+    class C decision
+    class D,G good
 ```
 
 ## SBOM Generation

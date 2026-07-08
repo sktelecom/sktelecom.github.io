@@ -20,8 +20,11 @@ graph LR
     C -->|배포| D[고객사 A]
     C -->|배포| E[고객사 B]
     C -->|배포| F[고객사 C]
-    style B fill:#f9f,stroke:#333,stroke-width:2px
-    style C fill:#f96,stroke:#333,stroke-width:2px
+
+    classDef danger fill:#FDE1E7,stroke:#EA002C,color:#8A0019,stroke-width:1.5px
+    classDef victim fill:#ffffff,stroke:#c8c8c8,color:#171717,stroke-width:1px
+    class A,B,C danger
+    class D,E,F victim
 ```
 
 ## 2. 주요 공격 사례
