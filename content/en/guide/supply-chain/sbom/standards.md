@@ -7,6 +7,10 @@ description: >
   Compares the characteristics of SPDX and CycloneDX, the two leading SBOM standards, and presents criteria for choosing the one that fits your project.
 ---
 
+{{% alert title="The Practical Takeaway First" color="info" %}}
+For SBOMs submitted to SK Telecom, we recommend the CycloneDX (JSON) format. Check the accepted formats and versions in the [Submission Requirements](/en/guide/supply-chain/for-suppliers/requirements/). The rest of this page is a detailed comparison for those who want to understand the two standards in depth.
+{{% /alert %}}
+
 ## Major SBOM Standards
 
 There are currently two major standard formats that split the market between them. Both formats are widely used, but they differ in their origins and primary focus areas.
@@ -42,9 +46,9 @@ SPDX is an open source project led by the Linux Foundation, developed to represe
   "SPDXID": "SPDXRef-DOCUMENT",
   "spdxVersion": "SPDX-2.3",
   "name": "Example-SBOM",
-  "documentNamespace": "https://example.com/sbom-2023-001",
+  "documentNamespace": "https://example.com/sbom-2026-001",
   "creationInfo": {
-    "created": "2023-01-15T10:30:00Z",
+    "created": "2026-01-15T10:30:00Z",
     "creators": ["Tool: SPDX-Tools-2.3"]
   },
   "packages": [
@@ -110,11 +114,11 @@ CycloneDX is an SBOM standard developed by OWASP (Open Web Application Security 
 ```json
 {
   "bomFormat": "CycloneDX",
-  "specVersion": "1.4",
+  "specVersion": "1.6",
   "serialNumber": "urn:uuid:3e671687-395b-41f5-a30f-a58921a69b79",
   "version": 1,
   "metadata": {
-    "timestamp": "2023-01-15T10:30:00Z",
+    "timestamp": "2026-01-15T10:30:00Z",
     "tools": [
       {
         "name": "cyclonedx-maven-plugin",
@@ -151,10 +155,10 @@ CycloneDX is an SBOM standard developed by OWASP (Open Web Application Security 
 - A concise structure that is easy to understand
 - Excellent integration with security tools
 - An active community and ongoing tool development
+- Internationally standardized as ECMA-424 by Ecma International
 
 ### Disadvantages
 
-- Not an ISO standard, but standardized as ECMA-424 by Ecma International
 - File-level information is limited
 - License expression is simpler than in SPDX
 

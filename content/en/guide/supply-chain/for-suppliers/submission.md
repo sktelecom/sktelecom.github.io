@@ -27,17 +27,11 @@ Required information in the body:
 1. Delivery contract number
 2. Representative information (name, department, contact)
 3. Project information (system name, detailed version)
-4. Tool used (e.g., BomLens v1.0)
+4. Tool used and its version (e.g., BomLens, cdxgen)
 
-### TOSCA Registration Obligation of the Business Unit Representative
+### Internal Registration After Receipt
 
-The SK Telecom business unit representative who receives an SBOM from a supplier must register that SBOM in TOSCA, the internal open source and SBOM management system.
-
-> TOSCA (SK Telecom Open Source & SBOM Management System)
-> [https://tosca.sktelecom.com](https://tosca.sktelecom.com)
->
-> - TOSCA is an SK Telecom internal system, accessible only to company employees.
-> - [For SKT Members] Supplier SBOM registration and report output guide: https://confluence.tde.sktelecom.com/x/bYNULw
+The SK Telecom business unit representative who receives an SBOM from a supplier registers it in TOSCA, the internal open source and SBOM management system. TOSCA is an internal system, so suppliers do not need access to it; the registration procedure follows the internal guide.
 
 ## 3. Post-Submission Validation and Actions
 

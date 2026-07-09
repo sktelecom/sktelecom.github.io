@@ -7,6 +7,8 @@ description: >
   How to build the SBOM for a delivered server — scan the OS and the application as two layers, cover statically linked libraries separately as a blind spot, then merge them into one BOM for submission.
 ---
 
+This document is an advanced guide for suppliers that deliver a server with an application on top of an OS. For an ordinary application delivery, [How to Generate an SBOM](../creation-guide/) is sufficient.
+
 A delivered server is not a single source tree. It is an operating system, the application installed on top of it, and libraries statically linked into the binaries during the build. Scanning only one of these misses the others, which is a common reason a server SBOM is rejected.
 
 Treat the server as two layers — the OS and the application — generate each separately, then merge them. Both are produced with [BomLens](../skt-scanner/); only the input changes. Statically linked libraries, which neither layer's scan catches, are handled separately as a blind spot.
