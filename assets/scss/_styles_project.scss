@@ -743,13 +743,16 @@ a.skt-card:hover,
   .skt-table tbody tr { transition: background var(--skt-transition); }
   .skt-table tbody tr:hover > * { background: var(--skt-surface-subtle); }
 
-  /* 본문 링크 — 읽는 중 식별 위해 옅은 밑줄 (표 셀 안 링크 포함) */
+  /* 본문 링크 — SK Red 글자색으로 식별, 밑줄은 hover에서만 (표 셀 안 링크 포함) */
   p a, li a, td a, th a {
+    color: var(--skt-accent);
+    text-decoration: none;
+  }
+  p a:hover, li a:hover, td a:hover, th a:hover {
+    color: var(--skt-accent);
     text-decoration: underline;
-    text-decoration-color: var(--skt-border-strong);
     text-underline-offset: .15em;
   }
-  p a:hover, li a:hover, td a:hover, th a:hover { text-decoration-color: currentColor; }
 
   /* hr / 이미지 */
   hr {
@@ -796,8 +799,8 @@ a.skt-card:hover,
 .alert p { margin-bottom: .5rem; color: var(--skt-text-muted); }
 .alert ul, .alert ol { margin-bottom: 0; padding-left: 1.15rem; color: var(--skt-text-muted); }
 .alert > :last-child { margin-bottom: 0; }
-.alert a { color: var(--skt-text); text-decoration: underline; text-decoration-color: var(--skt-border-strong); text-underline-offset: .15em; }
-.alert a:hover { text-decoration-color: currentColor; }
+.alert a { color: var(--skt-accent); text-decoration: none; }
+.alert a:hover { color: var(--skt-accent); text-decoration: underline; text-underline-offset: .15em; }
 [data-bs-theme='dark'] .alert {
   background: var(--skt-surface-muted);
   border-color: var(--skt-border-strong);
