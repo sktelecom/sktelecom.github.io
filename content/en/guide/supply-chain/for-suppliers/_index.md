@@ -71,6 +71,7 @@ This section is organized as follows.
 4. [Server SBOM](server-delivery/): Explains how to generate the OS, application, and static-link layers separately and merge them into one.
 5. [Validation Checklist](checklist/): Provides a checklist of essential items to verify before submission.
 6. [Submission Process](submission/): Explains the naming conventions and submission channels for the generated SBOM file.
+7. [Common Rejection Reasons](rejection-reasons/): Causes and fixes for each rejection reason, with a passing example file.
 
 ## Related Documents
 

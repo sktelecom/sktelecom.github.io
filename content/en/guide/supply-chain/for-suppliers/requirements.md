@@ -18,6 +18,22 @@ SK Telecom supports both formats that have become established as global standard
 
 > Note: Both formats are recognized equally, but CycloneDX (JSON) format is recommended for internal system interoperability.
 
+## Requirement Levels at a Glance
+
+The requirement level of each item. A missing required item leads to rejection. A missing recommended item does not, but including it is encouraged.
+
+| Item | Level | Details |
+|---|:---:|---|
+| Standard format and version (CycloneDX or SPDX) | Required | 1. Standard Data Formats |
+| Metadata (timestamp, generation tool, top-level component) | Required | 2.1 Metadata |
+| Component name and version | Required | 2.2 Component Information |
+| Direct and transitive dependencies | Required | 2.3 Dependency Scope |
+| PURL (standard `pkg:` form, no `generic`) | Required | 3. PURL Compliance |
+| Dev-only dependencies | Recommended | 2.3 Dependency Scope |
+| License information | Recommended | 4. Sample Documents |
+
+Download the [example SBOM file (CycloneDX 1.6 JSON)](/samples/sbom-example-cyclonedx16.json) that meets the acceptance criteria and compare its structure.
+
 ## 2. Required Information
 
 The SBOM document you submit must include the following information. Missing information may result in rejection.

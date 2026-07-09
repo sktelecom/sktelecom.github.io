@@ -55,7 +55,8 @@ jq '[.packages[] | select(.externalRefs[]?.referenceType == "purl")] | length' s
 
 ## Related Documents
 
-- [Submission Requirements](../requirements/): Detailed guidance on required data fields and PURL format
+- [Common Rejection Reasons](../rejection-reasons/): Causes and fixes for each rejection reason
+- [Submission Requirements](../requirements/): Detailed guidance on required data fields and PURL format, including an example SBOM file that meets the acceptance criteria
 - [Submission Process](../submission/): How to submit after passing the checklist
 - [BomLens](../skt-scanner/): A tool that generates an SBOM meeting the checklist items
 </content>
