@@ -21,12 +21,8 @@
  class C,D,E,G,H lib&lt;/pre&gt;
 &lt;h2 id="key-components-of-an-sbom"&gt;Key Components of an SBOM&lt;a class="td-heading-self-link" href="#key-components-of-an-sbom" aria-label="Heading self-link"&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;h3 id="component-information"&gt;Component Information&lt;a class="td-heading-self-link" href="#component-information" aria-label="Heading self-link"&gt;&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;Includes basic information about each software component.&lt;/p&gt;</description></item><item><title>SBOM Standards</title><link>https://sktelecom.github.io/en/guide/supply-chain/sbom/standards/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://sktelecom.github.io/en/guide/supply-chain/sbom/standards/</guid><description>&lt;h2 id="major-sbom-standards"&gt;Major SBOM Standards&lt;a class="td-heading-self-link" href="#major-sbom-standards" aria-label="Heading self-link"&gt;&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;There are currently two major standard formats that split the market between them. Both formats are widely used, but they differ in their origins and primary focus areas.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;SPDX: Software Package Data Exchange&lt;/li&gt;
-&lt;li&gt;CycloneDX: A security-focused SBOM standard led by OWASP&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id="spdx-software-package-data-exchange"&gt;SPDX (Software Package Data Exchange)&lt;a class="td-heading-self-link" href="#spdx-software-package-data-exchange" aria-label="Heading self-link"&gt;&lt;/a&gt;&lt;/h2&gt;
-&lt;h3 id="overview"&gt;Overview&lt;a class="td-heading-self-link" href="#overview" aria-label="Heading self-link"&gt;&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;SPDX is an open source project led by the Linux Foundation, developed to represent the license and copyright information of software packages in a standardized way. (ISO/IEC 5962:2021)&lt;/p&gt;</description></item></channel></rss>
+&lt;p&gt;Includes basic information about each software component.&lt;/p&gt;</description></item><item><title>SBOM Standards</title><link>https://sktelecom.github.io/en/guide/supply-chain/sbom/standards/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://sktelecom.github.io/en/guide/supply-chain/sbom/standards/</guid><description>&lt;div class="alert alert-info" role="alert"&gt;&lt;div class="h4 alert-heading" role="heading"&gt;The Practical Takeaway First&lt;/div&gt;
+&lt;p&gt;For SBOMs submitted to SK Telecom, we recommend the CycloneDX (JSON) format. Check the accepted formats and versions in the &lt;a href="https://sktelecom.github.io/en/guide/supply-chain/for-suppliers/requirements/"&gt;Submission Requirements&lt;/a&gt;. The rest of this page is a detailed comparison for those who want to understand the two standards in depth.&lt;/p&gt;
+&lt;/div&gt;
+&lt;h2 id="major-sbom-standards"&gt;Major SBOM Standards&lt;a class="td-heading-self-link" href="#major-sbom-standards" aria-label="Heading self-link"&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;There are currently two major standard formats that split the market between them. Both formats are widely used, but they differ in their origins and primary focus areas.&lt;/p&gt;</description></item></channel></rss>
