@@ -14,7 +14,7 @@ description: >
 
 ## 2. How to Submit
 
-The SBOM file is submitted to SK Telecom's business unit and security team representatives via email or a designated system.
+The SBOM file is submitted to SK Telecom's business unit and security team representatives via email (or a channel designated by the representative).
 
 ### Submission Method
 

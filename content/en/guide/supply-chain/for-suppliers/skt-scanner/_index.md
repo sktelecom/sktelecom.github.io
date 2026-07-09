@@ -53,7 +53,7 @@ cd /path/to/my-project
 /path/to/scan-sbom.sh --project "MyApp" --version "1.0.0" --all --generate-only
 ```
 
-- `--generate-only` creates files only locally, without uploading them to the portal (recommended until submission).
+- `--generate-only` creates files only locally, without submitting them (recommended until submission).
 - For the web UI, run `./scan-sbom.sh --ui` (the browser opens `http://localhost:8080`).
 - On Windows, run the same commands through `scripts\scan-sbom.bat` (it forwards them via Git Bash, so Git for Windows is required).
 - For other input forms such as a GitHub URL, source ZIP, Docker image, firmware, or binary, and the full set of options, see the [CLI reference](https://sktelecom.github.io/sbom-tools/reference/cli/).
