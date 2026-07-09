@@ -40,7 +40,7 @@ flowchart TD
     C -->|Use your own tool| E["Use open source tools<br>(cdxgen, Syft, etc.)"]
     D --> F["Data Validation (PURL Check)"]
     E --> F
-    F --> G["Submit SBOM (Email/Portal)"]
+    F --> G["Submit SBOM (Email/Designated channel)"]
     G --> H[SKT Security Review]
     H -->|Approved| I[Delivery Complete]
     H -->|Rejected| J[Remediate and Resubmit]

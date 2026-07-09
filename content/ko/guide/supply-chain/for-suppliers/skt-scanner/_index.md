@@ -53,7 +53,7 @@ cd /path/to/my-project
 /path/to/scan-sbom.sh --project "MyApp" --version "1.0.0" --all --generate-only
 ```
 
-- `--generate-only`는 포털 업로드 없이 로컬에 파일만 생성합니다(제출 전까지 권장).
+- `--generate-only`는 제출 없이 로컬에 파일만 생성합니다(제출 전까지 권장).
 - 웹 UI로 쓰려면 `./scan-sbom.sh --ui`를 실행합니다(브라우저에서 `http://localhost:8080`).
 - Windows에서 명령줄을 쓸 때는 같은 명령을 `scripts\scan-sbom.bat`로 실행합니다(Git Bash를 거치므로 Git for Windows 필요).
 - GitHub URL, 소스 ZIP, Docker 이미지, 펌웨어, 바이너리 등 다른 입력 형태와 전체 옵션은 [CLI 레퍼런스](https://sktelecom.github.io/sbom-tools/ko/reference/cli/)를 참고하세요.
