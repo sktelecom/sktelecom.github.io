@@ -136,10 +136,10 @@ The purl must be of a type that can identify the ecosystem.
 ```json
 {
   "bomFormat": "CycloneDX",
-  "specVersion": "1.4",
+  "specVersion": "1.6",
   "version": 1,
   "metadata": {
-    "timestamp": "2023-10-15T10:30:00Z",
+    "timestamp": "2026-04-06T10:30:00Z",
     "tools": [{
       "vendor": "Example Corp",
       "name": "cyclonedx-maven-plugin",

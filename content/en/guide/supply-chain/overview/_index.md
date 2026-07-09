@@ -7,6 +7,10 @@ description: >
   Introduces the importance of software supply chain security, recent threat trends, and the essential strategies for defending against them.
 ---
 
+{{% alert title="Looking for How to Submit?" color="info" %}}
+This page is learning material that explains the background of supply chain security. If you are looking for how to generate and submit an SBOM, go straight to the [Supplier Guide](/en/guide/supply-chain/for-suppliers/).
+{{% /alert %}}
+
 ## 1. What Is a Software Supply Chain Attack?
 
 A software supply chain attack is a cyberattack technique in which an attacker infiltrates the systems of a software developer or supplier, or the development process itself, to plant malicious code or exploit vulnerabilities.
