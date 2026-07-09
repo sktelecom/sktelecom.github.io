@@ -1,0 +1,122 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "serialNumber": "urn:uuid:9d3c76a1-4f2b-4b6e-9a1d-8c5f2e7b3a10",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-04-06T10:30:00Z",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "vendor": "CycloneDX",
+          "name": "cyclonedx-maven-plugin",
+          "version": "2.9.1"
+        }
+      ]
+    },
+    "component": {
+      "type": "application",
+      "name": "payment-service",
+      "version": "2.1.0",
+      "purl": "pkg:maven/com.example/payment-service@2.1.0",
+      "bom-ref": "pkg:maven/com.example/payment-service@2.1.0"
+    },
+    "supplier": {
+      "name": "Example Supplier Co., Ltd."
+    }
+  },
+  "components": [
+    {
+      "type": "library",
+      "name": "spring-core",
+      "group": "org.springframework",
+      "version": "6.1.5",
+      "purl": "pkg:maven/org.springframework/spring-core@6.1.5",
+      "bom-ref": "pkg:maven/org.springframework/spring-core@6.1.5",
+      "licenses": [{ "license": { "id": "Apache-2.0" } }]
+    },
+    {
+      "type": "library",
+      "name": "spring-jcl",
+      "group": "org.springframework",
+      "version": "6.1.5",
+      "purl": "pkg:maven/org.springframework/spring-jcl@6.1.5",
+      "bom-ref": "pkg:maven/org.springframework/spring-jcl@6.1.5",
+      "licenses": [{ "license": { "id": "Apache-2.0" } }]
+    },
+    {
+      "type": "library",
+      "name": "jackson-databind",
+      "group": "com.fasterxml.jackson.core",
+      "version": "2.17.0",
+      "purl": "pkg:maven/com.fasterxml.jackson.core/jackson-databind@2.17.0",
+      "bom-ref": "pkg:maven/com.fasterxml.jackson.core/jackson-databind@2.17.0",
+      "licenses": [{ "license": { "id": "Apache-2.0" } }]
+    },
+    {
+      "type": "library",
+      "name": "jackson-annotations",
+      "group": "com.fasterxml.jackson.core",
+      "version": "2.17.0",
+      "purl": "pkg:maven/com.fasterxml.jackson.core/jackson-annotations@2.17.0",
+      "bom-ref": "pkg:maven/com.fasterxml.jackson.core/jackson-annotations@2.17.0",
+      "licenses": [{ "license": { "id": "Apache-2.0" } }]
+    },
+    {
+      "type": "library",
+      "name": "jackson-core",
+      "group": "com.fasterxml.jackson.core",
+      "version": "2.17.0",
+      "purl": "pkg:maven/com.fasterxml.jackson.core/jackson-core@2.17.0",
+      "bom-ref": "pkg:maven/com.fasterxml.jackson.core/jackson-core@2.17.0",
+      "licenses": [{ "license": { "id": "Apache-2.0" } }]
+    },
+    {
+      "type": "library",
+      "name": "commons-lang3",
+      "group": "org.apache.commons",
+      "version": "3.14.0",
+      "purl": "pkg:maven/org.apache.commons/commons-lang3@3.14.0",
+      "bom-ref": "pkg:maven/org.apache.commons/commons-lang3@3.14.0",
+      "licenses": [{ "license": { "id": "Apache-2.0" } }]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "pkg:maven/com.example/payment-service@2.1.0",
+      "dependsOn": [
+        "pkg:maven/org.springframework/spring-core@6.1.5",
+        "pkg:maven/com.fasterxml.jackson.core/jackson-databind@2.17.0",
+        "pkg:maven/org.apache.commons/commons-lang3@3.14.0"
+      ]
+    },
+    {
+      "ref": "pkg:maven/org.springframework/spring-core@6.1.5",
+      "dependsOn": ["pkg:maven/org.springframework/spring-jcl@6.1.5"]
+    },
+    {
+      "ref": "pkg:maven/com.fasterxml.jackson.core/jackson-databind@2.17.0",
+      "dependsOn": [
+        "pkg:maven/com.fasterxml.jackson.core/jackson-annotations@2.17.0",
+        "pkg:maven/com.fasterxml.jackson.core/jackson-core@2.17.0"
+      ]
+    },
+    {
+      "ref": "pkg:maven/org.springframework/spring-jcl@6.1.5",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/com.fasterxml.jackson.core/jackson-annotations@2.17.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/com.fasterxml.jackson.core/jackson-core@2.17.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/org.apache.commons/commons-lang3@3.14.0",
+      "dependsOn": []
+    }
+  ]
+}
