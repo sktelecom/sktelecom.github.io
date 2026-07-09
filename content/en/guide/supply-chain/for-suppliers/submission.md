@@ -48,6 +48,7 @@ The validation results and action requests are communicated to the supplier and 
 ## Related Documents
 
 * [Validation Checklist](../checklist/): Essential items to verify before submission
+* [Common Rejection Reasons](../rejection-reasons/): Identifying causes and remediating after a rejection
 * [Submission Requirements](../requirements/): SBOM format and required data fields
 * [Supplier Guide Home](/en/guide/supply-chain/for-suppliers/): View the full process flow
 </content>
