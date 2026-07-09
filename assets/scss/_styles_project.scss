@@ -769,6 +769,19 @@ a.skt-card:hover,
   }
 }
 
+/* 하위페이지 목록(Docsy section-index) — 제목이 h5(전역 14px)라 설명 p(16px)보다
+   작아지는 위계 역전을 보정. 제목을 설명보다 크게(18px) 올리고 간격을 정리한다. */
+.section-index .entry {
+  h5 {
+    font-size: 1.125rem;
+    line-height: 1.35;
+  }
+  p {
+    color: var(--skt-text-muted);
+    line-height: 1.6;
+  }
+}
+
 /* 커스텀 섹션 페이지(프로젝트·컴플라이언스 목록) — 고정 navbar 높이만큼 상단 오프셋 */
 .skt-section-page {
   padding-top: 5.5rem;
