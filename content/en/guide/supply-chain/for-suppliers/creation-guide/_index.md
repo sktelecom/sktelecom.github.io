@@ -1,7 +1,7 @@
 ---
 title: "Generating an SBOM with Open Source Tools"
 linkTitle: "How to Generate an SBOM"
-weight: 3
+weight: 2
 type: docs
 description: >
   Explains how to generate an SBOM for each environment using general-purpose open source tools.
