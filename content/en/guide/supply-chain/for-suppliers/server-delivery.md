@@ -9,7 +9,7 @@ description: >
 
 This document is an advanced guide for suppliers that deliver a server with an application on top of an OS. For an ordinary application delivery, [How to Generate an SBOM](../creation-guide/) is sufficient.
 
-Treat the server as two layers — the OS and the application — generate each separately, then merge them. Both are produced with [BomLens](../skt-scanner/); only the input changes. In addition, statically linked libraries (for example an openssl built into the binary) are a blind spot that neither layer's scan catches, so they are handled separately. Missing them is the most common rejection cause.
+Treat the server as two layers — the OS and the application — generate each separately, then merge them. Both are produced with [BomLens](../skt-scanner/); only the input changes. In addition, statically linked libraries (for example an openssl built into the binary) are a blind spot that neither layer's scan catches, so they are handled separately. Missing them is the most common cause of rejection in server delivery.
 
 ## The two layers of a server
 
@@ -20,11 +20,11 @@ Treat the server as two layers — the OS and the application — generate each 
 
 ## Generating each layer
 
-The commands below use BomLens's `scan-sbom.sh` script. For installing BomLens and its basics (downloading the script, the options, the web UI, and so on), see [BomLens](../skt-scanner/) first. To use cdxgen/Syft directly, see [Using Open Source Tools](../creation-guide/).
+The commands below use BomLens's `scan-sbom.sh` script. For installing BomLens and its basics (downloading the script, the options, the web UI, and so on), see [BomLens](../skt-scanner/) first. If you use open source tools directly instead of BomLens, scan the OS layer with Syft (or Trivy) and the application layer with cdxgen; see [Using Open Source Tools](../creation-guide/) for the commands.
 
 ### OS layer
 
-Scan the server's rootfs (the extracted root filesystem) or a container image of it. The package database (rpm/dpkg/apk) is read so every installed package gets a real purl (`pkg:rpm/...`).
+Scan the server's rootfs (the extracted root filesystem) or a container image of it. The target must be the delivered, built state — not the base image you started from — because the OS packages installed during the build have to be included. The package database (rpm/dpkg/apk) is read so every installed package gets a real purl (`pkg:rpm/...`).
 
 ```bash
 # Target a rootfs directory
