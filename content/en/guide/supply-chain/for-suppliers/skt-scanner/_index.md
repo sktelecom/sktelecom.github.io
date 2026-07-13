@@ -1,7 +1,7 @@
 ---
 title: "BomLens"
 linkTitle: "BomLens"
-weight: 2
+weight: 3
 type: docs
 description: >
   Explains how to generate an SBOM that meets SK Telecom policy using BomLens.

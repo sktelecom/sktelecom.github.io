@@ -1,7 +1,7 @@
 ---
 title: "오픈소스 도구를 활용한 SBOM 생성"
 linkTitle: "SBOM 생성 방법"
-weight: 3
+weight: 2
 type: docs
 description: >
   범용 오픈소스 도구를 활용하여 환경별로 SBOM을 생성하는 방법을 안내합니다.

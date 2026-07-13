@@ -1,7 +1,7 @@
 ---
 title: "BomLens"
 linkTitle: "BomLens"
-weight: 2
+weight: 3
 type: docs
 description: >
   BomLens로 SK텔레콤 정책에 맞는 SBOM을 생성하는 방법을 안내합니다.

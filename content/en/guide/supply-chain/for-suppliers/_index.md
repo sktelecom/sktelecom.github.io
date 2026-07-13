@@ -12,7 +12,7 @@ To strengthen the transparency and security of its software supply chain, SK Tel
 ## Quick Start: Five Steps to Submission
 
 1. Check the accepted formats (CycloneDX JSON recommended) and required data fields in the [Submission Requirements](requirements/).
-2. Generate the SBOM with [BomLens](skt-scanner/). If you have your own build pipeline, use [open source tools](creation-guide/).
+2. Generate the SBOM following [How to Generate an SBOM](creation-guide/), choosing the tool that fits your delivery. If setting up a tool environment is a burden, we recommend [BomLens](skt-scanner/).
 3. If you deliver a server with an application on top of an OS, generate per layer and merge, following [Server SBOM](server-delivery/).
 4. Verify PURLs and transitive dependency coverage with the [Validation Checklist](checklist/).
 5. Name the file and submit it following the [Submission Process](submission/).
@@ -75,8 +75,8 @@ flowchart TD
 This section is organized as follows.
 
 1. [Submission Requirements](requirements/): Defines the required formats (CycloneDX, SPDX) and data fields that SK Telecom requires.
-2. [BomLens](skt-scanner/): Explains how to use SK Telecom's SBOM generation tool.
-3. [Using Open Source Tools](creation-guide/): Explains how to generate an SBOM using general-purpose open source tools (cdxgen, Syft, etc.).
+2. [How to Generate an SBOM](creation-guide/): Explains how to choose a tool for each delivery type and generate an SBOM using general-purpose open source tools (cdxgen, Syft, etc.).
+3. [BomLens](skt-scanner/): Explains how to use SK Telecom's SBOM generation tool.
 4. [Server SBOM](server-delivery/): Explains how to generate the OS, application, and static-link layers separately and merge them into one.
 5. [Commercial Software](commercial-software/): Explains how to obtain an SBOM from the manufacturer and submit it when supplying commercial software or finished products made by a third party.
 6. [Validation Checklist](checklist/): Provides a checklist of essential items to verify before submission.
