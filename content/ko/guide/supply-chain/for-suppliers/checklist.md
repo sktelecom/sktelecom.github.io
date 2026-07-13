@@ -9,7 +9,7 @@ description: >
 
 ## 필수 점검 항목
 
-아래 체크리스트를 통과하지 못한 SBOM은 시스템에서 자동으로 반려될 수 있습니다.
+아래 체크리스트를 통과하지 못한 SBOM은 시스템에서 자동으로 반려될 수 있습니다. 2~4번 항목은 아래 [검증 도구](#검증-도구)의 BomLens 자동 검증으로 한 번에 확인할 수 있습니다.
 
 ### 1. 파일 무결성
 - [ ] 파일 확장자가 `.json` 또는 `.xml` 인가? (압축 파일 아님)
@@ -48,8 +48,36 @@ jq '[.packages[] | select(.externalRefs[]?.referenceType == "purl")] | length' s
 
 > purl 보유 수가 0이거나 전체 컴포넌트 수보다 현저히 적으면 제출하지 마십시오. 원인과 재생성 방법은 [자주 발생하는 반려 사유](../rejection-reasons/)를 참고하십시오.
 
-## 온라인 검증 도구
+## 검증 도구
+
+### BomLens 자동 검증 (권장)
+
+[BomLens](../skt-scanner/)의 SBOM 분석 기능은 위 체크리스트의 2~4번을 포함해 [제출 요구사항](../requirements/)을 자동으로 점검합니다. v1.8.0 이상이 필요합니다.
+
+```bash
+./scripts/scan-sbom.sh --project my-app --version 1.0.0 \
+  --analyze "./sbom.json" \
+  --generate-only
+```
+
+실행하면 `my-app_1.0.0/` 폴더에 적합성 리포트(`my-app_1.0.0_conformance.html`)가 생성됩니다. 리포트가 자동으로 확인하는 항목은 다음과 같습니다.
+
+| 검사 항목 | 체크리스트 대응 |
+|-----------|-----------------|
+| 스펙 버전 범위 (CycloneDX 1.3~1.6, SPDX 2.2~2.3) | 2. 필수 데이터 필드 |
+| 생성 일시, 생성 도구, 최상위 컴포넌트 이름·버전 | 2. 필수 데이터 필드 |
+| 모든 컴포넌트의 이름·버전 | 2. 필수 데이터 필드 |
+| 직접·전이적 의존성 포함 여부 | 3. 의존성 완전성 확인 |
+| PURL 보유율, 표준 형식(`pkg:type/name@version`), `pkg:generic` 금지 | 4. 식별자 (PURL) 확인 |
+| 라이선스·해시 보유율 (권장 항목) | — |
+
+결과가 fail이면 어떤 컴포넌트가 어느 항목에 미달하는지 목록으로 표시되므로, 해당 부분을 보완해 SBOM을 다시 생성한 뒤 재검증하면 됩니다. 웹 UI(`--ui` 실행 후 SBOM 업로드)에서도 같은 검증을 할 수 있습니다.
+
+### CycloneDX Validator (스키마 검사)
+
 *   CycloneDX Validator: [https://cyclonedx.github.io/cyclonedx-web-tool/validate](https://cyclonedx.github.io/cyclonedx-web-tool/validate)
+
+CycloneDX 파일이 표준 스키마에 맞는지 확인하는 온라인 도구입니다. JSON 문법과 형식 오류(체크리스트 1번)를 설치 없이 빠르게 확인할 때 유용합니다. 다만 스키마 검사만 수행하므로, 통과하더라도 2~4번(필수 필드, 의존성 완전성, PURL)을 충족한다는 뜻은 아닙니다. SPDX 파일은 이 도구로 검사할 수 없습니다.
 
 ## 관련 문서
 
