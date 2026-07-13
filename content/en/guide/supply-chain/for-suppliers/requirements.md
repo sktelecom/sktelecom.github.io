@@ -172,6 +172,6 @@ PURL (Package URL) is a standard URL format for uniquely identifying a software 
 - [Supplier Guide Home](../)
 - [BomLens](../skt-scanner/): SK Telecom's SBOM generation tool
 - [Using Open Source Tools](../creation-guide/): Guidance on open source tools such as cdxgen and Syft
-- [Validation Checklist](../checklist/): Items to verify before submission
+- [Validation Checklist](../checklist/): Items to verify before submission, plus the validation tools (BomLens automated validation, CycloneDX Validator)
 - [Submission Process](../submission/): Submission method and email template
 </content>
