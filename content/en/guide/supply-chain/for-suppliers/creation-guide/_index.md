@@ -29,27 +29,54 @@ graph TD
       T6["Firmware with an embedded OS<br>(e.g., base stations, routers, OLT/ONT, set-top boxes)"]
     end
 
+    %% Left: source-code scan with an inner box
+    subgraph M1["Scan the source code"]
+      M1_Sub["cdxgen or BomLens"]
+    end
+
+    %% Right: source + OS image scan with inner boxes (stacked vertically)
+    subgraph M2["Scan source + OS image"]
+      direction TB
+      M2_Top["OS (e.g., Linux) scan<br>(Syft or Trivy)"]
+      M2_Bottom["Source code scan<br>(cdxgen or BomLens)"]
+    end
+
     A --> G1
     A --> G2
-    G1 --> M1(["Scan the source code<br>cdxgen or BomLens"])
-    G2 --> M2(["Scan source + OS image<br>cdxgen/BomLens + Syft/Trivy"])
-    M1 --> P(["Submit the SBOM"])
-    M2 --> P
+    
+    %% Connect each group to its inner boxes
+    G1 --> M1_Sub
+    
+    %% G2 feeds both inner boxes on the right
+    G2 --> M2_Top
+    G2 --> M2_Bottom
+    
+    %% Inner boxes flow to the next step
+    M1_Sub --> P(["Submit the SBOM"])
+    M2_Top --> P
+    M2_Bottom --> P
 
     classDef start fill:#F2F2F2,stroke:#171717,color:#171717,stroke-width:1.5px
     classDef typebox fill:#ffffff,stroke:#c8c8c8,color:#171717,stroke-width:1px
-    classDef source fill:#D9F0E4,stroke:#00A651,color:#0A5A32,stroke-width:1.5px
-    classDef osmerge fill:#EEDCF3,stroke:#68127A,color:#4A0D57,stroke-width:1.5px
     classDef submit fill:#F2F2F2,stroke:#171717,color:#171717,stroke-width:1.5px
+    
+    %% White inner-box styles (left/right border colors)
+    classDef subwhite_left fill:#ffffff,stroke:#00A651,color:#171717,stroke-width:1px
+    classDef subwhite_right fill:#ffffff,stroke:#68127A,color:#171717,stroke-width:1px
 
     class A start
     class T1,T2,T3,T4,T5,T6 typebox
-    class M1 source
-    class M2 osmerge
+    class M1_Sub subwhite_left
+    class M2_Top,M2_Bottom subwhite_right
     class P submit
 
     style G1 fill:#F1FAF5,stroke:#00A651,stroke-width:1px,color:#0A5A32
     style G2 fill:#FAF4FB,stroke:#68127A,stroke-width:1px,color:#4A0D57
+    
+    %% Outer group boxes keep their fill and border colors
+    style M1 fill:#D9F0E4,stroke:#00A651,stroke-width:1px,color:#0A5A32
+    style M2 fill:#EEDCF3,stroke:#68127A,stroke-width:1px,color:#4A0D57
+
 ```
 
 For software you developed yourself, scan the source code to produce the SBOM regardless of the delivery form. Even when you deliver an executable, a binary, or firmware, scan the source code that produced it, not the finished artifact. Scanning a finished binary directly yields no package manager metadata, so PURLs are omitted, vulnerability matching fails entirely, and the SBOM is rejected.

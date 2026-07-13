@@ -29,27 +29,54 @@ graph TD
       T6["OS 내장 펌웨어<br>(예: 기지국, 라우터, OLT/ONT, 셋톱박스)"]
     end
 
+    %% 좌측: 소스코드 스캔 서브 박스 구조
+    subgraph M1["소스코드 스캔"]
+      M1_Sub["cdxgen 또는 BomLens"]
+    end
+
+    %% 우측: 소스코드 + OS 이미지 스캔 서브 박스 구조 (세로 배치)
+    subgraph M2["소스코드 + OS 이미지 스캔"]
+      direction TB
+      M2_Top["OS (예: Linux) 스캔<br>(Syft 또는 Trivy)"]
+      M2_Bottom["소스코드 스캔<br>(cdxgen 또는 BomLens)"]
+    end
+
     A --> G1
     A --> G2
-    G1 --> M1(["소스코드 스캔<br>cdxgen 또는 BomLens"])
-    G2 --> M2(["소스코드 + OS 이미지 스캔<br>cdxgen/BomLens + Syft/Trivy"])
-    M1 --> P(["SBOM 제출"])
-    M2 --> P
+    
+    %% 그룹에서 내부 서브 박스로 연결
+    G1 --> M1_Sub
+    
+    %% G2에서 우측 내부 박스들로 각각 연결선 진입
+    G2 --> M2_Top
+    G2 --> M2_Bottom
+    
+    %% 내부 서브 박스에서 다음 단계로 연결
+    M1_Sub --> P(["SBOM 제출"])
+    M2_Top --> P
+    M2_Bottom --> P
 
     classDef start fill:#F2F2F2,stroke:#171717,color:#171717,stroke-width:1.5px
     classDef typebox fill:#ffffff,stroke:#c8c8c8,color:#171717,stroke-width:1px
-    classDef source fill:#D9F0E4,stroke:#00A651,color:#0A5A32,stroke-width:1.5px
-    classDef osmerge fill:#EEDCF3,stroke:#68127A,color:#4A0D57,stroke-width:1.5px
     classDef submit fill:#F2F2F2,stroke:#171717,color:#171717,stroke-width:1.5px
+    
+    %% 내부 단일 박스용 흰색 스타일 정의 (좌/우 테두리 색상 구분)
+    classDef subwhite_left fill:#ffffff,stroke:#00A651,color:#171717,stroke-width:1px
+    classDef subwhite_right fill:#ffffff,stroke:#68127A,color:#171717,stroke-width:1px
 
     class A start
     class T1,T2,T3,T4,T5,T6 typebox
-    class M1 source
-    class M2 osmerge
+    class M1_Sub subwhite_left
+    class M2_Top,M2_Bottom subwhite_right
     class P submit
 
     style G1 fill:#F1FAF5,stroke:#00A651,stroke-width:1px,color:#0A5A32
     style G2 fill:#FAF4FB,stroke:#68127A,stroke-width:1px,color:#4A0D57
+    
+    %% 외곽 박스 스타일 (배경색 및 테두리 유지)
+    style M1 fill:#D9F0E4,stroke:#00A651,stroke-width:1px,color:#0A5A32
+    style M2 fill:#EEDCF3,stroke:#68127A,stroke-width:1px,color:#4A0D57
+
 ```
 
 자체 개발 소프트웨어라면 납품 형태와 무관하게 자기가 개발한 소스코드를 스캔해 SBOM을 만듭니다. 실행 파일이나 바이너리, 펌웨어로 납품하더라도 완성된 산출물이 아니라 그것을 만든 소스코드를 스캔합니다. 완성된 바이너리를 그대로 스캔하면 패키지 매니저 메타데이터가 없어 purl이 누락되고, 취약점 매칭이 전량 실패해 반려됩니다.
