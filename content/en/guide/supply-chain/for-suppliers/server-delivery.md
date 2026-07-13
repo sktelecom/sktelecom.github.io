@@ -88,7 +88,7 @@ Check that components carry real purls in both the per-layer SBOMs and the merge
 
 The detailed procedure and examples for server delivery live in the canonical BomLens documentation.
 
-> [Server delivery guide](https://sktelecom.github.io/sbom-tools/guides/server-delivery/)
+> [Server delivery guide](https://sktelecom.github.io/bomlens/guides/server-delivery/)
 
 ## Related Documents
 
