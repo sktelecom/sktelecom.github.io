@@ -62,14 +62,8 @@ Generation tool information must be recorded in the following fields depending o
 ### 2.2 Components
 Information about the individual libraries that make up the software.
 *   Name: Component name (e.g., `commons-lang3`)
-*   Version: Component version (e.g., `3.12.0`) — **Required**: Vulnerability mapping is impossible without the version
+*   Version: Component version (e.g., `3.12.0`) — required. Record the exact version in SPDX's `versionInfo` field or CycloneDX's `version` field; without a version, vulnerability mapping is impossible.
 *   PURL (Package URL): [Required] Package identifier
-
-> **Version information must be included.** Each package/component must record its exact version in SPDX's `versionInfo` field or CycloneDX's `version` field. Without a version, mapping to the vulnerability database is impossible, so security analysis cannot be performed.
-
-| Item | Additional Requirement |
-|------|-------------|
-| Version specification | Required — Vulnerability mapping is impossible without the version |
 
 ### 2.3 Dependency Scope
 
@@ -87,13 +81,6 @@ SK Telecom analyzes vulnerabilities based on the submitted SBOM. An SBOM that in
 
 For example, if a project uses `library-A` directly, and `library-A` internally uses `library-B`, then `library-B` is a transitive dependency. Even if `library-B` has a vulnerability, it cannot be detected unless it is included in the SBOM.
 
-```
-MyApp
-  └─ library-A v1.0 (direct dependency)  ← explicitly declared by the supplier
-       └─ library-B v2.3 (transitive dependency)  ← must be included in the SBOM
-            └─ library-C v0.9 (transitive dependency)  ← must be included in the SBOM
-```
-
 **Prerequisites for generating a correct SBOM**
 
 For transitive dependencies to be included accurately, the SBOM must be generated with the build (or package installation) completed. When only source code is present, transitive dependencies may be omitted.
@@ -110,7 +97,7 @@ For transitive dependencies to be included accurately, the SBOM must be generate
 
 PURL (Package URL) is a standard URL format for uniquely identifying a software package. SK Telecom's vulnerability analysis system operates based on PURL, so a valid PURL must be included for every component.
 
-> **A PURL must be in the standard format beginning with the `pkg:` prefix.** Free text such as `name:version` or `org/repo:tag` is not allowed; in such cases vulnerability mapping is impossible and the SBOM will be rejected.
+> **A PURL must be in the standard format beginning with the `pkg:` prefix.** Free text such as `name:version` or `org/repo:tag` is not allowed; in such cases vulnerability mapping is impossible and the SBOM will be rejected. The type must identify the ecosystem; `pkg:generic/` is not allowed.
 
 ### PURL Examples by Language
 
@@ -124,15 +111,6 @@ PURL (Package URL) is a standard URL format for uniquely identifying a software 
 | Ruby (RubyGems) | `pkg:gem/rails@7.0.4` |
 | GitHub (Actions / source hosting) | `pkg:github/actions/checkout@v3` |
 | OS package (RPM) | `pkg:rpm/centos/glibc@2.17-317.el7?arch=x86_64` |
-
-### PURL Type Restrictions
-
-The purl must be of a type that can identify the ecosystem.
-
-| Item | Requirement |
-|------|---------|
-| purl type | **Do not use** `pkg:generic/`. You must use a type that specifies the ecosystem |
-| Allowed types | `pkg:rpm/`, `pkg:deb/`, `pkg:apk/`, `pkg:npm/`, `pkg:maven/`, `pkg:pypi/`, `pkg:cargo/`, `pkg:golang/`, `pkg:gem/`, `pkg:nuget/`, `pkg:github/` (source components hosted on GitHub), etc. |
 
 ### Correct / Incorrect PURL Examples
 
@@ -180,7 +158,6 @@ The purl must be of a type that can identify the ecosystem.
     }]
   }]
 }
-...
 ```
 
 

@@ -35,51 +35,14 @@ graph TD
 
 ## Key Components of an SBOM
 
-### Component Information
+An SBOM document carries the following information.
 
-Includes basic information about each software component.
+- Component information: name, version, supplier, license
+- Unique identifiers: standardized identifiers that pinpoint a component. Package URL (purl) is the most widely used (e.g., `pkg:maven/org.springframework/spring-core@5.3.20`)
+- Dependency relationships: direct dependencies (used by the project itself) and transitive dependencies (what the direct dependencies depend on)
+- Metadata: generation tool, generation time, author
 
-- Name: The official name of the component
-- Version: The exact version number
-- Supplier: The organization or individual that provided the component
-- License: The applicable open source license
-
-### Unique Identifiers
-
-Standardized identifiers are used to clearly identify components.
-
-Package URL (purl)
-
-This is the most commonly used identifier format.
-
-```
-pkg:maven/org.springframework/spring-core@5.3.20
-pkg:npm/express@4.18.2
-pkg:pypi/django@4.1.0
-```
-
-CPE (Common Platform Enumeration)
-
-Used to integrate with security vulnerability databases.
-
-```
-cpe:2.3:a:apache:log4j:2.14.1:*:*:*:*:*:*:*
-```
-
-### Dependency Relationships
-
-Specifies the dependency relationships among components.
-
-- Direct Dependencies: Libraries that the project uses directly
-- Transitive Dependencies: Libraries that the direct dependencies, in turn, depend on
-
-### Metadata
-
-Includes information about the SBOM itself.
-
-- Generation tool: The name and version of the tool that generated the SBOM
-- Generation time: The date and time the SBOM was generated
-- Author: The organization or individual that generated the SBOM
+For submissions to SK Telecom, which items are required and in what form is defined by the [Submission Requirements](/en/guide/supply-chain/for-suppliers/requirements/).
 
 ## Why Is It Needed?
 
@@ -94,13 +57,7 @@ Open source license violations can lead to legal disputes. Through an SBOM, you 
 ### 3. Software Quality and Obsolescence Management
 By identifying old and unsupported (EOL, End-of-Life) components, you can manage technical debt and maintain the health of your software.
 
-### 4. Regulatory Compliance
-
-Various organizations, including the U.S. federal government, are mandating SBOM submission.
-
-- U.S. Executive Order 14028 (federal government suppliers)
-- EU Cyber Resilience Act
-- FDA approval for medical devices
+Against this backdrop, regulations in the United States, Europe, and elsewhere are also moving toward mandatory SBOM submission. See [Regulatory Trends](/en/guide/supply-chain/overview/regulations/) for details.
 
 ## Related Documents
 

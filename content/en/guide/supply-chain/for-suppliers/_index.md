@@ -17,7 +17,7 @@ To strengthen the transparency and security of its software supply chain, SK Tel
 4. Verify PURLs and transitive dependency coverage with the [Validation Checklist](checklist/).
 5. Name the file and submit it following the [Submission Process](submission/).
 
-If you supply commercial software or a finished product made by a third party and have no access to the source code, skip steps 2–3 and follow [Commercial Software](commercial-software/) to obtain the SBOM from the manufacturer and submit it.
+If you supply commercial software or a finished product made by a third party and have no access to the source code, skip steps 2–3 and follow [Commercial Software](commercial-software/) to obtain the SBOM from the manufacturer and submit it. If your submission is rejected, check [Common Rejection Reasons](rejection-reasons/) for the cause and how to fix it.
 
 ## Scope of Application
 
@@ -29,8 +29,6 @@ All suppliers (including developers and resellers) that deliver the following ty
 *   Embedded systems: Firmware images, RootFS, device drivers
 *   Servers: A system combining an OS (rootfs and installed packages) with an application and statically linked libraries
 *   Commercial software and finished products: packaged software or appliances made by a third party (including reseller and distributor deliveries)
-
-For commercial software and finished products made by a third party, submit the manufacturer's SBOM following [Commercial Software](commercial-software/) instead of generating one yourself.
 
 
 ## SBOM Submission Process
@@ -69,19 +67,6 @@ flowchart TD
 
 ```
 
-
-## Guide Structure
-
-This section is organized as follows.
-
-1. [Submission Requirements](requirements/): Defines the required formats (CycloneDX, SPDX) and data fields that SK Telecom requires.
-2. [How to Generate an SBOM](creation-guide/): Explains how to choose a tool for each delivery type and generate an SBOM using general-purpose open source tools (cdxgen, Syft, etc.).
-3. [BomLens](skt-scanner/): Explains how to use SK Telecom's SBOM generation tool.
-4. [Server SBOM](server-delivery/): Explains how to generate the OS, application, and static-link layers separately and merge them into one.
-5. [Commercial Software](commercial-software/): Explains how to obtain an SBOM from the manufacturer and submit it when supplying commercial software or finished products made by a third party.
-6. [Validation Checklist](checklist/): Provides a checklist of essential items to verify before submission.
-7. [Submission Process](submission/): Explains the naming conventions and submission channels for the generated SBOM file.
-8. [Common Rejection Reasons](rejection-reasons/): Causes and fixes for each rejection reason, with a passing example file.
 
 ## Related Documents
 

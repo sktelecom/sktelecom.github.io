@@ -108,8 +108,7 @@ package manager metadata (`package.json`, `go.mod`, `*.jar`, RPM/DEB package DB,
 identify the ecosystem and produces an **SBOM with empty PURLs**. Because SK Telecom's system maps
 vulnerabilities by PURL, such an SBOM fails matching entirely and is rejected.
 
-In one real case, a supplier scanned an installation directory with `syft dir:/root/nag_pkg`, and the
-submitted SBOM had no PURL on any of its 261 components, so all 251 vulnerability matches failed.
+For a real case rejected this way, see [Common Rejection Reasons](../rejection-reasons/).
 
 Run Syft against the following targets.
 
@@ -172,17 +171,11 @@ Using a build tool plugin lets you extract more accurate dependency information.
 | Node.js | @cyclonedx/cyclonedx-npm | [Link](https://github.com/CycloneDX/cyclonedx-node-npm) |
 | Go | cyclonedx-gomod | [Link](https://github.com/CycloneDX/cyclonedx-gomod) |
 
-## Verifying Transitive Dependency Inclusion
-
-Whichever tool you use, one principle holds: generate the SBOM after the build (package installation) is complete so that transitive dependencies are included. Generating from source code alone can omit transitive dependencies and lead to rejection. When delivering as a Docker image, scanning the built image with Syft can include more complete transitive dependencies than source code analysis.
-
-For the dependency-scope requirements and the per-language build commands to run first, see the dependency scope section of the [Submission Requirements](../requirements/).
-
 ## Common Precautions
 
 Verify the following before using a tool.
 
-- Transitive dependency inclusion: Follow the build-first principle above. Missing dependencies are grounds for rejection.
+- Transitive dependency inclusion: Generate the SBOM after the build (package installation) is complete so that transitive dependencies are included. Missing dependencies are grounds for rejection; for the per-language build commands to run first, see the dependency scope section of the [Submission Requirements](../requirements/).
 - PURL inclusion: Verify that the generated SBOM includes a `purl` field for every component. SK Telecom's system maps vulnerabilities based on PURL. For the verification commands and the regeneration procedure, see the [Validation Checklist](../checklist/).
 - Output format: CycloneDX JSON format is recommended. (Use `-o cyclonedx-json` or an equivalent option)
 - Project information: Verify that the metadata accurately records the name and version of the delivered project.

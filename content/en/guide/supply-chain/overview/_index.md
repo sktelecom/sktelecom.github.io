@@ -33,31 +33,12 @@ graph LR
 
 ## 2. Notable Attack Cases
 
-The major security incidents of recent years have impressed the importance of supply chain security on the entire world.
-
-### The SolarWinds Incident (2020)
-- Overview: The build system of SolarWinds Orion, a network monitoring solution, was hacked, and a backdoor was planted in legitimate update files.
-- Impact: Some 18,000 organizations worldwide were affected, including U.S. government agencies and Fortune 500 companies.
-- Lesson: It demonstrated that even officially signed software from a trusted vendor may not be safe.
-
-### The Log4j Vulnerability (2021)
-- Overview: A critical vulnerability enabling remote code execution (RCE), known as Log4Shell, was discovered in Log4j, a Java-based logging library.
-- Impact: Hundreds of millions of devices and servers worldwide that use this library directly or indirectly were exposed to risk.
-- Lesson: It became a turning point that made organizations realize how important it is to understand which open source components their systems use, through an SBOM (Software Bill of Materials).
-
-### The 3CX Supply Chain Attack (2023)
-- Overview: The desktop app of the VoIP software 3CX was distributed while infected with a trojan.
-- Characteristics: The attackers first hacked the PC of a 3CX employee and then moved laterally into the development environment to tamper with the binaries.
+- The SolarWinds incident (2020): The build system was hacked and a backdoor was planted in officially signed updates, affecting some 18,000 organizations worldwide including U.S. government agencies. It demonstrated that even software from a trusted vendor may not be safe.
+- The Log4j vulnerability (2021): A remote code execution vulnerability in a widely used logging library exposed hundreds of millions of servers worldwide. It drove home the need for a way to know which open source components your systems use — that is, an SBOM.
 
 ## 3. Why Supply Chain Security?
 
-Modern software development environments are built on top of complex, interwoven dependencies.
-
-1.  Growing open source dependencies: 70-90% of modern application code consists of open source components.
-2.  Ripple effect: When a single common component is compromised, the damage spreads worldwide.
-3.  Difficulty of detection: Code that is compromised during the development and build stages can easily bypass traditional security checks (firewalls, antivirus, etc.).
-
-Accordingly, SK Telecom has established and enforces SBOM adoption and a rigorous supply chain security policy in order to ensure transparency across the supply chain and to manage risk.
+70-90% of modern application code consists of open source components. When a single common component is compromised the damage spreads worldwide, and code compromised at the build stage is hard to catch with traditional security checks such as firewalls and antivirus. To manage this risk, SK Telecom has adopted SBOMs and enforces a supply chain security policy.
 
 ## Related Documents
 

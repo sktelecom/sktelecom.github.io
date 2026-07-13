@@ -18,14 +18,10 @@ If you are a supplier delivering software to SK Telecom, start right away with t
 
 ## New to Supply Chain Security?
 
-In recent years, alongside license compliance, security vulnerability management and software supply chain security have emerged as critical challenges in the open source ecosystem. As regulations tighten in the United States and Europe, SBOM (Software Bill of Materials) management and systematic vulnerability response have become essential.
-
-To learn the background step by step, we recommend the following order.
+As regulations tighten in the United States and Europe, SBOM (Software Bill of Materials) management and systematic vulnerability response have become essential. To learn the background step by step, we recommend the following order.
 
 1. [What Is Supply Chain Security?](overview/): Explains supply chain attack cases, why security matters, the global regulatory landscape, and SK Telecom's policy.
 2. [What Is an SBOM?](sbom/): Covers SBOM concepts and standards (SPDX, CycloneDX).
-
-Related standards such as ISO/IEC 18974 (OpenChain Security Assurance), SPDX (ISO/IEC 5962), CycloneDX (ECMA-424), and NIST SSDF, as well as regulatory trends such as U.S. EO 14028 and the EU Cyber Resilience Act, are introduced on the [Regulatory Trends](overview/regulations/) page.
 
 ## Contact
 

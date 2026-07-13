@@ -9,9 +9,7 @@ description: >
 
 This document is an advanced guide for suppliers that deliver a server with an application on top of an OS. For an ordinary application delivery, [How to Generate an SBOM](../creation-guide/) is sufficient.
 
-A delivered server is not a single source tree. It is an operating system, the application installed on top of it, and libraries statically linked into the binaries during the build. Scanning only one of these misses the others, which is a common reason a server SBOM is rejected.
-
-Treat the server as two layers — the OS and the application — generate each separately, then merge them. Both are produced with [BomLens](../skt-scanner/); only the input changes. Statically linked libraries, which neither layer's scan catches, are handled separately as a blind spot.
+Treat the server as two layers — the OS and the application — generate each separately, then merge them. Both are produced with [BomLens](../skt-scanner/); only the input changes. In addition, statically linked libraries (for example an openssl built into the binary) are a blind spot that neither layer's scan catches, so they are handled separately. Missing them is the most common rejection cause.
 
 ## The two layers of a server
 
@@ -19,8 +17,6 @@ Treat the server as two layers — the OS and the application — generate each 
 |-------|----------------|--------------------|
 | OS | The OS and its installed packages (e.g. CentOS plus everything in the rpm database) | OS vulnerabilities missing |
 | Application | The delivered application and its package-manager dependencies, direct and transitive | Application dependencies missing |
-
-Beyond the two layers, **statically linked libraries** (for example an openssl or liblfds built into the binary) are a blind spot: a package manager does not declare them and the OS package database does not list them, so neither layer's scan finds them. They must be detected and recorded separately, and missing them is the most common rejection cause.
 
 ## Generating each layer
 
@@ -53,7 +49,7 @@ A pure CMake/Make application with no manifest produces a sparse component list;
 
 ### Static-link libraries (a blind spot)
 
-Source scanners do not see libraries statically linked into a binary, and the OS package database does not list them either — the blind spot the two layers leave. There is no fully automatic path, so combine two approaches. Analyze the delivered binary for what tooling can find, and for what it still misses, record the source and version by hand from the build script (for example `openssl 1.1.1za`).
+Statically linked libraries are not declared by a package manager and not listed in the OS package database, so neither layer's scan finds them. There is no fully automatic path, so combine two approaches. Analyze the delivered binary for what tooling can find, and for what it still misses, record the source and version by hand from the build script (for example `openssl 1.1.1za`).
 
 ```bash
 scan-sbom.sh --project myserver-bin --version 2.0.0 --target /path/to/delivered-binary --all --generate-only
@@ -74,7 +70,7 @@ scan-sbom.sh --project myserver --version 1.0.0 \
 If the whole server is delivered as a single container image, you can scan that image with `--target` to capture the OS and application layers together.
 
 {{% alert title="Keep the per-layer SBOMs for review" color="info" %}}
-The official submission is the merged single BOM, but the per-layer SBOMs show at a glance which layer is missing or vulnerable, so they are useful for your own review and for responding to rejections. Keep them. The merged BOM unions each layer's dependency graph (so it keeps transitive-dependency information) and records each component's source layer, so you can still filter by layer.
+The official submission is the merged single BOM, but the per-layer SBOMs show at a glance which layer is missing or vulnerable, so they are useful for your own review and for responding to rejections. Keep them.
 {{% /alert %}}
 
 ## Multi-node clusters
@@ -82,11 +78,11 @@ The official submission is the merged single BOM, but the per-layer SBOMs show a
 A product in which multiple nodes form one cluster is still submitted as one SBOM per product; you do not need one per node.
 
 *   If every node has the same configuration, generate and merge the layers from one representative node.
-*   If the installed software differs by node role (for example, a management node and storage nodes), generate the per-layer SBOMs for each role, then merge everything into a single BOM with `--merge`. The merge dedupes by purl, so packages common to several roles are counted once.
+*   If the installed software differs by node role (for example, a management node and storage nodes), generate the per-layer SBOMs for each role, then merge everything into a single BOM with `--merge`.
 
 ## Verify before submitting
 
-Check that components carry real purls in both the per-layer SBOMs and the merged one. A large gap between the total component count and the PURL-bearing count means many components lack a purl, usually from a raw-directory scan. For the verification commands and the full check, follow the [Validation Checklist](../checklist/).
+Check that components carry real purls in both the per-layer SBOMs and the merged one. For the verification commands and the full check, follow the [Validation Checklist](../checklist/).
 
 ## Learn more
 
