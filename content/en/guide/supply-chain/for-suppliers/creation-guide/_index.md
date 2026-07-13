@@ -29,46 +29,27 @@ graph TD
       T6["Firmware with an embedded OS<br>(e.g., base stations, routers, OLT/ONT, set-top boxes)"]
     end
 
-    subgraph G3["Commercial finished product (no source code)"]
-      direction LR
-      T7["Commercial packaged software<br>(e.g., reseller / distributor)"]
-      T8["Appliance / finished equipment<br>(e.g., storage, backup appliances)"]
-    end
-
     A --> G1
     A --> G2
-    A --> G3
-
-    G1 --> M1(["Target: source code<br>Tool: cdxgen or BomLens"])
-
-    G2 --> L1(["App layer<br>Target: source code<br>Tool: cdxgen or BomLens"])
-    G2 --> L2(["OS layer<br>Target: shipped image, rootfs<br>Tool: Syft or Trivy"])
-    L1 --> MG["Merge the per-layer SBOMs"]
-    L2 --> MG
-
-    G3 --> M3(["Obtain the SBOM<br>from the manufacturer"])
-
+    G1 --> M1(["Scan the source code<br>cdxgen or BomLens"])
+    G2 --> M2(["Scan source + OS image<br>cdxgen/BomLens + Syft/Trivy"])
     M1 --> P(["Submit the SBOM"])
-    MG --> P
-    M3 --> P
+    M2 --> P
 
     classDef start fill:#F2F2F2,stroke:#171717,color:#171717,stroke-width:1.5px
     classDef typebox fill:#ffffff,stroke:#c8c8c8,color:#171717,stroke-width:1px
     classDef source fill:#D9F0E4,stroke:#00A651,color:#0A5A32,stroke-width:1.5px
     classDef osmerge fill:#EEDCF3,stroke:#68127A,color:#4A0D57,stroke-width:1.5px
-    classDef vendor fill:#FFF3CD,stroke:#E0A800,color:#5A4100,stroke-width:1.5px
     classDef submit fill:#F2F2F2,stroke:#171717,color:#171717,stroke-width:1.5px
 
     class A start
-    class T1,T2,T3,T4,T5,T6,T7,T8 typebox
-    class M1,L1 source
-    class L2,MG osmerge
-    class M3 vendor
+    class T1,T2,T3,T4,T5,T6 typebox
+    class M1 source
+    class M2 osmerge
     class P submit
 
     style G1 fill:#F1FAF5,stroke:#00A651,stroke-width:1px,color:#0A5A32
     style G2 fill:#FAF4FB,stroke:#68127A,stroke-width:1px,color:#4A0D57
-    style G3 fill:#FFF9E8,stroke:#E0A800,stroke-width:1px,color:#5A4100
 ```
 
 For software you developed yourself, scan the source code to produce the SBOM regardless of the delivery form. Even when you deliver an executable, a binary, or firmware, scan the source code that produced it, not the finished artifact. Scanning a finished binary directly yields no package manager metadata, so PURLs are omitted, vulnerability matching fails entirely, and the SBOM is rejected.

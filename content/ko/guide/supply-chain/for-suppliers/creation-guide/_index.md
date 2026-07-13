@@ -29,46 +29,27 @@ graph TD
       T6["OS 내장 펌웨어<br>(예: 기지국, 라우터, OLT/ONT, 셋톱박스)"]
     end
 
-    subgraph G3["상용 완제품 공급 (소스코드 없음)"]
-      direction LR
-      T7["상용 패키지 소프트웨어<br>(예: 리셀러·총판 공급)"]
-      T8["어플라이언스·완제품 장비<br>(예: 스토리지, 백업 장비)"]
-    end
-
     A --> G1
     A --> G2
-    A --> G3
-
-    G1 --> M1(["대상: 소스코드<br>도구: cdxgen 또는 BomLens"])
-
-    G2 --> L1(["앱 층<br>대상: 소스코드<br>도구: cdxgen 또는 BomLens"])
-    G2 --> L2(["OS 층<br>대상: 납품 이미지, rootfs<br>도구: Syft 또는 Trivy"])
-    L1 --> MG["층별 SBOM 병합"]
-    L2 --> MG
-
-    G3 --> M3(["제조사 SBOM 수령"])
-
+    G1 --> M1(["소스코드 스캔<br>cdxgen 또는 BomLens"])
+    G2 --> M2(["소스코드 + OS 이미지 스캔<br>cdxgen/BomLens + Syft/Trivy"])
     M1 --> P(["SBOM 제출"])
-    MG --> P
-    M3 --> P
+    M2 --> P
 
     classDef start fill:#F2F2F2,stroke:#171717,color:#171717,stroke-width:1.5px
     classDef typebox fill:#ffffff,stroke:#c8c8c8,color:#171717,stroke-width:1px
     classDef source fill:#D9F0E4,stroke:#00A651,color:#0A5A32,stroke-width:1.5px
     classDef osmerge fill:#EEDCF3,stroke:#68127A,color:#4A0D57,stroke-width:1.5px
-    classDef vendor fill:#FFF3CD,stroke:#E0A800,color:#5A4100,stroke-width:1.5px
     classDef submit fill:#F2F2F2,stroke:#171717,color:#171717,stroke-width:1.5px
 
     class A start
-    class T1,T2,T3,T4,T5,T6,T7,T8 typebox
-    class M1,L1 source
-    class L2,MG osmerge
-    class M3 vendor
+    class T1,T2,T3,T4,T5,T6 typebox
+    class M1 source
+    class M2 osmerge
     class P submit
 
     style G1 fill:#F1FAF5,stroke:#00A651,stroke-width:1px,color:#0A5A32
     style G2 fill:#FAF4FB,stroke:#68127A,stroke-width:1px,color:#4A0D57
-    style G3 fill:#FFF9E8,stroke:#E0A800,stroke-width:1px,color:#5A4100
 ```
 
 자체 개발 소프트웨어라면 납품 형태와 무관하게 자기가 개발한 소스코드를 스캔해 SBOM을 만듭니다. 실행 파일이나 바이너리, 펌웨어로 납품하더라도 완성된 산출물이 아니라 그것을 만든 소스코드를 스캔합니다. 완성된 바이너리를 그대로 스캔하면 패키지 매니저 메타데이터가 없어 purl이 누락되고, 취약점 매칭이 전량 실패해 반려됩니다.
