@@ -1,7 +1,7 @@
 ---
 title: "SBOM 제출 전 검증 체크리스트"
 linkTitle: "검증 체크리스트"
-weight: 5
+weight: 6
 type: docs
 description: >
   SBOM 제출 전 필수 확인 사항을 점검하여 반려를 방지합니다.

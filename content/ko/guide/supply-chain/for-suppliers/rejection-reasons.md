@@ -1,7 +1,7 @@
 ---
 title: "자주 발생하는 반려 사유"
 linkTitle: "반려 사유"
-weight: 7
+weight: 8
 type: docs
 description: >
   제출된 SBOM이 반려되는 대표 사유와 원인, 해결 방법을 안내합니다.

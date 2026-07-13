@@ -12,7 +12,7 @@ description: >
 SK텔레콤에 소프트웨어를 납품하는 공급사라면 [공급사 가이드](for-suppliers/)에서 바로 시작하세요. 제출까지는 네 단계입니다.
 
 1. [공급사 가이드](for-suppliers/)에서 요구사항을 확인합니다.
-2. [BomLens](for-suppliers/skt-scanner/) 또는 [오픈소스 도구](for-suppliers/creation-guide/)로 SBOM을 생성합니다.
+2. [BomLens](for-suppliers/skt-scanner/) 또는 [오픈소스 도구](for-suppliers/creation-guide/)로 SBOM을 생성합니다. 타사가 제조한 상용 완제품이라면 [제조사 SBOM을 받아](for-suppliers/commercial-software/) 제출합니다.
 3. [검증 체크리스트](for-suppliers/checklist/)로 제출 전에 점검합니다.
 4. [제출 절차](for-suppliers/submission/)에 따라 제출합니다.
 

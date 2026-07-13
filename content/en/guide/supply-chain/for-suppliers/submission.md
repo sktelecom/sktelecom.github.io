@@ -1,7 +1,7 @@
 ---
 title: "SBOM Submission Process"
 linkTitle: "Submission Process"
-weight: 6
+weight: 7
 type: docs
 description: >
   Explains the submission channels for the prepared SBOM file, the email template, and the post-submission process.

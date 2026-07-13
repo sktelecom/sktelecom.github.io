@@ -77,6 +77,13 @@ If the whole server is delivered as a single container image, you can scan that 
 The official submission is the merged single BOM, but the per-layer SBOMs show at a glance which layer is missing or vulnerable, so they are useful for your own review and for responding to rejections. Keep them. The merged BOM unions each layer's dependency graph (so it keeps transitive-dependency information) and records each component's source layer, so you can still filter by layer.
 {{% /alert %}}
 
+## Multi-node clusters
+
+A product in which multiple nodes form one cluster is still submitted as one SBOM per product; you do not need one per node.
+
+*   If every node has the same configuration, generate and merge the layers from one representative node.
+*   If the installed software differs by node role (for example, a management node and storage nodes), generate the per-layer SBOMs for each role, then merge everything into a single BOM with `--merge`. The merge dedupes by purl, so packages common to several roles are counted once.
+
 ## Verify before submitting
 
 Check that components carry real purls in both the per-layer SBOMs and the merged one. A large gap between the total component count and the PURL-bearing count means many components lack a purl, usually from a raw-directory scan. For the verification commands and the full check, follow the [Validation Checklist](../checklist/).

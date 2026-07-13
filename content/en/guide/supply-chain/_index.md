@@ -12,7 +12,7 @@ description: >
 If you are a supplier delivering software to SK Telecom, start right away with the [Supplier Guide](for-suppliers/). Submission takes four steps.
 
 1. Check the requirements in the [Supplier Guide](for-suppliers/).
-2. Generate the SBOM with [BomLens](for-suppliers/skt-scanner/) or [open source tools](for-suppliers/creation-guide/).
+2. Generate the SBOM with [BomLens](for-suppliers/skt-scanner/) or [open source tools](for-suppliers/creation-guide/). For a commercial finished product made by a third party, [obtain the SBOM from the manufacturer](for-suppliers/commercial-software/) and submit it.
 3. Check it against the [Validation Checklist](for-suppliers/checklist/) before submitting.
 4. Submit it following the [Submission Process](for-suppliers/submission/).
 
