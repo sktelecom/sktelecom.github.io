@@ -29,36 +29,57 @@ graph TD
       T6["OS 내장 펌웨어<br>(예: 기지국, 라우터, OLT/ONT, 셋톱박스)"]
     end
 
+    subgraph G3["상용 완제품 공급 (소스코드 없음)"]
+      direction LR
+      T7["상용 패키지 소프트웨어<br>(예: 리셀러·총판 공급)"]
+      T8["어플라이언스·완제품 장비<br>(예: 스토리지, 백업 장비)"]
+    end
+
     A --> G1
     A --> G2
-    G1 --> M1(["소스코드 스캔<br>cdxgen 또는 BomLens"])
-    G2 --> M2(["소스코드 + OS 이미지 스캔<br>cdxgen/BomLens + Syft/Trivy"])
+    A --> G3
+
+    G1 --> M1(["대상: 소스코드<br>도구: cdxgen 또는 BomLens"])
+
+    G2 --> L1(["앱 층<br>대상: 소스코드<br>도구: cdxgen 또는 BomLens"])
+    G2 --> L2(["OS 층<br>대상: 납품 이미지, rootfs<br>도구: Syft 또는 Trivy"])
+    L1 --> MG["층별 SBOM 병합"]
+    L2 --> MG
+
+    G3 --> M3(["제조사 SBOM 수령"])
+
     M1 --> P(["SBOM 제출"])
-    M2 --> P
+    MG --> P
+    M3 --> P
 
     classDef start fill:#F2F2F2,stroke:#171717,color:#171717,stroke-width:1.5px
     classDef typebox fill:#ffffff,stroke:#c8c8c8,color:#171717,stroke-width:1px
     classDef source fill:#D9F0E4,stroke:#00A651,color:#0A5A32,stroke-width:1.5px
     classDef osmerge fill:#EEDCF3,stroke:#68127A,color:#4A0D57,stroke-width:1.5px
+    classDef vendor fill:#FFF3CD,stroke:#E0A800,color:#5A4100,stroke-width:1.5px
     classDef submit fill:#F2F2F2,stroke:#171717,color:#171717,stroke-width:1.5px
 
     class A start
-    class T1,T2,T3,T4,T5,T6 typebox
-    class M1 source
-    class M2 osmerge
+    class T1,T2,T3,T4,T5,T6,T7,T8 typebox
+    class M1,L1 source
+    class L2,MG osmerge
+    class M3 vendor
     class P submit
 
     style G1 fill:#F1FAF5,stroke:#00A651,stroke-width:1px,color:#0A5A32
     style G2 fill:#FAF4FB,stroke:#68127A,stroke-width:1px,color:#4A0D57
+    style G3 fill:#FFF9E8,stroke:#E0A800,stroke-width:1px,color:#5A4100
 ```
 
-납품 형태와 무관하게, 공급사는 자기가 개발한 소스코드를 스캔해 SBOM을 만듭니다. 실행 파일이나 바이너리, 펌웨어로 납품하더라도 완성된 산출물이 아니라 그것을 만든 소스코드를 스캔합니다. 완성된 바이너리를 그대로 스캔하면 패키지 매니저 메타데이터가 없어 purl이 누락되고, 취약점 매칭이 전량 실패해 반려됩니다.
+자체 개발 소프트웨어라면 납품 형태와 무관하게 자기가 개발한 소스코드를 스캔해 SBOM을 만듭니다. 실행 파일이나 바이너리, 펌웨어로 납품하더라도 완성된 산출물이 아니라 그것을 만든 소스코드를 스캔합니다. 완성된 바이너리를 그대로 스캔하면 패키지 매니저 메타데이터가 없어 purl이 누락되고, 취약점 매칭이 전량 실패해 반려됩니다.
 
 소스코드, 실행 파일이나 바이너리, OS 없는 펌웨어는 모두 소스코드를 cdxgen 또는 [BomLens](../skt-scanner/)로 스캔합니다. 전이 의존성까지 정확히 잡으려면 이 방식이 기준입니다.
 
 OS나 베이스 이미지를 포함해 공급하는 경우(컨테이너 이미지, 서버, OS 내장 펌웨어)는 두 층으로 나눕니다. 앱 층은 소스코드를 스캔하고, OS 층은 납품되는 상태의 이미지나 rootfs를 Syft 또는 Trivy로 스캔한 뒤 둘을 합쳐 제출합니다. 이때 OS 층의 스캔 대상은 받아온 원본 베이스가 아니라 빌드가 끝나 납품되는 이미지나 rootfs입니다. 빌드 과정에서 설치한 OS 패키지까지 포함해야 하기 때문입니다. 전체 절차는 [서버 SBOM 생성](../server-delivery/)을 참고하세요.
 
 정적 링크된 라이브러리나 수동으로 넣은 바이너리는 위 어느 스캔으로도 잡히지 않는 사각지대입니다. 이 경우의 처리는 [서버 SBOM 생성](../server-delivery/)의 정적 링크 라이브러리 절을 참고하세요.
+
+타사가 제조한 상용 소프트웨어나 완제품을 공급해 소스코드에 접근할 수 없는 경우는 스캔 대신 제조사로부터 SBOM을 받아 제출합니다. [상용 소프트웨어 공급](../commercial-software/)을 참고하세요.
 
 ## 주요 도구 안내
 

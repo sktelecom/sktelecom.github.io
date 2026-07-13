@@ -1,7 +1,7 @@
 ---
 title: "Common Rejection Reasons"
 linkTitle: "Rejection Reasons"
-weight: 7
+weight: 8
 type: docs
 description: >
   The typical reasons a submitted SBOM is rejected, their causes, and how to fix them.

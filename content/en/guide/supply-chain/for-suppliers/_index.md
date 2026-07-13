@@ -17,6 +17,8 @@ To strengthen the transparency and security of its software supply chain, SK Tel
 4. Verify PURLs and transitive dependency coverage with the [Validation Checklist](checklist/).
 5. Name the file and submit it following the [Submission Process](submission/).
 
+If you supply commercial software or a finished product made by a third party and have no access to the source code, skip steps 2–3 and follow [Commercial Software](commercial-software/) to obtain the SBOM from the manufacturer and submit it.
+
 ## Scope of Application
 
 All suppliers (including developers and resellers) that deliver the following types of software are subject to these guidelines.
@@ -26,6 +28,9 @@ All suppliers (including developers and resellers) that deliver the following ty
 *   Executables: Compiled binaries (.jar, .dll, .so) and libraries
 *   Embedded systems: Firmware images, RootFS, device drivers
 *   Servers: A system combining an OS (rootfs and installed packages) with an application and statically linked libraries
+*   Commercial software and finished products: packaged software or appliances made by a third party (including reseller and distributor deliveries)
+
+For commercial software and finished products made by a third party, submit the manufacturer's SBOM following [Commercial Software](commercial-software/) instead of generating one yourself.
 
 
 ## SBOM Submission Process
@@ -38,8 +43,10 @@ flowchart TD
     B --> C{Generate SBOM}
     C -->|Use SKT-provided tool| D[Use BomLens]
     C -->|Use your own tool| E["Use open source tools<br>(cdxgen, Syft, etc.)"]
+    C -->|Commercial finished product| K[Obtain the manufacturer's SBOM]
     D --> F["Data Validation (PURL Check)"]
     E --> F
+    K --> F
     F --> G["Submit SBOM (Email/Designated channel)"]
     G --> H[SKT Security Review]
     H -->|Approved| I[Delivery Complete]
@@ -51,12 +58,14 @@ flowchart TD
     classDef decision fill:#FFF3CD,stroke:#E0A800,color:#5A4100,stroke-width:1.5px
     classDef good fill:#D9F0E4,stroke:#00A651,color:#0A5A32,stroke-width:1.5px
     classDef danger fill:#FDE1E7,stroke:#EA002C,color:#8A0019,stroke-width:1.5px
+    classDef vendor fill:#FFF3CD,stroke:#E0A800,color:#5A4100,stroke-width:1.5px
 
     class A start
     class B,E,F,G proc
     class C,H decision
     class D,I good
     class J danger
+    class K vendor
 
 ```
 
@@ -69,9 +78,10 @@ This section is organized as follows.
 2. [BomLens](skt-scanner/): Explains how to use SK Telecom's SBOM generation tool.
 3. [Using Open Source Tools](creation-guide/): Explains how to generate an SBOM using general-purpose open source tools (cdxgen, Syft, etc.).
 4. [Server SBOM](server-delivery/): Explains how to generate the OS, application, and static-link layers separately and merge them into one.
-5. [Validation Checklist](checklist/): Provides a checklist of essential items to verify before submission.
-6. [Submission Process](submission/): Explains the naming conventions and submission channels for the generated SBOM file.
-7. [Common Rejection Reasons](rejection-reasons/): Causes and fixes for each rejection reason, with a passing example file.
+5. [Commercial Software](commercial-software/): Explains how to obtain an SBOM from the manufacturer and submit it when supplying commercial software or finished products made by a third party.
+6. [Validation Checklist](checklist/): Provides a checklist of essential items to verify before submission.
+7. [Submission Process](submission/): Explains the naming conventions and submission channels for the generated SBOM file.
+8. [Common Rejection Reasons](rejection-reasons/): Causes and fixes for each rejection reason, with a passing example file.
 
 ## Related Documents
 
