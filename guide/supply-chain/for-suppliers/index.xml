@@ -57,7 +57,7 @@
 &lt;p&gt;납품된 장비나 설치 이미지를 도구로 통째로 스캔하는 방식은 대안이 되지 않습니다. 상용 소프트웨어 부분은 패키지 매니저 메타데이터가 없어 purl이 누락된 컴포넌트로 생성되고, 취약점 매칭이 실패하여 반려됩니다.&lt;/p&gt;
 &lt;h2 id="적용-대상"&gt;적용 대상&lt;a class="td-heading-self-link" href="#%ec%a0%81%ec%9a%a9-%eb%8c%80%ec%83%81" aria-label="Heading self-link"&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;다음과 같은 형태로 타사 제품을 공급하는 경우가 해당합니다.&lt;/p&gt;</description></item><item><title>SBOM 제출 전 검증 체크리스트</title><link>https://sktelecom.github.io/guide/supply-chain/for-suppliers/checklist/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://sktelecom.github.io/guide/supply-chain/for-suppliers/checklist/</guid><description>&lt;h2 id="필수-점검-항목"&gt;필수 점검 항목&lt;a class="td-heading-self-link" href="#%ed%95%84%ec%88%98-%ec%a0%90%ea%b2%80-%ed%95%ad%eb%aa%a9" aria-label="Heading self-link"&gt;&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;아래 체크리스트를 통과하지 못한 SBOM은 시스템에서 자동으로 반려될 수 있습니다.&lt;/p&gt;
+&lt;p&gt;아래 체크리스트를 통과하지 못한 SBOM은 시스템에서 자동으로 반려될 수 있습니다. 2~4번 항목은 아래 &lt;a href="https://sktelecom.github.io/guide/supply-chain/for-suppliers/checklist/#%ea%b2%80%ec%a6%9d-%eb%8f%84%ea%b5%ac"&gt;검증 도구&lt;/a&gt;의 BomLens 자동 검증으로 한 번에 확인할 수 있습니다.&lt;/p&gt;
 &lt;h3 id="1-파일-무결성"&gt;1. 파일 무결성&lt;a class="td-heading-self-link" href="#1-%ed%8c%8c%ec%9d%bc-%eb%ac%b4%ea%b2%b0%ec%84%b1" aria-label="Heading self-link"&gt;&lt;/a&gt;&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;input disabled="" type="checkbox"&gt; 파일 확장자가 &lt;code&gt;.json&lt;/code&gt; 또는 &lt;code&gt;.xml&lt;/code&gt; 인가? (압축 파일 아님)&lt;/li&gt;
