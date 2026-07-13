@@ -44,17 +44,13 @@ graph TD
     A --> G1
     A --> G2
     
-    %% Connect each group to its inner boxes
-    G1 --> M1_Sub
+    %% Connect only to the group borders (one arrow per box)
+    G1 --> M1
+    G2 --> M2
     
-    %% G2 feeds both inner boxes on the right
-    G2 --> M2_Top
-    G2 --> M2_Bottom
-    
-    %% Inner boxes flow to the next step
-    M1_Sub --> P(["Submit the SBOM"])
-    M2_Top --> P
-    M2_Bottom --> P
+    %% Groups flow to the next step
+    M1 --> P(["Submit the SBOM"])
+    M2 --> P
 
     classDef start fill:#F2F2F2,stroke:#171717,color:#171717,stroke-width:1.5px
     classDef typebox fill:#ffffff,stroke:#c8c8c8,color:#171717,stroke-width:1px
@@ -79,11 +75,9 @@ graph TD
 
 ```
 
-For software you developed yourself, scan the source code to produce the SBOM regardless of the delivery form. Even when you deliver an executable, a binary, or firmware, scan the source code that produced it, not the finished artifact. Scanning a finished binary directly yields no package manager metadata, so PURLs are omitted, vulnerability matching fails entirely, and the SBOM is rejected.
+Source code and apps, executables or libraries, and firmware with no OS are all scanned from the source code you developed with cdxgen or [BomLens](../skt-scanner/). Scanning a finished binary directly yields no package manager metadata, so purls are omitted and the SBOM is rejected.
 
-Source code, an executable or binary, and firmware with no OS are all scanned from the source code with cdxgen or [BomLens](../skt-scanner/). This is the baseline for capturing transitive dependencies accurately.
-
-When you ship an OS or base image as part of the delivery (a container image, a server, or firmware with an embedded OS), split it into two layers. Scan the source for the app layer, scan the image or rootfs as shipped with Syft or Trivy for the OS layer, then merge and submit. The OS-layer scan target is not the original base image you received but the image or rootfs actually delivered after the build, because it must include the OS packages installed during the build. For the full procedure, see [Server SBOM](../server-delivery/).
+When you ship an OS or base image as part of the delivery (a container image, a server, or firmware with an embedded OS), split it into two layers and scan each. Scan the image or rootfs as shipped with Syft or Trivy for the OS layer, scan the source code (the app layer) with cdxgen or BomLens, then merge and submit. The OS-layer scan target is not the original base image you received but the image or rootfs actually delivered after the build, because it must include the OS packages installed during the build. For the full procedure, see [Server SBOM](../server-delivery/).
 
 Statically linked libraries and manually vendored binaries are a blind spot that none of the scans above catch. For how to handle this case, see the statically linked libraries section of [Server SBOM](../server-delivery/).
 
