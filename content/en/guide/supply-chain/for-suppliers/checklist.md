@@ -28,8 +28,6 @@ Missing transitive dependencies are the most common reason for rejection. Be sur
 - [ ] Did you complete the build (or package installation) before generating the SBOM? (e.g., `npm install`, `mvn package`, `pip install`)
 - [ ] Is the number of components reasonable? (If a project with only a few direct dependencies has fewer than 10 total components, transitive dependencies have likely been omitted)
 
-> Dependency count guideline: A typical web application, including transitive dependencies, contains dozens to hundreds of components. If the component count in your SBOM is significantly lower than expected, treat it with suspicion.
-
 ### 4. Identifier (PURL) Check
 SK Telecom's system maps vulnerabilities by PURL. This is the most important item.
 - [ ] Does every component (`components`) object contain a `purl` field?
@@ -48,7 +46,7 @@ jq '[.components[] | select(.purl)] | length' sbom.json  # count with a PURL
 jq '[.packages[] | select(.externalRefs[]?.referenceType == "purl")] | length' sbom.json
 ```
 
-> If the PURL-bearing count is 0 or significantly lower than the total component count, do not submit. This usually happens when you scan an installation directory or raw files that have no package manager metadata. Change the scan target to a built image or a location with a package manager context, or switch tools and regenerate. For details, see [How to Generate an SBOM](../creation-guide/).
+> If the PURL-bearing count is 0 or significantly lower than the total component count, do not submit. For the cause and how to regenerate, see [Common Rejection Reasons](../rejection-reasons/).
 
 ## Online Validation Tool
 *   CycloneDX Validator: [https://cyclonedx.github.io/cyclonedx-web-tool/validate](https://cyclonedx.github.io/cyclonedx-web-tool/validate)

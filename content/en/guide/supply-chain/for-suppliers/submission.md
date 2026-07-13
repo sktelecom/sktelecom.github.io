@@ -16,9 +16,6 @@ description: >
 
 The SBOM file is submitted to SK Telecom's business unit and security team representatives via email (or a channel designated by the representative).
 
-### Submission Method
-
-- Deliver the SBOM file to the business unit and security team representatives via email or a channel designated by the representative.
 - Email subject: `[SBOM Submission] SupplierName_ProjectName_Version`
 - Attachment: The generated SBOM file (password-protected archive files are not allowed)
 
@@ -29,13 +26,9 @@ Required information in the body:
 3. Project information (system name, detailed version)
 4. Tool used and its version (e.g., BomLens, cdxgen)
 
-### Internal Registration After Receipt
-
-The SK Telecom business unit representative who receives an SBOM from a supplier registers it in TOSCA, the internal open source and SBOM management system. TOSCA is an internal system, so suppliers do not need access to it; the registration procedure follows the internal guide.
-
 ## 3. Post-Submission Validation and Actions
 
-After being registered in TOSCA, the submitted SBOM is validated according to the procedure below.
+The submitted SBOM is registered in TOSCA, the internal open source and SBOM management system, and then validated according to the procedure below. TOSCA is an internal system, so suppliers do not need access to it.
 
 | Stage | Description | Processing Deadline |
 | --- | --- | --- |

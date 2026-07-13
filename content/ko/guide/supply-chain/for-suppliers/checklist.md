@@ -28,8 +28,6 @@ description: >
 - [ ] SBOM 생성 전 빌드(또는 패키지 설치)를 완료하였는가? (예: `npm install`, `mvn package`, `pip install`)
 - [ ] 컴포넌트 수가 합리적인가? (직접 의존성만 몇 개인 프로젝트에서 총 컴포넌트 수가 10개 미만이라면 전이적 의존성이 누락되었을 가능성이 높음)
 
-> 의존성 수 기준 가이드: 일반적인 웹 애플리케이션은 전이적 의존성까지 포함하면 수십~수백 개의 컴포넌트가 포함됩니다. SBOM의 컴포넌트 수가 예상보다 현저히 적다면 누락을 의심해 보시기 바랍니다.
-
 ### 4. 식별자 (PURL) 확인
 SK텔레콤 시스템은 PURL로 취약점을 매핑합니다. 가장 중요한 항목입니다.
 - [ ] 모든 컴포넌트(`components`) 객체 안에 `purl` 필드가 존재하는가?
@@ -48,7 +46,7 @@ jq '[.components[] | select(.purl)] | length' sbom.json  # purl 보유 수
 jq '[.packages[] | select(.externalRefs[]?.referenceType == "purl")] | length' sbom.json
 ```
 
-> purl 보유 수가 0이거나 전체 컴포넌트 수보다 현저히 적으면 제출하지 마십시오. 이는 패키지 매니저 메타데이터가 없는 설치 디렉터리나 원시 파일을 스캔했을 때 주로 발생합니다. 스캔 대상을 빌드된 이미지나 패키지 매니저 컨텍스트가 있는 위치로 바꾸거나 도구를 바꿔 재생성하시기 바랍니다. 자세한 내용은 [SBOM 생성 방법](../creation-guide/)을 참고하십시오.
+> purl 보유 수가 0이거나 전체 컴포넌트 수보다 현저히 적으면 제출하지 마십시오. 원인과 재생성 방법은 [자주 발생하는 반려 사유](../rejection-reasons/)를 참고하십시오.
 
 ## 온라인 검증 도구
 *   CycloneDX Validator: [https://cyclonedx.github.io/cyclonedx-web-tool/validate](https://cyclonedx.github.io/cyclonedx-web-tool/validate)

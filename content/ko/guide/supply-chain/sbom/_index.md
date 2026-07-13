@@ -4,7 +4,7 @@ linkTitle: "SBOM 이란?"
 weight: 3
 type: docs
 description: >
-  개발자와 관리자가 알아야 할 SBOM의 핵심 개념부터 생성, 통합, 관리까지의 전체 라이프사이클을 안내합니다.
+  개발자와 관리자가 알아야 할 SBOM의 핵심 개념과 업계 표준을 안내합니다.
 ---
 
 ## 개요
@@ -17,25 +17,3 @@ description: >
 2. [표준 비교 (SPDX vs CycloneDX)](standards/): 업계 표준 포맷의 차이점을 이해하고, 프로젝트 성격에 맞는 포맷을 선택할 수 있습니다.
 
 SBOM을 실제로 생성하고 검증해 제출하는 실무 방법은 [공급사 가이드](../for-suppliers/)에서 다룹니다.
-
-아래는 개발부터 보안 조치까지 SBOM이 흐르는 전체 라이프사이클입니다.
-
-```mermaid
-graph TD
-    A[개발 시작] --> B[의존성 추가]
-    B --> C{빌드/배포}
-    C -->|자동화| D[SBOM 생성]
-    D --> E[저장소 업로드]
-    E --> F[취약점 분석]
-    F --> G[보안 조치]
-
-    classDef start fill:#F2F2F2,stroke:#171717,color:#171717,stroke-width:1.5px
-    classDef proc fill:#ffffff,stroke:#c8c8c8,color:#171717,stroke-width:1px
-    classDef decision fill:#FFF3CD,stroke:#E0A800,color:#5A4100,stroke-width:1.5px
-    classDef good fill:#D9F0E4,stroke:#00A651,color:#0A5A32,stroke-width:1.5px
-
-    class A start
-    class B,E,F proc
-    class C decision
-    class D,G good
-```

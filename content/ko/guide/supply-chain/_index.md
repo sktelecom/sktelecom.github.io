@@ -18,14 +18,10 @@ SK텔레콤에 소프트웨어를 납품하는 공급사라면 [공급사 가이
 
 ## 공급망 보안이 처음이라면
 
-최근 오픈소스 생태계에서는 라이선스 컴플라이언스와 함께 보안 취약점 관리와 소프트웨어 공급망 보안이 중요한 과제로 부상하였습니다. 미국과 유럽의 규제 강화에 따라 SBOM(Software Bill of Materials) 관리와 체계적인 취약점 대응이 필수가 되었습니다.
-
-배경부터 차근차근 배우려면 다음 순서를 권합니다.
+미국과 유럽의 규제 강화에 따라 SBOM(Software Bill of Materials) 관리와 체계적인 취약점 대응이 필수가 되었습니다. 배경부터 차근차근 배우려면 다음 순서를 권합니다.
 
 1. [공급망 보안이란?](overview/): 공급망 공격 사례와 보안의 필요성, 글로벌 규제 동향, SK텔레콤의 정책을 설명합니다.
 2. [SBOM 이란?](sbom/): SBOM의 개념과 표준(SPDX, CycloneDX)을 다룹니다.
-
-ISO/IEC 18974(OpenChain Security Assurance), SPDX(ISO/IEC 5962), CycloneDX(ECMA-424), NIST SSDF 등 관련 표준과 미국 EO 14028, EU Cyber Resilience Act 등 규제 동향은 [규제 동향](overview/regulations/) 페이지에서 소개합니다.
 
 ## 문의
 
