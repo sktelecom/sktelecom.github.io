@@ -99,46 +99,27 @@ Auto
       T6[&#34;Firmware with an embedded OS&lt;br&gt;(e.g., base stations, routers, OLT/ONT, set-top boxes)&#34;]
     end
 
-    subgraph G3[&#34;Commercial finished product (no source code)&#34;]
-      direction LR
-      T7[&#34;Commercial packaged software&lt;br&gt;(e.g., reseller / distributor)&#34;]
-      T8[&#34;Appliance / finished equipment&lt;br&gt;(e.g., storage, backup appliances)&#34;]
-    end
-
     A --&gt; G1
     A --&gt; G2
-    A --&gt; G3
-
-    G1 --&gt; M1([&#34;Target: source code&lt;br&gt;Tool: cdxgen or BomLens&#34;])
-
-    G2 --&gt; L1([&#34;App layer&lt;br&gt;Target: source code&lt;br&gt;Tool: cdxgen or BomLens&#34;])
-    G2 --&gt; L2([&#34;OS layer&lt;br&gt;Target: shipped image, rootfs&lt;br&gt;Tool: Syft or Trivy&#34;])
-    L1 --&gt; MG[&#34;Merge the per-layer SBOMs&#34;]
-    L2 --&gt; MG
-
-    G3 --&gt; M3([&#34;Obtain the SBOM&lt;br&gt;from the manufacturer&#34;])
-
+    G1 --&gt; M1([&#34;Scan the source code&lt;br&gt;cdxgen or BomLens&#34;])
+    G2 --&gt; M2([&#34;Scan source &#43; OS image&lt;br&gt;cdxgen/BomLens &#43; Syft/Trivy&#34;])
     M1 --&gt; P([&#34;Submit the SBOM&#34;])
-    MG --&gt; P
-    M3 --&gt; P
+    M2 --&gt; P
 
     classDef start fill:#F2F2F2,stroke:#171717,color:#171717,stroke-width:1.5px
     classDef typebox fill:#ffffff,stroke:#c8c8c8,color:#171717,stroke-width:1px
     classDef source fill:#D9F0E4,stroke:#00A651,color:#0A5A32,stroke-width:1.5px
     classDef osmerge fill:#EEDCF3,stroke:#68127A,color:#4A0D57,stroke-width:1.5px
-    classDef vendor fill:#FFF3CD,stroke:#E0A800,color:#5A4100,stroke-width:1.5px
     classDef submit fill:#F2F2F2,stroke:#171717,color:#171717,stroke-width:1.5px
 
     class A start
-    class T1,T2,T3,T4,T5,T6,T7,T8 typebox
-    class M1,L1 source
-    class L2,MG osmerge
-    class M3 vendor
+    class T1,T2,T3,T4,T5,T6 typebox
+    class M1 source
+    class M2 osmerge
     class P submit
 
     style G1 fill:#F1FAF5,stroke:#00A651,stroke-width:1px,color:#0A5A32
-    style G2 fill:#FAF4FB,stroke:#68127A,stroke-width:1px,color:#4A0D57
-    style G3 fill:#FFF9E8,stroke:#E0A800,stroke-width:1px,color:#5A4100</pre><p>For software you developed yourself, scan the source code to produce the SBOM regardless of the delivery form. Even when you deliver an executable, a binary, or firmware, scan the source code that produced it, not the finished artifact. Scanning a finished binary directly yields no package manager metadata, so PURLs are omitted, vulnerability matching fails entirely, and the SBOM is rejected.</p><p>Source code, an executable or binary, and firmware with no OS are all scanned from the source code with cdxgen or <a href=/en/guide/supply-chain/for-suppliers/skt-scanner/>BomLens</a>. This is the baseline for capturing transitive dependencies accurately.</p><p>When you ship an OS or base image as part of the delivery (a container image, a server, or firmware with an embedded OS), split it into two layers. Scan the source for the app layer, scan the image or rootfs as shipped with Syft or Trivy for the OS layer, then merge and submit. The OS-layer scan target is not the original base image you received but the image or rootfs actually delivered after the build, because it must include the OS packages installed during the build. For the full procedure, see <a href=/en/guide/supply-chain/for-suppliers/server-delivery/>Server SBOM</a>.</p><p>Statically linked libraries and manually vendored binaries are a blind spot that none of the scans above catch. For how to handle this case, see the statically linked libraries section of <a href=/en/guide/supply-chain/for-suppliers/server-delivery/>Server SBOM</a>.</p><p>If you supply commercial software or a finished product made by a third party and have no access to the source code, obtain the SBOM from the manufacturer instead of scanning. See <a href=/en/guide/supply-chain/for-suppliers/commercial-software/>Commercial Software</a>.</p><h2 id=major-tools>Major Tools<a class=td-heading-self-link href=#major-tools aria-label="Heading self-link"></a></h2><h3 id=cdxgen-recommended-for-source-code-analysis>cdxgen (recommended for source code analysis)<a class=td-heading-self-link href=#cdxgen-recommended-for-source-code-analysis aria-label="Heading self-link"></a></h3><p>Automatically analyzes projects in various languages such as Java, Python, Node.js, and Go, and generates an SBOM in CycloneDX format.</p><ul><li>Official documentation: <a href=https://cdxgen.github.io/cdxgen>https://cdxgen.github.io/cdxgen</a></li><li>GitHub: <a href=https://github.com/CycloneDX/cdxgen>https://github.com/CycloneDX/cdxgen</a></li><li>Supported languages: Java (Maven/Gradle), Python, Node.js, Go, Ruby, PHP, Rust, .NET, C/C++, etc.</li></ul><blockquote><p>cdxgen statically parses lockfiles and manifests. For accurate results, run it when dependencies are installed or resolved (a lockfile is present, or after a build). Scanning pure source without resolved dependencies may omit some components or purls.</p></blockquote><h3 id=syft-recommended-for-container-image-and-binary-analysis>Syft (recommended for container image and binary analysis)<a class=td-heading-self-link href=#syft-recommended-for-container-image-and-binary-analysis aria-label="Heading self-link"></a></h3><p>Analyzes built container images and build artifacts that include package manager metadata to identify both OS packages and application libraries. Supports CycloneDX and SPDX formats.</p><ul><li>Official documentation: <a href=https://github.com/anchore/syft>https://github.com/anchore/syft</a></li><li>Recommended analysis targets: built Docker images, OCI images, tar files</li></ul><div class="alert alert-danger" role=alert><div class="h4 alert-heading" role=heading>Warning — Do not scan installation directories or collections of raw files (PURL omission causes full rejection)</div><p>If you use <code>syft dir:</code> mode to scan an installation directory or a collection of binaries that has no
+    style G2 fill:#FAF4FB,stroke:#68127A,stroke-width:1px,color:#4A0D57</pre><p>For software you developed yourself, scan the source code to produce the SBOM regardless of the delivery form. Even when you deliver an executable, a binary, or firmware, scan the source code that produced it, not the finished artifact. Scanning a finished binary directly yields no package manager metadata, so PURLs are omitted, vulnerability matching fails entirely, and the SBOM is rejected.</p><p>Source code, an executable or binary, and firmware with no OS are all scanned from the source code with cdxgen or <a href=/en/guide/supply-chain/for-suppliers/skt-scanner/>BomLens</a>. This is the baseline for capturing transitive dependencies accurately.</p><p>When you ship an OS or base image as part of the delivery (a container image, a server, or firmware with an embedded OS), split it into two layers. Scan the source for the app layer, scan the image or rootfs as shipped with Syft or Trivy for the OS layer, then merge and submit. The OS-layer scan target is not the original base image you received but the image or rootfs actually delivered after the build, because it must include the OS packages installed during the build. For the full procedure, see <a href=/en/guide/supply-chain/for-suppliers/server-delivery/>Server SBOM</a>.</p><p>Statically linked libraries and manually vendored binaries are a blind spot that none of the scans above catch. For how to handle this case, see the statically linked libraries section of <a href=/en/guide/supply-chain/for-suppliers/server-delivery/>Server SBOM</a>.</p><p>If you supply commercial software or a finished product made by a third party and have no access to the source code, obtain the SBOM from the manufacturer instead of scanning. See <a href=/en/guide/supply-chain/for-suppliers/commercial-software/>Commercial Software</a>.</p><h2 id=major-tools>Major Tools<a class=td-heading-self-link href=#major-tools aria-label="Heading self-link"></a></h2><h3 id=cdxgen-recommended-for-source-code-analysis>cdxgen (recommended for source code analysis)<a class=td-heading-self-link href=#cdxgen-recommended-for-source-code-analysis aria-label="Heading self-link"></a></h3><p>Automatically analyzes projects in various languages such as Java, Python, Node.js, and Go, and generates an SBOM in CycloneDX format.</p><ul><li>Official documentation: <a href=https://cdxgen.github.io/cdxgen>https://cdxgen.github.io/cdxgen</a></li><li>GitHub: <a href=https://github.com/CycloneDX/cdxgen>https://github.com/CycloneDX/cdxgen</a></li><li>Supported languages: Java (Maven/Gradle), Python, Node.js, Go, Ruby, PHP, Rust, .NET, C/C++, etc.</li></ul><blockquote><p>cdxgen statically parses lockfiles and manifests. For accurate results, run it when dependencies are installed or resolved (a lockfile is present, or after a build). Scanning pure source without resolved dependencies may omit some components or purls.</p></blockquote><h3 id=syft-recommended-for-container-image-and-binary-analysis>Syft (recommended for container image and binary analysis)<a class=td-heading-self-link href=#syft-recommended-for-container-image-and-binary-analysis aria-label="Heading self-link"></a></h3><p>Analyzes built container images and build artifacts that include package manager metadata to identify both OS packages and application libraries. Supports CycloneDX and SPDX formats.</p><ul><li>Official documentation: <a href=https://github.com/anchore/syft>https://github.com/anchore/syft</a></li><li>Recommended analysis targets: built Docker images, OCI images, tar files</li></ul><div class="alert alert-danger" role=alert><div class="h4 alert-heading" role=heading>Warning — Do not scan installation directories or collections of raw files (PURL omission causes full rejection)</div><p>If you use <code>syft dir:</code> mode to scan an installation directory or a collection of binaries that has no
 package manager metadata (<code>package.json</code>, <code>go.mod</code>, <code>*.jar</code>, RPM/DEB package DB, etc.), Syft cannot
 identify the ecosystem and produces an <strong>SBOM with empty PURLs</strong>. Because SK Telecom&rsquo;s system maps
 vulnerabilities by PURL, such an SBOM fails matching entirely and is rejected.</p><p>In one real case, a supplier scanned an installation directory with <code>syft dir:/root/nag_pkg</code>, and the
