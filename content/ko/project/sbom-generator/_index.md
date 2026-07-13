@@ -3,7 +3,7 @@ title: "BomLens"
 linkTitle: "BomLens"
 weight: 7
 type: docs
-github: "https://github.com/sktelecom/sbom-tools"
+github: "https://github.com/sktelecom/bomlens"
 techs: ["Supply Chain", "Security", "Compliance"]
 description: >
   공급망 보안을 위한 SBOM 자동 생성 및 오픈소스 리스크 분석 도구
@@ -18,7 +18,7 @@ BomLens는 소프트웨어의 구성 요소를 분석해 CycloneDX 1.6 형식의
 
 * 개발: SK텔레콤
 * 라이선스: Apache License 2.0
-* GitHub: [https://github.com/sktelecom/sbom-tools](https://github.com/sktelecom/sbom-tools)
+* GitHub: [https://github.com/sktelecom/bomlens](https://github.com/sktelecom/bomlens)
 * 컨테이너 이미지: `ghcr.io/sktelecom/sbom-generator`
 
 ## 주요 특징
@@ -54,8 +54,8 @@ Docker 엔진(20.10 이상)이 필요합니다. Windows에서는 무료인 [Ranc
 ### 준비
 
 ```bash
-git clone https://github.com/sktelecom/sbom-tools.git
-cd sbom-tools
+git clone https://github.com/sktelecom/bomlens.git
+cd bomlens
 docker pull ghcr.io/sktelecom/sbom-generator:latest
 ```
 
@@ -63,7 +63,7 @@ docker pull ghcr.io/sktelecom/sbom-generator:latest
 
 ```bash
 # 결과가 저장될 폴더에서 실행하면 http://localhost:8080 이 열립니다
-/path/to/sbom-tools/scripts/scan-sbom.sh --ui
+/path/to/bomlens/scripts/scan-sbom.sh --ui
 
 # Windows에서는 scripts\sbom-ui.bat 더블 클릭
 ```
@@ -89,8 +89,8 @@ Apache License 2.0 - 상업적 사용 가능
 
 ## 리소스
 
-* GitHub: [https://github.com/sktelecom/sbom-tools](https://github.com/sktelecom/sbom-tools)
-* 시작하기: [getting-started.md](https://github.com/sktelecom/sbom-tools/blob/main/docs/getting-started.md)
-* 라이선스 담당자용 빠른 시작: [notice-quickstart.md](https://github.com/sktelecom/sbom-tools/blob/main/docs/notice-quickstart.md)
-* 데스크톱 앱 다운로드: [Releases](https://github.com/sktelecom/sbom-tools/releases)
-* 이슈: [GitHub Issues](https://github.com/sktelecom/sbom-tools/issues)
+* GitHub: [https://github.com/sktelecom/bomlens](https://github.com/sktelecom/bomlens)
+* 시작하기: [getting-started.md](https://github.com/sktelecom/bomlens/blob/main/docs/getting-started.md)
+* 라이선스 담당자용 빠른 시작: [notice-quickstart.md](https://github.com/sktelecom/bomlens/blob/main/docs/notice-quickstart.md)
+* 데스크톱 앱 다운로드: [Releases](https://github.com/sktelecom/bomlens/releases)
+* 이슈: [GitHub Issues](https://github.com/sktelecom/bomlens/issues)

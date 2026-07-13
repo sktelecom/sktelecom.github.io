@@ -88,7 +88,7 @@ scan-sbom.sh --project myserver --version 1.0.0 \
 
 서버 납품 SBOM의 상세 절차와 예시는 BomLens 저장소의 정본 문서에 있습니다.
 
-> [서버 납품 가이드](https://sktelecom.github.io/sbom-tools/ko/guides/server-delivery/)
+> [서버 납품 가이드](https://sktelecom.github.io/bomlens/ko/guides/server-delivery/)
 
 ## 관련 문서
 

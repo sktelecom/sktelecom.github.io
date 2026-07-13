@@ -3,7 +3,7 @@ title: "BomLens"
 linkTitle: "BomLens"
 weight: 7
 type: docs
-github: "https://github.com/sktelecom/sbom-tools"
+github: "https://github.com/sktelecom/bomlens"
 techs: ["Supply Chain", "Security", "Compliance"]
 description: >
   Automated SBOM generation and open-source risk analysis for supply chain security
@@ -18,7 +18,7 @@ BomLens is a supply chain security tool that analyzes the components of your sof
 
 * Developer: SK Telecom
 * License: Apache License 2.0
-* GitHub: [https://github.com/sktelecom/sbom-tools](https://github.com/sktelecom/sbom-tools)
+* GitHub: [https://github.com/sktelecom/bomlens](https://github.com/sktelecom/bomlens)
 * Container image: `ghcr.io/sktelecom/sbom-generator`
 
 ## Key Features
@@ -54,8 +54,8 @@ A Docker engine (20.10 or later) is required. On Windows, the free [Rancher Desk
 ### Setup
 
 ```bash
-git clone https://github.com/sktelecom/sbom-tools.git
-cd sbom-tools
+git clone https://github.com/sktelecom/bomlens.git
+cd bomlens
 docker pull ghcr.io/sktelecom/sbom-generator:latest
 ```
 
@@ -63,7 +63,7 @@ docker pull ghcr.io/sktelecom/sbom-generator:latest
 
 ```bash
 # Run from the folder where results should be saved; it opens http://localhost:8080
-/path/to/sbom-tools/scripts/scan-sbom.sh --ui
+/path/to/bomlens/scripts/scan-sbom.sh --ui
 
 # On Windows, double-click scripts\sbom-ui.bat
 ```
@@ -89,8 +89,8 @@ Apache License 2.0 - Commercial use allowed
 
 ## Resources
 
-* GitHub: [https://github.com/sktelecom/sbom-tools](https://github.com/sktelecom/sbom-tools)
-* Getting started: [getting-started.en.md](https://github.com/sktelecom/sbom-tools/blob/main/docs/getting-started.en.md)
-* Usage guide: [usage-guide.en.md](https://github.com/sktelecom/sbom-tools/blob/main/docs/usage-guide.en.md)
-* Desktop app download: [Releases](https://github.com/sktelecom/sbom-tools/releases)
-* Issues: [GitHub Issues](https://github.com/sktelecom/sbom-tools/issues)
+* GitHub: [https://github.com/sktelecom/bomlens](https://github.com/sktelecom/bomlens)
+* Getting started: [getting-started.en.md](https://github.com/sktelecom/bomlens/blob/main/docs/getting-started.en.md)
+* Usage guide: [usage-guide.en.md](https://github.com/sktelecom/bomlens/blob/main/docs/usage-guide.en.md)
+* Desktop app download: [Releases](https://github.com/sktelecom/bomlens/releases)
+* Issues: [GitHub Issues](https://github.com/sktelecom/bomlens/issues)
