@@ -1,0 +1,74 @@
+---
+title: "Releasing an AI Model"
+linkTitle: "AI Model Release"
+weight: 50
+type: docs
+description: >
+  Preparing and releasing a trained AI model on Hugging Face or a similar hub
+---
+
+{{% alert title="Releasing source code instead?" color="info" %}}
+This page covers releasing a trained AI model (its weights). For source code, see
+[Releasing Open Source](../). If you are consuming an external open source model rather than
+publishing one, see [AI Model Licenses](/guide/use/obligation/#7-ai-model-licenses).
+{{% /alert %}}
+
+Releasing an AI model follows most of the same steps as releasing source code. You obtain
+organizational approval, confirm you have the right to publish, remove sensitive information, and
+assign someone to support the project afterwards. For those shared steps, follow
+[the release process](../process/) and the [release rules](../rule/).
+
+This page covers only what differs because the artifact is a model.
+
+## What differs from a code release
+
+| Aspect | Source code | AI model |
+|---|---|---|
+| What you publish | Source code | Weight files and a model card |
+| Licensing | One license for the code | Model license and training dataset licenses, judged separately |
+| Documentation | README, contribution guide | Model card covering intended use, limits, bias, evaluation |
+| Sensitive material | Code and commit history | Also personal data and copyrighted works inside the training data |
+| Regulation | Export control (ECCN) | Also the documentation duties of the EU AI Act and Korea's AI Framework Act |
+
+Training datasets are where teams most often get stuck. Even with the model license settled, the
+license of the data you trained on may restrict redistribution or commercial use. Check the two
+separately.
+
+## Summary
+
+1. Obtain internal approval and request an OSRB review (stage A of [the release process](../process/)).
+2. Confirm the license of both the model and every training dataset.
+3. Work through the [pre-release checklist](checklist/).
+4. Write the [model card](model-card/). It is the document your users will read first.
+5. If you need to prepare for regulation, check your documentation with an [AI SBOM](ai-sbom/).
+6. Publish the repository and operate it (stage D of [the release process](../process/)).
+
+## Decision flow
+
+| Question | Next step |
+|---|---|
+| Do you have the right to redistribute the weights (check the base model license)? | If unclear, request a review first |
+| Do the training dataset licenses permit redistribution? | If restricted, decide whether to publish the model without the dataset |
+| Does the training data contain personal data or third-party copyrighted works? | If so, consult Legal and the privacy team before publishing |
+| Is someone assigned to answer questions after release? | If not, plan for that first |
+
+## Getting a review before you publish
+
+You can have the model checked while the repository is still private. Push the model privately and
+share read access with the OSRB, and we will report what is missing and how to fill it. Grant access
+with a token scoped to that single repository rather than one that opens your whole account.
+
+If your organization enforces a token approval policy, the token stays pending until an
+administrator approves it. When you have a fixed release date, start the token request early.
+
+## Related pages
+
+- [Release process](../process/) — the shared path from approval to operation
+- [Release rules](../rule/) — what to satisfy before publishing
+- [Sensitive information checklist](../process/scrub-checklist/) — cleaning code and commit history
+- [AI Model Licenses](/guide/use/obligation/#7-ai-model-licenses) — RAIL, Llama and similar licenses
+
+## Contact
+
+For questions and review requests about releasing an AI model, contact the OSRB
+(opensource@sktelecom.com).
