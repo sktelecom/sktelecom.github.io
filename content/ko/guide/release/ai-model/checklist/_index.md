@@ -79,9 +79,10 @@ description: >
 
 ## 자동으로 점검하기
 
-위 항목 중 모델 카드와 라이선스, 데이터셋 관련 부분은 도구로 확인할 수 있습니다.
-[BomLens](/guide/supply-chain/for-suppliers/skt-scanner/)에 모델 id를 주면 모델 카드를 읽어
-빠진 항목과 채우는 방법을 정리해 줍니다. 자세한 내용은 [AI SBOM](../ai-sbom/)을 참고하세요.
+위 항목 중 모델 카드와 라이선스, 데이터셋 관련 부분은 도구로 확인할 수 있습니다. BomLens에
+모델 id를 주면 모델 카드를 읽어 빠진 항목과 채우는 방법을 정리해 줍니다. 왜 필요한지는
+[AI SBOM](../ai-sbom/)에, 설치와 실행 방법은
+[BomLens AI 모델 가이드](https://sktelecom.github.io/bomlens/ko/guides/ai-model/)에 있습니다.
 
 도구가 확인하는 것은 모델 카드에 무엇이 적혀 있는지까지입니다. 학습 데이터에 개인정보가
 섞였는지, 계약상 공개가 가능한지 같은 판단은 사람이 해야 합니다.
