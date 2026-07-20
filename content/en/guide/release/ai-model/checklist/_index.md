@@ -78,9 +78,10 @@ For how to write it, see [Model card](../model-card/).
 
 ## Checking it automatically
 
-The model card, license and dataset items above can be checked with a tool. Give
-[BomLens](/guide/supply-chain/for-suppliers/skt-scanner/) a model id and it reads the model card,
-then reports what is missing and how to supply it. See [AI SBOM](../ai-sbom/) for details.
+The model card, license and dataset items above can be checked with a tool. Give BomLens a model
+id and it reads the model card, then reports what is missing and how to supply it. Why it matters is
+in [AI SBOM](../ai-sbom/); setup and usage are in the
+[BomLens AI model guide](https://sktelecom.github.io/bomlens/guides/ai-model/).
 
 What a tool can check stops at what the model card says. Whether personal data ended up in the
 training set, or whether a contract allows publication, is a judgement a person has to make.

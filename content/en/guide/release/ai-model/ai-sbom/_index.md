@@ -68,14 +68,19 @@ system's legal obligations is a person's job; when in doubt, consult Legal and t
 
 ## Producing one
 
-Give [BomLens](/guide/supply-chain/for-suppliers/skt-scanner/) a model id and it reads the model
-card, builds a CycloneDX AI SBOM, and reports G7 element coverage alongside the regulatory mapping.
-It fetches model-card metadata only and does not download the weights.
+Give BomLens a model id and it reads the model card, builds a CycloneDX AI SBOM, and reports G7
+element coverage alongside the regulatory mapping. It fetches model-card metadata only and does not
+download the weights.
 
 ```bash
 ./scripts/scan-sbom.sh --project my-llm --version 1.0.0 \
   --model "my-org/my-llm" --generate-only
 ```
+
+Scanning an AI model needs a separate image, and it can also be run from a web interface. Setup,
+usage and how to read the reports are covered in the
+[BomLens AI model guide](https://sktelecom.github.io/bomlens/guides/ai-model/); this page does not
+repeat them.
 
 A private repository needs a token with read access. For checking a model before release, see
 [Releasing an AI model](../#getting-a-review-before-you-publish).
@@ -100,7 +105,8 @@ judge. Start with the first kind.
 - [Model card](../model-card/) — the input to an AI SBOM
 - [Pre-release checklist](../checklist/) — what to confirm before release
 - [What is an SBOM](/guide/supply-chain/sbom/what-is-sbom/) — SBOMs in general
-- [BomLens](/guide/supply-chain/for-suppliers/skt-scanner/) — the tool
+- [BomLens AI model guide](https://sktelecom.github.io/bomlens/guides/ai-model/) — setup, usage, reading the reports
+- [BomLens](/guide/supply-chain/for-suppliers/skt-scanner/) — the tool, and its supplier-facing usage
 
 ## References
 
