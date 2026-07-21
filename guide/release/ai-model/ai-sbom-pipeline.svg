@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="620" viewBox="0 0 1000 620" font-family="'Apple SD Gothic Neo','Noto Sans CJK KR','Malgun Gothic',sans-serif">
+  <defs>
+    <marker id="arr2" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#9AA3AF"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="1000" height="620" fill="#ffffff"/>
+
+  <text x="500" y="44" text-anchor="middle" font-size="26" font-weight="bold" fill="#1F2937">AI SBOM은 무엇을 만들고, 무엇을 사람이 판단하나</text>
+
+  <!-- column headers -->
+  <text x="150" y="92" text-anchor="middle" font-size="14" font-weight="bold" fill="#6B7280">입력</text>
+  <text x="410" y="92" text-anchor="middle" font-size="14" font-weight="bold" fill="#6B7280">도구</text>
+  <text x="770" y="92" text-anchor="middle" font-size="14" font-weight="bold" fill="#6B7280">산출물</text>
+
+  <!-- input -->
+  <rect x="40" y="110" width="220" height="96" rx="12" fill="#F4F6F8" stroke="#D8DEE6" stroke-width="1.5"/>
+  <text x="150" y="150" text-anchor="middle" font-size="18" font-weight="bold" fill="#1F2937">모델 카드</text>
+  <text x="150" y="176" text-anchor="middle" font-size="14" fill="#6B7280">저장소의 README.md</text>
+  <text x="150" y="194" text-anchor="middle" font-size="13" fill="#9AA3AF">(가중치는 내려받지 않음)</text>
+
+  <line x1="260" y1="158" x2="300" y2="158" stroke="#9AA3AF" stroke-width="2" marker-end="url(#arr2)"/>
+
+  <!-- tool -->
+  <rect x="300" y="120" width="220" height="76" rx="12" fill="#EA002C"/>
+  <text x="410" y="152" text-anchor="middle" font-size="20" font-weight="bold" fill="#ffffff">BomLens</text>
+  <text x="410" y="176" text-anchor="middle" font-size="13" fill="#FFD4DC">모델 카드를 읽어 자동 정리</text>
+
+  <!-- fan-out lines -->
+  <line x1="520" y1="158" x2="556" y2="158" stroke="#9AA3AF" stroke-width="2"/>
+  <path d="M556,158 L556,143 L556,251" stroke="#9AA3AF" stroke-width="2" fill="none"/>
+  <line x1="556" y1="143" x2="600" y2="143" stroke="#9AA3AF" stroke-width="2" marker-end="url(#arr2)"/>
+  <line x1="556" y1="203" x2="600" y2="203" stroke="#9AA3AF" stroke-width="2" marker-end="url(#arr2)"/>
+  <line x1="556" y1="263" x2="600" y2="263" stroke="#9AA3AF" stroke-width="2" marker-end="url(#arr2)"/>
+  <line x1="556" y1="113" x2="600" y2="113" stroke="#9AA3AF" stroke-width="2" marker-end="url(#arr2)"/>
+  <path d="M556,158 L556,113" stroke="#9AA3AF" stroke-width="2" fill="none"/>
+
+  <!-- outputs -->
+  <rect x="600" y="98" width="360" height="32" rx="8" fill="#EAF6EE" stroke="#2E9E5B" stroke-width="1.3"/>
+  <text x="618" y="119" font-size="15" font-weight="bold" fill="#1F2937">AI SBOM (ML-BOM, CycloneDX)</text>
+  <rect x="600" y="146" width="360" height="32" rx="8" fill="#EAF6EE" stroke="#2E9E5B" stroke-width="1.3"/>
+  <text x="618" y="167" font-size="15" font-weight="bold" fill="#1F2937">G7 요소 충족도 · 빠진 항목 채우는 법</text>
+  <rect x="600" y="194" width="360" height="32" rx="8" fill="#EAF6EE" stroke="#2E9E5B" stroke-width="1.3"/>
+  <text x="618" y="215" font-size="15" font-weight="bold" fill="#1F2937">규제 대응 정리 (EU · 국내)</text>
+  <rect x="600" y="242" width="360" height="32" rx="8" fill="#EAF6EE" stroke="#2E9E5B" stroke-width="1.3"/>
+  <text x="618" y="263" font-size="15" font-weight="bold" fill="#1F2937">라이선스 검토가 필요한 항목 표시</text>
+
+  <!-- divider -->
+  <line x1="40" y1="330" x2="960" y2="330" stroke="#ECEFF3" stroke-width="1.5"/>
+
+  <!-- human zone -->
+  <rect x="40" y="360" width="920" height="196" rx="14" fill="#FFF7E6" stroke="#F59E0B" stroke-width="1.5"/>
+  <rect x="40" y="360" width="920" height="40" rx="14" fill="#F59E0B"/>
+  <rect x="40" y="378" width="920" height="22" fill="#F59E0B"/>
+  <text x="64" y="387" font-size="17" font-weight="bold" fill="#ffffff">사람이 판단하는 영역 — 도구가 채울 수 없는 것</text>
+
+  <rect x="64" y="420" width="280" height="112" rx="10" fill="#ffffff" stroke="#F1D68A" stroke-width="1.3"/>
+  <text x="84" y="450" font-size="16" font-weight="bold" fill="#B45309">검토 전용 13개 요소</text>
+  <text x="84" y="476" font-size="13.5" fill="#6B7280">의도한 적용 분야, 학습 데이터</text>
+  <text x="84" y="496" font-size="13.5" fill="#6B7280">민감도 등 — 모델 카드 필드로</text>
+  <text x="84" y="516" font-size="13.5" fill="#6B7280">증명되지 않는 항목</text>
+
+  <rect x="360" y="420" width="280" height="112" rx="10" fill="#ffffff" stroke="#F1D68A" stroke-width="1.3"/>
+  <text x="380" y="450" font-size="16" font-weight="bold" fill="#B45309">데이터셋 라이선스</text>
+  <text x="380" y="476" font-size="13.5" fill="#6B7280">학습에 쓴 데이터의 재배포·</text>
+  <text x="380" y="496" font-size="13.5" fill="#6B7280">상업 이용 조건은 사람이</text>
+  <text x="380" y="516" font-size="13.5" fill="#6B7280">따로 확인</text>
+
+  <rect x="656" y="420" width="280" height="112" rx="10" fill="#ffffff" stroke="#F1D68A" stroke-width="1.3"/>
+  <text x="676" y="450" font-size="16" font-weight="bold" fill="#B45309">개인정보 · 저작물</text>
+  <text x="676" y="476" font-size="13.5" fill="#6B7280">학습 데이터에 개인정보나</text>
+  <text x="676" y="496" font-size="13.5" fill="#6B7280">타인의 저작물이 섞였는지는</text>
+  <text x="676" y="516" font-size="13.5" fill="#6B7280">도구가 보지 않음</text>
+
+  <text x="500" y="592" text-anchor="middle" font-size="13" fill="#9AA3AF">전체 판정은 SBOM 필수 형식 항목에서 갈리고, G7 요소는 모두 권고라 판정을 좌우하지 않습니다.</text>
+</svg>
