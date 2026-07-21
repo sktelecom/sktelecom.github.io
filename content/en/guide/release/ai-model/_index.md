@@ -47,7 +47,11 @@ separately.
 
 ## Checking your model before you publish
 
-Before releasing, you can check the model yourself while the repository is still private. Push the
+Work through the rights and data items on the [pre-release checklist](checklist/) first. A private
+repository is still an upload to an outside service, and pushing weights that turn out to contain
+something you cannot publish is hard to undo.
+
+After that, you can check the model yourself while the repository is still private. Push the
 model privately and run BomLens, the SBOM generator, with your own Hugging Face token (`HF_TOKEN`);
 it reports what is missing and how to fill it. Strengthen the model card with that result ahead of
 time, and the OSRB review has the documentation it needs and goes more smoothly. The command to run

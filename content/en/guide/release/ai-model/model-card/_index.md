@@ -22,7 +22,7 @@ license: apache-2.0
 language:
   - ko
   - en
-base_model: meta-llama/Llama-3.1-8B
+base_model: Qwen/Qwen2.5-7B
 datasets:
   - HuggingFaceFW/fineweb
 pipeline_tag: text-generation
@@ -43,7 +43,7 @@ These four fields matter most.
 |---|---|---|
 | `license` | The license identifier for the weights | Users cannot tell on what terms they may use it |
 | `datasets` | Hub identifiers of the training datasets | Data provenance cannot be traced, leaving a gap for regulation |
-| `base_model` | The original model of a fine-tune, quantization or merge | The derivative relationship and inherited license duties stay hidden |
+| `base_model` | The original model of a fine-tune, adapter (LoRA and the like), quantization or merge | The derivative relationship and inherited license duties stay hidden |
 | `pipeline_tag` | The task the model performs | The intended use is unclear |
 
 For a non-standard license, set `license: other` and give the name and a link.

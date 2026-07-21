@@ -45,6 +45,9 @@ the [Llama 2 guide](/guide/use/obligation/llama-2/) and the [RAIL guide](/guide/
 - [ ] Have you checked whether the training data contains third-party copyrighted works?
 - [ ] Is internal documentation or customer data absent from the training set?
 - [ ] Have you considered the risk of the model reproducing its training data verbatim?
+- [ ] Have you prepared the public summary of training content? (EU AI Act Article 53, on the
+      Commission's template)
+- [ ] Have you set out your copyright policy? (respecting text and data mining opt-outs, and so on)
 - [ ] Are the files you are about to publish free of API keys, internal hostnames and credentials?
       (see the [sensitive information checklist](../../process/scrub-checklist/))
 
@@ -83,8 +86,9 @@ id and it reads the model card, then reports what is missing and how to supply i
 in [AI SBOM](../ai-sbom/); setup and usage are in the
 [BomLens AI model guide](https://sktelecom.github.io/bomlens/guides/ai-model/).
 
-What a tool can check stops at what the model card says. Whether personal data ended up in the
-training set, or whether a contract allows publication, is a judgement a person has to make.
+What a tool can check stops at what the model card and the repository metadata reveal. Whether
+personal data ended up in the training set, or whether a contract allows publication, is a
+judgement a person has to make.
 
 ## Related pages
 

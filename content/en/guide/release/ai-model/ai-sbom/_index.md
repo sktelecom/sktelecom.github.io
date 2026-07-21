@@ -54,9 +54,10 @@ Nothing on this page certifies or determines compliance with any regulation.
 
 ## The G7 minimum elements
 
-In May 2026, CISA and G7 partners jointly published "Software Bill of Materials for AI — Minimum
-Elements", led by Germany's BSI and Italy's ACN. It defines 50 minimum elements in seven clusters
-that a model's inventory should carry. It is a non-binding recommendation, not a regulation.
+In May 2026, the cybersecurity agencies of the G7 jointly published "Software Bill of Materials for
+AI — Minimum Elements", with Germany's BSI and Italy's ACN leading the work. It defines 50 minimum
+elements in seven clusters that an AI system's inventory should carry. It is a non-binding
+recommendation, not a regulation.
 
 | Cluster | Elements | Needing human judgement | Content |
 |---|---:|---:|---|
@@ -72,6 +73,7 @@ that a model's inventory should carry. It is a non-binding recommendation, not a
 - Thirteen of the 50 have no automated source. Things like the intended application area or the
   sensitivity of the training data cannot be proven by any model card field, so a person has to
   supply them.
+- BomLens reports these 50 as 51 checks, because it scores model openness on its own line.
 - The technical documentation the EU AI Act asks for corresponds to the G7 system-level, model, and
   dataset clusters. That correspondence is BomLens's reading.
 - Advisory as they are, the elements overlap substantially with the documentation those regulations
@@ -81,11 +83,12 @@ that a model's inventory should carry. It is a non-binding recommendation, not a
 
 Give [BomLens](https://github.com/sktelecom/bomlens), SK Telecom's open-source SBOM generator, a
 model id and it reads the model card, builds a CycloneDX AI SBOM, and reports G7 element coverage
-alongside the regulatory mapping. (It fetches model-card metadata only and does not download the
-weights.)
+alongside the regulatory mapping. (It reads the model card and the repository metadata; it does not
+download the weight files themselves.)
 
 - Setup, usage and how to read the reports are covered in the
   [BomLens AI model guide](https://sktelecom.github.io/bomlens/guides/ai-model/).
+- It needs a Docker engine, and pulls the AI-model scanning image (about 3.5 GB) once.
 - The command below assumes BomLens is already installed.
 
 ```bash
@@ -95,6 +98,8 @@ weights.)
 
 A private repository needs a token with read access.
 
+- Create a read-scoped token under Access Tokens in your Hugging Face account settings. A
+  fine-grained token needs read access to that repository granted explicitly.
 - How to pass it as `HF_TOKEN`, and what a gated repository additionally requires, are in
   [Private and gated models](https://sktelecom.github.io/bomlens/guides/ai-model/#private-and-gated-models).
 
