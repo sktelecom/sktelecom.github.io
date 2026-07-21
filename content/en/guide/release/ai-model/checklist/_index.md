@@ -55,13 +55,10 @@ the [Llama 2 guide](/guide/use/obligation/llama-2/) and the [RAIL guide](/guide/
 
 For how to write it, see [Model card](../model-card/).
 
-- [ ] Have you stated the intended use and scope?
-- [ ] Have you stated what the model should not be used for?
-- [ ] Have you stated the known limitations and biases?
-- [ ] Have you disclosed the training datasets?
-- [ ] Have you given evaluation results and how they were measured?
+- [ ] Have you filled in all seven sections of the [model card](../model-card/)? (model
+      description, intended use, out-of-scope use, limitations and bias, training data, evaluation,
+      contact)
 - [ ] If there is a base model, is it declared in `base_model`?
-- [ ] Is there a contact point for questions?
 
 ## 5. Files and identifiers
 
@@ -82,9 +79,8 @@ For how to write it, see [Model card](../model-card/).
 ## Checking it automatically
 
 The model card, license and dataset items above can be checked with a tool. Give BomLens a model
-id and it reads the model card, then reports what is missing and how to supply it. Why it matters is
-in [AI SBOM](../ai-sbom/); setup and usage are in the
-[BomLens AI model guide](https://sktelecom.github.io/bomlens/guides/ai-model/).
+id and it reads the model card, then reports what is missing and how to supply it. Why it matters
+and how to run it are both in [AI SBOM](../ai-sbom/).
 
 What a tool can check stops at what the model card and the repository metadata reveal. Whether
 personal data ended up in the training set, or whether a contract allows publication, is a

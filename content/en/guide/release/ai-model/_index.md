@@ -39,11 +39,12 @@ separately.
 ![How to release an AI model — five steps from approval and license checks through the parallel checklist and model card to an AI SBOM check and publication](ai-model-release-flow.png)
 
 1. Obtain internal approval and request an OSRB review (stage A of [the release process](../process/)).
-2. Confirm the license of both the model and every training dataset.
-3. Work through the [pre-release checklist](checklist/).
-4. Write the [model card](model-card/). It is the document your users will read first.
-5. If you need to prepare for regulation, check your documentation with an [AI SBOM](ai-sbom/).
-6. Publish the repository and operate it (stage D of [the release process](../process/)).
+2. Confirm the license of both the model and every training dataset. Do this early — if it fails
+   here, the rest of the preparation is wasted.
+3. Work through the [pre-release checklist](checklist/) and the [model card](model-card/) together.
+   The model card is the document your users will read first.
+4. If you need to prepare for regulation, check your documentation with an [AI SBOM](ai-sbom/).
+5. Publish the repository and operate it (stage D of [the release process](../process/)).
 
 Stage D is written for source code going to GitHub. A model goes to your model development
 organization's Hugging Face account rather than a personal one; everything else about operating it
