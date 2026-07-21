@@ -48,23 +48,25 @@ supply them.
 The G7 elements are advisory, but they overlap substantially with the technical documentation actual
 regulations require.
 
-**The EU AI Act** applies its high-risk and transparency obligations from 2 August 2026. The
-technical documentation required by Article 11 and Annex IV covers a system's purpose and
-architecture, the provenance and processing of its training data, and its performance and limits.
-The system-level, model and dataset clusters correspond to these.
-
-**Korea's AI Framework Act** took effect on 22 January 2026. Article 31 (transparency), Article 32
-(safety), Articles 33 and 34 (high-impact AI) and Article 35 (impact assessment) are the relevant
-provisions. Its detailed documentation requirements sit in the enforcement decree, so the
-correspondence is coarser than for the EU. Article 32 applies only to systems trained above a
-compute threshold set by that decree, so a linked element points at the subject of the duty rather
-than establishing that the duty applies.
-
 {{% alert title="Not a compliance determination" color="warning" %}}
 An AI SBOM and its regulatory mapping do not certify or determine compliance with any regulation.
 They make documentation gaps visible so a person can prepare. Interpreting them against a specific
 system's legal obligations is a person's job; when in doubt, consult Legal and the OSRB.
 {{% /alert %}}
+
+| Regulation | Effective | Key provisions |
+|---|---|---|
+| EU AI Act | High-risk and transparency duties from 2 August 2026 | Article 11, Annex IV |
+| Korea's AI Framework Act | In effect since 22 January 2026 | Article 31 (transparency), 32 (safety), 33–34 (high-impact AI), 35 (impact assessment) |
+
+The EU AI Act is specific about technical documentation through Article 11 and Annex IV: it must
+cover a system's purpose and architecture, the provenance and processing of its training data, and
+its performance and limits. The G7 system-level, model, and dataset clusters correspond to these.
+
+Korea's AI Framework Act keeps its detailed documentation requirements in the enforcement decree, so
+the correspondence is coarser than the EU's. Article 32 (safety) applies only to systems trained
+above a compute threshold set by that decree, so a linked element points at the subject of the duty
+rather than establishing that the duty applies.
 
 ## Producing one
 
@@ -82,8 +84,9 @@ usage and how to read the reports are covered in the
 [BomLens AI model guide](https://sktelecom.github.io/bomlens/guides/ai-model/); this page does not
 repeat them.
 
-A private repository needs a token with read access. For checking a model before release, see
-[Releasing an AI model](../#getting-a-review-before-you-publish).
+A private repository needs a token with read access. How to scope the token to a single repository
+and self-check before release is in
+[Releasing an AI model](../#checking-your-model-before-you-publish).
 
 You get:
 
