@@ -36,6 +36,8 @@ separately.
 
 ## Summary
 
+![How to release an AI model — five steps from approval and license checks through the parallel checklist and model card to an AI SBOM check and publication](ai-model-release-flow.png)
+
 1. Obtain internal approval and request an OSRB review (stage A of [the release process](../process/)).
 2. Confirm the license of both the model and every training dataset.
 3. Work through the [pre-release checklist](checklist/).
