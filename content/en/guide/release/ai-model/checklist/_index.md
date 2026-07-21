@@ -45,6 +45,9 @@ the [Llama 2 guide](/guide/use/obligation/llama-2/) and the [RAIL guide](/guide/
 - [ ] Have you checked whether the training data contains third-party copyrighted works?
 - [ ] Is internal documentation or customer data absent from the training set?
 - [ ] Have you considered the risk of the model reproducing its training data verbatim?
+- [ ] Have you prepared the public summary of training content? (EU AI Act Article 53, on the
+      Commission's template)
+- [ ] Have you set out your copyright policy? (respecting text and data mining opt-outs, and so on)
 - [ ] Are the files you are about to publish free of API keys, internal hostnames and credentials?
       (see the [sensitive information checklist](../../process/scrub-checklist/))
 
@@ -52,13 +55,10 @@ the [Llama 2 guide](/guide/use/obligation/llama-2/) and the [RAIL guide](/guide/
 
 For how to write it, see [Model card](../model-card/).
 
-- [ ] Have you stated the intended use and scope?
-- [ ] Have you stated what the model should not be used for?
-- [ ] Have you stated the known limitations and biases?
-- [ ] Have you disclosed the training datasets?
-- [ ] Have you given evaluation results and how they were measured?
+- [ ] Have you filled in all seven sections of the [model card](../model-card/)? (model
+      description, intended use, out-of-scope use, limitations and bias, training data, evaluation,
+      contact)
 - [ ] If there is a base model, is it declared in `base_model`?
-- [ ] Is there a contact point for questions?
 
 ## 5. Files and identifiers
 
@@ -79,12 +79,12 @@ For how to write it, see [Model card](../model-card/).
 ## Checking it automatically
 
 The model card, license and dataset items above can be checked with a tool. Give BomLens a model
-id and it reads the model card, then reports what is missing and how to supply it. Why it matters is
-in [AI SBOM](../ai-sbom/); setup and usage are in the
-[BomLens AI model guide](https://sktelecom.github.io/bomlens/guides/ai-model/).
+id and it reads the model card, then reports what is missing and how to supply it. Why it matters
+and how to run it are both in [AI SBOM](../ai-sbom/).
 
-What a tool can check stops at what the model card says. Whether personal data ended up in the
-training set, or whether a contract allows publication, is a judgement a person has to make.
+What a tool can check stops at what the model card and the repository metadata reveal. Whether
+personal data ended up in the training set, or whether a contract allows publication, is a
+judgement a person has to make.
 
 ## Related pages
 

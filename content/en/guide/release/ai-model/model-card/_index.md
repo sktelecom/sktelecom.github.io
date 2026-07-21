@@ -22,7 +22,7 @@ license: apache-2.0
 language:
   - ko
   - en
-base_model: meta-llama/Llama-3.1-8B
+base_model: Qwen/Qwen2.5-7B
 datasets:
   - HuggingFaceFW/fineweb
 pipeline_tag: text-generation
@@ -43,7 +43,7 @@ These four fields matter most.
 |---|---|---|
 | `license` | The license identifier for the weights | Users cannot tell on what terms they may use it |
 | `datasets` | Hub identifiers of the training datasets | Data provenance cannot be traced, leaving a gap for regulation |
-| `base_model` | The original model of a fine-tune, quantization or merge | The derivative relationship and inherited license duties stay hidden |
+| `base_model` | The original model of a fine-tune, adapter (LoRA and the like), quantization or merge | The derivative relationship and inherited license duties stay hidden |
 | `pipeline_tag` | The task the model performs | The intended use is unclear |
 
 For a non-standard license, set `license: other` and give the name and a link.
@@ -64,27 +64,37 @@ Start from the
 that Hugging Face provides. These sections connect directly to documentation duties, so it is worth
 not leaving them empty.
 
-**Model description**
+### Model description
+
 What the model does, how it is built, and roughly how many parameters it has.
 
-**Intended use**
+### Intended use
+
 The situations the model was built for. This corresponds to the part of the EU AI Act's technical
 documentation that states a system's purpose.
 
-**Out-of-scope use**
+### Out-of-scope use
+
 Where it should not be used. Naming high-consequence domains explicitly — medical diagnosis, credit
 scoring — is more useful than a general disclaimer.
 
-**Limitations and bias**
+### Limitations and bias
+
 The performance limits and biases you know about. If an area went unverified, write that it went
 unverified. Disclosing a known problem is safer than omitting it.
 
-**Training data**
+### Training data
+
 What you trained on, and how you preprocessed and filtered it. If you filtered out personal data or
 copyrighted works, say how.
 
-**Evaluation**
+### Evaluation
+
 What you measured, against what, and with what result. Name the evaluation datasets and metrics.
+
+### Contact
+
+Where questions and reports should go. Someone has to be assigned to answer them after release.
 
 ## When to write it
 

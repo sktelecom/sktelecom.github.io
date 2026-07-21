@@ -39,15 +39,24 @@ separately.
 ![How to release an AI model — five steps from approval and license checks through the parallel checklist and model card to an AI SBOM check and publication](ai-model-release-flow.png)
 
 1. Obtain internal approval and request an OSRB review (stage A of [the release process](../process/)).
-2. Confirm the license of both the model and every training dataset.
-3. Work through the [pre-release checklist](checklist/).
-4. Write the [model card](model-card/). It is the document your users will read first.
-5. If you need to prepare for regulation, check your documentation with an [AI SBOM](ai-sbom/).
-6. Publish the repository and operate it (stage D of [the release process](../process/)).
+2. Confirm the license of both the model and every training dataset. Do this early — if it fails
+   here, the rest of the preparation is wasted.
+3. Work through the [pre-release checklist](checklist/) and the [model card](model-card/) together.
+   The model card is the document your users will read first.
+4. If you need to prepare for regulation, check your documentation with an [AI SBOM](ai-sbom/).
+5. Publish the repository and operate it (stage D of [the release process](../process/)).
+
+Stage D is written for source code going to GitHub. A model goes to your model development
+organization's Hugging Face account rather than a personal one; everything else about operating it
+is the same. Ask your organization's owner if you need access.
 
 ## Checking your model before you publish
 
-Before releasing, you can check the model yourself while the repository is still private. Push the
+Work through the rights and data items on the [pre-release checklist](checklist/) first. A private
+repository is still an upload to an outside service, and pushing weights that turn out to contain
+something you cannot publish is hard to undo.
+
+After that, you can check the model yourself while the repository is still private. Push the
 model privately and run BomLens, the SBOM generator, with your own Hugging Face token (`HF_TOKEN`);
 it reports what is missing and how to fill it. Strengthen the model card with that result ahead of
 time, and the OSRB review has the documentation it needs and goes more smoothly. The command to run

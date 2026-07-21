@@ -34,14 +34,22 @@ Nothing on this page certifies or determines compliance with any regulation.
   consult Legal and the OSRB.
 {{% /alert %}}
 
-| Regulation | Effective | Key provisions |
-|---|---|---|
-| EU AI Act | High-risk and transparency duties from 2 August 2026 | Article 11, Annex IV |
-| Korea's AI Framework Act | In effect since 22 January 2026 | Article 31 (transparency), 32 (safety), 33–34 (high-impact AI), 35 (impact assessment) |
+| Regulation | Applies to | Applicable from | Key provisions |
+|---|---|---|---|
+| EU AI Act | Releasing a model that can serve general purposes | 2 August 2025 | Article 53 |
+| EU AI Act | A model that ends up in a high-risk system | 2 December 2027 | Article 11, Annex IV |
+| Korea's AI Framework Act | Affecting the Korean market or its users | In effect since 22 January 2026 | Article 31 (transparency), 32 (safety), 33–34 (high-impact AI), 35 (impact assessment) |
 
-- The EU AI Act is specific about technical documentation through Article 11 and Annex IV: it must
-  cover a system's purpose and architecture, the provenance and processing of its training data, and
-  its performance and limits.
+- What reaches you when you release a general-purpose model is Article 53. It asks for technical
+  documentation, a copyright policy, and a public summary of training content, and it already
+  applies.
+- Fine-tuning someone else's base model may leave you outside those duties. The Commission's
+  guidelines use a third of the original training compute as the dividing line.
+- Releasing the weights and the architecture under an open-source licence exempts the technical
+  documentation, but the copyright policy and the
+  [public summary of training content](https://digital-strategy.ec.europa.eu/en/library/explanatory-notice-and-template-public-summary-training-content-general-purpose-ai-models)
+  remain. The summary follows a template the Commission provides.
+- Article 11 and Annex IV attach to the high-risk system your model ends up in, not to the model.
 - Korea's AI Framework Act keeps its detailed documentation requirements in the enforcement decree,
   so it is less specific than the EU's. Article 32 (safety) applies only to systems trained above a
   compute threshold set by that decree, so a linked element points at the subject of the duty rather
@@ -49,9 +57,10 @@ Nothing on this page certifies or determines compliance with any regulation.
 
 ## The G7 minimum elements
 
-In May 2026, CISA and G7 partners jointly published "Software Bill of Materials for AI — Minimum
-Elements", led by Germany's BSI and Italy's ACN. It defines 50 minimum elements in seven clusters
-that a model's inventory should carry. It is a non-binding recommendation, not a regulation.
+In May 2026, the cybersecurity agencies of the G7 jointly published "Software Bill of Materials for
+AI — Minimum Elements", with Germany's BSI and Italy's ACN leading the work. It defines 50 minimum
+elements in seven clusters that an AI system's inventory should carry. It is a non-binding
+recommendation, not a regulation.
 
 | Cluster | Elements | Needing human judgement | Content |
 |---|---:|---:|---|
@@ -67,8 +76,9 @@ that a model's inventory should carry. It is a non-binding recommendation, not a
 - Thirteen of the 50 have no automated source. Things like the intended application area or the
   sensitivity of the training data cannot be proven by any model card field, so a person has to
   supply them.
-- The documentation Annex IV of the EU AI Act asks for corresponds to the G7 system-level, model,
-  and dataset clusters.
+- BomLens reports these 50 as 51 checks, because it scores model openness on its own line.
+- The technical documentation the EU AI Act asks for corresponds to the G7 system-level, model, and
+  dataset clusters. That correspondence is BomLens's reading.
 - Advisory as they are, the elements overlap substantially with the documentation those regulations
   require. Filling the G7 side also builds most of what a regulatory submission needs.
 
@@ -76,11 +86,12 @@ that a model's inventory should carry. It is a non-binding recommendation, not a
 
 Give [BomLens](https://github.com/sktelecom/bomlens), SK Telecom's open-source SBOM generator, a
 model id and it reads the model card, builds a CycloneDX AI SBOM, and reports G7 element coverage
-alongside the regulatory mapping. (It fetches model-card metadata only and does not download the
-weights.)
+alongside the regulatory mapping. (It reads the model card and the repository metadata; it does not
+download the weight files themselves.)
 
 - Setup, usage and how to read the reports are covered in the
   [BomLens AI model guide](https://sktelecom.github.io/bomlens/guides/ai-model/).
+- It needs a Docker engine, and pulls the AI-model scanning image (about 3.5 GB) once.
 - The command below assumes BomLens is already installed.
 
 ```bash
@@ -90,6 +101,8 @@ weights.)
 
 A private repository needs a token with read access.
 
+- Create a read-scoped token under Access Tokens in your Hugging Face account settings. A
+  fine-grained token needs read access to that repository granted explicitly.
 - How to pass it as `HF_TOKEN`, and what a gated repository additionally requires, are in
   [Private and gated models](https://sktelecom.github.io/bomlens/guides/ai-model/#private-and-gated-models).
 
@@ -126,6 +139,7 @@ move the verdict. Read the covered count and the gap count separately.
 
 - [Software Bill of Materials for AI — Minimum Elements](https://www.bsi.bund.de/SharedDocs/Downloads/EN/BSI/KI/SBOM-for-AI_minimum-elements.pdf?__blob=publicationFile&v=4) (G7, May 2026)
 - [Regulation (EU) 2024/1689 (AI Act)](https://eur-lex.europa.eu/eli/reg/2024/1689/oj)
+- [Timeline for the implementation of the EU AI Act](https://ai-act-service-desk.ec.europa.eu/en/ai-act/timeline/timeline-implementation-eu-ai-act) (European Commission)
 - [AI Framework Act (Korea)](https://www.law.go.kr/법령/인공지능발전과신뢰기반조성등에관한기본법)
 
 ## Contact
