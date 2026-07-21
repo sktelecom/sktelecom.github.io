@@ -41,9 +41,9 @@ separately.
 1. Obtain internal approval and request an OSRB review (stage A of [the release process](../process/)).
 2. Confirm the license of both the model and every training dataset. Do this early — if it fails
    here, the rest of the preparation is wasted.
-3. Work through the [pre-release checklist](checklist/) and the [model card](model-card/) together.
-   The model card is the document your users will read first.
-4. If you need to prepare for regulation, check your documentation with an [AI SBOM](ai-sbom/).
+3. Work through the [pre-release checklist](checklist/). Alongside it, write the
+   [model card](model-card/) — the document your users will read first.
+4. Generate an [AI SBOM](ai-sbom/) to check your documentation against regulation.
 5. Publish the repository and operate it (stage D of [the release process](../process/)).
 
 Stage D is written for source code going to GitHub. A model goes to your model development
