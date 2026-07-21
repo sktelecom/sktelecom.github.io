@@ -8,20 +8,44 @@ description: >
 ---
 
 An AI SBOM is a machine-readable inventory of a model, its training datasets, and their provenance
-and licenses. Where a software SBOM carries package dependencies, an AI SBOM carries the layers a
-software SBOM cannot express: model weights and training data.
+and licenses.
 
-It is built from what the model card says, so a thin model card yields a thin AI SBOM.
+- Where a software SBOM carries package dependencies, an AI SBOM also covers what a software SBOM
+  leaves out: model weights and training data.
+- It is built from what the model card says, so a thin model card leaves an AI SBOM with that many
+  empty entries.
 
 ## Why produce one
 
 It serves two purposes.
 
-For the publisher it is a self-check on how complete the documentation is. Seeing what is missing as
-a list means you can close the gaps before release.
+1. For the publisher it is a self-check on how complete the documentation is. Seeing what is missing
+   as a list means you can close the gaps before release.
+2. For the recipient it is evidence for a review. Just as SK Telecom asks suppliers for an SBOM,
+   other organizations have begun asking the same of AI models.
 
-For the recipient it is evidence for a review. Just as SK Telecom asks suppliers for an SBOM, other
-organizations have begun asking the same of AI models.
+## Key regulations
+
+{{% alert title="Not a compliance determination" color="warning" %}}
+Nothing on this page certifies or determines compliance with any regulation.
+
+- It makes documentation gaps visible so a person can prepare.
+- Interpreting them against a specific system's legal obligations is a person's job; when in doubt,
+  consult Legal and the OSRB.
+{{% /alert %}}
+
+| Regulation | Effective | Key provisions |
+|---|---|---|
+| EU AI Act | High-risk and transparency duties from 2 August 2026 | Article 11, Annex IV |
+| Korea's AI Framework Act | In effect since 22 January 2026 | Article 31 (transparency), 32 (safety), 33–34 (high-impact AI), 35 (impact assessment) |
+
+- The EU AI Act is specific about technical documentation through Article 11 and Annex IV: it must
+  cover a system's purpose and architecture, the provenance and processing of its training data, and
+  its performance and limits.
+- Korea's AI Framework Act keeps its detailed documentation requirements in the enforcement decree,
+  so it is less specific than the EU's. Article 32 (safety) applies only to systems trained above a
+  compute threshold set by that decree, so a linked element points at the subject of the duty rather
+  than establishing that the duty applies.
 
 ## The G7 minimum elements
 
@@ -38,55 +62,36 @@ that a model's inventory should carry. It is a non-binding recommendation, not a
 | Infrastructure | 2 | 0 | Software dependencies and hardware |
 | Security properties | 4 | 3 | Security controls, policy, vulnerability handling |
 | Key performance indicators | 2 | 1 | Security metrics and operational performance |
+| Total | 50 | 13 | |
 
-Thirteen of the 50 have no automated source. Things like the intended application area or the
-sensitivity of the training data cannot be proven by any model card field, so a person has to
-supply them.
+- Thirteen of the 50 have no automated source. Things like the intended application area or the
+  sensitivity of the training data cannot be proven by any model card field, so a person has to
+  supply them.
+- The documentation Annex IV of the EU AI Act asks for corresponds to the G7 system-level, model,
+  and dataset clusters.
+- Advisory as they are, the elements overlap substantially with the documentation those regulations
+  require. Filling the G7 side also builds most of what a regulatory submission needs.
 
-## How it relates to regulation
+## Producing an AI SBOM
 
-The G7 elements are advisory, but they overlap substantially with the technical documentation actual
-regulations require.
+Give [BomLens](https://github.com/sktelecom/bomlens), SK Telecom's open-source SBOM generator, a
+model id and it reads the model card, builds a CycloneDX AI SBOM, and reports G7 element coverage
+alongside the regulatory mapping. (It fetches model-card metadata only and does not download the
+weights.)
 
-{{% alert title="Not a compliance determination" color="warning" %}}
-An AI SBOM and its regulatory mapping do not certify or determine compliance with any regulation.
-They make documentation gaps visible so a person can prepare. Interpreting them against a specific
-system's legal obligations is a person's job; when in doubt, consult Legal and the OSRB.
-{{% /alert %}}
-
-| Regulation | Effective | Key provisions |
-|---|---|---|
-| EU AI Act | High-risk and transparency duties from 2 August 2026 | Article 11, Annex IV |
-| Korea's AI Framework Act | In effect since 22 January 2026 | Article 31 (transparency), 32 (safety), 33–34 (high-impact AI), 35 (impact assessment) |
-
-The EU AI Act is specific about technical documentation through Article 11 and Annex IV: it must
-cover a system's purpose and architecture, the provenance and processing of its training data, and
-its performance and limits. The G7 system-level, model, and dataset clusters correspond to these.
-
-Korea's AI Framework Act keeps its detailed documentation requirements in the enforcement decree, so
-the correspondence is coarser than the EU's. Article 32 (safety) applies only to systems trained
-above a compute threshold set by that decree, so a linked element points at the subject of the duty
-rather than establishing that the duty applies.
-
-## Producing one
-
-Give BomLens a model id and it reads the model card, builds a CycloneDX AI SBOM, and reports G7
-element coverage alongside the regulatory mapping. It fetches model-card metadata only and does not
-download the weights.
+- Setup, usage and how to read the reports are covered in the
+  [BomLens AI model guide](https://sktelecom.github.io/bomlens/guides/ai-model/).
+- The command below assumes BomLens is already installed.
 
 ```bash
 ./scripts/scan-sbom.sh --project my-llm --version 1.0.0 \
   --model "my-org/my-llm" --generate-only
 ```
 
-Scanning an AI model needs a separate image, and it can also be run from a web interface. Setup,
-usage and how to read the reports are covered in the
-[BomLens AI model guide](https://sktelecom.github.io/bomlens/guides/ai-model/); this page does not
-repeat them.
+A private repository needs a token with read access.
 
-A private repository needs a token with read access. How to scope the token to a single repository
-and self-check before release is in
-[Releasing an AI model](../#checking-your-model-before-you-publish).
+- How to pass it as `HF_TOKEN`, and what a gated repository additionally requires, are in
+  [Private and gated models](https://sktelecom.github.io/bomlens/guides/ai-model/#private-and-gated-models).
 
 You get:
 
@@ -97,13 +102,17 @@ You get:
 
 ![AI SBOM pipeline — from the model card, BomLens produces four outputs, while review-only elements, dataset licenses, and personal data are decided by a person](../ai-sbom-pipeline.png)
 
-## Reading the result
+## Checking the result
 
 An overall pass does not mean every G7 element is filled. G7 elements are all advisory and do not
 move the verdict. Read the covered count and the gap count separately.
 
-Gaps come in two kinds: those you close by writing in the model card, and those a person has to
-judge. Start with the first kind.
+- Gaps come in two kinds: those you close by writing in the model card, and those a person has to
+  judge. Start with the first kind.
+- To see what the reports look like before running anything, open the
+  [conformance report](https://sktelecom.github.io/bomlens/samples/aether-7b-5attn_conformance.html)
+  and the [AI compliance profile](https://sktelecom.github.io/bomlens/samples/aether-7b-5attn_ai-profile.html)
+  from a sample model scan.
 
 ## Related pages
 
