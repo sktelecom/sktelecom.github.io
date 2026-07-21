@@ -54,14 +54,17 @@ separately.
 | Does the training data contain personal data or third-party copyrighted works? | If so, consult Legal and the privacy team before publishing |
 | Is someone assigned to answer questions after release? | If not, plan for that first |
 
-## Getting a review before you publish
+## Checking your model before you publish
 
-You can have the model checked while the repository is still private. Push the model privately and
-share read access with the OSRB, and we will report what is missing and how to fill it. Grant access
-with a token scoped to that single repository rather than one that opens your whole account.
+Before releasing, you can check the model yourself while the repository is still private. Push the
+model privately and run BomLens, the SBOM generator, with your own Hugging Face token (`HF_TOKEN`);
+it reports what is missing and how to fill it. Strengthen the model card with that result ahead of
+time, and the OSRB review has the documentation it needs and goes more smoothly. The command to run
+BomLens and how to read the result are in [AI SBOM](ai-sbom/).
 
-If your organization enforces a token approval policy, the token stays pending until an
-administrator approves it. When you have a fixed release date, start the token request early.
+Scope the token to that single repository rather than one that opens your whole account. If your
+organization enforces a token approval policy, the token stays pending until an administrator
+approves it, so when you have a fixed release date, start the token request early.
 
 ## Related pages
 
