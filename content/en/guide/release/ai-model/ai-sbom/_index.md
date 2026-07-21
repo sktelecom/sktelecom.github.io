@@ -36,12 +36,15 @@ Nothing on this page certifies or determines compliance with any regulation.
 
 | Regulation | Applies to | Applicable from | Key provisions |
 |---|---|---|---|
-| EU AI Act | Releasing a model | 2 August 2025 | Article 53 |
+| EU AI Act | Releasing a model that can serve general purposes | 2 August 2025 | Article 53 |
 | EU AI Act | A model that ends up in a high-risk system | 2 December 2027 | Article 11, Annex IV |
-| Korea's AI Framework Act | Operating an AI business in Korea | In effect since 22 January 2026 | Article 31 (transparency), 32 (safety), 33–34 (high-impact AI), 35 (impact assessment) |
+| Korea's AI Framework Act | Affecting the Korean market or its users | In effect since 22 January 2026 | Article 31 (transparency), 32 (safety), 33–34 (high-impact AI), 35 (impact assessment) |
 
-- What reaches you when you release a model is Article 53. It asks for technical documentation, a
-  copyright policy, and a public summary of training content, and it already applies.
+- What reaches you when you release a general-purpose model is Article 53. It asks for technical
+  documentation, a copyright policy, and a public summary of training content, and it already
+  applies.
+- Fine-tuning someone else's base model may leave you outside those duties. The Commission's
+  guidelines use a third of the original training compute as the dividing line.
 - Releasing the weights and the architecture under an open-source licence exempts the technical
   documentation, but the copyright policy and the
   [public summary of training content](https://digital-strategy.ec.europa.eu/en/library/explanatory-notice-and-template-public-summary-training-content-general-purpose-ai-models)
