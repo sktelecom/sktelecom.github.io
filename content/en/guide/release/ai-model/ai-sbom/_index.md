@@ -34,14 +34,24 @@ Nothing on this page certifies or determines compliance with any regulation.
   consult Legal and the OSRB.
 {{% /alert %}}
 
-| Regulation | Effective | Key provisions |
-|---|---|---|
-| EU AI Act | High-risk and transparency duties from 2 August 2026 | Article 11, Annex IV |
-| Korea's AI Framework Act | In effect since 22 January 2026 | Article 31 (transparency), 32 (safety), 33–34 (high-impact AI), 35 (impact assessment) |
+| Regulation | Applies to | Applicable from | Key provisions |
+|---|---|---|---|
+| EU AI Act | Releasing a model that can serve general purposes | 2 August 2025; models released before that date have until 2 August 2027 | Article 53, Annex XI |
+| EU AI Act | A model that ends up in a high-risk system | 2 December 2027 for stand-alone Annex III systems, 2 August 2028 for AI embedded in Annex I products | Article 11, Annex IV |
+| Korea's AI Framework Act | Operating an AI business in Korea | In effect since 22 January 2026 | Article 31 (transparency), 32 (safety), 33–34 (high-impact AI), 35 (impact assessment) |
 
-- The EU AI Act is specific about technical documentation through Article 11 and Annex IV: it must
-  cover a system's purpose and architecture, the provenance and processing of its training data, and
-  its performance and limits.
+- If you are releasing a model, read Article 53 first. It asks for technical documentation
+  (Annex XI), information for downstream providers (Annex XII), a copyright policy, and a public
+  summary of training content — and it has applied since 2 August 2025.
+- Releasing the weights, the architecture and the usage information under a free and open-source
+  licence exempts you from the first two. The copyright policy and the training-content summary are
+  not exempt. A model designated as carrying systemic risk gets no exemption at all
+  (Article 53(2), Article 51).
+- The training-content summary must follow the template the Commission's AI Office published on
+  24 July 2025, and it has to be publicly available.
+- Article 11 and Annex IV govern providers of high-risk systems. They attach to how the system using
+  your model is deployed, not to the model itself, and their dates were pushed back by the 2026
+  amendment (Digital Omnibus on AI).
 - Korea's AI Framework Act keeps its detailed documentation requirements in the enforcement decree,
   so it is less specific than the EU's. Article 32 (safety) applies only to systems trained above a
   compute threshold set by that decree, so a linked element points at the subject of the duty rather
@@ -67,8 +77,9 @@ that a model's inventory should carry. It is a non-binding recommendation, not a
 - Thirteen of the 50 have no automated source. Things like the intended application area or the
   sensitivity of the training data cannot be proven by any model card field, so a person has to
   supply them.
-- The documentation Annex IV of the EU AI Act asks for corresponds to the G7 system-level, model,
-  and dataset clusters.
+- The technical documentation the EU AI Act asks for — Annex XI for general-purpose models, Annex IV
+  for high-risk systems — corresponds to the G7 system-level, model, and dataset clusters. That
+  correspondence is BomLens's reading; the G7 text itself maps to no regulation.
 - Advisory as they are, the elements overlap substantially with the documentation those regulations
   require. Filling the G7 side also builds most of what a regulatory submission needs.
 
@@ -126,6 +137,8 @@ move the verdict. Read the covered count and the gap count separately.
 
 - [Software Bill of Materials for AI — Minimum Elements](https://www.bsi.bund.de/SharedDocs/Downloads/EN/BSI/KI/SBOM-for-AI_minimum-elements.pdf?__blob=publicationFile&v=4) (G7, May 2026)
 - [Regulation (EU) 2024/1689 (AI Act)](https://eur-lex.europa.eu/eli/reg/2024/1689/oj)
+- [Explanatory notice and template for the public summary of training content](https://digital-strategy.ec.europa.eu/en/library/explanatory-notice-and-template-public-summary-training-content-general-purpose-ai-models) (Commission AI Office, July 2025)
+- [Timeline for the implementation of the EU AI Act](https://ai-act-service-desk.ec.europa.eu/en/ai-act/timeline/timeline-implementation-eu-ai-act) (European Commission)
 - [AI Framework Act (Korea)](https://www.law.go.kr/법령/인공지능발전과신뢰기반조성등에관한기본법)
 
 ## Contact
