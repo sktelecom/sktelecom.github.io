@@ -92,6 +92,8 @@ You get:
 - the mapping to the EU AI Act and Korea's AI Framework Act
 - components whose license needs human review
 
+![AI SBOM pipeline — from the model card, BomLens produces four outputs, while review-only elements, dataset licenses, and personal data are decided by a person](../ai-sbom-pipeline.png)
+
 ## Reading the result
 
 An overall pass does not mean every G7 element is filled. G7 elements are all advisory and do not
