@@ -1,72 +1,67 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="740" viewBox="0 0 1000 740" font-family="'Apple SD Gothic Neo','Noto Sans CJK KR','Malgun Gothic',sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="748" viewBox="0 0 1000 748" font-family="'Apple SD Gothic Neo','Noto Sans CJK KR','Malgun Gothic',sans-serif">
   <defs>
-    <marker id="arr" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto" markerUnits="strokeWidth">
-      <path d="M0,0 L8,3 L0,6 Z" fill="#9AA3AF"/>
+    <filter id="c1" x="-15%" y="-40%" width="130%" height="200%">
+      <feDropShadow dx="0" dy="1.5" stdDeviation="3" flood-color="#111014" flood-opacity="0.09"/>
+    </filter>
+    <marker id="ar" markerWidth="9" markerHeight="9" refX="6.5" refY="3" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L7,3 L0,6 Z" fill="#9B96A0"/>
     </marker>
   </defs>
-  <rect x="0" y="0" width="1000" height="740" fill="#ffffff"/>
-
-  <text x="500" y="46" text-anchor="middle" font-size="26" font-weight="bold" fill="#1F2937">How to release an AI model</text>
+  <rect width="1000" height="748" fill="#FFFFFF"/>
+  <text x="500" y="50" text-anchor="middle" font-size="26" font-weight="700" fill="#1A1A1E" letter-spacing="-0.3">How to release an AI model</text>
 
   <!-- 1 -->
-  <rect x="200" y="76" width="600" height="78" rx="12" fill="#FFF1F3" stroke="#EA002C" stroke-width="1.5"/>
-  <circle cx="238" cy="115" r="16" fill="#EA002C"/>
-  <text x="238" y="121" text-anchor="middle" font-size="17" font-weight="bold" fill="#ffffff">1</text>
-  <text x="272" y="108" font-size="19" font-weight="bold" fill="#1F2937">Internal approval · OSRB review</text>
-  <text x="272" y="134" font-size="14" fill="#6B7280">Get your org's approval, then request an OSRB review</text>
+  <g filter="url(#c1)"><rect x="200" y="80" width="600" height="80" rx="14" fill="#FFFFFF" stroke="#E6E3DF"/></g>
+  <circle cx="240" cy="120" r="15" fill="#2B2930"/><text x="240" y="126" text-anchor="middle" font-size="15" font-weight="700" fill="#FFFFFF">1</text>
+  <text x="274" y="114" font-size="17.5" font-weight="650" fill="#1A1A1E">Internal approval · OSRB review</text>
+  <text x="274" y="140" font-size="13" fill="#7C7880">Get your org's approval, then request an OSRB review</text>
 
-  <line x1="500" y1="154" x2="500" y2="192" stroke="#9AA3AF" stroke-width="2" marker-end="url(#arr)"/>
+  <line x1="500" y1="160" x2="500" y2="196" stroke="#C6C1C8" stroke-width="2" marker-end="url(#ar)"/>
 
   <!-- 2 -->
-  <rect x="200" y="196" width="600" height="78" rx="12" fill="#F4F6F8" stroke="#D8DEE6" stroke-width="1.5"/>
-  <circle cx="238" cy="235" r="16" fill="#EA002C"/>
-  <text x="238" y="241" text-anchor="middle" font-size="17" font-weight="bold" fill="#ffffff">2</text>
-  <text x="272" y="228" font-size="19" font-weight="bold" fill="#1F2937">Check licenses</text>
-  <text x="272" y="254" font-size="14" fill="#6B7280">Check the model-weight license and dataset licenses separately</text>
+  <g filter="url(#c1)"><rect x="200" y="200" width="600" height="80" rx="14" fill="#FFFFFF" stroke="#E6E3DF"/></g>
+  <circle cx="240" cy="240" r="15" fill="#2B2930"/><text x="240" y="246" text-anchor="middle" font-size="15" font-weight="700" fill="#FFFFFF">2</text>
+  <text x="274" y="234" font-size="17.5" font-weight="650" fill="#1A1A1E">Check licenses</text>
+  <text x="274" y="260" font-size="13" fill="#7C7880">Check the model-weight and dataset licenses separately</text>
 
-  <!-- split -->
-  <line x1="500" y1="274" x2="500" y2="296" stroke="#9AA3AF" stroke-width="2"/>
-  <path d="M340,296 L660,296" stroke="#9AA3AF" stroke-width="2" fill="none"/>
-  <line x1="340" y1="296" x2="340" y2="330" stroke="#9AA3AF" stroke-width="2" marker-end="url(#arr)"/>
-  <line x1="660" y1="296" x2="660" y2="330" stroke="#9AA3AF" stroke-width="2" marker-end="url(#arr)"/>
-
-  <!-- parallel bracket label -->
-  <rect x="430" y="286" width="140" height="22" rx="11" fill="#F47725"/>
-  <text x="500" y="302" text-anchor="middle" font-size="13" font-weight="bold" fill="#ffffff">3  In parallel</text>
+  <!-- fork -->
+  <line x1="500" y1="280" x2="500" y2="300" stroke="#C6C1C8" stroke-width="2"/>
+  <path d="M320 322 H680" stroke="#C6C1C8" stroke-width="2" fill="none"/>
+  <line x1="320" y1="322" x2="320" y2="352" stroke="#C6C1C8" stroke-width="2" marker-end="url(#ar)"/>
+  <line x1="680" y1="322" x2="680" y2="352" stroke="#C6C1C8" stroke-width="2" marker-end="url(#ar)"/>
+  <rect x="422" y="300" width="156" height="24" rx="12" fill="#F1EFEC" stroke="#E2DED9"/>
+  <text x="500" y="316" text-anchor="middle" font-size="12.5" font-weight="700" fill="#3A373F">3 · In parallel</text>
 
   <!-- 3a -->
-  <rect x="150" y="334" width="380" height="86" rx="12" fill="#FFF6EE" stroke="#F47725" stroke-width="1.5"/>
-  <text x="176" y="366" font-size="18" font-weight="bold" fill="#1F2937">Pre-release checklist</text>
-  <text x="176" y="392" font-size="14" fill="#6B7280">Right to publish, licenses,</text>
-  <text x="176" y="410" font-size="14" fill="#6B7280">data and sensitive material</text>
-
+  <g filter="url(#c1)"><rect x="150" y="356" width="380" height="88" rx="14" fill="#FFFFFF" stroke="#E6E3DF"/></g>
+  <text x="176" y="390" font-size="16.5" font-weight="650" fill="#1A1A1E">Pre-release checklist</text>
+  <text x="176" y="415" font-size="13" fill="#7C7880">Right to publish, licenses,</text>
+  <text x="176" y="433" font-size="13" fill="#7C7880">data and sensitive material</text>
   <!-- 3b -->
-  <rect x="530" y="334" width="380" height="86" rx="12" fill="#FFF6EE" stroke="#F47725" stroke-width="1.5"/>
-  <text x="556" y="366" font-size="18" font-weight="bold" fill="#1F2937">Write the model card</text>
-  <text x="556" y="392" font-size="14" fill="#6B7280">Intended use, limits,</text>
-  <text x="556" y="410" font-size="14" fill="#6B7280">training data, evaluation</text>
+  <g filter="url(#c1)"><rect x="530" y="356" width="380" height="88" rx="14" fill="#FFFFFF" stroke="#E6E3DF"/></g>
+  <text x="556" y="390" font-size="16.5" font-weight="650" fill="#1A1A1E">Write the model card</text>
+  <text x="556" y="415" font-size="13" fill="#7C7880">Intended use, limits,</text>
+  <text x="556" y="433" font-size="13" fill="#7C7880">training data, evaluation</text>
 
   <!-- merge -->
-  <line x1="340" y1="420" x2="340" y2="442" stroke="#9AA3AF" stroke-width="2"/>
-  <line x1="660" y1="420" x2="660" y2="442" stroke="#9AA3AF" stroke-width="2"/>
-  <path d="M340,442 L660,442" stroke="#9AA3AF" stroke-width="2" fill="none"/>
-  <line x1="500" y1="442" x2="500" y2="474" stroke="#9AA3AF" stroke-width="2" marker-end="url(#arr)"/>
+  <line x1="320" y1="444" x2="320" y2="466" stroke="#C6C1C8" stroke-width="2"/>
+  <line x1="680" y1="444" x2="680" y2="466" stroke="#C6C1C8" stroke-width="2"/>
+  <path d="M320 466 H680" stroke="#C6C1C8" stroke-width="2" fill="none"/>
+  <line x1="500" y1="466" x2="500" y2="500" stroke="#C6C1C8" stroke-width="2" marker-end="url(#ar)"/>
 
   <!-- 4 -->
-  <rect x="200" y="478" width="600" height="78" rx="12" fill="#F4F6F8" stroke="#D8DEE6" stroke-width="1.5"/>
-  <circle cx="238" cy="517" r="16" fill="#EA002C"/>
-  <text x="238" y="523" text-anchor="middle" font-size="17" font-weight="bold" fill="#ffffff">4</text>
-  <text x="272" y="510" font-size="19" font-weight="bold" fill="#1F2937">Check documentation with an AI SBOM</text>
-  <text x="272" y="536" font-size="14" fill="#6B7280">Find gaps with BomLens and improve the model card (repeat)</text>
+  <g filter="url(#c1)"><rect x="200" y="504" width="600" height="80" rx="14" fill="#FFFFFF" stroke="#E6E3DF"/></g>
+  <circle cx="240" cy="544" r="15" fill="#2B2930"/><text x="240" y="550" text-anchor="middle" font-size="15" font-weight="700" fill="#FFFFFF">4</text>
+  <text x="274" y="538" font-size="17.5" font-weight="650" fill="#1A1A1E">Check documentation with an AI SBOM</text>
+  <text x="274" y="564" font-size="13" fill="#7C7880"><tspan fill="#EA002C" font-weight="700">BomLens</tspan> finds gaps to fill in the model card (repeat)</text>
 
-  <line x1="500" y1="556" x2="500" y2="594" stroke="#9AA3AF" stroke-width="2" marker-end="url(#arr)"/>
+  <line x1="500" y1="584" x2="500" y2="620" stroke="#C6C1C8" stroke-width="2" marker-end="url(#ar)"/>
 
   <!-- 5 -->
-  <rect x="200" y="598" width="600" height="78" rx="12" fill="#FFF1F3" stroke="#EA002C" stroke-width="1.5"/>
-  <circle cx="238" cy="637" r="16" fill="#EA002C"/>
-  <text x="238" y="643" text-anchor="middle" font-size="17" font-weight="bold" fill="#ffffff">5</text>
-  <text x="272" y="630" font-size="19" font-weight="bold" fill="#1F2937">Publish and operate</text>
-  <text x="272" y="656" font-size="14" fill="#6B7280">Finish the OSRB review with the results, then publish and operate</text>
+  <g filter="url(#c1)"><rect x="200" y="624" width="600" height="80" rx="14" fill="#FFFFFF" stroke="#E6E3DF"/></g>
+  <circle cx="240" cy="664" r="15" fill="#2B2930"/><text x="240" y="670" text-anchor="middle" font-size="15" font-weight="700" fill="#FFFFFF">5</text>
+  <text x="274" y="658" font-size="17.5" font-weight="650" fill="#1A1A1E">Publish and operate</text>
+  <text x="274" y="684" font-size="13" fill="#7C7880">Finish the OSRB review with the results, then publish and operate</text>
 
-  <text x="500" y="712" text-anchor="middle" font-size="13" fill="#9AA3AF">Shared steps follow the open source release process; this shows what differs for a model.</text>
+  <text x="500" y="732" text-anchor="middle" font-size="12" fill="#ABA6AE">Shared steps follow the open source release process; this shows what differs for a model.</text>
 </svg>
