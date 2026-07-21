@@ -45,6 +45,10 @@ separately.
 5. If you need to prepare for regulation, check your documentation with an [AI SBOM](ai-sbom/).
 6. Publish the repository and operate it (stage D of [the release process](../process/)).
 
+Stage D is written for source code going to GitHub. A model goes to your model development
+organization's Hugging Face account rather than a personal one; everything else about operating it
+is the same. Ask your organization's owner if you need access.
+
 ## Checking your model before you publish
 
 Work through the rights and data items on the [pre-release checklist](checklist/) first. A private
