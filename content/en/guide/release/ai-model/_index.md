@@ -60,11 +60,7 @@ Before releasing, you can check the model yourself while the repository is still
 model privately and run BomLens, the SBOM generator, with your own Hugging Face token (`HF_TOKEN`);
 it reports what is missing and how to fill it. Strengthen the model card with that result ahead of
 time, and the OSRB review has the documentation it needs and goes more smoothly. The command to run
-BomLens and how to read the result are in [AI SBOM](ai-sbom/).
-
-Scope the token to that single repository rather than one that opens your whole account. If your
-organization enforces a token approval policy, the token stays pending until an administrator
-approves it, so when you have a fixed release date, start the token request early.
+BomLens, how to prepare the token, and how to read the result are in [AI SBOM](ai-sbom/).
 
 ## Related pages
 

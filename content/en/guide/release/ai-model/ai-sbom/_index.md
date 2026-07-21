@@ -84,9 +84,12 @@ usage and how to read the reports are covered in the
 [BomLens AI model guide](https://sktelecom.github.io/bomlens/guides/ai-model/); this page does not
 repeat them.
 
-A private repository needs a token with read access. How to scope the token to a single repository
-and self-check before release is in
-[Releasing an AI model](../#checking-your-model-before-you-publish).
+A private repository needs a token with read access. How to pass it as `HF_TOKEN`, and what a gated
+repository additionally requires, are in
+[Private and gated models](https://sktelecom.github.io/bomlens/guides/ai-model/#private-and-gated-models).
+Scope the token to that single repository rather than one that opens your whole account, and if your
+organization enforces a token approval policy, an administrator has to approve it first, so start
+the token request early.
 
 You get:
 
