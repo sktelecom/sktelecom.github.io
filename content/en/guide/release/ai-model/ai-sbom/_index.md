@@ -122,10 +122,10 @@ move the verdict. Read the covered count and the gap count separately.
 
 - Gaps come in two kinds: those you close by writing in the model card, and those a person has to
   judge. Start with the first kind.
-- To see what the reports look like before running anything, open the
+- To see what a report looks like before running anything, open the
   [conformance report](https://sktelecom.github.io/bomlens/samples/aether-7b-5attn_conformance.html)
-  and the [AI compliance profile](https://sktelecom.github.io/bomlens/samples/aether-7b-5attn_ai-profile.html)
-  from a sample model scan.
+  from a sample model scan. It opens with coverage per cluster and the licences flagged for review,
+  then works down to the per-check verdicts.
 
 ## Related pages
 

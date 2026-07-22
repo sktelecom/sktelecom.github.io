@@ -118,9 +118,9 @@ SK텔레콤이 공개한 오픈소스인 [BomLens](https://github.com/sktelecom/
 - 비어 있는 항목은 두 종류로 나뉩니다. 모델 카드에 쓰면 채워지는 것과, 사람이 판단해야 하는
   것입니다. 앞의 것부터 메우시면 됩니다.
 - 보고서가 실제로 어떤 모습인지는 예시로 미리 볼 수 있습니다. 예시 모델을 스캔해 나온
-  [적합성 보고서](https://sktelecom.github.io/bomlens/ko/samples/aether-7b-5attn_conformance.html)와
-  [AI 준수 개요](https://sktelecom.github.io/bomlens/ko/samples/aether-7b-5attn_ai-profile.html)를
-  브라우저에서 그대로 열어 볼 수 있습니다.
+  [적합성 보고서](https://sktelecom.github.io/bomlens/ko/samples/aether-7b-5attn_conformance.html)를
+  브라우저에서 그대로 열어 볼 수 있습니다. 묶음별 충족 현황과 검토 대상 라이선스가 맨 위에,
+  항목별 판정이 그 아래에 나옵니다.
 
 ## 관련 문서
 
