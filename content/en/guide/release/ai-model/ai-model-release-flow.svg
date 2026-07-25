@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="748" viewBox="0 0 1000 748" font-family="'Apple SD Gothic Neo','Noto Sans CJK KR','Malgun Gothic',sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" width="860" height="760" viewBox="0 0 860 760" font-family="'Apple SD Gothic Neo','Noto Sans CJK KR','Malgun Gothic',sans-serif">
   <defs>
     <filter id="c1" x="-15%" y="-40%" width="130%" height="200%">
       <feDropShadow dx="0" dy="1.5" stdDeviation="3" flood-color="#111014" flood-opacity="0.09"/>
@@ -7,61 +7,61 @@
       <path d="M0,0 L7,3 L0,6 Z" fill="#9B96A0"/>
     </marker>
   </defs>
-  <rect width="1000" height="748" fill="#FFFFFF"/>
-  <text x="500" y="50" text-anchor="middle" font-size="26" font-weight="700" fill="#1A1A1E" letter-spacing="-0.3">How to release an AI model</text>
+  <rect width="860" height="760" fill="#FFFFFF"/>
+  <text x="430" y="44" text-anchor="middle" font-size="25" font-weight="700" fill="#1A1A1E" letter-spacing="-0.3">How to release an AI model</text>
 
   <!-- 1 -->
-  <g filter="url(#c1)"><rect x="200" y="80" width="600" height="80" rx="14" fill="#FFFFFF" stroke="#E6E3DF"/></g>
-  <circle cx="240" cy="120" r="15" fill="#2B2930"/><text x="240" y="126" text-anchor="middle" font-size="15" font-weight="700" fill="#FFFFFF">1</text>
-  <text x="274" y="114" font-size="17.5" font-weight="650" fill="#1A1A1E">Internal approval · OSRB review</text>
-  <text x="274" y="140" font-size="13" fill="#7C7880">Get your org's approval, then request an OSRB review</text>
+  <g filter="url(#c1)"><rect x="150" y="76" width="560" height="84" rx="14" fill="#FFFFFF" stroke="#E6E3DF"/></g>
+  <circle cx="190" cy="118" r="15" fill="#2B2930"/><text x="190" y="124" text-anchor="middle" font-size="15" font-weight="700" fill="#FFFFFF">1</text>
+  <text x="224" y="110" font-size="18" font-weight="650" fill="#1A1A1E">Internal approval · OSRB review</text>
+  <text x="224" y="138" font-size="15" fill="#7C7880">Get your org's approval, then request an OSRB review</text>
 
-  <line x1="500" y1="160" x2="500" y2="196" stroke="#C6C1C8" stroke-width="2" marker-end="url(#ar)"/>
+  <line x1="430" y1="160" x2="430" y2="192" stroke="#C6C1C8" stroke-width="2" marker-end="url(#ar)"/>
 
   <!-- 2 -->
-  <g filter="url(#c1)"><rect x="200" y="200" width="600" height="80" rx="14" fill="#FFFFFF" stroke="#E6E3DF"/></g>
-  <circle cx="240" cy="240" r="15" fill="#2B2930"/><text x="240" y="246" text-anchor="middle" font-size="15" font-weight="700" fill="#FFFFFF">2</text>
-  <text x="274" y="234" font-size="17.5" font-weight="650" fill="#1A1A1E">Check licenses</text>
-  <text x="274" y="260" font-size="13" fill="#7C7880">Check the model-weight and dataset licenses separately</text>
+  <g filter="url(#c1)"><rect x="150" y="196" width="560" height="84" rx="14" fill="#FFFFFF" stroke="#E6E3DF"/></g>
+  <circle cx="190" cy="238" r="15" fill="#2B2930"/><text x="190" y="244" text-anchor="middle" font-size="15" font-weight="700" fill="#FFFFFF">2</text>
+  <text x="224" y="230" font-size="18" font-weight="650" fill="#1A1A1E">Check licenses</text>
+  <text x="224" y="258" font-size="15" fill="#7C7880">Check the model-weight and dataset licenses separately</text>
 
   <!-- fork -->
-  <line x1="500" y1="280" x2="500" y2="300" stroke="#C6C1C8" stroke-width="2"/>
-  <path d="M320 322 H680" stroke="#C6C1C8" stroke-width="2" fill="none"/>
-  <line x1="320" y1="322" x2="320" y2="352" stroke="#C6C1C8" stroke-width="2" marker-end="url(#ar)"/>
-  <line x1="680" y1="322" x2="680" y2="352" stroke="#C6C1C8" stroke-width="2" marker-end="url(#ar)"/>
-  <rect x="422" y="300" width="156" height="24" rx="12" fill="#F1EFEC" stroke="#E2DED9"/>
-  <text x="500" y="316" text-anchor="middle" font-size="12.5" font-weight="700" fill="#3A373F">3 · In parallel</text>
+  <line x1="430" y1="280" x2="430" y2="298" stroke="#C6C1C8" stroke-width="2"/>
+  <rect x="365" y="298" width="130" height="26" rx="13" fill="#F1EFEC" stroke="#E2DED9"/>
+  <text x="430" y="315" text-anchor="middle" font-size="13.5" font-weight="700" fill="#3A373F">3 · In parallel</text>
+  <path d="M282 324 H578" stroke="#C6C1C8" stroke-width="2" fill="none"/>
+  <line x1="282" y1="324" x2="282" y2="348" stroke="#C6C1C8" stroke-width="2" marker-end="url(#ar)"/>
+  <line x1="578" y1="324" x2="578" y2="348" stroke="#C6C1C8" stroke-width="2" marker-end="url(#ar)"/>
 
   <!-- 3a -->
-  <g filter="url(#c1)"><rect x="150" y="356" width="380" height="88" rx="14" fill="#FFFFFF" stroke="#E6E3DF"/></g>
-  <text x="176" y="390" font-size="16.5" font-weight="650" fill="#1A1A1E">Pre-release checklist</text>
-  <text x="176" y="415" font-size="13" fill="#7C7880">Right to publish, licenses,</text>
-  <text x="176" y="433" font-size="13" fill="#7C7880">data and sensitive material</text>
+  <g filter="url(#c1)"><rect x="150" y="352" width="265" height="92" rx="14" fill="#FFFFFF" stroke="#E6E3DF"/></g>
+  <text x="174" y="384" font-size="17" font-weight="650" fill="#1A1A1E">Pre-release checklist</text>
+  <text x="174" y="410" font-size="15" fill="#7C7880">Right to publish, licenses,</text>
+  <text x="174" y="430" font-size="15" fill="#7C7880">data and sensitive material</text>
   <!-- 3b -->
-  <g filter="url(#c1)"><rect x="530" y="356" width="380" height="88" rx="14" fill="#FFFFFF" stroke="#E6E3DF"/></g>
-  <text x="556" y="390" font-size="16.5" font-weight="650" fill="#1A1A1E">Write the model card</text>
-  <text x="556" y="415" font-size="13" fill="#7C7880">Intended use, limits,</text>
-  <text x="556" y="433" font-size="13" fill="#7C7880">training data, evaluation</text>
+  <g filter="url(#c1)"><rect x="445" y="352" width="265" height="92" rx="14" fill="#FFFFFF" stroke="#E6E3DF"/></g>
+  <text x="469" y="384" font-size="17" font-weight="650" fill="#1A1A1E">Write the model card</text>
+  <text x="469" y="410" font-size="15" fill="#7C7880">Intended use, limits,</text>
+  <text x="469" y="430" font-size="15" fill="#7C7880">training data, evaluation</text>
 
   <!-- merge -->
-  <line x1="320" y1="444" x2="320" y2="466" stroke="#C6C1C8" stroke-width="2"/>
-  <line x1="680" y1="444" x2="680" y2="466" stroke="#C6C1C8" stroke-width="2"/>
-  <path d="M320 466 H680" stroke="#C6C1C8" stroke-width="2" fill="none"/>
-  <line x1="500" y1="466" x2="500" y2="500" stroke="#C6C1C8" stroke-width="2" marker-end="url(#ar)"/>
+  <line x1="282" y1="444" x2="282" y2="468" stroke="#C6C1C8" stroke-width="2"/>
+  <line x1="578" y1="444" x2="578" y2="468" stroke="#C6C1C8" stroke-width="2"/>
+  <path d="M282 468 H578" stroke="#C6C1C8" stroke-width="2" fill="none"/>
+  <line x1="430" y1="468" x2="430" y2="500" stroke="#C6C1C8" stroke-width="2" marker-end="url(#ar)"/>
 
   <!-- 4 -->
-  <g filter="url(#c1)"><rect x="200" y="504" width="600" height="80" rx="14" fill="#FFFFFF" stroke="#E6E3DF"/></g>
-  <circle cx="240" cy="544" r="15" fill="#2B2930"/><text x="240" y="550" text-anchor="middle" font-size="15" font-weight="700" fill="#FFFFFF">4</text>
-  <text x="274" y="538" font-size="17.5" font-weight="650" fill="#1A1A1E">Check documentation with an AI SBOM</text>
-  <text x="274" y="564" font-size="13" fill="#7C7880"><tspan fill="#EA002C" font-weight="700">BomLens</tspan> finds gaps to fill in the model card (repeat)</text>
+  <g filter="url(#c1)"><rect x="150" y="504" width="560" height="84" rx="14" fill="#FFFFFF" stroke="#E6E3DF"/></g>
+  <circle cx="190" cy="546" r="15" fill="#2B2930"/><text x="190" y="552" text-anchor="middle" font-size="15" font-weight="700" fill="#FFFFFF">4</text>
+  <text x="224" y="538" font-size="18" font-weight="650" fill="#1A1A1E">Check documentation with an AI SBOM</text>
+  <text x="224" y="566" font-size="15" fill="#7C7880"><tspan fill="#EA002C" font-weight="700">BomLens</tspan> finds gaps to fill in the model card (repeat)</text>
 
-  <line x1="500" y1="584" x2="500" y2="620" stroke="#C6C1C8" stroke-width="2" marker-end="url(#ar)"/>
+  <line x1="430" y1="588" x2="430" y2="620" stroke="#C6C1C8" stroke-width="2" marker-end="url(#ar)"/>
 
   <!-- 5 -->
-  <g filter="url(#c1)"><rect x="200" y="624" width="600" height="80" rx="14" fill="#FFFFFF" stroke="#E6E3DF"/></g>
-  <circle cx="240" cy="664" r="15" fill="#2B2930"/><text x="240" y="670" text-anchor="middle" font-size="15" font-weight="700" fill="#FFFFFF">5</text>
-  <text x="274" y="658" font-size="17.5" font-weight="650" fill="#1A1A1E">Publish and operate</text>
-  <text x="274" y="684" font-size="13" fill="#7C7880">Finish the OSRB review with the results, then publish and operate</text>
+  <g filter="url(#c1)"><rect x="150" y="624" width="560" height="84" rx="14" fill="#FFFFFF" stroke="#E6E3DF"/></g>
+  <circle cx="190" cy="666" r="15" fill="#2B2930"/><text x="190" y="672" text-anchor="middle" font-size="15" font-weight="700" fill="#FFFFFF">5</text>
+  <text x="224" y="658" font-size="18" font-weight="650" fill="#1A1A1E">Publish and operate</text>
+  <text x="224" y="686" font-size="15" fill="#7C7880">Finish the OSRB review with the results, then publish and operate</text>
 
-  <text x="500" y="732" text-anchor="middle" font-size="12" fill="#ABA6AE">Shared steps follow the open source release process; this shows what differs for a model.</text>
+  <text x="430" y="738" text-anchor="middle" font-size="13.5" fill="#ABA6AE">Shared steps follow the open source release process; this shows what differs for a model.</text>
 </svg>
