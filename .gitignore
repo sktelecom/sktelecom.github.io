@@ -10,3 +10,6 @@
 *.tmp
 *.bak
 /static/slides/
+.env
+.env.example
+.ko-style-baseline.json
