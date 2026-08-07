@@ -53,6 +53,9 @@
   "optionalDependencies": {
     "npm-check-updates": "^22.2.9"
   },
+  "overrides": {
+    "adm-zip": "^0.6.0"
+  },
   "engines": {
     "node": ">=22"
   },
