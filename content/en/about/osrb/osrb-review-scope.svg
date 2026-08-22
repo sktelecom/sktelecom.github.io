@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="860" height="270" viewBox="0 0 860 270" font-family="system-ui,-apple-system,'Segoe UI',sans-serif">
+  <defs>
+    <filter id="cs" x="-15%" y="-40%" width="130%" height="200%">
+      <feDropShadow dx="0" dy="1.5" stdDeviation="3" flood-color="#111014" flood-opacity="0.09"/>
+    </filter>
+    <marker id="ar" markerWidth="9" markerHeight="9" refX="6.5" refY="3" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L7,3 L0,6 Z" fill="#9B96A0"/>
+    </marker>
+  </defs>
+  <rect width="860" height="270" fill="#FFFFFF"/>
+
+  <!-- top: final decision -->
+  <g filter="url(#cs)"><rect x="310" y="14" width="240" height="46" rx="12" fill="#F7F6F4" stroke="#1A1A1E" stroke-width="1.5"/></g>
+  <text x="430" y="43" text-anchor="middle" font-size="16" font-weight="700" fill="#1A1A1E">OSRB Final Approval</text>
+
+  <!-- fork lines down to 3 cards -->
+  <line x1="430" y1="60" x2="430" y2="76" stroke="#C6C1C8" stroke-width="2"/>
+  <line x1="150" y1="76" x2="710" y2="76" stroke="#C6C1C8" stroke-width="2"/>
+  <line x1="150" y1="76" x2="150" y2="92" stroke="#C6C1C8" stroke-width="2" marker-end="url(#ar)"/>
+  <line x1="430" y1="76" x2="430" y2="92" stroke="#C6C1C8" stroke-width="2" marker-end="url(#ar)"/>
+  <line x1="710" y1="76" x2="710" y2="92" stroke="#C6C1C8" stroke-width="2" marker-end="url(#ar)"/>
+
+  <!-- card 1: license -->
+  <g filter="url(#cs)"><rect x="30" y="96" width="240" height="160" rx="14" fill="#FFFFFF" stroke="#E6E3DF"/></g>
+  <text x="54" y="130" font-size="17" font-weight="700" fill="#1A1A1E">License Review</text>
+  <text x="54" y="160" font-size="13" fill="#7C7880">Check license type</text>
+  <text x="54" y="182" font-size="13" fill="#7C7880">Compatibility with existing licenses</text>
+  <text x="54" y="204" font-size="13" fill="#7C7880">Evaluate license risk</text>
+
+  <!-- card 2: security -->
+  <g filter="url(#cs)"><rect x="310" y="96" width="240" height="160" rx="14" fill="#FFFFFF" stroke="#E6E3DF"/></g>
+  <text x="334" y="130" font-size="17" font-weight="700" fill="#1A1A1E">Security Review</text>
+  <text x="334" y="160" font-size="13" fill="#7C7880">Pre-check vulnerabilities</text>
+  <text x="334" y="182" font-size="13" fill="#7C7880">Define response measures</text>
+  <text x="334" y="204" font-size="13" fill="#7C7880">Confirm security standards</text>
+
+  <!-- card 3: IPR -->
+  <g filter="url(#cs)"><rect x="590" y="96" width="240" height="160" rx="14" fill="#FFFFFF" stroke="#E6E3DF"/></g>
+  <text x="614" y="130" font-size="17" font-weight="700" fill="#1A1A1E">IP Review</text>
+  <text x="614" y="160" font-size="13" fill="#7C7880">Patent · trademark · copyright</text>
+  <text x="614" y="182" font-size="13" fill="#7C7880">Protect enterprise IP</text>
+  <text x="614" y="204" font-size="13" fill="#7C7880">Assess legal risk</text>
+</svg>

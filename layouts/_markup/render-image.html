@@ -10,6 +10,6 @@
 {{- end -}}
 {{- $eager := eq .Ordinal 0 -}}
 <img src="{{ $dest | safeURL }}" alt="{{ .Text }}"
-  {{- with $img }}{{ if and .Width .Height (ne .MediaType.SubType "svg") }} width="{{ .Width }}" height="{{ .Height }}"{{ end }}{{ end }}
+  {{- with $img }}{{ if ne .MediaType.SubType "svg" }}{{ if and .Width .Height }} width="{{ .Width }}" height="{{ .Height }}"{{ end }}{{ end }}{{ end }}
   {{- with .Title }} title="{{ . }}"{{ end }}
   {{- if $eager }} loading="eager" fetchpriority="high"{{ else }} loading="lazy"{{ end }} decoding="async">
