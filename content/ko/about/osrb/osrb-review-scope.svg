@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="860" height="270" viewBox="0 0 860 270" font-family="'Apple SD Gothic Neo','Noto Sans CJK KR','Malgun Gothic',sans-serif">
+  <defs>
+    <filter id="cs" x="-15%" y="-40%" width="130%" height="200%">
+      <feDropShadow dx="0" dy="1.5" stdDeviation="3" flood-color="#111014" flood-opacity="0.09"/>
+    </filter>
+    <marker id="ar" markerWidth="9" markerHeight="9" refX="6.5" refY="3" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L7,3 L0,6 Z" fill="#9B96A0"/>
+    </marker>
+  </defs>
+  <rect width="860" height="270" fill="#FFFFFF"/>
+
+  <!-- top: final decision -->
+  <g filter="url(#cs)"><rect x="330" y="14" width="200" height="46" rx="12" fill="#F7F6F4" stroke="#1A1A1E" stroke-width="1.5"/></g>
+  <text x="430" y="43" text-anchor="middle" font-size="16" font-weight="700" fill="#1A1A1E">OSRB 최종 승인</text>
+
+  <!-- fork lines down to 3 cards -->
+  <line x1="430" y1="60" x2="430" y2="76" stroke="#C6C1C8" stroke-width="2"/>
+  <line x1="150" y1="76" x2="710" y2="76" stroke="#C6C1C8" stroke-width="2"/>
+  <line x1="150" y1="76" x2="150" y2="92" stroke="#C6C1C8" stroke-width="2" marker-end="url(#ar)"/>
+  <line x1="430" y1="76" x2="430" y2="92" stroke="#C6C1C8" stroke-width="2" marker-end="url(#ar)"/>
+  <line x1="710" y1="76" x2="710" y2="92" stroke="#C6C1C8" stroke-width="2" marker-end="url(#ar)"/>
+
+  <!-- card 1: 라이선스 -->
+  <g filter="url(#cs)"><rect x="30" y="96" width="240" height="160" rx="14" fill="#FFFFFF" stroke="#E6E3DF"/></g>
+  <text x="54" y="130" font-size="17" font-weight="700" fill="#1A1A1E">라이선스 심의</text>
+  <text x="54" y="160" font-size="13.5" fill="#7C7880">라이선스 유형 확인</text>
+  <text x="54" y="182" font-size="13.5" fill="#7C7880">기존 라이선스와 호환성</text>
+  <text x="54" y="204" font-size="13.5" fill="#7C7880">라이선스 위험도 평가</text>
+
+  <!-- card 2: 보안 -->
+  <g filter="url(#cs)"><rect x="310" y="96" width="240" height="160" rx="14" fill="#FFFFFF" stroke="#E6E3DF"/></g>
+  <text x="334" y="130" font-size="17" font-weight="700" fill="#1A1A1E">보안 검토</text>
+  <text x="334" y="160" font-size="13.5" fill="#7C7880">보안 취약점 사전 검토</text>
+  <text x="334" y="182" font-size="13.5" fill="#7C7880">취약점 대응 방안 수립</text>
+  <text x="334" y="204" font-size="13.5" fill="#7C7880">보안 기준 충족 판단</text>
+
+  <!-- card 3: IPR -->
+  <g filter="url(#cs)"><rect x="590" y="96" width="240" height="160" rx="14" fill="#FFFFFF" stroke="#E6E3DF"/></g>
+  <text x="614" y="130" font-size="17" font-weight="700" fill="#1A1A1E">지식재산권(IPR) 검토</text>
+  <text x="614" y="160" font-size="13.5" fill="#7C7880">특허 · 상표 · 저작권 심의</text>
+  <text x="614" y="182" font-size="13.5" fill="#7C7880">기업 지식재산권 보호</text>
+  <text x="614" y="204" font-size="13.5" fill="#7C7880">법적 리스크 판단</text>
+</svg>
