@@ -16,6 +16,8 @@ SK Telecom has established a world-class open source management system. To maxim
 
 This governance approach transcends mere regulatory compliance and instead pursues a balanced approach where developers can freely utilize open source while the company manages its risks effectively. Through clear policies, transparent processes, and professional support, SK Telecom fosters a symbiotic relationship between corporate development culture and the global open source community.
 
+![How OSRB and OSPO share responsibility](about-governance.svg "OSRB handles decision-making, OSPO handles operations, working together")
+
 ## OSRB (Open Source Review Board)
 
 OSRB (Open Source Review Board) is the highest decision-making body in SK Telecom's open source governance. Comprising leaders from the technology, legal, infrastructure, and security divisions, OSRB establishes corporate open source policies and makes critical risk-related decisions.

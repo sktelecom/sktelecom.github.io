@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="860" height="190" viewBox="0 0 860 190" font-family="'Apple SD Gothic Neo','Noto Sans CJK KR','Malgun Gothic',sans-serif">
+  <defs>
+    <filter id="cs" x="-15%" y="-40%" width="130%" height="200%">
+      <feDropShadow dx="0" dy="1.5" stdDeviation="3" flood-color="#111014" flood-opacity="0.09"/>
+    </filter>
+    <marker id="ar" markerWidth="9" markerHeight="9" refX="6.5" refY="3" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L7,3 L0,6 Z" fill="#9B96A0"/>
+    </marker>
+    <marker id="arS" markerWidth="9" markerHeight="9" refX="0.5" refY="3" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M7,0 L0,3 L7,6 Z" fill="#9B96A0"/>
+    </marker>
+  </defs>
+  <rect width="860" height="190" fill="#FFFFFF"/>
+
+  <!-- OSRB -->
+  <g filter="url(#cs)"><rect x="30" y="25" width="350" height="140" rx="14" fill="#FFFFFF" stroke="#E6E3DF"/></g>
+  <text x="54" y="63" font-size="20" font-weight="700" fill="#1A1A1E">OSRB</text>
+  <text x="54" y="83" font-size="13" fill="#7C7880">의사결정 조직</text>
+  <circle cx="58" cy="103" r="2.5" fill="#9B96A0"/><text x="70" y="108" font-size="14" fill="#1A1A1E">정책 수립</text>
+  <circle cx="58" cy="127" r="2.5" fill="#9B96A0"/><text x="70" y="132" font-size="14" fill="#1A1A1E">리스크 심의</text>
+  <circle cx="58" cy="151" r="2.5" fill="#9B96A0"/><text x="70" y="156" font-size="14" fill="#1A1A1E">최종 승인</text>
+
+  <!-- OSPO -->
+  <g filter="url(#cs)"><rect x="480" y="25" width="350" height="140" rx="14" fill="#FFFFFF" stroke="#E6E3DF"/></g>
+  <text x="504" y="63" font-size="20" font-weight="700" fill="#1A1A1E">OSPO</text>
+  <text x="504" y="83" font-size="13" fill="#7C7880">운영 조직</text>
+  <circle cx="508" cy="103" r="2.5" fill="#9B96A0"/><text x="520" y="108" font-size="14" fill="#1A1A1E">정책 실행</text>
+  <circle cx="508" cy="127" r="2.5" fill="#9B96A0"/><text x="520" y="132" font-size="14" fill="#1A1A1E">개발자 지원</text>
+  <circle cx="508" cy="151" r="2.5" fill="#9B96A0"/><text x="520" y="156" font-size="14" fill="#1A1A1E">가이드 제공</text>
+
+  <!-- collaboration link -->
+  <text x="430" y="80" text-anchor="middle" font-size="12.5" fill="#7C7880">협력</text>
+  <line x1="392" y1="95" x2="468" y2="95" stroke="#C6C1C8" stroke-width="2" marker-end="url(#ar)" marker-start="url(#arS)"/>
+</svg>
