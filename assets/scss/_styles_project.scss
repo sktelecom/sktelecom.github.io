@@ -788,20 +788,15 @@ a.skt-card:hover,
   padding-bottom: 4rem;
 }
 
-/* alert/callout — KWG식 좌측 보더 + 연배경. 박스·본문은 무채색, 종류 구분은 좌측 보더색.
+/* alert/callout — 박스·본문은 무채색, 테두리는 전체 균일(좌측 강조선 없음).
    HTML 구조: .alert > .alert-heading(.h4) + p/ul  (Docsy alert 숏코드) */
 .alert {
   padding: 1rem 1.25rem;
   background: var(--skt-surface-subtle);
   border: 1px solid var(--skt-border);
-  border-left: 3px solid var(--skt-accent);   /* 좌측 보더 = SK Red 액센트(다크 자동 보정) */
   border-radius: $border-radius-lg;
   color: var(--skt-text);
 }
-/* 종류 구분은 좌측 보더색으로(아이콘 대체). info/기본은 무채색 유지 */
-.alert-warning { border-left-color: #{$skt-orange}; }
-.alert-danger  { border-left-color: #{$skt-red}; }
-.alert-success { border-left-color: #{$skt-green}; }
 .alert .alert-heading {
   font-size: 1rem;
   font-weight: 600;
