@@ -16,7 +16,7 @@
     "_commit:public": "HASH=$(git rev-parse --short main); cd public && git add -A && git commit -m \"Site at $HASH\"",
     "_diff:check": "git diff --name-only --exit-code",
     "_fix:permissions": "chmod -R u+w public/* 2>/dev/null || true",
-    "_get:docsy": "hugo mod get github.com/google/docsy@v$npm_package_version",
+    "_get:docsy": "hugo mod get github.com/google/docsy/theme@v$npm_package_version",
     "_hugo-dev": "npm run _hugo -- -e dev -DFE",
     "_hugo": "hugo --cleanDestinationDir",
     "_local": "npx cross-env HUGO_MODULE_WORKSPACE=docsy.work",
@@ -44,7 +44,9 @@
     "update:packages": "npx npm-check-updates -u"
   },
   "devDependencies": {
+    "@fortawesome/fontawesome-free": "6.7.2",
     "autoprefixer": "^10.5.4",
+    "bootstrap": "5.3.8",
     "cross-env": "^10.1.0",
     "hugo-extended": "0.164.0",
     "postcss-cli": "^11.0.1",
