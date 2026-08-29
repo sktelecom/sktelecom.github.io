@@ -20,6 +20,21 @@
     document.body.insertBefore(skip, document.body.firstChild);
   }
 
+  // 0-1) 좌측 사이드바·목차 <nav>에 aria-label 부여 — Docsy 원본은 breadcrumb에만
+  // 라벨을 붙여 스크린리더가 이 둘을 구분 없이 "탐색"으로만 읽는다. 두 요소 모두
+  // Docsy가 생성하는 마크업이라(레이아웃 전체를 포크하지 않고) 여기서 속성만 보강한다.
+  var sidebarNav = document.querySelector(".td-sidebar-nav");
+  if (sidebarNav && !sidebarNav.hasAttribute("aria-label")) {
+    sidebarNav.setAttribute(
+      "aria-label",
+      isEn ? "Sidebar navigation" : "좌측 사이드바 메뉴"
+    );
+  }
+  var tocNav = document.querySelector("#TableOfContents");
+  if (tocNav && !tocNav.hasAttribute("aria-label")) {
+    tocNav.setAttribute("aria-label", isEn ? "Table of contents" : "목차");
+  }
+
   // 1) 스크롤 진행 바 (상단 고정, 액센트색)
   var bar = document.createElement("div");
   bar.className = "skt-progress";

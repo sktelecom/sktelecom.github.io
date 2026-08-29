@@ -1,0 +1,54 @@
+<!doctype html>
+<html itemscope itemtype="http://schema.org/WebPage"
+    {{- with .Site.Language.Direction }} dir="{{ . }}" {{- end -}}
+    {{ with .Site.Language.Name }} lang="{{ . }}" {{- end }} {{/**/ -}}
+    class="no-js"
+    {{- $darkMode := partialCached "dark-mode-config.html" "dark-mode-global" -}}
+    {{- if $darkMode.enable }} data-theme-init{{ end }}>
+  <head>
+    {{ partial "head.html" . }}
+  </head>
+  <body class="td-{{ .Kind }} td-blog {{- with .Page.Params.body_class }} {{ . }}{{ end }}">
+    <header>
+      {{ partial "navbar.html" . }}
+    </header>
+    <div class="container-fluid td-outer">
+      {{/*
+        <!--
+        There a bug that causes Hugo to escape the scrollspy attributes.
+        FIXME: Hard coding the scrollspy attributes for now.
+         -->
+        <div class="td-main" {{- partialCached "td/scrollspy-attr.txt" . .Section | safeHTMLAttr }}>
+      */ -}}
+      {{ $attr := ` data-bs-spy="scroll" data-bs-target=".td-toc" data-bs-root-margin="0px 0px -10%"` -}}
+      <div class="td-main" {{- $attr | safeHTMLAttr }}>
+        <div class="row flex-xl-nowrap">
+          <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
+            {{ partial "sidebar.html" . }}
+          </aside>
+          {{/* Docsy 원본 오버라이드 — 원래 순서(page-meta-links → toc → taxonomy_terms_clouds)는
+               일반 방문자에게 무의미한 기여자용 링크가 목차보다 먼저 나온다. 목차를 맨 위로,
+               태그/카테고리(실제 콘텐츠 메타)를 중간에, 기여자용 링크는 맨 아래로 내린다. */ -}}
+          <aside class="td-sidebar-toc">
+            {{ partial "toc.html" . }}
+            {{ partial "taxonomy_terms_clouds.html" . }}
+            {{ partial "page-meta-links.html" . }}
+          </aside>
+          <main class="col-12 col-md-9 col-xl-8 ps-md-5 pe-md-4" role="main">
+            {{ with .CurrentSection.OutputFormats.Get "rss" -}}
+            <a class="td-rss-button" title="RSS" href="{{ .RelPermalink | safeURL }}" target="_blank" rel="noopener">
+              <i class="fa-solid fa-rss" aria-hidden="true"></i>
+            </a>
+            {{ end -}}
+            {{ if not (.Param "ui.breadcrumb_disable") -}}
+              {{ partial "breadcrumb.html" . -}}
+            {{ end -}}
+            {{ block "main" . }}{{ end }}
+          </main>
+        </div>
+      </div>
+      {{ partial "footer.html" . }}
+    </div>
+    {{ partial "scripts.html" . }}
+  </body>
+</html>

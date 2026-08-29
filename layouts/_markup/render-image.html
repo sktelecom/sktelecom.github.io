@@ -1,6 +1,6 @@
-{{- /* 이미지 렌더 훅 — 본문 마크다운 이미지에 치수·디코딩·로딩 힌트를 부여해
-       CLS/LCP를 개선한다. 첫 이미지(.Ordinal 0)는 LCP 후보로 보고 eager+high,
-       나머지는 lazy. 내부 번들 이미지면 width/height 추출, 외부 URL은 생략. */ -}}
+{{- /* 이미지 렌더 훅 — 번들 PNG/JPEG는 최대 폭 제한 + WebP 변환으로 전송량을 줄이고,
+       치수·디코딩·로딩 힌트로 CLS/LCP를 개선한다. 첫 이미지(.Ordinal 0)는 LCP 후보로 보고
+       eager+high, 나머지는 lazy. SVG·GIF(애니메이션 보존)·외부 URL은 원본을 그대로 쓴다. */ -}}
 {{- $dest := .Destination -}}
 {{- $img := "" -}}
 {{- if not (strings.HasPrefix $dest "http") -}}
@@ -9,7 +9,25 @@
   {{- if not $img -}}{{- with resources.Get $path -}}{{- $img = . -}}{{- end -}}{{- end -}}
 {{- end -}}
 {{- $eager := eq .Ordinal 0 -}}
-<img src="{{ $dest | safeURL }}" alt="{{ .Text }}"
-  {{- with $img }}{{ if ne .MediaType.SubType "svg" }}{{ if and .Width .Height }} width="{{ .Width }}" height="{{ .Height }}"{{ end }}{{ end }}{{ end }}
+{{- $maxWidth := 1600 -}}
+{{- $src := $dest -}}
+{{- $width := "" -}}
+{{- $height := "" -}}
+{{- with $img -}}
+  {{- $subType := .MediaType.SubType -}}
+  {{- if or (eq $subType "png") (eq $subType "jpeg") -}}
+    {{- $width = .Width -}}
+    {{- $height = .Height -}}
+    {{- $targetW := $maxWidth -}}
+    {{- if lt .Width $maxWidth -}}{{- $targetW = .Width -}}{{- end -}}
+    {{- $resized := .Resize (printf "%dx webp q82" $targetW) -}}
+    {{- $src = $resized.RelPermalink -}}
+  {{- else if and (ne $subType "svg") .Width .Height -}}
+    {{- $width = .Width -}}
+    {{- $height = .Height -}}
+  {{- end -}}
+{{- end -}}
+<img src="{{ $src | safeURL }}" alt="{{ .Text }}"
+  {{- if and $width $height }} width="{{ $width }}" height="{{ $height }}"{{ end }}
   {{- with .Title }} title="{{ . }}"{{ end }}
   {{- if $eager }} loading="eager" fetchpriority="high"{{ else }} loading="lazy"{{ end }} decoding="async">

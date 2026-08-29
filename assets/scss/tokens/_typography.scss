@@ -1,7 +1,26 @@
 /*
  * 타이포그래피 토큰 — 영문 Roboto + 한글 Pretendard (KWG 정렬).
- * 웹폰트는 CDN으로 로드한다(layouts/partials/hooks/head-end.html).
+ * Roboto·JetBrains Mono는 로컬(static/fonts, 이 파일의 @font-face)에서,
+ * 큰 한글 가변폰트인 Pretendard는 CDN 동적 서브셋으로 로드한다
+ * (layouts/partials/hooks/head-end.html).
  */
+
+// Roboto·JetBrains Mono — Google Fonts latin 서브셋 가변폰트를 자체 호스팅.
+// 외부 요청(fonts.googleapis.com/fonts.gstatic.com)을 없애 렌더 차단을 줄인다.
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url('/fonts/roboto-latin-var.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400 500;
+  font-display: swap;
+  src: url('/fonts/jetbrains-mono-latin-var.woff2') format('woff2');
+}
 
 // 영문=Roboto, 한글=Pretendard 폴백 (같은 스택 내에서 글리프별 자동 폴백)
 $geist:

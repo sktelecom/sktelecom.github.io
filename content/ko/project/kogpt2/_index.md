@@ -205,7 +205,7 @@ while True:
 ## 관련 프로젝트
 * [KoBERT](../kobert/) - 한국어 BERT
 * [KoBART](../kobart/) - 한국어 BART  
-* [A.X LLM](../ax-llm/) - 최신 한국어 LLM
+* [A.X LLM](../axllm/) - 최신 한국어 LLM
 
 
 

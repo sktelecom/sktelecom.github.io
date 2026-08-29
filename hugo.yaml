@@ -117,7 +117,7 @@ params:
   github_repo: https://github.com/sktelecom/sktelecom.github.io
 
   # An optional link to a related project repo. For example, the sibling repository where your product code lives.
-  github_project_repo: https://github.com/sktelecom
+  # 이 사이트는 문서 저장소가 곧 프로젝트 저장소이므로("Create documentation issue"와 중복) 비워둔다.
 
   # Specify a value here if your content directory is not in your repo's root directory
   # github_subdir: ""
@@ -136,8 +136,10 @@ params:
   prism_syntax_highlighting: false
 
   copyright:
+    # 코드는 Apache-2.0, 콘텐츠는 CC BY 4.0 (footer_all_rights_reserved는 i18n에서 비워
+    # "All Rights Reserved"와의 모순을 없앴으므로 여기 끝에 구분자(|)를 남기지 않는다)
     authors:
-      SK Telecom | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0) |
+      SK Telecom | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0)
     from_year: 2020
 
   # User interface configuration
@@ -150,7 +152,7 @@ params:
     navbar_translucent_over_cover_disable: false
 
     # Enable to show the side bar menu in its compact state.
-    sidebar_menu_compact: trne
+    sidebar_menu_compact: true
     ul_show: 2
     # Set to true to hide the sidebar search box (the top nav search box will still be displayed if search is enabled)
     sidebar_search_disable: false

@@ -1,9 +1,9 @@
-{{/* 웹폰트 — 영문·숫자 Roboto / 한글 Pretendard / 코드 JetBrains Mono.
-     폰트 스택은 assets/scss/tokens/_typography.scss 에서 지정한다. */}}
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+{{/* 웹폰트 — 영문·숫자 Roboto / 코드 JetBrains Mono는 자체 호스팅(@font-face는
+     assets/scss/tokens/_typography.scss), 큰 한글 가변폰트인 Pretendard만 CDN
+     동적 서브셋으로 로드해 외부 렌더 차단 요청을 최소화한다. */}}
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="preload" href="/fonts/roboto-latin-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/jetbrains-mono-latin-var.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 
 {{/* 스크롤 리빌 게이트 — paint 전에 html.js-reveal 을 부여해 FOUC 방지.
