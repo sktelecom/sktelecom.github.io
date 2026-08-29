@@ -1,5 +1,15 @@
 # UI strings. Buttons and similar.
 
+# Accessibility — labels distinguishing the page's multiple <nav> landmarks for
+# screen readers. Upstream Docsy only labels breadcrumb; these cover the rest
+# (main menu, left sidebar, table of contents).
+[a11y_nav_main]
+other = "Main navigation"
+[a11y_nav_sidebar]
+other = "Sidebar navigation"
+[a11y_nav_toc]
+other = "Table of contents"
+
 [ui_pager_prev]
 other = "Previous"
 
@@ -20,9 +30,10 @@ other = "in"
 [ui_all]
 other = "all"
 
-# Footer text
+# Footer text — content is published under CC BY 4.0, so leave this empty to avoid
+# contradicting it (footer/copyright.html wraps it in "with" and omits it when empty)
 [footer_all_rights_reserved]
-other = "All Rights Reserved"
+other = ""
 
 [footer_privacy_policy]
 other = "Privacy Policy"

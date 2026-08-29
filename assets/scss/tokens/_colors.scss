@@ -34,5 +34,6 @@ $skt-gradient: linear-gradient(135deg, #{$skt-gray-900} 0%, #{$skt-gray-700} 100
 
 // ── 액센트 = SK Red. 모노크롬 기조를 깨지 않도록 히어로 글로우 등
 //    "핵심 1~2지점"에만 저채도로 절제해서 쓴다. ──
-$skt-accent:      #EA002C;   // SK Red (PANTONE 186C)
+$skt-accent:      #EA002C;   // SK Red (PANTONE 186C) — 테두리·배지 등 비텍스트 용도
 $skt-accent-dark: #ff4d6a;   // 다크 배경 위 가독성 보정용
+$skt-accent-link: #D9002A;   // 흰 배경 본문 링크 전용 — 브랜드 레드를 살짝 어둡게 해 WCAG AA(4.5:1) 확보

@@ -1,0 +1,99 @@
+{{/* Docsy 기본 navbar.html 오버라이드.
+     원본은 언어 전환·다크모드 토글을 페이지 메뉴와 같은 가로 스크롤 영역(.navbar-nav)에
+     두는데, 모바일에서 그 영역이 넘치면 오른쪽으로 스크롤해야만 보인다. 한/영 병행
+     사이트에서 언어 전환은 핵심 기능이므로, 두 항목을 스크롤 영역 밖으로 꺼내
+     항상 보이는 .td-navbar__utilities로 분리한다. 나머지 구조는 원본과 동일. */ -}}
+{{ $cover := and
+    (.HasShortcode "blocks/cover")
+    (not .Site.Params.ui.navbar_translucent_over_cover_disable)
+-}}
+{{ $dark := eq (.Param "ui.navbar_theme") "dark" -}}
+{{ if partial "chrome-render.html" (dict "page" . "region" "navbar") -}}
+{{ $baseURL := urls.Parse $.Site.Params.Baseurl -}}
+<nav class="td-navbar js-navbar-scroll
+      {{- if $cover }} td-navbar-cover td-navbar-transparent {{- end }}"
+      aria-label="{{ i18n "a11y_nav_main" }}"
+      {{- if $dark }} data-bs-theme="dark" {{- end }}>
+<div class="td-navbar-container container-fluid flex-column flex-md-row">
+  <a class="navbar-brand" href="{{ .Site.Home.RelPermalink }}">
+    {{- /**/ -}}
+    <span class="navbar-brand__logo navbar-logo">
+      {{- if ne .Site.Params.ui.navbar_logo false -}}
+        {{ with resources.Get "icons/logo.svg" -}}
+          {{ ( . | minify).Content | safeHTML -}}
+        {{ end -}}
+      {{ end -}}
+    </span>
+    {{- /**/ -}}
+    <span class="navbar-brand__name">
+      {{- .Site.Title -}}
+    </span>
+    {{- /**/ -}}
+  </a>
+  <div class="td-navbar__main td-navbar-nav-scroll td-navbar-nav-scroll--indicator" id="main_navbar">
+    <div class="scroll-indicator scroll-left"></div>
+    <ul class="navbar-nav">
+      {{ $p := . -}}
+      {{ range .Site.Menus.main -}}
+      <li class="nav-item">
+        {{ $active := or ($p.IsMenuCurrent "main" .) ($p.HasMenuCurrent "main" .) -}}
+        {{ $href := "" -}}
+        {{ with .Page -}}
+          {{ $active = or $active ( $.IsDescendant .) -}}
+          {{ $href = .RelPermalink -}}
+        {{ else -}}
+          {{ $href = .URL | relLangURL -}}
+        {{ end -}}
+        {{ $isExternal := ne $baseURL.Host (urls.Parse .URL).Host -}}
+        <a {{/**/ -}}
+          class="nav-link {{- if $active }} active {{- end }}" {{/**/ -}}
+          href="{{ $href }}"
+          {{- if $isExternal }} target="_blank" rel="noopener" {{- end -}}
+        >
+            {{- .Pre -}}
+            <span>{{ .Name }}</span>
+            {{- .Post -}}
+        </a>
+      </li>
+      {{ end -}}
+      {{ if .Site.Params.versions -}}
+      <li class="nav-item td-navbar__version-menu">
+        {{ partial "navbar-version-selector.html" . -}}
+      </li>
+      {{ end -}}
+    </ul>
+    <div class="scroll-indicator scroll-right"></div>
+  </div>
+  {{ $darkMode := partialCached "dark-mode-config.html" "dark-mode-global" -}}
+  {{ if or (gt (len .Site.Home.Translations) 0) $darkMode.showMenu -}}
+  <ul class="navbar-nav td-navbar__utilities">
+    {{ if (gt (len .Site.Home.Translations) 0) -}}
+    <li class="nav-item td-navbar__lang-menu">
+      {{ partial "navbar-lang-selector.html" . -}}
+    </li>
+    {{ end -}}
+    {{ if $darkMode.showMenu -}}
+    <li class="nav-item td-navbar__light-dark-menu">
+      {{ partial "theme-toggler" . }}
+    </li>
+    {{ end -}}
+  </ul>
+  {{ end -}}
+  <div class="td-navbar__search d-none d-lg-block">
+    {{ partial "search-input.html" . }}
+  </div>
+</div>
+</nav>
+{{- else -}}
+  {{- /* shared mode dropped the navbar here. Leave a placeholder naming the home page
+  (the "donor", which keeps the navbar); the client fetches it, swaps the navbar
+  in, and re-derives the active link for this page (assets/js/chrome-nav.js). The
+  cover/theme hints carry this page's navbar traits, which the donor (home) may
+  not share, so the client can re-apply them after the swap. The canonical-path
+  hint is this page's logical (HTML-output) URL, which differs from the request
+  URL on print (/_print/…) and paginator (…/page/N/) pages; the client keys its
+  active-state restore to it rather than window.location. */ -}}
+  {{- $canonical := .RelPermalink -}}
+  {{- with .OutputFormats.Get "html" }}{{ $canonical = .RelPermalink }}{{ end -}}
+  <div class="td-chrome-placeholder" data-chrome-donor="{{ .Site.Home.RelPermalink }}" data-chrome-region="navbar" data-canonical-path="{{ $canonical }}" data-navbar-cover="{{ $cover }}" data-navbar-theme="{{ cond $dark "dark" "" }}"></div>
+{{- end -}}

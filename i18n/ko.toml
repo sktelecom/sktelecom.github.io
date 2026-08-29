@@ -1,5 +1,14 @@
 # UI strings. Buttons and similar.
 
+# 접근성 — 페이지에 <nav>가 여러 개일 때 스크린리더가 서로 구분할 수 있도록 붙이는 라벨.
+# 원본 Docsy는 breadcrumb에만 aria-label을 붙이므로 나머지(주 메뉴·좌측 사이드바·목차)에 추가한다.
+[a11y_nav_main]
+other = "주 메뉴"
+[a11y_nav_sidebar]
+other = "좌측 사이드바 메뉴"
+[a11y_nav_toc]
+other = "목차"
+
 [ui_pager_prev]
 other = "이전"
 
@@ -20,9 +29,10 @@ other = "in"
 [ui_all]
 other = "all"
 
-# Footer text
+# Footer text — CC BY 4.0로 공개하는 콘텐츠이므로 "All Rights Reserved"(모든 권리 보유)와
+# 모순되지 않도록 비워 둔다(footer/copyright.html이 with로 감싸 값이 없으면 아예 생략한다)
 [footer_all_rights_reserved]
-other = "All Rights Reserved"
+other = ""
 
 [footer_privacy_policy]
 other = "개인정보 보호 정책"

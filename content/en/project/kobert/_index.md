@@ -148,7 +148,7 @@ print(pooled_output.shape)  # torch.Size([1, 768])
 ### Related Projects
 * [KoGPT2](../kogpt2/) - Korean GPT-2 model
 * [KoBART](../kobart/) - Korean BART model
-* [A.X LLM](../ax-llm/) - Latest Korean LLM
+* [A.X LLM](../axllm/) - Latest Korean LLM
 
 ## Using on Hugging Face
 

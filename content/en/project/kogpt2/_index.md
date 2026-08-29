@@ -205,7 +205,7 @@ while True:
 
 * [KoBERT](../kobert/) - Korean BERT
 * [KoBART](../kobart/) - Korean BART
-* [A.X LLM](../ax-llm/) - Latest Korean LLM
+* [A.X LLM](../axllm/) - Latest Korean LLM
 
 ## Resources
 

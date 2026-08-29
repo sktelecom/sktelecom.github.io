@@ -1,0 +1,51 @@
+<!doctype html>
+<html itemscope itemtype="http://schema.org/WebPage"
+    {{- with .Site.Language.Direction }} dir="{{ . }}" {{- end -}}
+    {{ with .Site.Language.Name }} lang="{{ . }}" {{- end }} {{/**/ -}}
+    class="no-js"
+    {{- $darkMode := partialCached "dark-mode-config.html" "dark-mode-global" -}}
+    {{- if $darkMode.enable }} data-theme-init{{ end }}>
+  <head>
+    {{ partial "head.html" . }}
+  </head>
+  <body class="td-{{ .Kind }}{{ with .Page.Params.body_class }} {{ . }}{{ end }}">
+    <header>
+      {{ partial "navbar.html" . }}
+    </header>
+    <div class="container-fluid td-outer">
+      {{/*
+        <!--
+        There a bug that causes Hugo to escape the scrollspy attributes.
+        FIXME: Hard coding the scrollspy attributes for now.
+         -->
+        <div class="td-main" {{- partialCached "td/scrollspy-attr.txt" . .Section | safeHTMLAttr }}>
+      */ -}}
+      {{ $attr := ` data-bs-spy="scroll" data-bs-target=".td-toc" data-bs-root-margin="0px 0px -10%"` -}}
+      <div class="td-main" {{- $attr | safeHTMLAttr }}>
+        <div class="row flex-xl-nowrap">
+          <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
+            {{ partial "sidebar.html" . }}
+          </aside>
+          {{/* Docsy 원본 오버라이드 — 원래 순서(page-meta-links → toc → taxonomy_terms_clouds)는
+               일반 방문자에게 무의미한 기여자용 링크(페이지 편집·이슈 생성 등)가 목차보다
+               먼저 나온다. 목차를 위로 올리고 기여자 링크는 아래로 내린다. 이 섹션(guide/
+               about/compliance 등)은 블로그가 아니므로 taxonomy 클라우드(태그/카테고리)는
+               맥락에 안 맞아 아예 렌더하지 않는다(블로그 전용은 layouts/blog/baseof.html). */ -}}
+          <aside class="td-sidebar-toc">
+            {{ partial "toc.html" . }}
+            {{ partial "page-meta-links.html" . }}
+          </aside>
+          <main class="col-12 col-md-9 col-xl-8 ps-md-5" role="main">
+            {{ partial "version-banner.html" . }}
+            {{ if not (.Param "ui.breadcrumb_disable") -}}
+              {{ partial "breadcrumb.html" . -}}
+            {{ end -}}
+            {{ block "main" . }}{{ end }}
+          </main>
+        </div>
+      </div>
+      {{ partial "footer.html" . }}
+    </div>
+    {{ partial "scripts.html" . }}
+  </body>
+</html>

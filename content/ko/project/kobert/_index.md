@@ -149,7 +149,7 @@ print(pooled_output.shape)  # torch.Size([1, 768])
 ### 관련 프로젝트
 * [KoGPT2](../kogpt2/) - 한국어 GPT-2 모델
 * [KoBART](../kobart/) - 한국어 BART 모델
-* [A.X LLM](../ax-llm/) - 최신 한국어 LLM
+* [A.X LLM](../axllm/) - 최신 한국어 LLM
 
 ## Hugging Face에서 사용
 
