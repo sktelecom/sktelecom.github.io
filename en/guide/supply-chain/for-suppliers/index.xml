@@ -100,6 +100,11 @@
 					&lt;td&gt;Delivered product name and version not recorded in the metadata&lt;/td&gt;
 					&lt;td&gt;Record the product name and version in the metadata component. &lt;a href="../requirements/"&gt;Submission Requirements&lt;/a&gt;&lt;/td&gt;
 			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;Top-level component name collides with another submission&lt;/td&gt;
+					&lt;td&gt;The generation tool fills in a fixed value instead of the product name (e.g., empty, &lt;code&gt;.&lt;/code&gt;, &lt;code&gt;/scan&lt;/code&gt;)&lt;/td&gt;
+					&lt;td&gt;Change the metadata component name to a unique value that identifies the device or product, then resubmit. &lt;a href="../requirements/"&gt;Submission Requirements&lt;/a&gt;&lt;/td&gt;
+			&lt;/tr&gt;
 	&lt;/tbody&gt;
 &lt;/table&gt;
 &lt;h2 id="representative-cases"&gt;Representative Cases&lt;a class="td-heading-self-link" href="#representative-cases" aria-label="Heading self-link"&gt;&lt;/a&gt;&lt;/h2&gt;

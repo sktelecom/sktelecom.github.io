@@ -249,6 +249,11 @@
 					&lt;td&gt;메타데이터에 납품 제품명과 버전 미기재&lt;/td&gt;
 					&lt;td&gt;metadata의 component에 제품명과 버전 기재. &lt;a href="../requirements/"&gt;제출 요구사항&lt;/a&gt;&lt;/td&gt;
 			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;최상위 컴포넌트 이름이 다른 제출 건과 충돌&lt;/td&gt;
+					&lt;td&gt;생성 도구가 제품명 대신 고정값을 채움(예: 빈 값, &lt;code&gt;.&lt;/code&gt;, &lt;code&gt;/scan&lt;/code&gt;)&lt;/td&gt;
+					&lt;td&gt;metadata의 component 이름을 장비·제품을 특정할 수 있는 고유한 값으로 수정 후 재제출. &lt;a href="../requirements/"&gt;제출 요구사항&lt;/a&gt;&lt;/td&gt;
+			&lt;/tr&gt;
 	&lt;/tbody&gt;
 &lt;/table&gt;
 &lt;h2 id="대표-사례"&gt;대표 사례&lt;a class="td-heading-self-link" href="#%eb%8c%80%ed%91%9c-%ec%82%ac%eb%a1%80" aria-label="Heading self-link"&gt;&lt;/a&gt;&lt;/h2&gt;
