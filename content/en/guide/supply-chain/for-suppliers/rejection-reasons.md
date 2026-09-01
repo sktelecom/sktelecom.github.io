@@ -20,6 +20,7 @@ Submitted SBOMs go through format validation and vulnerability analysis, and are
 | Only one layer of a server included | Scanning only the OS layer or only the application layer | Generate per layer and merge. [Server SBOM](../server-delivery/) |
 | Unaccepted format or version | Generated in a format outside the supported range | CycloneDX JSON recommended. [Submission Requirements](../requirements/) |
 | Top-level component info missing | Delivered product name and version not recorded in the metadata | Record the product name and version in the metadata component. [Submission Requirements](../requirements/) |
+| Top-level component name collides with another submission | The generation tool fills in a fixed value instead of the product name (e.g., empty, `.`, `/scan`) | Change the metadata component name to a unique value that identifies the device or product, then resubmit. [Submission Requirements](../requirements/) |
 
 ## Representative Cases
 
@@ -32,6 +33,12 @@ Change the scan target to a built image or the source code, and check the purl c
 ### Case 2: Transitive dependencies missing from a pre-build scan
 
 If a project has several direct dependencies but the SBOM has fewer than 10 components in total, suspect missing transitive dependencies. A typical web application yields tens to hundreds of components once transitive dependencies are included. Completing the build first (`npm install`, `mvn package`, and the like) and then generating resolves this.
+
+### Case 3: A generation tool fills the top-level component name with a fixed value, colliding with another submission
+
+A supplier submitted a CycloneDX SBOM generated with Palo Alto Networks' official `sbom_creator` tool, and it was rejected because the name collided with an SBOM for a different device that had already been registered. On inspection, this tool always fills `metadata.component.name` with the fixed value `/scan`, regardless of which device it scanned. SBOMs for other devices generated with the same tool keep producing the same `/scan` value, so each one collides with whatever was registered first.
+
+When using a tool like this, open the SBOM in a text editor and manually change the `metadata.component.name` value (CycloneDX) or the top-level `name` value (SPDX) to something that identifies the device before submitting.
 
 ## What a Passing SBOM Looks Like
 
