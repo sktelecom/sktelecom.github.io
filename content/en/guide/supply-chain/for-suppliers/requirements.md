@@ -44,6 +44,8 @@ Information about the document itself and the generation tool.
 *   Tool Info: Vendor, name, and version of the generation tool (e.g., `CycloneDX-Maven-Plugin v2.7.9`)
 *   Component Info: Name and version of the top-level software being delivered
 
+> **The Component Info name must be a unique value that identifies the specific device or product.** An empty value, a meaningless value such as `.`, or a fixed path value that a generation tool fills in automatically (e.g., `/scan`) will collide with a different submission and cause registration to be rejected. SK Telecom treats this value as an identifier that must be unique across all submissions.
+
 #### Generation Tool Specification Format
 
 Generation tool information must be recorded in the following fields depending on the format.
