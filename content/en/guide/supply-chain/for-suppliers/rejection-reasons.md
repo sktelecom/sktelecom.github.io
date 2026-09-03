@@ -17,8 +17,8 @@ Submitted SBOMs go through format validation and vulnerability analysis, and are
 | Transitive dependencies missing | Scanning source only, before the build (package installation) | Regenerate after the build completes. See the dependency scope section of the [Submission Requirements](../requirements/) |
 | `pkg:generic/` PURLs | The tool could not identify the ecosystem | Regenerate with ecosystem-specific types. See the PURL section of the [Submission Requirements](../requirements/) |
 | Component versions missing | Incomplete manifests or tool configuration issues | The `version` field is required. [Submission Requirements](../requirements/) |
-| Server delivery with no OS packages | Only the application source was scanned | Scan the rootfs or image as delivered. [Server SBOM](../server-delivery/) |
-| PURL naming a different distribution or version | The tool guessed an unrelated distribution package from a file name | Regenerate from the packages actually installed. [Server SBOM](../server-delivery/) |
+| Server delivery with no OS packages | Only the application source was scanned | Scan the rootfs or image as delivered. [How to Generate an SBOM](../creation-guide/#server-delivery) |
+| PURL naming a different distribution or version | The tool guessed an unrelated distribution package from a file name | Regenerate from the packages actually installed. [How to Generate an SBOM](../creation-guide/#server-delivery) |
 | Unaccepted format or version | Generated in a format outside the supported range | CycloneDX JSON recommended. [Submission Requirements](../requirements/) |
 | Top-level component info missing | Delivered product name and version not recorded in the metadata | Record the product name and version in the metadata component. [Submission Requirements](../requirements/) |
 | Top-level component name collides with another submission | The generation tool fills in a fixed value instead of the product name (e.g., empty, `.`, `/scan`) | Change the metadata component name to a unique value that identifies the device or product, then resubmit. [Submission Requirements](../requirements/) |
@@ -47,7 +47,7 @@ The SBOM for a RHEL server product was generated against the application source 
 
 This type passes format validation. The purl points at a package that really exists, so matching succeeds and no error appears on screen. Yet the vulnerabilities reported belong to components unrelated to the real server, and upgrading the OS changes nothing in the result.
 
-Scan the rootfs or image as delivered so that the OS packages are included, and declare libraries bundled in the source with their real versions. See [Server SBOM](../server-delivery/) for the procedure.
+Scan the rootfs or image as delivered so that the OS packages are included, and declare libraries bundled in the source with their real versions. See the server delivery section of [How to Generate an SBOM](../creation-guide/#server-delivery) for the procedure.
 
 ## What a Passing SBOM Looks Like
 

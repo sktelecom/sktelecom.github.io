@@ -5,6 +5,8 @@ weight: 2
 type: docs
 description: >
   범용 오픈소스 도구를 활용하여 환경별로 SBOM을 생성하는 방법을 안내합니다.
+aliases:
+  - /guide/supply-chain/for-suppliers/server-delivery/
 ---
 
 > 도구 환경 구축에 익숙하지 않은 경우, Docker가 설치되어 있다면 [BomLens](../skt-scanner/)를 먼저 검토해 보시기 바랍니다.
@@ -77,9 +79,9 @@ graph TD
 
 소스코드·앱, 실행 파일이나 라이브러리, OS 없는 펌웨어는 모두 자기가 개발한 소스코드를 cdxgen 또는 [BomLens](../skt-scanner/)로 스캔합니다. 완성된 바이너리를 그대로 스캔하면 패키지 매니저 메타데이터가 없어 purl이 누락되고 반려됩니다.
 
-OS나 베이스 이미지를 포함해 공급하는 경우(컨테이너 이미지, 서버, OS 내장 펌웨어)는 두 층으로 나눠 각각 스캔합니다. OS 층은 납품되는 상태의 이미지나 rootfs를 Syft 또는 Trivy로 스캔하고, 소스코드(앱 층)는 cdxgen 또는 BomLens로 스캔한 뒤 둘을 합쳐 제출합니다. 이때 OS 층의 스캔 대상은 받아온 원본 베이스가 아니라 빌드가 끝나 납품되는 이미지나 rootfs입니다. 빌드 과정에서 설치한 OS 패키지까지 포함해야 하기 때문입니다. 전체 절차는 [서버 SBOM 생성](../server-delivery/)을 참고하세요.
+OS나 베이스 이미지를 포함해 공급하는 경우(컨테이너 이미지, 서버, OS 내장 펌웨어)는 두 층으로 나눠 각각 스캔한 뒤 합쳐 제출합니다. OS 층은 납품되는 상태의 이미지나 rootfs를 Syft 또는 Trivy로, 소스코드(앱 층)는 cdxgen 또는 BomLens로 스캔합니다. 층별 명령과 병합 절차는 아래 [서버 납품](#서버-납품)에 있습니다.
 
-정적 링크된 라이브러리나 수동으로 넣은 바이너리는 위 어느 스캔으로도 잡히지 않는 사각지대입니다. 이 경우의 처리는 [서버 SBOM 생성](../server-delivery/)의 정적 링크 라이브러리 절을 참고하세요.
+정적 링크된 라이브러리나 수동으로 넣은 바이너리는 위 어느 스캔으로도 잡히지 않는 사각지대입니다. 처리 방법은 아래 [정적 링크 라이브러리](#정적-링크-라이브러리)에 있습니다.
 
 타사가 제조한 상용 소프트웨어나 완제품을 공급해 소스코드에 접근할 수 없는 경우는 스캔 대신 제조사로부터 SBOM을 받아 제출합니다. [상용 소프트웨어 공급](../commercial-software/)을 참고하세요.
 
@@ -121,8 +123,6 @@ syft dir:/root/nag_pkg   # 패키지 매니저 메타데이터가 없으면 purl
 
 생성 직후 반드시 purl 개수를 확인하시기 바랍니다. 검증 방법은 [검증 체크리스트](../checklist/)를 참고하십시오.
 {{% /alert %}}
-
-CentOS 등 OS 위에 애플리케이션을 올려 납품하는 서버는 OS(rootfs/이미지)와 애플리케이션 두 층으로 나눠 생성하고, 정적 링크 라이브러리는 별도로 보강한 뒤 하나로 합칩니다. OS 층은 위 경고대로 패키지 데이터베이스가 있는 rootfs나 이미지를 대상으로 해야 합니다. 전체 절차는 [서버 SBOM 생성](../server-delivery/)을 참고하세요.
 
 ### Trivy (컨테이너 이미지 분석)
 
@@ -170,6 +170,69 @@ Trivy를 안전하게 사용하려면 다음 원칙을 따르시기 바랍니다
 | Node.js | @cyclonedx/cyclonedx-npm | [링크](https://github.com/CycloneDX/cyclonedx-node-npm) |
 | Go | cyclonedx-gomod | [링크](https://github.com/CycloneDX/cyclonedx-gomod) |
 
+## 서버 납품
+
+OS 위에 애플리케이션을 올려 서버 형태로 납품하는 경우에만 해당합니다. 두 층을 각각 만들고, 어느 층에도 잡히지 않는 정적 링크 라이브러리를 보강한 뒤 하나로 합쳐 제출합니다.
+
+| 층 | 대상 | 누락 시 증상 |
+|----|------|--------------|
+| OS | 운영체제와 설치된 패키지 전체 (예: RHEL과 rpm 데이터베이스의 모든 패키지) | OS 취약점 누락 |
+| 애플리케이션 | 납품 애플리케이션과 패키지 매니저 의존성(직접·전이) | 앱 의존성 누락 |
+
+### 두 층으로 나눠 스캔
+
+OS 층은 서버의 rootfs(추출한 루트 파일시스템)나 그 컨테이너 이미지를 대상으로 합니다. 패키지 데이터베이스(rpm/dpkg/apk)를 읽어 설치된 패키지를 모두 실제 purl(`pkg:rpm/...`)로 식별합니다. 대상은 받아온 원본 베이스가 아니라 빌드가 끝나 납품되는 상태여야 합니다. 빌드 과정에서 설치한 OS 패키지까지 포함해야 하기 때문입니다. 설치 파일만 풀어 놓고 패키지 데이터베이스가 없는 폴더를 스캔하면 purl이 비어 반려됩니다.
+
+```bash
+# rootfs 디렉터리를 대상으로
+syft dir:/path/to/server-rootfs -o cyclonedx-json=server-os_bom.json
+
+# 서버가 컨테이너 이미지로 패키징돼 있다면
+syft myserver:7 -o cyclonedx-json=server-os_bom.json
+```
+
+애플리케이션 층은 빌드를 마친 뒤 애플리케이션 소스를 스캔합니다. 패키지 매니저(Maven, npm, pip, Go modules, Conan 등)를 쓰면 전이 의존성까지 자동으로 해석됩니다.
+
+```bash
+cd /path/to/app-source
+cdxgen -o server-app_bom.json
+```
+
+OS 층 스캔에 파이썬이나 Node.js처럼 파일로 설치된 의존성이 함께 잡히기도 합니다. 그래도 애플리케이션 층은 따로 만드시기 바랍니다. C/C++처럼 소스에 라이브러리를 포함하는 방식은 OS 층 스캔으로 전혀 식별되지 않습니다.
+
+{{% alert title="애플리케이션 소스만 스캔하면 OS 패키지가 통째로 빠집니다" color="warning" %}}
+서버 납품인데 애플리케이션 소스 트리만 스캔해 제출하는 사례가 반복됩니다. 이 경우 설치된 rpm 패키지가 하나도 담기지 않아, OS를 업그레이드해도 그 결과가 SBOM에 나타나지 않습니다. 두 층을 모두 만들었는지 확인하시기 바랍니다.
+{{% /alert %}}
+
+### 정적 링크 라이브러리
+
+정적 링크된 라이브러리(빌드 시 바이너리에 포함된 openssl 등)는 패키지 매니저가 선언하지 않고 OS 패키지 데이터베이스에도 올라 있지 않아, 두 층의 스캔이 모두 놓치는 사각지대입니다. 이를 빠뜨리는 것이 서버 납품에서 가장 흔한 반려 원인입니다.
+
+완전 자동 경로가 없으므로 두 가지를 함께 씁니다. 도구가 찾을 수 있는 만큼은 납품 바이너리를 분석하고, 그래도 빠지는 부분은 빌드 스크립트에서 소스와 버전(예: `openssl 1.1.1za`)을 직접 기재합니다.
+
+```bash
+syft file:/path/to/delivered-binary -o cyclonedx-json=server-bin_bom.json
+```
+
+정적 링크 구성요소의 정밀 식별은 바이너리 구성 분석(BDBA)의 몫이며, SK텔레콤이 보완 검증으로 수행합니다.
+
+### 하나로 합쳐 제출
+
+층별 SBOM을 [cyclonedx-cli](https://github.com/CycloneDX/cyclonedx-cli)로 합쳐 단일 BOM으로 제출하고, 최상위 컴포넌트를 납품 제품명·버전으로 기재합니다. 병합 시 purl이 같은 컴포넌트는 한 번만 집계되므로 둘 이상의 층에 나타나는 라이브러리가 중복되지 않습니다.
+
+```bash
+cyclonedx-cli merge \
+  --input-files server-os_bom.json server-app_bom.json server-bin_bom.json \
+  --output-file myserver_1.0.0_bom.json \
+  --name myserver --version 1.0.0
+```
+
+{{% alert title="검토용으로 층별 SBOM을 함께 보관하세요" color="info" %}}
+공식 제출물은 병합된 단일 BOM이지만, 층별 SBOM은 어느 층이 누락·취약한지 바로 보여 주므로 자체 검토와 재제출 대응에 유용합니다. 함께 보관하시기 바랍니다.
+{{% /alert %}}
+
+클러스터처럼 노드가 여럿인 제품을 어떤 단위로 묶어 내는지는 [제출 절차](../submission/)의 제출 단위 절을 참고하세요.
+
 ## 공통 주의사항
 
 도구를 사용하기 전 아래 사항을 확인하시기 바랍니다.
@@ -181,7 +244,6 @@ Trivy를 안전하게 사용하려면 다음 원칙을 따르시기 바랍니다
 
 ## 관련 문서
 
-- [서버 SBOM 생성](../server-delivery/): OS·애플리케이션·정적 링크가 결합된 서버를 층별로 생성하고 합치는 방법
 - [제출 요구사항](../requirements/): SBOM에 포함되어야 할 필수 데이터 필드
 - [검증 체크리스트](../checklist/): 제출 전 확인 사항
 - [BomLens](../skt-scanner/): SK텔레콤이 제공하는 SBOM 생성 도구
