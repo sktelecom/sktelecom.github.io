@@ -13,7 +13,7 @@ SK텔레콤은 소프트웨어 공급망의 투명성과 보안성을 강화하�
 
 1. [제출 요구사항](requirements/)에서 허용 포맷(CycloneDX JSON 권장)과 필수 데이터 필드를 확인합니다.
 2. [SBOM 생성 방법](creation-guide/)에 따라 도구를 선택해 SBOM을 생성합니다. 도구 환경 구축이 부담스럽다면 [BomLens](skt-scanner/)를 권장합니다.
-3. OS 위에 애플리케이션을 얹어 납품하는 서버라면 [서버 SBOM 생성](server-delivery/)에 따라 층별로 생성해 합칩니다.
+3. OS 위에 애플리케이션을 얹어 납품하는 서버라면 [서버 SBOM 생성](server-delivery/)에서 정적 링크 보강과 병합 절차를 추가로 확인합니다.
 4. [검증 체크리스트](checklist/)로 PURL과 전이 의존성 포함 여부를 점검합니다.
 5. [제출 절차](submission/)에 따라 파일명을 정하고 제출합니다.
 
