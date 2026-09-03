@@ -7,7 +7,7 @@ description: >
   How to build the SBOM for a server delivered with an application on top of an OS such as RHEL or CentOS. Scan the delivered state in one pass, then supplement it with dependencies the build tool resolves and with statically linked libraries, and merge everything into one BOM.
 ---
 
-This document is an advanced guide for suppliers that deliver a server with an application on top of an OS. For an ordinary application delivery, [How to Generate an SBOM](../creation-guide/) is sufficient.
+This document covers only what a server delivery needs in addition. Read [How to Generate an SBOM](../creation-guide/) first for choosing the scan target and using the tools. What follows here is covering statically linked libraries, merging several SBOMs, and the submission unit for a cluster.
 
 The baseline for a server SBOM is a single scan of the rootfs or image as delivered. That one scan captures both the OS packages and the application dependencies installed on top of them. Two things escape it and must be generated separately and merged in: dependencies that the build tool has to resolve (Maven, Gradle, and so on), and statically linked libraries. Missing the statically linked ones is the most common cause of rejection in server delivery.
 
