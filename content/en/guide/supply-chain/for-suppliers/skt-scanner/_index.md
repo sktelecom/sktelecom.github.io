@@ -68,6 +68,7 @@ The authoritative source for using the tool is the repository documentation.
 | Full options, by language, CI/CD | [CLI reference](https://sktelecom.github.io/bomlens/reference/cli/) |
 | Scenarios by input form | [Input scenarios](https://sktelecom.github.io/bomlens/guides/by-input/) |
 | Notice & security reports | [Reports guide](https://sktelecom.github.io/bomlens/guides/reports/) |
+| Server (OS + application) delivery | [Server delivery guide](https://sktelecom.github.io/bomlens/guides/server-delivery/) |
 
 ## Next Steps
 

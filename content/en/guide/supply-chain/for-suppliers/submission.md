@@ -7,12 +7,21 @@ description: >
   Explains the submission channels for the prepared SBOM file, the email template, and the post-submission process.
 ---
 
-## 1. When to Submit
+## 1. Submission Unit
+
+The submission unit is one SBOM per product. A product where several nodes form one cluster is no exception; you do not need one per node.
+
+*   If all nodes have the same configuration, generate from a single representative node and submit that.
+*   If the installed software differs by node role (for example a management node and a storage node), generate per role and merge all of them into one submission.
+
+A server generated as separate layers is likewise merged into one before submission. For how to merge, see [How to Generate an SBOM](../creation-guide/#merge-into-one-and-submit).
+
+## 2. When to Submit
 *   At initial delivery after concluding a software contract
 *   When a major or minor version of the software is updated
 *   When a regular submission schedule specified in the contract arrives
 
-## 2. How to Submit
+## 3. How to Submit
 
 The SBOM file is submitted to SK Telecom's business unit and security team representatives via email (or a channel designated by the representative).
 
@@ -26,7 +35,7 @@ Required information in the body:
 3. Project information (system name, detailed version)
 4. Tool used and its version (e.g., BomLens, cdxgen)
 
-## 3. Post-Submission Validation and Actions
+## 4. Post-Submission Validation and Actions
 
 The submitted SBOM is registered in TOSCA, the internal open source and SBOM management system, and then validated according to the procedure below. TOSCA is an internal system, so suppliers do not need access to it.
 

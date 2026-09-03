@@ -29,7 +29,7 @@ Missing transitive dependencies are the most common reason for rejection. Be sur
 - [ ] Is the number of components reasonable? (If a project with only a few direct dependencies has fewer than 10 total components, transitive dependencies have likely been omitted)
 - [ ] Did you scan a Maven or Gradle project with Syft alone? Syft reads only what `pom.xml` or the build script declares directly, so transitive dependencies are lost. Use cdxgen or a language-specific CycloneDX plugin.
 - [ ] Are npm development dependencies missing when you need them? Syft excludes them by default; set `SYFT_JAVASCRIPT_INCLUDE_DEV_DEPENDENCIES=true` to include them.
-- [ ] For a server delivery, are the OS packages included? Scanning only the application source drops every installed rpm/dpkg package. See [Server SBOM](../server-delivery/) for the procedure.
+- [ ] For a server delivery, are the OS packages included? Scanning only the application source drops every installed rpm/dpkg package. See the server delivery section of [How to Generate an SBOM](../creation-guide/#server-delivery) for the procedure.
 
 ### 4. Identifier (PURL) Check
 SK Telecom's system maps vulnerabilities by PURL. This is the most important item.

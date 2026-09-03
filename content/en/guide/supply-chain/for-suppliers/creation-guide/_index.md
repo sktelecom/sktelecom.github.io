@@ -5,6 +5,8 @@ weight: 2
 type: docs
 description: >
   Explains how to generate an SBOM for each environment using general-purpose open source tools.
+aliases:
+  - /guide/supply-chain/for-suppliers/server-delivery/
 ---
 
 > If you are not comfortable setting up a tool environment and you have Docker installed, consider reviewing [BomLens](../skt-scanner/) first.
@@ -77,9 +79,9 @@ graph TD
 
 Source code and apps, executables or libraries, and firmware with no OS are all scanned from the source code you developed with cdxgen or [BomLens](../skt-scanner/). Scanning a finished binary directly yields no package manager metadata, so purls are omitted and the SBOM is rejected.
 
-When you ship an OS or base image as part of the delivery (a container image, a server, or firmware with an embedded OS), split it into two layers and scan each. Scan the image or rootfs as shipped with Syft or Trivy for the OS layer, scan the source code (the app layer) with cdxgen or BomLens, then merge and submit. The OS-layer scan target is not the original base image you received but the image or rootfs actually delivered after the build, because it must include the OS packages installed during the build. For the full procedure, see [Server SBOM](../server-delivery/).
+When you ship an OS or base image as part of the delivery (a container image, a server, or firmware with an embedded OS), split it into two layers, scan each, then merge and submit. Scan the image or rootfs as delivered with Syft or Trivy for the OS layer, and the source code (the app layer) with cdxgen or BomLens. The per-layer commands and the merge procedure are in [Server delivery](#server-delivery) below.
 
-Statically linked libraries and manually vendored binaries are a blind spot that none of the scans above catch. For how to handle this case, see the statically linked libraries section of [Server SBOM](../server-delivery/).
+Statically linked libraries and manually vendored binaries are a blind spot that none of the scans above catch. How to handle them is in [Statically linked libraries](#statically-linked-libraries) below.
 
 If you supply commercial software or a finished product made by a third party and have no access to the source code, obtain the SBOM from the manufacturer instead of scanning. See [Commercial Software](../commercial-software/).
 
@@ -122,8 +124,6 @@ syft dir:/root/nag_pkg   # without package manager metadata, PURL count becomes 
 
 Immediately after generation, be sure to check the PURL count. See the [Validation Checklist](../checklist/) for how to verify.
 {{% /alert %}}
-
-A server that delivers an application on top of an OS (such as CentOS) is generated as two layers — OS (rootfs/image) and application — with statically linked libraries covered separately, then merged. As the warning above notes, the OS layer must target a rootfs or image that has a package database. For the full procedure, see [Server SBOM](../server-delivery/).
 
 ### Trivy (container image analysis)
 
@@ -171,6 +171,69 @@ Using a build tool plugin lets you extract more accurate dependency information.
 | Node.js | @cyclonedx/cyclonedx-npm | [Link](https://github.com/CycloneDX/cyclonedx-node-npm) |
 | Go | cyclonedx-gomod | [Link](https://github.com/CycloneDX/cyclonedx-gomod) |
 
+## Server Delivery
+
+This applies only when you deliver a server with an application installed on top of an OS. Generate each of the two layers, cover the statically linked libraries that neither layer catches, then merge everything into one BOM for submission.
+
+| Layer | Target | Symptom if missing |
+|----|------|--------------|
+| OS | The operating system and every installed package (for example RHEL and every package in the rpm database) | OS vulnerabilities omitted |
+| Application | The delivered application and its package manager dependencies (direct and transitive) | App dependencies omitted |
+
+### Scan the two layers separately
+
+For the OS layer, target the server's rootfs (the extracted root filesystem) or its container image. Syft reads the package database (rpm/dpkg/apk) and identifies every installed package with a real purl (`pkg:rpm/...`). The target must be the state delivered after the build, not the original base image you received, because it must include the OS packages installed during the build. Scanning a folder that only holds unpacked installation files with no package database yields empty purls and is rejected.
+
+```bash
+# Against a rootfs directory
+syft dir:/path/to/server-rootfs -o cyclonedx-json=server-os_bom.json
+
+# If the server is packaged as a container image
+syft myserver:7 -o cyclonedx-json=server-os_bom.json
+```
+
+For the application layer, scan the application source after the build is complete. With a package manager (Maven, npm, pip, Go modules, Conan, and so on), transitive dependencies are resolved automatically.
+
+```bash
+cd /path/to/app-source
+cdxgen -o server-app_bom.json
+```
+
+The OS-layer scan sometimes picks up dependencies installed as files, such as Python or Node.js packages. Generate the application layer anyway. A C/C++ application that vendors its libraries into the source is not identified by the OS-layer scan at all.
+
+{{% alert title="Scanning only the application source drops the OS packages entirely" color="warning" %}}
+Server deliveries repeatedly arrive with only the application source tree scanned. In that case not a single installed rpm package is included, so upgrading the OS never shows up in the SBOM. Confirm that you generated both layers.
+{{% /alert %}}
+
+### Statically linked libraries
+
+Statically linked libraries (an openssl built into the binary, for example) are not declared by any package manager and are not registered in the OS package database, so both layer scans miss them. Missing them is the most common cause of rejection in server delivery.
+
+There is no fully automatic path, so use two approaches together. Analyze the delivered binary for as much as tooling can find, and for the rest, record the source and version directly from the build script (for example `openssl 1.1.1za`).
+
+```bash
+syft file:/path/to/delivered-binary -o cyclonedx-json=server-bin_bom.json
+```
+
+Precise identification of statically linked components is the job of binary composition analysis (BDBA), which SK Telecom performs as supplementary verification.
+
+### Merge into one and submit
+
+Merge the per-layer SBOMs with [cyclonedx-cli](https://github.com/CycloneDX/cyclonedx-cli) into a single BOM for submission, and record the delivered product name and version as the top-level component. During the merge, components sharing a purl are counted once, so a library appearing in more than one layer is not duplicated.
+
+```bash
+cyclonedx-cli merge \
+  --input-files server-os_bom.json server-app_bom.json server-bin_bom.json \
+  --output-file myserver_1.0.0_bom.json \
+  --name myserver --version 1.0.0
+```
+
+{{% alert title="Keep the per-layer SBOMs for your own review" color="info" %}}
+The official submission is the merged single BOM, but the per-layer SBOMs show immediately which layer is missing or vulnerable, which helps your own review and any resubmission. Keep them alongside.
+{{% /alert %}}
+
+For how to decide the submission unit for a product with several nodes, such as a cluster, see the submission unit section of [Submission Procedure](../submission/).
+
 ## Common Precautions
 
 Verify the following before using a tool.
@@ -182,7 +245,6 @@ Verify the following before using a tool.
 
 ## Related Documents
 
-- [Server SBOM](../server-delivery/): How to generate and merge the layers of a server that combines an OS, an application, and static-link libraries
 - [Submission Requirements](../requirements/): The required data fields that must be included in the SBOM
 - [Validation Checklist](../checklist/): Items to verify before submission
 - [BomLens](../skt-scanner/): SK Telecom's SBOM generation tool

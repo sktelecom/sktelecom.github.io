@@ -68,6 +68,7 @@ cd /path/to/my-project
 | 전체 옵션, 언어별, CI/CD | [CLI 레퍼런스](https://sktelecom.github.io/bomlens/ko/reference/cli/) |
 | 입력 형태별 시나리오 | [입력 시나리오](https://sktelecom.github.io/bomlens/ko/guides/by-input/) |
 | 고지문·보안 보고서 | [리포트 가이드](https://sktelecom.github.io/bomlens/ko/guides/reports/) |
+| 서버(OS + 애플리케이션) 납품 | [서버 납품 가이드](https://sktelecom.github.io/bomlens/ko/guides/server-delivery/) |
 
 ## 다음 단계
 

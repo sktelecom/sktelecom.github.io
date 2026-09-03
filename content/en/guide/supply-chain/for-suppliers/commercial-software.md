@@ -43,7 +43,7 @@ Then name the file and submit it following the [Submission Process](../submissio
 
 ## If the product is a cluster
 
-A product in which multiple nodes form one cluster (for example, distributed storage) is still submitted as one SBOM per product. For how to determine the SBOM unit, see the multi-node cluster section of [Server SBOM](../server-delivery/).
+A product in which multiple nodes form one cluster (for example, distributed storage) is still submitted as one SBOM per product. For how to determine the SBOM unit, see the submission unit section of [Submission Procedure](../submission/).
 
 ## If the manufacturer cannot provide an SBOM
 
@@ -54,4 +54,4 @@ If the manufacturer replies that it cannot provide an SBOM, contact [opensource@
 - [Submission Requirements](../requirements/): required formats and data fields
 - [Validation Checklist](../checklist/): items to verify before submission
 - [Submission Process](../submission/): naming conventions and submission channels
-- [Server SBOM](../server-delivery/): the SBOM unit for multi-node clusters
+- [Submission Procedure](../submission/): the SBOM submission unit, including multi-node clusters
