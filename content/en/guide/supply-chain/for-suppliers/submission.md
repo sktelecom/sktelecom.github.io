@@ -9,12 +9,12 @@ description: >
 
 ## 1. Submission Unit
 
-The submission unit is one SBOM per product. A product where several nodes form one cluster is no exception; you do not need one per node.
+The submission unit is one delivered product. A product where several nodes form one cluster is no exception; you do not need one per node.
 
 *   If all nodes have the same configuration, generate from a single representative node and submit that.
-*   If the installed software differs by node role (for example a management node and a storage node), generate per role and merge all of them into one submission.
+*   If the installed software differs by node role (for example a management node and a storage node), generate per role and submit them together.
 
-A server generated as separate layers is likewise merged into one before submission. For how to merge, see [How to Generate an SBOM](../creation-guide/#merge-into-one-and-submit).
+One product may come with several SBOM files. A server generated as separate layers is submitted with the files as they are, not merged, and SK Telecom's system treats the documents registered against the same product version as a single combined list. Each file needs its own name, and a resubmission must reuse the same name. For the naming rule, see the submit each layer section of [How to Generate an SBOM](../creation-guide/#submit-each-layer).
 
 ## 2. When to Submit
 *   At initial delivery after concluding a software contract

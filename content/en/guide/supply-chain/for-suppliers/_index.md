@@ -13,7 +13,7 @@ To strengthen the transparency and security of its software supply chain, SK Tel
 
 1. Check the accepted formats (CycloneDX JSON recommended) and required data fields in the [Submission Requirements](requirements/).
 2. Generate the SBOM following [How to Generate an SBOM](creation-guide/), choosing the tool that fits your delivery. If setting up a tool environment is a burden, we recommend [BomLens](skt-scanner/).
-3. If you deliver a server with an application on top of an OS, follow the server delivery section of [How to Generate an SBOM](creation-guide/#server-delivery): generate each layer, cover the statically linked libraries, and merge.
+3. If you deliver a server with an application on top of an OS, follow the server delivery section of [How to Generate an SBOM](creation-guide/#server-delivery): generate each layer, cover the statically linked libraries, and submit them together.
 4. Verify PURLs and transitive dependency coverage with the [Validation Checklist](checklist/).
 5. Name the file and submit it following the [Submission Process](submission/).
 
