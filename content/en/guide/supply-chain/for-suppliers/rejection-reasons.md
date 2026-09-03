@@ -17,7 +17,8 @@ Submitted SBOMs go through format validation and vulnerability analysis, and are
 | Transitive dependencies missing | Scanning source only, before the build (package installation) | Regenerate after the build completes. See the dependency scope section of the [Submission Requirements](../requirements/) |
 | `pkg:generic/` PURLs | The tool could not identify the ecosystem | Regenerate with ecosystem-specific types. See the PURL section of the [Submission Requirements](../requirements/) |
 | Component versions missing | Incomplete manifests or tool configuration issues | The `version` field is required. [Submission Requirements](../requirements/) |
-| Only one layer of a server included | Scanning only the OS layer or only the application layer | Generate per layer and merge. [Server SBOM](../server-delivery/) |
+| Server delivery with no OS packages | Only the application source was scanned | Scan the rootfs or image as delivered. [Server SBOM](../server-delivery/) |
+| PURL naming a different distribution or version | The tool guessed an unrelated distribution package from a file name | Regenerate from the packages actually installed. [Server SBOM](../server-delivery/) |
 | Unaccepted format or version | Generated in a format outside the supported range | CycloneDX JSON recommended. [Submission Requirements](../requirements/) |
 | Top-level component info missing | Delivered product name and version not recorded in the metadata | Record the product name and version in the metadata component. [Submission Requirements](../requirements/) |
 | Top-level component name collides with another submission | The generation tool fills in a fixed value instead of the product name (e.g., empty, `.`, `/scan`) | Change the metadata component name to a unique value that identifies the device or product, then resubmit. [Submission Requirements](../requirements/) |
@@ -39,6 +40,14 @@ If a project has several direct dependencies but the SBOM has fewer than 10 comp
 A supplier submitted a CycloneDX SBOM generated with Palo Alto Networks' official `sbom_creator` tool, and it was rejected because the name collided with an SBOM for a different device that had already been registered. On inspection, this tool always fills `metadata.component.name` with the fixed value `/scan`, regardless of which device it scanned. SBOMs for other devices generated with the same tool keep producing the same `/scan` value, so each one collides with whatever was registered first.
 
 When using a tool like this, open the SBOM in a text editor and manually change the `metadata.component.name` value (CycloneDX) or the top-level `name` value (SPDX) to something that identifies the device before submitting.
+
+### Case 4: OS packages omitted and PURLs declared for a different distribution
+
+The SBOM for a RHEL server product was generated against the application source tree only, so it was submitted without a single installed rpm package. On top of that, libraries bundled in the source were declared as Debian source packages, such as `pkg:deb/debian/libpcap@1.1.1-2+squeeze1`. The generating tool had used source file names as a clue and attached whichever Debian package ships a file of that name.
+
+This type passes format validation. The purl points at a package that really exists, so matching succeeds and no error appears on screen. Yet the vulnerabilities reported belong to components unrelated to the real server, and upgrading the OS changes nothing in the result.
+
+Scan the rootfs or image as delivered so that the OS packages are included, and declare libraries bundled in the source with their real versions. See [Server SBOM](../server-delivery/) for the procedure.
 
 ## What a Passing SBOM Looks Like
 

@@ -29,16 +29,14 @@ graph TD
       T6["Firmware with an embedded OS<br>(e.g., base stations, routers, OLT/ONT, set-top boxes)"]
     end
 
-    %% Left: source-code scan with an inner box
-    subgraph M1["Scan the source code"]
-      M1_Sub["cdxgen or BomLens"]
+    %% Left: source scan with an inner box
+    subgraph M1["Scan the source"]
+      M1_Sub["Syft<br>source directory after build and install<br>(cdxgen for Maven/Gradle)"]
     end
 
-    %% Right: source + OS image scan with inner boxes (stacked vertically)
-    subgraph M2["Scan source + OS image"]
-      direction TB
-      M2_Top["OS (e.g., Linux) scan<br>(Syft or Trivy)"]
-      M2_Bottom["Source code scan<br>(cdxgen or BomLens)"]
+    %% Right: server or image scan with an inner box
+    subgraph M2["Scan the server or image"]
+      M2_Sub["Syft<br>image or rootfs as delivered"]
     end
 
     A --> G1
@@ -63,7 +61,7 @@ graph TD
     class A start
     class T1,T2,T3,T4,T5,T6 typebox
     class M1_Sub subwhite_left
-    class M2_Top,M2_Bottom subwhite_right
+    class M2_Sub subwhite_right
     class P submit
 
     style G1 fill:#F1FAF5,stroke:#00A651,stroke-width:1px,color:#0A5A32
@@ -75,9 +73,9 @@ graph TD
 
 ```
 
-Source code and apps, executables or libraries, and firmware with no OS are all scanned from the source code you developed with cdxgen or [BomLens](../skt-scanner/). Scanning a finished binary directly yields no package manager metadata, so purls are omitted and the SBOM is rejected.
+Source code and apps, executables or libraries, and firmware with no OS are scanned with Syft against the source directory after the build and dependency install are complete. One exception: for Maven and Gradle, dependencies live in a local repository outside the project, so Syft reads only what `pom.xml` declares directly and transitive dependencies are lost. Use cdxgen or a language-specific CycloneDX plugin in that case. Scanning a finished binary directly yields no package manager metadata, so purls are omitted and the SBOM is rejected.
 
-When you ship an OS or base image as part of the delivery (a container image, a server, or firmware with an embedded OS), split it into two layers and scan each. Scan the image or rootfs as shipped with Syft or Trivy for the OS layer, scan the source code (the app layer) with cdxgen or BomLens, then merge and submit. The OS-layer scan target is not the original base image you received but the image or rootfs actually delivered after the build, because it must include the OS packages installed during the build. For the full procedure, see [Server SBOM](../server-delivery/).
+When you ship an OS or base image as part of the delivery (a container image, a server, or firmware with an embedded OS), scan the image or rootfs as delivered with Syft. A single scan captures both the OS packages (from the rpm/dpkg/apk database) and the application dependencies installed on top of them. The scan target is not the original base image you received but the image or rootfs actually delivered after the build, because it must include the OS packages installed during the build. For the full procedure, see [Server SBOM](../server-delivery/).
 
 Statically linked libraries and manually vendored binaries are a blind spot that none of the scans above catch. For how to handle this case, see the statically linked libraries section of [Server SBOM](../server-delivery/).
 
@@ -85,22 +83,20 @@ If you supply commercial software or a finished product made by a third party an
 
 ## Major Tools
 
-### cdxgen (recommended for source code analysis)
+### Syft (recommended by default)
 
-Automatically analyzes projects in various languages such as Java, Python, Node.js, and Go, and generates an SBOM in CycloneDX format.
-
-- Official documentation: [https://cdxgen.github.io/cdxgen](https://cdxgen.github.io/cdxgen)
-- GitHub: [https://github.com/CycloneDX/cdxgen](https://github.com/CycloneDX/cdxgen)
-- Supported languages: Java (Maven/Gradle), Python, Node.js, Go, Ruby, PHP, Rust, .NET, C/C++, etc.
-
-> cdxgen statically parses lockfiles and manifests. For accurate results, run it when dependencies are installed or resolved (a lockfile is present, or after a build). Scanning pure source without resolved dependencies may omit some components or purls.
-
-### Syft (recommended for container image and binary analysis)
-
-Analyzes built container images and build artifacts that include package manager metadata to identify both OS packages and application libraries. Supports CycloneDX and SPDX formats.
+Analyzes images, rootfs directories, and source directories where installation is complete, identifying OS packages and application libraries together. Supports CycloneDX and SPDX formats.
 
 - Official documentation: [https://github.com/anchore/syft](https://github.com/anchore/syft)
-- Recommended analysis targets: built Docker images, OCI images, tar files
+- Recommended analysis targets: container images as delivered, OCI images, tar files, rootfs directories
+
+```bash
+# Image
+syft <image-name>:<tag> -o cyclonedx-json=sbom.json
+
+# rootfs or a directory where installation is complete
+syft dir:/path/to/server-rootfs -o cyclonedx-json=sbom.json
+```
 
 {{% alert title="Warning — Do not scan installation directories or collections of raw files (PURL omission causes full rejection)" color="danger" %}}
 If you use `syft dir:` mode to scan an installation directory or a collection of binaries that has no
@@ -108,22 +104,33 @@ package manager metadata (`package.json`, `go.mod`, `*.jar`, RPM/DEB package DB,
 identify the ecosystem and produces an **SBOM with empty PURLs**. Because SK Telecom's system maps
 vulnerabilities by PURL, such an SBOM fails matching entirely and is rejected.
 
-For a real case rejected this way, see [Common Rejection Reasons](../rejection-reasons/).
-
-Run Syft against the following targets.
-
 ```bash
-# Recommended: scan a built image (PURL and ecosystem identified automatically)
-syft <image-name>:<tag> -o cyclonedx-json=sbom.json
-
-# Not recommended: scan an installation directory or raw files (rejected due to missing PURL)
-syft dir:/root/nag_pkg   # without package manager metadata, PURL count becomes 0
+# Not recommended: an installation directory with no package database
+syft dir:/root/nag_pkg   # PURL count becomes 0
 ```
 
-Immediately after generation, be sure to check the PURL count. See the [Validation Checklist](../checklist/) for how to verify.
+For a real case rejected this way, see [Common Rejection Reasons](../rejection-reasons/). Immediately after generation, be sure to check the PURL count. See the [Validation Checklist](../checklist/) for how to verify.
 {{% /alert %}}
 
-A server that delivers an application on top of an OS (such as CentOS) is generated as two layers — OS (rootfs/image) and application — with statically linked libraries covered separately, then merged. As the warning above notes, the OS layer must target a rootfs or image that has a package database. For the full procedure, see [Server SBOM](../server-delivery/).
+Two Syft defaults affect the result, so check them in advance.
+
+- npm development dependencies are excluded by default. Set `SYFT_JAVASCRIPT_INCLUDE_DEV_DEPENDENCIES=true` if you need them included.
+- For Maven and Gradle projects, Syft reads only what `pom.xml` or the build script declares directly, because dependencies live in a local repository outside the project. Use cdxgen or a language-specific plugin to capture transitive dependencies.
+
+### cdxgen (when the build tool must resolve dependencies)
+
+Invokes the build tool directly to resolve dependencies, so use it for the Maven and Gradle family where Syft cannot capture transitive dependencies.
+
+- Official documentation: [https://cdxgen.github.io/cdxgen](https://cdxgen.github.io/cdxgen)
+- GitHub: [https://github.com/CycloneDX/cdxgen](https://github.com/CycloneDX/cdxgen)
+- Supported languages: Java (Maven/Gradle), Python, Node.js, Go, Ruby, PHP, Rust, .NET, C/C++, etc.
+
+```bash
+cd /path/to/app-source
+cdxgen -o app_bom.json
+```
+
+> cdxgen also needs dependencies installed or resolved (a lockfile is present, or after a build) to be accurate. Scanning pure source without resolved dependencies may omit some components or purls.
 
 ### Trivy (container image analysis)
 
@@ -182,7 +189,7 @@ Verify the following before using a tool.
 
 ## Related Documents
 
-- [Server SBOM](../server-delivery/): How to generate and merge the layers of a server that combines an OS, an application, and static-link libraries
+- [Server SBOM](../server-delivery/): How to choose the scan target for a server delivery and cover statically linked libraries
 - [Submission Requirements](../requirements/): The required data fields that must be included in the SBOM
 - [Validation Checklist](../checklist/): Items to verify before submission
 - [BomLens](../skt-scanner/): SK Telecom's SBOM generation tool

@@ -27,6 +27,9 @@ Missing transitive dependencies are the most common reason for rejection. Be sur
 - [ ] Are transitive dependencies (libraries that the direct dependencies use internally) included?
 - [ ] Did you complete the build (or package installation) before generating the SBOM? (e.g., `npm install`, `mvn package`, `pip install`)
 - [ ] Is the number of components reasonable? (If a project with only a few direct dependencies has fewer than 10 total components, transitive dependencies have likely been omitted)
+- [ ] Did you scan a Maven or Gradle project with Syft alone? Syft reads only what `pom.xml` or the build script declares directly, so transitive dependencies are lost. Use cdxgen or a language-specific CycloneDX plugin.
+- [ ] Are npm development dependencies missing when you need them? Syft excludes them by default; set `SYFT_JAVASCRIPT_INCLUDE_DEV_DEPENDENCIES=true` to include them.
+- [ ] For a server delivery, are the OS packages included? Scanning only the application source drops every installed rpm/dpkg package. See [Server SBOM](../server-delivery/) for the procedure.
 
 ### 4. Identifier (PURL) Check
 SK Telecom's system maps vulnerabilities by PURL. This is the most important item.
@@ -34,6 +37,8 @@ SK Telecom's system maps vulnerabilities by PURL. This is the most important ite
 - [ ] Does the number of components with a PURL match (or come close to) the total component count?
 - [ ] Does the PURL format follow the standard (`pkg:type/namespace/name@version`)?
 - [ ] Are special characters within the PURL correctly encoded?
+- [ ] Does the PURL point at the same distribution and version as what is actually installed? For example, if a RHEL server is declared as `pkg:deb/debian/...`, the format is valid and matching succeeds, but vulnerabilities are reported for components unrelated to the real system.
+- [ ] Did a binary scan produce components with no PURL? Syft's binary catalogers can leave entries with no PURL when the ecosystem cannot be determined. Remove those entries or replace them with the real components.
 
 Use the commands below to check the PURL count directly. The total component count and the PURL-bearing count should be equal.
 

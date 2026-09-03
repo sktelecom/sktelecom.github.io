@@ -29,16 +29,14 @@ graph TD
       T6["OS 내장 펌웨어<br>(예: 기지국, 라우터, OLT/ONT, 셋톱박스)"]
     end
 
-    %% 좌측: 소스코드 스캔 서브 박스 구조
-    subgraph M1["소스코드 스캔"]
-      M1_Sub["cdxgen 또는 BomLens"]
+    %% 좌측: 소스 스캔 서브 박스 구조
+    subgraph M1["소스 스캔"]
+      M1_Sub["Syft<br>빌드·설치를 마친 소스 디렉터리<br>(Maven·Gradle은 cdxgen)"]
     end
 
-    %% 우측: 소스코드 + OS 이미지 스캔 서브 박스 구조 (세로 배치)
-    subgraph M2["소스코드 + OS 이미지 스캔"]
-      direction TB
-      M2_Top["OS (예: Linux) 스캔<br>(Syft 또는 Trivy)"]
-      M2_Bottom["소스코드 스캔<br>(cdxgen 또는 BomLens)"]
+    %% 우측: 서버·이미지 스캔 서브 박스 구조
+    subgraph M2["서버·이미지 스캔"]
+      M2_Sub["Syft<br>납품 상태의 이미지 또는 rootfs"]
     end
 
     A --> G1
@@ -63,7 +61,7 @@ graph TD
     class A start
     class T1,T2,T3,T4,T5,T6 typebox
     class M1_Sub subwhite_left
-    class M2_Top,M2_Bottom subwhite_right
+    class M2_Sub subwhite_right
     class P submit
 
     style G1 fill:#F1FAF5,stroke:#00A651,stroke-width:1px,color:#0A5A32
@@ -75,9 +73,9 @@ graph TD
 
 ```
 
-소스코드·앱, 실행 파일이나 라이브러리, OS 없는 펌웨어는 모두 자기가 개발한 소스코드를 cdxgen 또는 [BomLens](../skt-scanner/)로 스캔합니다. 완성된 바이너리를 그대로 스캔하면 패키지 매니저 메타데이터가 없어 purl이 누락되고 반려됩니다.
+소스코드·앱, 실행 파일이나 라이브러리, OS 없는 펌웨어는 빌드와 의존성 설치를 마친 뒤 소스 디렉터리를 Syft로 스캔합니다. 다만 Maven이나 Gradle처럼 의존성이 프로젝트 밖 로컬 저장소에 놓이는 경우에는 Syft가 `pom.xml`의 직접 선언만 읽어 전이 의존성이 빠지므로, cdxgen이나 언어별 CycloneDX 플러그인을 씁니다. 완성된 바이너리를 그대로 스캔하면 패키지 매니저 메타데이터가 없어 purl이 누락되고 반려됩니다.
 
-OS나 베이스 이미지를 포함해 공급하는 경우(컨테이너 이미지, 서버, OS 내장 펌웨어)는 두 층으로 나눠 각각 스캔합니다. OS 층은 납품되는 상태의 이미지나 rootfs를 Syft 또는 Trivy로 스캔하고, 소스코드(앱 층)는 cdxgen 또는 BomLens로 스캔한 뒤 둘을 합쳐 제출합니다. 이때 OS 층의 스캔 대상은 받아온 원본 베이스가 아니라 빌드가 끝나 납품되는 이미지나 rootfs입니다. 빌드 과정에서 설치한 OS 패키지까지 포함해야 하기 때문입니다. 전체 절차는 [서버 SBOM 생성](../server-delivery/)을 참고하세요.
+OS나 베이스 이미지를 포함해 공급하는 경우(컨테이너 이미지, 서버, OS 내장 펌웨어)는 납품되는 상태의 이미지나 rootfs를 Syft로 스캔합니다. 한 번의 스캔에 OS 패키지(rpm/dpkg/apk 데이터베이스)와 그 위에 설치된 애플리케이션 의존성이 함께 담깁니다. 스캔 대상은 받아온 원본 베이스가 아니라 빌드가 끝나 납품되는 상태여야 합니다. 빌드 과정에서 설치한 OS 패키지까지 포함해야 하기 때문입니다. 전체 절차는 [서버 SBOM 생성](../server-delivery/)을 참고하세요.
 
 정적 링크된 라이브러리나 수동으로 넣은 바이너리는 위 어느 스캔으로도 잡히지 않는 사각지대입니다. 이 경우의 처리는 [서버 SBOM 생성](../server-delivery/)의 정적 링크 라이브러리 절을 참고하세요.
 
@@ -85,44 +83,53 @@ OS나 베이스 이미지를 포함해 공급하는 경우(컨테이너 이미�
 
 ## 주요 도구 안내
 
-### cdxgen (소스코드 분석 권장)
+### Syft (기본 권장)
 
-Java, Python, Node.js, Go 등 다양한 언어 프로젝트를 자동 분석하여 CycloneDX 형식의 SBOM을 생성합니다.
-
-- 공식 문서: [https://cdxgen.github.io/cdxgen](https://cdxgen.github.io/cdxgen)
-- GitHub: [https://github.com/CycloneDX/cdxgen](https://github.com/CycloneDX/cdxgen)
-- 지원 언어: Java (Maven/Gradle), Python, Node.js, Go, Ruby, PHP, Rust, .NET, C/C++ 등
-
-> cdxgen은 lockfile이나 매니페스트를 정적으로 해석합니다. 정확한 결과를 얻으려면 의존성이 설치되거나 해결된 상태(lockfile이 있거나 빌드한 뒤)에서 실행하시기 바랍니다. 의존성이 해결되지 않은 순수 소스만 스캔하면 일부 컴포넌트나 purl이 누락될 수 있습니다.
-
-### Syft (컨테이너 이미지 및 바이너리 분석 권장)
-
-빌드된 컨테이너 이미지나 패키지 매니저 메타데이터가 포함된 빌드 산출물을 분석하여 OS 패키지와 애플리케이션 라이브러리를 모두 식별합니다. CycloneDX 및 SPDX 형식을 지원합니다.
+이미지나 rootfs, 그리고 설치가 끝난 소스 디렉터리를 분석하여 OS 패키지와 애플리케이션 라이브러리를 함께 식별합니다. CycloneDX 및 SPDX 형식을 지원합니다.
 
 - 공식 문서: [https://github.com/anchore/syft](https://github.com/anchore/syft)
-- 권장 분석 대상: 빌드된 Docker 이미지, OCI 이미지, tar 파일
+- 권장 분석 대상: 납품 상태의 컨테이너 이미지, OCI 이미지, tar 파일, rootfs 디렉터리
+
+```bash
+# 이미지
+syft <이미지명>:<태그> -o cyclonedx-json=sbom.json
+
+# rootfs 또는 설치가 끝난 디렉터리
+syft dir:/path/to/server-rootfs -o cyclonedx-json=sbom.json
+```
 
 {{% alert title="경고 — 설치 디렉터리나 원시 파일 모음은 스캔하지 마십시오 (purl 누락으로 전량 반려)" color="danger" %}}
 `syft dir:` 모드로 패키지 매니저 메타데이터(`package.json`, `go.mod`, `*.jar`, RPM/DEB 패키지 DB 등)가
 없는 설치 디렉터리나 바이너리 모음을 스캔하면, Syft가 생태계(ecosystem)를 식별하지 못해 **purl이 비어 있는
 SBOM**이 생성됩니다. SK텔레콤 시스템은 purl로 취약점을 매핑하므로, 이런 SBOM은 매칭이 전량 실패하여 반려됩니다.
 
-이렇게 반려된 실제 사례는 [자주 발생하는 반려 사유](../rejection-reasons/)를 참고하십시오.
-
-Syft는 다음 대상으로 실행하시기 바랍니다.
-
 ```bash
-# 권장: 빌드된 이미지 스캔 (purl과 생태계를 자동 식별)
-syft <이미지명>:<태그> -o cyclonedx-json=sbom.json
-
-# 비권장: 설치 디렉터리나 원시 파일 스캔 (purl 누락으로 반려)
-syft dir:/root/nag_pkg   # 패키지 매니저 메타데이터가 없으면 purl이 0개가 됩니다
+# 비권장: 패키지 데이터베이스가 없는 설치 디렉터리
+syft dir:/root/nag_pkg   # purl이 0개가 됩니다
 ```
 
-생성 직후 반드시 purl 개수를 확인하시기 바랍니다. 검증 방법은 [검증 체크리스트](../checklist/)를 참고하십시오.
+이렇게 반려된 실제 사례는 [자주 발생하는 반려 사유](../rejection-reasons/)를 참고하십시오. 생성 직후 반드시 purl 개수를 확인하시기 바랍니다. 검증 방법은 [검증 체크리스트](../checklist/)를 참고하십시오.
 {{% /alert %}}
 
-CentOS 등 OS 위에 애플리케이션을 올려 납품하는 서버는 OS(rootfs/이미지)와 애플리케이션 두 층으로 나눠 생성하고, 정적 링크 라이브러리는 별도로 보강한 뒤 하나로 합칩니다. OS 층은 위 경고대로 패키지 데이터베이스가 있는 rootfs나 이미지를 대상으로 해야 합니다. 전체 절차는 [서버 SBOM 생성](../server-delivery/)을 참고하세요.
+Syft의 기본값 두 가지는 결과에 영향을 주므로 미리 확인하시기 바랍니다.
+
+- npm 개발 의존성은 기본 제외됩니다. 포함해야 한다면 `SYFT_JAVASCRIPT_INCLUDE_DEV_DEPENDENCIES=true`를 지정합니다.
+- Maven·Gradle 프로젝트는 `pom.xml`이나 빌드 스크립트의 직접 선언만 읽습니다. 의존성이 프로젝트 밖 로컬 저장소에 놓이기 때문이며, 전이 의존성을 담으려면 아래 cdxgen이나 언어별 플러그인을 씁니다.
+
+### cdxgen (빌드 도구가 의존성을 해석해야 할 때)
+
+빌드 도구를 직접 호출해 의존성을 해석하므로, Syft가 전이 의존성을 담지 못하는 Maven·Gradle 계열에 사용합니다.
+
+- 공식 문서: [https://cdxgen.github.io/cdxgen](https://cdxgen.github.io/cdxgen)
+- GitHub: [https://github.com/CycloneDX/cdxgen](https://github.com/CycloneDX/cdxgen)
+- 지원 언어: Java (Maven/Gradle), Python, Node.js, Go, Ruby, PHP, Rust, .NET, C/C++ 등
+
+```bash
+cd /path/to/app-source
+cdxgen -o app_bom.json
+```
+
+> cdxgen도 의존성이 설치되거나 해결된 상태(lockfile이 있거나 빌드한 뒤)에서 실행해야 정확합니다. 의존성이 해결되지 않은 순수 소스만 스캔하면 일부 컴포넌트나 purl이 누락될 수 있습니다.
 
 ### Trivy (컨테이너 이미지 분석)
 
@@ -181,7 +188,7 @@ Trivy를 안전하게 사용하려면 다음 원칙을 따르시기 바랍니다
 
 ## 관련 문서
 
-- [서버 SBOM 생성](../server-delivery/): OS·애플리케이션·정적 링크가 결합된 서버를 층별로 생성하고 합치는 방법
+- [서버 SBOM 생성](../server-delivery/): 서버 납품 시 스캔 대상을 정하고 정적 링크를 보강하는 방법
 - [제출 요구사항](../requirements/): SBOM에 포함되어야 할 필수 데이터 필드
 - [검증 체크리스트](../checklist/): 제출 전 확인 사항
 - [BomLens](../skt-scanner/): SK텔레콤이 제공하는 SBOM 생성 도구
