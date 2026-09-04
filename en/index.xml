@@ -125,6 +125,11 @@
 					&lt;td&gt;Scan the rootfs or image as delivered. &lt;a href="../creation-guide/#server-delivery"&gt;How to Generate an SBOM&lt;/a&gt;&lt;/td&gt;
 			&lt;/tr&gt;
 			&lt;tr&gt;
+					&lt;td&gt;OS package PURL missing the distribution&lt;/td&gt;
+					&lt;td&gt;The scan target had no &lt;code&gt;/etc/os-release&lt;/code&gt;, so the tool could not determine the distribution&lt;/td&gt;
+					&lt;td&gt;Regenerate against the root of the rootfs or the image. &lt;a href="../creation-guide/#server-delivery"&gt;How to Generate an SBOM&lt;/a&gt;&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
 					&lt;td&gt;PURL naming a different distribution or version&lt;/td&gt;
 					&lt;td&gt;The tool guessed an unrelated distribution package from a file name&lt;/td&gt;
 					&lt;td&gt;Regenerate from the packages actually installed. &lt;a href="../creation-guide/#server-delivery"&gt;How to Generate an SBOM&lt;/a&gt;&lt;/td&gt;

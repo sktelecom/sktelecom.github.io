@@ -201,6 +201,11 @@
 					&lt;td&gt;납품 상태의 rootfs나 이미지를 스캔. &lt;a href="../creation-guide/#%EC%84%9C%EB%B2%84-%EB%82%A9%ED%92%88"&gt;SBOM 생성 방법&lt;/a&gt;&lt;/td&gt;
 			&lt;/tr&gt;
 			&lt;tr&gt;
+					&lt;td&gt;OS 패키지 PURL에 배포판 누락&lt;/td&gt;
+					&lt;td&gt;스캔 대상에 &lt;code&gt;/etc/os-release&lt;/code&gt;가 없어 도구가 배포판을 판정하지 못함&lt;/td&gt;
+					&lt;td&gt;rootfs의 루트나 이미지를 대상으로 재생성. &lt;a href="../creation-guide/#%EC%84%9C%EB%B2%84-%EB%82%A9%ED%92%88"&gt;SBOM 생성 방법&lt;/a&gt;&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
 					&lt;td&gt;실제와 다른 배포판·버전의 PURL&lt;/td&gt;
 					&lt;td&gt;도구가 파일 이름으로 무관한 배포판 패키지를 추정&lt;/td&gt;
 					&lt;td&gt;실제 설치된 패키지를 기준으로 재생성. &lt;a href="../creation-guide/#%EC%84%9C%EB%B2%84-%EB%82%A9%ED%92%88"&gt;SBOM 생성 방법&lt;/a&gt;&lt;/td&gt;
