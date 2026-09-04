@@ -101,6 +101,8 @@ PURL(Package URL)은 소프트웨어 패키지를 고유하게 식별하기 위�
 
 > **PURL은 반드시 `pkg:` 접두어로 시작하는 표준 형식이어야 합니다.** `name:version`, `org/repo:tag` 등 자유 텍스트는 허용되지 않으며, 이 경우 취약점 매핑이 불가능해 반려됩니다. 타입은 생태계를 특정해야 하며 `pkg:generic/`은 허용되지 않습니다.
 
+OS 패키지(rpm, deb, apk)는 타입과 패키지 이름 사이에 배포판을 넣어야 합니다(`pkg:rpm/rhel/bind@9.11.36-16.el8_10.6`). 이 자리가 비면 형식은 유효해 보여도 패키지를 특정할 수 없어 취약점 매핑이 되지 않고 반려됩니다.
+
 ### 언어별 PURL 예시
 
 | 생태계 | PURL 형식 예시 |
@@ -122,6 +124,7 @@ PURL(Package URL)은 소프트웨어 패키지를 고유하게 식별하기 위�
 | `actions/checkout:v3` | `pkg:github/actions/checkout@v3` |
 | `lodash@4.17.21` | `pkg:npm/lodash@4.17.21` |
 | `pkg:generic/foo@1.0` | (생태계에 맞는 타입으로 변경) |
+| `pkg:rpm/bind@9.11.36-16.el8_10.6` | `pkg:rpm/rhel/bind@9.11.36-16.el8_10.6` |
 
 > PURL에 대한 자세한 사양은 [Package URL 공식 스펙](https://github.com/package-url/purl-spec)을 참고하시기 바랍니다.
 

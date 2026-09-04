@@ -101,6 +101,8 @@ PURL (Package URL) is a standard URL format for uniquely identifying a software 
 
 > **A PURL must be in the standard format beginning with the `pkg:` prefix.** Free text such as `name:version` or `org/repo:tag` is not allowed; in such cases vulnerability mapping is impossible and the SBOM will be rejected. The type must identify the ecosystem; `pkg:generic/` is not allowed.
 
+An OS package (rpm, deb, apk) must carry the distribution between the type and the package name, as in `pkg:rpm/rhel/bind@9.11.36-16.el8_10.6`. When that slot is empty the identifier looks well formed but names no specific package, so vulnerability mapping fails and the SBOM is rejected.
+
 ### PURL Examples by Language
 
 | Ecosystem | PURL Format Example |
@@ -122,6 +124,7 @@ PURL (Package URL) is a standard URL format for uniquely identifying a software 
 | `actions/checkout:v3` | `pkg:github/actions/checkout@v3` |
 | `lodash@4.17.21` | `pkg:npm/lodash@4.17.21` |
 | `pkg:generic/foo@1.0` | (Change to a type appropriate for the ecosystem) |
+| `pkg:rpm/bind@9.11.36-16.el8_10.6` | `pkg:rpm/rhel/bind@9.11.36-16.el8_10.6` |
 
 > For detailed PURL specifications, refer to the [official Package URL spec](https://github.com/package-url/purl-spec).
 

@@ -184,7 +184,12 @@ This applies only when you deliver a server with an application installed on top
 
 For the OS layer, target the server's rootfs (the extracted root filesystem) or its container image. Syft reads the package database (rpm/dpkg/apk) and identifies every installed package with a real purl (`pkg:rpm/...`). The target must be the state delivered after the build, not the original base image you received, because it must include the OS packages installed during the build. Scanning a folder that only holds unpacked installation files with no package database yields empty purls and is rejected.
 
+The target must be the root of the rootfs. Point Syft at a subdirectory and it still reads the package database, but it cannot determine the distribution. Syft takes the distribution from `/etc/os-release` inside the target and writes it into each purl. A correct result looks like `pkg:rpm/rhel/bind@9.11.36-16.el8_10.6`, with the distribution between the type and the package name. When that slot is empty, the SBOM passes format validation but SK Telecom's system cannot identify the packages, so every OS package fails to match and the submission is rejected. Confirm that this file is present in the target before you scan.
+
 ```bash
+# First confirm the target carries distribution information
+cat /path/to/server-rootfs/etc/os-release
+
 # Against a rootfs directory
 syft dir:/path/to/server-rootfs -o cyclonedx-json=myserver_1.0.0_os.json
 
