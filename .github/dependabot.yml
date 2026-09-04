@@ -6,6 +6,13 @@ updates:
       interval: daily
       time: '20:00'
     open-pull-requests-limit: 10
+    ignore:
+      # FontAwesome 7은 SCSS를 Dart Sass 모듈 문법으로 다시 써서
+      # Hugo의 libsass가 컴파일하지 못하고, 개별 $fa-var-* 변수도 없앴다.
+      # Docsy가 그 변수들을 참조하므로 사이트 빌드가 깨진다(PR #294).
+      # Docsy가 FontAwesome 7을 지원하면 이 항목을 지운다.
+      - dependency-name: '@fortawesome/fontawesome-free'
+        update-types: ['version-update:semver-major']
   - package-ecosystem: bundler
     directory: '/'
     schedule:
