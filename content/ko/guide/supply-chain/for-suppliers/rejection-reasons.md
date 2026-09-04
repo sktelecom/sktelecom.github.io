@@ -18,6 +18,7 @@ description: >
 | `pkg:generic/` PURL | 도구가 생태계를 식별하지 못함 | 생태계를 명시하는 타입으로 재생성. [제출 요구사항](../requirements/)의 PURL 절 |
 | 컴포넌트 버전 누락 | 매니페스트 불완전 또는 도구 설정 문제 | `version` 필드 필수 기재. [제출 요구사항](../requirements/) |
 | 서버인데 OS 패키지 미포함 | 애플리케이션 소스만 스캔 | 납품 상태의 rootfs나 이미지를 스캔. [SBOM 생성 방법](../creation-guide/#서버-납품) |
+| OS 패키지 PURL에 배포판 누락 | 스캔 대상에 `/etc/os-release`가 없어 도구가 배포판을 판정하지 못함 | rootfs의 루트나 이미지를 대상으로 재생성. [SBOM 생성 방법](../creation-guide/#서버-납품) |
 | 실제와 다른 배포판·버전의 PURL | 도구가 파일 이름으로 무관한 배포판 패키지를 추정 | 실제 설치된 패키지를 기준으로 재생성. [SBOM 생성 방법](../creation-guide/#서버-납품) |
 | 허용되지 않는 포맷·버전 | 지원 범위 밖의 포맷으로 생성 | CycloneDX JSON 권장. [제출 요구사항](../requirements/) |
 | 최상위 컴포넌트 정보 누락 | 메타데이터에 납품 제품명과 버전 미기재 | metadata의 component에 제품명과 버전 기재. [제출 요구사항](../requirements/) |

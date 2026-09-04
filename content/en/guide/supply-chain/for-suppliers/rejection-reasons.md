@@ -18,6 +18,7 @@ Submitted SBOMs go through format validation and vulnerability analysis, and are
 | `pkg:generic/` PURLs | The tool could not identify the ecosystem | Regenerate with ecosystem-specific types. See the PURL section of the [Submission Requirements](../requirements/) |
 | Component versions missing | Incomplete manifests or tool configuration issues | The `version` field is required. [Submission Requirements](../requirements/) |
 | Server delivery with no OS packages | Only the application source was scanned | Scan the rootfs or image as delivered. [How to Generate an SBOM](../creation-guide/#server-delivery) |
+| OS package PURL missing the distribution | The scan target had no `/etc/os-release`, so the tool could not determine the distribution | Regenerate against the root of the rootfs or the image. [How to Generate an SBOM](../creation-guide/#server-delivery) |
 | PURL naming a different distribution or version | The tool guessed an unrelated distribution package from a file name | Regenerate from the packages actually installed. [How to Generate an SBOM](../creation-guide/#server-delivery) |
 | Unaccepted format or version | Generated in a format outside the supported range | CycloneDX JSON recommended. [Submission Requirements](../requirements/) |
 | Top-level component info missing | Delivered product name and version not recorded in the metadata | Record the product name and version in the metadata component. [Submission Requirements](../requirements/) |
