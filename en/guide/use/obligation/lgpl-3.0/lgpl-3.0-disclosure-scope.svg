@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="860" height="456" viewBox="0 0 860 456" font-family="'Inter','Helvetica Neue',Arial,sans-serif">
+  <defs>
+    <filter id="ds" x="-15%" y="-40%" width="130%" height="200%">
+      <feDropShadow dx="0" dy="1.5" stdDeviation="3" flood-color="#111014" flood-opacity="0.09"/>
+    </filter>
+  </defs>
+  <rect width="860" height="456" fill="#FFFFFF"/>
+
+  <rect x="24" y="20" width="260" height="344" rx="16" fill="#FEF7F8" stroke="#EA002C" stroke-width="1.5"/>
+  <text x="40" y="54" font-size="16" font-weight="700" fill="#1A1A1E">LGPL library</text>
+  <text x="40" y="76" font-size="12.5" fill="#EA002C">The library itself must be disclosed</text>
+  <g filter="url(#ds)"><rect x="40" y="92" width="228" height="40" rx="10" fill="#1A1A1E"/></g>
+  <text x="154" y="117" text-anchor="middle" font-size="14" font-weight="700" fill="#FFFFFF">Source disclosure</text>
+  <g filter="url(#ds)"><rect x="40" y="148" width="228" height="92" rx="12" fill="#FFFFFF" stroke="#E6E3DF"/></g>
+  <text x="56" y="176" font-size="15" font-weight="700" fill="#1A1A1E">Modified files</text>
+  <text x="56" y="198" font-size="12.5" fill="#7C7880">Files changed or newly added</text>
+  <text x="56" y="216" font-size="12.5" fill="#7C7880">inside the library fall under</text>
+  <text x="56" y="234" font-size="12.5" fill="#7C7880">LGPL-3.0</text>
+  <g filter="url(#ds)"><rect x="40" y="252" width="228" height="92" rx="12" fill="#FFFFFF" stroke="#E6E3DF"/></g>
+  <text x="56" y="280" font-size="15" font-weight="700" fill="#1A1A1E">Build environment</text>
+  <text x="56" y="302" font-size="12.5" fill="#7C7880">Tool chain, build scripts and</text>
+  <text x="56" y="320" font-size="12.5" fill="#7C7880">a README so the same library</text>
+  <text x="56" y="338" font-size="12.5" fill="#7C7880">can be rebuilt</text>
+
+  <rect x="300" y="20" width="260" height="344" rx="16" fill="#FFFFFF" stroke="#9B96A0" stroke-width="1.5"/>
+  <text x="316" y="54" font-size="16" font-weight="700" fill="#1A1A1E">Statically linked executable</text>
+  <text x="316" y="76" font-size="12.5" fill="#7C7880">When you ship an executable</text>
+  <g filter="url(#ds)"><rect x="316" y="92" width="228" height="40" rx="10" fill="#5A555E"/></g>
+  <text x="430" y="117" text-anchor="middle" font-size="14" font-weight="700" fill="#FFFFFF">Object code required</text>
+  <g filter="url(#ds)"><rect x="316" y="148" width="228" height="92" rx="12" fill="#FFFFFF" stroke="#E6E3DF"/></g>
+  <text x="332" y="176" font-size="15" font-weight="700" fill="#1A1A1E">What you must give</text>
+  <text x="332" y="198" font-size="12.5" fill="#7C7880">Object code of the executable,</text>
+  <text x="332" y="216" font-size="12.5" fill="#7C7880">so users can modify the library</text>
+  <text x="332" y="234" font-size="12.5" fill="#7C7880">and relink it themselves</text>
+  <g filter="url(#ds)"><rect x="316" y="252" width="228" height="92" rx="12" fill="#FFFFFF" stroke="#E6E3DF"/></g>
+  <text x="332" y="280" font-size="15" font-weight="700" fill="#1A1A1E">What stays closed</text>
+  <text x="332" y="302" font-size="12.5" fill="#7C7880">The source code of your own</text>
+  <text x="332" y="320" font-size="12.5" fill="#7C7880">application</text>
+
+  <rect x="576" y="20" width="260" height="344" rx="16" fill="#FFFFFF" stroke="#C6C1C8" stroke-width="1.5" stroke-dasharray="6 5"/>
+  <text x="592" y="54" font-size="16" font-weight="700" fill="#1A1A1E">Dynamically linked program</text>
+  <text x="592" y="76" font-size="12.5" fill="#7C7880">Keeps its own license</text>
+  <g filter="url(#ds)"><rect x="592" y="92" width="228" height="40" rx="10" fill="#EDEBE8"/></g>
+  <text x="706" y="117" text-anchor="middle" font-size="14" font-weight="700" fill="#1A1A1E">No disclosure</text>
+  <g filter="url(#ds)"><rect x="592" y="148" width="228" height="92" rx="12" fill="#FFFFFF" stroke="#E6E3DF"/></g>
+  <text x="608" y="176" font-size="15" font-weight="700" fill="#1A1A1E">Dynamic link</text>
+  <text x="608" y="198" font-size="12.5" fill="#7C7880">An application that links the</text>
+  <text x="608" y="216" font-size="12.5" fill="#7C7880">library dynamically is not a</text>
+  <text x="608" y="234" font-size="12.5" fill="#7C7880">derivative work</text>
+  <g filter="url(#ds)"><rect x="592" y="252" width="228" height="92" rx="12" fill="#FFFFFF" stroke="#E6E3DF"/></g>
+  <text x="608" y="280" font-size="15" font-weight="700" fill="#1A1A1E">Java import</text>
+  <text x="608" y="302" font-size="12.5" fill="#7C7880">A program importing a JAR</text>
+  <text x="608" y="320" font-size="12.5" fill="#7C7880">file under LGPL-3.0 is not</text>
+  <text x="608" y="338" font-size="12.5" fill="#7C7880">a derivative work either</text>
+
+  <rect x="24" y="380" width="812" height="58" rx="10" fill="#F7F6F4" stroke="#E6E3DF"/>
+  <text x="430" y="403" text-anchor="middle" font-size="13.5" fill="#1A1A1E">Criterion: did you modify the library itself, and can users replace the library on their own?</text>
+  <text x="430" y="423" text-anchor="middle" font-size="13.5" fill="#1A1A1E">LGPL-3.0 also requires Installation Information when the library ships with a User Product.</text>
+</svg>

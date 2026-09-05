@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="860" height="468" viewBox="0 0 860 468" font-family="'Inter','Helvetica Neue',Arial,sans-serif">
+  <defs>
+    <filter id="ds" x="-15%" y="-40%" width="130%" height="200%">
+      <feDropShadow dx="0" dy="1.5" stdDeviation="3" flood-color="#111014" flood-opacity="0.09"/>
+    </filter>
+  </defs>
+  <rect width="860" height="468" fill="#FFFFFF"/>
+
+  <!-- Left: derivative works -->
+  <rect x="24" y="20" width="496" height="344" rx="16" fill="#FEF7F8" stroke="#EA002C" stroke-width="1.5"/>
+  <text x="48" y="54" font-size="18" font-weight="700" fill="#1A1A1E">Derivative work</text>
+  <text x="48" y="76" font-size="13" fill="#EA002C">GPL-3.0 applies, source code must be disclosed</text>
+
+  <g filter="url(#ds)"><rect x="48" y="92" width="448" height="44" rx="10" fill="#1A1A1E"/></g>
+  <text x="272" y="120" text-anchor="middle" font-size="14.5" font-weight="700" fill="#FFFFFF">Combined with the GPL-3.0 program in the same process</text>
+
+  <g filter="url(#ds)"><rect x="48" y="152" width="216" height="84" rx="12" fill="#FFFFFF" stroke="#E6E3DF"/></g>
+  <text x="64" y="180" font-size="15.5" font-weight="700" fill="#1A1A1E">Modified code</text>
+  <text x="64" y="202" font-size="12.5" fill="#7C7880">Parts changed or newly added</text>
+  <text x="64" y="220" font-size="12.5" fill="#7C7880">to the original</text>
+
+  <g filter="url(#ds)"><rect x="280" y="152" width="216" height="84" rx="12" fill="#FFFFFF" stroke="#E6E3DF"/></g>
+  <text x="296" y="180" font-size="15.5" font-weight="700" fill="#1A1A1E">Module</text>
+  <text x="296" y="202" font-size="12.5" fill="#7C7880">Runs in the same process</text>
+  <text x="296" y="220" font-size="12.5" fill="#7C7880">as the GPL program</text>
+
+  <g filter="url(#ds)"><rect x="48" y="250" width="216" height="84" rx="12" fill="#FFFFFF" stroke="#E6E3DF"/></g>
+  <text x="64" y="278" font-size="15.5" font-weight="700" fill="#1A1A1E">Library</text>
+  <text x="64" y="300" font-size="12.5" fill="#7C7880">Linked with the GPL</text>
+  <text x="64" y="318" font-size="12.5" fill="#7C7880">program</text>
+
+  <g filter="url(#ds)"><rect x="280" y="250" width="216" height="84" rx="12" fill="#FFFFFF" stroke="#E6E3DF"/></g>
+  <text x="296" y="278" font-size="15.5" font-weight="700" fill="#1A1A1E">Inherited class</text>
+  <text x="296" y="300" font-size="12.5" fill="#7C7880">Inherits from a class of</text>
+  <text x="296" y="318" font-size="12.5" fill="#7C7880">the GPL program</text>
+
+  <!-- Right: not a derivative work -->
+  <rect x="544" y="20" width="292" height="344" rx="16" fill="#FFFFFF" stroke="#C6C1C8" stroke-width="1.5" stroke-dasharray="6 5"/>
+  <text x="568" y="54" font-size="18" font-weight="700" fill="#1A1A1E">Not a derivative work</text>
+  <text x="568" y="76" font-size="13" fill="#7C7880">Keeps its own license</text>
+
+  <g filter="url(#ds)"><rect x="568" y="96" width="244" height="118" rx="12" fill="#F7F6F4" stroke="#E6E3DF"/></g>
+  <text x="584" y="126" font-size="15.5" font-weight="700" fill="#1A1A1E">Independent program</text>
+  <text x="584" y="152" font-size="12.5" fill="#7C7880">Merely coexists on the same</text>
+  <text x="584" y="172" font-size="12.5" fill="#7C7880">medium, such as a CD, without</text>
+  <text x="584" y="192" font-size="12.5" fill="#7C7880">interacting (Mere Aggregation)</text>
+
+  <g filter="url(#ds)"><rect x="568" y="230" width="244" height="118" rx="12" fill="#F7F6F4" stroke="#E6E3DF"/></g>
+  <text x="584" y="260" font-size="15.5" font-weight="700" fill="#1A1A1E">Separate process</text>
+  <text x="584" y="286" font-size="12.5" fill="#7C7880">A separate program that talks</text>
+  <text x="584" y="306" font-size="12.5" fill="#7C7880">to the GPL program via Pipe,</text>
+  <text x="584" y="326" font-size="12.5" fill="#7C7880">Socket, IPC, or CLI arguments</text>
+
+  <!-- Bottom: criterion -->
+  <rect x="24" y="380" width="812" height="72" rx="10" fill="#F7F6F4" stroke="#E6E3DF"/>
+  <text x="430" y="402" text-anchor="middle" font-size="13.5" fill="#1A1A1E">Criterion: code combined into one program within the same process is a derivative work.</text>
+  <text x="430" y="422" text-anchor="middle" font-size="13.5" fill="#1A1A1E">A program that communicates across a process boundary stays a separate work.</text>
+  <text x="430" y="442" text-anchor="middle" font-size="13.5" fill="#1A1A1E">GPL-3.0 also requires Installation Information when the binary ships with a User Product.</text>
+</svg>
