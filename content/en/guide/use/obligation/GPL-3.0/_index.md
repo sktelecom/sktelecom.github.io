@@ -112,6 +112,8 @@ The following are not considered derivative works of the GPL.
 
 * An independent program that merely coexists on the same medium, such as a CD, but does not interact with the GPL program at all ([#MereAggregation](https://www.gnu.org/licenses/gpl-faq.en.html#MereAggregation))
 * A program that is separate from the GPL program and communicates with it via Pipe, Socket, IPC, or Command Line Arguments
+
+![Scope of GPL-3.0 derivative works](gpl-3.0-derivative-scope.svg "Combined in the same process is a derivative work; communicating across a process boundary is a separate work")
 {{% /alert %}}
 
 2. Provide a build environment that allows binary users to build an identical binary from the disclosed source code. This includes the following.

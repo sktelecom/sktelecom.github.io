@@ -116,6 +116,8 @@ The following are not regarded as GPL derivative works.
 * An independent program that resides together on a medium such as a CD but does not interoperate with the AGPL program at all (#[MereAggregation](https://www.gnu.org/licenses/gpl-faq.en.html#MereAggregation))
 * A program separate from the AGPL program that communicates with it via Pipe, Socket, IPC, or Command Line Arguments
 
+![Scope of AGPL-3.0 derivative works](agpl-3.0-derivative-scope.svg "Combined in the same process is a derivative work; communicating across a process boundary is a separate work")
+
 {{% /alert %}}
 
 2. Provide a build environment that allows binary users to build an identical binary from the disclosed source code. This includes the following.
@@ -150,6 +152,8 @@ If you (1) modify open source under the AGPL-3.0 license and (2) the modified ve
 
 - You must provide a network server from which remote users can download the source code of the modified version.
 - The source code here is the same in scope as that required in "2-2. Source Code Provision Obligation" above.
+
+![When AGPL-3.0 triggers source disclosure](agpl-3.0-network-trigger.svg "Distribution works like GPL-3.0; network use without distribution triggers disclosure only under AGPL-3.0")
 
 {{% alert title="Caution When Providing SaaS" color="warning" %}}
 Even when developing a network server (SaaS, cloud service) that does not distribute binaries, using AGPL-3.0 open source requires disclosure of the source code, so it should be avoided whenever possible.
