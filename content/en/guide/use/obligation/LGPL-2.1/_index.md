@@ -118,6 +118,8 @@ The following are not considered derivative works of LGPL-2.1.
 
 3. When distributing an Executable created by Static Linking the LGPL library, provide the object code that makes up the executable so that users can modify the LGPL library and regenerate the executable. ([#LGPLStaticVsDynamic](https://www.gnu.org/licenses/gpl-faq.en.html#LGPLStaticVsDynamic))
 
+![Disclosure scope of LGPL-2.1](lgpl-2.1-disclosure-scope.svg "The library itself must be disclosed, a dynamically linked program need not be, and a statically linked executable requires object code")
+
 Instead of the source code, you may provide a Written Offer. It must include the following statements.
 
 1. The written offer is valid for 3 years after the product is sold.

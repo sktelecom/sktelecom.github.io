@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="860" height="434" viewBox="0 0 860 434" font-family="'Inter','Helvetica Neue',Arial,sans-serif">
+  <defs>
+    <filter id="ds" x="-15%" y="-40%" width="130%" height="200%">
+      <feDropShadow dx="0" dy="1.5" stdDeviation="3" flood-color="#111014" flood-opacity="0.09"/>
+    </filter>
+  </defs>
+  <rect width="860" height="434" fill="#FFFFFF"/>
+
+  <text x="32" y="52" font-size="13" fill="#7C7880">When must you disclose the source code?</text>
+  <text x="430" y="54" text-anchor="middle" font-size="17" font-weight="700" fill="#1A1A1E">GPL-3.0</text>
+  <text x="706" y="54" text-anchor="middle" font-size="17" font-weight="700" fill="#EA002C">AGPL-3.0</text>
+
+  <text x="32" y="122" font-size="15.5" font-weight="700" fill="#1A1A1E">Distributing the software</text>
+  <text x="32" y="150" font-size="12.5" fill="#7C7880">Shipping a product, a file or</text>
+  <text x="32" y="170" font-size="12.5" fill="#7C7880">an image to someone else</text>
+  <g filter="url(#ds)"><rect x="300" y="84" width="260" height="124" rx="12" fill="#FFFFFF" stroke="#E6E3DF"/></g>
+  <rect x="320" y="102" width="150" height="28" rx="14" fill="#1A1A1E"/>
+  <text x="395" y="121" text-anchor="middle" font-size="13" font-weight="700" fill="#FFFFFF">Disclosure required</text>
+  <text x="320" y="154" font-size="12.5" fill="#7C7880">The complete source code for</text>
+  <text x="320" y="174" font-size="12.5" fill="#7C7880">the binary, plus the build</text>
+  <text x="320" y="194" font-size="12.5" fill="#7C7880">environment</text>
+  <g filter="url(#ds)"><rect x="576" y="84" width="260" height="124" rx="12" fill="#FFFFFF" stroke="#E6E3DF"/></g>
+  <rect x="596" y="102" width="150" height="28" rx="14" fill="#1A1A1E"/>
+  <text x="671" y="121" text-anchor="middle" font-size="13" font-weight="700" fill="#FFFFFF">Disclosure required</text>
+  <text x="596" y="154" font-size="12.5" fill="#7C7880">The same scope as GPL-3.0:</text>
+  <text x="596" y="174" font-size="12.5" fill="#7C7880">source code and the build</text>
+  <text x="596" y="194" font-size="12.5" fill="#7C7880">environment</text>
+
+  <text x="32" y="258" font-size="15.5" font-weight="700" fill="#1A1A1E">Network use, no distribution</text>
+  <text x="32" y="286" font-size="12.5" fill="#7C7880">Running it only on your server,</text>
+  <text x="32" y="306" font-size="12.5" fill="#7C7880">as SaaS or a cloud service</text>
+  <g filter="url(#ds)"><rect x="300" y="220" width="260" height="124" rx="12" fill="#FFFFFF" stroke="#E6E3DF"/></g>
+  <rect x="320" y="238" width="150" height="28" rx="14" fill="#EDEBE8"/>
+  <text x="395" y="257" text-anchor="middle" font-size="13" font-weight="700" fill="#1A1A1E">Not required</text>
+  <text x="320" y="290" font-size="12.5" fill="#7C7880">There is no distribution, so</text>
+  <text x="320" y="310" font-size="12.5" fill="#7C7880">no source disclosure</text>
+  <text x="320" y="330" font-size="12.5" fill="#7C7880">obligation arises</text>
+  <g filter="url(#ds)"><rect x="576" y="220" width="260" height="124" rx="12" fill="#FEF7F8" stroke="#EA002C"/></g>
+  <rect x="596" y="238" width="150" height="28" rx="14" fill="#1A1A1E"/>
+  <text x="671" y="257" text-anchor="middle" font-size="13" font-weight="700" fill="#FFFFFF">Disclosure required</text>
+  <text x="596" y="290" font-size="12.5" fill="#7C7880">If the version is modified,</text>
+  <text x="596" y="310" font-size="12.5" fill="#7C7880">remote users must be able to</text>
+  <text x="596" y="330" font-size="12.5" fill="#7C7880">download its source code</text>
+
+  <rect x="24" y="360" width="812" height="58" rx="10" fill="#F7F6F4" stroke="#E6E3DF"/>
+  <text x="430" y="383" text-anchor="middle" font-size="13.5" fill="#1A1A1E">The AGPL-3.0 network clause (section 13) applies to modified versions.</text>
+  <text x="430" y="403" text-anchor="middle" font-size="13.5" fill="#1A1A1E">Running an unmodified version as a service does not by itself trigger disclosure.</text>
+</svg>

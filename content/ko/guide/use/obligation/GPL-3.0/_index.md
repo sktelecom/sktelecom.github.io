@@ -112,6 +112,8 @@ GPL-3.0 라이선스 하의 오픈소스를 빌드하여 바이너리 형태로�
 
 * CD와 같은 매체에 함께 존재하지만 GPL 프로그램과 전혀 연동하지 않는 독립 프로그램 (#[MereAggregation](https://www.gnu.org/licenses/gpl-faq.en.html#MereAggregation))
 * GPL 프로그램과는 별도의 프로그램으로써 Pipe, Socket, IPC, Command Line Arguments로 GPL 프로그램과 통신하는 경우
+
+![GPL-3.0 파생저작물의 범위](gpl-3.0-derivative-scope.svg "같은 프로세스 안에서 결합되면 파생저작물, 프로세스 경계를 넘어 통신하면 별도 저작물")
 {{% /alert %}}
 
 2. 바이너리 사용자가 공개된 소스 코드로 동일한 바이너리를 만들 수 있는 빌드 환경을 제공합니다. 여기에는 다음 사항이 포함됩니다.

@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="860" height="456" viewBox="0 0 860 456" font-family="'Apple SD Gothic Neo','Noto Sans CJK KR','Malgun Gothic',sans-serif">
+  <defs>
+    <filter id="ds" x="-15%" y="-40%" width="130%" height="200%">
+      <feDropShadow dx="0" dy="1.5" stdDeviation="3" flood-color="#111014" flood-opacity="0.09"/>
+    </filter>
+  </defs>
+  <rect width="860" height="456" fill="#FFFFFF"/>
+
+  <rect x="24" y="20" width="260" height="344" rx="16" fill="#FEF7F8" stroke="#EA002C" stroke-width="1.5"/>
+  <text x="40" y="54" font-size="17" font-weight="700" fill="#1A1A1E">LGPL 라이브러리</text>
+  <text x="40" y="76" font-size="12.5" fill="#EA002C">라이브러리 자체가 공개 대상</text>
+  <g filter="url(#ds)"><rect x="40" y="92" width="228" height="40" rx="10" fill="#1A1A1E"/></g>
+  <text x="154" y="117" text-anchor="middle" font-size="14" font-weight="700" fill="#FFFFFF">소스 코드 공개 의무</text>
+  <g filter="url(#ds)"><rect x="40" y="148" width="228" height="92" rx="12" fill="#FFFFFF" stroke="#E6E3DF"/></g>
+  <text x="56" y="176" font-size="15" font-weight="700" fill="#1A1A1E">수정/추가한 파일</text>
+  <text x="56" y="198" font-size="12.5" fill="#7C7880">라이브러리 안에서 고치거나</text>
+  <text x="56" y="216" font-size="12.5" fill="#7C7880">새로 넣은 파일에 LGPL-3.0을</text>
+  <text x="56" y="234" font-size="12.5" fill="#7C7880">적용해 공개합니다</text>
+  <g filter="url(#ds)"><rect x="40" y="252" width="228" height="92" rx="12" fill="#FFFFFF" stroke="#E6E3DF"/></g>
+  <text x="56" y="280" font-size="15" font-weight="700" fill="#1A1A1E">빌드 환경</text>
+  <text x="56" y="302" font-size="12.5" fill="#7C7880">같은 라이브러리를 만들 수</text>
+  <text x="56" y="320" font-size="12.5" fill="#7C7880">있는 툴체인, 빌드 스크립트,</text>
+  <text x="56" y="338" font-size="12.5" fill="#7C7880">빌드 방법(README)</text>
+
+  <rect x="300" y="20" width="260" height="344" rx="16" fill="#FFFFFF" stroke="#9B96A0" stroke-width="1.5"/>
+  <text x="316" y="54" font-size="17" font-weight="700" fill="#1A1A1E">정적 링크한 실행파일</text>
+  <text x="316" y="76" font-size="12.5" fill="#7C7880">실행파일 형태로 배포하는 경우</text>
+  <g filter="url(#ds)"><rect x="316" y="92" width="228" height="40" rx="10" fill="#5A555E"/></g>
+  <text x="430" y="117" text-anchor="middle" font-size="14" font-weight="700" fill="#FFFFFF">오브젝트 코드 제공</text>
+  <g filter="url(#ds)"><rect x="316" y="148" width="228" height="92" rx="12" fill="#FFFFFF" stroke="#E6E3DF"/></g>
+  <text x="332" y="176" font-size="15" font-weight="700" fill="#1A1A1E">제공 의무</text>
+  <text x="332" y="198" font-size="12.5" fill="#7C7880">사용자가 라이브러리를 고쳐</text>
+  <text x="332" y="216" font-size="12.5" fill="#7C7880">다시 링크할 수 있도록</text>
+  <text x="332" y="234" font-size="12.5" fill="#7C7880">오브젝트 코드를 제공</text>
+  <g filter="url(#ds)"><rect x="316" y="252" width="228" height="92" rx="12" fill="#FFFFFF" stroke="#E6E3DF"/></g>
+  <text x="332" y="280" font-size="15" font-weight="700" fill="#1A1A1E">공개 대상 아님</text>
+  <text x="332" y="302" font-size="12.5" fill="#7C7880">애플리케이션의 소스 코드는</text>
+  <text x="332" y="320" font-size="12.5" fill="#7C7880">공개하지 않아도 됩니다</text>
+
+  <rect x="576" y="20" width="260" height="344" rx="16" fill="#FFFFFF" stroke="#C6C1C8" stroke-width="1.5" stroke-dasharray="6 5"/>
+  <text x="592" y="54" font-size="17" font-weight="700" fill="#1A1A1E">동적 링크한 프로그램</text>
+  <text x="592" y="76" font-size="12.5" fill="#7C7880">자체 라이선스를 그대로 유지</text>
+  <g filter="url(#ds)"><rect x="592" y="92" width="228" height="40" rx="10" fill="#EDEBE8"/></g>
+  <text x="706" y="117" text-anchor="middle" font-size="14" font-weight="700" fill="#1A1A1E">공개 의무 없음</text>
+  <g filter="url(#ds)"><rect x="592" y="148" width="228" height="92" rx="12" fill="#FFFFFF" stroke="#E6E3DF"/></g>
+  <text x="608" y="176" font-size="15" font-weight="700" fill="#1A1A1E">Dynamic Link</text>
+  <text x="608" y="198" font-size="12.5" fill="#7C7880">라이브러리를 동적 링크해</text>
+  <text x="608" y="216" font-size="12.5" fill="#7C7880">사용하는 애플리케이션은</text>
+  <text x="608" y="234" font-size="12.5" fill="#7C7880">파생저작물이 아닙니다</text>
+  <g filter="url(#ds)"><rect x="592" y="252" width="228" height="92" rx="12" fill="#FFFFFF" stroke="#E6E3DF"/></g>
+  <text x="608" y="280" font-size="15" font-weight="700" fill="#1A1A1E">Java import</text>
+  <text x="608" y="302" font-size="12.5" fill="#7C7880">LGPL-3.0인 JAR 파일을</text>
+  <text x="608" y="320" font-size="12.5" fill="#7C7880">import하는 프로그램도</text>
+  <text x="608" y="338" font-size="12.5" fill="#7C7880">파생저작물이 아닙니다</text>
+
+  <rect x="24" y="380" width="812" height="58" rx="10" fill="#F7F6F4" stroke="#E6E3DF"/>
+  <text x="430" y="403" text-anchor="middle" font-size="13.5" fill="#1A1A1E">판단 기준: 라이브러리 자체를 수정했는지, 그리고 사용자가 라이브러리를 교체할 수 있는지</text>
+  <text x="430" y="423" text-anchor="middle" font-size="13.5" fill="#1A1A1E">LGPL-3.0은 User Product와 함께 배포할 때 설치 정보(Installation Information)도 제공해야 합니다.</text>
+</svg>

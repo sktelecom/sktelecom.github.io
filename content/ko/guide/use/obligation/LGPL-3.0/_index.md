@@ -118,6 +118,8 @@ LGPL-3.0 라이선스 하의 오픈소스를 빌드하여 바이너리 형태로
 
 3. LGPL 라이브러리를 Static Link하여 생성한 실행파일(Executable)을 배포하는 경우, 사용자가 LGPL 라이브러리를 수정하고 다시 실행파일을 생성할 수 있도록 실행파일을 구성하는 오브젝트 코드를 제공합니다. ([#LGPLStaticVsDynamic](https://www.gnu.org/licenses/gpl-faq.en.html#LGPLStaticVsDynamic))
 
+![LGPL-3.0의 공개 범위](lgpl-3.0-disclosure-scope.svg "라이브러리 자체는 공개 대상, 동적 링크한 프로그램은 공개 의무 없음, 정적 링크한 실행파일은 오브젝트 코드 제공")
+
 소스 코드 대신 서면 약정서(Written Offer)를 제공할 수 있습니다. 여기에는 다음 진술이 포함되어야 합니다.
 
 1. 서면 약정서는 제품 판매 후 3년간 유효합니다.

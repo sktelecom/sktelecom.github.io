@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="860" height="454" viewBox="0 0 860 454" font-family="'Apple SD Gothic Neo','Noto Sans CJK KR','Malgun Gothic',sans-serif">
+  <defs>
+    <filter id="ds" x="-15%" y="-40%" width="130%" height="200%">
+      <feDropShadow dx="0" dy="1.5" stdDeviation="3" flood-color="#111014" flood-opacity="0.09"/>
+    </filter>
+  </defs>
+  <rect width="860" height="454" fill="#FFFFFF"/>
+
+  <!-- 좌: 파생저작물 -->
+  <rect x="24" y="20" width="496" height="344" rx="16" fill="#FEF7F8" stroke="#EA002C" stroke-width="1.5"/>
+  <text x="48" y="54" font-size="18" font-weight="700" fill="#1A1A1E">파생저작물</text>
+  <text x="48" y="76" font-size="13" fill="#EA002C">GPL-3.0 적용 + 소스 코드 공개 대상</text>
+
+  <g filter="url(#ds)"><rect x="48" y="92" width="448" height="44" rx="10" fill="#1A1A1E"/></g>
+  <text x="272" y="120" text-anchor="middle" font-size="14.5" font-weight="700" fill="#FFFFFF">GPL-3.0 프로그램과 같은 프로세스 안에서 결합</text>
+
+  <g filter="url(#ds)"><rect x="48" y="152" width="216" height="84" rx="12" fill="#FFFFFF" stroke="#E6E3DF"/></g>
+  <text x="64" y="180" font-size="15.5" font-weight="700" fill="#1A1A1E">수정 코드</text>
+  <text x="64" y="202" font-size="12.5" fill="#7C7880">원본을 고치거나 새로 덧붙인</text>
+  <text x="64" y="220" font-size="12.5" fill="#7C7880">부분</text>
+
+  <g filter="url(#ds)"><rect x="280" y="152" width="216" height="84" rx="12" fill="#FFFFFF" stroke="#E6E3DF"/></g>
+  <text x="296" y="180" font-size="15.5" font-weight="700" fill="#1A1A1E">Module</text>
+  <text x="296" y="202" font-size="12.5" fill="#7C7880">GPL 프로그램과 동일한</text>
+  <text x="296" y="220" font-size="12.5" fill="#7C7880">프로세스에서 동작</text>
+
+  <g filter="url(#ds)"><rect x="48" y="250" width="216" height="84" rx="12" fill="#FFFFFF" stroke="#E6E3DF"/></g>
+  <text x="64" y="278" font-size="15.5" font-weight="700" fill="#1A1A1E">Library</text>
+  <text x="64" y="300" font-size="12.5" fill="#7C7880">GPL 프로그램과 링크로</text>
+  <text x="64" y="318" font-size="12.5" fill="#7C7880">연결</text>
+
+  <g filter="url(#ds)"><rect x="280" y="250" width="216" height="84" rx="12" fill="#FFFFFF" stroke="#E6E3DF"/></g>
+  <text x="296" y="278" font-size="15.5" font-weight="700" fill="#1A1A1E">상속 Class</text>
+  <text x="296" y="300" font-size="12.5" fill="#7C7880">GPL 프로그램의 클래스를</text>
+  <text x="296" y="318" font-size="12.5" fill="#7C7880">상속</text>
+
+  <!-- 우: 파생저작물 아님 -->
+  <rect x="544" y="20" width="292" height="344" rx="16" fill="#FFFFFF" stroke="#C6C1C8" stroke-width="1.5" stroke-dasharray="6 5"/>
+  <text x="568" y="54" font-size="18" font-weight="700" fill="#1A1A1E">파생저작물 아님</text>
+  <text x="568" y="76" font-size="13" fill="#7C7880">각자의 라이선스를 그대로 유지</text>
+
+  <g filter="url(#ds)"><rect x="568" y="96" width="244" height="118" rx="12" fill="#F7F6F4" stroke="#E6E3DF"/></g>
+  <text x="584" y="126" font-size="15.5" font-weight="700" fill="#1A1A1E">독립 프로그램</text>
+  <text x="584" y="152" font-size="12.5" fill="#7C7880">CD와 같은 매체에 함께 담기지만</text>
+  <text x="584" y="172" font-size="12.5" fill="#7C7880">GPL 프로그램과 전혀 연동하지</text>
+  <text x="584" y="192" font-size="12.5" fill="#7C7880">않는 경우 (Mere Aggregation)</text>
+
+  <g filter="url(#ds)"><rect x="568" y="230" width="244" height="118" rx="12" fill="#F7F6F4" stroke="#E6E3DF"/></g>
+  <text x="584" y="260" font-size="15.5" font-weight="700" fill="#1A1A1E">프로세스를 분리한 통신</text>
+  <text x="584" y="286" font-size="12.5" fill="#7C7880">별도의 프로그램으로서 Pipe,</text>
+  <text x="584" y="306" font-size="12.5" fill="#7C7880">Socket, IPC, Command Line</text>
+  <text x="584" y="326" font-size="12.5" fill="#7C7880">Arguments로 통신하는 경우</text>
+
+  <!-- 하단: 판단 기준 -->
+  <rect x="24" y="380" width="812" height="58" rx="10" fill="#F7F6F4" stroke="#E6E3DF"/>
+  <text x="430" y="403" text-anchor="middle" font-size="13.5" fill="#1A1A1E">판단 기준: 같은 프로세스 안에서 하나로 결합되면 파생저작물, 프로세스 경계를 넘어 통신하면 별도 저작물</text>
+  <text x="430" y="423" text-anchor="middle" font-size="13.5" fill="#1A1A1E">GPL-3.0은 바이너리를 User Product와 함께 배포할 때 설치 정보(Installation Information)도 제공해야 합니다.</text>
+</svg>
