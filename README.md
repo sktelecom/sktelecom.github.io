@@ -18,16 +18,18 @@ All content is written in Markdown, automatically built by Hugo, and deployed to
 
 ### Prerequisites
 - Node.js 22+ (Hugo Extended and PostCSS are installed locally via npm)
-- Git with submodules support
+- Go toolchain (required because the Docsy theme is fetched as a Hugo module, not a git submodule)
 
 > The exact Hugo Extended version is pinned in `package.json` and installed by `npm ci`,
-> so you do not need a system-wide Hugo install. Run the project through the npm scripts below.
+> so you do not need a system-wide Hugo install. Do not run a system-wide `hugo` binary
+> directly, even if you already have one installed — a version mismatch with the pinned
+> one will break rendering. Always run the project through the npm scripts below.
 
 ### Local Development
 
 ```bash
 # Clone the repository
-git clone --recurse-submodules https://github.com/sktelecom/sktelecom.github.io.git
+git clone https://github.com/sktelecom/sktelecom.github.io.git
 cd sktelecom.github.io
 
 # Install pinned dependencies (Hugo Extended + PostCSS)
@@ -66,7 +68,7 @@ This repository uses **GitHub Actions** for automated deployment:
 - Hugo generates the static site and pushes to the `gh-pages` branch
 - GitHub Pages automatically serves the updated site
 
-See [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) for workflow details.
+See [`.github/workflows/hugo.yml`](.github/workflows/hugo.yml) for workflow details.
 
 ## Contact & Support
 
