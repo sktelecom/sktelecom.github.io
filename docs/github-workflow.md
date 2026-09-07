@@ -66,8 +66,10 @@ $ git commit
 생성한 commit을 origin의 develop branch에 push합니다. 
 
 ```
-$ git push -f origin develop
+$ git push -u origin develop
 ```
+
+이미 push한 branch를 rebase 등으로 다시 push해야 한다면 그때만 `-f` 옵션을 사용하세요.
 
 ## Step 7. Create a Pull Request
 
