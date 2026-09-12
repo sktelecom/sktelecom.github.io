@@ -1,7 +1,7 @@
 ---
 title: "BomLens"
 linkTitle: "BomLens"
-weight: 3
+weight: 2
 type: docs
 description: >
   BomLens로 SK텔레콤 정책에 맞는 SBOM을 생성하는 방법을 안내합니다.
@@ -19,24 +19,25 @@ BomLens는 공급사가 Docker 환경에서 SK텔레콤 정책에 맞는 산출�
 
 ## 생성되는 산출물
 
-한 번의 실행으로 다음 세 가지가 함께 생성됩니다(`--all` 옵션).
+한 번의 실행으로 다음 네 가지가 함께 생성됩니다(`--all` 옵션, 적합성 리포트는 기본 생성이며 `--no-report`로만 끕니다).
 
 | 산출물 | 파일 | 용도 |
 |--------|------|------|
 | SBOM | `{프로젝트}_{버전}_bom.json` | CycloneDX 1.6 구성요소 명세 (납품 기준 산출물) |
 | 오픈소스 고지문 | `{프로젝트}_{버전}_NOTICE.{txt,html}` | 라이선스 의무 이행을 위한 고지문 |
 | 오픈소스위험분석보고서 | `{프로젝트}_{버전}_risk-report.{md,html}` | 라이선스와 취약점 위험 집계 |
+| 적합성 리포트 | `{프로젝트}_{버전}_conformance.{json,md,html}` | 제출 품질 기준 충족 여부와 누락 항목. 제출 전 자체 점검에 씁니다 |
 
 ## 사전 준비
 
 BomLens는 Docker 위에서 동작합니다. Docker 엔진 20.10 이상을 설치하고 실행해 두세요. Docker가 없는 Windows에서는 무료인 Rancher Desktop을 권장합니다. 첫 실행 때 스캐너 이미지(약 3–4GB)를 내려받느라 5–15분쯤 걸립니다.
 
-## Windows에서 명령줄 없이 시작
+## 명령줄 없이 시작
 
-명령줄이 익숙하지 않다면 두 가지 방법 중 하나로 SBOM을 생성할 수 있습니다. 자세한 절차는 [명령줄 없이 시작하기](https://sktelecom.github.io/bomlens/ko/start/no-cli/)를 참고하세요.
+명령줄이 익숙하지 않다면 설치형 앱이나 웹 UI로 SBOM을 생성할 수 있습니다. 자세한 절차는 [명령줄 없이 시작하기](https://sktelecom.github.io/bomlens/ko/start/no-cli/)를 참고하세요.
 
-- 실행 파일: [최신 릴리스](https://github.com/sktelecom/bomlens/releases/latest)에서 `SBOM-Generator-*.exe`(BomLens 실행 파일)를 내려받아 더블클릭합니다. 이 파일은 아직 코드 서명이 되어 있지 않아 Windows SmartScreen 경고가 나타나면 "추가 정보"를 누른 뒤 "실행"을 선택합니다.
-- 저장소 ZIP: 저장소의 `Code` 버튼에서 `Download ZIP`을 받아 압축을 풀고 `scripts\sbom-ui.bat`를 더블클릭하면 브라우저에서 `http://localhost:8080`이 열립니다.
+- 설치형 앱: [최신 릴리스](https://github.com/sktelecom/bomlens/releases/latest)에서 Windows는 `BomLens-Setup.exe`, macOS는 `BomLens-Setup.dmg`를 내려받아 설치합니다. Windows 실행 파일은 아직 코드 서명이 되어 있지 않아 SmartScreen 경고가 나타나면 "추가 정보"를 누른 뒤 "실행"을 선택합니다.
+- 저장소 ZIP(Windows): 저장소의 `Code` 버튼에서 `Download ZIP`을 받아 압축을 풀고 `scripts\sbom-ui.bat`를 더블클릭하면 브라우저에서 `http://localhost:8080`이 열립니다.
 
 웹 UI에서는 오른쪽에 진행 로그가 실시간으로 표시되고, 완료되면 산출물을 내려받을 수 있습니다.
 

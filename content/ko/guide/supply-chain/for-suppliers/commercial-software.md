@@ -1,7 +1,7 @@
 ---
 title: "상용 소프트웨어·완제품 공급 시 SBOM 제출"
 linkTitle: "상용 소프트웨어 공급"
-weight: 5
+weight: 4
 type: docs
 description: >
   타사가 제조한 상용 소프트웨어나 완제품을 공급하는 경우, 제조사로부터 SBOM을 받아 제출하는 방법을 안내합니다.

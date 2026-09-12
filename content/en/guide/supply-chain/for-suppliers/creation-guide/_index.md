@@ -1,7 +1,7 @@
 ---
 title: "Generating an SBOM with Open Source Tools"
 linkTitle: "How to Generate an SBOM"
-weight: 2
+weight: 3
 type: docs
 description: >
   Explains how to generate an SBOM for each environment using general-purpose open source tools.
@@ -9,7 +9,7 @@ aliases:
   - /guide/supply-chain/for-suppliers/server-delivery/
 ---
 
-> If you are not comfortable setting up a tool environment and you have Docker installed, consider reviewing [BomLens](../skt-scanner/) first.
+> With Docker installed, [BomLens](../skt-scanner/) alone can scan source code, container images, server rootfs, executables, and firmware. Consider reviewing it first instead of installing and combining the open source tools below individually.
 
 ## Tool Selection Guide
 
@@ -33,14 +33,14 @@ graph TD
 
     %% Left: source-code scan with an inner box
     subgraph M1["Scan the source code"]
-      M1_Sub["cdxgen or BomLens"]
+      M1_Sub["BomLens or cdxgen"]
     end
 
     %% Right: source + OS image scan with inner boxes (stacked vertically)
     subgraph M2["Scan source + OS image"]
       direction TB
-      M2_Top["OS (e.g., Linux) scan<br>(Syft or Trivy)"]
-      M2_Bottom["Source code scan<br>(cdxgen or BomLens)"]
+      M2_Top["OS (e.g., Linux) scan<br>(BomLens or Syft/Trivy)"]
+      M2_Bottom["Source code scan<br>(BomLens or cdxgen)"]
     end
 
     A --> G1
@@ -77,9 +77,9 @@ graph TD
 
 ```
 
-Source code and apps, executables or libraries, and firmware with no OS are all scanned from the source code you developed with cdxgen or [BomLens](../skt-scanner/). Scanning a finished binary directly yields no package manager metadata, so purls are omitted and the SBOM is rejected.
+Source code and apps, executables or libraries, and firmware with no OS are all scanned from the source code you developed with [BomLens](../skt-scanner/) or cdxgen. Scanning a finished binary directly yields no package manager metadata, so purls are omitted and the SBOM is rejected.
 
-When you ship an OS or base image as part of the delivery (a container image, a server, or firmware with an embedded OS), split it into two layers, scan each, and submit them together. Scan the image or rootfs as delivered with Syft or Trivy for the OS layer, and the source code (the app layer) with cdxgen or BomLens. The per-layer commands and the file naming rule are in [Server delivery](#server-delivery) below.
+When you ship an OS or base image as part of the delivery (a container image, a server, or firmware with an embedded OS), split it into two layers, scan each, and submit them together. Scan the image or rootfs as delivered with BomLens or Syft/Trivy for the OS layer, and the source code (the app layer) with BomLens or cdxgen. The per-layer commands and the file naming rule are in [Server delivery](#server-delivery) below.
 
 Statically linked libraries and manually vendored binaries are a blind spot that none of the scans above catch. How to handle them is in [Statically linked libraries](#statically-linked-libraries) below.
 
@@ -87,7 +87,16 @@ If you supply commercial software or a finished product made by a third party an
 
 ## Major Tools
 
-### cdxgen (recommended for source code analysis)
+### BomLens (provided by SK Telecom)
+
+BomLens is an SBOM generation tool built by SK Telecom. It scans source code, container images, server rootfs, executables, and firmware with a single Docker container, instead of installing the open source tools below individually. It also includes features tuned for SK Telecom's submission criteria, such as automatically filling in the top-level component name and self-checking the SBOM (a conformance report) before submission.
+
+- Usage: [BomLens](../skt-scanner/)
+- GitHub: [https://github.com/sktelecom/bomlens](https://github.com/sktelecom/bomlens)
+
+If BomLens does not cover your case, or you prefer to combine open source tools directly, see below.
+
+### cdxgen (source code analysis)
 
 Automatically analyzes projects in various languages such as Java, Python, Node.js, and Go, and generates an SBOM in CycloneDX format.
 
@@ -97,7 +106,7 @@ Automatically analyzes projects in various languages such as Java, Python, Node.
 
 > cdxgen statically parses lockfiles and manifests. For accurate results, run it when dependencies are installed or resolved (a lockfile is present, or after a build). Scanning pure source without resolved dependencies may omit some components or purls.
 
-### Syft (recommended for container image and binary analysis)
+### Syft (container image and binary analysis)
 
 Analyzes built container images and build artifacts that include package manager metadata to identify both OS packages and application libraries. Supports CycloneDX and SPDX formats.
 
@@ -190,7 +199,10 @@ The target must be the root of the rootfs. Point Syft at a subdirectory and it s
 # First confirm the target carries distribution information
 cat /path/to/server-rootfs/etc/os-release
 
-# Against a rootfs directory
+# With BomLens (point it at the rootfs directory directly; it also fills in the top-level component name)
+./scan-sbom.sh --project myserver --version 1.0.0 --target /path/to/server-rootfs --generate-only
+
+# To use an open source tool directly instead: against a rootfs directory
 syft dir:/path/to/server-rootfs -o cyclonedx-json=myserver_1.0.0_os.json
 
 # If the server is packaged as a container image

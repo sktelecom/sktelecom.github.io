@@ -1,7 +1,7 @@
 ---
 title: "Submitting an SBOM for Commercial Software and Finished Products"
 linkTitle: "Commercial Software"
-weight: 5
+weight: 4
 type: docs
 description: >
   How to obtain an SBOM from the manufacturer and submit it when you supply commercial software or a finished product made by a third party.

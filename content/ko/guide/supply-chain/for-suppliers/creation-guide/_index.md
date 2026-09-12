@@ -1,7 +1,7 @@
 ---
 title: "오픈소스 도구를 활용한 SBOM 생성"
 linkTitle: "SBOM 생성 방법"
-weight: 2
+weight: 3
 type: docs
 description: >
   범용 오픈소스 도구를 활용하여 환경별로 SBOM을 생성하는 방법을 안내합니다.
@@ -9,7 +9,7 @@ aliases:
   - /guide/supply-chain/for-suppliers/server-delivery/
 ---
 
-> 도구 환경 구축에 익숙하지 않은 경우, Docker가 설치되어 있다면 [BomLens](../skt-scanner/)를 먼저 검토해 보시기 바랍니다.
+> Docker만 설치되어 있으면 [BomLens](../skt-scanner/) 하나로 소스코드, 컨테이너 이미지, 서버 rootfs, 실행 파일, 펌웨어를 모두 스캔할 수 있습니다. 아래 오픈소스 도구를 개별적으로 설치하고 조합하는 대신 먼저 검토해 보시기 바랍니다.
 
 ## 도구 선택 가이드
 
@@ -33,14 +33,14 @@ graph TD
 
     %% 좌측: 소스코드 스캔 서브 박스 구조
     subgraph M1["소스코드 스캔"]
-      M1_Sub["cdxgen 또는 BomLens"]
+      M1_Sub["BomLens 또는 cdxgen"]
     end
 
     %% 우측: 소스코드 + OS 이미지 스캔 서브 박스 구조 (세로 배치)
     subgraph M2["소스코드 + OS 이미지 스캔"]
       direction TB
-      M2_Top["OS (예: Linux) 스캔<br>(Syft 또는 Trivy)"]
-      M2_Bottom["소스코드 스캔<br>(cdxgen 또는 BomLens)"]
+      M2_Top["OS (예: Linux) 스캔<br>(BomLens 또는 Syft·Trivy)"]
+      M2_Bottom["소스코드 스캔<br>(BomLens 또는 cdxgen)"]
     end
 
     A --> G1
@@ -77,9 +77,9 @@ graph TD
 
 ```
 
-소스코드·앱, 실행 파일이나 라이브러리, OS 없는 펌웨어는 모두 자기가 개발한 소스코드를 cdxgen 또는 [BomLens](../skt-scanner/)로 스캔합니다. 완성된 바이너리를 그대로 스캔하면 패키지 매니저 메타데이터가 없어 purl이 누락되고 반려됩니다.
+소스코드·앱, 실행 파일이나 라이브러리, OS 없는 펌웨어는 모두 자기가 개발한 소스코드를 [BomLens](../skt-scanner/) 또는 cdxgen으로 스캔합니다. 완성된 바이너리를 그대로 스캔하면 패키지 매니저 메타데이터가 없어 purl이 누락되고 반려됩니다.
 
-OS나 베이스 이미지를 포함해 공급하는 경우(컨테이너 이미지, 서버, OS 내장 펌웨어)는 두 층으로 나눠 각각 스캔해 함께 제출합니다. OS 층은 납품되는 상태의 이미지나 rootfs를 Syft 또는 Trivy로, 소스코드(앱 층)는 cdxgen 또는 BomLens로 스캔합니다. 층별 명령과 파일 이름 규칙은 아래 [서버 납품](#서버-납품)에 있습니다.
+OS나 베이스 이미지를 포함해 공급하는 경우(컨테이너 이미지, 서버, OS 내장 펌웨어)는 두 층으로 나눠 각각 스캔해 함께 제출합니다. OS 층은 납품되는 상태의 이미지나 rootfs를 BomLens 또는 Syft·Trivy로, 소스코드(앱 층)는 BomLens 또는 cdxgen으로 스캔합니다. 층별 명령과 파일 이름 규칙은 아래 [서버 납품](#서버-납품)에 있습니다.
 
 정적 링크된 라이브러리나 수동으로 넣은 바이너리는 위 어느 스캔으로도 잡히지 않는 사각지대입니다. 처리 방법은 아래 [정적 링크 라이브러리](#정적-링크-라이브러리)에 있습니다.
 
@@ -87,7 +87,16 @@ OS나 베이스 이미지를 포함해 공급하는 경우(컨테이너 이미�
 
 ## 주요 도구 안내
 
-### cdxgen (소스코드 분석 권장)
+### BomLens (SK텔레콤 제공)
+
+SK텔레콤이 만든 SBOM 생성 도구입니다. 소스코드, 컨테이너 이미지, 서버 rootfs, 실행 파일, 펌웨어를 아래 오픈소스 도구들을 개별적으로 설치하지 않고 하나의 Docker 컨테이너로 스캔합니다. 최상위 컴포넌트 이름 자동 기입, 제출 전 자체 검증(적합성 리포트) 등 SK텔레콤 제출 기준에 맞춘 기능이 포함되어 있습니다.
+
+- 사용법: [BomLens](../skt-scanner/)
+- GitHub: [https://github.com/sktelecom/bomlens](https://github.com/sktelecom/bomlens)
+
+BomLens로 처리되지 않는 경우이거나 오픈소스 도구를 직접 조합해서 쓰려면 아래를 참고하시기 바랍니다.
+
+### cdxgen (소스코드 분석)
 
 Java, Python, Node.js, Go 등 다양한 언어 프로젝트를 자동 분석하여 CycloneDX 형식의 SBOM을 생성합니다.
 
@@ -97,7 +106,7 @@ Java, Python, Node.js, Go 등 다양한 언어 프로젝트를 자동 분석하�
 
 > cdxgen은 lockfile이나 매니페스트를 정적으로 해석합니다. 정확한 결과를 얻으려면 의존성이 설치되거나 해결된 상태(lockfile이 있거나 빌드한 뒤)에서 실행하시기 바랍니다. 의존성이 해결되지 않은 순수 소스만 스캔하면 일부 컴포넌트나 purl이 누락될 수 있습니다.
 
-### Syft (컨테이너 이미지 및 바이너리 분석 권장)
+### Syft (컨테이너 이미지 및 바이너리 분석)
 
 빌드된 컨테이너 이미지나 패키지 매니저 메타데이터가 포함된 빌드 산출물을 분석하여 OS 패키지와 애플리케이션 라이브러리를 모두 식별합니다. CycloneDX 및 SPDX 형식을 지원합니다.
 
@@ -189,7 +198,10 @@ OS 층은 서버의 rootfs(추출한 루트 파일시스템)나 그 컨테이너
 # 대상 안에 배포판 정보가 있는지 먼저 확인
 cat /path/to/server-rootfs/etc/os-release
 
-# rootfs 디렉터리를 대상으로
+# BomLens로 (rootfs 디렉터리를 그대로 대상으로 지정, 최상위 컴포넌트 이름도 자동 기입)
+./scan-sbom.sh --project myserver --version 1.0.0 --target /path/to/server-rootfs --generate-only
+
+# 오픈소스 도구를 직접 쓰려면: rootfs 디렉터리를 대상으로
 syft dir:/path/to/server-rootfs -o cyclonedx-json=myserver_1.0.0_os.json
 
 # 서버가 컨테이너 이미지로 패키징돼 있다면
