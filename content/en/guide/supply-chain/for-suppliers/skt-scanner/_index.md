@@ -26,7 +26,13 @@ A single run generates the following four deliverables together (the `--all` opt
 | SBOM | `{project}_{version}_bom.json` | CycloneDX 1.6 component specification (the delivery baseline) |
 | Open Source Notice | `{project}_{version}_NOTICE.{txt,html}` | Notice document for fulfilling license obligations |
 | Open Source Risk Analysis Report | `{project}_{version}_risk-report.{md,html}` | Aggregation of license and vulnerability risks |
-| Conformance Report | `{project}_{version}_conformance.{json,md,html}` | Whether the submission quality criteria are met, and what is missing — use it to self-check before submission |
+| Conformance Report | `{project}_{version}_conformance.{json,md,html}` | Whether the submission quality criteria are met, and what is missing |
+
+The conformance report file is produced on every run, but the web UI's pass/fail screen only appears when an already-generated SBOM is fed back in with `--analyze` (a freshly generated SBOM grading itself is not a meaningful signal for most checks). Add this extra step to self-check before submission.
+
+```bash
+./scan-sbom.sh --analyze myserver_1.0.0_bom.json --project myserver --version 1.0.0 --generate-only
+```
 
 ## Prerequisites
 

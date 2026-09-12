@@ -26,7 +26,13 @@ BomLens는 공급사가 Docker 환경에서 SK텔레콤 정책에 맞는 산출�
 | SBOM | `{프로젝트}_{버전}_bom.json` | CycloneDX 1.6 구성요소 명세 (납품 기준 산출물) |
 | 오픈소스 고지문 | `{프로젝트}_{버전}_NOTICE.{txt,html}` | 라이선스 의무 이행을 위한 고지문 |
 | 오픈소스위험분석보고서 | `{프로젝트}_{버전}_risk-report.{md,html}` | 라이선스와 취약점 위험 집계 |
-| 적합성 리포트 | `{프로젝트}_{버전}_conformance.{json,md,html}` | 제출 품질 기준 충족 여부와 누락 항목. 제출 전 자체 점검에 씁니다 |
+| 적합성 리포트 | `{프로젝트}_{버전}_conformance.{json,md,html}` | 제출 품질 기준 충족 여부와 누락 항목 |
+
+적합성 리포트 파일은 매 실행마다 생성되지만, 웹 UI의 통과/실패 판정 화면은 이미 만들어진 SBOM을 `--analyze`로 다시 넣었을 때만 나타납니다(방금 생성한 SBOM이 자기 자신을 채점하는 건 대부분의 항목에서 의미 있는 신호가 아니기 때문입니다). 제출 전 점검은 아래처럼 한 단계 더 거치세요.
+
+```bash
+./scan-sbom.sh --analyze myserver_1.0.0_bom.json --project myserver --version 1.0.0 --generate-only
+```
 
 ## 사전 준비
 
