@@ -81,8 +81,6 @@ Source code and apps, executables or libraries, and firmware with no OS are all 
 
 When you ship an OS or base image as part of the delivery (a container image, a server, or firmware with an embedded OS), split it into two layers, scan each, and submit them together. Scan the image or rootfs as delivered with BomLens or Syft/Trivy for the OS layer, and the source code (the app layer) with BomLens or cdxgen. The per-layer commands and the file naming rule are in [Server delivery](#server-delivery) below.
 
-Statically linked libraries and manually vendored binaries are a blind spot that none of the scans above catch. How to handle them is in [Statically linked libraries](#statically-linked-libraries) below.
-
 If you supply commercial software or a finished product made by a third party and have no access to the source code, obtain the SBOM from the manufacturer instead of scanning. See [Commercial Software](../commercial-software/).
 
 ## Major Tools
@@ -182,7 +180,7 @@ Using a build tool plugin lets you extract more accurate dependency information.
 
 ## Server Delivery
 
-This applies only when you deliver a server with an application installed on top of an OS. Generate each of the two layers, cover the statically linked libraries that neither layer catches, and submit them together.
+This applies only when you deliver a server with an application installed on top of an OS. Generate each of the two layers and submit them together.
 
 | Layer | Target | Symptom if missing |
 |----|------|--------------|
@@ -222,18 +220,6 @@ The OS-layer scan sometimes picks up dependencies installed as files, such as Py
 Server deliveries repeatedly arrive with only the application source tree scanned. In that case not a single installed rpm package is included, so upgrading the OS never shows up in the SBOM. Confirm that you generated both layers.
 {{% /alert %}}
 
-### Statically linked libraries
-
-Statically linked libraries (an openssl built into the binary, for example) are not declared by any package manager and are not registered in the OS package database, so both layer scans miss them. Missing them is the most common cause of rejection in server delivery.
-
-There is no fully automatic path, so use two approaches together. Analyze the delivered binary for as much as tooling can find, and for the rest, record the source and version directly from the build script (for example `openssl 1.1.1za`).
-
-```bash
-syft file:/path/to/delivered-binary -o cyclonedx-json=myserver_1.0.0_static.json
-```
-
-Precise identification of statically linked components is the job of binary composition analysis (BDBA), which SK Telecom performs as supplementary verification.
-
 ### Submit each layer
 
 Submit the per-layer SBOMs as they are, without merging them. SK Telecom's system registers each SBOM document as one scan unit and treats the documents registered against the same product version as a single combined list. The layers may even use different formats.
@@ -244,7 +230,6 @@ Each file needs its own name, and a resubmission must reuse the same name. The S
 |----|--------------|
 | OS | `myserver_1.0.0_os.json` |
 | Application | `myserver_1.0.0_app.json` |
-| Statically linked supplement | `myserver_1.0.0_static.json` |
 
 Record the same value as the top-level component name (`metadata.component.name` in CycloneDX, `DocumentName` in SPDX). That value is the identifier that must be unique across all submissions. See the metadata section of [Submission Requirements](../requirements/) for details.
 
