@@ -28,7 +28,7 @@ The requirement level of each item. A missing required item leads to rejection. 
 | Metadata (timestamp, generation tool, top-level component) | Required | 2.1 Metadata |
 | Component name and version | Required | 2.2 Component Information |
 | Direct and transitive dependencies | Required | 2.3 Dependency Scope |
-| PURL (standard `pkg:` form, no `generic`) | Required | 3. PURL Compliance |
+| PURL (Package URL, a standard identifier that points to a software package; `pkg:` form, no `generic`) | Required | 3. PURL Compliance |
 | Dev-only dependencies | Recommended | 2.3 Dependency Scope |
 | License information | Recommended | 4. Sample Documents |
 

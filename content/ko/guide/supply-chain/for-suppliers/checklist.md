@@ -14,7 +14,13 @@ description: >
 ### 1. 파일 무결성
 - [ ] 파일 확장자가 `.json` 또는 `.xml` 인가? (압축 파일 아님)
 - [ ] 파일 크기가 1KB 이상이며, 내용이 비어있지 않은가?
-- [ ] JSON 문법 오류가 없는가? (`jq` 등으로 확인 권장)
+- [ ] JSON 문법 오류가 없는가?
+
+아래 명령으로 확인하시기 바랍니다. 오류 없이 종료되면 통과입니다.
+
+```bash
+jq empty sbom.json && echo "OK: valid JSON"
+```
 
 ### 2. 필수 데이터 필드
 - [ ] bomFormat: `CycloneDX` 또는 `SPDX`가 명시되었는가?
@@ -62,10 +68,13 @@ jq '[.packages[] | select(.externalRefs[]?.referenceType == "purl")] | length' s
 ```bash
 ./scripts/scan-sbom.sh --project my-app --version 1.0.0 \
   --analyze "./sbom.json" \
+  --lang ko \
   --generate-only
 ```
 
 실행하면 `my-app_1.0.0/` 폴더에 적합성 리포트(`my-app_1.0.0_conformance.html`)가 생성됩니다. 리포트가 자동으로 확인하는 항목은 다음과 같습니다.
+
+BomLens로 SBOM을 직접 생성한 경우에도 이 명령으로 한 번 더 점검하시기 바랍니다. 방금 만든 SBOM을 그대로 `--analyze`에 넣으면 됩니다 — 생성과 검증을 한 번에 하지 않는 이유는, 갓 만든 SBOM이 자기 자신을 채점하는 것보다 별도 단계로 재확인하는 편이 실수를 더 잘 잡아내기 때문입니다.
 
 | 검사 항목 | 체크리스트 대응 |
 |-----------|-----------------|
