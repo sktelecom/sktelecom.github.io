@@ -1,7 +1,7 @@
 ---
 title: "BomLens"
 linkTitle: "BomLens"
-weight: 3
+weight: 2
 type: docs
 description: >
   Explains how to generate an SBOM that meets SK Telecom policy using BomLens.
@@ -19,24 +19,31 @@ This page covers only the quick start. For installation, the full set of options
 
 ## Deliverables Generated
 
-A single run generates the following three deliverables together (the `--all` option).
+A single run generates the following four deliverables together (the `--all` option; the conformance report is on by default and only turned off with `--no-report`).
 
 | Deliverable | File | Purpose |
 |--------|------|------|
 | SBOM | `{project}_{version}_bom.json` | CycloneDX 1.6 component specification (the delivery baseline) |
 | Open Source Notice | `{project}_{version}_NOTICE.{txt,html}` | Notice document for fulfilling license obligations |
 | Open Source Risk Analysis Report | `{project}_{version}_risk-report.{md,html}` | Aggregation of license and vulnerability risks |
+| Conformance Report | `{project}_{version}_conformance.{json,md,html}` | Whether the submission quality criteria are met, and what is missing |
+
+The conformance report file is produced on every run, but the web UI's pass/fail screen only appears when an already-generated SBOM is fed back in with `--analyze` (a freshly generated SBOM grading itself is not a meaningful signal for most checks). Add this extra step to self-check before submission.
+
+```bash
+./scan-sbom.sh --analyze myserver_1.0.0_bom.json --project myserver --version 1.0.0 --generate-only
+```
 
 ## Prerequisites
 
 BomLens runs on Docker. Install and run Docker Engine 20.10 or later. On Windows without Docker, we recommend Rancher Desktop, which is free. The first run downloads a scanner image (about 3–4 GB), so it takes roughly 5–15 minutes.
 
-## Getting Started on Windows (No Command Line)
+## Getting Started Without the Command Line
 
-If you are not comfortable with the command line, you can generate an SBOM in one of two ways. For the full procedure, see the [no command line quick start](https://sktelecom.github.io/bomlens/start/no-cli/).
+If you are not comfortable with the command line, you can generate an SBOM with the installer app or the web UI. For the full procedure, see the [no command line quick start](https://sktelecom.github.io/bomlens/start/no-cli/).
 
-- Executable: Download `SBOM-Generator-*.exe` (the BomLens executable) from the [latest release](https://github.com/sktelecom/bomlens/releases/latest) and double-click it. The file is not yet code-signed, so if Windows SmartScreen warns, click "More info" and then "Run anyway".
-- Repository ZIP: From the repository's `Code` button, choose `Download ZIP`, unzip it, and double-click `scripts\sbom-ui.bat`; the browser opens `http://localhost:8080`.
+- Installer app: from the [latest release](https://github.com/sktelecom/bomlens/releases/latest), download `BomLens-Setup.exe` on Windows or `BomLens-Setup.dmg` on macOS and install it. The Windows executable is not yet code-signed, so if SmartScreen warns, click "More info" and then "Run anyway".
+- Repository ZIP (Windows): from the repository's `Code` button, choose `Download ZIP`, unzip it, and double-click `scripts\sbom-ui.bat`; the browser opens `http://localhost:8080`.
 
 In the web UI, the progress log is shown in real time on the right, and you can download the deliverables when it finishes.
 

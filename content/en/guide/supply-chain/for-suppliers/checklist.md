@@ -14,7 +14,13 @@ An SBOM that does not pass the checklist below may be automatically rejected by 
 ### 1. File Integrity
 - [ ] Is the file extension `.json` or `.xml`? (Not an archive file)
 - [ ] Is the file size at least 1KB, and the content not empty?
-- [ ] Are there any JSON syntax errors? (Verification with `jq` or similar is recommended)
+- [ ] Are there any JSON syntax errors?
+
+Check with the following command. It passes if this exits without error.
+
+```bash
+jq empty sbom.json && echo "OK: valid JSON"
+```
 
 ### 2. Required Data Fields
 - [ ] bomFormat: Is `CycloneDX` or `SPDX` specified?
@@ -66,6 +72,8 @@ The SBOM analysis feature of [BomLens](../skt-scanner/) automatically checks the
 ```
 
 Running it produces a conformance report (`my-app_1.0.0_conformance.html`) in the `my-app_1.0.0/` folder. The report automatically verifies the following items.
+
+Run this same check even when you generated the SBOM with BomLens yourself — just feed the SBOM you just created into `--analyze`. Generation and validation are kept as separate steps rather than one, because a freshly generated SBOM grading itself catches fewer mistakes than a separate re-check.
 
 | Check | Checklist Item |
 |-------|----------------|
