@@ -86,6 +86,8 @@ Run this same check even when you generated the SBOM with BomLens yourself — j
 
 If the result is fail, the report lists which components fall short on which item, so you can fix those parts, regenerate the SBOM, and validate again. The same validation is available in the web UI (run with `--ui` and upload the SBOM).
 
+Before submitting, add `--conformance-profile skt-submission` to the command above to apply the same stricter thresholds SK Telecom's review uses: 100% PURL coverage and no `pkg:generic` identifiers. The web UI's submission-review screen already applies this profile by default, so the flag only matters when you run the CLI directly.
+
 ### CycloneDX Validator (Schema Check)
 
 *   CycloneDX Validator: [https://cyclonedx.github.io/cyclonedx-web-tool/validate](https://cyclonedx.github.io/cyclonedx-web-tool/validate)
