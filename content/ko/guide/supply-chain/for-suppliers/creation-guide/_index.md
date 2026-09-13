@@ -230,6 +230,8 @@ OS 층 스캔에 파이썬이나 Node.js처럼 파일로 설치된 의존성이 
 | OS | `myserver_1.0.0_os.json` |
 | 애플리케이션 | `myserver_1.0.0_app.json` |
 
+BomLens로 두 층을 모두 만들 때는 `--project`를 층마다 다르게 주십시오(예: `myserver-os`, `myserver-app`). 같은 이름으로 두 번 실행하면 파일 이름이 같아져 나중에 실행한 쪽이 앞선 산출물을 덮어씁니다.
+
 최상위 컴포넌트 이름(CycloneDX는 `metadata.component.name`, SPDX는 `DocumentName`)도 파일 이름과 같은 값으로 기재합니다. 이 값이 제출 건 전체에서 고유해야 하는 식별자입니다. 자세한 내용은 [제출 요구사항](../requirements/)의 메타데이터 절을 참고하세요.
 
 클러스터처럼 노드가 여럿인 제품을 어떤 단위로 묶어 내는지는 [제출 절차](../submission/)의 제출 단위 절을 참고하세요.

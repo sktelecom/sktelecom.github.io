@@ -231,6 +231,8 @@ Each file needs its own name, and a resubmission must reuse the same name. The S
 | OS | `myserver_1.0.0_os.json` |
 | Application | `myserver_1.0.0_app.json` |
 
+When generating both layers with BomLens, give each a different `--project` (e.g. `myserver-os`, `myserver-app`). Running it twice with the same name produces the same file name, so the later run overwrites the earlier one's output.
+
 Record the same value as the top-level component name (`metadata.component.name` in CycloneDX, `DocumentName` in SPDX). That value is the identifier that must be unique across all submissions. See the metadata section of [Submission Requirements](../requirements/) for details.
 
 For how to decide the submission unit for a product with several nodes, such as a cluster, see the submission unit section of [Submission Procedure](../submission/).
