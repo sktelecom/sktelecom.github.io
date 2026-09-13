@@ -99,6 +99,8 @@ For transitive dependencies to be included accurately, the SBOM must be generate
 
 PURL (Package URL) is a standard URL format for uniquely identifying a software package. SK Telecom's vulnerability analysis system operates based on PURL, so a valid PURL must be included for every component.
 
+Here, "component" means an entry in the SBOM's `components` list (an individual library or package); it does not apply to the top-level product itself (the component information in the SBOM's metadata).
+
 > **A PURL must be in the standard format beginning with the `pkg:` prefix.** Free text such as `name:version` or `org/repo:tag` is not allowed; in such cases vulnerability mapping is impossible and the SBOM will be rejected. The type must identify the ecosystem; `pkg:generic/` is not allowed.
 
 An OS package (rpm, deb, apk) must carry the distribution between the type and the package name, as in `pkg:rpm/rhel/bind@9.11.36-16.el8_10.6`. When that slot is empty the identifier looks well formed but names no specific package, so vulnerability mapping fails and the SBOM is rejected.
