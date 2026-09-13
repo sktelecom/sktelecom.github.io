@@ -19,7 +19,7 @@ This page covers only the quick start. For installation, the full set of options
 
 ## Deliverables Generated
 
-A single run generates the following four deliverables together (the `--all` option; the conformance report is on by default and only turned off with `--no-report`).
+A single run generates the following four deliverables together in a `{project}_{version}/` subfolder (the `--all` option). The open-source risk analysis report can be turned off with `--no-report`; the conformance report is always generated (there is currently no option to turn it off).
 
 | Deliverable | File | Purpose |
 |--------|------|------|
@@ -31,12 +31,12 @@ A single run generates the following four deliverables together (the `--all` opt
 The conformance report file is produced on every run, but the web UI's pass/fail screen only appears when an already-generated SBOM is fed back in with `--analyze` (a freshly generated SBOM grading itself is not a meaningful signal for most checks). Add this extra step to self-check before submission.
 
 ```bash
-./scan-sbom.sh --analyze myserver_1.0.0_bom.json --project myserver --version 1.0.0 --generate-only
+./scripts/scan-sbom.sh --analyze myserver_1.0.0_bom.json --project myserver --version 1.0.0 --generate-only
 ```
 
 ## Prerequisites
 
-BomLens runs on Docker. Install and run Docker Engine 20.10 or later. On Windows without Docker, we recommend Rancher Desktop, which is free. The first run downloads a scanner image (about 3–4 GB), so it takes roughly 5–15 minutes.
+BomLens runs on Docker. Install and run Docker Engine 20.10 or later. On Windows without Docker, we recommend Rancher Desktop, which is free. The first run downloads a scanner image (about 250 MB), usually taking a minute or two (varies by network speed).
 
 ## Getting Started Without the Command Line
 
@@ -51,17 +51,16 @@ In the web UI, the progress log is shown in real time on the right, and you can 
 
 ## Quick Start (CLI)
 
-On macOS and Linux, download and run the script from a shell.
+On macOS and Linux, download and run the [latest release](https://github.com/sktelecom/bomlens/releases/latest)'s `bomlens-cli-linux.tar.gz` (`bomlens-cli-windows.zip` on Windows). Downloading only the `scan-sbom.sh` file will not run on its own; it uses other files from the same archive.
 
 ```bash
-curl -O https://raw.githubusercontent.com/sktelecom/bomlens/main/scripts/scan-sbom.sh
-chmod +x scan-sbom.sh
+tar -xzf bomlens-cli-linux.tar.gz
 cd /path/to/my-project
-/path/to/scan-sbom.sh --project "MyApp" --version "1.0.0" --all --generate-only
+/path/to/scripts/scan-sbom.sh --project "MyApp" --version "1.0.0" --all --generate-only
 ```
 
 - `--generate-only` creates files only locally, without submitting them (recommended until submission).
-- For the web UI, run `./scan-sbom.sh --ui` (the browser opens `http://localhost:8080`).
+- For the web UI, run `./scripts/scan-sbom.sh --ui` (the browser opens `http://localhost:8080`).
 - On Windows, run the same commands through `scripts\scan-sbom.bat` (it forwards them via Git Bash, so Git for Windows is required).
 - For other input forms such as a GitHub URL, source ZIP, Docker image, firmware, or binary, and the full set of options, see the [CLI reference](https://sktelecom.github.io/bomlens/reference/cli/).
 
