@@ -26,7 +26,7 @@ All suppliers (including developers and resellers) that deliver the following ty
 *   Source code: Applications written in Java, Python, JavaScript, Go, C/C++, etc.
 *   Container images: Docker images or OCI-compliant containers
 *   Executables: Compiled binaries (.jar, .dll, .so) and libraries
-*   Embedded systems: Firmware images, RootFS, device drivers
+*   Embedded systems: Firmware images, RootFS (an extracted root filesystem), device drivers
 *   Servers: A system combining an OS (rootfs and installed packages) with an application
 *   Commercial software and finished products: packaged software or appliances made by a third party (including reseller and distributor deliveries)
 
