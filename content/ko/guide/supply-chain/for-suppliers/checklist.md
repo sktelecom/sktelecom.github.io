@@ -91,6 +91,8 @@ BomLens로 SBOM을 직접 생성한 경우에도 이 명령으로 한 번 더 �
 
 결과가 fail이면 어떤 컴포넌트가 어느 항목에 미달하는지 목록으로 표시되므로, 해당 부분을 보완해 SBOM을 다시 생성한 뒤 재검증하면 됩니다. 웹 UI(`--ui` 실행 후 SBOM 업로드)에서도 같은 검증을 할 수 있습니다.
 
+제출 전에는 위 명령에 `--conformance-profile skt-submission`을 추가해서, SK텔레콤 심사와 같은 기준(PURL 보유율 100퍼센트, `pkg:generic` 식별자 없음)으로 확인하시기 바랍니다. 웹 UI의 제출 검토 화면은 이 기준을 이미 기본값으로 적용하므로, 이 옵션은 CLI를 직접 실행할 때만 필요합니다.
+
 ### CycloneDX Validator (스키마 검사)
 
 *   CycloneDX Validator: [https://cyclonedx.github.io/cyclonedx-web-tool/validate](https://cyclonedx.github.io/cyclonedx-web-tool/validate)
