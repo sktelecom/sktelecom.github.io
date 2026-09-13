@@ -35,19 +35,19 @@ jobs:
         id: built
         run: echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
 
-      - name: Setup Node (Latest)
+      - name: Setup Node
         uses: actions/setup-node@v7
         with:
-          node-version: 'current'
+          node-version: '22'
           cache: 'npm'
           cache-dependency-path: '**/package-lock.json'
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       - name: Build Marp Slides
         run: |
-          npx @marp-team/marp-cli@latest slides/oss-education.md \
+          npx @marp-team/marp-cli@4.5.1 slides/oss-education.md \
             --html \
             --output static/slides/oss-education.html
 
