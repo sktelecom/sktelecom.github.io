@@ -19,7 +19,7 @@ BomLens는 공급사가 Docker 환경에서 SK텔레콤 정책에 맞는 산출�
 
 ## 생성되는 산출물
 
-한 번의 실행으로 다음 네 가지가 함께 생성됩니다(`--all` 옵션, 적합성 리포트는 기본 생성이며 `--no-report`로만 끕니다).
+한 번의 실행으로 다음 네 가지가 함께 `{프로젝트}_{버전}/` 하위 폴더에 생성됩니다(`--all` 옵션). 오픈소스위험분석보고서는 `--no-report`로 끌 수 있으며, 적합성 리포트는 항상 생성됩니다(현재 끄는 옵션 없음).
 
 | 산출물 | 파일 | 용도 |
 |--------|------|------|
@@ -31,12 +31,12 @@ BomLens는 공급사가 Docker 환경에서 SK텔레콤 정책에 맞는 산출�
 적합성 리포트 파일은 매 실행마다 생성되지만, 웹 UI의 통과/실패 판정 화면은 이미 만들어진 SBOM을 `--analyze`로 다시 넣었을 때만 나타납니다(방금 생성한 SBOM이 자기 자신을 채점하는 건 대부분의 항목에서 의미 있는 신호가 아니기 때문입니다). 제출 전 점검은 아래처럼 한 단계 더 거치세요.
 
 ```bash
-./scan-sbom.sh --analyze myserver_1.0.0_bom.json --project myserver --version 1.0.0 --generate-only
+./scripts/scan-sbom.sh --analyze myserver_1.0.0_bom.json --project myserver --version 1.0.0 --generate-only
 ```
 
 ## 사전 준비
 
-BomLens는 Docker 위에서 동작합니다. Docker 엔진 20.10 이상을 설치하고 실행해 두세요. Docker가 없는 Windows에서는 무료인 Rancher Desktop을 권장합니다. 첫 실행 때 스캐너 이미지(약 3–4GB)를 내려받느라 5–15분쯤 걸립니다.
+BomLens는 Docker 위에서 동작합니다. Docker 엔진 20.10 이상을 설치하고 실행해 두세요. Docker가 없는 Windows에서는 무료인 Rancher Desktop을 권장합니다. 첫 실행 때 스캐너 이미지(약 250MB)를 내려받으며, 보통 1~2분쯤 걸립니다(네트워크 속도에 따라 다름).
 
 ## 명령줄 없이 시작
 
@@ -51,17 +51,16 @@ BomLens는 Docker 위에서 동작합니다. Docker 엔진 20.10 이상을 설�
 
 ## 빠른 시작 (CLI)
 
-macOS와 Linux에서는 셸에서 스크립트를 내려받아 실행합니다.
+macOS와 Linux에서는 [최신 릴리스](https://github.com/sktelecom/bomlens/releases/latest)의 `bomlens-cli-linux.tar.gz`(Windows는 `bomlens-cli-windows.zip`)를 내려받아 실행합니다. `scan-sbom.sh` 파일 하나만 따로 받으면 실행되지 않습니다(같은 압축 안의 다른 파일을 함께 사용합니다).
 
 ```bash
-curl -O https://raw.githubusercontent.com/sktelecom/bomlens/main/scripts/scan-sbom.sh
-chmod +x scan-sbom.sh
+tar -xzf bomlens-cli-linux.tar.gz
 cd /path/to/my-project
-/path/to/scan-sbom.sh --project "MyApp" --version "1.0.0" --all --generate-only
+/path/to/scripts/scan-sbom.sh --project "MyApp" --version "1.0.0" --all --generate-only
 ```
 
 - `--generate-only`는 제출 없이 로컬에 파일만 생성합니다(제출 전까지 권장).
-- 웹 UI로 쓰려면 `./scan-sbom.sh --ui`를 실행합니다(브라우저에서 `http://localhost:8080`).
+- 웹 UI로 쓰려면 `./scripts/scan-sbom.sh --ui`를 실행합니다(브라우저에서 `http://localhost:8080`).
 - Windows에서 명령줄을 쓸 때는 같은 명령을 `scripts\scan-sbom.bat`로 실행합니다(Git Bash를 거치므로 Git for Windows 필요).
 - GitHub URL, 소스 ZIP, Docker 이미지, 펌웨어, 바이너리 등 다른 입력 형태와 전체 옵션은 [CLI 레퍼런스](https://sktelecom.github.io/bomlens/ko/reference/cli/)를 참고하세요.
 
