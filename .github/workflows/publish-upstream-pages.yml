@@ -1,0 +1,64 @@
+name: Publish site to upstream Pages
+
+# Builds the organization repository's master with hugo.yml's steps and
+# publishes it to its gh-pages branch. Needs UPSTREAM_PUBLISH_TOKEN
+# (contents:write on that repository only).
+
+on:
+  workflow_dispatch:
+    inputs:
+      ref:
+        description: 'sktelecom/sktelecom.github.io ref to build'
+        type: string
+        default: master
+
+permissions:
+  contents: read
+
+concurrency:
+  group: publish-upstream-pages
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout organization repository
+        uses: actions/checkout@v7
+        with:
+          repository: sktelecom/sktelecom.github.io
+          ref: ${{ inputs.ref }}
+          submodules: recursive
+          fetch-depth: 0
+
+      - name: Record the built commit
+        id: built
+        run: echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
+      - name: Setup Node (Latest)
+        uses: actions/setup-node@v7
+        with:
+          node-version: 'current'
+          cache: 'npm'
+          cache-dependency-path: '**/package-lock.json'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build Marp Slides
+        run: |
+          npx @marp-team/marp-cli@latest slides/oss-education.md \
+            --html \
+            --output static/slides/oss-education.html
+
+      - name: Build with Hugo
+        run: npx hugo --minify --baseURL "https://sktelecom.github.io/"
+
+      - name: Deploy to upstream GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          personal_token: ${{ secrets.UPSTREAM_PUBLISH_TOKEN }}
+          external_repository: sktelecom/sktelecom.github.io
+          publish_dir: ./public
+          publish_branch: gh-pages
+          commit_message: "deploy: ${{ steps.built.outputs.sha }}"
