@@ -89,7 +89,9 @@ OS나 베이스 이미지를 포함해 공급하는 경우(컨테이너 이미�
 
 SK텔레콤이 만든 SBOM 생성 도구입니다. 소스코드, 컨테이너 이미지, 서버 rootfs, 실행 파일, 펌웨어를 아래 오픈소스 도구들을 개별적으로 설치하지 않고 하나의 Docker 컨테이너로 스캔합니다. 최상위 컴포넌트 이름 자동 기입, 제출 전 자체 검증(적합성 리포트) 등 SK텔레콤 제출 기준에 맞춘 기능이 포함되어 있습니다.
 
-- 사용법: [BomLens](../skt-scanner/)
+제출 전에는 `--conformance-profile skt-submission` 옵션으로 SK텔레콤 심사 기준(PURL 포함률 100% 등)을 미리 확인하시기 바랍니다. 자세한 내용은 [검증 체크리스트](../checklist/)를 참고하세요. 스캔 중 오류가 나거나 결과가 이상하면 [자주 발생하는 반려 사유](../rejection-reasons/)에서 비슷한 사례를 먼저 확인하시기 바랍니다.
+
+- 사용법: [BomLens](../skt-scanner/) (Windows는 `scan-sbom.sh` 대신 `scripts\scan-sbom.bat`나 데스크톱 앱을 씁니다. 설치 방법도 이 페이지에 있습니다)
 - GitHub: [https://github.com/sktelecom/bomlens](https://github.com/sktelecom/bomlens)
 
 BomLens로 처리되지 않는 경우이거나 오픈소스 도구를 직접 조합해서 쓰려면 아래를 참고하시기 바랍니다.
@@ -179,7 +181,7 @@ Trivy를 안전하게 사용하려면 다음 원칙을 따르시기 바랍니다
 
 ## 서버 납품
 
-OS 위에 애플리케이션을 올려 서버 형태로 납품하는 경우에만 해당합니다. 두 층을 각각 만들어 함께 제출합니다.
+OS나 베이스 이미지를 포함해 공급하는 경우(서버, 컨테이너 이미지, OS 내장 펌웨어)에 해당합니다. 두 층을 각각 만들어 함께 제출합니다.
 
 | 층 | 대상 | 누락 시 증상 |
 |----|------|--------------|
@@ -192,25 +194,33 @@ OS 층은 서버의 rootfs(추출한 루트 파일시스템)나 그 컨테이너
 
 대상은 rootfs의 루트여야 합니다. 하위 디렉터리만 지정하면 패키지 데이터베이스는 읽혀도 배포판이 판정되지 않습니다. Syft는 대상 안의 `/etc/os-release`로 배포판을 정하고 그 값을 purl에 넣습니다. 정상이라면 `pkg:rpm/rhel/bind@9.11.36-16.el8_10.6`처럼 타입과 패키지 이름 사이에 배포판이 들어갑니다. 이 자리가 비면 형식 검증은 통과하지만 SK텔레콤 시스템이 패키지를 식별하지 못해 OS 패키지가 전량 미매칭으로 반려됩니다. 스캔 전에 대상 안에 이 파일이 있는지 확인하시기 바랍니다.
 
+{{% alert title="주의: rootfs를 감싼 릴리스 폴더를 그대로 지정하지 마십시오" color="warning" %}}
+납품 산출물이 `릴리스-20260919/rootfs/`처럼 릴리스 폴더 한 겹 아래 rootfs가 들어있는 경우, BomLens의 `--target`에 그 릴리스 폴더(rootfs의 부모 폴더)를 그대로 주면 rootfs로 인식되지 않고 조용히 일반 소스 스캔으로 처리됩니다. 컴포넌트가 거의 없는 SBOM이 만들어지고, 로그에 뜨는 일반적인 "컴포넌트 0개" 경고만으로는 원인이 rootfs 미인식이라는 것을 알기 어렵습니다. `--target`은 반드시 rootfs 폴더 자체를 가리키게 하거나, 릴리스 폴더 전체를 `.tar.gz`나 `.zip`으로 압축해서 지정하시기 바랍니다(압축 파일은 안에 rootfs가 한두 단계 아래 있어도 자동으로 찾습니다).
+{{% /alert %}}
+
 ```bash
 # 대상 안에 배포판 정보가 있는지 먼저 확인
 cat /path/to/server-rootfs/etc/os-release
 
 # BomLens로 (rootfs 디렉터리를 그대로 대상으로 지정, 최상위 컴포넌트 이름도 자동 기입)
-./scan-sbom.sh --project myserver --version 1.0.0 --target /path/to/server-rootfs --generate-only
+./scan-sbom.sh --project myserver-os --version 1.0.0 --target /path/to/server-rootfs --generate-only
 
 # 오픈소스 도구를 직접 쓰려면: rootfs 디렉터리를 대상으로
-syft dir:/path/to/server-rootfs -o cyclonedx-json=myserver_1.0.0_os.json
+syft dir:/path/to/server-rootfs -o cyclonedx-json=myserver-os_1.0.0_bom.json
 
-# 서버가 컨테이너 이미지로 패키징돼 있다면
-syft myserver:7 -o cyclonedx-json=myserver_1.0.0_os.json
+# 서버가 컨테이너 이미지로 패키징돼 있다면(BomLens는 이미지 이름을 그대로 대상으로 지정)
+./scan-sbom.sh --project myserver-os --version 1.0.0 --target myserver:7 --generate-only
+syft myserver:7 -o cyclonedx-json=myserver-os_1.0.0_bom.json
 ```
 
 애플리케이션 층은 빌드를 마친 뒤 애플리케이션 소스를 스캔합니다. 패키지 매니저(Maven, npm, pip, Go modules, Conan 등)를 쓰면 전이 의존성까지 자동으로 해석됩니다.
 
 ```bash
 cd /path/to/app-source
-cdxgen -o myserver_1.0.0_app.json
+cdxgen -o myserver-app_1.0.0_bom.json
+
+# 또는 BomLens로
+./scan-sbom.sh --project myserver-app --version 1.0.0 --target /path/to/app-source --generate-only
 ```
 
 OS 층 스캔에 파이썬이나 Node.js처럼 파일로 설치된 의존성이 함께 잡히기도 합니다. 그래도 애플리케이션 층은 따로 만드시기 바랍니다. C/C++처럼 소스에 라이브러리를 포함하는 방식은 OS 층 스캔으로 전혀 식별되지 않습니다.
@@ -218,6 +228,16 @@ OS 층 스캔에 파이썬이나 Node.js처럼 파일로 설치된 의존성이 
 {{% alert title="애플리케이션 소스만 스캔하면 OS 패키지가 통째로 빠집니다" color="warning" %}}
 서버 납품인데 애플리케이션 소스 트리만 스캔해 제출하는 사례가 반복됩니다. 이 경우 설치된 rpm 패키지가 하나도 담기지 않아, OS를 업그레이드해도 그 결과가 SBOM에 나타나지 않습니다. 두 층을 모두 만들었는지 확인하시기 바랍니다.
 {{% /alert %}}
+
+### OS 내장 펌웨어(기지국, 라우터 등)
+
+기지국, 라우터, OLT/ONT, 셋톱박스처럼 OS를 내장한 펌웨어도 위와 같은 두 층 구조입니다. OS 층은 펌웨어 이미지 파일 전체를 대상으로 BomLens의 `--firmware` 옵션을 사용합니다.
+
+```bash
+./scan-sbom.sh --project mydevice-os --version 1.0.0 --target /path/to/firmware.bin --firmware --generate-only
+```
+
+임베디드 리눅스 위에서 자체 애플리케이션이 별도로 동작한다면, 그 애플리케이션 소스는 위의 "애플리케이션 층" 스캔을 동일하게 적용합니다. 펌웨어 이미지 안에 애플리케이션까지 모두 포함되어 있다면 OS 층 스캔 하나로 끝날 수도 있습니다.
 
 ### 층별로 제출
 
@@ -227,12 +247,12 @@ OS 층 스캔에 파이썬이나 Node.js처럼 파일로 설치된 의존성이 
 
 | 층 | 파일 이름 예 |
 |----|--------------|
-| OS | `myserver_1.0.0_os.json` |
-| 애플리케이션 | `myserver_1.0.0_app.json` |
+| OS | `myserver-os_1.0.0_bom.json` |
+| 애플리케이션 | `myserver-app_1.0.0_bom.json` |
 
-BomLens로 두 층을 모두 만들 때는 `--project`를 층마다 다르게 주십시오(예: `myserver-os`, `myserver-app`). 같은 이름으로 두 번 실행하면 파일 이름이 같아져 나중에 실행한 쪽이 앞선 산출물을 덮어씁니다.
+층 구분은 `--project` 값에 붙이는 접미어(`-os`, `-app`)로 합니다. BomLens는 `{프로젝트 이름}_{버전}_bom.json`을 자동으로 만들므로, 두 층을 모두 만들 때는 `--project`를 층마다 다르게 주십시오(예: `myserver-os`, `myserver-app`). 같은 이름으로 두 번 실행하면 파일 이름이 같아져 나중에 실행한 쪽이 앞선 산출물을 덮어씁니다. cdxgen이나 Syft로 직접 만들 때도 출력 파일 이름을 같은 규칙(`-o myserver-app_1.0.0_bom.json` 등)으로 맞추시기 바랍니다.
 
-최상위 컴포넌트 이름(CycloneDX는 `metadata.component.name`, SPDX는 `DocumentName`)도 파일 이름과 같은 값으로 기재합니다. 이 값이 제출 건 전체에서 고유해야 하는 식별자입니다. 자세한 내용은 [제출 요구사항](../requirements/)의 메타데이터 절을 참고하세요.
+최상위 컴포넌트 이름(CycloneDX는 `metadata.component.name`, SPDX는 `DocumentName`)도 파일 이름 앞부분(`{이름}_{버전}`)과 같은 값으로 기재합니다. BomLens는 `--project`/`--version` 값을 이 필드에 자동으로 넣으므로 따로 손댈 필요가 없습니다. 이 값이 제출 건 전체에서 고유해야 하는 식별자입니다. 자세한 내용은 [제출 요구사항](../requirements/#파일-이름과-일치)의 메타데이터 절을 참고하세요.
 
 클러스터처럼 노드가 여럿인 제품을 어떤 단위로 묶어 내는지는 [제출 절차](../submission/)의 제출 단위 절을 참고하세요.
 

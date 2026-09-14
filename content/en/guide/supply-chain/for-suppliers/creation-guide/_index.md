@@ -89,7 +89,9 @@ If you supply commercial software or a finished product made by a third party an
 
 BomLens is an SBOM generation tool built by SK Telecom. It scans source code, container images, server rootfs, executables, and firmware with a single Docker container, instead of installing the open source tools below individually. It also includes features tuned for SK Telecom's submission criteria, such as automatically filling in the top-level component name and self-checking the SBOM (a conformance report) before submission.
 
-- Usage: [BomLens](../skt-scanner/)
+Before submission, verify against SK Telecom's own review criteria (100% PURL coverage and more) with the `--conformance-profile skt-submission` option. See the [Validation Checklist](../checklist/) for details. If a scan errors out or the result looks wrong, check [Common Rejection Reasons](../rejection-reasons/) for a similar case first.
+
+- Usage: [BomLens](../skt-scanner/) (on Windows, use `scripts\scan-sbom.bat` or the desktop app instead of `scan-sbom.sh`; installation is covered on that page too)
 - GitHub: [https://github.com/sktelecom/bomlens](https://github.com/sktelecom/bomlens)
 
 If BomLens does not cover your case, or you prefer to combine open source tools directly, see below.
@@ -180,7 +182,7 @@ Using a build tool plugin lets you extract more accurate dependency information.
 
 ## Server Delivery
 
-This applies only when you deliver a server with an application installed on top of an OS. Generate each of the two layers and submit them together.
+This applies when you deliver something that includes an OS or base image (a server, a container image, or firmware with an embedded OS). Generate each of the two layers and submit them together.
 
 | Layer | Target | Symptom if missing |
 |----|------|--------------|
@@ -193,25 +195,33 @@ For the OS layer, target the server's rootfs (the extracted root filesystem) or 
 
 The target must be the root of the rootfs. Point Syft at a subdirectory and it still reads the package database, but it cannot determine the distribution. Syft takes the distribution from `/etc/os-release` inside the target and writes it into each purl. A correct result looks like `pkg:rpm/rhel/bind@9.11.36-16.el8_10.6`, with the distribution between the type and the package name. When that slot is empty, the SBOM passes format validation but SK Telecom's system cannot identify the packages, so every OS package fails to match and the submission is rejected. Confirm that this file is present in the target before you scan.
 
+{{% alert title="Warning: do not point --target at a release folder that only wraps the rootfs" color="warning" %}}
+If your delivery has the rootfs nested one level inside a release folder, like `release-20260919/rootfs/`, pointing BomLens's `--target` at that release folder (the rootfs's parent) is not recognized as a rootfs. It silently falls back to a plain source scan. The resulting SBOM has almost no components, and the generic "0 components" warning in the log does not tell you the cause was an unrecognized rootfs. Either point `--target` at the rootfs folder itself, or compress the whole release folder as a `.tar.gz` or `.zip` (an archive is searched a level or two deep automatically, so a nested rootfs inside it is still found).
+{{% /alert %}}
+
 ```bash
 # First confirm the target carries distribution information
 cat /path/to/server-rootfs/etc/os-release
 
 # With BomLens (point it at the rootfs directory directly; it also fills in the top-level component name)
-./scan-sbom.sh --project myserver --version 1.0.0 --target /path/to/server-rootfs --generate-only
+./scan-sbom.sh --project myserver-os --version 1.0.0 --target /path/to/server-rootfs --generate-only
 
 # To use an open source tool directly instead: against a rootfs directory
-syft dir:/path/to/server-rootfs -o cyclonedx-json=myserver_1.0.0_os.json
+syft dir:/path/to/server-rootfs -o cyclonedx-json=myserver-os_1.0.0_bom.json
 
-# If the server is packaged as a container image
-syft myserver:7 -o cyclonedx-json=myserver_1.0.0_os.json
+# If the server is packaged as a container image (BomLens takes the image name as the target directly)
+./scan-sbom.sh --project myserver-os --version 1.0.0 --target myserver:7 --generate-only
+syft myserver:7 -o cyclonedx-json=myserver-os_1.0.0_bom.json
 ```
 
 For the application layer, scan the application source after the build is complete. With a package manager (Maven, npm, pip, Go modules, Conan, and so on), transitive dependencies are resolved automatically.
 
 ```bash
 cd /path/to/app-source
-cdxgen -o myserver_1.0.0_app.json
+cdxgen -o myserver-app_1.0.0_bom.json
+
+# Or with BomLens
+./scan-sbom.sh --project myserver-app --version 1.0.0 --target /path/to/app-source --generate-only
 ```
 
 The OS-layer scan sometimes picks up dependencies installed as files, such as Python or Node.js packages. Generate the application layer anyway. A C/C++ application that vendors its libraries into the source is not identified by the OS-layer scan at all.
@@ -219,6 +229,16 @@ The OS-layer scan sometimes picks up dependencies installed as files, such as Py
 {{% alert title="Scanning only the application source drops the OS packages entirely" color="warning" %}}
 Server deliveries repeatedly arrive with only the application source tree scanned. In that case not a single installed rpm package is included, so upgrading the OS never shows up in the SBOM. Confirm that you generated both layers.
 {{% /alert %}}
+
+### Firmware with an embedded OS (base stations, routers, and similar)
+
+Firmware that embeds an OS, such as a base station, router, OLT/ONT, or set-top box, follows the same two-layer structure above. For the OS layer, target the whole firmware image file and use BomLens's `--firmware` option.
+
+```bash
+./scan-sbom.sh --project mydevice-os --version 1.0.0 --target /path/to/firmware.bin --firmware --generate-only
+```
+
+If a separate application runs on top of an embedded Linux, scan its source the same way as the "application layer" above. If the firmware image already bundles the application, the OS-layer scan alone may be enough.
 
 ### Submit each layer
 
@@ -228,12 +248,12 @@ Each file needs its own name, and a resubmission must reuse the same name. The S
 
 | Layer | Example file name |
 |----|--------------|
-| OS | `myserver_1.0.0_os.json` |
-| Application | `myserver_1.0.0_app.json` |
+| OS | `myserver-os_1.0.0_bom.json` |
+| Application | `myserver-app_1.0.0_bom.json` |
 
-When generating both layers with BomLens, give each a different `--project` (e.g. `myserver-os`, `myserver-app`). Running it twice with the same name produces the same file name, so the later run overwrites the earlier one's output.
+The layer is distinguished by a suffix on the `--project` value (`-os`, `-app`). BomLens always produces `{project name}_{version}_bom.json`, so give each layer a different `--project` (e.g. `myserver-os`, `myserver-app`) when generating both with BomLens. Running it twice with the same name produces the same file name, so the later run overwrites the earlier one's output. When you generate a layer directly with cdxgen or Syft, match its output file name to the same convention (e.g. `-o myserver-app_1.0.0_bom.json`).
 
-Record the same value as the top-level component name (`metadata.component.name` in CycloneDX, `DocumentName` in SPDX). That value is the identifier that must be unique across all submissions. See the metadata section of [Submission Requirements](../requirements/) for details.
+Record the same value as the leading part of the file name (`{name}_{version}`) for the top-level component name (`metadata.component.name` in CycloneDX, `DocumentName` in SPDX). BomLens fills this in automatically from `--project`/`--version`, so you do not need to edit it by hand. That value is the identifier that must be unique across all submissions. See the metadata section of [Submission Requirements](../requirements/#matching-the-file-name) for details.
 
 For how to decide the submission unit for a product with several nodes, such as a cluster, see the submission unit section of [Submission Procedure](../submission/).
 
