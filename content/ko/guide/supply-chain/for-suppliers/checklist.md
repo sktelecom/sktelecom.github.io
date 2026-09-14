@@ -44,6 +44,7 @@ SK텔레콤 시스템은 PURL로 취약점을 매핑합니다. 가장 중요한 
 - [ ] PURL 형식이 표준(`pkg:type/namespace/name@version`)을 따르는가?
 - [ ] PURL 내에 특수문자 등이 올바르게 인코딩되었는가?
 - [ ] PURL이 실제 설치된 것과 같은 배포판·버전을 가리키는가? 예를 들어 RHEL 서버인데 `pkg:deb/debian/...`으로 선언되어 있으면, 형식은 올바르므로 매칭은 성공하지만 실제와 무관한 컴포넌트의 취약점이 보고됩니다.
+- [ ] rpm/deb/apk 패키지의 배포판이 네임스페이스(타입과 패키지 이름 사이)에 있는가? 물음표 뒤 쿼리 파라미터(`?distro=...`)에만 있으면 인식되지 않아 네임스페이스가 빈 것과 동일하게 반려됩니다.
 - [ ] 바이너리 스캔에서 purl 없는 항목이 생기지 않았는가? Syft의 바이너리 카탈로거는 생태계를 특정하지 못한 항목을 purl 없이 남길 수 있습니다. 해당 항목은 제거하거나 실제 컴포넌트로 보완합니다.
 
 아래 명령으로 purl 개수를 직접 확인하시기 바랍니다. 전체 컴포넌트 수와 purl 보유 수가 같아야 합니다.
@@ -55,6 +56,9 @@ jq '[.components[] | select(.purl)] | length' sbom.json  # purl 보유 수
 
 # SPDX — purl(externalRef) 보유 패키지 수
 jq '[.packages[] | select(.externalRefs[]?.referenceType == "purl")] | length' sbom.json
+
+# CycloneDX — rpm/deb/apk 중 배포판 네임스페이스가 비어 있는 개수 (0이어야 한다)
+jq '[.components[] | (.purl // "") | select(test("^pkg:(rpm|deb|apk)/[^/@]+@"))] | length' sbom.json
 ```
 
 > purl 보유 수가 0이거나 전체 컴포넌트 수보다 현저히 적으면 제출하지 마십시오. 원인과 재생성 방법은 [자주 발생하는 반려 사유](../rejection-reasons/)를 참고하십시오.
