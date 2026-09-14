@@ -44,6 +44,7 @@ SK Telecom's system maps vulnerabilities by PURL. This is the most important ite
 - [ ] Does the PURL format follow the standard (`pkg:type/namespace/name@version`)?
 - [ ] Are special characters within the PURL correctly encoded?
 - [ ] Does the PURL point at the same distribution and version as what is actually installed? For example, if a RHEL server is declared as `pkg:deb/debian/...`, the format is valid and matching succeeds, but vulnerabilities are reported for components unrelated to the real system.
+- [ ] For rpm/deb/apk packages, is the distribution in the namespace (between the type and the package name)? If it only appears in a query parameter (`?distro=...`), it is not recognized and is rejected the same way as an empty namespace.
 - [ ] Did a binary scan produce components with no PURL? Syft's binary catalogers can leave entries with no PURL when the ecosystem cannot be determined. Remove those entries or replace them with the real components.
 
 Use the commands below to check the PURL count directly. The total component count and the PURL-bearing count should be equal.
@@ -55,6 +56,9 @@ jq '[.components[] | select(.purl)] | length' sbom.json  # count with a PURL
 
 # SPDX — number of packages that have a PURL (externalRef)
 jq '[.packages[] | select(.externalRefs[]?.referenceType == "purl")] | length' sbom.json
+
+# CycloneDX — count of rpm/deb/apk entries with an empty distribution namespace (should be 0)
+jq '[.components[] | (.purl // "") | select(test("^pkg:(rpm|deb|apk)/[^/@]+@"))] | length' sbom.json
 ```
 
 > If the PURL-bearing count is 0 or significantly lower than the total component count, do not submit. For the cause and how to regenerate, see [Common Rejection Reasons](../rejection-reasons/).

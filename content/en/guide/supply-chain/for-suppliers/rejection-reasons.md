@@ -21,6 +21,7 @@ A rejection only ever means a format or completeness issue with the SBOM; fix it
 | Component versions missing | Incomplete manifests or tool configuration issues | The `version` field is required. [Submission Requirements](../requirements/) |
 | Server delivery with no OS packages | Only the application source was scanned | Scan the rootfs or image as delivered. [How to Generate an SBOM](../creation-guide/#server-delivery) |
 | OS package PURL missing the distribution | The scan target had no `/etc/os-release`, so the tool could not determine the distribution | Regenerate against the root of the rootfs or the image. [How to Generate an SBOM](../creation-guide/#server-delivery) |
+| OS package PURL has the distribution in a query parameter, not the namespace | The tool recorded the distribution only as auxiliary info, e.g. `?distro=...` | Regenerate with the distribution moved into the namespace. See the PURL section of [Submission Requirements](../requirements/) |
 | PURL naming a different distribution or version | The tool guessed an unrelated distribution package from a file name | Regenerate from the packages actually installed. [How to Generate an SBOM](../creation-guide/#server-delivery) |
 | Unaccepted format or version | Generated in a format outside the supported range | CycloneDX JSON recommended. [Submission Requirements](../requirements/) |
 | Top-level component info missing | Delivered product name and version not recorded in the metadata | Record the product name and version in the metadata component. [Submission Requirements](../requirements/) |
@@ -51,6 +52,12 @@ The SBOM for a RHEL server product was generated against the application source 
 This type passes format validation. The purl points at a package that really exists, so matching succeeds and no error appears on screen. Yet the vulnerabilities reported belong to components unrelated to the real server, and upgrading the OS changes nothing in the result.
 
 Scan the rootfs or image as delivered so that the OS packages are included, and declare libraries bundled in the source with their real versions. See the server delivery section of [How to Generate an SBOM](../creation-guide/#server-delivery) for the procedure.
+
+### Case 5: The distribution appeared in a query parameter instead of the namespace
+
+For a server product running a self-built Linux distribution, the rpm package PURLs in its SBOM carried the distribution value as a query parameter after the question mark, e.g. `pkg:rpm/bind@9.11.36?distro=customdistro-1.0`. The tool had identified the distribution, but recorded it in the auxiliary-info slot instead of the required namespace.
+
+That value is not used for vulnerability matching, so the entire set of rpm packages for that server failed to match and the SBOM was rejected. Move the distribution value into the path (between the type and the package name) and regenerate as `pkg:rpm/<distribution>/bind@9.11.36`.
 
 ## What a Passing SBOM Looks Like
 

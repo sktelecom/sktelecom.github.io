@@ -105,6 +105,8 @@ Here, "component" means an entry in the SBOM's `components` list (an individual 
 
 An OS package (rpm, deb, apk) must carry the distribution between the type and the package name, as in `pkg:rpm/rhel/bind@9.11.36-16.el8_10.6`. When that slot is empty the identifier looks well formed but names no specific package, so vulnerability mapping fails and the SBOM is rejected.
 
+The distribution value is only recognized in that position (the namespace). Placing it in a query parameter after the question mark (e.g. `?distro=rhel-8.10`) is not accepted; that value is treated as auxiliary information and is not used for matching, so an empty namespace is rejected the same way as above.
+
 ### PURL Examples by Language
 
 | Ecosystem | PURL Format Example |
@@ -127,6 +129,7 @@ An OS package (rpm, deb, apk) must carry the distribution between the type and t
 | `lodash@4.17.21` | `pkg:npm/lodash@4.17.21` |
 | `pkg:generic/foo@1.0` | (Change to a type appropriate for the ecosystem) |
 | `pkg:rpm/bind@9.11.36-16.el8_10.6` | `pkg:rpm/rhel/bind@9.11.36-16.el8_10.6` |
+| `pkg:rpm/bind@9.11.36-16.el8_10.6?distro=rhel-8.10` | `pkg:rpm/rhel/bind@9.11.36-16.el8_10.6` |
 
 > For detailed PURL specifications, refer to the [official Package URL spec](https://github.com/package-url/purl-spec).
 
