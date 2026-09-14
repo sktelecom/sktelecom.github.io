@@ -46,6 +46,14 @@ Information about the document itself and the generation tool.
 
 > **The Component Info name must be a unique value that identifies the specific device or product.** An empty value, a meaningless value such as `.`, or a fixed path value that a generation tool fills in automatically (e.g., `/scan`) will collide with a different submission and cause registration to be rejected. SK Telecom treats this value as an identifier that must be unique across all submissions.
 
+#### Matching the File Name
+
+When you submit multiple layers (OS, application, and so on), each layer's top-level component name and version must match the leading part of that SBOM's file name (`{name}_{version}`). For example, if the file name is `myserver-os_1.0.0_bom.json`, `metadata.component.name` (CycloneDX) or `DocumentName` (SPDX) must be `myserver-os` and the version must be `1.0.0`.
+
+Keep this name the same on a resubmission. It is the identity of the scan, so a changed name leaves the previous submission in place and vulnerabilities you have already fixed keep being counted.
+
+Generating with BomLens fills this field in automatically from `--project` and `--version`, so you do not need to edit it by hand. For the per-layer file naming rule, see the "Submit each layer" section of [How to Generate an SBOM](../creation-guide/#submit-each-layer).
+
 #### Generation Tool Specification Format
 
 Generation tool information must be recorded in the following fields depending on the format.
