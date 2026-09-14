@@ -209,6 +209,11 @@
 					&lt;td&gt;rootfs의 루트나 이미지를 대상으로 재생성. &lt;a href="../creation-guide/#%EC%84%9C%EB%B2%84-%EB%82%A9%ED%92%88"&gt;SBOM 생성 방법&lt;/a&gt;&lt;/td&gt;
 			&lt;/tr&gt;
 			&lt;tr&gt;
+					&lt;td&gt;OS 패키지 PURL의 배포판이 네임스페이스가 아닌 쿼리 파라미터에 표기&lt;/td&gt;
+					&lt;td&gt;도구가 배포판을 &lt;code&gt;?distro=...&lt;/code&gt;처럼 부가 정보로만 기재&lt;/td&gt;
+					&lt;td&gt;배포판을 경로(네임스페이스)로 옮겨 재생성. &lt;a href="../requirements/"&gt;제출 요구사항&lt;/a&gt;의 PURL 절&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
 					&lt;td&gt;실제와 다른 배포판·버전의 PURL&lt;/td&gt;
 					&lt;td&gt;도구가 파일 이름으로 무관한 배포판 패키지를 추정&lt;/td&gt;
 					&lt;td&gt;실제 설치된 패키지를 기준으로 재생성. &lt;a href="../creation-guide/#%EC%84%9C%EB%B2%84-%EB%82%A9%ED%92%88"&gt;SBOM 생성 방법&lt;/a&gt;&lt;/td&gt;

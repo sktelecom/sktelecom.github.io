@@ -83,6 +83,11 @@
 					&lt;td&gt;Regenerate against the root of the rootfs or the image. &lt;a href="../creation-guide/#server-delivery"&gt;How to Generate an SBOM&lt;/a&gt;&lt;/td&gt;
 			&lt;/tr&gt;
 			&lt;tr&gt;
+					&lt;td&gt;OS package PURL has the distribution in a query parameter, not the namespace&lt;/td&gt;
+					&lt;td&gt;The tool recorded the distribution only as auxiliary info, e.g. &lt;code&gt;?distro=...&lt;/code&gt;&lt;/td&gt;
+					&lt;td&gt;Regenerate with the distribution moved into the namespace. See the PURL section of &lt;a href="../requirements/"&gt;Submission Requirements&lt;/a&gt;&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
 					&lt;td&gt;PURL naming a different distribution or version&lt;/td&gt;
 					&lt;td&gt;The tool guessed an unrelated distribution package from a file name&lt;/td&gt;
 					&lt;td&gt;Regenerate from the packages actually installed. &lt;a href="../creation-guide/#server-delivery"&gt;How to Generate an SBOM&lt;/a&gt;&lt;/td&gt;
