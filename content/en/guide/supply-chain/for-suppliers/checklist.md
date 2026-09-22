@@ -93,14 +93,14 @@ Run this same check even when you generated the SBOM with BomLens yourself — j
 
 | Check | Checklist Item |
 |-------|----------------|
-| Spec version range (CycloneDX 1.3–1.6, SPDX 2.2–2.3) | 2. Required Data Fields |
+| Spec version range (CycloneDX 1.3–1.7, SPDX 2.2–2.3) | 2. Required Data Fields |
 | Creation timestamp, generating tool, top-level component name and version | 2. Required Data Fields |
 | Name and version of every component | 2. Required Data Fields |
 | Direct and transitive dependencies included | 3. Dependency Completeness Check |
-| PURL coverage, standard format (`pkg:type/name@version`), no `pkg:generic`, OS package distribution namespace | 4. Identifier (PURL) Check |
+| PURL coverage, standard format (`pkg:type/name@version`), no `pkg:generic`, a type the specification defines, and the namespace for types that require one | 4. Identifier (PURL) Check |
 | License and hash coverage (recommended items) | — |
 
-The automated check in BomLens v1.8.x still treats CycloneDX 1.7 as outside the supported range, and its namespace check covers only OS packages (rpm, deb, apk). If your SBOM is CycloneDX 1.7, or uses maven and other types, check those with the jq commands above as well.
+The table above describes the next BomLens release. The automated check in v1.12.0, the current release, treats CycloneDX 1.7 as outside the supported range, covers only OS packages (rpm, deb, apk) in its namespace check, and does not flag a type the specification leaves undefined. If you validate with v1.12.0 and your SBOM is CycloneDX 1.7, or uses maven and other types, check those with the jq commands above as well.
 
 If the result is fail, the report lists which components fall short on which item, so you can fix those parts, regenerate the SBOM, and validate again. The same validation is available in the web UI (run with `--ui` and upload the SBOM).
 
