@@ -42,6 +42,9 @@ SK텔레콤 시스템은 PURL로 취약점을 매핑합니다. 가장 중요한 
 - [ ] 모든 컴포넌트(`components`) 객체 안에 `purl` 필드가 존재하는가?
 - [ ] purl 보유 컴포넌트 수가 전체 컴포넌트 수와 일치(또는 근접)하는가?
 - [ ] PURL 형식이 표준(`pkg:type/namespace/name@version`)을 따르는가?
+- [ ] PURL 타입이 Package URL 규격에 정의된 것인가? 도구가 지어낸 타입(예: `pkg:applications/`)은 형식 검사를 통과해도 조회할 저장소를 특정할 수 없어 매칭에 실패합니다.
+- [ ] 네임스페이스가 필수인 타입(`maven`, `golang`, `github`, `composer`, `swift`, `rpm`, `deb`, `apk` 등)에서 그 자리가 비어 있지 않은가? Maven이라면 groupId가 `pkg:maven/org.slf4j/jcl-over-slf4j@2.0.15`처럼 별도 자리에 있어야 하며, `pkg:maven/org.slf4j.jcl-over-slf4j@2.0.15`처럼 이름과 이어 붙으면 반려됩니다.
+- [ ] 네임스페이스에 회사 이름이나 웹사이트 주소가 들어가지 않았는가? `pkg:maven/The%2BApache%2BSoftware%2BFoundation/poi@5.4.1`처럼 벤더 문자열이 groupId 자리에 들어가면 저장소에 없는 좌표가 됩니다.
 - [ ] PURL 내에 특수문자 등이 올바르게 인코딩되었는가?
 - [ ] PURL이 실제 설치된 것과 같은 배포판·버전을 가리키는가? 예를 들어 RHEL 서버인데 `pkg:deb/debian/...`으로 선언되어 있으면, 형식은 올바르므로 매칭은 성공하지만 실제와 무관한 컴포넌트의 취약점이 보고됩니다.
 - [ ] rpm/deb/apk 패키지의 배포판이 네임스페이스(타입과 패키지 이름 사이)에 있는가? 물음표 뒤 쿼리 파라미터(`?distro=...`)에만 있으면 인식되지 않아 네임스페이스가 빈 것과 동일하게 반려됩니다.
@@ -57,8 +60,17 @@ jq '[.components[] | select(.purl)] | length' sbom.json  # purl 보유 수
 # SPDX — purl(externalRef) 보유 패키지 수
 jq '[.packages[] | select(.externalRefs[]?.referenceType == "purl")] | length' sbom.json
 
-# CycloneDX — rpm/deb/apk 중 배포판 네임스페이스가 비어 있는 개수 (0이어야 한다)
-jq '[.components[] | (.purl // "") | select(test("^pkg:(rpm|deb|apk)/[^/@]+@"))] | length' sbom.json
+# CycloneDX: 네임스페이스가 필수인 타입인데 그 자리가 빈 개수 (0이어야 한다)
+#   rpm/deb/apk의 배포판 누락과 maven의 groupId 누락이 함께 잡힌다
+jq '[.components[] | (.purl // "")
+     | select(test("^pkg:(alpm|apk|bitbucket|composer|deb|git|github|golang|huggingface|maven|qpkg|rpm|swift|vscode-extension)/[^/@?#]+([@?#]|$)"))
+    ] | length' sbom.json
+
+# CycloneDX: 규격에 없는 타입을 쓴 경우 그 타입 이름을 출력한다 (아무것도 나오지 않아야 한다)
+curl -sO https://raw.githubusercontent.com/package-url/purl-spec/main/purl-types-index.json
+jq -r --slurpfile ok purl-types-index.json '
+  [.components[] | (.purl // "") | select(startswith("pkg:")) | capture("^pkg:(?<t>[^/@?#]+)").t]
+  | unique - $ok[0] | .[]' sbom.json
 ```
 
 > purl 보유 수가 0이거나 전체 컴포넌트 수보다 현저히 적으면 제출하지 마십시오. 원인과 재생성 방법은 [자주 발생하는 반려 사유](../rejection-reasons/)를 참고하십시오.
@@ -86,8 +98,10 @@ BomLens로 SBOM을 직접 생성한 경우에도 이 명령으로 한 번 더 �
 | 생성 일시, 생성 도구, 최상위 컴포넌트 이름·버전 | 2. 필수 데이터 필드 |
 | 모든 컴포넌트의 이름·버전 | 2. 필수 데이터 필드 |
 | 직접·전이적 의존성 포함 여부 | 3. 의존성 완전성 확인 |
-| PURL 보유율, 표준 형식(`pkg:type/name@version`), `pkg:generic` 금지 | 4. 식별자 (PURL) 확인 |
+| PURL 보유율, 표준 형식(`pkg:type/name@version`), `pkg:generic` 금지, OS 패키지 배포판 네임스페이스 | 4. 식별자 (PURL) 확인 |
 | 라이선스·해시 보유율 (권장 항목) | — |
+
+BomLens v1.8.x의 자동 검증은 아직 CycloneDX 1.7을 지원 범위 밖으로 표시하고, 네임스페이스 검사도 OS 패키지(rpm, deb, apk)까지만 수행합니다. CycloneDX 1.7로 생성했거나 maven 등 다른 타입을 쓰는 경우에는 위 jq 명령으로 함께 확인하시기 바랍니다.
 
 결과가 fail이면 어떤 컴포넌트가 어느 항목에 미달하는지 목록으로 표시되므로, 해당 부분을 보완해 SBOM을 다시 생성한 뒤 재검증하면 됩니다. 웹 UI(`--ui` 실행 후 SBOM 업로드)에서도 같은 검증을 할 수 있습니다.
 

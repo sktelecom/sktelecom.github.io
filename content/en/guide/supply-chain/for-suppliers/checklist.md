@@ -42,6 +42,9 @@ SK Telecom's system maps vulnerabilities by PURL. This is the most important ite
 - [ ] Does every component (`components`) object contain a `purl` field?
 - [ ] Does the number of components with a PURL match (or come close to) the total component count?
 - [ ] Does the PURL format follow the standard (`pkg:type/namespace/name@version`)?
+- [ ] Is every PURL type one that the Package URL specification defines? A type invented by a tool (for example `pkg:applications/`) passes format validation, but it names no repository to query, so matching fails.
+- [ ] For types that require a namespace (`maven`, `golang`, `github`, `composer`, `swift`, `rpm`, `deb`, `apk`, and others), is that slot filled? For Maven the groupId must occupy its own slot, as in `pkg:maven/org.slf4j/jcl-over-slf4j@2.0.15`; joining it to the name, as in `pkg:maven/org.slf4j.jcl-over-slf4j@2.0.15`, is rejected.
+- [ ] Is the namespace free of company names and website addresses? A vendor string placed in the groupId slot, as in `pkg:maven/The%2BApache%2BSoftware%2BFoundation/poi@5.4.1`, produces a coordinate that does not exist in the repository.
 - [ ] Are special characters within the PURL correctly encoded?
 - [ ] Does the PURL point at the same distribution and version as what is actually installed? For example, if a RHEL server is declared as `pkg:deb/debian/...`, the format is valid and matching succeeds, but vulnerabilities are reported for components unrelated to the real system.
 - [ ] For rpm/deb/apk packages, is the distribution in the namespace (between the type and the package name)? If it only appears in a query parameter (`?distro=...`), it is not recognized and is rejected the same way as an empty namespace.
@@ -57,8 +60,17 @@ jq '[.components[] | select(.purl)] | length' sbom.json  # count with a PURL
 # SPDX — number of packages that have a PURL (externalRef)
 jq '[.packages[] | select(.externalRefs[]?.referenceType == "purl")] | length' sbom.json
 
-# CycloneDX — count of rpm/deb/apk entries with an empty distribution namespace (should be 0)
-jq '[.components[] | (.purl // "") | select(test("^pkg:(rpm|deb|apk)/[^/@]+@"))] | length' sbom.json
+# CycloneDX: count of identifiers whose type requires a namespace but has none (should be 0)
+#   catches both a missing rpm/deb/apk distribution and a missing Maven groupId
+jq '[.components[] | (.purl // "")
+     | select(test("^pkg:(alpm|apk|bitbucket|composer|deb|git|github|golang|huggingface|maven|qpkg|rpm|swift|vscode-extension)/[^/@?#]+([@?#]|$)"))
+    ] | length' sbom.json
+
+# CycloneDX: print any type not defined by the spec (nothing should be printed)
+curl -sO https://raw.githubusercontent.com/package-url/purl-spec/main/purl-types-index.json
+jq -r --slurpfile ok purl-types-index.json '
+  [.components[] | (.purl // "") | select(startswith("pkg:")) | capture("^pkg:(?<t>[^/@?#]+)").t]
+  | unique - $ok[0] | .[]' sbom.json
 ```
 
 > If the PURL-bearing count is 0 or significantly lower than the total component count, do not submit. For the cause and how to regenerate, see [Common Rejection Reasons](../rejection-reasons/).
@@ -85,8 +97,10 @@ Run this same check even when you generated the SBOM with BomLens yourself — j
 | Creation timestamp, generating tool, top-level component name and version | 2. Required Data Fields |
 | Name and version of every component | 2. Required Data Fields |
 | Direct and transitive dependencies included | 3. Dependency Completeness Check |
-| PURL coverage, standard format (`pkg:type/name@version`), no `pkg:generic` | 4. Identifier (PURL) Check |
+| PURL coverage, standard format (`pkg:type/name@version`), no `pkg:generic`, OS package distribution namespace | 4. Identifier (PURL) Check |
 | License and hash coverage (recommended items) | — |
+
+The automated check in BomLens v1.8.x still treats CycloneDX 1.7 as outside the supported range, and its namespace check covers only OS packages (rpm, deb, apk). If your SBOM is CycloneDX 1.7, or uses maven and other types, check those with the jq commands above as well.
 
 If the result is fail, the report lists which components fall short on which item, so you can fix those parts, regenerate the SBOM, and validate again. The same validation is available in the web UI (run with `--ui` and upload the SBOM).
 
