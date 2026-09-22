@@ -18,6 +18,9 @@ A rejection only ever means a format or completeness issue with the SBOM; fix it
 | All PURLs missing | Scanning an installation directory or raw files with no package manager metadata (`syft dir:`, etc.) | Scan a built image or the source code instead. [How to Generate an SBOM](../creation-guide/) |
 | Transitive dependencies missing | Scanning source only, before the build (package installation) | Regenerate after the build completes. See the dependency scope section of the [Submission Requirements](../requirements/) |
 | `pkg:generic/` PURLs | The tool could not identify the ecosystem | Regenerate with ecosystem-specific types. See the PURL section of the [Submission Requirements](../requirements/) |
+| PURL type not defined by the spec | The tool recorded a type the specification does not define (e.g. `pkg:applications/`) | Regenerate with a type defined by the spec. See the PURL section of the [Submission Requirements](../requirements/) |
+| Namespace missing on maven and other types that require one | The tool joined the groupId and artifactId with a dot into a single slot | Split the groupId into the namespace slot and regenerate. See the PURL section of the [Submission Requirements](../requirements/) |
+| Supplier name or URL recorded as the namespace | The generation tool copied the vendor string from the manifest into the groupId slot | Replace it with the identifier the repository actually uses. See the PURL section of the [Submission Requirements](../requirements/) |
 | Component versions missing | Incomplete manifests or tool configuration issues | The `version` field is required. [Submission Requirements](../requirements/) |
 | Server delivery with no OS packages | Only the application source was scanned | Scan the rootfs or image as delivered. [How to Generate an SBOM](../creation-guide/#server-delivery) |
 | OS package PURL missing the distribution | The scan target had no `/etc/os-release`, so the tool could not determine the distribution | Regenerate against the root of the rootfs or the image. [How to Generate an SBOM](../creation-guide/#server-delivery) |
@@ -58,6 +61,20 @@ Scan the rootfs or image as delivered so that the OS packages are included, and 
 For a server product running a self-built Linux distribution, the rpm package PURLs in its SBOM carried the distribution value as a query parameter after the question mark, e.g. `pkg:rpm/bind@9.11.36?distro=customdistro-1.0`. The tool had identified the distribution, but recorded it in the auxiliary-info slot instead of the required namespace.
 
 That value is not used for vulnerability matching, so the entire set of rpm packages for that server failed to match and the SBOM was rejected. Move the distribution value into the path (between the type and the package name) and regenerate as `pkg:rpm/<distribution>/bind@9.11.36`.
+
+### Case 6: Every format check passed, and 642 PURLs still failed to match
+
+A supplier submitted a CycloneDX SBOM with 8,129 components. Every component carried a purl, so coverage was 100%; there was no `pkg:generic`; and no OS package was missing its distribution. The file passed every checklist item and automated criterion in force at the time. Yet 642 of its 2,785 unique purls failed to match when the repositories were queried.
+
+Three separate causes were mixed together.
+
+*   Missing namespace, 663 entries: identifiers such as `pkg:maven/org.slf4j.jcl-over-slf4j@2.0.15`, where the groupId and artifactId were joined by a dot into one slot. The form is valid and passes schema validation, but the coordinate does not exist in the repository.
+*   A type not defined by the spec: `pkg:applications/java@11.0.25` used an invented `applications` type. Because it is not `generic`, the existing prohibition did not catch it.
+*   A vendor string in the namespace: `pkg:maven/The%2BApache%2BSoftware%2BFoundation/poi@5.4.1` and `pkg:maven/http%3A/www.jboss.org/jbossxts@1.1` placed a company name or a URL in the groupId slot.
+
+None of the three is caught by schema validation, so check them directly with the PURL commands in the [Validation Checklist](../checklist/) before submitting.
+
+The same file also contained identifiers such as `pkg:maven/org.drools/org.drools.drools-core-dynamic@7.67.2.Final-redhat-00054`, where the groupId is repeated in front of the artifactId; the real coordinate is `org.drools:drools-core-dynamic`. Unlike the three above, this one cannot be decided from the form alone, because plenty of valid coordinates do have an artifactId that starts with the groupId, such as `org.drools:org.drools.updatesite` and `org.apache.felix:org.apache.felix.http.jetty`. Eclipse plugins and OSGi bundles conventionally use the bundle symbolic name as the artifactId. The checklist therefore carries no item for this; confirming it means querying the repository for the coordinate.
 
 ## What a Passing SBOM Looks Like
 

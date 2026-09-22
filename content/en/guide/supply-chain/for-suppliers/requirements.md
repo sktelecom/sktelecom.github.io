@@ -13,7 +13,7 @@ SK Telecom supports both formats that have become established as global standard
 
 | Format | Version | Recommended Use | File Format |
 |------|------|----------|-----------| 
-| CycloneDX | v1.3, v1.4, v1.5, v1.6 | Application security, vulnerability management focus | JSON (recommended), XML |
+| CycloneDX | v1.3, v1.4, v1.5, v1.6, v1.7 | Application security, vulnerability management focus | JSON (recommended), XML |
 | SPDX | v2.2, v2.3 | License compliance focus | JSON, Tag-Value |
 
 > Note: Both formats are recognized equally, but CycloneDX (JSON) format is recommended for internal system interoperability.
@@ -28,7 +28,7 @@ The requirement level of each item. A missing required item leads to rejection. 
 | Metadata (timestamp, generation tool, top-level component) | Required | 2.1 Metadata |
 | Component name and version | Required | 2.2 Component Information |
 | Direct and transitive dependencies | Required | 2.3 Dependency Scope |
-| PURL (Package URL, a standard identifier that points to a software package; `pkg:` form, no `generic`) | Required | 3. PURL Compliance |
+| PURL (Package URL, a standard identifier that points to a software package; `pkg:` form, a type defined by the spec, and no empty namespace where the type requires one) | Required | 3. PURL Compliance |
 | Dev-only dependencies | Recommended | 2.3 Dependency Scope |
 | License information | Recommended | 4. Sample Documents |
 
@@ -109,13 +109,34 @@ PURL (Package URL) is a standard URL format for uniquely identifying a software 
 
 Here, "component" means an entry in the SBOM's `components` list (an individual library or package); it does not apply to the top-level product itself (the component information in the SBOM's metadata).
 
-> **A PURL must be in the standard format beginning with the `pkg:` prefix.** Free text such as `name:version` or `org/repo:tag` is not allowed; in such cases vulnerability mapping is impossible and the SBOM will be rejected. The type must identify the ecosystem; `pkg:generic/` is not allowed.
+> **A PURL must be in the standard format beginning with the `pkg:` prefix.** Free text such as `name:version` or `org/repo:tag` is not allowed; in such cases vulnerability mapping is impossible and the SBOM will be rejected.
 
-An OS package (rpm, deb, apk) must carry the distribution between the type and the package name, as in `pkg:rpm/rhel/bind@9.11.36-16.el8_10.6`. When that slot is empty the identifier looks well formed but names no specific package, so vulnerability mapping fails and the SBOM is rejected.
+Some PURLs look well formed and still fail to match. The three rules below are not caught by schema validation, so check them with particular care.
+
+### 3.1 Types Defined by the Spec
+
+The type slot may only hold a type defined by the Package URL specification. These are names such as `maven`, `npm`, `pypi` and `rpm` that identify both the ecosystem and the repository to query; the full list is in [purl-types-index.json](https://github.com/package-url/purl-spec/blob/main/purl-types-index.json) in the specification repository.
+
+An invented name (for example `pkg:applications/java@11.0.25`) passes format validation, but there is no way to tell which repository to query, so matching fails. `pkg:generic/`, which identifies no ecosystem, is not allowed for the same reason.
+
+### 3.2 Types That Require a Namespace
+
+The namespace is the slot between the type and the package name. The specification makes it required for these types:
+
+`alpm` `apk` `bitbucket` `composer` `deb` `git` `github` `golang` `huggingface` `maven` `qpkg` `rpm` `swift` `vscode-extension`
+
+When that slot is empty the identifier looks well formed but names no specific package, so matching fails and the SBOM is rejected. The two patterns seen most often in actual intake are these:
+
+*   **Maven**: the groupId belongs in the namespace. `pkg:maven/org.slf4j/jcl-over-slf4j@2.0.15` is the correct form; `pkg:maven/org.slf4j.jcl-over-slf4j@2.0.15`, with the groupId and artifactId joined by a dot, is a coordinate that does not exist in the repository and is rejected.
+*   **OS packages (rpm, deb, apk)**: the distribution belongs in the namespace (`pkg:rpm/rhel/bind@9.11.36-16.el8_10.6`).
 
 The distribution value is only recognized in that position (the namespace). Placing it in a query parameter after the question mark (e.g. `?distro=rhel-8.10`) is not accepted; that value is treated as auxiliary information and is not used for matching, so an empty namespace is rejected the same way as above.
 
-### PURL Examples by Language
+### 3.3 What Belongs in the Namespace
+
+The namespace must hold the identifier the repository itself uses. A human-readable company name or a URL is not an identifier. When a generation tool copies the vendor string from a manifest into the groupId slot, the result looks like `pkg:maven/The%2BApache%2BSoftware%2BFoundation/poi@5.4.1` or `pkg:maven/http%3A/www.jboss.org/jbossxts@1.1`; neither coordinate exists in the repository, so neither matches. For Maven, record the real groupId, as in `pkg:maven/org.apache.poi/poi@5.4.1`.
+
+### 3.4 PURL Examples by Language
 
 | Ecosystem | PURL Format Example |
 | :--- | :--- |
@@ -128,7 +149,7 @@ The distribution value is only recognized in that position (the namespace). Plac
 | GitHub (Actions / source hosting) | `pkg:github/actions/checkout@v3` |
 | OS package (RPM) | `pkg:rpm/centos/glibc@2.17-317.el7?arch=x86_64` |
 
-### Correct / Incorrect PURL Examples
+### 3.5 Correct / Incorrect PURL Examples
 
 | Incorrect | Correct |
 |---|---|
@@ -136,6 +157,9 @@ The distribution value is only recognized in that position (the namespace). Plac
 | `actions/checkout:v3` | `pkg:github/actions/checkout@v3` |
 | `lodash@4.17.21` | `pkg:npm/lodash@4.17.21` |
 | `pkg:generic/foo@1.0` | (Change to a type appropriate for the ecosystem) |
+| `pkg:applications/java@11.0.25` | (Change to a type defined by the spec) |
+| `pkg:maven/org.slf4j.jcl-over-slf4j@2.0.15` | `pkg:maven/org.slf4j/jcl-over-slf4j@2.0.15` |
+| `pkg:maven/The%2BApache%2BSoftware%2BFoundation/poi@5.4.1` | `pkg:maven/org.apache.poi/poi@5.4.1` |
 | `pkg:rpm/bind@9.11.36-16.el8_10.6` | `pkg:rpm/rhel/bind@9.11.36-16.el8_10.6` |
 | `pkg:rpm/bind@9.11.36-16.el8_10.6?distro=rhel-8.10` | `pkg:rpm/rhel/bind@9.11.36-16.el8_10.6` |
 
