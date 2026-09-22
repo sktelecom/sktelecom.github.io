@@ -74,6 +74,8 @@ Three separate causes were mixed together.
 
 None of the three is caught by schema validation, so check them directly with the PURL commands in the [Validation Checklist](../checklist/) before submitting.
 
+The same file also contained identifiers such as `pkg:maven/org.drools/org.drools.drools-core-dynamic@7.67.2.Final-redhat-00054`, where the groupId is repeated in front of the artifactId; the real coordinate is `org.drools:drools-core-dynamic`. Unlike the three above, this one cannot be decided from the form alone, because plenty of valid coordinates do have an artifactId that starts with the groupId, such as `org.drools:org.drools.updatesite` and `org.apache.felix:org.apache.felix.http.jetty`. Eclipse plugins and OSGi bundles conventionally use the bundle symbolic name as the artifactId. The checklist therefore carries no item for this; confirming it means querying the repository for the coordinate.
+
 ## What a Passing SBOM Looks Like
 
 Download the example file that meets the acceptance criteria and compare its structure. Every component has a purl and a version, and the `dependencies` array captures both direct and transitive relationships.

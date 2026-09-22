@@ -74,6 +74,8 @@ RHEL 서버 제품의 SBOM이 애플리케이션 소스 트리만 대상으로 �
 
 세 유형 모두 스키마 검사로는 걸러지지 않으므로, [검증 체크리스트](../checklist/)의 PURL 확인 명령으로 직접 점검한 뒤 제출해야 합니다.
 
+같은 파일에서 `pkg:maven/org.drools/org.drools.drools-core-dynamic@7.67.2.Final-redhat-00054`처럼 artifactId 앞에 groupId가 한 번 더 붙은 경우도 나왔습니다. 실제 좌표는 `org.drools:drools-core-dynamic`입니다. 이 유형은 위 세 가지와 달리 형식으로 판정할 수 없습니다. `org.drools:org.drools.updatesite`나 `org.apache.felix:org.apache.felix.http.jetty`처럼 artifactId가 groupId로 시작하는 것이 정상인 좌표도 많기 때문입니다. Eclipse 플러그인과 OSGi 번들은 artifactId에 번들 심볼릭 이름을 그대로 쓰는 관례가 있습니다. 그래서 체크리스트에는 점검 항목을 두지 않았고, 확인하려면 해당 좌표가 저장소에 실제로 있는지 조회해야 합니다.
+
 ## 반려되지 않는 SBOM의 모습
 
 합격 기준을 충족하는 예시 파일을 내려받아 구조를 비교해 보십시오. 모든 컴포넌트에 purl과 버전이 있고, `dependencies` 배열이 직접·전이 의존 관계를 담고 있습니다.
