@@ -100,7 +100,7 @@ Run this same check even when you generated the SBOM with BomLens yourself — j
 | PURL coverage, standard format (`pkg:type/name@version`), no `pkg:generic`, a type the specification defines, and the namespace for types that require one | 4. Identifier (PURL) Check |
 | License and hash coverage (recommended items) | — |
 
-The table above describes the next BomLens release. The automated check in v1.12.0, the current release, treats CycloneDX 1.7 as outside the supported range, covers only OS packages (rpm, deb, apk) in its namespace check, and does not flag a type the specification leaves undefined. If you validate with v1.12.0 and your SBOM is CycloneDX 1.7, or uses maven and other types, check those with the jq commands above as well.
+The table above describes BomLens v1.12.1 and later. If you validate with an earlier release and your SBOM is CycloneDX 1.7, or uses maven and other types that require a namespace, check those with the jq commands above as well.
 
 If the result is fail, the report lists which components fall short on which item, so you can fix those parts, regenerate the SBOM, and validate again. The same validation is available in the web UI (run with `--ui` and upload the SBOM).
 
