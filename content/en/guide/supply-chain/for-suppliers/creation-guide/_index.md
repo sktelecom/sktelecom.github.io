@@ -249,7 +249,12 @@ Some components have no version that can be read from the binary. BomLens lists 
   --conformance-profile skt-submission --generate-only
 ```
 
-Rows left empty are skipped, and any component still without a version is marked as a failure in the conformance report. If an entry is your own code with no open source version, say so when you submit. If the firmware is encrypted or in a format BomLens cannot unpack, contact your SK Telecom representative.
+A firmware SBOM may not pass every row of the conformance report. Handle these two rows as follows.
+
+- "Version needed": for each entry you could not fill in, give the reason when you submit the SBOM: "own code", "not open source (identified by a matching name only)", or "version cannot be confirmed".
+- "No upstream purl": open source whose source repository BomLens does not know. You cannot fix this in the SBOM; submit it as it is.
+
+If the firmware is encrypted or in a format BomLens cannot unpack, contact your SK Telecom representative.
 
 Submit only `mydevice-os_1.0.0_bom.json`. The notice (NOTICE), security report, and conformance report created in the same folder are for your own review.
 
