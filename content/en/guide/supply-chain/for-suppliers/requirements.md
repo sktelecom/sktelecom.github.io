@@ -128,7 +128,7 @@ The namespace is the slot between the type and the package name. The specificati
 When that slot is empty the identifier looks well formed but names no specific package, so matching fails and the SBOM is rejected. The two patterns seen most often in actual intake are these:
 
 *   **Maven**: the groupId belongs in the namespace. `pkg:maven/org.slf4j/jcl-over-slf4j@2.0.15` is the correct form; `pkg:maven/org.slf4j.jcl-over-slf4j@2.0.15`, with the groupId and artifactId joined by a dot, is a coordinate that does not exist in the repository and is rejected.
-*   **OS packages (rpm, deb, apk)**: the distribution belongs in the namespace (`pkg:rpm/rhel/bind@9.11.36-16.el8_10.6`).
+*   **OS packages (rpm, deb, apk)**: the distribution belongs in the namespace (`pkg:rpm/rhel/bind@9.11.36-16.el8_10.6`). For Red Hat family packages, both `rhel` and `redhat` are accepted.
 
 The distribution value is only recognized in that position (the namespace). Placing it in a query parameter after the question mark (e.g. `?distro=rhel-8.10`) is not accepted; that value is treated as auxiliary information and is not used for matching, so an empty namespace is rejected the same way as above.
 
