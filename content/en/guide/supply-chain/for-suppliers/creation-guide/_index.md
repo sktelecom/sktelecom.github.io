@@ -79,7 +79,7 @@ graph TD
 
 Source code and apps, executables or libraries, and firmware with no OS are all scanned from the source code you developed with [BomLens](../skt-scanner/) or cdxgen. Scanning a finished binary directly yields no package manager metadata, so purls are omitted and the SBOM is rejected.
 
-When you ship an OS or base image as part of the delivery (a container image, a server, or firmware with an embedded OS), split it into two layers, scan each, and submit them together. Scan the image or rootfs as delivered with BomLens or Syft/Trivy for the OS layer, and the source code (the app layer) with BomLens or cdxgen. For firmware with an embedded OS, scan the firmware image file with BomLens for the OS layer. The per-layer commands and the file naming rule are in [Server delivery](#server-delivery) below.
+When you ship an OS or base image as part of the delivery (a container image, a server, or firmware with an embedded OS), split it into two layers, scan each, and submit them together. Scan the image or rootfs as delivered with BomLens or Syft/Trivy for the OS layer, and the source code (the app layer) with BomLens or cdxgen. For firmware with an embedded OS, scan the firmware file or the OS-area folder with BomLens for the OS layer. The per-layer commands and the file naming rule are in [Server delivery](#server-delivery) below.
 
 If you supply commercial software or a finished product made by a third party and have no access to the source code, obtain the SBOM from the manufacturer instead of scanning. See [Commercial Software](../commercial-software/).
 
@@ -232,33 +232,42 @@ Server deliveries repeatedly arrive with only the application source tree scanne
 
 ### Firmware with an embedded OS (base stations, routers, and similar)
 
-Firmware that embeds an OS, such as a base station, router, OLT/ONT, or set-top box, follows the same two-layer structure above. The OS layer, however, cannot be produced the server way (scanning the rootfs with Syft or Trivy). An embedded rootfs usually has no package database, so even when Syft or Trivy finds BusyBox or OpenSSL, the purl is empty or recorded as `pkg:generic`, and the kernel and most libraries are missed entirely. Such an SBOM may be formally valid, yet SK Telecom's system identifies almost none of its components.
+Firmware that embeds an OS, such as a base station, router, OLT/ONT, or set-top box, follows the same two-layer structure above. The OS layer, however, must not be produced the server way (scanning the rootfs with Syft or Trivy). An embedded device usually has no package database, so that produces an SBOM in which almost no open source is identified. Produce the OS layer with BomLens 1.13.9 or later as follows.
 
-Scan the OS layer with BomLens's `--firmware` option, targeting the firmware image file you install on the device. Point it at the image file itself, not at a folder where the firmware has been unpacked. BomLens 1.13.3 or later is required. From this version on, BomLens gives the open source it finds in binaries the purl of its upstream source repository (for example `pkg:github/openssl/openssl@OpenSSL_1_0_2h`).
-
-```bash
-./scan-sbom.sh --project mydevice-os --version 1.0.0 --target /path/to/firmware.bin --firmware \
-  --conformance-profile skt-submission --generate-only
-```
-
-Some components have no version that can be read from the binary. BomLens lists them in `mydevice-os_1.0.0_component-versions.template.csv` (`name,version`). Fill in the version actually shipped in the product, checked against your build configuration, and run again with `--component-versions`. A source tree can hold several versions of the same open source project, so write the version the build actually used, not the one a source folder name suggests.
+Point the scan at the firmware file you install on the device, or at the OS-area folder (rootfs) produced by your build. Use whichever you have; the result is the same. Submit only the generated `mydevice-os_1.0.0_bom.json`. The notice, security report, and other files created in the same folder are for your own review.
 
 ```bash
-./scan-sbom.sh --project mydevice-os --version 1.0.0 --target /path/to/firmware.bin --firmware \
-  --component-versions mydevice-os_1.0.0_component-versions.template.csv \
-  --conformance-profile skt-submission --generate-only
+# Scanning the firmware file
+./scan-sbom.sh --project mydevice-os --version 1.0.0 --target /path/to/firmware.bin --firmware --generate-only
+
+# Scanning the OS-area folder
+./scan-sbom.sh --project mydevice-os --version 1.0.0 --target /path/to/rootfs --firmware --generate-only
 ```
 
-A firmware SBOM may not pass every row of the conformance report. Handle these two rows as follows.
+If you build with Yocto, point the scan at the finished build directory instead. BomLens reads the installed packages and their exact versions from the build records, so the result is more accurate.
 
-- "Version needed": for each entry you could not fill in, give the reason when you submit the SBOM: "own code", "not open source (identified by a matching name only)", or "version cannot be confirmed".
-- "No upstream purl": open source whose source repository BomLens does not know. You cannot fix this in the SBOM; submit it as it is.
+```bash
+./scan-sbom.sh --project mydevice-os --version 1.0.0 --target /path/to/yocto-build --generate-only
+```
 
 If the firmware is encrypted or in a format BomLens cannot unpack, contact your SK Telecom representative.
 
-Submit only `mydevice-os_1.0.0_bom.json`. The notice (NOTICE), security report, and conformance report created in the same folder are for your own review.
-
 If a separate application runs on top of an embedded Linux, scan its source the same way as the "application layer" above. If the firmware image already bundles the application, the OS-layer scan alone may be enough.
+
+#### When some components have no version
+
+A firmware scan may find the name of an open source component but not its version. A component without a version cannot be checked for vulnerabilities, so SK Telecom may ask you to fill in versions. In that case, write the version actually shipped in the product into `mydevice-os_1.0.0_component-versions.template.csv`, created along with the scan, and scan the same target again. If you cannot give a version, leave it empty and give a reason: `own-code` (your own code), `not-open-source` (not open source), or `version-unknown` (cannot be confirmed).
+
+```
+name,version,reason
+net-snmp,5.7.1,
+libradius,,own-code
+```
+
+```bash
+./scan-sbom.sh --project mydevice-os --version 1.0.0 --target /path/to/firmware.bin --firmware \
+  --component-versions mydevice-os_1.0.0_component-versions.template.csv --generate-only
+```
 
 ### Submit each layer
 
