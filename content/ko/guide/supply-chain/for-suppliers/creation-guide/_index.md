@@ -79,7 +79,7 @@ graph TD
 
 소스코드·앱, 실행 파일이나 라이브러리, OS 없는 펌웨어는 모두 자기가 개발한 소스코드를 [BomLens](../skt-scanner/) 또는 cdxgen으로 스캔합니다. 완성된 바이너리를 그대로 스캔하면 패키지 매니저 메타데이터가 없어 purl이 누락되고 반려됩니다.
 
-OS나 베이스 이미지를 포함해 공급하는 경우(컨테이너 이미지, 서버, OS 내장 펌웨어)는 두 층으로 나눠 각각 스캔해 함께 제출합니다. OS 층은 납품되는 상태의 이미지나 rootfs를 BomLens 또는 Syft·Trivy로, 소스코드(앱 층)는 BomLens 또는 cdxgen으로 스캔합니다. OS 내장 펌웨어의 OS 층은 펌웨어 이미지 파일을 BomLens로 스캔합니다. 층별 명령과 파일 이름 규칙은 아래 [서버 납품](#서버-납품)에 있습니다.
+OS나 베이스 이미지를 포함해 공급하는 경우(컨테이너 이미지, 서버, OS 내장 펌웨어)는 두 층으로 나눠 각각 스캔해 함께 제출합니다. OS 층은 납품되는 상태의 이미지나 rootfs를 BomLens 또는 Syft·Trivy로, 소스코드(앱 층)는 BomLens 또는 cdxgen으로 스캔합니다. OS 내장 펌웨어의 OS 층은 펌웨어 파일이나 OS 영역 폴더를 BomLens로 스캔합니다. 층별 명령과 파일 이름 규칙은 아래 [서버 납품](#서버-납품)에 있습니다.
 
 타사가 제조한 상용 소프트웨어나 완제품을 공급해 소스코드에 접근할 수 없는 경우는 스캔 대신 제조사로부터 SBOM을 받아 제출합니다. [상용 소프트웨어 공급](../commercial-software/)을 참고하세요.
 
@@ -231,33 +231,42 @@ OS 층 스캔에 파이썬이나 Node.js처럼 파일로 설치된 의존성이 
 
 ### OS 내장 펌웨어(기지국, 라우터 등)
 
-기지국, 라우터, OLT/ONT, 셋톱박스처럼 OS를 내장한 펌웨어도 위와 같은 두 층 구조입니다. 다만 OS 층은 위의 서버 방식(rootfs를 Syft나 Trivy로 스캔)으로는 만들 수 없습니다. 임베디드 장비의 rootfs에는 대개 패키지 데이터베이스가 없어서, Syft나 Trivy가 busybox나 OpenSSL을 찾더라도 purl이 비거나 `pkg:generic`으로 기록되고, 커널과 라이브러리 대부분은 아예 빠집니다. 이런 SBOM은 형식상 문제가 없어도 SK텔레콤 시스템에서 컴포넌트가 거의 식별되지 않습니다.
+기지국, 라우터, OLT/ONT, 셋톱박스처럼 OS를 내장한 펌웨어도 위와 같은 두 층 구조입니다. 다만 OS 층은 위의 서버 방식(rootfs를 Syft나 Trivy로 스캔)으로 만들면 안 됩니다. 임베디드 장비에는 대개 패키지 정보가 없어서 오픈소스가 거의 식별되지 않는 SBOM이 만들어집니다. OS 층은 BomLens 1.13.9 이상으로 아래와 같이 만듭니다.
 
-OS 층은 장비에 설치하는 펌웨어 이미지 파일을 대상으로 BomLens의 `--firmware` 옵션으로 스캔합니다. 펌웨어를 풀어 놓은 폴더가 아니라 이미지 파일 자체를 지정하시기 바랍니다. BomLens 1.13.3 이상이 필요합니다. 이 버전부터 BomLens가 바이너리에서 찾은 오픈소스에 원본 저장소 purl(예: `pkg:github/openssl/openssl@OpenSSL_1_0_2h`)을 붙입니다.
-
-```bash
-./scan-sbom.sh --project mydevice-os --version 1.0.0 --target /path/to/firmware.bin --firmware \
-  --conformance-profile skt-submission --generate-only
-```
-
-바이너리만으로는 버전을 읽지 못하는 컴포넌트가 있습니다. BomLens는 이런 컴포넌트를 `mydevice-os_1.0.0_component-versions.template.csv`(`이름,버전` 형식)로 남깁니다. 제품에 실제로 탑재된 버전을 빌드 설정에서 확인해 채운 뒤 `--component-versions`로 다시 실행합니다. 소스 트리에 같은 오픈소스가 여러 버전 들어 있는 경우가 있으므로, 소스 폴더 이름이 아니라 실제 빌드에 쓰인 버전을 적어야 합니다.
+장비에 설치하는 펌웨어 파일이나, 빌드 과정에서 만들어진 OS 영역 폴더(rootfs)를 지정해 스캔합니다. 둘 중 가지고 있는 것을 쓰면 되고, 결과는 같습니다. 생성된 `mydevice-os_1.0.0_bom.json` 하나를 제출하면 됩니다. 같은 폴더에 생기는 고지문, 보안 보고서 등은 공급사가 자체 점검에 쓰는 자료입니다.
 
 ```bash
-./scan-sbom.sh --project mydevice-os --version 1.0.0 --target /path/to/firmware.bin --firmware \
-  --component-versions mydevice-os_1.0.0_component-versions.template.csv \
-  --conformance-profile skt-submission --generate-only
+# 펌웨어 파일을 스캔할 때
+./scan-sbom.sh --project mydevice-os --version 1.0.0 --target /path/to/firmware.bin --firmware --generate-only
+
+# OS 영역 폴더를 스캔할 때
+./scan-sbom.sh --project mydevice-os --version 1.0.0 --target /path/to/rootfs --firmware --generate-only
 ```
 
-펌웨어 SBOM은 적합성 리포트를 모두 통과하지 못할 수 있습니다. 두 항목은 아래와 같이 처리합니다.
+Yocto로 빌드한다면 펌웨어 파일 대신 빌드가 끝난 빌드 디렉터리를 지정합니다. 빌드 기록에서 설치된 패키지와 정확한 버전을 읽으므로 더 정확합니다.
 
-- "버전 보충 필요": 버전을 채우지 못하고 남은 항목은 SBOM을 제출할 때 항목마다 이유를 함께 알려 주시기 바랍니다. 이유는 "자체 개발 코드", "오픈소스 아님(이름만 같게 식별됨)", "버전 확인 불가" 중 하나로 적습니다.
-- "upstream purl 없음": BomLens가 원본 저장소를 알 수 없는 오픈소스라서 공급사가 고칠 수 없는 항목입니다. 그대로 제출하시면 됩니다.
+```bash
+./scan-sbom.sh --project mydevice-os --version 1.0.0 --target /path/to/yocto-build --generate-only
+```
 
 펌웨어가 암호화되어 있거나 BomLens가 풀지 못하는 형식이면 SK텔레콤 담당자에게 문의하시기 바랍니다.
 
-제출하는 파일은 `mydevice-os_1.0.0_bom.json` 하나입니다. 같은 폴더에 생기는 고지문(NOTICE), 보안 보고서, 적합성 리포트는 공급사가 자체 점검에 쓰는 참고 자료입니다.
-
 임베디드 리눅스 위에서 자체 애플리케이션이 별도로 동작한다면, 그 애플리케이션 소스는 위의 "애플리케이션 층" 스캔을 동일하게 적용합니다. 펌웨어 이미지 안에 애플리케이션까지 모두 포함되어 있다면 OS 층 스캔 하나로 끝날 수도 있습니다.
+
+#### 버전을 읽지 못한 컴포넌트가 있을 때
+
+펌웨어 파일 스캔은 오픈소스 이름은 찾았지만 버전을 읽지 못하는 경우가 있습니다. 버전이 없으면 그 컴포넌트는 취약점을 확인할 수 없으므로, SK텔레콤이 버전 보충을 요청할 수 있습니다. 이때는 스캔과 함께 생성된 `mydevice-os_1.0.0_component-versions.template.csv`에 제품에 실제로 들어간 버전을 적어, 처음과 같은 대상으로 다시 스캔합니다. 버전을 적을 수 없으면 버전을 비우고 사유(`own-code` 자체 개발 코드, `not-open-source` 오픈소스 아님, `version-unknown` 확인 불가)를 적습니다.
+
+```
+name,version,reason
+net-snmp,5.7.1,
+libradius,,own-code
+```
+
+```bash
+./scan-sbom.sh --project mydevice-os --version 1.0.0 --target /path/to/firmware.bin --firmware \
+  --component-versions mydevice-os_1.0.0_component-versions.template.csv --generate-only
+```
 
 ### 층별로 제출
 
