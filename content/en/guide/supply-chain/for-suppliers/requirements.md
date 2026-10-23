@@ -31,6 +31,7 @@ The requirement level of each item. A missing required item leads to rejection. 
 | PURL (Package URL, a standard identifier that points to a software package; `pkg:` form, a type defined by the spec, and no empty namespace where the type requires one) | Required | 3. PURL Compliance |
 | Dev-only dependencies | Recommended | 2.3 Dependency Scope |
 | License information | Recommended | 4. Sample Documents |
+| First-party components (the executables, libraries, firmware and archives the supplier builds and ships, plus vendor binaries and copied-in source that scans cannot find; with supplier, license and hash) | Recommended | 5. First-Party Components |
 
 Download the [example SBOM file (CycloneDX 1.6 JSON)](/samples/sbom-example-cyclonedx16.json) that meets the acceptance criteria and compare its structure.
 
@@ -70,7 +71,7 @@ Generation tool information must be recorded in the following fields depending o
 ```
 
 ### 2.2 Components
-Information about the individual libraries that make up the software.
+Information about the individual libraries and packages that make up the software. Components the supplier builds itself can be listed here too (see [5. First-Party Components](#5-first-party-components)).
 *   Name: Component name (e.g., `commons-lang3`)
 *   Version: Component version (e.g., `3.12.0`) — required. Record the exact version in SPDX's `versionInfo` field or CycloneDX's `version` field; without a version, vulnerability mapping is impossible.
 *   PURL (Package URL): [Required] Package identifier
@@ -107,7 +108,7 @@ For transitive dependencies to be included accurately, the SBOM must be generate
 
 PURL (Package URL) is a standard URL format for uniquely identifying a software package. SK Telecom's vulnerability analysis system operates based on PURL, so a valid PURL must be included for every component.
 
-Here, "component" means an entry in the SBOM's `components` list (an individual library or package); it does not apply to the top-level product itself (the component information in the SBOM's metadata).
+Here, "component" means an entry in the SBOM's `components` list (an individual library or package); it does not apply to the top-level product itself (the component information in the SBOM's metadata). A first-party component that has a supplier and a SHA-512 hash may also be submitted without a PURL (see [5. First-Party Components](#5-first-party-components)).
 
 > **A PURL must be in the standard format beginning with the `pkg:` prefix.** Free text such as `name:version` or `org/repo:tag` is not allowed; in such cases vulnerability mapping is impossible and the SBOM will be rejected.
 
@@ -202,6 +203,88 @@ The namespace must hold the identifier the repository itself uses. A human-reada
 }
 ```
 
+## 5. First-Party Components
+
+A source code scan finds the open source that comes in through package managers and lock files. It does not find the executables or libraries the supplier builds itself, binaries from a chip vendor, or code copied into the source tree without a package manager, so these are missing from the SBOM. SK Telecom recommends listing these components in the SBOM as well. This is a recommended item, so an SBOM without them is not rejected.
+
+### Why is this recommended?
+
+- BSI TR-03183-2 v2.1.0, the technical guideline of Germany's Federal Office for Information Security (BSI), defines the scope of an SBOM as every software part created by the supplier or a third party and delivered with the product (8.1.11). Executables and archives must be listed as components (3.2.1).
+- Annex I, Part II(1) of the EU Cyber Resilience Act (CRA) requires manufacturers to draw up an SBOM covering at least the top-level dependencies of the product.
+- Some European customers ask for an SBOM that covers the supplier's own software as well as open source. The same SBOM can then serve both the SK Telecom submission and other customers.
+
+### What goes in?
+
+List only the components the scan does not find. Do not list again the open source that came in through a package manager and that the scan already found.
+
+- Deployable artifacts you build: executables, libraries, firmware images and archives. List one component per file you ship.
+- Binaries from a vendor: drivers or prebuilt libraries from a chip vendor
+- Third-party code copied in as source: code such as a HAL or an RTOS placed in the source tree without a package manager
+
+For each component, give the name, version, supplier (a name with a URL or email address) and distribution license, and add a SHA-512 hash for components shipped as files. A license that is not on the SPDX License List, such as your own proprietary license, is written as a name starting with `LicenseRef-` (for example `LicenseRef-ExampleCorp-Proprietary`).
+
+First-party components are not published to a package repository, so they have no PURL. A first-party component that has a supplier and a SHA-512 hash is exempt from the PURL requirement in section 3. Components obtained elsewhere, such as vendor binaries or copied-in source, still need a PURL.
+
+### Example declaration file
+
+With BomLens, the components the scan cannot find are written into a `sbom-declared.cdx.json` file kept in the repository. The file is a CycloneDX document that holds only `components`, and it uses the CycloneDX field names as they are. The `bomlens:origin` property tells components you built (`first-party`) from components obtained elsewhere (`third-party`), and the `bomlens:artifact` property gives the path of the build artifact.
+
+```json
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "components": [
+    {
+      "type": "application",
+      "name": "media-daemon",
+      "supplier": { "name": "Example Corp", "url": ["https://example.com"] },
+      "licenses": [ { "license": { "name": "LicenseRef-ExampleCorp-Proprietary" } } ],
+      "properties": [
+        { "name": "bomlens:origin", "value": "first-party" },
+        { "name": "bomlens:artifact", "value": "out/bin/media-daemon" }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "vendor-hal",
+      "version": "4.2.0",
+      "supplier": { "name": "Example Chip Vendor", "url": ["https://chip.example.com"] },
+      "licenses": [ { "license": { "id": "BSD-3-Clause" } } ],
+      "properties": [
+        { "name": "bomlens:origin", "value": "third-party" }
+      ]
+    }
+  ]
+}
+```
+
+A `first-party` component with no version takes the product version (`--version`). A `third-party` component must give the version you received. A component with no file of its own, such as a HAL compiled into the firmware, is listed without `bomlens:artifact`.
+
+### Adding them to the SBOM with BomLens
+
+Run the build first so the artifacts the declaration file points to exist, then scan. BomLens adds the declared components to the SBOM and fills in, from each build artifact, the SHA-512 and SHA-256 hashes, the file name, and whether the file is an executable and whether it is an archive. A `sbom-declared.cdx.json` at the root of the scan target is read without any option; a file elsewhere is passed with `--components` (repeat the option for several files).
+
+```bash
+make   # builds the artifacts the declaration file points to (e.g. out/bin/media-daemon)
+
+/path/to/scripts/scan-sbom.sh --project "MediaBox" --version "2.1.0" \
+  --components sbom-declared.cdx.json \
+  --generate-only
+```
+
+To check against BSI TR-03183-2, add the options below. `--supplier` records the product's supplier, `--sbom-author` the SBOM author, and `--license` the product's distribution license. If the SBOM does not meet the guideline, `--fail-on-conformance` makes the CI job fail.
+
+```bash
+/path/to/scripts/scan-sbom.sh --project "MediaBox" --version "2.1.0" \
+  --components sbom-declared.cdx.json \
+  --generate-only \
+  --conformance-profile bsi-tr-03183-2 --fail-on-conformance \
+  --supplier "Example Corp <https://example.com>" \
+  --sbom-author "Example Corp <sbom@example.com>" \
+  --license Apache-2.0
+```
+
+The scan refuses a declaration file that breaks its rules (for example, a component without `bomlens:origin`, or a build artifact that does not exist), and the CI job fails. The `--components` option and the `bsi-tr-03183-2` profile are available from the next BomLens release. For the file format, the refusal rules, examples by platform (Android, Zephyr, bare-metal firmware) and a GitHub Actions example, see the BomLens guide [Declaring your own components](https://sktelecom.github.io/bomlens/guides/declared-components/).
 
 ## References
 
