@@ -31,6 +31,7 @@ SK텔레콤은 글로벌 표준으로 자리 잡은 두 가지 형식을 모두 
 | PURL(Package URL, 소프트웨어 패키지를 표준 형식으로 가리키는 식별자. `pkg:` 형식, 규격에 정의된 타입, 네임스페이스 필수 타입은 생략 불가) | 필수 | 3. PURL 준수 |
 | 개발 전용 의존성 | 권장 | 2.3 의존성 범위 |
 | 라이선스 정보 | 권장 | 4. 샘플 문서 |
+| 자체개발 구성요소 (공급사가 직접 만들어 배포하는 실행 파일, 라이브러리, 펌웨어, 압축 파일과 스캔으로 찾지 못하는 벤더 바이너리, 복사해 넣은 소스. 공급자, 라이선스, 해시 포함) | 권장 | 5. 자체개발 구성요소 |
 
 합격 기준을 충족하는 [예시 SBOM 파일 (CycloneDX 1.6 JSON)](/samples/sbom-example-cyclonedx16.json)을 내려받아 구조를 비교해 보시기 바랍니다.
 
@@ -70,7 +71,7 @@ BomLens로 생성하면 `--project`와 `--version` 값이 이 필드에 자동�
 ```
 
 ### 2.2 컴포넌트 정보 (Components)
-소프트웨어를 구성하는 개별 라이브러리 정보입니다.
+소프트웨어를 구성하는 개별 라이브러리와 패키지 정보입니다. 공급사가 직접 만든 구성요소도 여기에 함께 적을 수 있습니다([5. 자체개발 구성요소](#5-자체개발-구성요소) 참고).
 *   Name: 컴포넌트 이름 (예: `commons-lang3`)
 *   Version: 컴포넌트 버전 (예: `3.12.0`) — 필수. SPDX는 `versionInfo`, CycloneDX는 `version` 필드에 정확한 버전을 기재합니다. 버전이 없으면 취약점 매핑이 불가능합니다.
 *   PURL (Package URL): [필수] 패키지 식별자
@@ -107,7 +108,7 @@ SK텔레콤은 제출된 SBOM을 기반으로 취약점을 분석합니다. 직�
 
 PURL(Package URL)은 소프트웨어 패키지를 고유하게 식별하기 위한 표준 URL 형식입니다. SK텔레콤의 취약점 분석 시스템은 PURL을 기준으로 동작하므로, 모든 컴포넌트에 유효한 PURL이 포함되어야 합니다.
 
-여기서 컴포넌트는 SBOM의 `components` 목록(개별 라이브러리·패키지)을 뜻하며, 최상위 제품 자체(SBOM 메타데이터의 컴포넌트 정보)에는 적용되지 않습니다.
+여기서 컴포넌트는 SBOM의 `components` 목록(개별 라이브러리·패키지)을 뜻하며, 최상위 제품 자체(SBOM 메타데이터의 컴포넌트 정보)에는 적용되지 않습니다. 공급자와 SHA-512 해시를 갖춘 자체개발 구성요소도 PURL 없이 제출할 수 있습니다([5. 자체개발 구성요소](#5-자체개발-구성요소) 참고).
 
 > **PURL은 반드시 `pkg:` 접두어로 시작하는 표준 형식이어야 합니다.** `name:version`, `org/repo:tag` 등 자유 텍스트는 허용되지 않으며, 이 경우 취약점 매핑이 불가능해 반려됩니다.
 
@@ -202,6 +203,88 @@ PURL(Package URL)은 소프트웨어 패키지를 고유하게 식별하기 위�
 }
 ```
 
+## 5. 자체개발 구성요소
+
+소스코드 스캔은 패키지 매니저와 lock 파일로 들어온 오픈소스를 찾습니다. 공급사가 직접 빌드한 실행 파일이나 라이브러리, 칩 제조사가 준 바이너리, 패키지 매니저 없이 소스 트리에 복사해 넣은 코드는 찾지 못하므로 SBOM에서 빠집니다. SK텔레콤은 이런 구성요소도 SBOM에 적기를 권장합니다. 권장 항목이므로 없어도 반려되지 않습니다.
+
+### 왜 권장하나요?
+
+- 독일 연방정보보안청(BSI)의 기술 지침 BSI TR-03183-2 v2.1.0은 SBOM의 범위를 공급자나 제3자가 만들어 제품과 함께 전달하는 모든 소프트웨어 부분으로 정합니다(8.1.11). 실행 파일과 압축 파일은 구성요소로 적어야 합니다(3.2.1).
+- EU 사이버 복원력법(CRA, Cyber Resilience Act) 부속서 I 제2부 1항은 제조사에게 최소한 최상위 의존성을 담은 SBOM을 작성하도록 요구합니다.
+- 유럽 고객사 중에는 오픈소스뿐 아니라 공급사 자체 소프트웨어까지 담은 SBOM을 요구하는 곳이 있습니다. 같은 SBOM을 SK텔레콤 제출과 다른 고객사 제출에 함께 쓸 수 있습니다.
+
+### 무엇을 적나요?
+
+스캔이 찾지 못하는 구성요소만 적습니다. 패키지 매니저로 들어와 스캔이 이미 찾은 오픈소스는 다시 적지 않습니다.
+
+- 직접 만들어 배포하는 산출물: 실행 파일, 라이브러리, 펌웨어 이미지, 압축 파일. 배포하는 파일마다 구성요소 하나로 적습니다.
+- 벤더가 준 바이너리: 칩 제조사의 드라이버나 미리 빌드된 라이브러리
+- 소스로 복사해 넣은 제3자 코드: HAL, RTOS처럼 패키지 매니저 없이 소스 트리에 넣은 코드
+
+구성요소마다 이름, 버전, 공급자(이름과 함께 URL이나 이메일), 배포 라이선스를 적고, 파일로 배포되는 구성요소에는 SHA-512 해시를 함께 적습니다. 자체 라이선스처럼 SPDX License List에 없는 라이선스는 `LicenseRef-`로 시작하는 이름(예: `LicenseRef-ExampleCorp-Proprietary`)으로 적습니다.
+
+자체개발 구성요소는 패키지 저장소에 올라가지 않으므로 PURL이 없습니다. 공급자와 SHA-512 해시가 있는 자체개발 구성요소는 3절의 PURL 요구에서 제외됩니다. 벤더 바이너리나 복사해 넣은 소스처럼 다른 곳에서 받은 구성요소에는 PURL이 계속 필요합니다.
+
+### 선언 파일 예시
+
+BomLens를 쓰면 스캔이 찾지 못하는 구성요소를 저장소의 `sbom-declared.cdx.json` 파일에 적어 둡니다. 내용은 `components`만 담은 CycloneDX 문서이며, 필드 이름은 CycloneDX 표준 그대로입니다. `bomlens:origin` 속성으로 직접 만든 구성요소(`first-party`)와 다른 곳에서 받은 구성요소(`third-party`)를 구분하고, `bomlens:artifact` 속성에 빌드 산출물 경로를 적습니다.
+
+```json
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "components": [
+    {
+      "type": "application",
+      "name": "media-daemon",
+      "supplier": { "name": "Example Corp", "url": ["https://example.com"] },
+      "licenses": [ { "license": { "name": "LicenseRef-ExampleCorp-Proprietary" } } ],
+      "properties": [
+        { "name": "bomlens:origin", "value": "first-party" },
+        { "name": "bomlens:artifact", "value": "out/bin/media-daemon" }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "vendor-hal",
+      "version": "4.2.0",
+      "supplier": { "name": "Example Chip Vendor", "url": ["https://chip.example.com"] },
+      "licenses": [ { "license": { "id": "BSD-3-Clause" } } ],
+      "properties": [
+        { "name": "bomlens:origin", "value": "third-party" }
+      ]
+    }
+  ]
+}
+```
+
+버전을 적지 않은 `first-party` 구성요소는 제품 버전(`--version`)을 씁니다. `third-party` 구성요소는 받은 버전을 반드시 적습니다. 펌웨어에 컴파일되어 들어간 HAL처럼 별도 파일이 없는 구성요소는 `bomlens:artifact` 없이 적습니다.
+
+### BomLens로 SBOM에 넣기
+
+빌드를 먼저 실행해 선언 파일이 가리키는 산출물을 만든 뒤 스캔합니다. BomLens는 선언한 구성요소를 SBOM에 넣고, 빌드 산출물에서 SHA-512와 SHA-256 해시, 파일 이름, 실행 파일인지와 압축 파일인지를 읽어 채웁니다. 스캔 대상 루트에 `sbom-declared.cdx.json`이 있으면 옵션 없이 읽고, 다른 위치의 파일은 `--components`로 지정합니다(여러 파일이면 옵션을 반복).
+
+```bash
+make   # 선언 파일이 가리키는 빌드 산출물(예: out/bin/media-daemon)을 만든다
+
+/path/to/scripts/scan-sbom.sh --project "MediaBox" --version "2.1.0" \
+  --components sbom-declared.cdx.json \
+  --generate-only
+```
+
+BSI TR-03183-2 기준 검사가 필요하면 다음 옵션을 더합니다. `--supplier`는 제품의 공급자를, `--sbom-author`는 SBOM 작성자를, `--license`는 제품의 배포 라이선스를 기록합니다. 기준을 충족하지 못하면 `--fail-on-conformance`가 CI 작업을 실패로 끝냅니다.
+
+```bash
+/path/to/scripts/scan-sbom.sh --project "MediaBox" --version "2.1.0" \
+  --components sbom-declared.cdx.json \
+  --generate-only \
+  --conformance-profile bsi-tr-03183-2 --fail-on-conformance \
+  --supplier "Example Corp <https://example.com>" \
+  --sbom-author "Example Corp <sbom@example.com>" \
+  --license Apache-2.0
+```
+
+선언 파일 규칙에 맞지 않는 파일(예: `bomlens:origin`이 없거나, 가리킨 빌드 산출물이 없는 경우)은 스캔이 거부하고 CI 작업이 실패합니다. `--components` 옵션과 `bsi-tr-03183-2` 검사 기준은 BomLens v1.14.0부터 쓸 수 있습니다. 파일 형식과 거부 규칙, 플랫폼별 예시(Android, Zephyr, 베어메탈 펌웨어, Yocto), GitHub Actions 예시는 BomLens의 [자체 구성요소 선언](https://sktelecom.github.io/bomlens/ko/guides/declared-components/) 가이드를 참고하세요.
 
 ## 참고 자료
 

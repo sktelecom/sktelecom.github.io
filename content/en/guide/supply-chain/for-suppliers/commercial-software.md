@@ -19,7 +19,7 @@ This applies when you supply third-party products in forms such as the following
 *   Appliances and finished products: equipment shipped by the manufacturer with the OS and software preinstalled (e.g., storage, backup appliances, network equipment)
 *   Systems that include third-party products: deliveries combining in-house components with commercial products
 
-If part of the delivery is developed in-house, generate the SBOM for that part yourself following [How to Generate an SBOM](../creation-guide/), and submit the manufacturer's SBOM for the commercial part alongside it.
+If part of the delivery is developed in-house, generate the SBOM for that part yourself following [How to Generate an SBOM](../creation-guide/), and submit the manufacturer's SBOM for the commercial part alongside it. Deployable artifacts of the in-house part that a source scan cannot find, such as executables, libraries and firmware, go into the SBOM as well, following the [first-party components](../requirements/#5-first-party-components) recommendation in the submission requirements.
 
 ## Obtaining the SBOM from the manufacturer
 
