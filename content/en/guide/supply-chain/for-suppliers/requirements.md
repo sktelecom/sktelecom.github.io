@@ -284,7 +284,7 @@ To check against BSI TR-03183-2, add the options below. `--supplier` records the
   --license Apache-2.0
 ```
 
-The scan refuses a declaration file that breaks its rules (for example, a component without `bomlens:origin`, or a build artifact that does not exist), and the CI job fails. The `--components` option and the `bsi-tr-03183-2` profile are available from the next BomLens release. For the file format, the refusal rules, examples by platform (Android, Zephyr, bare-metal firmware) and a GitHub Actions example, see the BomLens guide [Declaring your own components](https://sktelecom.github.io/bomlens/guides/declared-components/).
+The scan refuses a declaration file that breaks its rules (for example, a component without `bomlens:origin`, or a build artifact that does not exist), and the CI job fails. The `--components` option and the `bsi-tr-03183-2` profile are available from BomLens v1.14.0. For the file format, the refusal rules, examples by platform (Android, Zephyr, bare-metal firmware, Yocto) and a GitHub Actions example, see the BomLens guide [Declaring your own components](https://sktelecom.github.io/bomlens/guides/declared-components/).
 
 ## References
 

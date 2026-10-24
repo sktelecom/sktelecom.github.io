@@ -284,7 +284,7 @@ BSI TR-03183-2 기준 검사가 필요하면 다음 옵션을 더합니다. `--s
   --license Apache-2.0
 ```
 
-선언 파일 규칙에 맞지 않는 파일(예: `bomlens:origin`이 없거나, 가리킨 빌드 산출물이 없는 경우)은 스캔이 거부하고 CI 작업이 실패합니다. `--components` 옵션과 `bsi-tr-03183-2` 검사 기준은 다음 BomLens 릴리스부터 쓸 수 있습니다. 파일 형식과 거부 규칙, 플랫폼별 예시(Android, Zephyr, 베어메탈 펌웨어), GitHub Actions 예시는 BomLens의 [자체 구성요소 선언](https://sktelecom.github.io/bomlens/ko/guides/declared-components/) 가이드를 참고하세요.
+선언 파일 규칙에 맞지 않는 파일(예: `bomlens:origin`이 없거나, 가리킨 빌드 산출물이 없는 경우)은 스캔이 거부하고 CI 작업이 실패합니다. `--components` 옵션과 `bsi-tr-03183-2` 검사 기준은 BomLens v1.14.0부터 쓸 수 있습니다. 파일 형식과 거부 규칙, 플랫폼별 예시(Android, Zephyr, 베어메탈 펌웨어, Yocto), GitHub Actions 예시는 BomLens의 [자체 구성요소 선언](https://sktelecom.github.io/bomlens/ko/guides/declared-components/) 가이드를 참고하세요.
 
 ## 참고 자료
 
