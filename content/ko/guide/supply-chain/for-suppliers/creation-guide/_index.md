@@ -9,7 +9,7 @@ aliases:
   - /guide/supply-chain/for-suppliers/server-delivery/
 ---
 
-> Docker만 설치되어 있으면 [BomLens](../skt-scanner/) 하나로 소스코드, 컨테이너 이미지, 서버 rootfs, 실행 파일, 펌웨어를 모두 스캔할 수 있습니다. 아래 오픈소스 도구를 개별적으로 설치하고 조합하는 대신 먼저 검토해 보시기 바랍니다.
+> 이미 운영 중인 자체 도구 체계가 있다면 그 도구로 SBOM을 생성하고, 아래 도구 선택 가이드를 참고해 빠진 부분을 보완합니다. 아직 도구 체계가 없다면 Docker만 설치되어 있으면 [BomLens](../skt-scanner/) 하나로 소스코드, 컨테이너 이미지, 서버 rootfs, 실행 파일, 펌웨어를 모두 스캔할 수 있습니다.
 
 ## 도구 선택 가이드
 
