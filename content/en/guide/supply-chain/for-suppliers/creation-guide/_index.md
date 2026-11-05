@@ -9,7 +9,7 @@ aliases:
   - /guide/supply-chain/for-suppliers/server-delivery/
 ---
 
-> With Docker installed, [BomLens](../skt-scanner/) alone can scan source code, container images, server rootfs, executables, and firmware. Consider reviewing it first instead of installing and combining the open source tools below individually.
+> If you already run your own tool chain, generate the SBOM with it and use the Tool Selection Guide below to fill any gaps. If you do not have one yet, [BomLens](../skt-scanner/) alone can scan source code, container images, server rootfs, executables, and firmware, and it only needs Docker.
 
 ## Tool Selection Guide
 
