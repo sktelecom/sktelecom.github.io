@@ -12,7 +12,7 @@ SK텔레콤은 소프트웨어 공급망의 투명성과 보안성을 강화하�
 ## 빠른 시작: 제출까지 5단계
 
 1. [제출 요구사항](requirements/)에서 허용 포맷(CycloneDX JSON 권장)과 필수 데이터 필드를 확인합니다.
-2. [BomLens](skt-scanner/)로 SBOM을 생성합니다. 자체 도구 체계를 이미 운영한다면 [SBOM 생성 방법](creation-guide/)의 오픈소스 도구 안내를 참고하세요.
+2. 자체 도구 체계를 이미 운영한다면 그 도구로 SBOM을 생성합니다([SBOM 생성 방법](creation-guide/)의 오픈소스 도구 안내 참고). 아직 없다면 [BomLens](skt-scanner/)로 생성합니다.
 3. OS 위에 애플리케이션을 얹어 납품하는 서버라면 [SBOM 생성 방법](creation-guide/#서버-납품)의 서버 납품 절에 따라 층별로 생성해 함께 제출합니다.
 4. [검증 체크리스트](checklist/)로 PURL과 전이 의존성 포함 여부를 점검합니다.
 5. [제출 절차](submission/)에 따라 파일명을 정하고 제출합니다.
