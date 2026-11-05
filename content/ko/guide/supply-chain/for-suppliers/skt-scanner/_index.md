@@ -11,7 +11,7 @@ description: >
 
 BomLens는 공급사가 Docker 환경에서 SK텔레콤 정책에 맞는 산출물을 생성할 수 있는 오픈소스 도구입니다. 로컬에 언어별 도구를 따로 설치하지 않아도 여러 언어를 분석해 CycloneDX(JSON) 산출물을 만듭니다.
 
-이 페이지는 빠른 시작만 다룹니다. 설치, 전체 옵션, 언어별 가이드, 입력 시나리오, 웹 UI 등 자세한 내용은 공식 저장소 문서를 참고하세요.
+이 페이지는 제출과 관련된 산출물과 제출 전 점검만 다룹니다. 설치, 실행 방법, 전체 옵션, 웹 UI 등 사용법은 아래 BomLens 문서가 정본입니다.
 
 > [github.com/sktelecom/bomlens](https://github.com/sktelecom/bomlens)
 >
@@ -34,35 +34,9 @@ BomLens는 공급사가 Docker 환경에서 SK텔레콤 정책에 맞는 산출�
 ./scripts/scan-sbom.sh --analyze myserver_1.0.0_bom.json --project myserver --version 1.0.0 --generate-only
 ```
 
-## 사전 준비
+## 시작하기
 
-BomLens는 Docker 위에서 동작합니다. Docker 엔진 20.10 이상을 설치하고 실행해 두세요. Docker가 없는 Windows에서는 무료인 Rancher Desktop을 권장합니다. 첫 실행 때 스캐너 이미지(약 250MB)를 내려받으며, 보통 1~2분쯤 걸립니다(네트워크 속도에 따라 다름).
-
-## 명령줄 없이 시작
-
-명령줄이 익숙하지 않다면 설치형 앱이나 웹 UI로 SBOM을 생성할 수 있습니다. 자세한 절차는 [명령줄 없이 시작하기](https://sktelecom.github.io/bomlens/ko/start/no-cli/)를 참고하세요.
-
-- 설치형 앱: [최신 릴리스](https://github.com/sktelecom/bomlens/releases/latest)에서 Windows는 `BomLens-Setup.exe`, macOS는 `BomLens-Setup.dmg`를 내려받아 설치합니다. Windows 실행 파일은 아직 코드 서명이 되어 있지 않아 SmartScreen 경고가 나타나면 "추가 정보"를 누른 뒤 "실행"을 선택합니다.
-- 저장소 ZIP(Windows): 저장소의 `Code` 버튼에서 `Download ZIP`을 받아 압축을 풀고 `scripts\sbom-ui.bat`를 더블클릭하면 브라우저에서 `http://localhost:8080`이 열립니다.
-
-웹 UI에서는 오른쪽에 진행 로그가 실시간으로 표시되고, 완료되면 산출물을 내려받을 수 있습니다.
-
-![BomLens 웹 UI 실행 화면 — 오른쪽에 진행 로그가 실시간으로 표시된다](web-ui-scan.png)
-
-## 빠른 시작 (CLI)
-
-macOS와 Linux에서는 [최신 릴리스](https://github.com/sktelecom/bomlens/releases/latest)의 `bomlens-cli-linux.tar.gz`(Windows는 `bomlens-cli-windows.zip`)를 내려받아 실행합니다. `scan-sbom.sh` 파일 하나만 따로 받으면 실행되지 않습니다(같은 압축 안의 다른 파일을 함께 사용합니다).
-
-```bash
-tar -xzf bomlens-cli-linux.tar.gz
-cd /path/to/my-project
-/path/to/scripts/scan-sbom.sh --project "MyApp" --version "1.0.0" --all --generate-only
-```
-
-- `--generate-only`는 제출 없이 로컬에 파일만 생성합니다(제출 전까지 권장).
-- 웹 UI로 쓰려면 `./scripts/scan-sbom.sh --ui`를 실행합니다(브라우저에서 `http://localhost:8080`).
-- Windows에서 명령줄을 쓸 때는 같은 명령을 `scripts\scan-sbom.bat`로 실행합니다(Git Bash를 거치므로 Git for Windows 필요).
-- GitHub URL, 소스 ZIP, Docker 이미지, 펌웨어, 바이너리 등 다른 입력 형태와 전체 옵션은 [CLI 레퍼런스](https://sktelecom.github.io/bomlens/ko/reference/cli/)를 참고하세요.
+BomLens는 Docker 위에서 동작하므로 Docker 엔진 20.10 이상이 필요합니다. 설치와 첫 SBOM 생성은 [시작하기](https://sktelecom.github.io/bomlens/ko/start/first-scan/)를, 명령줄이 익숙하지 않다면 설치형 앱과 웹 UI를 안내하는 [명령줄 없이 시작하기](https://sktelecom.github.io/bomlens/ko/start/no-cli/)를 따릅니다. 제출 전까지는 `--generate-only` 옵션으로 로컬에 파일만 생성하기를 권장합니다.
 
 ## 더 알아보기
 
