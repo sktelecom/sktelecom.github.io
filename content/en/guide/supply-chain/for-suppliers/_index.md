@@ -12,7 +12,7 @@ To strengthen the transparency and security of its software supply chain, SK Tel
 ## Quick Start: Five Steps to Submission
 
 1. Check the accepted formats (CycloneDX JSON recommended) and required data fields in the [Submission Requirements](requirements/).
-2. Generate the SBOM with [BomLens](skt-scanner/). If you already run your own tool chain, see the open source tool guidance in [How to Generate an SBOM](creation-guide/) instead.
+2. If you already run your own tool chain, generate the SBOM with it (see the open source tool guidance in [How to Generate an SBOM](creation-guide/)). If you do not have one yet, generate it with [BomLens](skt-scanner/).
 3. If you deliver a server with an application on top of an OS, follow the server delivery section of [How to Generate an SBOM](creation-guide/#server-delivery): generate each layer and submit them together.
 4. Verify PURLs and transitive dependency coverage with the [Validation Checklist](checklist/).
 5. Name the file and submit it following the [Submission Process](submission/).
