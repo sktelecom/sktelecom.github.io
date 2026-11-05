@@ -11,7 +11,7 @@ description: >
 
 BomLens is an open source tool that lets suppliers generate deliverables that meet SK Telecom policy in a Docker environment. You do not need to install per-language tools locally; it analyzes multiple languages and produces a CycloneDX (JSON) deliverable.
 
-This page covers only the quick start. For installation, the full set of options, language-specific guides, input scenarios, the web UI, and other details, see the official repository documentation.
+This page covers only the deliverables and the pre-submission check. For installation, how to run it, the full set of options, and the web UI, the BomLens documentation below is the authoritative source.
 
 > [github.com/sktelecom/bomlens](https://github.com/sktelecom/bomlens)
 >
@@ -34,35 +34,9 @@ The conformance report file is produced on every run, but the web UI's pass/fail
 ./scripts/scan-sbom.sh --analyze myserver_1.0.0_bom.json --project myserver --version 1.0.0 --generate-only
 ```
 
-## Prerequisites
+## Getting Started
 
-BomLens runs on Docker. Install and run Docker Engine 20.10 or later. On Windows without Docker, we recommend Rancher Desktop, which is free. The first run downloads a scanner image (about 250 MB), usually taking a minute or two (varies by network speed).
-
-## Getting Started Without the Command Line
-
-If you are not comfortable with the command line, you can generate an SBOM with the installer app or the web UI. For the full procedure, see the [no command line quick start](https://sktelecom.github.io/bomlens/start/no-cli/).
-
-- Installer app: from the [latest release](https://github.com/sktelecom/bomlens/releases/latest), download `BomLens-Setup.exe` on Windows or `BomLens-Setup.dmg` on macOS and install it. The Windows executable is not yet code-signed, so if SmartScreen warns, click "More info" and then "Run anyway".
-- Repository ZIP (Windows): from the repository's `Code` button, choose `Download ZIP`, unzip it, and double-click `scripts\sbom-ui.bat`; the browser opens `http://localhost:8080`.
-
-In the web UI, the progress log is shown in real time on the right, and you can download the deliverables when it finishes.
-
-![BomLens web UI — the progress log is shown in real time on the right](web-ui-scan.png)
-
-## Quick Start (CLI)
-
-On macOS and Linux, download and run the [latest release](https://github.com/sktelecom/bomlens/releases/latest)'s `bomlens-cli-linux.tar.gz` (`bomlens-cli-windows.zip` on Windows). Downloading only the `scan-sbom.sh` file will not run on its own; it uses other files from the same archive.
-
-```bash
-tar -xzf bomlens-cli-linux.tar.gz
-cd /path/to/my-project
-/path/to/scripts/scan-sbom.sh --project "MyApp" --version "1.0.0" --all --generate-only
-```
-
-- `--generate-only` creates files only locally, without submitting them (recommended until submission).
-- For the web UI, run `./scripts/scan-sbom.sh --ui` (the browser opens `http://localhost:8080`).
-- On Windows, run the same commands through `scripts\scan-sbom.bat` (it forwards them via Git Bash, so Git for Windows is required).
-- For other input forms such as a GitHub URL, source ZIP, Docker image, firmware, or binary, and the full set of options, see the [CLI reference](https://sktelecom.github.io/bomlens/reference/cli/).
+BomLens runs on Docker, so Docker Engine 20.10 or later is required. For installation and your first SBOM, follow [Getting started](https://sktelecom.github.io/bomlens/start/first-scan/); if you are not comfortable with the command line, see [Getting started without the command line](https://sktelecom.github.io/bomlens/start/no-cli/) for the installer app and the web UI. Until you submit, we recommend using the `--generate-only` option so files are created only locally.
 
 ## Learn More
 
