@@ -164,6 +164,19 @@ The namespace must hold the identifier the repository itself uses. A human-reada
 | `pkg:rpm/bind@9.11.36-16.el8_10.6` | `pkg:rpm/rhel/bind@9.11.36-16.el8_10.6` |
 | `pkg:rpm/bind@9.11.36-16.el8_10.6?distro=rhel-8.10` | `pkg:rpm/rhel/bind@9.11.36-16.el8_10.6` |
 
+### 3.6 Libraries Included as Source
+
+A component needs a PURL even when its source was copied into your project without a package manager, or copied and then modified. A component without a PURL does not appear in the analysis result and is left out of the check. Because the SBOM is accepted without any error, the submitter has no way to notice that it was left out.
+
+Write the PURL based on the original repository the source was taken from. For source taken from GitHub, use `pkg:github/<owner>/<repo>@<tag>`.
+
+*   **Example**: Minizip taken from version 1.1 of the repository owned by `nmoinvaz` is `pkg:github/nmoinvaz/minizip@1.1`.
+*   **If you modified it**: Put the version of the original you took in the PURL, and record the modification in the component's `description` and `pedigree`. PURL matching works on the repository and the version, so a modification does not change how it behaves.
+*   **Spelling**: If the owner or repository name differs by even one character, it will not match. Check it against the original repository address.
+*   **Source whose origin is unknown or that the analysis system does not know**: A PURL may still not match. In that case, also write the original address, version, and license in the component's description.
+
+Only the submitter knows where the source was taken from, so please decide the PURL value yourself by checking the original repository.
+
 > For detailed PURL specifications, refer to the [official Package URL spec](https://github.com/package-url/purl-spec).
 
 ## 4. Sample Document
